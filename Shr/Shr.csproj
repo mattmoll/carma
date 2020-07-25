@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{722B9DD4-BAF2-4308-A5AA-1A83A8D0D052}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sima.Shr</RootNamespace>
+    <AssemblyName>Sima.Shr</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bohman.MonthCalendar.520">
+      <HintPath>..\..\Ambiente0520\DNet0520\Release_Shr\Bohman.MonthCalendar.520.dll</HintPath>
+    </Reference>
+    <Reference Include="MikeHankey.XPControlLib.520">
+      <HintPath>..\..\Ambiente0520\DNet0520\Release_Shr\MikeHankey.XPControlLib.520.dll</HintPath>
+    </Reference>
+    <Reference Include="MS.TabStripControlLibrary.520">
+      <HintPath>..\..\Ambiente0520\DNet0520\Release_Shr\MS.TabStripControlLibrary.520.dll</HintPath>
+    </Reference>
+    <Reference Include="netchartdir, Version=5.0.3.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Ambiente0520\DNet0520\Release_Shr\netchartdir.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="TNGS.NetAppBll.520">
+      <HintPath>..\..\Ambiente0520\DNet0520\Release_Shr\TNGS.NetAppBll.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetAppSupport.520">
+      <HintPath>..\..\Ambiente0520\DNet0520\Release_Uil\TNGS.NetAppSupport.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetControls.520">
+      <HintPath>..\..\Ambiente0520\DNet0520\Release_Shr\TNGS.NetControls.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetOffice.520">
+      <HintPath>..\..\Ambiente0520\DNet0520\Release_Shr\TNGS.NetOffice.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetRoutines.520">
+      <HintPath>..\..\Ambiente0520\DNet0520\Release_Shr\TNGS.NetRoutines.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetSocket.520">
+      <HintPath>..\..\Ambiente0520\DNet0520\Release_Shr\TNGS.NetSocket.520.dll</HintPath>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking.520">
+      <HintPath>..\..\Ambiente0520\DNet0520\Release_Shr\WeifenLuo.WinFormsUI.Docking.520.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusquedaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaClientes.Designer.cs">
+      <DependentUpon>BusquedaClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\CodesManager.cs" />
+    <Compile Include="Cartas\LogicaCartas\CodigoCarta.cs" />
+    <Compile Include="Cartas\LogicaCartas\Equivalencia.cs" />
+    <Compile Include="Cartas\LogicaCartas\GetVendedor.cs" />
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\StrategyEmailVend.cs" />
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\CodVariable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\CodVariable.Designer.cs">
+      <DependentUpon>CodVariable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\Contacto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\Contacto.Designer.cs">
+      <DependentUpon>Contacto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\FormBase.Designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\ListaServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\ListaServicios.Designer.cs">
+      <DependentUpon>ListaServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\ListaServiciosDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\ListaServiciosDetalle.Designer.cs">
+      <DependentUpon>ListaServiciosDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\Precio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\Precio.Designer.cs">
+      <DependentUpon>Precio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\PrecioGerencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\PrecioGerencia.Designer.cs">
+      <DependentUpon>PrecioGerencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Strategy.cs" />
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\StrategyCampoSimple.cs" />
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\StrategyConVentana.cs" />
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\StrategyEmisor.cs" />
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\StrategyFechaActual.cs" />
+    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\StrategyReservador.cs" />
+    <Compile Include="Cartas\MailSender.cs" />
+    <Compile Include="Cartas\MailsLlamada\MailLlamada.cs" />
+    <Compile Include="Cartas\MailsLlamada\MailLlamadaBaja.cs" />
+    <Compile Include="Cartas\MailsLlamada\MailRegularizoDeuda.cs" />
+    <Compile Include="Cartas\MailsLlamada\MailReajusteAbono.cs" />
+    <Compile Include="Cartas\MailsLlamada\MailLlamadaRecupero.cs" />
+    <Compile Include="Cartas\EnvioCarta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cartas\EnvioCarta.Designer.cs">
+      <DependentUpon>EnvioCarta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cartas\VisualizadorCarta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cartas\VisualizadorCarta.Designer.cs">
+      <DependentUpon>VisualizadorCarta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Construccion Panel\Alignment.cs" />
+    <Compile Include="BusqLocalidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusqLocalidades.designer.cs">
+      <DependentUpon>BusqLocalidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetalleCliente.Designer.cs">
+      <DependentUpon>DetalleCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleVendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetalleVendedores.Designer.cs">
+      <DependentUpon>DetalleVendedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElegirMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElegirMarca.Designer.cs">
+      <DependentUpon>ElegirMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enumeradores.cs" />
+    <Compile Include="Export.cs" />
+    <Compile Include="Construccion Panel\HorizontalAlign.cs" />
+    <Compile Include="Construccion Panel\PanelBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\ShrAssemblyInfo.cs" />
+    <Compile Include="Reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes.Designer.cs">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ROParam.cs" />
+    <Compile Include="ROParam.designer.cs">
+      <DependentUpon>ROParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionClientes.Designer.cs">
+      <DependentUpon>SeleccionClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelFromFlxGrd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelFromFlxGrd.Designer.cs">
+      <DependentUpon>SelFromFlxGrd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysRuts.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SysRuts.designer.cs">
+      <DependentUpon>SysRuts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Construccion Panel\VerticalAlign.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BusqLocalidades.resx">
+      <DependentUpon>BusqLocalidades.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaClientes.resx">
+      <DependentUpon>BusquedaClientes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cartas\LogicaCartas\Strategy Cartas\Forms\CodVariable.resx">
+      <DependentUpon>CodVariable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cartas\LogicaCartas\Strategy Cartas\Forms\Contacto.resx">
+      <DependentUpon>Contacto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cartas\LogicaCartas\Strategy Cartas\Forms\ListaServicios.resx">
+      <DependentUpon>ListaServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cartas\LogicaCartas\Strategy Cartas\Forms\Precio.resx">
+      <DependentUpon>Precio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cartas\LogicaCartas\Strategy Cartas\Forms\PrecioGerencia.resx">
+      <DependentUpon>PrecioGerencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cartas\EnvioCarta.resx">
+      <DependentUpon>EnvioCarta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cartas\VisualizadorCarta.resx">
+      <DependentUpon>VisualizadorCarta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetalleCliente.resx">
+      <DependentUpon>DetalleCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetalleVendedores.resx">
+      <DependentUpon>DetalleVendedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElegirMarca.resx">
+      <DependentUpon>ElegirMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes.resx">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionClientes.resx">
+      <DependentUpon>SeleccionClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelFromFlxGrd.resx">
+      <DependentUpon>SelFromFlxGrd.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bel\Bel.csproj">
+      <Project>{b1cd76ac-d1a1-4d43-81c5-77627b0e83ee}</Project>
+      <Name>Bel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bll\Bll.csproj">
+      <Project>{2DB928E6-300C-4110-A8A1-6B153CE0389A}</Project>
+      <Name>Bll</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

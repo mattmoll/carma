@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{106B634B-8940-469A-95F5-950253508944}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Carm.Ad</RootNamespace>
+    <AssemblyName>Carm.Ad</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Bohman.MonthCalendar.520">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\Bohman.MonthCalendar.520.dll</HintPath>
+    </Reference>
+    <Reference Include="MikeHankey.XPControlLib.520">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\MikeHankey.XPControlLib.520.dll</HintPath>
+    </Reference>
+    <Reference Include="MS.TabStripControlLibrary.520">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\MS.TabStripControlLibrary.520.dll</HintPath>
+    </Reference>
+    <Reference Include="netchartdir">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\netchartdir.dll</HintPath>
+    </Reference>
+    <Reference Include="PS.TaskDialog.520">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\PS.TaskDialog.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetApp.520">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\TNGS.NetApp.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetAppBll.520">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\TNGS.NetAppSupport.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetControls.520">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\TNGS.NetControls.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetIPlugin.520">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\TNGS.NetIPlugin.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetOffice.520">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\TNGS.NetOffice.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetRoutines.520">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\TNGS.NetRoutines.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetSocket.520">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\TNGS.NetSocket.520.dll</HintPath>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking.520">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>T:\Ambiente0520\DNet0520\Release_Uil\WeifenLuo.WinFormsUI.Docking.520.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Shr\Properties\ShrAssemblyInfo.cs">
+      <Link>Properties\ShrAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Arranque.cs" />
+    <Compile Include="Arranque.designer.cs">
+      <DependentUpon>Arranque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrgRuts.cs" />
+    <Compile Include="PrgRuts.designer.cs">
+      <DependentUpon>PrgRuts.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Arranque.resx">
+      <DependentUpon>Arranque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
