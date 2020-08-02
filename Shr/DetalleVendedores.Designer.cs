@@ -32,7 +32,6 @@
             this.DetalleVend = new TNGS.NetControls.FullTab();
             this.tabVendedor = new System.Windows.Forms.TabPage();
             this.xPanel1 = new TNGS.NetControls.XPanel();
-            this.imgGroup9 = new TNGS.NetControls.ImgGroup();
             this.label2 = new System.Windows.Forms.Label();
             this.textEdit1 = new TNGS.NetControls.TextEdit();
             this.lblTel1 = new System.Windows.Forms.Label();
@@ -44,17 +43,10 @@
             this.lblDireccion = new System.Windows.Forms.Label();
             this.txtEmail = new TNGS.NetControls.TextEdit();
             this.fullLabel1 = new TNGS.NetControls.FullLabel();
-            this.imgGroup2 = new TNGS.NetControls.ImgGroup();
-            this.txtJefeVtas = new TNGS.NetControls.TextEdit();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtSuperv = new TNGS.NetControls.TextEdit();
-            this.txtBaseop = new TNGS.NetControls.TextEdit();
-            this.txtMarca = new TNGS.NetControls.TextEdit();
             this.txtTvend = new TNGS.NetControls.TextEdit();
             this.lblCodgvend = new System.Windows.Forms.Label();
-            this.lblCodmarca = new System.Windows.Forms.Label();
             this.lblCodtvend = new System.Windows.Forms.Label();
-            this.lblBaseop = new System.Windows.Forms.Label();
             this.imgGroup1 = new TNGS.NetControls.ImgGroup();
             this.teCodVend = new TNGS.NetControls.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
@@ -68,35 +60,23 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.txtNombre = new TNGS.NetControls.TextEdit();
             this.txtApellido = new TNGS.NetControls.TextEdit();
-            this.tabReservasActuales = new System.Windows.Forms.TabPage();
-            this.xPanel2 = new TNGS.NetControls.XPanel();
-            this.mrReservasAct = new TNGS.NetControls.MiniReport();
             this.tabEntrev = new System.Windows.Forms.TabPage();
             this.xPanel3 = new TNGS.NetControls.XPanel();
             this.mrEntrevPend = new TNGS.NetControls.MiniReport();
             this.tabLlamadas = new System.Windows.Forms.TabPage();
             this.xPanel7 = new TNGS.NetControls.XPanel();
             this.mrLlamadas = new TNGS.NetControls.MiniReport();
-            this.tabSolicitudes = new System.Windows.Forms.TabPage();
-            this.xPanel5 = new TNGS.NetControls.XPanel();
-            this.mrSolicitudes = new TNGS.NetControls.MiniReport();
             this.tabVentasRealizadas = new System.Windows.Forms.TabPage();
             this.xPanel4 = new TNGS.NetControls.XPanel();
             this.mnVentasReal = new TNGS.NetControls.MiniReport();
             this.DetalleVend.SuspendLayout();
             this.tabVendedor.SuspendLayout();
             this.xPanel1.SuspendLayout();
-            this.imgGroup9.SuspendLayout();
-            this.imgGroup2.SuspendLayout();
             this.imgGroup1.SuspendLayout();
-            this.tabReservasActuales.SuspendLayout();
-            this.xPanel2.SuspendLayout();
             this.tabEntrev.SuspendLayout();
             this.xPanel3.SuspendLayout();
             this.tabLlamadas.SuspendLayout();
             this.xPanel7.SuspendLayout();
-            this.tabSolicitudes.SuspendLayout();
-            this.xPanel5.SuspendLayout();
             this.tabVentasRealizadas.SuspendLayout();
             this.xPanel4.SuspendLayout();
             this.SuspendLayout();
@@ -107,12 +87,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DetalleVend.Controls.Add(this.tabVendedor);
-            this.DetalleVend.Controls.Add(this.tabReservasActuales);
             this.DetalleVend.Controls.Add(this.tabEntrev);
             this.DetalleVend.Controls.Add(this.tabLlamadas);
-            this.DetalleVend.Controls.Add(this.tabSolicitudes);
             this.DetalleVend.Controls.Add(this.tabVentasRealizadas);
             this.DetalleVend.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.DetalleVend.FlatColor = System.Drawing.Color.RoyalBlue;
+            this.DetalleVend.FlatMode = true;
             this.DetalleVend.ForeColor = System.Drawing.SystemColors.WindowText;
             this.DetalleVend.Location = new System.Drawing.Point(0, 0);
             this.DetalleVend.Name = "DetalleVend";
@@ -134,10 +114,8 @@
             // xPanel1
             // 
             this.xPanel1.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
-            this.xPanel1.Controls.Add(this.imgGroup9);
+            this.xPanel1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel1.Controls.Add(this.fullLabel1);
-            this.xPanel1.Controls.Add(this.imgGroup2);
             this.xPanel1.Controls.Add(this.imgGroup1);
             this.xPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel1.Location = new System.Drawing.Point(3, 3);
@@ -146,51 +124,10 @@
             this.xPanel1.SkinFixed = true;
             this.xPanel1.TabIndex = 0;
             // 
-            // imgGroup9
-            // 
-            this.imgGroup9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgGroup9.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.imgGroup9.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
-            this.imgGroup9.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
-            this.imgGroup9.BlackBorder = true;
-            this.imgGroup9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.imgGroup9.BorderThickness = 1F;
-            this.imgGroup9.Controls.Add(this.label2);
-            this.imgGroup9.Controls.Add(this.textEdit1);
-            this.imgGroup9.Controls.Add(this.lblTel1);
-            this.imgGroup9.Controls.Add(this.txtTel1);
-            this.imgGroup9.Controls.Add(this.txtTel2);
-            this.imgGroup9.Controls.Add(this.lblEmail);
-            this.imgGroup9.Controls.Add(this.txtDireccion);
-            this.imgGroup9.Controls.Add(this.lblTel2);
-            this.imgGroup9.Controls.Add(this.lblDireccion);
-            this.imgGroup9.Controls.Add(this.txtEmail);
-            this.imgGroup9.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
-            this.imgGroup9.FlatMode = true;
-            this.imgGroup9.FontTitle = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imgGroup9.ForeColor = System.Drawing.Color.Black;
-            this.imgGroup9.GroupImage = null;
-            this.imgGroup9.GroupTitle = "Contacto";
-            this.imgGroup9.Location = new System.Drawing.Point(455, 360);
-            this.imgGroup9.Name = "imgGroup9";
-            this.imgGroup9.Padding = new System.Windows.Forms.Padding(20);
-            this.imgGroup9.PaintGroupBox = false;
-            this.imgGroup9.RoundCorners = 4;
-            this.imgGroup9.ShadowColor = System.Drawing.Color.DarkGray;
-            this.imgGroup9.ShadowControl = false;
-            this.imgGroup9.ShadowThickness = 3;
-            this.imgGroup9.Size = new System.Drawing.Size(434, 223);
-            this.imgGroup9.SkinFixed = true;
-            this.imgGroup9.TabIndex = 148;
-            this.imgGroup9.TitleBackground = System.Drawing.Color.DodgerBlue;
-            this.imgGroup9.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
-            this.imgGroup9.TitleFontColor = System.Drawing.Color.White;
-            // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(50, 54);
+            this.label2.Location = new System.Drawing.Point(473, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 22);
             this.label2.TabIndex = 141;
@@ -202,7 +139,7 @@
             this.textEdit1.BackColor = System.Drawing.SystemColors.Window;
             this.textEdit1.Enabled = false;
             this.textEdit1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Location = new System.Drawing.Point(158, 54);
+            this.textEdit1.Location = new System.Drawing.Point(581, 120);
             this.textEdit1.MaxLength = 30;
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.ReadOnly = true;
@@ -212,7 +149,7 @@
             // lblTel1
             // 
             this.lblTel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTel1.Location = new System.Drawing.Point(50, 86);
+            this.lblTel1.Location = new System.Drawing.Point(473, 152);
             this.lblTel1.Name = "lblTel1";
             this.lblTel1.Size = new System.Drawing.Size(84, 22);
             this.lblTel1.TabIndex = 136;
@@ -224,7 +161,7 @@
             this.txtTel1.BackColor = System.Drawing.SystemColors.Window;
             this.txtTel1.Enabled = false;
             this.txtTel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTel1.Location = new System.Drawing.Point(158, 86);
+            this.txtTel1.Location = new System.Drawing.Point(581, 152);
             this.txtTel1.MaxLength = 30;
             this.txtTel1.Name = "txtTel1";
             this.txtTel1.ReadOnly = true;
@@ -236,7 +173,7 @@
             this.txtTel2.BackColor = System.Drawing.SystemColors.Window;
             this.txtTel2.Enabled = false;
             this.txtTel2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTel2.Location = new System.Drawing.Point(158, 118);
+            this.txtTel2.Location = new System.Drawing.Point(581, 184);
             this.txtTel2.MaxLength = 30;
             this.txtTel2.Name = "txtTel2";
             this.txtTel2.ReadOnly = true;
@@ -246,7 +183,7 @@
             // lblEmail
             // 
             this.lblEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(50, 182);
+            this.lblEmail.Location = new System.Drawing.Point(473, 248);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(84, 22);
             this.lblEmail.TabIndex = 139;
@@ -258,7 +195,7 @@
             this.txtDireccion.BackColor = System.Drawing.SystemColors.Window;
             this.txtDireccion.Enabled = false;
             this.txtDireccion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(158, 150);
+            this.txtDireccion.Location = new System.Drawing.Point(581, 216);
             this.txtDireccion.MaxLength = 60;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ReadOnly = true;
@@ -268,7 +205,7 @@
             // lblTel2
             // 
             this.lblTel2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTel2.Location = new System.Drawing.Point(50, 118);
+            this.lblTel2.Location = new System.Drawing.Point(473, 184);
             this.lblTel2.Name = "lblTel2";
             this.lblTel2.Size = new System.Drawing.Size(84, 22);
             this.lblTel2.TabIndex = 137;
@@ -278,7 +215,7 @@
             // lblDireccion
             // 
             this.lblDireccion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccion.Location = new System.Drawing.Point(50, 150);
+            this.lblDireccion.Location = new System.Drawing.Point(473, 216);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(84, 22);
             this.lblDireccion.TabIndex = 138;
@@ -290,7 +227,7 @@
             this.txtEmail.BackColor = System.Drawing.SystemColors.Window;
             this.txtEmail.Enabled = false;
             this.txtEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(158, 182);
+            this.txtEmail.Location = new System.Drawing.Point(581, 248);
             this.txtEmail.MaxLength = 60;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
@@ -307,107 +244,18 @@
             this.fullLabel1.Text = "Datos asociados";
             this.fullLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // imgGroup2
-            // 
-            this.imgGroup2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgGroup2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.imgGroup2.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
-            this.imgGroup2.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
-            this.imgGroup2.BlackBorder = true;
-            this.imgGroup2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.imgGroup2.BorderThickness = 1F;
-            this.imgGroup2.Controls.Add(this.txtJefeVtas);
-            this.imgGroup2.Controls.Add(this.label4);
-            this.imgGroup2.Controls.Add(this.txtSuperv);
-            this.imgGroup2.Controls.Add(this.txtBaseop);
-            this.imgGroup2.Controls.Add(this.txtMarca);
-            this.imgGroup2.Controls.Add(this.txtTvend);
-            this.imgGroup2.Controls.Add(this.lblCodgvend);
-            this.imgGroup2.Controls.Add(this.lblCodmarca);
-            this.imgGroup2.Controls.Add(this.lblCodtvend);
-            this.imgGroup2.Controls.Add(this.lblBaseop);
-            this.imgGroup2.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
-            this.imgGroup2.FlatMode = true;
-            this.imgGroup2.FontTitle = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imgGroup2.ForeColor = System.Drawing.Color.Black;
-            this.imgGroup2.GroupImage = null;
-            this.imgGroup2.GroupTitle = "Institucionales";
-            this.imgGroup2.Location = new System.Drawing.Point(455, 88);
-            this.imgGroup2.Name = "imgGroup2";
-            this.imgGroup2.Padding = new System.Windows.Forms.Padding(20);
-            this.imgGroup2.PaintGroupBox = false;
-            this.imgGroup2.RoundCorners = 4;
-            this.imgGroup2.ShadowColor = System.Drawing.Color.DarkGray;
-            this.imgGroup2.ShadowControl = false;
-            this.imgGroup2.ShadowThickness = 3;
-            this.imgGroup2.Size = new System.Drawing.Size(432, 256);
-            this.imgGroup2.SkinFixed = true;
-            this.imgGroup2.TabIndex = 146;
-            this.imgGroup2.TitleBackground = System.Drawing.Color.DodgerBlue;
-            this.imgGroup2.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
-            this.imgGroup2.TitleFontColor = System.Drawing.Color.White;
-            // 
-            // txtJefeVtas
-            // 
-            this.txtJefeVtas.BackColor = System.Drawing.SystemColors.Window;
-            this.txtJefeVtas.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtJefeVtas.Enabled = false;
-            this.txtJefeVtas.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJefeVtas.Location = new System.Drawing.Point(158, 84);
-            this.txtJefeVtas.MaxLength = 20;
-            this.txtJefeVtas.Name = "txtJefeVtas";
-            this.txtJefeVtas.ReadOnly = true;
-            this.txtJefeVtas.Size = new System.Drawing.Size(251, 22);
-            this.txtJefeVtas.TabIndex = 150;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(29, 84);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 22);
-            this.label4.TabIndex = 149;
-            this.label4.Text = "Jefe de Ventas:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // txtSuperv
             // 
             this.txtSuperv.BackColor = System.Drawing.SystemColors.Window;
             this.txtSuperv.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSuperv.Enabled = false;
             this.txtSuperv.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuperv.Location = new System.Drawing.Point(158, 49);
+            this.txtSuperv.Location = new System.Drawing.Point(581, 49);
             this.txtSuperv.MaxLength = 20;
             this.txtSuperv.Name = "txtSuperv";
             this.txtSuperv.ReadOnly = true;
             this.txtSuperv.Size = new System.Drawing.Size(251, 22);
             this.txtSuperv.TabIndex = 147;
-            // 
-            // txtBaseop
-            // 
-            this.txtBaseop.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBaseop.Enabled = false;
-            this.txtBaseop.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBaseop.Location = new System.Drawing.Point(158, 191);
-            this.txtBaseop.MaxLength = 30;
-            this.txtBaseop.Name = "txtBaseop";
-            this.txtBaseop.ReadOnly = true;
-            this.txtBaseop.Size = new System.Drawing.Size(251, 22);
-            this.txtBaseop.TabIndex = 148;
-            // 
-            // txtMarca
-            // 
-            this.txtMarca.BackColor = System.Drawing.SystemColors.Window;
-            this.txtMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMarca.Enabled = false;
-            this.txtMarca.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarca.Location = new System.Drawing.Point(158, 157);
-            this.txtMarca.MaxLength = 30;
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.ReadOnly = true;
-            this.txtMarca.Size = new System.Drawing.Size(251, 22);
-            this.txtMarca.TabIndex = 146;
             // 
             // txtTvend
             // 
@@ -415,7 +263,7 @@
             this.txtTvend.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTvend.Enabled = false;
             this.txtTvend.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTvend.Location = new System.Drawing.Point(158, 119);
+            this.txtTvend.Location = new System.Drawing.Point(581, 84);
             this.txtTvend.MaxLength = 30;
             this.txtTvend.Name = "txtTvend";
             this.txtTvend.ReadOnly = true;
@@ -425,57 +273,51 @@
             // lblCodgvend
             // 
             this.lblCodgvend.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodgvend.Location = new System.Drawing.Point(29, 49);
+            this.lblCodgvend.Location = new System.Drawing.Point(452, 49);
             this.lblCodgvend.Name = "lblCodgvend";
             this.lblCodgvend.Size = new System.Drawing.Size(105, 22);
             this.lblCodgvend.TabIndex = 140;
             this.lblCodgvend.Text = "Supervisor:";
             this.lblCodgvend.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblCodmarca
-            // 
-            this.lblCodmarca.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodmarca.Location = new System.Drawing.Point(26, 157);
-            this.lblCodmarca.Name = "lblCodmarca";
-            this.lblCodmarca.Size = new System.Drawing.Size(108, 22);
-            this.lblCodmarca.TabIndex = 142;
-            this.lblCodmarca.Text = "Marca:";
-            this.lblCodmarca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // lblCodtvend
             // 
             this.lblCodtvend.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodtvend.Location = new System.Drawing.Point(30, 119);
+            this.lblCodtvend.Location = new System.Drawing.Point(453, 84);
             this.lblCodtvend.Name = "lblCodtvend";
             this.lblCodtvend.Size = new System.Drawing.Size(104, 22);
             this.lblCodtvend.TabIndex = 141;
             this.lblCodtvend.Text = "Tipo Vendedor:";
             this.lblCodtvend.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblBaseop
-            // 
-            this.lblBaseop.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBaseop.Location = new System.Drawing.Point(30, 191);
-            this.lblBaseop.Name = "lblBaseop";
-            this.lblBaseop.Size = new System.Drawing.Size(104, 22);
-            this.lblBaseop.TabIndex = 144;
-            this.lblBaseop.Text = "Base Operativa:";
-            this.lblBaseop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // imgGroup1
             // 
             this.imgGroup1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.imgGroup1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.imgGroup1.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.imgGroup1.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.imgGroup1.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
             this.imgGroup1.BlackBorder = true;
-            this.imgGroup1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.imgGroup1.BorderColor = System.Drawing.Color.DodgerBlue;
             this.imgGroup1.BorderThickness = 1F;
+            this.imgGroup1.Controls.Add(this.label2);
+            this.imgGroup1.Controls.Add(this.txtSuperv);
+            this.imgGroup1.Controls.Add(this.textEdit1);
+            this.imgGroup1.Controls.Add(this.lblTel1);
+            this.imgGroup1.Controls.Add(this.txtTvend);
+            this.imgGroup1.Controls.Add(this.txtTel1);
             this.imgGroup1.Controls.Add(this.teCodVend);
+            this.imgGroup1.Controls.Add(this.txtTel2);
+            this.imgGroup1.Controls.Add(this.lblCodgvend);
+            this.imgGroup1.Controls.Add(this.lblEmail);
             this.imgGroup1.Controls.Add(this.label3);
+            this.imgGroup1.Controls.Add(this.txtDireccion);
+            this.imgGroup1.Controls.Add(this.lblCodtvend);
+            this.imgGroup1.Controls.Add(this.lblTel2);
             this.imgGroup1.Controls.Add(this.monthCalendar1);
+            this.imgGroup1.Controls.Add(this.lblDireccion);
             this.imgGroup1.Controls.Add(this.label1);
+            this.imgGroup1.Controls.Add(this.txtEmail);
             this.imgGroup1.Controls.Add(this.txtUsuario);
             this.imgGroup1.Controls.Add(this.lblUsuario);
             this.imgGroup1.Controls.Add(this.lblHorarios);
@@ -484,13 +326,13 @@
             this.imgGroup1.Controls.Add(this.lblApellido);
             this.imgGroup1.Controls.Add(this.txtNombre);
             this.imgGroup1.Controls.Add(this.txtApellido);
-            this.imgGroup1.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.imgGroup1.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.imgGroup1.FlatMode = true;
             this.imgGroup1.FontTitle = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imgGroup1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.imgGroup1.ForeColor = System.Drawing.Color.Black;
             this.imgGroup1.GroupImage = null;
             this.imgGroup1.GroupTitle = "Datos personales";
-            this.imgGroup1.Location = new System.Drawing.Point(5, 88);
+            this.imgGroup1.Location = new System.Drawing.Point(5, 54);
             this.imgGroup1.Name = "imgGroup1";
             this.imgGroup1.Padding = new System.Windows.Forms.Padding(20);
             this.imgGroup1.PaintGroupBox = false;
@@ -498,7 +340,7 @@
             this.imgGroup1.ShadowColor = System.Drawing.Color.DarkGray;
             this.imgGroup1.ShadowControl = false;
             this.imgGroup1.ShadowThickness = 3;
-            this.imgGroup1.Size = new System.Drawing.Size(425, 495);
+            this.imgGroup1.Size = new System.Drawing.Size(869, 412);
             this.imgGroup1.SkinFixed = true;
             this.imgGroup1.TabIndex = 145;
             this.imgGroup1.TitleBackground = System.Drawing.Color.DodgerBlue;
@@ -572,7 +414,7 @@
             // lblHorarios
             // 
             this.lblHorarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHorarios.Location = new System.Drawing.Point(61, 360);
+            this.lblHorarios.Location = new System.Drawing.Point(463, 296);
             this.lblHorarios.Name = "lblHorarios";
             this.lblHorarios.Size = new System.Drawing.Size(81, 44);
             this.lblHorarios.TabIndex = 143;
@@ -584,7 +426,7 @@
             this.txtHorarios.BackColor = System.Drawing.SystemColors.Window;
             this.txtHorarios.Enabled = false;
             this.txtHorarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHorarios.Location = new System.Drawing.Point(179, 360);
+            this.txtHorarios.Location = new System.Drawing.Point(581, 296);
             this.txtHorarios.MaxLength = 0;
             this.txtHorarios.Multiline = true;
             this.txtHorarios.Name = "txtHorarios";
@@ -638,41 +480,6 @@
             this.txtApellido.Size = new System.Drawing.Size(223, 22);
             this.txtApellido.TabIndex = 120;
             // 
-            // tabReservasActuales
-            // 
-            this.tabReservasActuales.Controls.Add(this.xPanel2);
-            this.tabReservasActuales.Location = new System.Drawing.Point(4, 25);
-            this.tabReservasActuales.Name = "tabReservasActuales";
-            this.tabReservasActuales.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReservasActuales.Size = new System.Drawing.Size(898, 594);
-            this.tabReservasActuales.TabIndex = 2;
-            this.tabReservasActuales.Text = "Reservas actuales";
-            this.tabReservasActuales.UseVisualStyleBackColor = true;
-            // 
-            // xPanel2
-            // 
-            this.xPanel2.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel2.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
-            this.xPanel2.Controls.Add(this.mrReservasAct);
-            this.xPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xPanel2.Location = new System.Drawing.Point(3, 3);
-            this.xPanel2.Name = "xPanel2";
-            this.xPanel2.Size = new System.Drawing.Size(892, 588);
-            this.xPanel2.SkinFixed = true;
-            this.xPanel2.TabIndex = 0;
-            // 
-            // mrReservasAct
-            // 
-            this.mrReservasAct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mrReservasAct.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrReservasAct.Location = new System.Drawing.Point(6, 3);
-            this.mrReservasAct.Name = "mrReservasAct";
-            this.mrReservasAct.Size = new System.Drawing.Size(882, 580);
-            this.mrReservasAct.SkinFixed = true;
-            this.mrReservasAct.TabIndex = 0;
-            // 
             // tabEntrev
             // 
             this.tabEntrev.Controls.Add(this.xPanel3);
@@ -687,7 +494,7 @@
             // xPanel3
             // 
             this.xPanel3.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel3.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.xPanel3.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel3.Controls.Add(this.mrEntrevPend);
             this.xPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel3.Location = new System.Drawing.Point(3, 3);
@@ -722,7 +529,7 @@
             // xPanel7
             // 
             this.xPanel7.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel7.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.xPanel7.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel7.Controls.Add(this.mrLlamadas);
             this.xPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel7.Location = new System.Drawing.Point(3, 3);
@@ -740,41 +547,6 @@
             this.mrLlamadas.SkinFixed = true;
             this.mrLlamadas.TabIndex = 5;
             // 
-            // tabSolicitudes
-            // 
-            this.tabSolicitudes.Controls.Add(this.xPanel5);
-            this.tabSolicitudes.Location = new System.Drawing.Point(4, 25);
-            this.tabSolicitudes.Name = "tabSolicitudes";
-            this.tabSolicitudes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSolicitudes.Size = new System.Drawing.Size(898, 594);
-            this.tabSolicitudes.TabIndex = 5;
-            this.tabSolicitudes.Text = "Solicitudes";
-            this.tabSolicitudes.UseVisualStyleBackColor = true;
-            // 
-            // xPanel5
-            // 
-            this.xPanel5.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel5.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
-            this.xPanel5.Controls.Add(this.mrSolicitudes);
-            this.xPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xPanel5.Location = new System.Drawing.Point(3, 3);
-            this.xPanel5.Name = "xPanel5";
-            this.xPanel5.Size = new System.Drawing.Size(892, 588);
-            this.xPanel5.SkinFixed = true;
-            this.xPanel5.TabIndex = 0;
-            // 
-            // mrSolicitudes
-            // 
-            this.mrSolicitudes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mrSolicitudes.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrSolicitudes.Location = new System.Drawing.Point(6, 3);
-            this.mrSolicitudes.Name = "mrSolicitudes";
-            this.mrSolicitudes.Size = new System.Drawing.Size(882, 580);
-            this.mrSolicitudes.SkinFixed = true;
-            this.mrSolicitudes.TabIndex = 1;
-            // 
             // tabVentasRealizadas
             // 
             this.tabVentasRealizadas.Controls.Add(this.xPanel4);
@@ -789,7 +561,7 @@
             // xPanel4
             // 
             this.xPanel4.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel4.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.xPanel4.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel4.Controls.Add(this.mnVentasReal);
             this.xPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel4.Location = new System.Drawing.Point(3, 3);
@@ -825,20 +597,12 @@
             this.DetalleVend.ResumeLayout(false);
             this.tabVendedor.ResumeLayout(false);
             this.xPanel1.ResumeLayout(false);
-            this.imgGroup9.ResumeLayout(false);
-            this.imgGroup9.PerformLayout();
-            this.imgGroup2.ResumeLayout(false);
-            this.imgGroup2.PerformLayout();
             this.imgGroup1.ResumeLayout(false);
             this.imgGroup1.PerformLayout();
-            this.tabReservasActuales.ResumeLayout(false);
-            this.xPanel2.ResumeLayout(false);
             this.tabEntrev.ResumeLayout(false);
             this.xPanel3.ResumeLayout(false);
             this.tabLlamadas.ResumeLayout(false);
             this.xPanel7.ResumeLayout(false);
-            this.tabSolicitudes.ResumeLayout(false);
-            this.xPanel5.ResumeLayout(false);
             this.tabVentasRealizadas.ResumeLayout(false);
             this.xPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -866,41 +630,27 @@
         private TNGS.NetControls.TextEdit txtEmail;
         private System.Windows.Forms.Label lblCodgvend;
         private System.Windows.Forms.Label lblCodtvend;
-        private System.Windows.Forms.Label lblCodmarca;
         private System.Windows.Forms.Label lblHorarios;
         private TNGS.NetControls.TextEdit txtHorarios;
-        private System.Windows.Forms.Label lblBaseop;
-        private TNGS.NetControls.ImgGroup imgGroup2;
         private TNGS.NetControls.ImgGroup imgGroup1;
-        private System.Windows.Forms.TabPage tabReservasActuales;
         private System.Windows.Forms.TabPage tabEntrev;
         private System.Windows.Forms.TabPage tabVentasRealizadas;
-        private System.Windows.Forms.TabPage tabSolicitudes;
-        private TNGS.NetControls.XPanel xPanel2;
         private TNGS.NetControls.XPanel xPanel3;
         private TNGS.NetControls.XPanel xPanel4;
-        private TNGS.NetControls.XPanel xPanel5;
-        private TNGS.NetControls.MiniReport mrReservasAct;
         private TNGS.NetControls.MiniReport mrEntrevPend;
         private TNGS.NetControls.MiniReport mnVentasReal;
-        private TNGS.NetControls.MiniReport mrSolicitudes;
         private TNGS.NetControls.FullLabel fullLabel1;
         private TNGS.NetControls.TextEdit txtSuperv;
-        private TNGS.NetControls.TextEdit txtBaseop;
-        private TNGS.NetControls.TextEdit txtMarca;
         private TNGS.NetControls.TextEdit txtTvend;
         private System.Windows.Forms.TabPage tabLlamadas;
         private TNGS.NetControls.XPanel xPanel7;
         private TNGS.NetControls.MiniReport mrLlamadas;
-        private TNGS.NetControls.ImgGroup imgGroup9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private TNGS.NetControls.TextEdit textEdit1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private TNGS.NetControls.TextEdit teCodVend;
         private System.Windows.Forms.Label label3;
-        private TNGS.NetControls.TextEdit txtJefeVtas;
-        private System.Windows.Forms.Label label4;
 
     }
 }

@@ -184,7 +184,6 @@
             this.gbQuitarVisibilidad.Text = "Deshabilitar Visibilidad";
             this.gbQuitarVisibilidad.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.gbQuitarVisibilidad.W8Color = System.Drawing.Color.Red;
-            this.gbQuitarVisibilidad.Click += new System.EventHandler(this.gbQuitarVisibilidad_Click);
             // 
             // mppSeleccionarClientes
             // 
@@ -449,7 +448,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Selección Clientes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SeleccionClientes_FormClosed);
-            this.Load += new System.EventHandler(this.CambioMarcasXCliente_Load);
             this.xPanel1.ResumeLayout(false);
             this.mpPanelesOperativos.ResumeLayout(false);
             this.mppCambioVisibilidades.ResumeLayout(false);

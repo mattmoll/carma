@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.Xml;
 using TNGS.NetAppBll;
 using TNGS.NetRoutines;
-using Sima;
+using Carm;
 #endregion
 
 namespace Carm.Shr

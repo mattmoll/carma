@@ -38,10 +38,6 @@ namespace Carm.Shr
         {
             AppRuts.App_ShowMsg("Cargando...");
 
-            ListaEntidades l_leMarcas = Tablas.MrcUpFull(false, m_smResult);
-            if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
-            cargaCombo(l_leMarcas, cdcMarcas, Bel.EMarca.CodCmp, Bel.EMarca.DesCmp);
-
             // Trae todas las franquicias existentes a un comboBox
             m_leFranquicias = Tablas.FrqUpFull(false, m_smResult);
             if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
@@ -71,7 +67,6 @@ namespace Carm.Shr
             teNombreFant.Text = m_bsBusqueda.NFant;
             teCargador.Text = m_bsBusqueda.Cargador;
             teCodVend.Text = m_bsBusqueda.CodVend;
-            cdcMarcas.SelectedStrCode = m_bsBusqueda.Marca.PadLeft(2, ' ');
             cmbFranquicias.SelectedStrCode = m_bsBusqueda.Franq.PadLeft(4, ' ');
             cmbRubros.SelectedStrCode = m_bsBusqueda.Rubro.PadLeft(2, ' ');
             cmbTiposInsts.SelectedStrCode = m_bsBusqueda.TInst.PadLeft(4, ' ');
@@ -82,13 +77,8 @@ namespace Carm.Shr
             teTelefono.Text = m_bsBusqueda.Telefono;
 
             // Chequeamos los radiobuttons correspondientes a cada filtro.
-            checkRadioButton(m_bsBusqueda.Reservado, rbResSi, rbResNo, rbResAmbos);
-            checkRadioButton(m_bsBusqueda.ConError, rbErrSi, rbErrNo, rbErrAmbos);
             checkRadioButton(m_bsBusqueda.Vendido, rbVndSi, rbVndNo, rbVndAmbos);
             checkRadioButton(m_bsBusqueda.Mayorista, rbMaySi, rbMayNo, rbMayAmbos);
-            checkRadioButton(m_bsBusqueda.Competencia, rbCompetenciaSi, rbCompetenciaNo, rbCompetenciaAmbos);
-            checkRadioButton(m_bsBusqueda.MailCargado, rbMailCargadoSi, rbMailCargadoNo, rbMailCargadoAmbos);
-            checkRadioButton(m_bsBusqueda.Deudor, rbDeudoresSi, rbDeudoresNo, rbDeudoresAmbos);
 
             AppRuts.App_HideMsg();
         }
@@ -122,7 +112,6 @@ namespace Carm.Shr
             m_bsBusqueda.NFant = teNombreFant.Text.Trim();
             m_bsBusqueda.CodVend = teCodVend.Text.Trim();
             m_bsBusqueda.Cargador = teCargador.Text.Trim();
-            m_bsBusqueda.Marca = cdcMarcas.SelectedStrCode.ToString().Trim();
             m_bsBusqueda.Franq = cmbFranquicias.SelectedStrCode.ToString().Trim();
             m_bsBusqueda.Rubro = cmbRubros.SelectedStrCode.ToString().Trim();
             m_bsBusqueda.TInst = cmbTiposInsts.SelectedStrCode.ToString().Trim();
@@ -178,15 +167,6 @@ namespace Carm.Shr
 
         #region Eventos para el cambio de checked de los radiobutton (un evento por cada grupo de radiobuttons)
 
-        private void rbCheckedReservChanged(object sender, EventArgs e)
-        {
-            m_bsBusqueda.Reservado = cargaValorRadioButton(rbResSi, rbResNo, rbResAmbos);
-        }
-
-        private void rbCheckedErronChanged(object sender, EventArgs e)
-        {
-            m_bsBusqueda.ConError = cargaValorRadioButton(rbErrSi, rbErrNo, rbErrAmbos);
-        }
 
         private void rbCheckedVendChanged(object sender, EventArgs e)
         {
@@ -198,33 +178,11 @@ namespace Carm.Shr
             m_bsBusqueda.Mayorista = cargaValorRadioButton(rbMaySi, rbMayNo, rbMayAmbos);
         }
 
-        private void rbCheckedCompetenciaChanged(object sender, EventArgs e)
-        {
-            m_bsBusqueda.Competencia = cargaValorRadioButton(rbCompetenciaSi, rbCompetenciaNo, rbCompetenciaAmbos);
-        }
-
-        private void rbCheckedMailCargadoChanged(object sender, EventArgs e)
-        {
-            m_bsBusqueda.MailCargado = cargaValorRadioButton(rbMailCargadoSi, rbMailCargadoNo, rbMailCargadoAmbos);
-        }
-
-        private void rbDeudores_CheckedChanged(object sender, EventArgs e)
-        {
-            m_bsBusqueda.Deudor = cargaValorRadioButton(rbDeudoresSi, rbDeudoresNo, rbDeudoresAmbos);
-        }
 
         #endregion
 
         #endregion
 
-        #region Metodos publicos
-
-        public void habilitarBusquedaExistencial()
-        {
-            gbBusquedaExistencial.Visible = true;
-        }
-
-        #endregion
 
         #region Metodos Privados
 

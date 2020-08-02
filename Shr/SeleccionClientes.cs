@@ -10,7 +10,7 @@ using System.Linq;
 using TNGS.NetRoutines;
 using TNGS.NetControls;
 using TNGS.NetAppBll;
-using Sima;
+using Carm;
 using Carm.Bll;
 using Carm.Shr;
 using Carm.Bel;
@@ -58,28 +58,6 @@ namespace Carm.Shr
 
         }
 
-        private void CambioMarcasXCliente_Load(object sender, EventArgs e)
-        {
-            // Cargamos las marcas
-            ListaEntidades l_leMarcas = Bll.Tablas.MrcUpFull(false, m_smResult);
-            if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
-            cdcMarcas.FillFromStrLEntidad(l_leMarcas, Bel.EMarca.CodCmp, Bel.EMarca.DesCmp, "deleted");
-            cdcMarcas.AddStrCD("", "", 0);
-            cdcMarcas.SelectedStrCode = "";
-
-            // Disparamos el formulario de busqueda.
-            BusquedaClientes l_frmBusqueda = new BusquedaClientes(m_bsBusqueda);
-            l_frmBusqueda.ShowDialog(this);
-            if (l_frmBusqueda.DialogResult == DialogResult.OK)
-            {
-                m_bsBusqueda = l_frmBusqueda.filtrosBusqueda;
-                cargarClientes();
-            }
-
-            // No poner codigo aca!! El unico estado valido es dentro del dialogResult = OK.
-            
-        }
-
 
         #region Operaciones
 
@@ -121,18 +99,9 @@ namespace Carm.Shr
                 if (AppRuts.MsgRuts_AskUser(this, l_strWarning) == AskUserResults.No)
                     return;
 
-            cambiarVisibilidad(cambioVisibilidad.habilitar);
             AppRuts.MsgRuts_ShowMsg(this, "Se ha habilitado la visibilidad de los clientes seleccionados para la empresa: " + cdcMarcas.SelectedItem.ToString());
 
            
-            reiniciarForm();
-        }
-
-        private void gbQuitarVisibilidad_Click(object sender, EventArgs e)
-        {
-            cambiarVisibilidad(cambioVisibilidad.deshabilitar);
-            AppRuts.MsgRuts_ShowMsg(this, "Se ha deshabilitado la visibilidad de los clientes seleccionados para la empresa: " + cdcMarcas.SelectedItem.ToString());
-
             reiniciarForm();
         }
 
@@ -233,49 +202,6 @@ namespace Carm.Shr
 
                 Bll.Clientes.CambiarMarcaVendido(vendido ? "S" : "N", l_intNroCliente, m_smResult);
                 if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
-            }
-        }
-
-        private void cambiarVisibilidad(cambioVisibilidad visibilidad)
-        {
-            List<Object[]> l_laoCodsChecked = null;
-
-            // Validamos.
-            if (cdcMarcas.SelectedStrCode == "")
-            {
-                AppRuts.MsgRuts_ShowMsg(this, "Debe seleccionar una marca para la cual se asignara visibilidad a los clientes elegidos.");
-                return;
-            }
-
-            // Conseguimos los codigos de los items que esten checked
-            l_laoCodsChecked = mrClientes.GetChecked(new int[] { 1 });
-
-            string l_strCodMarca = cdcMarcas.SelectedStrCode;
-            Bel.EMarcaXCliente l_eMarcaXClien;
-            int l_intNroCliente;
-
-            // Armamos una string con todos los codigos checked.
-            foreach (Object[] l_aoCodChecked in l_laoCodsChecked)
-            {
-                l_intNroCliente = (int)l_aoCodChecked[0];
-
-                if (visibilidad == cambioVisibilidad.habilitar)
-                {
-                    l_eMarcaXClien = Bel.EMarcaXCliente.NewEmpty();
-                    l_eMarcaXClien.Nrocliente = l_intNroCliente;
-                    l_eMarcaXClien.Codmarca = l_strCodMarca;
-                    Bll.Tablas.MclSave(l_eMarcaXClien, m_smResult);
-                }
-                else
-                {
-                    // Buscamos si ya existe ese registro.
-                    l_eMarcaXClien = Bll.Tablas.MclGet(l_intNroCliente, l_strCodMarca, false, m_smResult);
-                    if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
-
-                    // Si lo encontramos, lo borramos.
-                    if (l_eMarcaXClien != null)
-                        Bll.Tablas.MclRemove(l_eMarcaXClien.Nrocliente, l_eMarcaXClien.Codmarca, l_eMarcaXClien.FxdVersion, m_smResult);
-                }
             }
         }
 

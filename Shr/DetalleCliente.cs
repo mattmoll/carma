@@ -39,8 +39,6 @@ namespace Carm.Shr
         public event ObjArrayEventHandler DataError;
         public event ObjArrayEventHandler NewService;
         public event ObjArrayEventHandler ChangeCompetencia;
-        public event ObjArrayEventHandler VerTasaDeUso;
-        public event ObjArrayEventHandler DetalleMail;
         //public event ObjArrayEventHandler NewUso;
 
         // Constructor 
@@ -102,13 +100,6 @@ namespace Carm.Shr
             m_leNotas = m_eCliente.CliNotas;
             CargaMiniRepNotas();
 
-            // Cargamos las cartas enviadas.
-            Bel.LECartasEnvs enviadas = Bll.CartasEnv.MailsDelCliente(m_eCliente.Numero, m_smResult);
-            if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
-            m_leCartasEnviadas = enviadas;
-
-            CargaMiniRepMailing();
-
             // Llamamos al metodo que tiene la logica del control post it para mostrar las notas.
             LogicaPostIt();
 
@@ -116,23 +107,6 @@ namespace Carm.Shr
             EscondeBotones();
 
         }
-
-        private void CargaMiniRepMailing()
-        {
-            m_leCartasEnviadas.ChangeCaption("deleted", "");
-
-            // Llenamos el minireport con la lista entidades.
-            mrMailsEnviados.LoadData(m_leCartasEnviadas,
-                                     "",
-                                     "",
-                                     "SIMA",
-                                     "",
-                                     "",
-                                     "Cartas Enviadas",
-                                     "",
-                                     m_smResult);
-        }
-
        
         #region Codigo General a las pestañas
 
@@ -208,8 +182,6 @@ namespace Carm.Shr
             mrNotas.ShowExcel = false;
             mrServicios.ShowExcel = true;
             mrServicios.ShowExcel = false;
-            mrTasaDeUso.ShowExcel = true;
-            mrTasaDeUso.ShowExcel = false;
         }
 
         #endregion 
@@ -340,7 +312,6 @@ namespace Carm.Shr
             {
                 // Llenamos el array de objects con todos los parametros necesarios para el form y llamamos al evento.
                 ObjArrayEventArgs a = new ObjArrayEventArgs(new object[] { NEOtrosCantEmp.Numero,
-                                                                           TEOtrosCobertura.Text.Trim(),
                                                                            cueCuil.Text,
                                                                            TEOtrosHorarios.Text.Trim(),
                                                                            teObservaciones.Text.Trim()});
@@ -357,8 +328,6 @@ namespace Carm.Shr
 
                 // Cargamos los datos en la pantalla.
                 NEOtrosCantEmp.Numero = m_eCliente.Cantempleados;
-                TEOtrosCobertura.Text = m_eCliente.Cobertura;
-                DEOtrosFFinRes.Fecha = m_eCliente.Ffinres;
                 TEOtrosHorarios.Text = m_eCliente.Horarios;
                 cueCuil.Text = m_eCliente.Cuil;
                 teObservaciones.Text = m_eCliente.Observacion;
@@ -482,19 +451,12 @@ namespace Carm.Shr
             TEUbPiso.Text = m_eCliente.Piso;
 
             //Campos Otros
-            TEOtrosCobertura.Text = m_eCliente.Cobertura;
             NEOtrosCantEmp.Text = m_eCliente.Cantempleados.ToString();
-            DEOtrosFFinRes.Fecha = m_eCliente.Ffinres;
             TEOtrosHorarios.Text = m_eCliente.Horarios;
             cueCuil.Text = m_eCliente.Cuil;
             teCliAlta.Text = m_eCliente.Alta;
-            teMarca.Text = m_eCliente.Cli_des_marca;
-            teCompetencia.Text = m_eCliente.Cli_des_comp;
             teCargador.Text = m_eCliente.Cargador;
             teObservaciones.Text = m_eCliente.Observacion;
-            dceDeuda.Decimal = m_eCliente.Deuda;
-            if (dceDeuda.Decimal != 0)
-                dceDeuda.BackColor = Color.OrangeRed;
             
         }
 
@@ -524,8 +486,6 @@ namespace Carm.Shr
                 ObjArrayEventArgs a = new ObjArrayEventArgs(new object[] { m_eCliente.Numero,
                                                                            m_eCliente.Codvend,
                                                                            m_eCliente.Direccion,
-                                                                           m_eCliente.Finires,
-                                                                           m_eCliente.Ffinres,
                                                                            true // Indica si el resultado del form fue exitoso o no( hay que actualizar)
                                                                            });
                 NewInterview(this, a);
@@ -573,8 +533,6 @@ namespace Carm.Shr
 
 
                 ObjArrayEventArgs a= new ObjArrayEventArgs(new object[] { l_eclEntrevista,
-                                                                          m_eCliente.Finires,
-                                                                          m_eCliente.Ffinres, 
                                                                           (string)mrEntrevistas.GetMatrixValueObj(6), // Si esta Borrada (S/N)
                                                                           true });
                 ModifyInterview(this, a);
@@ -792,10 +750,6 @@ namespace Carm.Shr
                 AppRuts.MsgRuts_ShowMsg(this, "No se puede enviar mail a este contacto porque no tiene una cuenta de correo asociada");
                 return;
             }
-
-            // Disparamos la ventana de seleccion de carta pasandole el contacto para que tenga el mail al que debe enviarlo.
-            EnvioCarta seleccionarCarta = new EnvioCarta(m_eCliente, l_eCliContacto);
-            seleccionarCarta.ShowDialog(this);
         }
 
         // Metodo que actualiza el miembro de contactos y recarga el minireport.
@@ -916,7 +870,6 @@ namespace Carm.Shr
             {
                 // Llenamos el array de objects con todos los parametros necesarios para el form y llamamos al evento.
                 ObjArrayEventArgs a = new ObjArrayEventArgs(new object[] { m_eCliente.Numero,
-                                                                           m_eCliente.Finires,
                                                                            true // Indica si el resultado del form fue exitoso o no( hay que actualizar)
                                                                            });
 
@@ -974,11 +927,6 @@ namespace Carm.Shr
                                  "Servicios",
                                  "@M-M@@M-M@N@M-M@80;150;150;398;120;@M-M@",
                                  m_smResult);
-
-            if (m_eCliente.Codmarca.Trim() == "" && m_eCliente.Codcompetencia.Trim() == "")
-                fllServiciosEmpresa.Text = "";
-            else
-                fllServiciosEmpresa.Text = "Servicios Prestados actualmente por la empresa: " + ((m_eCliente.Codmarca.Trim() == "") ? m_eCliente.Cli_des_comp : m_eCliente.Cli_des_marca);
         }
 
         // Evento del boton nnuevo servicio.
@@ -990,8 +938,6 @@ namespace Carm.Shr
             {
                 // Llenamos el array de objects con todos los parametros necesarios para el form y llamamos al evento.
                 ObjArrayEventArgs a = new ObjArrayEventArgs(new object[] { m_eCliente.Numero,
-                                                                          (m_eCliente.esDeLaCompetencia)? "" : m_eCliente.Codtipocont,
-                                                                          (m_eCliente.esDeLaCompetencia)? "" : m_eCliente.Codmarca,
                                                                           Bel.LECliServicios.NewEmpty()
                                                                            });
                 NewService(this, a);
@@ -1293,112 +1239,6 @@ namespace Carm.Shr
             nVerNota.AddNote(eNote);
             nVerNota.Visible = true;
         }
-
-
-        #endregion
-
-        #region Pestaña Tasa de Uso
-
-        private void cargaMiniRepTasaUso(ListaEntidades p_leTasaDeUsos)
-        {
-            if (p_leTasaDeUsos.Count == 0)
-                return;
-
-            //Cambiamos los captions 
-            p_leTasaDeUsos.ChangeCaption("Mes", "");
-            p_leTasaDeUsos.ChangeCaption("MesDes", "V2MesCN1X");
-            p_leTasaDeUsos.ChangeCaption("Rojo", "V1RojoNS1");
-            p_leTasaDeUsos.ChangeCaption("Amarillo", "V1AmarilloNS1");
-            p_leTasaDeUsos.ChangeCaption("Verde", "V1VerdeNS1");
-            p_leTasaDeUsos.ChangeCaption("Facturacion", "V2Facturación2S10");
-            p_leTasaDeUsos.ChangeCaption("Costo", "V2Costo2S11");
-            p_leTasaDeUsos.ChangeCaption("Rentabilidad", "V2Rentabilidad2S12");
-
-            // Llenamos el minireport con la lista entidades.
-            mrTasaDeUso.LoadData(p_leTasaDeUsos,
-                                "",
-                                "",
-                                "SIMA",
-                                "",
-                                "",
-                                "Tasa de Uso",
-                                "", 
-                                m_smResult);
-        }
-
-        private void gbVerTasaDeUso_Click(object sender, EventArgs e)
-        {
-            if (VerTasaDeUso != null)
-            {
-                // Llenamos el array de objects con todos los parametros necesarios para el form y llamamos al evento.
-                ObjArrayEventArgs a = new ObjArrayEventArgs(new object[] { m_eCliente.Nroavalon,
-                                                                           neAnioTasaUso.Numero,
-                                                                           m_eCliente.Codmarca,
-                                                                           null,
-                                                                           });
-
-                VerTasaDeUso(this, a);
-
-                // Si no se trajo lista entidades no hay nada que actualizar
-                if (a.Data[3] != null)
-                    cargaMiniRepTasaUso((ListaEntidades)a.Data[3]);
-                
-            }
-        }
-
-        private void gbVerMail_Click(object sender, EventArgs e)
-        {
-            if (DetalleMail != null)
-            {
-                // Conseguimos la fecha y hora de la nota.
-                object l_oNumero = mrMailsEnviados.GetMatrixValueObj(0);
-
-                // Validamos que sea distinto de nulo.
-                if ((l_oNumero == DBNull.Value) || (l_oNumero == null))
-                    return;
-
-                Bel.ECartasEnv cartaEnviada = Bll.CartasEnv.Get((int)l_oNumero, true, m_smResult);
-                // Validamos que este todo bien.
-                if (AppRuts.MsgRuts_AnalizeError(this, m_smResult))
-                    return;
-
-
-                // Llenamos el array de objects con todos los parametros necesarios para el form y llamamos al evento.
-                ObjArrayEventArgs a = new ObjArrayEventArgs(new object[] { cartaEnviada });
-
-                DetalleMail(this, a);
-            }
-        }
-
-
-
-
-        /* Si llegamos a decidir implementar poder grabar nuevos registros en la tasa de uso, este es el codigo.
-        private void gbNuevoUso_Click(object sender, EventArgs e)
-        {
-            if (NewUso != null)
-            {
-                // Llenamos el array de objects con todos los parametros necesarios para el form y llamamos al evento.
-                ObjArrayEventArgs a = new ObjArrayEventArgs(new object[] { m_eCliente.Nroavalon,
-                                                                           Bel.ETasaDeUso.NewEmpty(),
-                                                                           true,// Indica si el resultado del form fue exitoso o no( hay que actualizar)
-                                                                           });
-
-                NewUso(this, a);
-
-                // Si el estado de la creacion fue exitoso, actualizamos, sino no hacemos nada.
-                if ((bool)a.Data[2])
-                {
-                    // Grabamos y validamos.
-                    Bll.TasaDeUso.Save((Bel.ETasaDeUso)a.Data[1], m_smResult);
-                    if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
-
-                    // Actualizamos en memoria y pantalla.
-                    cargaMiniRepTasaUso();
-                }
-            }
-        }
-         */
 
 
         #endregion

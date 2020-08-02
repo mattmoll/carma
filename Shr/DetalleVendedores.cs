@@ -34,22 +34,16 @@ namespace Carm.Shr
             DetalleVend.SelectedTab = tabVendedor;
             AppRuts.App_ShowMsg("Cargando");
 
-            ListaEntidades l_leClientes = null;
             ListaEntidades l_leEntrevistas = null;
             ListaEntidades l_leLlamadas = null;
             Bel.EVendedor l_eVendedor = null;
-            ListaEntidades l_leSolicitudes = null;
 
             // Traer datos del vendedor
             pTraerVendedor(ref l_eVendedor);
-            // Traer reservas actuales
-            pTraerReservas(ref l_leClientes);
             // Traer entrevistas
             pTraerEntrevistas(ref l_leEntrevistas);
             // Traer llamadas realizadas
             pTraerLlamadas(ref l_leLlamadas);
-            // Traer reservas anteriores
-            pTraerSolicitudes(ref l_leSolicitudes);
 
             // Validamos que no haya errores.
             if (AppRuts.MsgRuts_AnalizeError(this,m_smResult))
@@ -57,14 +51,10 @@ namespace Carm.Shr
 
             // Mostrar datos del vendedor
             pLlenarCamposVendedor(l_eVendedor);
-            // Mostrar reservas actuales
-            pLlenarReservas(l_leClientes);
             // Mostrar entrevistas
             pLlenarEntrevistas(l_leEntrevistas);
             // Mostrar llamadas realizadas
             pLlenarLlamadas(l_leLlamadas);
-            // Mostrar reservas anteriores
-            pLlenarSolicitudes(l_leSolicitudes);
 
             AppRuts.App_HideMsg();
 
@@ -96,38 +86,7 @@ namespace Carm.Shr
             txtHorarios.Text = l_eVendedor.Horarios;
             // Datos institucionales
             txtSuperv.Text = l_eVendedor.Vnd_nom_superv;
-            txtJefeVtas.Text = l_eVendedor.Vnd_des_jvta;
             txtTvend.Text = l_eVendedor.Vnd_des_tipovnd;
-            txtMarca.Text = l_eVendedor.Vnd_des_marca;
-            txtBaseop.Text = l_eVendedor.Vnd_des_baseop;
-        }
-
-        // Traer reservas
-        private void pTraerReservas(ref ListaEntidades l_leClientes)
-        {
-            l_leClientes = Bll.Clientes.GetReservados(m_strCodVend, m_smResult);
-        }
-        // Llenar miniReport de reservas
-        private void pLlenarReservas(ListaEntidades l_leClientes)
-        {
-            l_leClientes.ClearCaptions();
-
-            l_leClientes.ChangeCaption(ECliente.NumeroCmp, "V1NúmeroCN2");                         /*0*/
-            l_leClientes.ChangeCaption(ECliente.RsocialCmp, "V1Razón SocialCN2");                  /*1*/
-            l_leClientes.ChangeCaption(ECliente.NombrefantCmp, "V1Nombre FantasíaCN2");            /*2*/
-            l_leClientes.ChangeCaption("cli_ent_pendientes", "V1Entrev. PendientesCN2");         /*3*/
-            l_leClientes.ChangeCaption("cli_des_tipoinst", "V1Tipo de instituciónCN2");          /*4*/
-            l_leClientes.ChangeCaption("cli_des_rubro", "V1RubroCN2");                           /*5*/
-            l_leClientes.ChangeCaption("cli_ent_pendientesvenc", "V1Entrev. IncompletasCN2");    /*6*/
-            l_leClientes.ChangeCaption("cli_ede_direccion", "V1DireccionCN2");                   /*7*/
-            l_leClientes.ChangeCaption("cli_ede_localidad", "V1LocalidadCN2");                   /*8*/
-            l_leClientes.ChangeCaption("cli_des_zona", "V1ZonaCN2");                             /*9*/
-            l_leClientes.ChangeCaption("cli_ent_realizadas", "V1Entrev. RealizadasCN2");         /*10*/
-            l_leClientes.ChangeCaption("cli_fec_finires", "V1Fecha de inicio de reservaCN2");    /*11*/
-            l_leClientes.ChangeCaption("cli_fec_ffinres", "V1Fecha fin de reservaCN2");          /*12*/  
-
-            //---Cargar en miniReport
-            mrReservasAct.LoadData(l_leClientes, "Clientes", "", "SIMA", "", "", "Reservas actuales", m_smResult);
         }
 
         // Traer entrevistas
@@ -173,26 +132,6 @@ namespace Carm.Shr
             mrLlamadas.LoadData(l_leLlamadas, "Clientes", "", "SIMA", "", "", "Llamadas realizadas", m_smResult);
         }
 
-        // Traer reservas anteriores
-        private void pTraerSolicitudes(ref ListaEntidades l_leReservasAnt)
-        {
-            l_leReservasAnt = Bll.Vendedores.GetSolicitudes(m_strCodVend, m_smResult);
-        }
-        // LLenar miniReport de reservas anteriores
-        private void pLlenarSolicitudes(ListaEntidades l_leSolicitudes)
-        {
-            l_leSolicitudes.ClearCaptions();
-
-            l_leSolicitudes.ChangeCaption("cli_ede_rsocial", "V1Razón socialCN2");                /*0*/
-            l_leSolicitudes.ChangeCaption("sol_fyh_fproceso", "V1Fecha de procesoCN2");           /*1*/
-            l_leSolicitudes.ChangeCaption("sol_nom_autorizador", "V1AutorizadorCN2");             /*2*/
-            l_leSolicitudes.ChangeCaption("sol_des_estado", "V1EstadoCN2");                       /*3*/
-            l_leSolicitudes.ChangeCaption("sol_xde_obssol", "V1Observación del solicitanteCN2");   /*4*/
-            l_leSolicitudes.ChangeCaption("sol_xde_obsaut", "V1Observación del autorizanteCN2");   /*5*/   
-            
-            //---Cargar en miniReport
-            mrSolicitudes.LoadData(l_leSolicitudes, "Clientes", "", "SIMA", "", "", "Solicitudes", m_smResult);
-        }
 
         #endregion
 

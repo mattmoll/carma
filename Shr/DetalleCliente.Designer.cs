@@ -33,14 +33,7 @@
             this.DetalleCli = new TNGS.NetControls.FullTab();
             this.TabCliente = new System.Windows.Forms.TabPage();
             this.xPanel2 = new TNGS.NetControls.XPanel();
-            this.gbDejoEmpresa = new TNGS.NetControls.GlassButton();
             this.IGCliOtros = new TNGS.NetControls.ImgGroup();
-            this.teMarca = new TNGS.NetControls.TextEdit();
-            this.fullLabel15 = new TNGS.NetControls.FullLabel();
-            this.teCompetencia = new TNGS.NetControls.TextEdit();
-            this.fullLabel14 = new TNGS.NetControls.FullLabel();
-            this.fullLabel13 = new TNGS.NetControls.FullLabel();
-            this.dceDeuda = new TNGS.NetControls.DecimalEdit();
             this.teObservaciones = new TNGS.NetControls.TextEdit();
             this.fullLabel9 = new TNGS.NetControls.FullLabel();
             this.teCargador = new TNGS.NetControls.TextEdit();
@@ -48,19 +41,13 @@
             this.cueCuil = new TNGS.NetControls.CuitEdit();
             this.fullLabel2 = new TNGS.NetControls.FullLabel();
             this.GBEditCliOtros = new TNGS.NetControls.GlassButton();
-            this.TEOtrosCobertura = new TNGS.NetControls.TextEdit();
-            this.FLCliCobertura = new TNGS.NetControls.FullLabel();
             this.NEOtrosCantEmp = new TNGS.NetControls.NumberEdit();
             this.FLCliCantEmp = new TNGS.NetControls.FullLabel();
-            this.DEOtrosFFinRes = new TNGS.NetControls.DateEdit();
             this.TEOtrosHorarios = new TNGS.NetControls.TextEdit();
             this.FLCliHorarios = new TNGS.NetControls.FullLabel();
-            this.FLCliFFinReserva = new TNGS.NetControls.FullLabel();
             this.fullLabel3 = new TNGS.NetControls.FullLabel();
             this.gbNotas = new TNGS.NetControls.GlassButton();
             this.nNotas = new TNGS.NetControls.Notes();
-            this.gbFueArreglado = new TNGS.NetControls.GlassButton();
-            this.gbDatosErroneos = new TNGS.NetControls.GlassButton();
             this.IGCliUbicacion = new TNGS.NetControls.ImgGroup();
             this.fullLabel5 = new TNGS.NetControls.FullLabel();
             this.neUbAltura = new TNGS.NetControls.NumberEdit();
@@ -137,7 +124,6 @@
             this.fllServiciosEmpresa = new TNGS.NetControls.FullLabel();
             this.mrServicios = new TNGS.NetControls.MiniReport();
             this.imgGroup4 = new TNGS.NetControls.ImgGroup();
-            this.gbCompetencia = new TNGS.NetControls.GlassButton();
             this.gbServicioNuevo = new TNGS.NetControls.GlassButton();
             this.TabNotas = new System.Windows.Forms.TabPage();
             this.xPanel4 = new TNGS.NetControls.XPanel();
@@ -145,19 +131,6 @@
             this.imgGroup3 = new TNGS.NetControls.ImgGroup();
             this.gbVerNota = new TNGS.NetControls.GlassButton();
             this.mrNotas = new TNGS.NetControls.MiniReport();
-            this.TabTasaDeUso = new System.Windows.Forms.TabPage();
-            this.xPanel7 = new TNGS.NetControls.XPanel();
-            this.imgGroup5 = new TNGS.NetControls.ImgGroup();
-            this.fullLabel17 = new TNGS.NetControls.FullLabel();
-            this.neAnioTasaUso = new TNGS.NetControls.NumberEdit();
-            this.gbVerTasaDeUso = new TNGS.NetControls.GlassButton();
-            this.fullLabel16 = new TNGS.NetControls.FullLabel();
-            this.mrTasaDeUso = new TNGS.NetControls.MiniReport();
-            this.tpMailsEnviados = new System.Windows.Forms.TabPage();
-            this.xPanel8 = new TNGS.NetControls.XPanel();
-            this.imgGroup6 = new TNGS.NetControls.ImgGroup();
-            this.gbVerMail = new TNGS.NetControls.GlassButton();
-            this.mrMailsEnviados = new TNGS.NetControls.MiniReport();
             this.DetalleCli.SuspendLayout();
             this.TabCliente.SuspendLayout();
             this.xPanel2.SuspendLayout();
@@ -180,12 +153,6 @@
             this.TabNotas.SuspendLayout();
             this.xPanel4.SuspendLayout();
             this.imgGroup3.SuspendLayout();
-            this.TabTasaDeUso.SuspendLayout();
-            this.xPanel7.SuspendLayout();
-            this.imgGroup5.SuspendLayout();
-            this.tpMailsEnviados.SuspendLayout();
-            this.xPanel8.SuspendLayout();
-            this.imgGroup6.SuspendLayout();
             this.SuspendLayout();
             // 
             // DetalleCli
@@ -196,8 +163,6 @@
             this.DetalleCli.Controls.Add(this.TabLlamadas);
             this.DetalleCli.Controls.Add(this.TabServicios);
             this.DetalleCli.Controls.Add(this.TabNotas);
-            this.DetalleCli.Controls.Add(this.TabTasaDeUso);
-            this.DetalleCli.Controls.Add(this.tpMailsEnviados);
             this.DetalleCli.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DetalleCli.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.DetalleCli.FlatColor = System.Drawing.Color.RoyalBlue;
@@ -225,12 +190,9 @@
             // 
             this.xPanel2.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel2.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel2.Controls.Add(this.gbDejoEmpresa);
             this.xPanel2.Controls.Add(this.IGCliOtros);
             this.xPanel2.Controls.Add(this.gbNotas);
             this.xPanel2.Controls.Add(this.nNotas);
-            this.xPanel2.Controls.Add(this.gbFueArreglado);
-            this.xPanel2.Controls.Add(this.gbDatosErroneos);
             this.xPanel2.Controls.Add(this.IGCliUbicacion);
             this.xPanel2.Controls.Add(this.imgGroup2);
             this.xPanel2.Controls.Add(this.IGInstitucionales);
@@ -242,29 +204,6 @@
             this.xPanel2.SkinFixed = true;
             this.xPanel2.TabIndex = 0;
             // 
-            // gbDejoEmpresa
-            // 
-            this.gbDejoEmpresa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbDejoEmpresa.BackgroundImage")));
-            this.gbDejoEmpresa.BlackBorder = true;
-            this.gbDejoEmpresa.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.gbDejoEmpresa.CircleButton = false;
-            this.gbDejoEmpresa.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Cancel;
-            this.gbDejoEmpresa.FlatColor = System.Drawing.Color.Red;
-            this.gbDejoEmpresa.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Cancelar;
-            this.gbDejoEmpresa.FlatFontSize = 9;
-            this.gbDejoEmpresa.FlatTextColor = System.Drawing.Color.Black;
-            this.gbDejoEmpresa.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbDejoEmpresa.Location = new System.Drawing.Point(107, 3);
-            this.gbDejoEmpresa.Name = "gbDejoEmpresa";
-            this.gbDejoEmpresa.RoundCorners = 2;
-            this.gbDejoEmpresa.Size = new System.Drawing.Size(125, 25);
-            this.gbDejoEmpresa.TabIndex = 79;
-            this.gbDejoEmpresa.Text = "Dejó Empresa";
-            this.gbDejoEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gbDejoEmpresa.ToolTipText = "Muestra o esconde las notas del cliente";
-            this.gbDejoEmpresa.W8Color = System.Drawing.Color.Red;
-            this.gbDejoEmpresa.Click += new System.EventHandler(this.gbDejoEmpresa_Click);
-            // 
             // IGCliOtros
             // 
             this.IGCliOtros.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -273,12 +212,6 @@
             this.IGCliOtros.BlackBorder = true;
             this.IGCliOtros.BorderColor = System.Drawing.Color.DodgerBlue;
             this.IGCliOtros.BorderThickness = 1F;
-            this.IGCliOtros.Controls.Add(this.teMarca);
-            this.IGCliOtros.Controls.Add(this.fullLabel15);
-            this.IGCliOtros.Controls.Add(this.teCompetencia);
-            this.IGCliOtros.Controls.Add(this.fullLabel14);
-            this.IGCliOtros.Controls.Add(this.fullLabel13);
-            this.IGCliOtros.Controls.Add(this.dceDeuda);
             this.IGCliOtros.Controls.Add(this.teObservaciones);
             this.IGCliOtros.Controls.Add(this.fullLabel9);
             this.IGCliOtros.Controls.Add(this.teCargador);
@@ -286,14 +219,10 @@
             this.IGCliOtros.Controls.Add(this.cueCuil);
             this.IGCliOtros.Controls.Add(this.fullLabel2);
             this.IGCliOtros.Controls.Add(this.GBEditCliOtros);
-            this.IGCliOtros.Controls.Add(this.TEOtrosCobertura);
-            this.IGCliOtros.Controls.Add(this.FLCliCobertura);
             this.IGCliOtros.Controls.Add(this.NEOtrosCantEmp);
             this.IGCliOtros.Controls.Add(this.FLCliCantEmp);
-            this.IGCliOtros.Controls.Add(this.DEOtrosFFinRes);
             this.IGCliOtros.Controls.Add(this.TEOtrosHorarios);
             this.IGCliOtros.Controls.Add(this.FLCliHorarios);
-            this.IGCliOtros.Controls.Add(this.FLCliFFinReserva);
             this.IGCliOtros.Controls.Add(this.fullLabel3);
             this.IGCliOtros.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.IGCliOtros.FlatMode = true;
@@ -316,67 +245,10 @@
             this.IGCliOtros.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.IGCliOtros.TitleFontColor = System.Drawing.Color.White;
             // 
-            // teMarca
-            // 
-            this.teMarca.BackColor = System.Drawing.SystemColors.Window;
-            this.teMarca.Location = new System.Drawing.Point(521, 57);
-            this.teMarca.Multiline = true;
-            this.teMarca.Name = "teMarca";
-            this.teMarca.ReadOnly = true;
-            this.teMarca.Size = new System.Drawing.Size(314, 23);
-            this.teMarca.TabIndex = 84;
-            // 
-            // fullLabel15
-            // 
-            this.fullLabel15.Location = new System.Drawing.Point(436, 55);
-            this.fullLabel15.Name = "fullLabel15";
-            this.fullLabel15.Size = new System.Drawing.Size(79, 23);
-            this.fullLabel15.TabIndex = 85;
-            this.fullLabel15.Text = "Marca:";
-            this.fullLabel15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // teCompetencia
-            // 
-            this.teCompetencia.BackColor = System.Drawing.SystemColors.Window;
-            this.teCompetencia.Location = new System.Drawing.Point(520, 84);
-            this.teCompetencia.Multiline = true;
-            this.teCompetencia.Name = "teCompetencia";
-            this.teCompetencia.ReadOnly = true;
-            this.teCompetencia.Size = new System.Drawing.Size(314, 23);
-            this.teCompetencia.TabIndex = 82;
-            // 
-            // fullLabel14
-            // 
-            this.fullLabel14.Location = new System.Drawing.Point(435, 82);
-            this.fullLabel14.Name = "fullLabel14";
-            this.fullLabel14.Size = new System.Drawing.Size(79, 23);
-            this.fullLabel14.TabIndex = 83;
-            this.fullLabel14.Text = "Competencia:";
-            this.fullLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // fullLabel13
-            // 
-            this.fullLabel13.Location = new System.Drawing.Point(650, 29);
-            this.fullLabel13.Name = "fullLabel13";
-            this.fullLabel13.Size = new System.Drawing.Size(79, 23);
-            this.fullLabel13.TabIndex = 81;
-            this.fullLabel13.Text = "Deuda:";
-            this.fullLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // dceDeuda
-            // 
-            this.dceDeuda.BackColor = System.Drawing.SystemColors.Window;
-            this.dceDeuda.Location = new System.Drawing.Point(735, 31);
-            this.dceDeuda.MaxLength = 13;
-            this.dceDeuda.Name = "dceDeuda";
-            this.dceDeuda.Size = new System.Drawing.Size(100, 20);
-            this.dceDeuda.TabIndex = 80;
-            this.dceDeuda.Text = "0.00";
-            // 
             // teObservaciones
             // 
             this.teObservaciones.BackColor = System.Drawing.SystemColors.Window;
-            this.teObservaciones.Location = new System.Drawing.Point(130, 102);
+            this.teObservaciones.Location = new System.Drawing.Point(130, 83);
             this.teObservaciones.Multiline = true;
             this.teObservaciones.Name = "teObservaciones";
             this.teObservaciones.ReadOnly = true;
@@ -385,7 +257,7 @@
             // 
             // fullLabel9
             // 
-            this.fullLabel9.Location = new System.Drawing.Point(37, 100);
+            this.fullLabel9.Location = new System.Drawing.Point(37, 81);
             this.fullLabel9.Name = "fullLabel9";
             this.fullLabel9.Size = new System.Drawing.Size(88, 23);
             this.fullLabel9.TabIndex = 79;
@@ -395,7 +267,7 @@
             // teCargador
             // 
             this.teCargador.BackColor = System.Drawing.SystemColors.Window;
-            this.teCargador.Location = new System.Drawing.Point(521, 112);
+            this.teCargador.Location = new System.Drawing.Point(521, 83);
             this.teCargador.Multiline = true;
             this.teCargador.Name = "teCargador";
             this.teCargador.ReadOnly = true;
@@ -404,7 +276,7 @@
             // 
             // fullLabel8
             // 
-            this.fullLabel8.Location = new System.Drawing.Point(404, 110);
+            this.fullLabel8.Location = new System.Drawing.Point(404, 81);
             this.fullLabel8.Name = "fullLabel8";
             this.fullLabel8.Size = new System.Drawing.Size(112, 23);
             this.fullLabel8.TabIndex = 77;
@@ -450,25 +322,6 @@
             this.GBEditCliOtros.W8Color = System.Drawing.Color.DodgerBlue;
             this.GBEditCliOtros.Click += new System.EventHandler(this.GBEditCliOtros_Click);
             // 
-            // TEOtrosCobertura
-            // 
-            this.TEOtrosCobertura.BackColor = System.Drawing.SystemColors.Window;
-            this.TEOtrosCobertura.Location = new System.Drawing.Point(521, 139);
-            this.TEOtrosCobertura.Multiline = true;
-            this.TEOtrosCobertura.Name = "TEOtrosCobertura";
-            this.TEOtrosCobertura.ReadOnly = true;
-            this.TEOtrosCobertura.Size = new System.Drawing.Size(313, 21);
-            this.TEOtrosCobertura.TabIndex = 2;
-            // 
-            // FLCliCobertura
-            // 
-            this.FLCliCobertura.Location = new System.Drawing.Point(437, 137);
-            this.FLCliCobertura.Name = "FLCliCobertura";
-            this.FLCliCobertura.Size = new System.Drawing.Size(79, 23);
-            this.FLCliCobertura.TabIndex = 69;
-            this.FLCliCobertura.Text = "Cobertura:";
-            this.FLCliCobertura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // NEOtrosCantEmp
             // 
             this.NEOtrosCantEmp.BackColor = System.Drawing.SystemColors.Window;
@@ -488,20 +341,10 @@
             this.FLCliCantEmp.Text = "Cantidad";
             this.FLCliCantEmp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // DEOtrosFFinRes
-            // 
-            this.DEOtrosFFinRes.BackColor = System.Drawing.SystemColors.Window;
-            this.DEOtrosFFinRes.Location = new System.Drawing.Point(521, 31);
-            this.DEOtrosFFinRes.Name = "DEOtrosFFinRes";
-            this.DEOtrosFFinRes.ReadOnly = true;
-            this.DEOtrosFFinRes.Size = new System.Drawing.Size(103, 20);
-            this.DEOtrosFFinRes.TabIndex = 4;
-            this.DEOtrosFFinRes.Text = "01/01/1900";
-            // 
             // TEOtrosHorarios
             // 
             this.TEOtrosHorarios.BackColor = System.Drawing.SystemColors.Window;
-            this.TEOtrosHorarios.Location = new System.Drawing.Point(130, 75);
+            this.TEOtrosHorarios.Location = new System.Drawing.Point(521, 50);
             this.TEOtrosHorarios.Multiline = true;
             this.TEOtrosHorarios.Name = "TEOtrosHorarios";
             this.TEOtrosHorarios.ReadOnly = true;
@@ -510,21 +353,12 @@
             // 
             // FLCliHorarios
             // 
-            this.FLCliHorarios.Location = new System.Drawing.Point(45, 73);
+            this.FLCliHorarios.Location = new System.Drawing.Point(436, 48);
             this.FLCliHorarios.Name = "FLCliHorarios";
             this.FLCliHorarios.Size = new System.Drawing.Size(79, 23);
             this.FLCliHorarios.TabIndex = 67;
             this.FLCliHorarios.Text = "Horarios:";
             this.FLCliHorarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // FLCliFFinReserva
-            // 
-            this.FLCliFFinReserva.Location = new System.Drawing.Point(409, 29);
-            this.FLCliFFinReserva.Name = "FLCliFFinReserva";
-            this.FLCliFFinReserva.Size = new System.Drawing.Size(115, 23);
-            this.FLCliFFinReserva.TabIndex = 58;
-            this.FLCliFFinReserva.Text = "Fecha Fin Reserva:";
-            this.FLCliFFinReserva.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // fullLabel3
             // 
@@ -570,52 +404,6 @@
             this.nNotas.TabIndex = 1;
             this.nNotas.Visible = false;
             this.nNotas.Remove += new TNGS.NetRoutines.NoteEventHandler(this.nNotas_Remove);
-            // 
-            // gbFueArreglado
-            // 
-            this.gbFueArreglado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbFueArreglado.BackgroundImage")));
-            this.gbFueArreglado.BlackBorder = true;
-            this.gbFueArreglado.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.gbFueArreglado.CircleButton = false;
-            this.gbFueArreglado.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Accept;
-            this.gbFueArreglado.FlatColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.gbFueArreglado.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Aceptar;
-            this.gbFueArreglado.FlatFontSize = 9;
-            this.gbFueArreglado.FlatTextColor = System.Drawing.Color.Black;
-            this.gbFueArreglado.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbFueArreglado.Location = new System.Drawing.Point(786, 15);
-            this.gbFueArreglado.Name = "gbFueArreglado";
-            this.gbFueArreglado.PCode = "CLIFUEARREGLADO";
-            this.gbFueArreglado.RoundCorners = 2;
-            this.gbFueArreglado.Size = new System.Drawing.Size(97, 40);
-            this.gbFueArreglado.TabIndex = 78;
-            this.gbFueArreglado.Text = "Fue Arreglado";
-            this.gbFueArreglado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gbFueArreglado.W8Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.gbFueArreglado.Click += new System.EventHandler(this.gbFueArreglado_Click);
-            // 
-            // gbDatosErroneos
-            // 
-            this.gbDatosErroneos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbDatosErroneos.BackgroundImage")));
-            this.gbDatosErroneos.BlackBorder = true;
-            this.gbDatosErroneos.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.gbDatosErroneos.CircleButton = false;
-            this.gbDatosErroneos.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Cancel;
-            this.gbDatosErroneos.FlatColor = System.Drawing.Color.Red;
-            this.gbDatosErroneos.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Cancelar;
-            this.gbDatosErroneos.FlatFontSize = 9;
-            this.gbDatosErroneos.FlatTextColor = System.Drawing.Color.Black;
-            this.gbDatosErroneos.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbDatosErroneos.Location = new System.Drawing.Point(690, 15);
-            this.gbDatosErroneos.Name = "gbDatosErroneos";
-            this.gbDatosErroneos.PCode = "CLIDATOSERRONEO";
-            this.gbDatosErroneos.RoundCorners = 2;
-            this.gbDatosErroneos.Size = new System.Drawing.Size(90, 40);
-            this.gbDatosErroneos.TabIndex = 62;
-            this.gbDatosErroneos.Text = "Datos Erroneos";
-            this.gbDatosErroneos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gbDatosErroneos.W8Color = System.Drawing.Color.Red;
-            this.gbDatosErroneos.Click += new System.EventHandler(this.gbDatosErroneos_Click);
             // 
             // IGCliUbicacion
             // 
@@ -1710,7 +1498,6 @@
             this.imgGroup4.BlackBorder = true;
             this.imgGroup4.BorderColor = System.Drawing.Color.DodgerBlue;
             this.imgGroup4.BorderThickness = 1F;
-            this.imgGroup4.Controls.Add(this.gbCompetencia);
             this.imgGroup4.Controls.Add(this.gbServicioNuevo);
             this.imgGroup4.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.imgGroup4.FlatMode = true;
@@ -1734,29 +1521,6 @@
             this.imgGroup4.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.imgGroup4.TitleFontColor = System.Drawing.Color.White;
             // 
-            // gbCompetencia
-            // 
-            this.gbCompetencia.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbCompetencia.BackgroundImage")));
-            this.gbCompetencia.BlackBorder = true;
-            this.gbCompetencia.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.gbCompetencia.CircleButton = false;
-            this.gbCompetencia.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Note;
-            this.gbCompetencia.FlatColor = System.Drawing.Color.DodgerBlue;
-            this.gbCompetencia.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
-            this.gbCompetencia.FlatFontSize = 9;
-            this.gbCompetencia.FlatTextColor = System.Drawing.Color.Black;
-            this.gbCompetencia.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbCompetencia.ImageOnTop = true;
-            this.gbCompetencia.Location = new System.Drawing.Point(510, 50);
-            this.gbCompetencia.Name = "gbCompetencia";
-            this.gbCompetencia.RoundCorners = 2;
-            this.gbCompetencia.Size = new System.Drawing.Size(96, 70);
-            this.gbCompetencia.TabIndex = 10;
-            this.gbCompetencia.Text = "Pasar a Competencia";
-            this.gbCompetencia.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.gbCompetencia.W8Color = System.Drawing.Color.DodgerBlue;
-            this.gbCompetencia.Click += new System.EventHandler(this.gbCompetencia_Click);
-            // 
             // gbServicioNuevo
             // 
             this.gbServicioNuevo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbServicioNuevo.BackgroundImage")));
@@ -1770,7 +1534,7 @@
             this.gbServicioNuevo.FlatTextColor = System.Drawing.Color.Black;
             this.gbServicioNuevo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.gbServicioNuevo.ImageOnTop = true;
-            this.gbServicioNuevo.Location = new System.Drawing.Point(291, 50);
+            this.gbServicioNuevo.Location = new System.Drawing.Point(401, 48);
             this.gbServicioNuevo.Name = "gbServicioNuevo";
             this.gbServicioNuevo.RoundCorners = 2;
             this.gbServicioNuevo.Size = new System.Drawing.Size(83, 70);
@@ -1890,232 +1654,6 @@
             this.mrNotas.TabIndex = 5;
             this.mrNotas.GetColor += new TNGS.NetRoutines.GetColorEventHandler(this.mrNotas_GetColor);
             // 
-            // TabTasaDeUso
-            // 
-            this.TabTasaDeUso.Controls.Add(this.xPanel7);
-            this.TabTasaDeUso.Location = new System.Drawing.Point(4, 25);
-            this.TabTasaDeUso.Name = "TabTasaDeUso";
-            this.TabTasaDeUso.Padding = new System.Windows.Forms.Padding(3);
-            this.TabTasaDeUso.Size = new System.Drawing.Size(908, 604);
-            this.TabTasaDeUso.TabIndex = 6;
-            this.TabTasaDeUso.Text = "Tasa de Uso";
-            this.TabTasaDeUso.UseVisualStyleBackColor = true;
-            // 
-            // xPanel7
-            // 
-            this.xPanel7.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel7.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel7.Controls.Add(this.imgGroup5);
-            this.xPanel7.Controls.Add(this.fullLabel16);
-            this.xPanel7.Controls.Add(this.mrTasaDeUso);
-            this.xPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xPanel7.Location = new System.Drawing.Point(3, 3);
-            this.xPanel7.Name = "xPanel7";
-            this.xPanel7.Size = new System.Drawing.Size(902, 598);
-            this.xPanel7.SkinFixed = true;
-            this.xPanel7.TabIndex = 0;
-            // 
-            // imgGroup5
-            // 
-            this.imgGroup5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgGroup5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.imgGroup5.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.imgGroup5.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
-            this.imgGroup5.BlackBorder = true;
-            this.imgGroup5.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.imgGroup5.BorderThickness = 1F;
-            this.imgGroup5.Controls.Add(this.fullLabel17);
-            this.imgGroup5.Controls.Add(this.neAnioTasaUso);
-            this.imgGroup5.Controls.Add(this.gbVerTasaDeUso);
-            this.imgGroup5.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.imgGroup5.FlatMode = true;
-            this.imgGroup5.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imgGroup5.FontTitle = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imgGroup5.ForeColor = System.Drawing.Color.Black;
-            this.imgGroup5.GroupImage = null;
-            this.imgGroup5.GroupTitle = "Operaciones";
-            this.imgGroup5.Location = new System.Drawing.Point(3, 452);
-            this.imgGroup5.Name = "imgGroup5";
-            this.imgGroup5.Padding = new System.Windows.Forms.Padding(20);
-            this.imgGroup5.PaintGroupBox = false;
-            this.imgGroup5.RoundCorners = 4;
-            this.imgGroup5.ShadowColor = System.Drawing.Color.DarkGray;
-            this.imgGroup5.ShadowControl = false;
-            this.imgGroup5.ShadowThickness = 3;
-            this.imgGroup5.Size = new System.Drawing.Size(892, 141);
-            this.imgGroup5.SkinFixed = true;
-            this.imgGroup5.TabIndex = 10;
-            this.imgGroup5.TitleBackground = System.Drawing.Color.DodgerBlue;
-            this.imgGroup5.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
-            this.imgGroup5.TitleFontColor = System.Drawing.Color.White;
-            // 
-            // fullLabel17
-            // 
-            this.fullLabel17.Location = new System.Drawing.Point(245, 72);
-            this.fullLabel17.Name = "fullLabel17";
-            this.fullLabel17.Size = new System.Drawing.Size(109, 23);
-            this.fullLabel17.TabIndex = 114;
-            this.fullLabel17.Text = "Año:";
-            this.fullLabel17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // neAnioTasaUso
-            // 
-            this.neAnioTasaUso.BackColor = System.Drawing.SystemColors.Window;
-            this.neAnioTasaUso.Location = new System.Drawing.Point(369, 72);
-            this.neAnioTasaUso.Name = "neAnioTasaUso";
-            this.neAnioTasaUso.NegativeValid = false;
-            this.neAnioTasaUso.Size = new System.Drawing.Size(67, 23);
-            this.neAnioTasaUso.TabIndex = 113;
-            this.neAnioTasaUso.Text = "0";
-            this.neAnioTasaUso.ZeroValid = false;
-            // 
-            // gbVerTasaDeUso
-            // 
-            this.gbVerTasaDeUso.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbVerTasaDeUso.BackgroundImage")));
-            this.gbVerTasaDeUso.BlackBorder = true;
-            this.gbVerTasaDeUso.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.gbVerTasaDeUso.CircleButton = false;
-            this.gbVerTasaDeUso.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Search;
-            this.gbVerTasaDeUso.FlatColor = System.Drawing.Color.DodgerBlue;
-            this.gbVerTasaDeUso.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
-            this.gbVerTasaDeUso.FlatFontSize = 9;
-            this.gbVerTasaDeUso.FlatTextColor = System.Drawing.Color.Black;
-            this.gbVerTasaDeUso.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbVerTasaDeUso.ImageOnTop = true;
-            this.gbVerTasaDeUso.Location = new System.Drawing.Point(542, 47);
-            this.gbVerTasaDeUso.Name = "gbVerTasaDeUso";
-            this.gbVerTasaDeUso.PCode = "VERTASADEUSO";
-            this.gbVerTasaDeUso.RoundCorners = 2;
-            this.gbVerTasaDeUso.Size = new System.Drawing.Size(83, 75);
-            this.gbVerTasaDeUso.TabIndex = 9;
-            this.gbVerTasaDeUso.Text = "Ver Tasa de Uso";
-            this.gbVerTasaDeUso.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.gbVerTasaDeUso.W8Color = System.Drawing.Color.DodgerBlue;
-            this.gbVerTasaDeUso.Click += new System.EventHandler(this.gbVerTasaDeUso_Click);
-            // 
-            // fullLabel16
-            // 
-            this.fullLabel16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fullLabel16.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel16.Location = new System.Drawing.Point(118, 4);
-            this.fullLabel16.Name = "fullLabel16";
-            this.fullLabel16.Size = new System.Drawing.Size(688, 23);
-            this.fullLabel16.TabIndex = 9;
-            this.fullLabel16.Text = "Tasa de Uso del Año Actual";
-            this.fullLabel16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // mrTasaDeUso
-            // 
-            this.mrTasaDeUso.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mrTasaDeUso.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrTasaDeUso.Location = new System.Drawing.Point(0, 23);
-            this.mrTasaDeUso.Name = "mrTasaDeUso";
-            this.mrTasaDeUso.ShowExcel = false;
-            this.mrTasaDeUso.ShowPrtAll = false;
-            this.mrTasaDeUso.ShowPrtOne = false;
-            this.mrTasaDeUso.ShowZoom = false;
-            this.mrTasaDeUso.Size = new System.Drawing.Size(902, 423);
-            this.mrTasaDeUso.SkinFixed = true;
-            this.mrTasaDeUso.TabIndex = 8;
-            // 
-            // tpMailsEnviados
-            // 
-            this.tpMailsEnviados.Controls.Add(this.xPanel8);
-            this.tpMailsEnviados.Location = new System.Drawing.Point(4, 25);
-            this.tpMailsEnviados.Name = "tpMailsEnviados";
-            this.tpMailsEnviados.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMailsEnviados.Size = new System.Drawing.Size(908, 604);
-            this.tpMailsEnviados.TabIndex = 7;
-            this.tpMailsEnviados.Text = "Mails Enviados";
-            this.tpMailsEnviados.UseVisualStyleBackColor = true;
-            // 
-            // xPanel8
-            // 
-            this.xPanel8.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel8.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel8.Controls.Add(this.imgGroup6);
-            this.xPanel8.Controls.Add(this.mrMailsEnviados);
-            this.xPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xPanel8.Location = new System.Drawing.Point(3, 3);
-            this.xPanel8.Name = "xPanel8";
-            this.xPanel8.Size = new System.Drawing.Size(902, 598);
-            this.xPanel8.SkinFixed = true;
-            this.xPanel8.TabIndex = 1;
-            // 
-            // imgGroup6
-            // 
-            this.imgGroup6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgGroup6.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.imgGroup6.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.imgGroup6.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
-            this.imgGroup6.BlackBorder = true;
-            this.imgGroup6.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.imgGroup6.BorderThickness = 1F;
-            this.imgGroup6.Controls.Add(this.gbVerMail);
-            this.imgGroup6.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.imgGroup6.FlatMode = true;
-            this.imgGroup6.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imgGroup6.FontTitle = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imgGroup6.ForeColor = System.Drawing.Color.Black;
-            this.imgGroup6.GroupImage = null;
-            this.imgGroup6.GroupTitle = "Operaciones";
-            this.imgGroup6.Location = new System.Drawing.Point(3, 452);
-            this.imgGroup6.Name = "imgGroup6";
-            this.imgGroup6.Padding = new System.Windows.Forms.Padding(20);
-            this.imgGroup6.PaintGroupBox = false;
-            this.imgGroup6.RoundCorners = 4;
-            this.imgGroup6.ShadowColor = System.Drawing.Color.DarkGray;
-            this.imgGroup6.ShadowControl = false;
-            this.imgGroup6.ShadowThickness = 3;
-            this.imgGroup6.Size = new System.Drawing.Size(892, 141);
-            this.imgGroup6.SkinFixed = true;
-            this.imgGroup6.TabIndex = 10;
-            this.imgGroup6.TitleBackground = System.Drawing.Color.DodgerBlue;
-            this.imgGroup6.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
-            this.imgGroup6.TitleFontColor = System.Drawing.Color.White;
-            // 
-            // gbVerMail
-            // 
-            this.gbVerMail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbVerMail.BackgroundImage")));
-            this.gbVerMail.BlackBorder = true;
-            this.gbVerMail.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.gbVerMail.CircleButton = false;
-            this.gbVerMail.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Search;
-            this.gbVerMail.FlatColor = System.Drawing.Color.DodgerBlue;
-            this.gbVerMail.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
-            this.gbVerMail.FlatFontSize = 9;
-            this.gbVerMail.FlatTextColor = System.Drawing.Color.Black;
-            this.gbVerMail.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbVerMail.ImageOnTop = true;
-            this.gbVerMail.Location = new System.Drawing.Point(404, 48);
-            this.gbVerMail.Name = "gbVerMail";
-            this.gbVerMail.RoundCorners = 2;
-            this.gbVerMail.Size = new System.Drawing.Size(83, 70);
-            this.gbVerMail.TabIndex = 9;
-            this.gbVerMail.Text = "Ver Mail";
-            this.gbVerMail.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.gbVerMail.W8Color = System.Drawing.Color.DodgerBlue;
-            this.gbVerMail.Click += new System.EventHandler(this.gbVerMail_Click);
-            // 
-            // mrMailsEnviados
-            // 
-            this.mrMailsEnviados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mrMailsEnviados.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrMailsEnviados.Location = new System.Drawing.Point(0, 15);
-            this.mrMailsEnviados.Name = "mrMailsEnviados";
-            this.mrMailsEnviados.ShowExcel = false;
-            this.mrMailsEnviados.ShowPrtAll = false;
-            this.mrMailsEnviados.ShowPrtOne = false;
-            this.mrMailsEnviados.ShowZoom = false;
-            this.mrMailsEnviados.Size = new System.Drawing.Size(902, 431);
-            this.mrMailsEnviados.SkinFixed = true;
-            this.mrMailsEnviados.TabIndex = 8;
-            // 
             // DetalleCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2155,13 +1693,6 @@
             this.TabNotas.ResumeLayout(false);
             this.xPanel4.ResumeLayout(false);
             this.imgGroup3.ResumeLayout(false);
-            this.TabTasaDeUso.ResumeLayout(false);
-            this.xPanel7.ResumeLayout(false);
-            this.imgGroup5.ResumeLayout(false);
-            this.imgGroup5.PerformLayout();
-            this.tpMailsEnviados.ResumeLayout(false);
-            this.xPanel8.ResumeLayout(false);
-            this.imgGroup6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2206,7 +1737,6 @@
         private TNGS.NetControls.TextEdit TEContTel2;
         private TNGS.NetControls.TextEdit TEContFax;
         private TNGS.NetControls.FullLabel FLCliFax;
-        private TNGS.NetControls.FullLabel FLCliFFinReserva;
         private TNGS.NetControls.TextEdit TEUbOficina;
         private TNGS.NetControls.FullLabel FLCliOficina;
         private TNGS.NetControls.TextEdit TEUbPiso;
@@ -2216,11 +1746,8 @@
         private TNGS.NetControls.FullLabel FLTitulo;
         private TNGS.NetControls.NumberEdit NEOtrosCantEmp;
         private TNGS.NetControls.FullLabel FLCliCantEmp;
-        private TNGS.NetControls.TextEdit TEOtrosCobertura;
-        private TNGS.NetControls.FullLabel FLCliCobertura;
         private TNGS.NetControls.TextEdit TEOtrosHorarios;
         private TNGS.NetControls.FullLabel FLCliHorarios;
-        private TNGS.NetControls.DateEdit DEOtrosFFinRes;
         private TNGS.NetControls.ImgGroup IGCliUbicacion;
         private TNGS.NetControls.ImgGroup IGCliOtros;
         private TNGS.NetControls.GlassButton GBEditCliOtros;
@@ -2243,14 +1770,12 @@
         private TNGS.NetControls.FullLabel fullLabel2;
         private TNGS.NetControls.TextEdit teInstMayorista;
         private TNGS.NetControls.FullLabel fullLabel4;
-        private TNGS.NetControls.GlassButton gbDatosErroneos;
         private TNGS.NetControls.Notes nNotas;
         private TNGS.NetControls.GlassButton gbNotas;
         private TNGS.NetControls.MiniReport mrNotas;
         private TNGS.NetControls.ImgGroup imgGroup3;
         private TNGS.NetControls.GlassButton gbVerNota;
         private TNGS.NetControls.Notes nVerNota;
-        private TNGS.NetControls.GlassButton gbFueArreglado;
         private System.Windows.Forms.TabPage TabServicios;
         private TNGS.NetControls.XPanel xPanel6;
         private TNGS.NetControls.ImgGroup imgGroup4;
@@ -2274,27 +1799,6 @@
         private TNGS.NetControls.FullLabel fullLabel12;
         private TNGS.NetControls.FullLabel fullLabel11;
         private TNGS.NetControls.FullLabel fllServiciosEmpresa;
-        private System.Windows.Forms.TabPage TabTasaDeUso;
-        private TNGS.NetControls.XPanel xPanel7;
-        private TNGS.NetControls.MiniReport mrTasaDeUso;
         private TNGS.NetControls.GlassButton gbEnviarCarta;
-        private TNGS.NetControls.FullLabel fullLabel13;
-        private TNGS.NetControls.DecimalEdit dceDeuda;
-        private TNGS.NetControls.GlassButton gbCompetencia;
-        private TNGS.NetControls.TextEdit teMarca;
-        private TNGS.NetControls.FullLabel fullLabel15;
-        private TNGS.NetControls.TextEdit teCompetencia;
-        private TNGS.NetControls.FullLabel fullLabel14;
-        private TNGS.NetControls.FullLabel fullLabel16;
-        private TNGS.NetControls.ImgGroup imgGroup5;
-        private TNGS.NetControls.FullLabel fullLabel17;
-        private TNGS.NetControls.NumberEdit neAnioTasaUso;
-        private TNGS.NetControls.GlassButton gbVerTasaDeUso;
-        private System.Windows.Forms.TabPage tpMailsEnviados;
-        private TNGS.NetControls.XPanel xPanel8;
-        private TNGS.NetControls.ImgGroup imgGroup6;
-        private TNGS.NetControls.GlassButton gbVerMail;
-        private TNGS.NetControls.MiniReport mrMailsEnviados;
-        private TNGS.NetControls.GlassButton gbDejoEmpresa;
     }
 }
