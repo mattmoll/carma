@@ -19,7 +19,7 @@ namespace Carm.Tg
     //----------------------------------------------------------------------------
     //                         TNG Software PRG Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:12
+    // Fecha                    : 02/08/2020 01:01
     // Sistema                  : Carm
     // Programa                 : Tablas Clasificadoras
     //----------------------------------------------------------------------------
@@ -156,17 +156,6 @@ namespace Carm.Tg
                 // *************************************************
                 // ** Menu: RR.HH.
                 // **
-                case "JVTAS"         : {new JefesVtas().Show(); return;}
-                // **
-                case "SUP"           : {new Supervisores().Show(); return;}
-                // **
-                case "TIPOVEND"      : {new TipoVendedores().Show(); return;}
-                // **
-                case "MARCAS"        : {new Marcas().Show(); return;}
-                // **
-                case "BOP"           : {new BasesOps().Show(); return;}
-                // **
-                case "VEND"          : {new Vendedores().Show(); return;}
 
                 // *************************************************
                 // ** Menu: Comunicaciones
@@ -176,36 +165,14 @@ namespace Carm.Tg
                 case "MOTLLAM"       : {new MotivosLlamadas().Show(); return;}
                 // **
                 case "RESENT"        : {new ResEntrevistas().Show(); return;}
-                // **
-                case "NOT"           : {new Notificados().Show(); return;}
-                // **
-                case "MRCNOT"        : {new MarcaNotificados().Show(); return;}
 
                 // *************************************************
                 // ** Menu: Operativa
                 // **
-                case "FRQ"           : {new Franquicias().Show(); return;}
-                // **
-                case "COMP"          : {new CompContactos().Show(); return;}
-                // **
-                case "SRV"           : {new Servicios().Show(); return;}
-                // **
-                case "PLNS"          : {new PlnServicios().Show(); return;}
-                // **
-                case "PRSRV"         : {new PreciosServicios().Show(); return;}
-                // **
-                case "CON"           : {new ConversionColores().Show(); return;}
-                // **
-                case "IMP"           : {new ElegirTipoImportacion().Show(); return;}
-                // **
-                case "VIS"           : {new Shr.SeleccionClientes().Show(); return;}
-                // **
-                case "CVND"          : {new Shr.SeleccionClientes(1).Show(); return;}
 
                 // *************************************************
                 // ** Menu: Clasificadores
                 // **
-                case "TSOL"          : {new TipoSols().Show(); return;}
                 // **
                 case "TCONT"         : {new TipoConts().Show(); return;}
                 // **

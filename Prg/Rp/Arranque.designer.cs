@@ -19,7 +19,7 @@ namespace Carm.Rp
     //----------------------------------------------------------------------------
     //                         TNG Software PRG Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:12
+    // Fecha                    : 02/08/2020 01:01
     // Sistema                  : Carm
     // Programa                 : Reportes
     //----------------------------------------------------------------------------
@@ -162,32 +162,11 @@ namespace Carm.Rp
                 // *************************************************
                 // ** Menu: Vendedores
                 // **
-                case "VRES"          : {new VndReservas().Show(); return;}
-                // **
                 case "VENT"          : {new VndEntrevistas().Show(); return;}
                 // **
                 case "VLLAM"         : {new VndLlamadas().Show(); return;}
                 // **
-                case "VVenc"         : {new VndVencidas().Show(); return;}
-                // **
                 case "VVTAS"         : {new VndVentas().Show(); return;}
-
-                // *************************************************
-                // ** Menu: Competencia
-                // **
-                case "CLOC"          : {new CmpXLocalidad().Show(); return;}
-                // **
-                case "CCLI"          : {new CmpClientes().Show(); return;}
-
-                // *************************************************
-                // ** Menu: Tasa de Uso
-                // **
-                case "XCLI"          : {new TusXCliente().Show(); return;}
-                // **
-                case "XTIN"          : {new TusXTipoInst().Show(); return;}
-
-                // *************************************************
-                // ** Menu: Secretarias
                 // **
                 case "LPROG"         : {new LlamadasProgramadas().Show(); return;}
 
@@ -197,20 +176,6 @@ namespace Carm.Rp
                 case "VTAMES"        : {new Ventas().Show(); return;}
                 // **
                 case "ABON"          : {new FacturacionAbonos().Show(); return;}
-
-                // *************************************************
-                // ** Menu: Historico Abonos
-                // **
-                case "CLAN"          : {new AjustesAbonosXClienteXAnio().Show(); return;}
-                // **
-                case "XMES"          : {new AjustesAbonosXMes().Show(); return;}
-
-                // *************************************************
-                // ** Menu: Reajustes
-                // **
-                case "RCLAN"         : {new ReajustesXClienteXAnio().Show(); return;}
-                // **
-                case "RXMES"         : {new ReajustesXMes().Show(); return;}
 
                 // *************************************************
                 // ** Ejecución automática al final del programa

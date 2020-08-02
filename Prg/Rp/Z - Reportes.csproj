@@ -98,13 +98,94 @@
     <Compile Include="Arranque.designer.cs">
       <DependentUpon>Arranque.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clientes\CliBajas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\CliBajas.Designer.cs">
+      <DependentUpon>CliBajas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\CliCargadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\CliCargadores.Designer.cs">
+      <DependentUpon>CliCargadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\CliLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\CliLog.Designer.cs">
+      <DependentUpon>CliLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\CliReclamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\CliReclamos.Designer.cs">
+      <DependentUpon>CliReclamos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\CliRecuperos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\CliRecuperos.Designer.cs">
+      <DependentUpon>CliRecuperos.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrgRuts.designer.cs">
       <DependentUpon>PrgRuts.cs</DependentUpon>
     </Compile>
     <Compile Include="PrgRuts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vendedores\LlamadasProgramadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendedores\LlamadasProgramadas.Designer.cs">
+      <DependentUpon>LlamadasProgramadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendedores\VndEntrevistas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendedores\VndEntrevistas.Designer.cs">
+      <DependentUpon>VndEntrevistas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendedores\VndLlamadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendedores\VndLlamadas.Designer.cs">
+      <DependentUpon>VndLlamadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendedores\VndVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendedores\VndVentas.Designer.cs">
+      <DependentUpon>VndVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\FacturacionAbonos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\FacturacionAbonos.Designer.cs">
+      <DependentUpon>FacturacionAbonos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Ventas.Designer.cs">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Arranque.resx">
       <DependentUpon>Arranque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\CliBajas.resx">
+      <DependentUpon>CliBajas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\CliCargadores.resx">
+      <DependentUpon>CliCargadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\CliLog.resx">
+      <DependentUpon>CliLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\CliReclamos.resx">
+      <DependentUpon>CliReclamos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\CliRecuperos.resx">
+      <DependentUpon>CliRecuperos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -116,6 +197,21 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Vendedores\LlamadasProgramadas.resx">
+      <DependentUpon>LlamadasProgramadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendedores\VndEntrevistas.resx">
+      <DependentUpon>VndEntrevistas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendedores\VndLlamadas.resx">
+      <DependentUpon>VndLlamadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendedores\VndVentas.resx">
+      <DependentUpon>VndVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\FacturacionAbonos.resx">
+      <DependentUpon>FacturacionAbonos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
