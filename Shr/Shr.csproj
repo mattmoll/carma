@@ -98,77 +98,6 @@
     <Compile Include="BusquedaClientes.Designer.cs">
       <DependentUpon>BusquedaClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cartas\LogicaCartas\CodesManager.cs" />
-    <Compile Include="Cartas\LogicaCartas\CodigoCarta.cs" />
-    <Compile Include="Cartas\LogicaCartas\Equivalencia.cs" />
-    <Compile Include="Cartas\LogicaCartas\GetVendedor.cs" />
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\StrategyEmailVend.cs" />
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\CodVariable.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\CodVariable.Designer.cs">
-      <DependentUpon>CodVariable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\Contacto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\Contacto.Designer.cs">
-      <DependentUpon>Contacto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\FormBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\FormBase.Designer.cs">
-      <DependentUpon>FormBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\ListaServicios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\ListaServicios.Designer.cs">
-      <DependentUpon>ListaServicios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\ListaServiciosDetalle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\ListaServiciosDetalle.Designer.cs">
-      <DependentUpon>ListaServiciosDetalle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\Precio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\Precio.Designer.cs">
-      <DependentUpon>Precio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\PrecioGerencia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Forms\PrecioGerencia.Designer.cs">
-      <DependentUpon>PrecioGerencia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\Strategy.cs" />
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\StrategyCampoSimple.cs" />
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\StrategyConVentana.cs" />
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\StrategyEmisor.cs" />
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\StrategyFechaActual.cs" />
-    <Compile Include="Cartas\LogicaCartas\Strategy Cartas\StrategyReservador.cs" />
-    <Compile Include="Cartas\MailSender.cs" />
-    <Compile Include="Cartas\MailsLlamada\MailLlamada.cs" />
-    <Compile Include="Cartas\MailsLlamada\MailLlamadaBaja.cs" />
-    <Compile Include="Cartas\MailsLlamada\MailRegularizoDeuda.cs" />
-    <Compile Include="Cartas\MailsLlamada\MailReajusteAbono.cs" />
-    <Compile Include="Cartas\MailsLlamada\MailLlamadaRecupero.cs" />
-    <Compile Include="Cartas\EnvioCarta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cartas\EnvioCarta.Designer.cs">
-      <DependentUpon>EnvioCarta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cartas\VisualizadorCarta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cartas\VisualizadorCarta.Designer.cs">
-      <DependentUpon>VisualizadorCarta.cs</DependentUpon>
-    </Compile>
     <Compile Include="Construccion Panel\Alignment.cs" />
     <Compile Include="BusqLocalidades.cs">
       <SubType>Form</SubType>
@@ -187,12 +116,6 @@
     </Compile>
     <Compile Include="DetalleVendedores.Designer.cs">
       <DependentUpon>DetalleVendedores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ElegirMarca.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ElegirMarca.Designer.cs">
-      <DependentUpon>ElegirMarca.cs</DependentUpon>
     </Compile>
     <Compile Include="Enumeradores.cs" />
     <Compile Include="Export.cs" />
@@ -256,35 +179,11 @@
       <DependentUpon>BusquedaClientes.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cartas\LogicaCartas\Strategy Cartas\Forms\CodVariable.resx">
-      <DependentUpon>CodVariable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cartas\LogicaCartas\Strategy Cartas\Forms\Contacto.resx">
-      <DependentUpon>Contacto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cartas\LogicaCartas\Strategy Cartas\Forms\ListaServicios.resx">
-      <DependentUpon>ListaServicios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cartas\LogicaCartas\Strategy Cartas\Forms\Precio.resx">
-      <DependentUpon>Precio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cartas\LogicaCartas\Strategy Cartas\Forms\PrecioGerencia.resx">
-      <DependentUpon>PrecioGerencia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cartas\EnvioCarta.resx">
-      <DependentUpon>EnvioCarta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cartas\VisualizadorCarta.resx">
-      <DependentUpon>VisualizadorCarta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DetalleCliente.resx">
       <DependentUpon>DetalleCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DetalleVendedores.resx">
       <DependentUpon>DetalleVendedores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ElegirMarca.resx">
-      <DependentUpon>ElegirMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>

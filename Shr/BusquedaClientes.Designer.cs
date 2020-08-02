@@ -33,24 +33,6 @@
             this.xPanel1 = new TNGS.NetControls.XPanel();
             this.gbCancelar = new TNGS.NetControls.GlassButton();
             this.lblTitulo = new TNGS.NetControls.FullLabel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.rbDeudoresSi = new System.Windows.Forms.RadioButton();
-            this.rbDeudoresAmbos = new System.Windows.Forms.RadioButton();
-            this.rbDeudoresNo = new System.Windows.Forms.RadioButton();
-            this.fullLabel22 = new TNGS.NetControls.FullLabel();
-            this.gbBusquedaExistencial = new TNGS.NetControls.GlassButton();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.rbCompetenciaSi = new System.Windows.Forms.RadioButton();
-            this.rbCompetenciaAmbos = new System.Windows.Forms.RadioButton();
-            this.rbCompetenciaNo = new System.Windows.Forms.RadioButton();
-            this.fullLabel21 = new TNGS.NetControls.FullLabel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.rbMailCargadoSi = new System.Windows.Forms.RadioButton();
-            this.rbMailCargadoAmbos = new System.Windows.Forms.RadioButton();
-            this.rbMailCargadoNo = new System.Windows.Forms.RadioButton();
-            this.fullLabel20 = new TNGS.NetControls.FullLabel();
-            this.cdcMarcas = new TNGS.NetControls.CDCombo();
-            this.fullLabel19 = new TNGS.NetControls.FullLabel();
             this.teTelefono = new System.Windows.Forms.TextBox();
             this.fullLabel18 = new TNGS.NetControls.FullLabel();
             this.neNumeroAvalon = new TNGS.NetControls.NumberEdit();
@@ -70,13 +52,6 @@
             this.teCodVend = new System.Windows.Forms.TextBox();
             this.teCargador = new System.Windows.Forms.TextBox();
             this.neNumero = new TNGS.NetControls.NumberEdit();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.rbErrSi = new System.Windows.Forms.RadioButton();
-            this.rbErrAmbos = new System.Windows.Forms.RadioButton();
-            this.rbErrNo = new System.Windows.Forms.RadioButton();
-            this.rbResAmbos = new System.Windows.Forms.RadioButton();
-            this.rbResNo = new System.Windows.Forms.RadioButton();
-            this.rbResSi = new System.Windows.Forms.RadioButton();
             this.teNombreFant = new System.Windows.Forms.TextBox();
             this.cmbLocalidades = new TNGS.NetControls.CDCombo();
             this.cmbZonas = new TNGS.NetControls.CDCombo();
@@ -90,8 +65,6 @@
             this.fullLabel12 = new TNGS.NetControls.FullLabel();
             this.fullLabel11 = new TNGS.NetControls.FullLabel();
             this.fullLabel10 = new TNGS.NetControls.FullLabel();
-            this.fullLabel9 = new TNGS.NetControls.FullLabel();
-            this.fullLabel8 = new TNGS.NetControls.FullLabel();
             this.fullLabel7 = new TNGS.NetControls.FullLabel();
             this.fullLabel6 = new TNGS.NetControls.FullLabel();
             this.fullLabel5 = new TNGS.NetControls.FullLabel();
@@ -100,12 +73,8 @@
             this.fullLabel2 = new TNGS.NetControls.FullLabel();
             this.fullLabel1 = new TNGS.NetControls.FullLabel();
             this.xPanel1.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // xPanel1
@@ -115,15 +84,6 @@
             this.xPanel1.BorderColor = System.Drawing.Color.Black;
             this.xPanel1.Controls.Add(this.gbCancelar);
             this.xPanel1.Controls.Add(this.lblTitulo);
-            this.xPanel1.Controls.Add(this.panel6);
-            this.xPanel1.Controls.Add(this.fullLabel22);
-            this.xPanel1.Controls.Add(this.gbBusquedaExistencial);
-            this.xPanel1.Controls.Add(this.panel5);
-            this.xPanel1.Controls.Add(this.fullLabel21);
-            this.xPanel1.Controls.Add(this.panel4);
-            this.xPanel1.Controls.Add(this.fullLabel20);
-            this.xPanel1.Controls.Add(this.cdcMarcas);
-            this.xPanel1.Controls.Add(this.fullLabel19);
             this.xPanel1.Controls.Add(this.teTelefono);
             this.xPanel1.Controls.Add(this.fullLabel18);
             this.xPanel1.Controls.Add(this.neNumeroAvalon);
@@ -137,10 +97,6 @@
             this.xPanel1.Controls.Add(this.teCodVend);
             this.xPanel1.Controls.Add(this.teCargador);
             this.xPanel1.Controls.Add(this.neNumero);
-            this.xPanel1.Controls.Add(this.panel1);
-            this.xPanel1.Controls.Add(this.rbResAmbos);
-            this.xPanel1.Controls.Add(this.rbResNo);
-            this.xPanel1.Controls.Add(this.rbResSi);
             this.xPanel1.Controls.Add(this.teNombreFant);
             this.xPanel1.Controls.Add(this.cmbLocalidades);
             this.xPanel1.Controls.Add(this.cmbZonas);
@@ -154,8 +110,6 @@
             this.xPanel1.Controls.Add(this.fullLabel12);
             this.xPanel1.Controls.Add(this.fullLabel11);
             this.xPanel1.Controls.Add(this.fullLabel10);
-            this.xPanel1.Controls.Add(this.fullLabel9);
-            this.xPanel1.Controls.Add(this.fullLabel8);
             this.xPanel1.Controls.Add(this.fullLabel7);
             this.xPanel1.Controls.Add(this.fullLabel6);
             this.xPanel1.Controls.Add(this.fullLabel5);
@@ -202,227 +156,10 @@
             this.lblTitulo.Text = "Busqueda de Clientes";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.Controls.Add(this.rbDeudoresSi);
-            this.panel6.Controls.Add(this.rbDeudoresAmbos);
-            this.panel6.Controls.Add(this.rbDeudoresNo);
-            this.panel6.Location = new System.Drawing.Point(132, 443);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(181, 21);
-            this.panel6.TabIndex = 137;
-            // 
-            // rbDeudoresSi
-            // 
-            this.rbDeudoresSi.AutoSize = true;
-            this.rbDeudoresSi.BackColor = System.Drawing.Color.Transparent;
-            this.rbDeudoresSi.Location = new System.Drawing.Point(3, 3);
-            this.rbDeudoresSi.Name = "rbDeudoresSi";
-            this.rbDeudoresSi.Size = new System.Drawing.Size(34, 17);
-            this.rbDeudoresSi.TabIndex = 0;
-            this.rbDeudoresSi.Text = "Si";
-            this.rbDeudoresSi.UseVisualStyleBackColor = false;
-            this.rbDeudoresSi.CheckedChanged += new System.EventHandler(this.rbDeudores_CheckedChanged);
-            // 
-            // rbDeudoresAmbos
-            // 
-            this.rbDeudoresAmbos.AutoSize = true;
-            this.rbDeudoresAmbos.BackColor = System.Drawing.Color.Transparent;
-            this.rbDeudoresAmbos.Checked = true;
-            this.rbDeudoresAmbos.Location = new System.Drawing.Point(113, 3);
-            this.rbDeudoresAmbos.Name = "rbDeudoresAmbos";
-            this.rbDeudoresAmbos.Size = new System.Drawing.Size(57, 17);
-            this.rbDeudoresAmbos.TabIndex = 2;
-            this.rbDeudoresAmbos.TabStop = true;
-            this.rbDeudoresAmbos.Text = "Ambos";
-            this.rbDeudoresAmbos.UseVisualStyleBackColor = false;
-            // 
-            // rbDeudoresNo
-            // 
-            this.rbDeudoresNo.AutoSize = true;
-            this.rbDeudoresNo.BackColor = System.Drawing.Color.Transparent;
-            this.rbDeudoresNo.Location = new System.Drawing.Point(55, 3);
-            this.rbDeudoresNo.Name = "rbDeudoresNo";
-            this.rbDeudoresNo.Size = new System.Drawing.Size(39, 17);
-            this.rbDeudoresNo.TabIndex = 1;
-            this.rbDeudoresNo.Text = "No";
-            this.rbDeudoresNo.UseVisualStyleBackColor = false;
-            // 
-            // fullLabel22
-            // 
-            this.fullLabel22.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel22.Location = new System.Drawing.Point(8, 448);
-            this.fullLabel22.Name = "fullLabel22";
-            this.fullLabel22.Size = new System.Drawing.Size(122, 16);
-            this.fullLabel22.TabIndex = 138;
-            this.fullLabel22.Text = "Seguimiento Cobranzas:";
-            // 
-            // gbBusquedaExistencial
-            // 
-            this.gbBusquedaExistencial.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbBusquedaExistencial.BackgroundImage")));
-            this.gbBusquedaExistencial.BlackBorder = true;
-            this.gbBusquedaExistencial.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.gbBusquedaExistencial.CircleButton = false;
-            this.gbBusquedaExistencial.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Search;
-            this.gbBusquedaExistencial.FlatColor = System.Drawing.Color.DodgerBlue;
-            this.gbBusquedaExistencial.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
-            this.gbBusquedaExistencial.FlatFontSize = 9;
-            this.gbBusquedaExistencial.FlatTextColor = System.Drawing.Color.Black;
-            this.gbBusquedaExistencial.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbBusquedaExistencial.Location = new System.Drawing.Point(465, 485);
-            this.gbBusquedaExistencial.Name = "gbBusquedaExistencial";
-            this.gbBusquedaExistencial.RoundCorners = 2;
-            this.gbBusquedaExistencial.Size = new System.Drawing.Size(157, 25);
-            this.gbBusquedaExistencial.TabIndex = 136;
-            this.gbBusquedaExistencial.Text = "Busqueda Existencial";
-            this.gbBusquedaExistencial.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gbBusquedaExistencial.Visible = false;
-            this.gbBusquedaExistencial.W8Color = System.Drawing.Color.DodgerBlue;
-            this.gbBusquedaExistencial.Click += new System.EventHandler(this.gbBusquedaExistencial_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Controls.Add(this.rbCompetenciaSi);
-            this.panel5.Controls.Add(this.rbCompetenciaAmbos);
-            this.panel5.Controls.Add(this.rbCompetenciaNo);
-            this.panel5.Location = new System.Drawing.Point(132, 407);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(181, 21);
-            this.panel5.TabIndex = 21;
-            // 
-            // rbCompetenciaSi
-            // 
-            this.rbCompetenciaSi.AutoSize = true;
-            this.rbCompetenciaSi.BackColor = System.Drawing.Color.Transparent;
-            this.rbCompetenciaSi.Location = new System.Drawing.Point(3, 3);
-            this.rbCompetenciaSi.Name = "rbCompetenciaSi";
-            this.rbCompetenciaSi.Size = new System.Drawing.Size(34, 17);
-            this.rbCompetenciaSi.TabIndex = 0;
-            this.rbCompetenciaSi.Text = "Si";
-            this.rbCompetenciaSi.UseVisualStyleBackColor = false;
-            this.rbCompetenciaSi.CheckedChanged += new System.EventHandler(this.rbCheckedCompetenciaChanged);
-            // 
-            // rbCompetenciaAmbos
-            // 
-            this.rbCompetenciaAmbos.AutoSize = true;
-            this.rbCompetenciaAmbos.BackColor = System.Drawing.Color.Transparent;
-            this.rbCompetenciaAmbos.Checked = true;
-            this.rbCompetenciaAmbos.Location = new System.Drawing.Point(113, 3);
-            this.rbCompetenciaAmbos.Name = "rbCompetenciaAmbos";
-            this.rbCompetenciaAmbos.Size = new System.Drawing.Size(57, 17);
-            this.rbCompetenciaAmbos.TabIndex = 2;
-            this.rbCompetenciaAmbos.TabStop = true;
-            this.rbCompetenciaAmbos.Text = "Ambos";
-            this.rbCompetenciaAmbos.UseVisualStyleBackColor = false;
-            this.rbCompetenciaAmbos.CheckedChanged += new System.EventHandler(this.rbCheckedCompetenciaChanged);
-            // 
-            // rbCompetenciaNo
-            // 
-            this.rbCompetenciaNo.AutoSize = true;
-            this.rbCompetenciaNo.BackColor = System.Drawing.Color.Transparent;
-            this.rbCompetenciaNo.Location = new System.Drawing.Point(55, 3);
-            this.rbCompetenciaNo.Name = "rbCompetenciaNo";
-            this.rbCompetenciaNo.Size = new System.Drawing.Size(39, 17);
-            this.rbCompetenciaNo.TabIndex = 1;
-            this.rbCompetenciaNo.Text = "No";
-            this.rbCompetenciaNo.UseVisualStyleBackColor = false;
-            this.rbCompetenciaNo.CheckedChanged += new System.EventHandler(this.rbCheckedCompetenciaChanged);
-            // 
-            // fullLabel21
-            // 
-            this.fullLabel21.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel21.Location = new System.Drawing.Point(8, 412);
-            this.fullLabel21.Name = "fullLabel21";
-            this.fullLabel21.Size = new System.Drawing.Size(93, 16);
-            this.fullLabel21.TabIndex = 135;
-            this.fullLabel21.Text = "Competencia:";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Controls.Add(this.rbMailCargadoSi);
-            this.panel4.Controls.Add(this.rbMailCargadoAmbos);
-            this.panel4.Controls.Add(this.rbMailCargadoNo);
-            this.panel4.Location = new System.Drawing.Point(425, 407);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(181, 21);
-            this.panel4.TabIndex = 22;
-            // 
-            // rbMailCargadoSi
-            // 
-            this.rbMailCargadoSi.AutoSize = true;
-            this.rbMailCargadoSi.BackColor = System.Drawing.Color.Transparent;
-            this.rbMailCargadoSi.Location = new System.Drawing.Point(3, 3);
-            this.rbMailCargadoSi.Name = "rbMailCargadoSi";
-            this.rbMailCargadoSi.Size = new System.Drawing.Size(34, 17);
-            this.rbMailCargadoSi.TabIndex = 0;
-            this.rbMailCargadoSi.Text = "Si";
-            this.rbMailCargadoSi.UseVisualStyleBackColor = false;
-            this.rbMailCargadoSi.CheckedChanged += new System.EventHandler(this.rbCheckedMailCargadoChanged);
-            // 
-            // rbMailCargadoAmbos
-            // 
-            this.rbMailCargadoAmbos.AutoSize = true;
-            this.rbMailCargadoAmbos.BackColor = System.Drawing.Color.Transparent;
-            this.rbMailCargadoAmbos.Checked = true;
-            this.rbMailCargadoAmbos.Location = new System.Drawing.Point(113, 3);
-            this.rbMailCargadoAmbos.Name = "rbMailCargadoAmbos";
-            this.rbMailCargadoAmbos.Size = new System.Drawing.Size(57, 17);
-            this.rbMailCargadoAmbos.TabIndex = 2;
-            this.rbMailCargadoAmbos.TabStop = true;
-            this.rbMailCargadoAmbos.Text = "Ambos";
-            this.rbMailCargadoAmbos.UseVisualStyleBackColor = false;
-            this.rbMailCargadoAmbos.CheckedChanged += new System.EventHandler(this.rbCheckedMailCargadoChanged);
-            // 
-            // rbMailCargadoNo
-            // 
-            this.rbMailCargadoNo.AutoSize = true;
-            this.rbMailCargadoNo.BackColor = System.Drawing.Color.Transparent;
-            this.rbMailCargadoNo.Location = new System.Drawing.Point(55, 3);
-            this.rbMailCargadoNo.Name = "rbMailCargadoNo";
-            this.rbMailCargadoNo.Size = new System.Drawing.Size(39, 17);
-            this.rbMailCargadoNo.TabIndex = 1;
-            this.rbMailCargadoNo.Text = "No";
-            this.rbMailCargadoNo.UseVisualStyleBackColor = false;
-            this.rbMailCargadoNo.CheckedChanged += new System.EventHandler(this.rbCheckedMailCargadoChanged);
-            // 
-            // fullLabel20
-            // 
-            this.fullLabel20.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel20.Location = new System.Drawing.Point(326, 412);
-            this.fullLabel20.Name = "fullLabel20";
-            this.fullLabel20.Size = new System.Drawing.Size(93, 16);
-            this.fullLabel20.TabIndex = 133;
-            this.fullLabel20.Text = "Mail Cargado:";
-            // 
-            // cdcMarcas
-            // 
-            this.cdcMarcas.BackColor = System.Drawing.SystemColors.Window;
-            this.cdcMarcas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cdcMarcas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cdcMarcas.FormattingEnabled = true;
-            this.cdcMarcas.Location = new System.Drawing.Point(425, 64);
-            this.cdcMarcas.Name = "cdcMarcas";
-            this.cdcMarcas.Size = new System.Drawing.Size(197, 21);
-            this.cdcMarcas.Sorted = true;
-            this.cdcMarcas.TabIndex = 8;
-            this.cdcMarcas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
-            // fullLabel19
-            // 
-            this.fullLabel19.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel19.Location = new System.Drawing.Point(326, 67);
-            this.fullLabel19.Name = "fullLabel19";
-            this.fullLabel19.Size = new System.Drawing.Size(97, 16);
-            this.fullLabel19.TabIndex = 131;
-            this.fullLabel19.Text = "Marca:";
-            // 
             // teTelefono
             // 
             this.teTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teTelefono.Location = new System.Drawing.Point(425, 293);
+            this.teTelefono.Location = new System.Drawing.Point(425, 260);
             this.teTelefono.Name = "teTelefono";
             this.teTelefono.Size = new System.Drawing.Size(197, 20);
             this.teTelefono.TabIndex = 14;
@@ -431,7 +168,7 @@
             // fullLabel18
             // 
             this.fullLabel18.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel18.Location = new System.Drawing.Point(326, 296);
+            this.fullLabel18.Location = new System.Drawing.Point(326, 263);
             this.fullLabel18.Name = "fullLabel18";
             this.fullLabel18.Size = new System.Drawing.Size(76, 17);
             this.fullLabel18.TabIndex = 130;
@@ -463,7 +200,7 @@
             this.panel3.Controls.Add(this.rbMaySi);
             this.panel3.Controls.Add(this.rbMayAmbos);
             this.panel3.Controls.Add(this.rbMayNo);
-            this.panel3.Location = new System.Drawing.Point(425, 370);
+            this.panel3.Location = new System.Drawing.Point(441, 334);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(181, 21);
             this.panel3.TabIndex = 20;
@@ -512,7 +249,7 @@
             // fullLabel16
             // 
             this.fullLabel16.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel16.Location = new System.Drawing.Point(326, 375);
+            this.fullLabel16.Location = new System.Drawing.Point(342, 339);
             this.fullLabel16.Name = "fullLabel16";
             this.fullLabel16.Size = new System.Drawing.Size(61, 16);
             this.fullLabel16.TabIndex = 125;
@@ -524,7 +261,7 @@
             this.panel2.Controls.Add(this.rbVndSi);
             this.panel2.Controls.Add(this.rbVndAmbos);
             this.panel2.Controls.Add(this.rbVndNo);
-            this.panel2.Location = new System.Drawing.Point(132, 370);
+            this.panel2.Location = new System.Drawing.Point(132, 335);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(181, 21);
             this.panel2.TabIndex = 19;
@@ -573,7 +310,7 @@
             // fullLabel15
             // 
             this.fullLabel15.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel15.Location = new System.Drawing.Point(8, 375);
+            this.fullLabel15.Location = new System.Drawing.Point(8, 340);
             this.fullLabel15.Name = "fullLabel15";
             this.fullLabel15.Size = new System.Drawing.Size(61, 16);
             this.fullLabel15.TabIndex = 123;
@@ -628,99 +365,6 @@
             this.neNumero.Text = "0";
             this.neNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.rbErrSi);
-            this.panel1.Controls.Add(this.rbErrAmbos);
-            this.panel1.Controls.Add(this.rbErrNo);
-            this.panel1.Location = new System.Drawing.Point(425, 332);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(181, 21);
-            this.panel1.TabIndex = 18;
-            // 
-            // rbErrSi
-            // 
-            this.rbErrSi.AutoSize = true;
-            this.rbErrSi.BackColor = System.Drawing.Color.Transparent;
-            this.rbErrSi.Location = new System.Drawing.Point(3, 3);
-            this.rbErrSi.Name = "rbErrSi";
-            this.rbErrSi.Size = new System.Drawing.Size(34, 17);
-            this.rbErrSi.TabIndex = 0;
-            this.rbErrSi.Text = "Si";
-            this.rbErrSi.UseVisualStyleBackColor = false;
-            this.rbErrSi.CheckedChanged += new System.EventHandler(this.rbCheckedErronChanged);
-            this.rbErrSi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
-            // rbErrAmbos
-            // 
-            this.rbErrAmbos.AutoSize = true;
-            this.rbErrAmbos.BackColor = System.Drawing.Color.Transparent;
-            this.rbErrAmbos.Checked = true;
-            this.rbErrAmbos.Location = new System.Drawing.Point(113, 3);
-            this.rbErrAmbos.Name = "rbErrAmbos";
-            this.rbErrAmbos.Size = new System.Drawing.Size(57, 17);
-            this.rbErrAmbos.TabIndex = 2;
-            this.rbErrAmbos.TabStop = true;
-            this.rbErrAmbos.Text = "Ambos";
-            this.rbErrAmbos.UseVisualStyleBackColor = false;
-            this.rbErrAmbos.CheckedChanged += new System.EventHandler(this.rbCheckedErronChanged);
-            this.rbErrAmbos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
-            // rbErrNo
-            // 
-            this.rbErrNo.AutoSize = true;
-            this.rbErrNo.BackColor = System.Drawing.Color.Transparent;
-            this.rbErrNo.Location = new System.Drawing.Point(55, 3);
-            this.rbErrNo.Name = "rbErrNo";
-            this.rbErrNo.Size = new System.Drawing.Size(39, 17);
-            this.rbErrNo.TabIndex = 1;
-            this.rbErrNo.Text = "No";
-            this.rbErrNo.UseVisualStyleBackColor = false;
-            this.rbErrNo.CheckedChanged += new System.EventHandler(this.rbCheckedErronChanged);
-            this.rbErrNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
-            // rbResAmbos
-            // 
-            this.rbResAmbos.AutoSize = true;
-            this.rbResAmbos.BackColor = System.Drawing.Color.Transparent;
-            this.rbResAmbos.Checked = true;
-            this.rbResAmbos.Location = new System.Drawing.Point(244, 335);
-            this.rbResAmbos.Name = "rbResAmbos";
-            this.rbResAmbos.Size = new System.Drawing.Size(57, 17);
-            this.rbResAmbos.TabIndex = 17;
-            this.rbResAmbos.TabStop = true;
-            this.rbResAmbos.Text = "Ambos";
-            this.rbResAmbos.UseVisualStyleBackColor = false;
-            this.rbResAmbos.CheckedChanged += new System.EventHandler(this.rbCheckedReservChanged);
-            this.rbResAmbos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
-            // rbResNo
-            // 
-            this.rbResNo.AutoSize = true;
-            this.rbResNo.BackColor = System.Drawing.Color.Transparent;
-            this.rbResNo.Location = new System.Drawing.Point(186, 335);
-            this.rbResNo.Name = "rbResNo";
-            this.rbResNo.Size = new System.Drawing.Size(39, 17);
-            this.rbResNo.TabIndex = 16;
-            this.rbResNo.Text = "No";
-            this.rbResNo.UseVisualStyleBackColor = false;
-            this.rbResNo.CheckedChanged += new System.EventHandler(this.rbCheckedReservChanged);
-            this.rbResNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
-            // rbResSi
-            // 
-            this.rbResSi.AutoSize = true;
-            this.rbResSi.BackColor = System.Drawing.Color.Transparent;
-            this.rbResSi.Location = new System.Drawing.Point(135, 335);
-            this.rbResSi.Name = "rbResSi";
-            this.rbResSi.Size = new System.Drawing.Size(34, 17);
-            this.rbResSi.TabIndex = 15;
-            this.rbResSi.Text = "Si";
-            this.rbResSi.UseVisualStyleBackColor = false;
-            this.rbResSi.CheckedChanged += new System.EventHandler(this.rbCheckedReservChanged);
-            this.rbResSi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
             // teNombreFant
             // 
             this.teNombreFant.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -736,7 +380,7 @@
             this.cmbLocalidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLocalidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbLocalidades.FormattingEnabled = true;
-            this.cmbLocalidades.Location = new System.Drawing.Point(425, 257);
+            this.cmbLocalidades.Location = new System.Drawing.Point(425, 224);
             this.cmbLocalidades.Name = "cmbLocalidades";
             this.cmbLocalidades.Size = new System.Drawing.Size(197, 21);
             this.cmbLocalidades.Sorted = true;
@@ -749,7 +393,7 @@
             this.cmbZonas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbZonas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbZonas.FormattingEnabled = true;
-            this.cmbZonas.Location = new System.Drawing.Point(425, 217);
+            this.cmbZonas.Location = new System.Drawing.Point(425, 184);
             this.cmbZonas.Name = "cmbZonas";
             this.cmbZonas.Size = new System.Drawing.Size(197, 21);
             this.cmbZonas.Sorted = true;
@@ -763,7 +407,7 @@
             this.cmbTiposInsts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTiposInsts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTiposInsts.FormattingEnabled = true;
-            this.cmbTiposInsts.Location = new System.Drawing.Point(425, 177);
+            this.cmbTiposInsts.Location = new System.Drawing.Point(425, 144);
             this.cmbTiposInsts.Name = "cmbTiposInsts";
             this.cmbTiposInsts.Size = new System.Drawing.Size(197, 21);
             this.cmbTiposInsts.Sorted = true;
@@ -776,7 +420,7 @@
             this.cmbRubros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRubros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbRubros.FormattingEnabled = true;
-            this.cmbRubros.Location = new System.Drawing.Point(425, 137);
+            this.cmbRubros.Location = new System.Drawing.Point(425, 104);
             this.cmbRubros.Name = "cmbRubros";
             this.cmbRubros.Size = new System.Drawing.Size(197, 21);
             this.cmbRubros.Sorted = true;
@@ -790,7 +434,7 @@
             this.cmbFranquicias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFranquicias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbFranquicias.FormattingEnabled = true;
-            this.cmbFranquicias.Location = new System.Drawing.Point(425, 98);
+            this.cmbFranquicias.Location = new System.Drawing.Point(425, 65);
             this.cmbFranquicias.Name = "cmbFranquicias";
             this.cmbFranquicias.Size = new System.Drawing.Size(197, 21);
             this.cmbFranquicias.Sorted = true;
@@ -875,24 +519,6 @@
             this.fullLabel10.TabIndex = 113;
             this.fullLabel10.Text = "Número:";
             // 
-            // fullLabel9
-            // 
-            this.fullLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel9.Location = new System.Drawing.Point(326, 335);
-            this.fullLabel9.Name = "fullLabel9";
-            this.fullLabel9.Size = new System.Drawing.Size(64, 16);
-            this.fullLabel9.TabIndex = 23;
-            this.fullLabel9.Text = "Erróneos:";
-            // 
-            // fullLabel8
-            // 
-            this.fullLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel8.Location = new System.Drawing.Point(8, 337);
-            this.fullLabel8.Name = "fullLabel8";
-            this.fullLabel8.Size = new System.Drawing.Size(73, 16);
-            this.fullLabel8.TabIndex = 19;
-            this.fullLabel8.Text = "Reservados:";
-            // 
             // fullLabel7
             // 
             this.fullLabel7.BackColor = System.Drawing.Color.Transparent;
@@ -905,7 +531,7 @@
             // fullLabel6
             // 
             this.fullLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel6.Location = new System.Drawing.Point(326, 140);
+            this.fullLabel6.Location = new System.Drawing.Point(326, 107);
             this.fullLabel6.Name = "fullLabel6";
             this.fullLabel6.Size = new System.Drawing.Size(97, 16);
             this.fullLabel6.TabIndex = 16;
@@ -914,7 +540,7 @@
             // fullLabel5
             // 
             this.fullLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel5.Location = new System.Drawing.Point(326, 101);
+            this.fullLabel5.Location = new System.Drawing.Point(326, 68);
             this.fullLabel5.Name = "fullLabel5";
             this.fullLabel5.Size = new System.Drawing.Size(97, 16);
             this.fullLabel5.TabIndex = 4;
@@ -923,7 +549,7 @@
             // fullLabel4
             // 
             this.fullLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel4.Location = new System.Drawing.Point(326, 220);
+            this.fullLabel4.Location = new System.Drawing.Point(326, 187);
             this.fullLabel4.Name = "fullLabel4";
             this.fullLabel4.Size = new System.Drawing.Size(97, 16);
             this.fullLabel4.TabIndex = 3;
@@ -932,7 +558,7 @@
             // fullLabel3
             // 
             this.fullLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel3.Location = new System.Drawing.Point(326, 260);
+            this.fullLabel3.Location = new System.Drawing.Point(326, 227);
             this.fullLabel3.Name = "fullLabel3";
             this.fullLabel3.Size = new System.Drawing.Size(97, 16);
             this.fullLabel3.TabIndex = 2;
@@ -941,7 +567,7 @@
             // fullLabel2
             // 
             this.fullLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel2.Location = new System.Drawing.Point(326, 180);
+            this.fullLabel2.Location = new System.Drawing.Point(326, 147);
             this.fullLabel2.Name = "fullLabel2";
             this.fullLabel2.Size = new System.Drawing.Size(97, 16);
             this.fullLabel2.TabIndex = 1;
@@ -972,18 +598,10 @@
             this.Load += new System.EventHandler(this.BusquedaClientesSecretaria_Load);
             this.xPanel1.ResumeLayout(false);
             this.xPanel1.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1006,15 +624,6 @@
         private TNGS.NetControls.CDCombo cmbFranquicias;
         private TNGS.NetControls.FullLabel fullLabel7;
         private System.Windows.Forms.TextBox teNombreFant;
-        private TNGS.NetControls.FullLabel fullLabel8;
-        private System.Windows.Forms.RadioButton rbResAmbos;
-        private System.Windows.Forms.RadioButton rbResNo;
-        private System.Windows.Forms.RadioButton rbResSi;
-        private System.Windows.Forms.RadioButton rbErrAmbos;
-        private System.Windows.Forms.RadioButton rbErrNo;
-        private System.Windows.Forms.RadioButton rbErrSi;
-        private TNGS.NetControls.FullLabel fullLabel9;
-        private System.Windows.Forms.Panel panel1;
         private TNGS.NetControls.FullLabel fullLabel11;
         private System.Windows.Forms.TextBox teCargador;
         private TNGS.NetControls.FullLabel fullLabel10;
@@ -1039,24 +648,6 @@
         private TNGS.NetControls.FullLabel fullLabel17;
         private System.Windows.Forms.TextBox teTelefono;
         private TNGS.NetControls.FullLabel fullLabel18;
-        private TNGS.NetControls.CDCombo cdcMarcas;
-        private TNGS.NetControls.FullLabel fullLabel19;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.RadioButton rbCompetenciaSi;
-        private System.Windows.Forms.RadioButton rbCompetenciaAmbos;
-        private System.Windows.Forms.RadioButton rbCompetenciaNo;
-        private TNGS.NetControls.FullLabel fullLabel21;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.RadioButton rbMailCargadoSi;
-        private System.Windows.Forms.RadioButton rbMailCargadoAmbos;
-        private System.Windows.Forms.RadioButton rbMailCargadoNo;
-        private TNGS.NetControls.FullLabel fullLabel20;
-        private TNGS.NetControls.GlassButton gbBusquedaExistencial;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.RadioButton rbDeudoresSi;
-        private System.Windows.Forms.RadioButton rbDeudoresAmbos;
-        private System.Windows.Forms.RadioButton rbDeudoresNo;
-        private TNGS.NetControls.FullLabel fullLabel22;
         private TNGS.NetControls.FullLabel lblTitulo;
         private TNGS.NetControls.GlassButton gbCancelar;
     }

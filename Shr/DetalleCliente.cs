@@ -23,7 +23,6 @@ namespace Carm.Shr
         Bel.LECliLlamadas m_leLlamadas = null;
         Bel.LECliNotas m_leNotas = null;
         Bel.LECliServicios m_leServicios = null;
-        Bel.LECartasEnvs m_leCartasEnviadas = null;
         
 
         // Eventos de todos los botones.

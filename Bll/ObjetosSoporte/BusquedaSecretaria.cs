@@ -100,11 +100,5 @@ namespace Carm.Bll
         public string Loc { get { return m_strLoc.PadLeft(8, ' '); } set { m_strLoc = value; } }
         public string Marca { get { return m_strMarca.PadLeft(2, ' '); } set { m_strMarca = value; } }
 
-
-        public void cargarMarcaUsuario(string p_strUsuario)
-        {
-            codMarcaUsuario = Bll.Vendedores.fGetCodMarcaVendedorFromUsuario(p_strUsuario, m_smResult);
-            if (AppRuts.MsgRuts_AnalizeError(null, m_smResult)) return;
-        }
     }
 }
