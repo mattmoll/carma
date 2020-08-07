@@ -517,7 +517,7 @@ namespace Carm.Tg
             // lblColor
             // 
             this.lblColor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblColor.Location = new System.Drawing.Point(15, 30);
+            this.lblColor.Location = new System.Drawing.Point(70, 56);
             this.lblColor.Name = "lblColor";
             this.lblColor.Size = new System.Drawing.Size(104, 22);
             this.lblColor.TabIndex = 106;
@@ -531,18 +531,18 @@ namespace Carm.Tg
             this.cmbColor.Enabled = false;
             this.cmbColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbColor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbColor.Location = new System.Drawing.Point(125, 38);
+            this.cmbColor.Location = new System.Drawing.Point(180, 54);
             this.cmbColor.Name = "cmbColor";
-            this.cmbColor.Size = new System.Drawing.Size(44, 24);
+            this.cmbColor.Size = new System.Drawing.Size(164, 24);
             this.cmbColor.Sorted = true;
             this.cmbColor.TabIndex = 6;
             // 
             // lblFecha
             // 
             this.lblFecha.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(15, 46);
+            this.lblFecha.Location = new System.Drawing.Point(96, 90);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(104, 22);
+            this.lblFecha.Size = new System.Drawing.Size(73, 22);
             this.lblFecha.TabIndex = 107;
             this.lblFecha.Text = "Fecha:";
             this.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -552,7 +552,7 @@ namespace Carm.Tg
             this.txtFecha.BackColor = System.Drawing.SystemColors.Window;
             this.txtFecha.Enabled = false;
             this.txtFecha.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFecha.Location = new System.Drawing.Point(125, 54);
+            this.txtFecha.Location = new System.Drawing.Point(180, 90);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(44, 22);
             this.txtFecha.TabIndex = 7;
@@ -561,7 +561,7 @@ namespace Carm.Tg
             // lblPrecio
             // 
             this.lblPrecio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(15, 62);
+            this.lblPrecio.Location = new System.Drawing.Point(382, 56);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(104, 22);
             this.lblPrecio.TabIndex = 108;
@@ -573,21 +573,21 @@ namespace Carm.Tg
             this.txtPrecio.BackColor = System.Drawing.SystemColors.Window;
             this.txtPrecio.Enabled = false;
             this.txtPrecio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.Location = new System.Drawing.Point(125, 70);
+            this.txtPrecio.Location = new System.Drawing.Point(492, 54);
             this.txtPrecio.MaxLength = 10;
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(44, 22);
+            this.txtPrecio.Size = new System.Drawing.Size(101, 22);
             this.txtPrecio.TabIndex = 8;
             this.txtPrecio.Text = "0.00";
             // 
             // lblCoseguro
             // 
             this.lblCoseguro.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoseguro.Location = new System.Drawing.Point(15, 78);
+            this.lblCoseguro.Location = new System.Drawing.Point(382, 90);
             this.lblCoseguro.Name = "lblCoseguro";
             this.lblCoseguro.Size = new System.Drawing.Size(104, 22);
             this.lblCoseguro.TabIndex = 109;
-            this.lblCoseguro.Text = "coseguro:";
+            this.lblCoseguro.Text = "Coseguro:";
             this.lblCoseguro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtCoseguro
@@ -595,10 +595,10 @@ namespace Carm.Tg
             this.txtCoseguro.BackColor = System.Drawing.SystemColors.Window;
             this.txtCoseguro.Enabled = false;
             this.txtCoseguro.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCoseguro.Location = new System.Drawing.Point(125, 86);
+            this.txtCoseguro.Location = new System.Drawing.Point(492, 90);
             this.txtCoseguro.MaxLength = 10;
             this.txtCoseguro.Name = "txtCoseguro";
-            this.txtCoseguro.Size = new System.Drawing.Size(44, 22);
+            this.txtCoseguro.Size = new System.Drawing.Size(101, 22);
             this.txtCoseguro.TabIndex = 9;
             this.txtCoseguro.Text = "0.00";
             // 

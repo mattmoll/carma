@@ -517,7 +517,7 @@ namespace Carm.Tg
             // lblCodplan
             // 
             this.lblCodplan.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodplan.Location = new System.Drawing.Point(15, 30);
+            this.lblCodplan.Location = new System.Drawing.Point(89, 52);
             this.lblCodplan.Name = "lblCodplan";
             this.lblCodplan.Size = new System.Drawing.Size(104, 22);
             this.lblCodplan.TabIndex = 106;
@@ -531,7 +531,7 @@ namespace Carm.Tg
             this.txtCodplan.EmptyValid = false;
             this.txtCodplan.Enabled = false;
             this.txtCodplan.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodplan.Location = new System.Drawing.Point(125, 38);
+            this.txtCodplan.Location = new System.Drawing.Point(199, 52);
             this.txtCodplan.MaxLength = 4;
             this.txtCodplan.Name = "txtCodplan";
             this.txtCodplan.OnlyDigits = true;
@@ -541,11 +541,11 @@ namespace Carm.Tg
             // lblCodservicio
             // 
             this.lblCodservicio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodservicio.Location = new System.Drawing.Point(15, 46);
+            this.lblCodservicio.Location = new System.Drawing.Point(58, 88);
             this.lblCodservicio.Name = "lblCodservicio";
-            this.lblCodservicio.Size = new System.Drawing.Size(104, 22);
+            this.lblCodservicio.Size = new System.Drawing.Size(135, 22);
             this.lblCodservicio.TabIndex = 107;
-            this.lblCodservicio.Text = "Código de Servicio:";
+            this.lblCodservicio.Text = "Servicio:";
             this.lblCodservicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmbCodservicio
@@ -555,18 +555,18 @@ namespace Carm.Tg
             this.cmbCodservicio.Enabled = false;
             this.cmbCodservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCodservicio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCodservicio.Location = new System.Drawing.Point(125, 54);
+            this.cmbCodservicio.Location = new System.Drawing.Point(199, 88);
             this.cmbCodservicio.Name = "cmbCodservicio";
-            this.cmbCodservicio.Size = new System.Drawing.Size(44, 24);
+            this.cmbCodservicio.Size = new System.Drawing.Size(199, 24);
             this.cmbCodservicio.Sorted = true;
             this.cmbCodservicio.TabIndex = 7;
             // 
             // lblCprestlibres
             // 
             this.lblCprestlibres.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCprestlibres.Location = new System.Drawing.Point(15, 62);
+            this.lblCprestlibres.Location = new System.Drawing.Point(399, 52);
             this.lblCprestlibres.Name = "lblCprestlibres";
-            this.lblCprestlibres.Size = new System.Drawing.Size(104, 22);
+            this.lblCprestlibres.Size = new System.Drawing.Size(150, 22);
             this.lblCprestlibres.TabIndex = 108;
             this.lblCprestlibres.Text = "Cant. Prestaciones Libres:";
             this.lblCprestlibres.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -576,19 +576,19 @@ namespace Carm.Tg
             this.txtCprestlibres.BackColor = System.Drawing.SystemColors.Window;
             this.txtCprestlibres.Enabled = false;
             this.txtCprestlibres.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCprestlibres.Location = new System.Drawing.Point(125, 70);
+            this.txtCprestlibres.Location = new System.Drawing.Point(555, 52);
             this.txtCprestlibres.MaxLength = 5;
             this.txtCprestlibres.Name = "txtCprestlibres";
-            this.txtCprestlibres.Size = new System.Drawing.Size(44, 22);
+            this.txtCprestlibres.Size = new System.Drawing.Size(54, 22);
             this.txtCprestlibres.TabIndex = 8;
             this.txtCprestlibres.Text = "0";
             // 
             // lblValorprestacion
             // 
             this.lblValorprestacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorprestacion.Location = new System.Drawing.Point(15, 78);
+            this.lblValorprestacion.Location = new System.Drawing.Point(425, 88);
             this.lblValorprestacion.Name = "lblValorprestacion";
-            this.lblValorprestacion.Size = new System.Drawing.Size(104, 22);
+            this.lblValorprestacion.Size = new System.Drawing.Size(124, 22);
             this.lblValorprestacion.TabIndex = 109;
             this.lblValorprestacion.Text = "Valor Prestación:";
             this.lblValorprestacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -598,11 +598,11 @@ namespace Carm.Tg
             this.txtValorprestacion.BackColor = System.Drawing.SystemColors.Window;
             this.txtValorprestacion.Enabled = false;
             this.txtValorprestacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorprestacion.Location = new System.Drawing.Point(125, 86);
+            this.txtValorprestacion.Location = new System.Drawing.Point(555, 88);
             this.txtValorprestacion.MaxLength = 10;
             this.txtValorprestacion.Name = "txtValorprestacion";
             this.txtValorprestacion.NegativeValid = false;
-            this.txtValorprestacion.Size = new System.Drawing.Size(44, 22);
+            this.txtValorprestacion.Size = new System.Drawing.Size(104, 22);
             this.txtValorprestacion.TabIndex = 9;
             this.txtValorprestacion.Text = "0.00";
             this.txtValorprestacion.ZeroValid = false;
