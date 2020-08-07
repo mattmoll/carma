@@ -12,7 +12,7 @@ using TNGS.NetApp;
 using Carm;
 #endregion
 
-namespace Carm.
+namespace Carm.Tg
 {
     //----------------------------------------------------------------------------
     //                         TNG Software UIL Generator
@@ -215,7 +215,7 @@ namespace Carm.
 
             // Obtenemos la entidad del item seleccionado en la grilla
             App.ShowMsg("Recuperando Datos...");
-            m_entTipoVendedor= Bll.Tablas.TvdGet((xxxx) grdDatos.GetMatrixValueObj(l_iRow, 1),
+            m_entTipoVendedor= Bll.Tablas.TvdGet((string) grdDatos.GetMatrixValueObj(l_iRow, 1),
                                                  false, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 

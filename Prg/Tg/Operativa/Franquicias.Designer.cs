@@ -8,7 +8,7 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace Carm.Tg
 {
-    public partial class TipoVendedores : DockContent
+    public partial class Franquicias : DockContent
     {
         /// <summary>
         /// Required designer variable.
@@ -25,16 +25,8 @@ namespace Carm.Tg
         private TNGS.NetControls.ImgGroup frmEdicion;
         private System.Windows.Forms.Label lblCod;
         private TNGS.NetControls.TextEdit txtCod;
-        private System.Windows.Forms.Label lblNivel;
-        private TNGS.NetControls.CDCombo cmbNivel;
         private System.Windows.Forms.Label lblDes;
         private TNGS.NetControls.TextEdit txtDes;
-        private System.Windows.Forms.Label lblVtasminimas;
-        private TNGS.NetControls.NumberEdit txtVtasminimas;
-        private System.Windows.Forms.Label lblReservasmax;
-        private TNGS.NetControls.NumberEdit txtReservasmax;
-        private System.Windows.Forms.Label lblVemayor;
-        private TNGS.NetControls.CDCombo cmbVemayor;
         private TNGS.NetControls.GlassButton cmdDesHab;
         private TNGS.NetControls.GlassButton cmdHab;
         private TNGS.NetControls.GlassButton cmdGrabar;
@@ -92,16 +84,8 @@ namespace Carm.Tg
             this.tab1 = new RibbonStyle.Tab();
             this.lblCod = new System.Windows.Forms.Label();
             this.txtCod = new TNGS.NetControls.TextEdit();
-            this.lblNivel = new System.Windows.Forms.Label();
-            this.cmbNivel = new TNGS.NetControls.CDCombo();
             this.lblDes = new System.Windows.Forms.Label();
             this.txtDes = new TNGS.NetControls.TextEdit();
-            this.lblVtasminimas = new System.Windows.Forms.Label();
-            this.txtVtasminimas = new TNGS.NetControls.NumberEdit();
-            this.lblReservasmax = new System.Windows.Forms.Label();
-            this.txtReservasmax = new TNGS.NetControls.NumberEdit();
-            this.lblVemayor = new System.Windows.Forms.Label();
-            this.cmbVemayor = new TNGS.NetControls.CDCombo();
             this.xpnlBase.SuspendLayout();
             this.tsContainer1.SuspendLayout();
             this.tabPageSwitcher1.SuspendLayout();
@@ -233,7 +217,7 @@ namespace Carm.Tg
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(180, 16);
             this.lblTitle.TabIndex = 20;
-            this.lblTitle.Text = "TipoVendedores:";
+            this.lblTitle.Text = "Franquicias:";
             // 
             // grdDatos
             // 
@@ -366,16 +350,8 @@ namespace Carm.Tg
             this.frmEdicion.Controls.AddRange(new System.Windows.Forms.Control[] {
                                                                                this.lblCod,
                                                                                this.txtCod,
-                                                                               this.lblNivel,
-                                                                               this.cmbNivel,
                                                                                this.lblDes,
-                                                                               this.txtDes,
-                                                                               this.lblVtasminimas,
-                                                                               this.txtVtasminimas,
-                                                                               this.lblReservasmax,
-                                                                               this.txtReservasmax,
-                                                                               this.lblVemayor,
-                                                                               this.cmbVemayor});
+                                                                               this.txtDes});
             this.frmEdicion.BackgroundColor = SystemColors.Control;
             this.frmEdicion.BackgroundGradientColor = SystemColors.Control;
             this.frmEdicion.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
@@ -386,7 +362,7 @@ namespace Carm.Tg
             this.frmEdicion.FlatMode = true;
             this.frmEdicion.FontTitle = new System.Drawing.Font("Arial", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.frmEdicion.GroupImage = null;
-            this.frmEdicion.GroupTitle = " TipoVendedor ";
+            this.frmEdicion.GroupTitle = " Franquicia ";
             this.frmEdicion.Location = new System.Drawing.Point(4, 260);
             this.frmEdicion.Name = "frmEdicion";
             this.frmEdicion.Padding = new System.Windows.Forms.Padding(20);
@@ -490,41 +466,20 @@ namespace Carm.Tg
             this.txtCod.Name = "txtCod";
             this.txtCod.Size = new System.Drawing.Size(44, 22);
             this.txtCod.TabIndex = 6;
-            this.txtCod.MaxLength = 2;
+            this.txtCod.MaxLength = 4;
             this.txtCod.Text = "";
             this.txtCod.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCod.EmptyValid = false;
             this.txtCod.Multiline = false;
             this.txtCod.OnlyDigits = true;
             // 
-            // lblNivel
-            // 
-            this.lblNivel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-            this.lblNivel.Location = new System.Drawing.Point(15, 46);
-            this.lblNivel.Name = "lblNivel";
-            this.lblNivel.Size = new System.Drawing.Size(104, 22);
-            this.lblNivel.TabIndex = 107;
-            this.lblNivel.Text = "Nivel:";
-            this.lblNivel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cmbNivel
-            // 
-            this.cmbNivel.Enabled = false;
-            this.cmbNivel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-            this.cmbNivel.Location = new System.Drawing.Point(125, 54);
-            this.cmbNivel.Name = "cmbNivel";
-            this.cmbNivel.Size = new System.Drawing.Size(44, 22);
-            this.cmbNivel.TabIndex = 7;
-            this.cmbNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNivel.EmptyValid = false;
-            // 
             // lblDes
             // 
             this.lblDes.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-            this.lblDes.Location = new System.Drawing.Point(15, 62);
+            this.lblDes.Location = new System.Drawing.Point(15, 46);
             this.lblDes.Name = "lblDes";
             this.lblDes.Size = new System.Drawing.Size(104, 22);
-            this.lblDes.TabIndex = 108;
+            this.lblDes.TabIndex = 107;
             this.lblDes.Text = "Descripcion:";
             this.lblDes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -532,10 +487,10 @@ namespace Carm.Tg
             // 
             this.txtDes.Enabled = false;
             this.txtDes.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-            this.txtDes.Location = new System.Drawing.Point(125, 70);
+            this.txtDes.Location = new System.Drawing.Point(125, 54);
             this.txtDes.Name = "txtDes";
             this.txtDes.Size = new System.Drawing.Size(44, 22);
-            this.txtDes.TabIndex = 8;
+            this.txtDes.TabIndex = 7;
             this.txtDes.MaxLength = 30;
             this.txtDes.Text = "";
             this.txtDes.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -543,74 +498,7 @@ namespace Carm.Tg
             this.txtDes.Multiline = false;
             this.txtDes.OnlyDigits = false;
             // 
-            // lblVtasminimas
-            // 
-            this.lblVtasminimas.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-            this.lblVtasminimas.Location = new System.Drawing.Point(15, 78);
-            this.lblVtasminimas.Name = "lblVtasminimas";
-            this.lblVtasminimas.Size = new System.Drawing.Size(104, 22);
-            this.lblVtasminimas.TabIndex = 109;
-            this.lblVtasminimas.Text = "Ventas Minimas:";
-            this.lblVtasminimas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtVtasminimas
-            // 
-            this.txtVtasminimas.Enabled = false;
-            this.txtVtasminimas.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-            this.txtVtasminimas.Location = new System.Drawing.Point(125, 86);
-            this.txtVtasminimas.Name = "txtVtasminimas";
-            this.txtVtasminimas.Size = new System.Drawing.Size(44, 22);
-            this.txtVtasminimas.TabIndex = 9;
-            this.txtVtasminimas.MaxLength = 5;
-            this.txtVtasminimas.Numero = 0;
-            this.txtVtasminimas.NegativeValid = false;
-            this.txtVtasminimas.ZeroValid = true;
-            // 
-            // lblReservasmax
-            // 
-            this.lblReservasmax.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-            this.lblReservasmax.Location = new System.Drawing.Point(15, 94);
-            this.lblReservasmax.Name = "lblReservasmax";
-            this.lblReservasmax.Size = new System.Drawing.Size(104, 22);
-            this.lblReservasmax.TabIndex = 110;
-            this.lblReservasmax.Text = "Reservas Maximas:";
-            this.lblReservasmax.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtReservasmax
-            // 
-            this.txtReservasmax.Enabled = false;
-            this.txtReservasmax.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-            this.txtReservasmax.Location = new System.Drawing.Point(125, 102);
-            this.txtReservasmax.Name = "txtReservasmax";
-            this.txtReservasmax.Size = new System.Drawing.Size(44, 22);
-            this.txtReservasmax.TabIndex = 10;
-            this.txtReservasmax.MaxLength = 5;
-            this.txtReservasmax.Numero = 0;
-            this.txtReservasmax.NegativeValid = false;
-            this.txtReservasmax.ZeroValid = true;
-            // 
-            // lblVemayor
-            // 
-            this.lblVemayor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-            this.lblVemayor.Location = new System.Drawing.Point(15, 110);
-            this.lblVemayor.Name = "lblVemayor";
-            this.lblVemayor.Size = new System.Drawing.Size(104, 22);
-            this.lblVemayor.TabIndex = 111;
-            this.lblVemayor.Text = "Ve Mayoristas:";
-            this.lblVemayor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cmbVemayor
-            // 
-            this.cmbVemayor.Enabled = false;
-            this.cmbVemayor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
-            this.cmbVemayor.Location = new System.Drawing.Point(125, 118);
-            this.cmbVemayor.Name = "cmbVemayor";
-            this.cmbVemayor.Size = new System.Drawing.Size(44, 22);
-            this.cmbVemayor.TabIndex = 11;
-            this.cmbVemayor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbVemayor.EmptyValid = false;
-            // 
-            // TipoVendedores
+            // Franquicias
             // 
             this.AllowEndUserDocking = false;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -620,12 +508,12 @@ namespace Carm.Tg
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "TipoVendedores";
+            this.Name = "Franquicias";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.Document;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.TabText = "Mantenimiento de TipoVend";
-            this.Load += new System.EventHandler(this.TipoVendedores_Load);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TipoVendedores_FormClosed);
+            this.TabText = "Mantenimiento de Franquicias";
+            this.Load += new System.EventHandler(this.Franquicias_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Franquicias_FormClosed);
             this.xpnlBase.ResumeLayout(false);
             this.tsContainer1.ResumeLayout(false);
             this.tabPageSwitcher1.ResumeLayout(false);

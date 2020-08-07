@@ -142,11 +142,53 @@
     <Compile Include="Clasificadoras\Rubros.Designer.cs">
       <DependentUpon>Rubros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Operativa\Franquicias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operativa\Franquicias.Designer.cs">
+      <DependentUpon>Franquicias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operativa\Planes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operativa\Planes.Designer.cs">
+      <DependentUpon>Planes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operativa\PlnServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operativa\PlnServicios.Designer.cs">
+      <DependentUpon>PlnServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operativa\PreciosServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operativa\PreciosServicios.Designer.cs">
+      <DependentUpon>PreciosServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operativa\Servicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operativa\Servicios.Designer.cs">
+      <DependentUpon>Servicios.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrgRuts.cs" />
     <Compile Include="PrgRuts.designer.cs">
       <DependentUpon>PrgRuts.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RR.HH\TipoVendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RR.HH\TipoVendedores.Designer.cs">
+      <DependentUpon>TipoVendedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RR.HH\Vendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RR.HH\Vendedores.Designer.cs">
+      <DependentUpon>Vendedores.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Arranque.resx">
       <DependentUpon>Arranque.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +216,21 @@
     <EmbeddedResource Include="Clasificadoras\Rubros.resx">
       <DependentUpon>Rubros.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Operativa\Franquicias.resx">
+      <DependentUpon>Franquicias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operativa\Planes.resx">
+      <DependentUpon>Planes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operativa\PlnServicios.resx">
+      <DependentUpon>PlnServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operativa\PreciosServicios.resx">
+      <DependentUpon>PreciosServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operativa\Servicios.resx">
+      <DependentUpon>Servicios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -184,6 +241,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RR.HH\TipoVendedores.resx">
+      <DependentUpon>TipoVendedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RR.HH\Vendedores.resx">
+      <DependentUpon>Vendedores.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
@@ -210,10 +273,7 @@
       <Name>Shr</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Operativa\" />
-    <Folder Include="RR.HH\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
