@@ -89,6 +89,9 @@ namespace Carm.Tg
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
             cmbCodtvend.FillFromStrLEntidad(l_lentTipoVendedores, "tvn_rcd_cod", "tvn_des_des", "deleted");
 
+            cdcEsHistorico.AddStrCD("S", "SI", 0);
+            cdcEsHistorico.AddStrCD("N", "NO", 0);
+
             // Pasamos a modo Operaciones, llenamos la grilla y 
             // damos foco al primer campo
             SwitchTo(FormModes.Operations, GridOps.Fill);
@@ -307,15 +310,10 @@ namespace Carm.Tg
             m_entVendedor.Tel2= txtTel2.Text;
             m_entVendedor.Fecnacim= txtFecnacim.Fecha;
             m_entVendedor.Direccion= txtDireccion.Text;
-            m_entVendedor.Email= txtEmail.Text;
-            m_entVendedor.Contrasenia= txtContrasenia.Text;
             m_entVendedor.Codsuperv= cmbCodsuperv.SelectedStrCode;
             m_entVendedor.Codtvend= cmbCodtvend.SelectedStrCode;
             m_entVendedor.Horarios= txtHorarios.Text;
-            m_entVendedor.Mailremitente= txtMailremitente.Text;
-            m_entVendedor.Nombreamostrar= txtNombreamostrar.Text;
-            m_entVendedor.Coddominio= cmbCoddominio.SelectedStrCode;
-            m_entVendedor.Historico= txtHistorico.Text;
+            m_entVendedor.Historico = cdcEsHistorico.SelectedStrCode;
 
             // Tratamos de grabar la entidad
             App.ShowMsg("Grabando...");
@@ -403,24 +401,14 @@ namespace Carm.Tg
             txtFecnacim.Enabled= false;
             txtDireccion.NormalDisable= true;
             txtDireccion.Enabled= false;
-            txtEmail.NormalDisable= true;
-            txtEmail.Enabled= false;
-            txtContrasenia.NormalDisable= true;
-            txtContrasenia.Enabled= false;
             cmbCodsuperv.NormalDisable= true;
             cmbCodsuperv.Enabled= false;
             cmbCodtvend.NormalDisable= true;
             cmbCodtvend.Enabled= false;
             txtHorarios.NormalDisable= true;
             txtHorarios.Enabled= false;
-            txtMailremitente.NormalDisable= true;
-            txtMailremitente.Enabled= false;
-            txtNombreamostrar.NormalDisable= true;
-            txtNombreamostrar.Enabled= false;
-            cmbCoddominio.NormalDisable= true;
-            cmbCoddominio.Enabled= false;
-            txtHistorico.NormalDisable= true;
-            txtHistorico.Enabled= false;
+            cdcEsHistorico.NormalDisable= true;
+            cdcEsHistorico.Enabled= false;
             cmdCancelar.Enabled= false;
             cmdGrabar.Enabled= false;
             cmdDesHab.Enabled= false;
@@ -436,15 +424,10 @@ namespace Carm.Tg
             txtTel2.Text= "";
             txtFecnacim.Fecha= new DateTime(1900,1,1,0,0,0);
             txtDireccion.Text= "";
-            txtEmail.Text= "";
-            txtContrasenia.Text= "";
             cmbCodsuperv.SelectedStrCode= "";
             cmbCodtvend.SelectedStrCode= "";
             txtHorarios.Text= "";
-            txtMailremitente.Text= "";
-            txtNombreamostrar.Text= "";
-            cmbCoddominio.SelectedStrCode= "";
-            txtHistorico.Text= "";
+            cdcEsHistorico.SelectedStrCode = "";
 
             // Habilitamos la grilla y los controles operativos
             cmdNuevo.Enabled= true;
@@ -479,15 +462,10 @@ namespace Carm.Tg
             txtTel2.Text= m_entVendedor.Tel2;
             txtFecnacim.Fecha= m_entVendedor.Fecnacim;
             txtDireccion.Text= m_entVendedor.Direccion;
-            txtEmail.Text= m_entVendedor.Email;
-            txtContrasenia.Text= m_entVendedor.Contrasenia;
             cmbCodsuperv.SelectedStrCode= m_entVendedor.Codsuperv;
             cmbCodtvend.SelectedStrCode= m_entVendedor.Codtvend;
             txtHorarios.Text= m_entVendedor.Horarios;
-            txtMailremitente.Text= m_entVendedor.Mailremitente;
-            txtNombreamostrar.Text= m_entVendedor.Nombreamostrar;
-            cmbCoddominio.SelectedStrCode= m_entVendedor.Coddominio;
-            txtHistorico.Text= m_entVendedor.Historico;
+            cdcEsHistorico.Text= m_entVendedor.Historico;
 
             // Habilitamos el frame
             txtCod.NormalDisable= false;
@@ -508,24 +486,12 @@ namespace Carm.Tg
             txtFecnacim.Enabled= !m_entVendedor.EstaBorrada;
             txtDireccion.NormalDisable= false;
             txtDireccion.Enabled= !m_entVendedor.EstaBorrada;
-            txtEmail.NormalDisable= false;
-            txtEmail.Enabled= !m_entVendedor.EstaBorrada;
-            txtContrasenia.NormalDisable= false;
-            txtContrasenia.Enabled= !m_entVendedor.EstaBorrada;
             cmbCodsuperv.NormalDisable= false;
             cmbCodsuperv.Enabled= !m_entVendedor.EstaBorrada;
             cmbCodtvend.NormalDisable= false;
             cmbCodtvend.Enabled= !m_entVendedor.EstaBorrada;
             txtHorarios.NormalDisable= false;
             txtHorarios.Enabled= !m_entVendedor.EstaBorrada;
-            txtMailremitente.NormalDisable= false;
-            txtMailremitente.Enabled= !m_entVendedor.EstaBorrada;
-            txtNombreamostrar.NormalDisable= false;
-            txtNombreamostrar.Enabled= !m_entVendedor.EstaBorrada;
-            cmbCoddominio.NormalDisable= false;
-            cmbCoddominio.Enabled= !m_entVendedor.EstaBorrada;
-            txtHistorico.NormalDisable= false;
-            txtHistorico.Enabled= !m_entVendedor.EstaBorrada;
             cmdCancelar.Enabled= true;
             cmdGrabar.Enabled= !m_entVendedor.EstaBorrada;
             cmdDesHab.Enabled= ((!m_entVendedor.EsNueva) &&(!m_entVendedor.EstaBorrada));

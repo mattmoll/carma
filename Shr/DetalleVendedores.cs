@@ -82,7 +82,6 @@ namespace Carm.Shr
             txtTel2.Text = l_eVendedor.Tel2;
             monthCalendar1.SelectionStart = l_eVendedor.Fecnacim;
             txtDireccion.Text = l_eVendedor.Direccion;
-            txtEmail.Text = l_eVendedor.Email;
             txtHorarios.Text = l_eVendedor.Horarios;
             // Datos institucionales
             txtSuperv.Text = l_eVendedor.Vnd_nom_superv;

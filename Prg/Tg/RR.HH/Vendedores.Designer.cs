@@ -41,24 +41,13 @@ namespace Carm.Tg
         private TNGS.NetControls.DateEdit txtFecnacim;
         private System.Windows.Forms.Label lblDireccion;
         private TNGS.NetControls.TextEdit txtDireccion;
-        private System.Windows.Forms.Label lblEmail;
-        private TNGS.NetControls.TextEdit txtEmail;
-        private System.Windows.Forms.Label lblContrasenia;
-        private TNGS.NetControls.TextEdit txtContrasenia;
         private System.Windows.Forms.Label lblCodsuperv;
         private TNGS.NetControls.CDCombo cmbCodsuperv;
         private System.Windows.Forms.Label lblCodtvend;
         private TNGS.NetControls.CDCombo cmbCodtvend;
         private System.Windows.Forms.Label lblHorarios;
         private TNGS.NetControls.TextEdit txtHorarios;
-        private System.Windows.Forms.Label lblMailremitente;
-        private TNGS.NetControls.TextEdit txtMailremitente;
-        private System.Windows.Forms.Label lblNombreamostrar;
-        private TNGS.NetControls.TextEdit txtNombreamostrar;
-        private System.Windows.Forms.Label lblCoddominio;
-        private TNGS.NetControls.CDCombo cmbCoddominio;
         private System.Windows.Forms.Label lblHistorico;
-        private TNGS.NetControls.TextEdit txtHistorico;
         private TNGS.NetControls.GlassButton cmdDesHab;
         private TNGS.NetControls.GlassButton cmdHab;
         private TNGS.NetControls.GlassButton cmdGrabar;
@@ -133,24 +122,14 @@ namespace Carm.Tg
             this.txtFecnacim = new TNGS.NetControls.DateEdit();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.txtDireccion = new TNGS.NetControls.TextEdit();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.txtEmail = new TNGS.NetControls.TextEdit();
-            this.lblContrasenia = new System.Windows.Forms.Label();
-            this.txtContrasenia = new TNGS.NetControls.TextEdit();
             this.lblCodsuperv = new System.Windows.Forms.Label();
             this.cmbCodsuperv = new TNGS.NetControls.CDCombo();
             this.lblCodtvend = new System.Windows.Forms.Label();
             this.cmbCodtvend = new TNGS.NetControls.CDCombo();
             this.lblHorarios = new System.Windows.Forms.Label();
             this.txtHorarios = new TNGS.NetControls.TextEdit();
-            this.lblMailremitente = new System.Windows.Forms.Label();
-            this.txtMailremitente = new TNGS.NetControls.TextEdit();
-            this.lblNombreamostrar = new System.Windows.Forms.Label();
-            this.txtNombreamostrar = new TNGS.NetControls.TextEdit();
-            this.lblCoddominio = new System.Windows.Forms.Label();
-            this.cmbCoddominio = new TNGS.NetControls.CDCombo();
             this.lblHistorico = new System.Windows.Forms.Label();
-            this.txtHistorico = new TNGS.NetControls.TextEdit();
+            this.cdcEsHistorico = new TNGS.NetControls.CDCombo();
             this.xpnlBase.SuspendLayout();
             this.tsContainer1.SuspendLayout();
             this.tabPageSwitcher1.SuspendLayout();
@@ -175,7 +154,7 @@ namespace Carm.Tg
             this.xpnlBase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xpnlBase.Location = new System.Drawing.Point(0, 0);
             this.xpnlBase.Name = "xpnlBase";
-            this.xpnlBase.Size = new System.Drawing.Size(750, 450);
+            this.xpnlBase.Size = new System.Drawing.Size(890, 654);
             this.xpnlBase.TabIndex = 0;
             // 
             // tsContainer1
@@ -185,7 +164,7 @@ namespace Carm.Tg
             this.tsContainer1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tsContainer1.Location = new System.Drawing.Point(0, 0);
             this.tsContainer1.Name = "tsContainer1";
-            this.tsContainer1.Size = new System.Drawing.Size(750, 115);
+            this.tsContainer1.Size = new System.Drawing.Size(890, 115);
             this.tsContainer1.TabIndex = 22;
             // 
             // tabPageSwitcher1
@@ -195,7 +174,7 @@ namespace Carm.Tg
             this.tabPageSwitcher1.Location = new System.Drawing.Point(0, 26);
             this.tabPageSwitcher1.Name = "tabPageSwitcher1";
             this.tabPageSwitcher1.SelectedTabStripPage = this.tabStripPage1;
-            this.tabPageSwitcher1.Size = new System.Drawing.Size(750, 89);
+            this.tabPageSwitcher1.Size = new System.Drawing.Size(890, 89);
             this.tabPageSwitcher1.TabIndex = 1;
             this.tabPageSwitcher1.TabStrip = this.tsBase1;
             this.tabPageSwitcher1.Text = "tabPageSwitcher1";
@@ -211,7 +190,7 @@ namespace Carm.Tg
             this.tabStripPage1.Name = "tabStripPage1";
             this.tabStripPage1.Opacity = 255;
             this.tabStripPage1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.tabStripPage1.Size = new System.Drawing.Size(742, 87);
+            this.tabStripPage1.Size = new System.Drawing.Size(882, 87);
             this.tabStripPage1.Speed = 8;
             this.tabStripPage1.TabIndex = 0;
             // 
@@ -440,7 +419,7 @@ namespace Carm.Tg
             this.tsBase1.Padding = new System.Windows.Forms.Padding(60, 3, 30, 0);
             this.tsBase1.SelectedTab = this.tab1;
             this.tsBase1.ShowItemToolTips = false;
-            this.tsBase1.Size = new System.Drawing.Size(750, 26);
+            this.tsBase1.Size = new System.Drawing.Size(890, 26);
             this.tsBase1.TabIndex = 0;
             this.tsBase1.TabOverlap = 0;
             this.tsBase1.Text = "tsBase1";
@@ -483,7 +462,7 @@ namespace Carm.Tg
             this.grdDatos.HeaderForeColor = System.Drawing.SystemColors.ControlText;
             this.grdDatos.Location = new System.Drawing.Point(4, 142);
             this.grdDatos.Name = "grdDatos";
-            this.grdDatos.Size = new System.Drawing.Size(742, 148);
+            this.grdDatos.Size = new System.Drawing.Size(882, 236);
             this.grdDatos.TabIndex = 0;
             this.grdDatos.Advance += new TNGS.NetRoutines.AdvanceEventHandler(this.grdDatos_Advance);
             this.grdDatos.DataDClick += new TNGS.NetRoutines.DataDClickEventHandler(this.grdDatos_DataDClick);
@@ -502,7 +481,7 @@ namespace Carm.Tg
             this.cmdPrint.FlatFontSize = 9;
             this.cmdPrint.FlatTextColor = System.Drawing.Color.Black;
             this.cmdPrint.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmdPrint.Location = new System.Drawing.Point(719, 118);
+            this.cmdPrint.Location = new System.Drawing.Point(859, 118);
             this.cmdPrint.Name = "cmdPrint";
             this.cmdPrint.PCode = "TNGS.PRINT";
             this.cmdPrint.RoundCorners = 2;
@@ -525,7 +504,7 @@ namespace Carm.Tg
             this.cmdExcel.FlatFontSize = 9;
             this.cmdExcel.FlatTextColor = System.Drawing.Color.Black;
             this.cmdExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmdExcel.Location = new System.Drawing.Point(692, 118);
+            this.cmdExcel.Location = new System.Drawing.Point(832, 118);
             this.cmdExcel.Name = "cmdExcel";
             this.cmdExcel.PCode = "TNGS.EXCEL";
             this.cmdExcel.RoundCorners = 2;
@@ -545,6 +524,7 @@ namespace Carm.Tg
             this.frmEdicion.BlackBorder = true;
             this.frmEdicion.BorderColor = System.Drawing.Color.Black;
             this.frmEdicion.BorderThickness = 1F;
+            this.frmEdicion.Controls.Add(this.cdcEsHistorico);
             this.frmEdicion.Controls.Add(this.lblCod);
             this.frmEdicion.Controls.Add(this.txtCod);
             this.frmEdicion.Controls.Add(this.lblApellido);
@@ -563,31 +543,20 @@ namespace Carm.Tg
             this.frmEdicion.Controls.Add(this.txtFecnacim);
             this.frmEdicion.Controls.Add(this.lblDireccion);
             this.frmEdicion.Controls.Add(this.txtDireccion);
-            this.frmEdicion.Controls.Add(this.lblEmail);
-            this.frmEdicion.Controls.Add(this.txtEmail);
-            this.frmEdicion.Controls.Add(this.lblContrasenia);
-            this.frmEdicion.Controls.Add(this.txtContrasenia);
             this.frmEdicion.Controls.Add(this.lblCodsuperv);
             this.frmEdicion.Controls.Add(this.cmbCodsuperv);
             this.frmEdicion.Controls.Add(this.lblCodtvend);
             this.frmEdicion.Controls.Add(this.cmbCodtvend);
             this.frmEdicion.Controls.Add(this.lblHorarios);
             this.frmEdicion.Controls.Add(this.txtHorarios);
-            this.frmEdicion.Controls.Add(this.lblMailremitente);
-            this.frmEdicion.Controls.Add(this.txtMailremitente);
-            this.frmEdicion.Controls.Add(this.lblNombreamostrar);
-            this.frmEdicion.Controls.Add(this.txtNombreamostrar);
-            this.frmEdicion.Controls.Add(this.lblCoddominio);
-            this.frmEdicion.Controls.Add(this.cmbCoddominio);
             this.frmEdicion.Controls.Add(this.lblHistorico);
-            this.frmEdicion.Controls.Add(this.txtHistorico);
             this.frmEdicion.CustomGroupBoxColor = System.Drawing.Color.White;
             this.frmEdicion.FlatMode = true;
             this.frmEdicion.FontTitle = new System.Drawing.Font("Arial", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.frmEdicion.ForeColor = System.Drawing.Color.Black;
             this.frmEdicion.GroupImage = null;
             this.frmEdicion.GroupTitle = " Vendedor ";
-            this.frmEdicion.Location = new System.Drawing.Point(4, 296);
+            this.frmEdicion.Location = new System.Drawing.Point(4, 384);
             this.frmEdicion.Name = "frmEdicion";
             this.frmEdicion.Padding = new System.Windows.Forms.Padding(20);
             this.frmEdicion.PaintGroupBox = false;
@@ -595,7 +564,7 @@ namespace Carm.Tg
             this.frmEdicion.ShadowColor = System.Drawing.Color.DarkGray;
             this.frmEdicion.ShadowControl = false;
             this.frmEdicion.ShadowThickness = 3;
-            this.frmEdicion.Size = new System.Drawing.Size(742, 150);
+            this.frmEdicion.Size = new System.Drawing.Size(882, 266);
             this.frmEdicion.TabIndex = 21;
             this.frmEdicion.TitleBackground = System.Drawing.Color.DodgerBlue;
             this.frmEdicion.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
@@ -604,7 +573,7 @@ namespace Carm.Tg
             // lblCod
             // 
             this.lblCod.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCod.Location = new System.Drawing.Point(15, 30);
+            this.lblCod.Location = new System.Drawing.Point(57, 37);
             this.lblCod.Name = "lblCod";
             this.lblCod.Size = new System.Drawing.Size(104, 22);
             this.lblCod.TabIndex = 106;
@@ -618,16 +587,16 @@ namespace Carm.Tg
             this.txtCod.EmptyValid = false;
             this.txtCod.Enabled = false;
             this.txtCod.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCod.Location = new System.Drawing.Point(125, 38);
+            this.txtCod.Location = new System.Drawing.Point(167, 37);
             this.txtCod.MaxLength = 6;
             this.txtCod.Name = "txtCod";
-            this.txtCod.Size = new System.Drawing.Size(44, 22);
+            this.txtCod.Size = new System.Drawing.Size(88, 22);
             this.txtCod.TabIndex = 6;
             // 
             // lblApellido
             // 
             this.lblApellido.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.Location = new System.Drawing.Point(15, 46);
+            this.lblApellido.Location = new System.Drawing.Point(57, 69);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(104, 22);
             this.lblApellido.TabIndex = 107;
@@ -641,16 +610,16 @@ namespace Carm.Tg
             this.txtApellido.EmptyValid = false;
             this.txtApellido.Enabled = false;
             this.txtApellido.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido.Location = new System.Drawing.Point(125, 54);
+            this.txtApellido.Location = new System.Drawing.Point(167, 69);
             this.txtApellido.MaxLength = 30;
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(44, 22);
+            this.txtApellido.Size = new System.Drawing.Size(217, 22);
             this.txtApellido.TabIndex = 7;
             // 
             // lblNombre
             // 
             this.lblNombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(15, 62);
+            this.lblNombre.Location = new System.Drawing.Point(57, 101);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(104, 22);
             this.lblNombre.TabIndex = 108;
@@ -664,18 +633,18 @@ namespace Carm.Tg
             this.txtNombre.EmptyValid = false;
             this.txtNombre.Enabled = false;
             this.txtNombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(125, 70);
+            this.txtNombre.Location = new System.Drawing.Point(167, 101);
             this.txtNombre.MaxLength = 30;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(44, 22);
+            this.txtNombre.Size = new System.Drawing.Size(217, 22);
             this.txtNombre.TabIndex = 8;
             // 
             // lblUsuario
             // 
             this.lblUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(15, 78);
+            this.lblUsuario.Location = new System.Drawing.Point(47, 133);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(104, 22);
+            this.lblUsuario.Size = new System.Drawing.Size(114, 22);
             this.lblUsuario.TabIndex = 109;
             this.lblUsuario.Text = "Usuario Sistema:";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -687,16 +656,16 @@ namespace Carm.Tg
             this.txtUsuario.EmptyValid = false;
             this.txtUsuario.Enabled = false;
             this.txtUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(125, 86);
+            this.txtUsuario.Location = new System.Drawing.Point(167, 133);
             this.txtUsuario.MaxLength = 20;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(44, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(217, 22);
             this.txtUsuario.TabIndex = 9;
             // 
             // lblTel1
             // 
             this.lblTel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTel1.Location = new System.Drawing.Point(15, 94);
+            this.lblTel1.Location = new System.Drawing.Point(57, 167);
             this.lblTel1.Name = "lblTel1";
             this.lblTel1.Size = new System.Drawing.Size(104, 22);
             this.lblTel1.TabIndex = 110;
@@ -708,16 +677,16 @@ namespace Carm.Tg
             this.txtTel1.BackColor = System.Drawing.SystemColors.Window;
             this.txtTel1.Enabled = false;
             this.txtTel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTel1.Location = new System.Drawing.Point(125, 102);
+            this.txtTel1.Location = new System.Drawing.Point(167, 167);
             this.txtTel1.MaxLength = 30;
             this.txtTel1.Name = "txtTel1";
-            this.txtTel1.Size = new System.Drawing.Size(44, 22);
+            this.txtTel1.Size = new System.Drawing.Size(217, 22);
             this.txtTel1.TabIndex = 10;
             // 
             // lblCelular
             // 
             this.lblCelular.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCelular.Location = new System.Drawing.Point(15, 110);
+            this.lblCelular.Location = new System.Drawing.Point(57, 197);
             this.lblCelular.Name = "lblCelular";
             this.lblCelular.Size = new System.Drawing.Size(104, 22);
             this.lblCelular.TabIndex = 111;
@@ -729,16 +698,16 @@ namespace Carm.Tg
             this.txtCelular.BackColor = System.Drawing.SystemColors.Window;
             this.txtCelular.Enabled = false;
             this.txtCelular.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelular.Location = new System.Drawing.Point(125, 118);
+            this.txtCelular.Location = new System.Drawing.Point(167, 197);
             this.txtCelular.MaxLength = 30;
             this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(44, 22);
+            this.txtCelular.Size = new System.Drawing.Size(217, 22);
             this.txtCelular.TabIndex = 11;
             // 
             // lblTel2
             // 
             this.lblTel2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTel2.Location = new System.Drawing.Point(15, 126);
+            this.lblTel2.Location = new System.Drawing.Point(57, 229);
             this.lblTel2.Name = "lblTel2";
             this.lblTel2.Size = new System.Drawing.Size(104, 22);
             this.lblTel2.TabIndex = 112;
@@ -750,18 +719,18 @@ namespace Carm.Tg
             this.txtTel2.BackColor = System.Drawing.SystemColors.Window;
             this.txtTel2.Enabled = false;
             this.txtTel2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTel2.Location = new System.Drawing.Point(125, 134);
+            this.txtTel2.Location = new System.Drawing.Point(167, 229);
             this.txtTel2.MaxLength = 30;
             this.txtTel2.Name = "txtTel2";
-            this.txtTel2.Size = new System.Drawing.Size(44, 22);
+            this.txtTel2.Size = new System.Drawing.Size(217, 22);
             this.txtTel2.TabIndex = 12;
             // 
             // lblFecnacim
             // 
             this.lblFecnacim.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecnacim.Location = new System.Drawing.Point(15, 142);
+            this.lblFecnacim.Location = new System.Drawing.Point(433, 37);
             this.lblFecnacim.Name = "lblFecnacim";
-            this.lblFecnacim.Size = new System.Drawing.Size(104, 22);
+            this.lblFecnacim.Size = new System.Drawing.Size(131, 22);
             this.lblFecnacim.TabIndex = 113;
             this.lblFecnacim.Text = "Fecha Nacimiento:";
             this.lblFecnacim.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -772,18 +741,18 @@ namespace Carm.Tg
             this.txtFecnacim.EmptyValid = false;
             this.txtFecnacim.Enabled = false;
             this.txtFecnacim.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFecnacim.Location = new System.Drawing.Point(125, 150);
+            this.txtFecnacim.Location = new System.Drawing.Point(570, 37);
             this.txtFecnacim.Name = "txtFecnacim";
-            this.txtFecnacim.Size = new System.Drawing.Size(44, 22);
+            this.txtFecnacim.Size = new System.Drawing.Size(97, 22);
             this.txtFecnacim.TabIndex = 13;
             this.txtFecnacim.Text = "01/01/1900";
             // 
             // lblDireccion
             // 
             this.lblDireccion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccion.Location = new System.Drawing.Point(15, 158);
+            this.lblDireccion.Location = new System.Drawing.Point(463, 69);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(104, 22);
+            this.lblDireccion.Size = new System.Drawing.Size(101, 22);
             this.lblDireccion.TabIndex = 114;
             this.lblDireccion.Text = "Dirección:";
             this.lblDireccion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -793,60 +762,16 @@ namespace Carm.Tg
             this.txtDireccion.BackColor = System.Drawing.SystemColors.Window;
             this.txtDireccion.Enabled = false;
             this.txtDireccion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(125, 166);
+            this.txtDireccion.Location = new System.Drawing.Point(570, 69);
             this.txtDireccion.MaxLength = 60;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(44, 22);
+            this.txtDireccion.Size = new System.Drawing.Size(266, 22);
             this.txtDireccion.TabIndex = 14;
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(15, 174);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(104, 22);
-            this.lblEmail.TabIndex = 115;
-            this.lblEmail.Text = "Usuario Credencial Mail:";
-            this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.BackColor = System.Drawing.SystemColors.Window;
-            this.txtEmail.EmptyValid = false;
-            this.txtEmail.Enabled = false;
-            this.txtEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(125, 182);
-            this.txtEmail.MaxLength = 60;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(44, 22);
-            this.txtEmail.TabIndex = 15;
-            // 
-            // lblContrasenia
-            // 
-            this.lblContrasenia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasenia.Location = new System.Drawing.Point(15, 190);
-            this.lblContrasenia.Name = "lblContrasenia";
-            this.lblContrasenia.Size = new System.Drawing.Size(104, 22);
-            this.lblContrasenia.TabIndex = 116;
-            this.lblContrasenia.Text = "Contraseña:";
-            this.lblContrasenia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtContrasenia
-            // 
-            this.txtContrasenia.BackColor = System.Drawing.SystemColors.Window;
-            this.txtContrasenia.EmptyValid = false;
-            this.txtContrasenia.Enabled = false;
-            this.txtContrasenia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia.Location = new System.Drawing.Point(125, 198);
-            this.txtContrasenia.MaxLength = 60;
-            this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.Size = new System.Drawing.Size(44, 22);
-            this.txtContrasenia.TabIndex = 16;
             // 
             // lblCodsuperv
             // 
             this.lblCodsuperv.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodsuperv.Location = new System.Drawing.Point(15, 206);
+            this.lblCodsuperv.Location = new System.Drawing.Point(460, 99);
             this.lblCodsuperv.Name = "lblCodsuperv";
             this.lblCodsuperv.Size = new System.Drawing.Size(104, 22);
             this.lblCodsuperv.TabIndex = 117;
@@ -860,16 +785,16 @@ namespace Carm.Tg
             this.cmbCodsuperv.Enabled = false;
             this.cmbCodsuperv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCodsuperv.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCodsuperv.Location = new System.Drawing.Point(125, 214);
+            this.cmbCodsuperv.Location = new System.Drawing.Point(570, 97);
             this.cmbCodsuperv.Name = "cmbCodsuperv";
-            this.cmbCodsuperv.Size = new System.Drawing.Size(44, 24);
+            this.cmbCodsuperv.Size = new System.Drawing.Size(266, 24);
             this.cmbCodsuperv.Sorted = true;
             this.cmbCodsuperv.TabIndex = 17;
             // 
             // lblCodtvend
             // 
             this.lblCodtvend.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodtvend.Location = new System.Drawing.Point(15, 222);
+            this.lblCodtvend.Location = new System.Drawing.Point(460, 133);
             this.lblCodtvend.Name = "lblCodtvend";
             this.lblCodtvend.Size = new System.Drawing.Size(104, 22);
             this.lblCodtvend.TabIndex = 118;
@@ -883,16 +808,16 @@ namespace Carm.Tg
             this.cmbCodtvend.Enabled = false;
             this.cmbCodtvend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCodtvend.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCodtvend.Location = new System.Drawing.Point(125, 230);
+            this.cmbCodtvend.Location = new System.Drawing.Point(570, 131);
             this.cmbCodtvend.Name = "cmbCodtvend";
-            this.cmbCodtvend.Size = new System.Drawing.Size(44, 24);
+            this.cmbCodtvend.Size = new System.Drawing.Size(266, 24);
             this.cmbCodtvend.Sorted = true;
             this.cmbCodtvend.TabIndex = 18;
             // 
             // lblHorarios
             // 
             this.lblHorarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHorarios.Location = new System.Drawing.Point(15, 238);
+            this.lblHorarios.Location = new System.Drawing.Point(460, 165);
             this.lblHorarios.Name = "lblHorarios";
             this.lblHorarios.Size = new System.Drawing.Size(104, 22);
             this.lblHorarios.TabIndex = 119;
@@ -904,105 +829,42 @@ namespace Carm.Tg
             this.txtHorarios.BackColor = System.Drawing.SystemColors.Window;
             this.txtHorarios.Enabled = false;
             this.txtHorarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHorarios.Location = new System.Drawing.Point(125, 246);
+            this.txtHorarios.Location = new System.Drawing.Point(570, 165);
             this.txtHorarios.MaxLength = 0;
             this.txtHorarios.Multiline = true;
             this.txtHorarios.Name = "txtHorarios";
-            this.txtHorarios.Size = new System.Drawing.Size(44, 20);
+            this.txtHorarios.Size = new System.Drawing.Size(266, 20);
             this.txtHorarios.TabIndex = 19;
-            // 
-            // lblMailremitente
-            // 
-            this.lblMailremitente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMailremitente.Location = new System.Drawing.Point(15, 254);
-            this.lblMailremitente.Name = "lblMailremitente";
-            this.lblMailremitente.Size = new System.Drawing.Size(104, 22);
-            this.lblMailremitente.TabIndex = 120;
-            this.lblMailremitente.Text = "Mail Remitente:";
-            this.lblMailremitente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtMailremitente
-            // 
-            this.txtMailremitente.BackColor = System.Drawing.SystemColors.Window;
-            this.txtMailremitente.Enabled = false;
-            this.txtMailremitente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMailremitente.Location = new System.Drawing.Point(125, 262);
-            this.txtMailremitente.MaxLength = 60;
-            this.txtMailremitente.Name = "txtMailremitente";
-            this.txtMailremitente.Size = new System.Drawing.Size(44, 22);
-            this.txtMailremitente.TabIndex = 20;
-            // 
-            // lblNombreamostrar
-            // 
-            this.lblNombreamostrar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreamostrar.Location = new System.Drawing.Point(15, 270);
-            this.lblNombreamostrar.Name = "lblNombreamostrar";
-            this.lblNombreamostrar.Size = new System.Drawing.Size(104, 22);
-            this.lblNombreamostrar.TabIndex = 121;
-            this.lblNombreamostrar.Text = "Nombre a Mostrar:";
-            this.lblNombreamostrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtNombreamostrar
-            // 
-            this.txtNombreamostrar.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNombreamostrar.Enabled = false;
-            this.txtNombreamostrar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreamostrar.Location = new System.Drawing.Point(125, 278);
-            this.txtNombreamostrar.MaxLength = 60;
-            this.txtNombreamostrar.Name = "txtNombreamostrar";
-            this.txtNombreamostrar.Size = new System.Drawing.Size(44, 22);
-            this.txtNombreamostrar.TabIndex = 21;
-            // 
-            // lblCoddominio
-            // 
-            this.lblCoddominio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoddominio.Location = new System.Drawing.Point(15, 286);
-            this.lblCoddominio.Name = "lblCoddominio";
-            this.lblCoddominio.Size = new System.Drawing.Size(104, 22);
-            this.lblCoddominio.TabIndex = 122;
-            this.lblCoddominio.Text = "Dominio:";
-            this.lblCoddominio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cmbCoddominio
-            // 
-            this.cmbCoddominio.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbCoddominio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCoddominio.EmptyValid = true;
-            this.cmbCoddominio.Enabled = false;
-            this.cmbCoddominio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbCoddominio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCoddominio.Location = new System.Drawing.Point(125, 294);
-            this.cmbCoddominio.Name = "cmbCoddominio";
-            this.cmbCoddominio.Size = new System.Drawing.Size(44, 24);
-            this.cmbCoddominio.Sorted = true;
-            this.cmbCoddominio.TabIndex = 22;
             // 
             // lblHistorico
             // 
             this.lblHistorico.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHistorico.Location = new System.Drawing.Point(15, 302);
+            this.lblHistorico.Location = new System.Drawing.Point(460, 197);
             this.lblHistorico.Name = "lblHistorico";
             this.lblHistorico.Size = new System.Drawing.Size(104, 22);
             this.lblHistorico.TabIndex = 123;
             this.lblHistorico.Text = "Es Historico:";
             this.lblHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtHistorico
+            // cdcEsHistorico
             // 
-            this.txtHistorico.BackColor = System.Drawing.SystemColors.Window;
-            this.txtHistorico.Enabled = false;
-            this.txtHistorico.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHistorico.Location = new System.Drawing.Point(125, 310);
-            this.txtHistorico.MaxLength = 1;
-            this.txtHistorico.Name = "txtHistorico";
-            this.txtHistorico.Size = new System.Drawing.Size(44, 22);
-            this.txtHistorico.TabIndex = 23;
+            this.cdcEsHistorico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cdcEsHistorico.BackColor = System.Drawing.SystemColors.Window;
+            this.cdcEsHistorico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cdcEsHistorico.Enabled = false;
+            this.cdcEsHistorico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cdcEsHistorico.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cdcEsHistorico.Location = new System.Drawing.Point(570, 197);
+            this.cdcEsHistorico.Name = "cdcEsHistorico";
+            this.cdcEsHistorico.Size = new System.Drawing.Size(79, 24);
+            this.cdcEsHistorico.Sorted = true;
+            this.cdcEsHistorico.TabIndex = 126;
             // 
             // Vendedores
             // 
             this.AllowEndUserDocking = false;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(750, 450);
+            this.ClientSize = new System.Drawing.Size(890, 654);
             this.Controls.Add(this.xpnlBase);
             this.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.Document;
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1029,5 +891,7 @@ namespace Carm.Tg
 
         }
         #endregion
+
+        private TNGS.NetControls.CDCombo cdcEsHistorico;
     }
 }

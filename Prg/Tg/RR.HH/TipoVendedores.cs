@@ -80,12 +80,6 @@ namespace Carm.Tg
             // Inicializamos el form
             App.ShowMsg("Inicializando el formulario...");
 
-            // Llenamos las Combos (por Lista)
-            cmbNivel.AddStrCD("1", "INICIAL", 0);
-            cmbNivel.AddStrCD("2", "INTERMEDIO", 0);
-            cmbNivel.AddStrCD("3", "AVANZADO", 0);
-            cmbNivel.AddStrCD("4", "SUPERIOR", 0);
-
             cmbVemayor.AddStrCD("S", "SI", 0);
             cmbVemayor.AddStrCD("N", "NO", 0);
 
@@ -299,10 +293,7 @@ namespace Carm.Tg
         {
             // Pasamos los datos a la Entidad
             m_entTipoVendedor.Cod= txtCod.Text;
-            m_entTipoVendedor.Nivel= cmbNivel.SelectedStrCode;
             m_entTipoVendedor.Des= txtDes.Text;
-            m_entTipoVendedor.Vtasminimas= txtVtasminimas.Numero;
-            m_entTipoVendedor.Reservasmax= txtReservasmax.Numero;
             m_entTipoVendedor.Vemayor= cmbVemayor.SelectedStrCode;
 
             // Tratamos de grabar la entidad
@@ -375,14 +366,8 @@ namespace Carm.Tg
             // Deshabilitamos el frame
             txtCod.NormalDisable= true;
             txtCod.Enabled= false;
-            cmbNivel.NormalDisable= true;
-            cmbNivel.Enabled= false;
             txtDes.NormalDisable= true;
             txtDes.Enabled= false;
-            txtVtasminimas.NormalDisable= true;
-            txtVtasminimas.Enabled= false;
-            txtReservasmax.NormalDisable= true;
-            txtReservasmax.Enabled= false;
             cmbVemayor.NormalDisable= true;
             cmbVemayor.Enabled= false;
             cmdCancelar.Enabled= false;
@@ -392,10 +377,7 @@ namespace Carm.Tg
 
             // Blanqueamos los campos
             txtCod.Text= "";
-            cmbNivel.SelectedStrCode= "";
             txtDes.Text= "";
-            txtVtasminimas.Numero= 0;
-            txtReservasmax.Numero= 0;
             cmbVemayor.SelectedStrCode= "";
 
             // Habilitamos la grilla y los controles operativos
@@ -423,23 +405,14 @@ namespace Carm.Tg
         {
             // Llenamos los campos a partir de la entidad a editar
             txtCod.Text= m_entTipoVendedor.Cod;
-            cmbNivel.SelectedStrCode= m_entTipoVendedor.Nivel;
             txtDes.Text= m_entTipoVendedor.Des;
-            txtVtasminimas.Numero= m_entTipoVendedor.Vtasminimas;
-            txtReservasmax.Numero= m_entTipoVendedor.Reservasmax;
             cmbVemayor.SelectedStrCode= m_entTipoVendedor.Vemayor;
 
             // Habilitamos el frame
             txtCod.NormalDisable= false;
             txtCod.Enabled= m_entTipoVendedor.EsNueva;
-            cmbNivel.NormalDisable= false;
-            cmbNivel.Enabled= m_entTipoVendedor.EsNueva;
             txtDes.NormalDisable= false;
             txtDes.Enabled= !m_entTipoVendedor.EstaBorrada;
-            txtVtasminimas.NormalDisable= false;
-            txtVtasminimas.Enabled= !m_entTipoVendedor.EstaBorrada;
-            txtReservasmax.NormalDisable= false;
-            txtReservasmax.Enabled= !m_entTipoVendedor.EstaBorrada;
             cmbVemayor.NormalDisable= false;
             cmbVemayor.Enabled= !m_entTipoVendedor.EstaBorrada;
             cmdCancelar.Enabled= true;

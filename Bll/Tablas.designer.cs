@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:37
+    // Fecha                    : 09/08/2020 22:33
     // Sistema                  : Carm
     // Clase para Administrar   : Tablas
     //----------------------------------------------------------------------------
@@ -1107,12 +1107,10 @@ namespace Carm.Bll
         /// <summary>
         /// Ejecuta el SP definido por el usuario: getConvertido
         /// </summary>
-        /// <param name= p_strCodmarca>Codigo de Marca</param>
         /// <param name= p_strColoraconvertir>Color a Convertir</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
-        public static ListaEntidades CongetConvertido(string p_strCodmarca,
-                                                      string p_strColoraconvertir,
+        public static ListaEntidades CongetConvertido(string p_strColoraconvertir,
                                                       StatMsg p_smResult)
         {
             // No hay errores aun
@@ -1124,7 +1122,6 @@ namespace Carm.Bll
 
                 // Llamamos al metodo interno
                 return CongetConvertido(l_dbcAccess,
-                                        p_strCodmarca,
                                         p_strColoraconvertir,
                                         p_smResult);
             }
@@ -1184,8 +1181,6 @@ namespace Carm.Bll
             // ********
             // Validaciones de los campos con conexion
             // ********
-
-            // Todas las validaciones fueron correctas
 
             // Llamamos a la funcion fija del usuario
             ConTInt_f(p_dbcAccess, p_entConversionColor, p_smResult);
@@ -1495,7 +1490,6 @@ namespace Carm.Bll
                 // Creamos un nuevo registro de la tabla: ConversionColores
                 Dal.ConversionColores.Insert(p_dbcAccess,
                                              p_entConversionColor.Cod,
-                                             p_entConversionColor.Codmarca,
                                              p_entConversionColor.Coloraconvertir,
                                              p_entConversionColor.Colorconvertido,
                                              p_smResult);
@@ -1524,7 +1518,6 @@ namespace Carm.Bll
                 // Actualizamos un registro de la tabla: ConversionColores
                 Dal.ConversionColores.Update(p_dbcAccess,
                                              p_entConversionColor.Cod,
-                                             p_entConversionColor.Codmarca,
                                              p_entConversionColor.Coloraconvertir,
                                              p_entConversionColor.Colorconvertido,
                                              p_smResult);
@@ -1605,12 +1598,10 @@ namespace Carm.Bll
         /// Ejecuta el SP definido por el usuario: getConvertido
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= p_strCodmarca>Codigo de Marca</param>
         /// <param name= p_strColoraconvertir>Color a Convertir</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         internal static ListaEntidades CongetConvertido(DBConn p_dbcAccess,
-                                                        string p_strCodmarca,
                                                         string p_strColoraconvertir,
                                                         StatMsg p_smResult)
         {
@@ -1619,7 +1610,6 @@ namespace Carm.Bll
                 DataSet l_dsTemp= new DataSet();
 
                 Dal.ConversionColores.getConvertido(p_dbcAccess,
-                                                    p_strCodmarca,
                                                     p_strColoraconvertir,
                                                     ref l_dsTemp,
                                                     "Temporal",
@@ -7810,32 +7800,9 @@ namespace Carm.Bll
                 return;
             }
 
-            if (p_entTipoVendedor.Nivel.Trim() != "") {
-                if ((p_entTipoVendedor.Nivel != "1") &&
-                    (p_entTipoVendedor.Nivel != "2") &&
-                    (p_entTipoVendedor.Nivel != "3") &&
-                    (p_entTipoVendedor.Nivel != "4")) {
-                    // El campo [Nivel] tiene opciones
-                    p_smResult.BllWarning("El dato [Nivel] sólo admite\r\n\r\n[1]- INICIAL\r\n[2]- INTERMEDIO\r\n[3]- AVANZADO\r\n[4]- SUPERIOR\r\n","");
-                    return;
-                }
-            }
-
             if (p_entTipoVendedor.Des.Trim() == "") {
                 // El campo [Descripcion] no puede ser vacío
                 p_smResult.BllWarning("El dato [Descripcion] no puede ser vacío","");
-                return;
-            }
-
-            if (p_entTipoVendedor.Vtasminimas < 0) {
-                // El campo [Ventas Minimas] no puede menor a cero
-                p_smResult.BllWarning("El dato [Ventas Minimas] no puede ser negativo","");
-                return;
-            }
-
-            if (p_entTipoVendedor.Reservasmax < 0) {
-                // El campo [Reservas Maximas] no puede menor a cero
-                p_smResult.BllWarning("El dato [Reservas Maximas] no puede ser negativo","");
                 return;
             }
 
@@ -8160,10 +8127,7 @@ namespace Carm.Bll
                 // Creamos un nuevo registro de la tabla: TipoVend
                 Dal.TVendedores.Insert(p_dbcAccess,
                                        p_entTipoVendedor.Cod,
-                                       p_entTipoVendedor.Nivel,
                                        p_entTipoVendedor.Des,
-                                       p_entTipoVendedor.Vtasminimas,
-                                       p_entTipoVendedor.Reservasmax,
                                        p_entTipoVendedor.Vemayor,
                                        p_smResult);
             }
@@ -8191,10 +8155,7 @@ namespace Carm.Bll
                 // Actualizamos un registro de la tabla: TipoVend
                 Dal.TVendedores.Update(p_dbcAccess,
                                        p_entTipoVendedor.Cod,
-                                       p_entTipoVendedor.Nivel,
                                        p_entTipoVendedor.Des,
-                                       p_entTipoVendedor.Vtasminimas,
-                                       p_entTipoVendedor.Reservasmax,
                                        p_entTipoVendedor.Vemayor,
                                        p_smResult);
             }

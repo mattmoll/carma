@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:37
+    // Fecha                    : 09/08/2020 22:32
     // Sistema                  : Carm
     // Clase para Administrar   : Vendedores
     //----------------------------------------------------------------------------
@@ -824,18 +824,6 @@ namespace Carm.Bll
                 return;
             }
 
-            if (p_entVendedor.Email.Trim() == "") {
-                // El campo [Usuario Credencial Mail] no puede ser vacío
-                p_smResult.BllWarning("El dato [Usuario Credencial Mail] no puede ser vacío","");
-                return;
-            }
-
-            if (p_entVendedor.Contrasenia.Trim() == "") {
-                // El campo [Contraseña] no puede ser vacío
-                p_smResult.BllWarning("El dato [Contraseña] no puede ser vacío","");
-                return;
-            }
-
             // ********
             // Validaciones de los campos con conexion
             // ********
@@ -861,6 +849,7 @@ namespace Carm.Bll
                 p_smResult.BllWarning("El dato [Tipo Vendedor] debe existir en la tabla [Tablas.Tvd] y estar habilitado","");
                 return;
             }
+
             // Todas las validaciones fueron correctas
 
             // Llamamos a la funcion fija del usuario
@@ -1141,14 +1130,9 @@ namespace Carm.Bll
                                       p_entVendedor.Tel2,
                                       p_entVendedor.Fecnacim,
                                       p_entVendedor.Direccion,
-                                      p_entVendedor.Email,
-                                      p_entVendedor.Contrasenia,
                                       p_entVendedor.Codsuperv,
                                       p_entVendedor.Codtvend,
                                       p_entVendedor.Horarios,
-                                      p_entVendedor.Mailremitente,
-                                      p_entVendedor.Nombreamostrar,
-                                      p_entVendedor.Coddominio,
                                       p_entVendedor.Historico,
                                       p_smResult);
             }
@@ -1184,14 +1168,9 @@ namespace Carm.Bll
                                       p_entVendedor.Tel2,
                                       p_entVendedor.Fecnacim,
                                       p_entVendedor.Direccion,
-                                      p_entVendedor.Email,
-                                      p_entVendedor.Contrasenia,
                                       p_entVendedor.Codsuperv,
                                       p_entVendedor.Codtvend,
                                       p_entVendedor.Horarios,
-                                      p_entVendedor.Mailremitente,
-                                      p_entVendedor.Nombreamostrar,
-                                      p_entVendedor.Coddominio,
                                       p_entVendedor.Historico,
                                       p_smResult);
             }

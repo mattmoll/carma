@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:37
+    // Fecha                    : 09/08/2020 22:33
     // Sistema                  : Carm
     // Clase para Administrar   : Tablas
     //----------------------------------------------------------------------------
@@ -638,10 +638,8 @@ namespace Carm.Bel
             DataRow l_drTemp= l_dtTemp.NewRow();
 
             l_drTemp["con_cod_cod"]= XMLRuts.ExtractXAttr(l_xndData, "con_cod_cod");
-            l_drTemp["con_rcd_codmarca"]= XMLRuts.ExtractXAttr(l_xndData, "con_rcd_codmarca");
             l_drTemp["con_des_coloraconvertir"]= XMLRuts.ExtractXAttr(l_xndData, "con_des_coloraconvertir");
             l_drTemp["con_cd1_colorconvertido"]= XMLRuts.ExtractXAttr(l_xndData, "con_cd1_colorconvertido");
-            l_drTemp["con_des_marca"]= XMLRuts.ExtractXAttr(l_xndData, "con_des_marca");
 
             // Llenamos los campos fijos
             XML2FixedFields(ref l_drTemp, l_xndData);
@@ -686,10 +684,8 @@ namespace Carm.Bel
             DataRow l_drTemp= l_dtTemp.NewRow();
 
             l_drTemp["con_cod_cod"]= "";
-            l_drTemp["con_rcd_codmarca"]= "";
             l_drTemp["con_des_coloraconvertir"]= "";
             l_drTemp["con_cd1_colorconvertido"]= "";
-            l_drTemp["con_des_marca"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
             // una entidad a partir de la DataTable de 1 registro
@@ -703,12 +699,10 @@ namespace Carm.Bel
         /// Construye una entidad con datos de parametro: ConversionColor
         /// </summary>
         /// <param name="p_strCod">Código</param>
-        /// <param name="p_strCodmarca">Marca</param>
         /// <param name="p_strColoraconvertir">Color a Convertir</param>
         /// <param name="p_strColorconvertido">Color Convertido</param>
         /// <returns>Entidad: ConversionColor</returns>
         public static EConversionColor NewFilled(string p_strCod,
-                                                 string p_strCodmarca,
                                                  string p_strColoraconvertir,
                                                  string p_strColorconvertido)
         {
@@ -721,10 +715,8 @@ namespace Carm.Bel
             DataRow l_drTemp= l_dtTemp.NewRow();
 
             l_drTemp["con_cod_cod"]= p_strCod;
-            l_drTemp["con_rcd_codmarca"]= p_strCodmarca;
             l_drTemp["con_des_coloraconvertir"]= p_strColoraconvertir;
             l_drTemp["con_cd1_colorconvertido"]= p_strColorconvertido;
-            l_drTemp["con_des_marca"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
             // una entidad a partir de la DataTable de 1 registro
@@ -765,14 +757,12 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[9];
+                DataColumn[] l_dcStruct= new DataColumn[7];
 
                 l_dcStruct[0]= new DataColumn("con_cod_cod", typeof(string));
-                l_dcStruct[1]= new DataColumn("con_rcd_codmarca", typeof(string));
-                l_dcStruct[2]= new DataColumn("con_des_marca", typeof(string));
-                l_dcStruct[3]= new DataColumn("con_des_coloraconvertir", typeof(string));
-                l_dcStruct[4]= new DataColumn("con_cd1_colorconvertido", typeof(string));
-                EConversionColor.FillFixedFields(ref l_dcStruct, 5);
+                l_dcStruct[1]= new DataColumn("con_des_coloraconvertir", typeof(string));
+                l_dcStruct[2]= new DataColumn("con_cd1_colorconvertido", typeof(string));
+                EConversionColor.FillFixedFields(ref l_dcStruct, 3);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -794,23 +784,6 @@ namespace Carm.Bel
         {
             get {return (string) InternalData["con_cod_cod"];}
             set {InternalData["con_cod_cod"]= EConversionColor.FrmtCod(value);}
-        }
-
-        /// <summary>
-        /// Marca
-        /// </summary>
-        public static string CodmarcaCmp
-        {
-           get {return "con_rcd_codmarca";}
-        }
-
-        /// <summary>
-        /// Marca
-        /// </summary>
-        public string Codmarca
-        {
-            get {return (string) InternalData["con_rcd_codmarca"];}
-            set {InternalData["con_rcd_codmarca"]= value;}
         }
 
         /// <summary>
@@ -851,15 +824,6 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Marca
-        /// </summary>
-        public string Con_des_marca
-        {
-            get {return (string) InternalData["con_des_marca"];}
-            set {InternalData["con_des_marca"]= value;}
-        }
-
-        /// <summary>
         /// Devuelve la entidad [EConversionColor] como XMLDocument en formato string
         /// </summary>
         public string XMLData
@@ -879,10 +843,8 @@ namespace Carm.Bel
 
                 // Asignamos los atributos al nodo
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "con_cod_cod", Cod));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "con_rcd_codmarca", Codmarca));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "con_des_coloraconvertir", Coloraconvertir));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "con_cd1_colorconvertido", Colorconvertido));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "con_des_marca", Con_des_marca));
 
                 // Asignamos los campos fijos
                 FixedFields2XML(l_xdocData, ref l_xndEntidad);
@@ -5415,10 +5377,7 @@ namespace Carm.Bel
             DataRow l_drTemp= l_dtTemp.NewRow();
 
             l_drTemp["tvn_rcd_cod"]= XMLRuts.ExtractXAttr(l_xndData, "tvn_rcd_cod");
-            l_drTemp["tvn_cd1_nivel"]= XMLRuts.ExtractXAttr(l_xndData, "tvn_cd1_nivel");
             l_drTemp["tvn_des_des"]= XMLRuts.ExtractXAttr(l_xndData, "tvn_des_des");
-            l_drTemp["tvn_nro_vtasminimas"]= XMLRuts.ExtractXAttr(l_xndData, "tvn_nro_vtasminimas", 0);
-            l_drTemp["tvn_nro_reservasmax"]= XMLRuts.ExtractXAttr(l_xndData, "tvn_nro_reservasmax", 0);
             l_drTemp["tvn_cd1_vemayor"]= XMLRuts.ExtractXAttr(l_xndData, "tvn_cd1_vemayor");
 
             // Llenamos los campos fijos
@@ -5464,10 +5423,7 @@ namespace Carm.Bel
             DataRow l_drTemp= l_dtTemp.NewRow();
 
             l_drTemp["tvn_rcd_cod"]= "";
-            l_drTemp["tvn_cd1_nivel"]= "";
             l_drTemp["tvn_des_des"]= "";
-            l_drTemp["tvn_nro_vtasminimas"]= 0;
-            l_drTemp["tvn_nro_reservasmax"]= 0;
             l_drTemp["tvn_cd1_vemayor"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
@@ -5482,17 +5438,11 @@ namespace Carm.Bel
         /// Construye una entidad con datos de parametro: TipoVendedor
         /// </summary>
         /// <param name="p_strCod">Codigo</param>
-        /// <param name="p_strNivel">Nivel</param>
         /// <param name="p_strDes">Descripcion</param>
-        /// <param name="p_iVtasminimas">Ventas Minimas</param>
-        /// <param name="p_iReservasmax">Reservas Maximas</param>
         /// <param name="p_strVemayor">Ve Mayoristas</param>
         /// <returns>Entidad: TipoVendedor</returns>
         public static ETipoVendedor NewFilled(string p_strCod,
-                                              string p_strNivel,
                                               string p_strDes,
-                                              int p_iVtasminimas,
-                                              int p_iReservasmax,
                                               string p_strVemayor)
         {
             // Creamos una tabla compatible con la entidad
@@ -5504,10 +5454,7 @@ namespace Carm.Bel
             DataRow l_drTemp= l_dtTemp.NewRow();
 
             l_drTemp["tvn_rcd_cod"]= p_strCod;
-            l_drTemp["tvn_cd1_nivel"]= p_strNivel;
             l_drTemp["tvn_des_des"]= p_strDes;
-            l_drTemp["tvn_nro_vtasminimas"]= p_iVtasminimas;
-            l_drTemp["tvn_nro_reservasmax"]= p_iReservasmax;
             l_drTemp["tvn_cd1_vemayor"]= p_strVemayor;
 
             // Agregamos la Row creada a la tabla creada y creamos
@@ -5549,15 +5496,12 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[10];
+                DataColumn[] l_dcStruct= new DataColumn[7];
 
                 l_dcStruct[0]= new DataColumn("tvn_rcd_cod", typeof(string));
-                l_dcStruct[1]= new DataColumn("tvn_cd1_nivel", typeof(string));
-                l_dcStruct[2]= new DataColumn("tvn_des_des", typeof(string));
-                l_dcStruct[3]= new DataColumn("tvn_nro_vtasminimas", typeof(int));
-                l_dcStruct[4]= new DataColumn("tvn_nro_reservasmax", typeof(int));
-                l_dcStruct[5]= new DataColumn("tvn_cd1_vemayor", typeof(string));
-                ETipoVendedor.FillFixedFields(ref l_dcStruct, 6);
+                l_dcStruct[1]= new DataColumn("tvn_des_des", typeof(string));
+                l_dcStruct[2]= new DataColumn("tvn_cd1_vemayor", typeof(string));
+                ETipoVendedor.FillFixedFields(ref l_dcStruct, 3);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -5582,23 +5526,6 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Nivel
-        /// </summary>
-        public static string NivelCmp
-        {
-           get {return "tvn_cd1_nivel";}
-        }
-
-        /// <summary>
-        /// Nivel
-        /// </summary>
-        public string Nivel
-        {
-            get {return (string) InternalData["tvn_cd1_nivel"];}
-            set {InternalData["tvn_cd1_nivel"]= value;}
-        }
-
-        /// <summary>
         /// Descripcion
         /// </summary>
         public static string DesCmp
@@ -5616,40 +5543,6 @@ namespace Carm.Bel
                 if (value.Trim().Length > 30) value= value.Trim().Substring(0,30);
                 InternalData["tvn_des_des"]= value.Trim().ToUpper();
             }
-        }
-
-        /// <summary>
-        /// Ventas Minimas
-        /// </summary>
-        public static string VtasminimasCmp
-        {
-           get {return "tvn_nro_vtasminimas";}
-        }
-
-        /// <summary>
-        /// Ventas Minimas
-        /// </summary>
-        public int Vtasminimas
-        {
-            get {return (int) InternalData["tvn_nro_vtasminimas"];}
-            set {InternalData["tvn_nro_vtasminimas"]= value;}
-        }
-
-        /// <summary>
-        /// Reservas Maximas
-        /// </summary>
-        public static string ReservasmaxCmp
-        {
-           get {return "tvn_nro_reservasmax";}
-        }
-
-        /// <summary>
-        /// Reservas Maximas
-        /// </summary>
-        public int Reservasmax
-        {
-            get {return (int) InternalData["tvn_nro_reservasmax"];}
-            set {InternalData["tvn_nro_reservasmax"]= value;}
         }
 
         /// <summary>
@@ -5689,10 +5582,7 @@ namespace Carm.Bel
 
                 // Asignamos los atributos al nodo
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "tvn_rcd_cod", Cod));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "tvn_cd1_nivel", Nivel));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "tvn_des_des", Des));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "tvn_nro_vtasminimas", Vtasminimas));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "tvn_nro_reservasmax", Reservasmax));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "tvn_cd1_vemayor", Vemayor));
 
                 // Asignamos los campos fijos

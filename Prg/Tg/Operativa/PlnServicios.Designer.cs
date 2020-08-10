@@ -517,7 +517,7 @@ namespace Carm.Tg
             // lblCodplan
             // 
             this.lblCodplan.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodplan.Location = new System.Drawing.Point(89, 52);
+            this.lblCodplan.Location = new System.Drawing.Point(68, 58);
             this.lblCodplan.Name = "lblCodplan";
             this.lblCodplan.Size = new System.Drawing.Size(104, 22);
             this.lblCodplan.TabIndex = 106;
@@ -531,7 +531,7 @@ namespace Carm.Tg
             this.txtCodplan.EmptyValid = false;
             this.txtCodplan.Enabled = false;
             this.txtCodplan.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodplan.Location = new System.Drawing.Point(199, 52);
+            this.txtCodplan.Location = new System.Drawing.Point(178, 58);
             this.txtCodplan.MaxLength = 4;
             this.txtCodplan.Name = "txtCodplan";
             this.txtCodplan.OnlyDigits = true;
@@ -541,7 +541,7 @@ namespace Carm.Tg
             // lblCodservicio
             // 
             this.lblCodservicio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodservicio.Location = new System.Drawing.Point(58, 88);
+            this.lblCodservicio.Location = new System.Drawing.Point(37, 94);
             this.lblCodservicio.Name = "lblCodservicio";
             this.lblCodservicio.Size = new System.Drawing.Size(135, 22);
             this.lblCodservicio.TabIndex = 107;
@@ -555,7 +555,7 @@ namespace Carm.Tg
             this.cmbCodservicio.Enabled = false;
             this.cmbCodservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCodservicio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCodservicio.Location = new System.Drawing.Point(199, 88);
+            this.cmbCodservicio.Location = new System.Drawing.Point(178, 94);
             this.cmbCodservicio.Name = "cmbCodservicio";
             this.cmbCodservicio.Size = new System.Drawing.Size(199, 24);
             this.cmbCodservicio.Sorted = true;
@@ -564,7 +564,7 @@ namespace Carm.Tg
             // lblCprestlibres
             // 
             this.lblCprestlibres.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCprestlibres.Location = new System.Drawing.Point(399, 52);
+            this.lblCprestlibres.Location = new System.Drawing.Point(378, 58);
             this.lblCprestlibres.Name = "lblCprestlibres";
             this.lblCprestlibres.Size = new System.Drawing.Size(150, 22);
             this.lblCprestlibres.TabIndex = 108;
@@ -576,7 +576,7 @@ namespace Carm.Tg
             this.txtCprestlibres.BackColor = System.Drawing.SystemColors.Window;
             this.txtCprestlibres.Enabled = false;
             this.txtCprestlibres.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCprestlibres.Location = new System.Drawing.Point(555, 52);
+            this.txtCprestlibres.Location = new System.Drawing.Point(534, 58);
             this.txtCprestlibres.MaxLength = 5;
             this.txtCprestlibres.Name = "txtCprestlibres";
             this.txtCprestlibres.Size = new System.Drawing.Size(54, 22);
@@ -586,7 +586,7 @@ namespace Carm.Tg
             // lblValorprestacion
             // 
             this.lblValorprestacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorprestacion.Location = new System.Drawing.Point(425, 88);
+            this.lblValorprestacion.Location = new System.Drawing.Point(404, 94);
             this.lblValorprestacion.Name = "lblValorprestacion";
             this.lblValorprestacion.Size = new System.Drawing.Size(124, 22);
             this.lblValorprestacion.TabIndex = 109;
@@ -598,7 +598,7 @@ namespace Carm.Tg
             this.txtValorprestacion.BackColor = System.Drawing.SystemColors.Window;
             this.txtValorprestacion.Enabled = false;
             this.txtValorprestacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorprestacion.Location = new System.Drawing.Point(555, 88);
+            this.txtValorprestacion.Location = new System.Drawing.Point(534, 94);
             this.txtValorprestacion.MaxLength = 10;
             this.txtValorprestacion.Name = "txtValorprestacion";
             this.txtValorprestacion.NegativeValid = false;

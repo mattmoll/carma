@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:37
+    // Fecha                    : 09/08/2020 22:32
     // Sistema                  : Carm
     // Clase para Administrar   : Vendedores
     //----------------------------------------------------------------------------
@@ -87,24 +87,14 @@ namespace Carm.Bel
             l_drTemp["vnd_tel_tel2"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_tel_tel2");
             l_drTemp["vnd_fec_fecnacim"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_fec_fecnacim", true);
             l_drTemp["vnd_ede_direccion"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_ede_direccion");
-            l_drTemp["vnd_ede_email"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_ede_email");
-            l_drTemp["vnd_ede_contrasenia"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_ede_contrasenia");
             l_drTemp["vnd_cd6_codsuperv"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_cd6_codsuperv");
             l_drTemp["vnd_rcd_codtvend"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_rcd_codtvend");
             l_drTemp["vnd_txt_horarios"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_txt_horarios");
-            l_drTemp["vnd_ede_mailremitente"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_ede_mailremitente");
-            l_drTemp["vnd_ede_nombreamostrar"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_ede_nombreamostrar");
-            l_drTemp["vnd_rcd_coddominio"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_rcd_coddominio");
             l_drTemp["vnd_cd1_historico"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_cd1_historico");
             l_drTemp["vnd_cd1_vemayor"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_cd1_vemayor");
-            l_drTemp["vnd_des_baseop"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_des_baseop");
-            l_drTemp["vnd_des_jvta"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_des_jvta");
-            l_drTemp["vnd_des_marca"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_des_marca");
             l_drTemp["vnd_des_tipovnd"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_des_tipovnd");
             l_drTemp["vnd_ede_nya"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_ede_nya");
             l_drTemp["vnd_nom_superv"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_nom_superv");
-            l_drTemp["vnd_nro_resact"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_nro_resact", 0);
-            l_drTemp["vnd_nro_resmax"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_nro_resmax", 0);
 
             // Llenamos los campos fijos
             XML2FixedFields(ref l_drTemp, l_xndData);
@@ -157,24 +147,14 @@ namespace Carm.Bel
             l_drTemp["vnd_tel_tel2"]= "";
             l_drTemp["vnd_fec_fecnacim"]= DateTimeRuts.Empty;
             l_drTemp["vnd_ede_direccion"]= "";
-            l_drTemp["vnd_ede_email"]= "";
-            l_drTemp["vnd_ede_contrasenia"]= "";
             l_drTemp["vnd_cd6_codsuperv"]= "";
             l_drTemp["vnd_rcd_codtvend"]= "";
             l_drTemp["vnd_txt_horarios"]= "";
-            l_drTemp["vnd_ede_mailremitente"]= "";
-            l_drTemp["vnd_ede_nombreamostrar"]= "";
-            l_drTemp["vnd_rcd_coddominio"]= "";
             l_drTemp["vnd_cd1_historico"]= "";
             l_drTemp["vnd_cd1_vemayor"]= "";
-            l_drTemp["vnd_des_baseop"]= "";
-            l_drTemp["vnd_des_jvta"]= "";
-            l_drTemp["vnd_des_marca"]= "";
             l_drTemp["vnd_des_tipovnd"]= "";
             l_drTemp["vnd_ede_nya"]= "";
             l_drTemp["vnd_nom_superv"]= "";
-            l_drTemp["vnd_nro_resact"]= 0;
-            l_drTemp["vnd_nro_resmax"]= 0;
 
             // Agregamos la Row creada a la tabla creada y creamos
             // una entidad a partir de la DataTable de 1 registro
@@ -196,14 +176,9 @@ namespace Carm.Bel
         /// <param name="p_strTel2">Telefono2</param>
         /// <param name="p_dtFecnacim">Fecha Nacimiento</param>
         /// <param name="p_strDireccion">Dirección</param>
-        /// <param name="p_strEmail">Usuario Credencial Mail</param>
-        /// <param name="p_strContrasenia">Contraseña</param>
         /// <param name="p_strCodsuperv">Supervisor</param>
         /// <param name="p_strCodtvend">Tipo Vendedor</param>
         /// <param name="p_strHorarios">Horarios</param>
-        /// <param name="p_strMailremitente">Mail Remitente</param>
-        /// <param name="p_strNombreamostrar">Nombre a Mostrar</param>
-        /// <param name="p_strCoddominio">Dominio</param>
         /// <param name="p_strHistorico">Es Historico</param>
         /// <returns>Entidad: Vendedor</returns>
         public static EVendedor NewFilled(string p_strCod,
@@ -215,14 +190,9 @@ namespace Carm.Bel
                                           string p_strTel2,
                                           DateTime p_dtFecnacim,
                                           string p_strDireccion,
-                                          string p_strEmail,
-                                          string p_strContrasenia,
                                           string p_strCodsuperv,
                                           string p_strCodtvend,
                                           string p_strHorarios,
-                                          string p_strMailremitente,
-                                          string p_strNombreamostrar,
-                                          string p_strCoddominio,
                                           string p_strHistorico)
         {
             // Creamos una tabla compatible con la entidad
@@ -242,24 +212,14 @@ namespace Carm.Bel
             l_drTemp["vnd_tel_tel2"]= p_strTel2;
             l_drTemp["vnd_fec_fecnacim"]= p_dtFecnacim;
             l_drTemp["vnd_ede_direccion"]= p_strDireccion;
-            l_drTemp["vnd_ede_email"]= p_strEmail;
-            l_drTemp["vnd_ede_contrasenia"]= p_strContrasenia;
             l_drTemp["vnd_cd6_codsuperv"]= p_strCodsuperv;
             l_drTemp["vnd_rcd_codtvend"]= p_strCodtvend;
             l_drTemp["vnd_txt_horarios"]= p_strHorarios;
-            l_drTemp["vnd_ede_mailremitente"]= p_strMailremitente;
-            l_drTemp["vnd_ede_nombreamostrar"]= p_strNombreamostrar;
-            l_drTemp["vnd_rcd_coddominio"]= p_strCoddominio;
             l_drTemp["vnd_cd1_historico"]= p_strHistorico;
             l_drTemp["vnd_cd1_vemayor"]= "";
-            l_drTemp["vnd_des_baseop"]= "";
-            l_drTemp["vnd_des_jvta"]= "";
-            l_drTemp["vnd_des_marca"]= "";
             l_drTemp["vnd_des_tipovnd"]= "";
             l_drTemp["vnd_ede_nya"]= "";
             l_drTemp["vnd_nom_superv"]= "";
-            l_drTemp["vnd_nro_resact"]= 0;
-            l_drTemp["vnd_nro_resmax"]= 0;
 
             // Agregamos la Row creada a la tabla creada y creamos
             // una entidad a partir de la DataTable de 1 registro
@@ -300,7 +260,7 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[31];
+                DataColumn[] l_dcStruct= new DataColumn[21];
 
                 l_dcStruct[0]= new DataColumn("vnd_cd6_cod", typeof(string));
                 l_dcStruct[1]= new DataColumn("vnd_des_apellido", typeof(string));
@@ -312,22 +272,14 @@ namespace Carm.Bel
                 l_dcStruct[7]= new DataColumn("vnd_tel_tel2", typeof(string));
                 l_dcStruct[8]= new DataColumn("vnd_fec_fecnacim", typeof(DateTime));
                 l_dcStruct[9]= new DataColumn("vnd_ede_direccion", typeof(string));
-                l_dcStruct[10]= new DataColumn("vnd_ede_email", typeof(string));
-                l_dcStruct[11]= new DataColumn("vnd_ede_contrasenia", typeof(string));
-                l_dcStruct[12]= new DataColumn("vnd_cd6_codsuperv", typeof(string));
-                l_dcStruct[13]= new DataColumn("vnd_des_jvta", typeof(string));
-                l_dcStruct[14]= new DataColumn("vnd_nom_superv", typeof(string));
-                l_dcStruct[15]= new DataColumn("vnd_rcd_codtvend", typeof(string));
-                l_dcStruct[16]= new DataColumn("vnd_cd1_vemayor", typeof(string));
-                l_dcStruct[17]= new DataColumn("vnd_des_tipovnd", typeof(string));
-                l_dcStruct[18]= new DataColumn("vnd_nro_resact", typeof(int));
-                l_dcStruct[19]= new DataColumn("vnd_nro_resmax", typeof(int));
-                l_dcStruct[20]= new DataColumn("vnd_txt_horarios", typeof(string));
-                l_dcStruct[21]= new DataColumn("vnd_ede_mailremitente", typeof(string));
-                l_dcStruct[22]= new DataColumn("vnd_ede_nombreamostrar", typeof(string));
-                l_dcStruct[23]= new DataColumn("vnd_rcd_coddominio", typeof(string));
-                l_dcStruct[24]= new DataColumn("vnd_cd1_historico", typeof(string));
-                EVendedor.FillFixedFields(ref l_dcStruct, 25);
+                l_dcStruct[10]= new DataColumn("vnd_cd6_codsuperv", typeof(string));
+                l_dcStruct[11]= new DataColumn("vnd_nom_superv", typeof(string));
+                l_dcStruct[12]= new DataColumn("vnd_rcd_codtvend", typeof(string));
+                l_dcStruct[13]= new DataColumn("vnd_cd1_vemayor", typeof(string));
+                l_dcStruct[14]= new DataColumn("vnd_des_tipovnd", typeof(string));
+                l_dcStruct[15]= new DataColumn("vnd_txt_horarios", typeof(string));
+                l_dcStruct[16]= new DataColumn("vnd_cd1_historico", typeof(string));
+                EVendedor.FillFixedFields(ref l_dcStruct, 17);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -512,46 +464,6 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Usuario Credencial Mail
-        /// </summary>
-        public static string EmailCmp
-        {
-           get {return "vnd_ede_email";}
-        }
-
-        /// <summary>
-        /// Usuario Credencial Mail
-        /// </summary>
-        public string Email
-        {
-            get {return ((string) InternalData["vnd_ede_email"]).Trim();}
-            set {
-                if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
-                InternalData["vnd_ede_email"]= value.Trim();
-            }
-        }
-
-        /// <summary>
-        /// Contraseña
-        /// </summary>
-        public static string ContraseniaCmp
-        {
-           get {return "vnd_ede_contrasenia";}
-        }
-
-        /// <summary>
-        /// Contraseña
-        /// </summary>
-        public string Contrasenia
-        {
-            get {return ((string) InternalData["vnd_ede_contrasenia"]).Trim();}
-            set {
-                if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
-                InternalData["vnd_ede_contrasenia"]= value.Trim();
-            }
-        }
-
-        /// <summary>
         /// Supervisor
         /// </summary>
         public static string CodsupervCmp
@@ -603,63 +515,6 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Mail Remitente
-        /// </summary>
-        public static string MailremitenteCmp
-        {
-           get {return "vnd_ede_mailremitente";}
-        }
-
-        /// <summary>
-        /// Mail Remitente
-        /// </summary>
-        public string Mailremitente
-        {
-            get {return ((string) InternalData["vnd_ede_mailremitente"]).Trim();}
-            set {
-                if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
-                InternalData["vnd_ede_mailremitente"]= value.Trim();
-            }
-        }
-
-        /// <summary>
-        /// Nombre a Mostrar
-        /// </summary>
-        public static string NombreamostrarCmp
-        {
-           get {return "vnd_ede_nombreamostrar";}
-        }
-
-        /// <summary>
-        /// Nombre a Mostrar
-        /// </summary>
-        public string Nombreamostrar
-        {
-            get {return ((string) InternalData["vnd_ede_nombreamostrar"]).Trim();}
-            set {
-                if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
-                InternalData["vnd_ede_nombreamostrar"]= value.Trim();
-            }
-        }
-
-        /// <summary>
-        /// Dominio
-        /// </summary>
-        public static string CoddominioCmp
-        {
-           get {return "vnd_rcd_coddominio";}
-        }
-
-        /// <summary>
-        /// Dominio
-        /// </summary>
-        public string Coddominio
-        {
-            get {return (string) InternalData["vnd_rcd_coddominio"];}
-            set {InternalData["vnd_rcd_coddominio"]= value;}
-        }
-
-        /// <summary>
         /// Es Historico
         /// </summary>
         public static string HistoricoCmp
@@ -686,33 +541,6 @@ namespace Carm.Bel
         {
             get {return (string) InternalData["vnd_cd1_vemayor"];}
             set {InternalData["vnd_cd1_vemayor"]= value;}
-        }
-
-        /// <summary>
-        /// Base Operativa
-        /// </summary>
-        public string Vnd_des_baseop
-        {
-            get {return (string) InternalData["vnd_des_baseop"];}
-            set {InternalData["vnd_des_baseop"]= value;}
-        }
-
-        /// <summary>
-        /// Jefe de Ventas
-        /// </summary>
-        public string Vnd_des_jvta
-        {
-            get {return (string) InternalData["vnd_des_jvta"];}
-            set {InternalData["vnd_des_jvta"]= value;}
-        }
-
-        /// <summary>
-        /// Marca
-        /// </summary>
-        public string Vnd_des_marca
-        {
-            get {return (string) InternalData["vnd_des_marca"];}
-            set {InternalData["vnd_des_marca"]= value;}
         }
 
         /// <summary>
@@ -743,24 +571,6 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Res Actuales
-        /// </summary>
-        public int Vnd_nro_resact
-        {
-            get {return (int) InternalData["vnd_nro_resact"];}
-            set {InternalData["vnd_nro_resact"]= value;}
-        }
-
-        /// <summary>
-        /// Res Maximas
-        /// </summary>
-        public int Vnd_nro_resmax
-        {
-            get {return (int) InternalData["vnd_nro_resmax"];}
-            set {InternalData["vnd_nro_resmax"]= value;}
-        }
-
-        /// <summary>
         /// Devuelve la entidad [EVendedor] como XMLDocument en formato string
         /// </summary>
         public string XMLData
@@ -788,24 +598,14 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_tel_tel2", Tel2));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_fec_fecnacim", Fecnacim));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_ede_direccion", Direccion));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_ede_email", Email));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_ede_contrasenia", Contrasenia));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_cd6_codsuperv", Codsuperv));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_rcd_codtvend", Codtvend));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_txt_horarios", Horarios));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_ede_mailremitente", Mailremitente));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_ede_nombreamostrar", Nombreamostrar));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_rcd_coddominio", Coddominio));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_cd1_historico", Historico));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_cd1_vemayor", Vnd_cd1_vemayor));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_des_baseop", Vnd_des_baseop));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_des_jvta", Vnd_des_jvta));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_des_marca", Vnd_des_marca));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_des_tipovnd", Vnd_des_tipovnd));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_ede_nya", Vnd_ede_nya));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_nom_superv", Vnd_nom_superv));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_nro_resact", Vnd_nro_resact));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_nro_resmax", Vnd_nro_resmax));
 
                 // Asignamos los campos fijos
                 FixedFields2XML(l_xdocData, ref l_xndEntidad);

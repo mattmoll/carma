@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:46
+    // Fecha                    : 09/08/2020 22:10
     // Sistema                  : Carm
     // Clase para Administrar   : Tipos de vendedor
     // Basada en la Tabla       : TipoVend
@@ -168,18 +168,12 @@ namespace Carm.Dal
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name="p_strCod">Codigo</param>
-        /// <param name="p_strNivel">Nivel</param>
         /// <param name="p_strDes">Descripcion</param>
-        /// <param name="p_iVtasminimas">Ventas Minimas</param>
-        /// <param name="p_iReservasmax">Reservas Maximas</param>
         /// <param name="p_strVemayor">Ve Mayoristas</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Insert(DBConn p_dbcAccess,
                                  string p_strCod,
-                                 string p_strNivel,
                                  string p_strDes,
-                                 int p_iVtasminimas,
-                                 int p_iReservasmax,
                                  string p_strVemayor,
                                  StatMsg p_smResult)
         {
@@ -189,10 +183,7 @@ namespace Carm.Dal
                                    "TNGS_Carm..TIPOVEND_INSERT",
                                    new DbParameter[] {
                                        p_dbcAccess.MakeParam("@tvn_rcd_cod", p_strCod),
-                                       p_dbcAccess.MakeParam("@tvn_cd1_nivel", p_strNivel),
                                        p_dbcAccess.MakeParam("@tvn_des_des", p_strDes),
-                                       p_dbcAccess.MakeParam("@tvn_nro_vtasminimas", p_iVtasminimas),
-                                       p_dbcAccess.MakeParam("@tvn_nro_reservasmax", p_iReservasmax),
                                        p_dbcAccess.MakeParam("@tvn_cd1_vemayor", p_strVemayor),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
@@ -210,18 +201,12 @@ namespace Carm.Dal
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name="p_strCod">Codigo</param>
-        /// <param name="p_strNivel">Nivel</param>
         /// <param name="p_strDes">Descripcion</param>
-        /// <param name="p_iVtasminimas">Ventas Minimas</param>
-        /// <param name="p_iReservasmax">Reservas Maximas</param>
         /// <param name="p_strVemayor">Ve Mayoristas</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Update(DBConn p_dbcAccess,
                                  string p_strCod,
-                                 string p_strNivel,
                                  string p_strDes,
-                                 int p_iVtasminimas,
-                                 int p_iReservasmax,
                                  string p_strVemayor,
                                  StatMsg p_smResult)
         {
@@ -231,10 +216,7 @@ namespace Carm.Dal
                                    "TNGS_Carm..TIPOVEND_UPDATE",
                                    new DbParameter[] {
                                        p_dbcAccess.MakeParam("@tvn_rcd_cod", p_strCod),
-                                       p_dbcAccess.MakeParam("@tvn_cd1_nivel", p_strNivel),
                                        p_dbcAccess.MakeParam("@tvn_des_des", p_strDes),
-                                       p_dbcAccess.MakeParam("@tvn_nro_vtasminimas", p_iVtasminimas),
-                                       p_dbcAccess.MakeParam("@tvn_nro_reservasmax", p_iReservasmax),
                                        p_dbcAccess.MakeParam("@tvn_cd1_vemayor", p_strVemayor),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
@@ -373,10 +355,7 @@ namespace Carm.Dal
                 // Fijamos los nuevos captions de la grilla
                 p_dtResult.Columns["tvn_rcd_cod"].Caption= "V1CodigoCN1";
                 p_dtResult.Columns["tvn_des_des"].Caption= "V1DescripcionCN1";
-                p_dtResult.Columns["tvn_cd1_nivel"].Caption= "V1NivelCN1";
-                p_dtResult.Columns["tvn_nro_reservasmax"].Caption= "V1Reservas MaximasNN1";
                 p_dtResult.Columns["tvn_cd1_vemayor"].Caption= "V1Ve MayoristasCN1";
-                p_dtResult.Columns["tvn_nro_vtasminimas"].Caption= "V1Ventas MinimasNN1";
                 p_dtResult.Columns["deleted"].Caption= "V1Borrado2N2";
             }
             catch (Exception l_expData) {

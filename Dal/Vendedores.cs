@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:46
+    // Fecha                    : 09/08/2020 22:32
     // Sistema                  : Carm
     // Clase para Administrar   : Vendedores
     // Basada en la Tabla       : Vendedores
@@ -148,14 +148,9 @@ namespace Carm.Dal
         /// <param name="p_strTel2">Telefono2</param>
         /// <param name="p_dtFecnacim">Fecha Nacimiento</param>
         /// <param name="p_strDireccion">Dirección</param>
-        /// <param name="p_strEmail">Usuario Credencial Mail</param>
-        /// <param name="p_strContrasenia">Contraseña</param>
         /// <param name="p_strCodsuperv">Supervisor</param>
         /// <param name="p_strCodtvend">Tipo Vendedor</param>
         /// <param name="p_strHorarios">Horarios</param>
-        /// <param name="p_strMailremitente">Mail Remitente</param>
-        /// <param name="p_strNombreamostrar">Nombre a Mostrar</param>
-        /// <param name="p_strCoddominio">Dominio</param>
         /// <param name="p_strHistorico">Es Historico</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Insert(DBConn p_dbcAccess,
@@ -168,14 +163,9 @@ namespace Carm.Dal
                                  string p_strTel2,
                                  DateTime p_dtFecnacim,
                                  string p_strDireccion,
-                                 string p_strEmail,
-                                 string p_strContrasenia,
                                  string p_strCodsuperv,
                                  string p_strCodtvend,
                                  string p_strHorarios,
-                                 string p_strMailremitente,
-                                 string p_strNombreamostrar,
-                                 string p_strCoddominio,
                                  string p_strHistorico,
                                  StatMsg p_smResult)
         {
@@ -193,14 +183,9 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@vnd_tel_tel2", p_strTel2),
                                        p_dbcAccess.MakeParamF("@vnd_fec_fecnacim", p_dtFecnacim),
                                        p_dbcAccess.MakeParam("@vnd_ede_direccion", p_strDireccion),
-                                       p_dbcAccess.MakeParam("@vnd_ede_email", p_strEmail),
-                                       p_dbcAccess.MakeParam("@vnd_ede_contrasenia", p_strContrasenia),
                                        p_dbcAccess.MakeParam("@vnd_cd6_codsuperv", p_strCodsuperv),
                                        p_dbcAccess.MakeParam("@vnd_rcd_codtvend", p_strCodtvend),
                                        p_dbcAccess.MakeParam("@vnd_txt_horarios", p_strHorarios),
-                                       p_dbcAccess.MakeParam("@vnd_ede_mailremitente", p_strMailremitente),
-                                       p_dbcAccess.MakeParam("@vnd_ede_nombreamostrar", p_strNombreamostrar),
-                                       p_dbcAccess.MakeParam("@vnd_rcd_coddominio", p_strCoddominio),
                                        p_dbcAccess.MakeParam("@vnd_cd1_historico", p_strHistorico),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
@@ -226,14 +211,9 @@ namespace Carm.Dal
         /// <param name="p_strTel2">Telefono2</param>
         /// <param name="p_dtFecnacim">Fecha Nacimiento</param>
         /// <param name="p_strDireccion">Dirección</param>
-        /// <param name="p_strEmail">Usuario Credencial Mail</param>
-        /// <param name="p_strContrasenia">Contraseña</param>
         /// <param name="p_strCodsuperv">Supervisor</param>
         /// <param name="p_strCodtvend">Tipo Vendedor</param>
         /// <param name="p_strHorarios">Horarios</param>
-        /// <param name="p_strMailremitente">Mail Remitente</param>
-        /// <param name="p_strNombreamostrar">Nombre a Mostrar</param>
-        /// <param name="p_strCoddominio">Dominio</param>
         /// <param name="p_strHistorico">Es Historico</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Update(DBConn p_dbcAccess,
@@ -246,14 +226,9 @@ namespace Carm.Dal
                                  string p_strTel2,
                                  DateTime p_dtFecnacim,
                                  string p_strDireccion,
-                                 string p_strEmail,
-                                 string p_strContrasenia,
                                  string p_strCodsuperv,
                                  string p_strCodtvend,
                                  string p_strHorarios,
-                                 string p_strMailremitente,
-                                 string p_strNombreamostrar,
-                                 string p_strCoddominio,
                                  string p_strHistorico,
                                  StatMsg p_smResult)
         {
@@ -271,14 +246,9 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@vnd_tel_tel2", p_strTel2),
                                        p_dbcAccess.MakeParamF("@vnd_fec_fecnacim", p_dtFecnacim),
                                        p_dbcAccess.MakeParam("@vnd_ede_direccion", p_strDireccion),
-                                       p_dbcAccess.MakeParam("@vnd_ede_email", p_strEmail),
-                                       p_dbcAccess.MakeParam("@vnd_ede_contrasenia", p_strContrasenia),
                                        p_dbcAccess.MakeParam("@vnd_cd6_codsuperv", p_strCodsuperv),
                                        p_dbcAccess.MakeParam("@vnd_rcd_codtvend", p_strCodtvend),
                                        p_dbcAccess.MakeParam("@vnd_txt_horarios", p_strHorarios),
-                                       p_dbcAccess.MakeParam("@vnd_ede_mailremitente", p_strMailremitente),
-                                       p_dbcAccess.MakeParam("@vnd_ede_nombreamostrar", p_strNombreamostrar),
-                                       p_dbcAccess.MakeParam("@vnd_rcd_coddominio", p_strCoddominio),
                                        p_dbcAccess.MakeParam("@vnd_cd1_historico", p_strHistorico),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
@@ -863,15 +833,11 @@ namespace Carm.Dal
                 p_dtResult.Columns["vnd_des_tipovnd"].Caption= "V1Tipo vendedorCN1";
                 p_dtResult.Columns["vnd_ede_nya"].Caption= "V1Nombre CompletoCN1";
                 p_dtResult.Columns["vnd_nom_superv"].Caption= "V1SupervisorCN1";
-                p_dtResult.Columns["vnd_nro_resact"].Caption= "V1Res ActualesNN1";
-                p_dtResult.Columns["vnd_nro_resmax"].Caption= "V1Res MaximasNN1";
                 p_dtResult.Columns["vnd_des_apellido"].Caption= "V1ApellidoCN1";
                 p_dtResult.Columns["vnd_tel_celular"].Caption= "V1CelularCN1";
                 p_dtResult.Columns["vnd_cd6_cod"].Caption= "V1CódigoCN1";
                 p_dtResult.Columns["vnd_rcd_codtvend"].Caption= "V1Tipo VendedorCN1";
-                p_dtResult.Columns["vnd_ede_email"].Caption= "V1Usuario Credencial MailCN1";
                 p_dtResult.Columns["vnd_cd1_historico"].Caption= "V1Es HistoricoCN1";
-                p_dtResult.Columns["vnd_ede_mailremitente"].Caption= "V1Mail RemitenteCN1";
                 p_dtResult.Columns["vnd_des_nombre"].Caption= "V1NombreCN1";
                 p_dtResult.Columns["vnd_tel_tel1"].Caption= "V1Telefono1CN1";
                 p_dtResult.Columns["vnd_tel_tel2"].Caption= "V1Telefono2CN1";

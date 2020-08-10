@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:46
+    // Fecha                    : 09/08/2020 22:33
     // Sistema                  : Carm
     // Clase para Administrar   : Conversion de Colores
     // Basada en la Tabla       : ConversionColores
@@ -168,13 +168,11 @@ namespace Carm.Dal
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name="p_strCod">Código</param>
-        /// <param name="p_strCodmarca">Marca</param>
         /// <param name="p_strColoraconvertir">Color a Convertir</param>
         /// <param name="p_strColorconvertido">Color Convertido</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Insert(DBConn p_dbcAccess,
                                  string p_strCod,
-                                 string p_strCodmarca,
                                  string p_strColoraconvertir,
                                  string p_strColorconvertido,
                                  StatMsg p_smResult)
@@ -185,7 +183,6 @@ namespace Carm.Dal
                                    "TNGS_Carm..CONVERSIONCOLORES_INSERT",
                                    new DbParameter[] {
                                        p_dbcAccess.MakeParam("@con_cod_cod", p_strCod),
-                                       p_dbcAccess.MakeParam("@con_rcd_codmarca", p_strCodmarca),
                                        p_dbcAccess.MakeParam("@con_des_coloraconvertir", p_strColoraconvertir),
                                        p_dbcAccess.MakeParam("@con_cd1_colorconvertido", p_strColorconvertido),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
@@ -204,13 +201,11 @@ namespace Carm.Dal
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name="p_strCod">Código</param>
-        /// <param name="p_strCodmarca">Marca</param>
         /// <param name="p_strColoraconvertir">Color a Convertir</param>
         /// <param name="p_strColorconvertido">Color Convertido</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Update(DBConn p_dbcAccess,
                                  string p_strCod,
-                                 string p_strCodmarca,
                                  string p_strColoraconvertir,
                                  string p_strColorconvertido,
                                  StatMsg p_smResult)
@@ -221,7 +216,6 @@ namespace Carm.Dal
                                    "TNGS_Carm..CONVERSIONCOLORES_UPDATE",
                                    new DbParameter[] {
                                        p_dbcAccess.MakeParam("@con_cod_cod", p_strCod),
-                                       p_dbcAccess.MakeParam("@con_rcd_codmarca", p_strCodmarca),
                                        p_dbcAccess.MakeParam("@con_des_coloraconvertir", p_strColoraconvertir),
                                        p_dbcAccess.MakeParam("@con_cd1_colorconvertido", p_strColorconvertido),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
@@ -347,13 +341,11 @@ namespace Carm.Dal
         /// Método Fijo: getConvertido
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= "p_strCodmarca">Codigo de Marca</param>
         /// <param name= "p_strColoraconvertir">Color a Convertir</param>
         /// <param name="p_dsResult">DataSet donde devolver el registro</param>
         /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int getConvertido(DBConn p_dbcAccess,
-                                        string p_strCodmarca,
                                         string p_strColoraconvertir,
                                         ref DataSet p_dsResult,
                                         string p_strTabla,
@@ -363,7 +355,6 @@ namespace Carm.Dal
                 return DBRuts.Exec_DS(p_dbcAccess,
                                       "TNGS_Carm..CONVERSIONCOLORES_GETCONVERTIDO",
                                       new DbParameter[] {
-                                          p_dbcAccess.MakeParam("@codmarca", p_strCodmarca),
                                           p_dbcAccess.MakeParam("@coloraconvertir", p_strColoraconvertir),
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
@@ -392,7 +383,6 @@ namespace Carm.Dal
                 DBRuts.ClearDTCaptions(ref p_dtResult);
 
                 // Fijamos los nuevos captions de la grilla
-                p_dtResult.Columns["con_des_marca"].Caption= "V1MarcaCN1";
                 p_dtResult.Columns["con_cod_cod"].Caption= "V1CódigoCN1";
                 p_dtResult.Columns["con_des_coloraconvertir"].Caption= "V1Color a ConvertirCN1";
                 p_dtResult.Columns["con_cd1_colorconvertido"].Caption= "V1Color ConvertidoCN1";
