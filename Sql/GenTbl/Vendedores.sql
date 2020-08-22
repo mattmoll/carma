@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 22/08/2020 01:19
 // Base de Datos      : TNGS_Carm
 // Tabla              : Vendedores
 //----------------------------------------------------------------------------
@@ -48,14 +48,9 @@ create table Vendedores
       vnd_tel_tel2 tngs_telefono,
       vnd_fec_fecnacim tngs_fecha,
       vnd_ede_direccion tngs_descripcion_e,
-      vnd_ede_email tngs_descripcion_e,
-      vnd_ede_contrasenia tngs_descripcion_e,
       vnd_cd6_codsuperv tngs_codigo_6,
       vnd_rcd_codtvend tngs_codigo_r,
       vnd_txt_horarios tngs_texto,
-      vnd_ede_mailremitente tngs_descripcion_e,
-      vnd_ede_nombreamostrar tngs_descripcion_e,
-      vnd_rcd_coddominio tngs_codigo_r,
       vnd_cd1_historico tngs_codigo_1,
       instante tngs_fecyhor,
       deleted tngs_borrado,

@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : CliContactos
 //----------------------------------------------------------------------------
@@ -58,7 +58,7 @@ begin
                 clc_des_nombre,
                 clc_des_cargo,
                 clc_des_titulo,
-                TNGS_SIMA.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
+                TNGS_Carm.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
                 clc_tel_celular,
                 clc_tel_telefono1,
                 clc_tel_telefono2,
@@ -84,7 +84,7 @@ begin
                 clc_des_nombre,
                 clc_des_cargo,
                 clc_des_titulo,
-                TNGS_SIMA.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
+                TNGS_Carm.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
                 clc_tel_celular,
                 clc_tel_telefono1,
                 clc_tel_telefono2,
@@ -204,7 +204,7 @@ begin
                 clc_des_nombre,
                 clc_des_cargo,
                 clc_des_titulo,
-                TNGS_SIMA.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
+                TNGS_Carm.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
                 clc_tel_celular,
                 clc_tel_telefono1,
                 clc_tel_telefono2,
@@ -230,7 +230,7 @@ begin
                 clc_des_nombre,
                 clc_des_cargo,
                 clc_des_titulo,
-                TNGS_SIMA.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
+                TNGS_Carm.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
                 clc_tel_celular,
                 clc_tel_telefono1,
                 clc_tel_telefono2,
@@ -298,7 +298,7 @@ begin
                 clc_des_nombre,
                 clc_des_cargo,
                 clc_des_titulo,
-                TNGS_SIMA.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
+                TNGS_Carm.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
                 clc_tel_celular,
                 clc_tel_telefono1,
                 clc_tel_telefono2,
@@ -324,7 +324,7 @@ begin
                 clc_des_nombre,
                 clc_des_cargo,
                 clc_des_titulo,
-                TNGS_SIMA.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
+                TNGS_Carm.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
                 clc_tel_celular,
                 clc_tel_telefono1,
                 clc_tel_telefono2,

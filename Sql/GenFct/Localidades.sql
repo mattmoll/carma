@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 01:48
 // Sistema     : Carm
 // Tabla       : Localidades
 //----------------------------------------------------------------------------
@@ -54,9 +54,9 @@ begin
     
    declare @ret varchar (30) 
     
-   select @ret = zns_des_nombre from TNGS_SIMA..Zonas 
+   select @ret = zns_des_nombre from TNGS_Carm..Zonas 
     
-   join TNGS_SIMA..Localidades on loc_rcd_codzona = zns_rcd_cod 
+   join TNGS_Carm..Localidades on loc_rcd_codzona = zns_rcd_cod 
     
    where loc_ecd_codpost = @codloc 
     

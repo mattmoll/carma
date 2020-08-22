@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : TipoInst
 //----------------------------------------------------------------------------
@@ -596,7 +596,7 @@ begin
          tin_cod_cod, 
          tin_des_des 
    from 
-         TNGS_Sima..TipoInst 
+         TNGS_Carm..TipoInst 
    where 
          tin_rcd_codrubro = @codrubro 
 

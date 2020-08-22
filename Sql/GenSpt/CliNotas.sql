@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : CliNotas
 //----------------------------------------------------------------------------
@@ -937,7 +937,7 @@ create procedure dbo.CLINOTAS_CANTIDADNOTAS
 as
 begin
 
-   select count(*) from TNGS_Sima..CliNotas 
+   select count(*) from TNGS_Carm..CliNotas 
    	where cln_nro_numcliente=@nrocliente and 
    		  (dbo.CLINOTAS_ESTABORRADA(@nrocliente,cln_fyh_fechayhora)) = 'N' 
 
@@ -989,7 +989,7 @@ create procedure dbo.CLINOTAS_REMOVER
 as
 begin
 
-   update TNGS_SIMA..CliNotas 
+   update TNGS_Carm..CliNotas 
    	set cln_nom_removedor = @removedor, 
    		cln_fyh_fyhremovida = @fyhremovida 
    	where cln_nro_numcliente = @nrocliente 

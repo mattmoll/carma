@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : CliVentas
 //----------------------------------------------------------------------------
@@ -943,8 +943,6 @@ go
 --- Método Fijo: ZVentasPorMes
 --- </summary>
 --- <param name="@anioinicio">Anio de inicio</param>
---- <param name="@codmarcaini">Codigo inicial de marca</param>
---- <param name="@codmarcafin">Codigo Final de marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -964,8 +962,6 @@ go
 create procedure dbo.CLIVENTAS_ZVENTASPORMES
 (
 @anioinicio tngs_numero,
-@codmarcaini tngs_codigo_r,
-@codmarcafin tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -978,7 +974,6 @@ begin
    from CliVentas 
        join Clientes on cli_nro_numero = clv_nro_numcliente 
    where year(clv_fyh_fecha) = @anioinicio 
-   and clv_rcd_codmarca between @codmarcaini and @codmarcafin 
    group by MONTH(clv_fyh_fecha) 
    order by MONTH(clv_fyh_fecha) 
 

@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 01:48
 // Sistema     : Carm
 // Tabla       : CliEntrevistas
 //----------------------------------------------------------------------------
@@ -59,7 +59,7 @@ begin
                     when CliEntrevistas.deleted = 0.0000 then 'N' 
                     else 'S' 
                  end 
-     from TNGS_Sima..CliEntrevistas 
+     from TNGS_Carm..CliEntrevistas 
      where cle_nro_numcliente = @numcliente 
    			and cle_nro_numentrev = @numentrev 
     
@@ -111,7 +111,7 @@ begin
     
    select @ret =  case when year (cle_fyh_frealizada) = 1900 then 'S' 
          else 'N' end 
-     from TNGS_Sima..CliEntrevistas 
+     from TNGS_Carm..CliEntrevistas 
     
    where cle_nro_numcliente = @numcliente and 
          cle_nro_numentrev = @numentrev 

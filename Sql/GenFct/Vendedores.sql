@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 01:48
 // Sistema     : Carm
 // Tabla       : Vendedores
 //----------------------------------------------------------------------------
@@ -55,7 +55,7 @@ begin
     
    SELECT @ret = COUNT (*) 
     
-       FROM TNGS_Sima..Clientes 
+       FROM TNGS_Carm..Clientes 
     
        WHERE cli_cd6_codvend = @codvend and cli_cd1_alta = 'N' 
     
@@ -105,7 +105,7 @@ begin
    declare @ret varchar(60) 
     
    select @ret =  rtrim(vnd_des_nombre) + ' '+ vnd_des_apellido 
-     from TNGS_Sima..Vendedores 
+     from TNGS_Carm..Vendedores 
     
       where vnd_cd6_cod = @codvend 
     
@@ -155,9 +155,9 @@ begin
    declare @ret varchar(60) 
     
    select @ret = rtrim(jvt_nom_nombre) + ' '+ jvt_nom_apellido 
-     from TNGS_Sima..JefesVentas 
-     join TNGS_SIMA..Supervisores on sup_cd6_codjefevtas = jvt_cd6_cod 
-     join TNGS_SIMA..Vendedores on vnd_cd6_codsuperv = sup_cd6_cod 
+     from TNGS_Carm..JefesVentas 
+     join TNGS_Carm..Supervisores on sup_cd6_codjefevtas = jvt_cd6_cod 
+     join TNGS_Carm..Vendedores on vnd_cd6_codsuperv = sup_cd6_cod 
     
       where vnd_cd6_cod = @codvend 
     

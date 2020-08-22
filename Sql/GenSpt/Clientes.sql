@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -72,7 +72,7 @@ begin
                 cli_ecd_codlocalidad,
                 loc_ede_nombre as cli_des_loc,
                 loc_des_provincia as cli_des_prov,
-                TNGS_SIMA.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
+                TNGS_Carm.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
                 loc_ede_partido as cli_ede_partido,
                 loc_rcd_codzona as cli_rcd_codzona,
                 cli_des_cuil,
@@ -126,7 +126,7 @@ begin
                 cli_ecd_codlocalidad,
                 loc_ede_nombre as cli_des_loc,
                 loc_des_provincia as cli_des_prov,
-                TNGS_SIMA.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
+                TNGS_Carm.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
                 loc_ede_partido as cli_ede_partido,
                 loc_rcd_codzona as cli_rcd_codzona,
                 cli_des_cuil,
@@ -269,7 +269,7 @@ begin
                 cli_ecd_codlocalidad,
                 loc_ede_nombre as cli_des_loc,
                 loc_des_provincia as cli_des_prov,
-                TNGS_SIMA.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
+                TNGS_Carm.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
                 loc_ede_partido as cli_ede_partido,
                 loc_rcd_codzona as cli_rcd_codzona,
                 cli_des_cuil,
@@ -323,7 +323,7 @@ begin
                 cli_ecd_codlocalidad,
                 loc_ede_nombre as cli_des_loc,
                 loc_des_provincia as cli_des_prov,
-                TNGS_SIMA.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
+                TNGS_Carm.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
                 loc_ede_partido as cli_ede_partido,
                 loc_rcd_codzona as cli_rcd_codzona,
                 cli_des_cuil,
@@ -859,13 +859,9 @@ begin
 
    update Clientes 
    set cli_cd1_alta = 'N', 
-   	cli_nro_treservado = 0, 
    	cli_cd6_codvend = '      ', 
-   	cli_fec_ffinres = '1900-1-1', 
-   	cli_fec_finires = '1900-1-1', 
        cli_imp_abono = 0, 
-       cli_rcd_codtipocont = '  ', 
-       cli_cod_codcompetencia = @codcompetencia 
+       cli_rcd_codtipocont = '  ' 
    where cli_nro_numero = @nrocliente 
     
    /* Borramos los servicios que tenia cargados el cliente */ 
@@ -913,8 +909,8 @@ create procedure dbo.CLIENTES_BORRAENTREVISTASPEND
 as
 begin
 
-   update TNGS_SIMA..CliEntrevistas 
-   set TNGS_Sima..CliEntrevistas.deleted = 1.0000, 
+   update TNGS_Carm..CliEntrevistas 
+   set TNGS_Carm..CliEntrevistas.deleted = 1.0000, 
    	version = ((version+1) % 32767), 
              instante= getdate(), 
              usuario = @usuario 
@@ -984,52 +980,6 @@ go
 ---////////////////////////////////////////////////////////
 ---
 --- <summary>
---- Método Fijo: FueArreglado
---- </summary>
---- <param name="@numcliente">Numero del Cliente</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_FUEARREGLADO'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_FUEARREGLADO'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_FUEARREGLADO
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_FUEARREGLADO
-(
-@numcliente tngs_numero,
-@usuario tngs_nombre
-)
-as
-begin
-
-   update TNGS_SIMA..Clientes 
-   	set deleted = 0.0000 
-   where cli_nro_numero = @numcliente 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_FUEARREGLADO to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
 --- Método Fijo: GetFromNroAvln
 --- </summary>
 --- <param name="@nroavalon">Numero de Avalon</param>
@@ -1077,7 +1027,6 @@ go
 --- Método Fijo: GetPorClaveAvalon
 --- </summary>
 --- <param name="@nroavalon">Numero de Avalon</param>
---- <param name="@codmarca">Codigo de Marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -1097,13 +1046,12 @@ go
 create procedure dbo.CLIENTES_GETPORCLAVEAVALON
 (
 @nroavalon tngs_numero,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
 begin
 
-   select * from Clientes where cli_nro_nroavalon = @nroavalon and cli_rcd_codmarca = @codmarca 
+   select * from Clientes where cli_nro_nroavalon = @nroavalon 
 
 fin:
 
@@ -1152,7 +1100,7 @@ begin
     cli_ede_rsocial 
     
     FROM 
-     TNGS_Sima..Clientes 
+     TNGS_Carm..Clientes 
     
     WHERE 
      cli_nro_numero = @numcliente 
@@ -1165,82 +1113,6 @@ go
 print '       - Asignando permisos al nuevo SP'
 
 grant execute on dbo.CLIENTES_GETRSOCIALCLIENTE to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: GetReservados
---- </summary>
---- <param name="@codvend">Codigo de Vendedor</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_GETRESERVADOS'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_GETRESERVADOS'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_GETRESERVADOS
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_GETRESERVADOS
-(
-@codvend tngs_codigo_6,
-@usuario tngs_nombre
-)
-as
-begin
-
-   select 
-             cli_nro_numero, 
-             cli_ede_rsocial, 
-             cli_des_nombrefant, 
-             TNGS_SIMA.dbo.Clientes_EntrevPendientes(cli_nro_numero) as cli_ent_pendientes, 
-             cli_tel_telefono1, 
-             isnull(tin_des_des,'') as cli_des_tipoinst, 
-             isnull(rbr_des_des,'') as cli_des_rubro, 
-             TNGS_SIMA.dbo.Clientes_EntrevPendientesVenc(cli_nro_numero) as cli_ent_pendientesvenc, 
-             cli_ede_direccion, 
-             loc_ede_nombre as cli_ede_localidad, 
-             zns_des_nombre as cli_des_zona, 
-             TNGS_SIMA.dbo.Clientes_EntrevRealizadas(cli_nro_numero) as cli_ent_realizadas, 
-             cli_fec_finires, 
-             cli_fec_ffinres, 
-             TNGS_SIMA.dbo.Clientes_EntrevVencidas(cli_nro_numero) as cli_ent_vencidas, 
-             case when (Clientes.deleted = 0.00) 
-              then 'S' 
-             else 'N'  end AS cli_cd1_validado 
-       from 
-             TNGS_Sima..Clientes 
-     join TNGS_Sima..Localidades 
-      on loc_ecd_codpost = cli_ecd_codlocalidad 
-     join TNGS_Sima..Zonas 
-      on zns_rcd_cod = loc_rcd_codzona 
-     join TNGS_Sima..TipoInst 
-      on tin_cod_cod = cli_cod_codtinst 
-     join TNGS_Sima..Rubros 
-      on rbr_rcd_cod = tin_rcd_codrubro 
-     left outer join TNGS_Sima..Franquicias 
-      on frq_cod_cod = cli_cod_codfrq 
-    
-       where cli_cd6_codvend = @codvend and cli_cd1_alta = 'N' 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_GETRESERVADOS to tngsmodulos
 
 print ' '
 go
@@ -1284,7 +1156,6 @@ begin
                    cli_cod_codfrq, 
                    frq_des_des as cli_des_frq, 
                    cli_cd1_alta, 
-                   cli_nro_treservado, 
                    cli_tel_telefono1, 
                    cli_tel_telefono2, 
                    cli_tel_fax, 
@@ -1295,24 +1166,20 @@ begin
                    loc_ede_nombre as cli_des_loc, 
                    cli_xld_url, 
                    cli_cd6_codvend, 
-    
-                   cli_fec_finires, 
-                   cli_fec_ffinres, 
-                   cli_cd1_extension, 
                    cli_ede_horarios, 
                    cli_fec_fingsima, 
                    cli_nro_cantempleados, 
                    cli_txt_cobertura, 
-                   TNGS_Sima..Clientes.instante, 
-                   TNGS_Sima..Clientes.deleted, 
-                   TNGS_Sima..Clientes.usuario, 
-                   TNGS_Sima..Clientes.version 
-              from TNGS_Sima..Clientes 
-                   join TNGS_Sima..TipoInst 
+                   TNGS_Carm..Clientes.instante, 
+                   TNGS_Carm..Clientes.deleted, 
+                   TNGS_Carm..Clientes.usuario, 
+                   TNGS_Carm..Clientes.version 
+              from TNGS_Carm..Clientes 
+                   join TNGS_Carm..TipoInst 
                      on cli_cod_codtinst = tin_cod_cod 
-                   left outer join TNGS_Sima..Franquicias 
+                   left outer join TNGS_Carm..Franquicias 
                      on cli_cod_codfrq = frq_cod_cod 
-                   join TNGS_Sima..Localidades 
+                   join TNGS_Carm..Localidades 
                      on cli_ecd_codlocalidad = loc_ecd_codpost 
     
              where cli_nro_numero = @numero 
@@ -1325,58 +1192,6 @@ go
 print '       - Asignando permisos al nuevo SP'
 
 grant execute on dbo.CLIENTES_GETSINCODVEND to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: GetTieneDatosError
---- </summary>
---- <param name="@nrocliente">Numero del Cliente</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_GETTIENEDATOSERROR'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_GETTIENEDATOSERROR'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_GETTIENEDATOSERROR
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_GETTIENEDATOSERROR
-(
-@nrocliente tngs_numero,
-@usuario tngs_nombre
-)
-as
-begin
-
-   select 
-            case 
-               when TNGS_Sima..CLientes.deleted = 0 then 'N' 
-               else 'S' 
-             end 
-     from TNGS_Sima..Clientes 
-    
-    where cli_nro_numero = @nrocliente 
-    
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_GETTIENEDATOSERROR to tngsmodulos
 
 print ' '
 go
@@ -1421,7 +1236,6 @@ begin
        then 0 
      end as cli_cd1_esmayo, 
      isnull(vnd_nom_usuario, 'Sin reserva') AS cli_nom_usuario, 
-           cli_nro_treservado, 
            frq_des_des as cli_des_frq, 
            case when (cli_cd1_alta = 'S') 
        then 1 
@@ -1429,28 +1243,21 @@ begin
        then 0 
      end as cli_cd1_alta, 
            loc_ede_nombre as cli_des_loc, 
-           cli_fec_finires, 
-           cli_fec_ffinres, 
-           case when (cli_cd1_extension = 1) 
-       then 'S' 
-      when (cli_cd1_extension = 0) 
-       then 'N' 
-     end as cli_cd1_extension, 
      case when (Clientes.deleted = 0.00) 
        then 'S' 
       else  'N' 
      end AS cli_cd1_validado 
     
-      FROM TNGS_Sima..Clientes 
-           JOIN TNGS_Sima..TipoInst 
+      FROM TNGS_Carm..Clientes 
+           JOIN TNGS_Carm..TipoInst 
              ON cli_cod_codtinst = tin_cod_cod 
-           LEFT OUTER JOIN TNGS_Sima..Franquicias 
+           LEFT OUTER JOIN TNGS_Carm..Franquicias 
              ON cli_cod_codfrq = frq_cod_cod 
-           JOIN TNGS_Sima..Localidades 
+           JOIN TNGS_Carm..Localidades 
              ON cli_ecd_codlocalidad = loc_ecd_codpost 
-     JOIN TNGS_Sima..Rubros 
+     JOIN TNGS_Carm..Rubros 
        ON tin_rcd_codrubro = rbr_rcd_cod 
-     LEFT OUTER JOIN TNGS_Sima..Vendedores 
+     LEFT OUTER JOIN TNGS_Carm..Vendedores 
        ON cli_cd6_codvend = vnd_nom_usuario 
 
 fin:
@@ -1461,56 +1268,6 @@ go
 print '       - Asignando permisos al nuevo SP'
 
 grant execute on dbo.CLIENTES_GETTODOSLOSCLIENTES to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: GetUltimasReservas
---- </summary>
---- <param name="@numero">Numero del Cliente</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_GETULTIMASRESERVAS'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_GETULTIMASRESERVAS'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_GETULTIMASRESERVAS
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_GETULTIMASRESERVAS
-(
-@numero tngs_numero,
-@usuario tngs_nombre
-)
-as
-begin
-
-   select top 2 cli_nro_treservado, sol_cd6_codvend 
-       from TNGS_SIMA..Clientes 
-          join TNGS_SIMA..Solicitudes 
-              on cli_nro_numero = sol_nro_numcliente 
-       where sol_cd1_estado = 'C' and cli_nro_numero = @numero 
-          order by sol_fyh_fproceso desc 
-    
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_GETULTIMASRESERVAS to tngsmodulos
 
 print ' '
 go
@@ -1549,32 +1306,30 @@ begin
              cli_nro_numero, 
              cli_ede_rsocial, 
              cli_des_nombrefant, 
-             TNGS_SIMA.dbo.Clientes_EntrevPendientes(cli_nro_numero) as cli_ent_pendientes, 
+             TNGS_Carm.dbo.Clientes_EntrevPendientes(cli_nro_numero) as cli_ent_pendientes, 
              cli_tel_telefono1, 
              isnull(tin_des_des,'') as cli_des_tipoinst, 
              isnull(rbr_des_des,'') as cli_des_rubro, 
-             TNGS_SIMA.dbo.Clientes_EntrevPendientesVenc(cli_nro_numero) as cli_ent_pendientesvenc, 
+             TNGS_Carm.dbo.Clientes_EntrevPendientesVenc(cli_nro_numero) as cli_ent_pendientesvenc, 
              cli_ede_direccion, 
              loc_ede_nombre as cli_ede_localidad, 
              zns_des_nombre as cli_des_zona, 
-             TNGS_SIMA.dbo.Clientes_EntrevRealizadas(cli_nro_numero) as cli_ent_realizadas, 
-             cli_fec_finires, 
-             cli_fec_ffinres, 
-             TNGS_SIMA.dbo.Clientes_EntrevVencidas(cli_nro_numero) as cli_ent_vencidas, 
+             TNGS_Carm.dbo.Clientes_EntrevRealizadas(cli_nro_numero) as cli_ent_realizadas, 
+             TNGS_Carm.dbo.Clientes_EntrevVencidas(cli_nro_numero) as cli_ent_vencidas, 
              case when (Clientes.deleted = 0.00) 
               then 'S' 
              else 'N'  end AS cli_cd1_validado 
        from 
-             TNGS_Sima..Clientes 
-     join TNGS_Sima..Localidades 
+             TNGS_Carm..Clientes 
+     join TNGS_Carm..Localidades 
       on loc_ecd_codpost = cli_ecd_codlocalidad 
-     join TNGS_Sima..Zonas 
+     join TNGS_Carm..Zonas 
       on zns_rcd_cod = loc_rcd_codzona 
-     join TNGS_Sima..TipoInst 
+     join TNGS_Carm..TipoInst 
       on tin_cod_cod = cli_cod_codtinst 
-     join TNGS_Sima..Rubros 
+     join TNGS_Carm..Rubros 
       on rbr_rcd_cod = tin_rcd_codrubro 
-     left outer join TNGS_Sima..Franquicias 
+     left outer join TNGS_Carm..Franquicias 
       on frq_cod_cod = cli_cod_codfrq 
     
        where cli_cd6_codvend = @codvend and cli_cd1_alta = 'S' 
@@ -1587,405 +1342,6 @@ go
 print '       - Asignando permisos al nuevo SP'
 
 grant execute on dbo.CLIENTES_GETVENDIDOS to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: JobDesreserva
---- </summary>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_JOBDESRESERVA'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_JOBDESRESERVA'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_JOBDESRESERVA
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_JOBDESRESERVA
-(
-@usuario tngs_nombre
-)
-as
-begin
-
-   /* SI SE TOCA ESTE CODIGO HAY QUE TOCAR EL SP de Reservar */ 
-    
-   SET NOCOUNT ON; 
-    
-   DECLARE @nroLog int, @nroCliente int, @nroAvalon int, @razonSocial varchar(60), @nombreFantasia varchar(30), 
-   		@accion varchar(30), @nombre varchar(30), @fecha DateTime 
-    
-    
-   DECLARE reservasVencidas_cursor CURSOR FOR 
-    
-   SELECT	cli_nro_numero, 
-   		cli_nro_nroavalon, 
-   		cli_ede_rsocial, 
-   		cli_des_nombrefant, 
-   		vnd_nom_usuario, 
-   		cli_fec_ffinres 
-    
-   from	Clientes 
-    
-   join	Vendedores 
-   on		cli_cd6_codvend = vnd_cd6_cod 
-    
-   where	year(cli_fec_ffinres) <> 1900 
-   		and cli_fec_ffinres < getdate() 
-   		and cli_nro_numero not in (	select distinct cle_nro_numcliente 
-   									from TNGS_Sima..CliEntrevistas 
-   									join TNGS_Sima..Clientes 
-                                          on cli_nro_numero = cle_nro_numcliente 
-   									where year(cle_fyh_frealizada) = 1900 and 
-                                           cli_fec_ffinres < getdate() and 
-                                           CliEntrevistas.deleted = 0) 
-    
-   OPEN reservasVencidas_cursor 
-    
-   FETCH NEXT FROM reservasVencidas_cursor 
-   INTO @nroCliente, @nroAvalon, @razonSocial, @nombreFantasia, @nombre, @fecha 
-    
-   WHILE @@FETCH_STATUS = 0 
-   BEGIN 
-   	-- Limpiamos la reserva 
-   	update TNGS_Sima..Clientes 
-    
-   	set cli_nro_treservado = 0, 
-   		cli_cd6_codvend = '', 
-   		cli_fec_finires = '', 
-   		cli_fec_ffinres = '' 
-       where cli_nro_numero = @nroCliente 
-    
-   	-- Hacemos el equivalente a TaloGet, obtenemos el valor y luego actualizamos el talonario de LogClientes. 
-   	select @nroLog = tal_nro_valor 
-   	from Talonarios 
-       where tal_xcd_codigo = 'nroLogCli' 
-   	 
-   	update Talonarios 
-       set tal_nro_valor = tal_nro_valor + 1 
-   	where tal_xcd_codigo = 'nroLogCli' 
-    
-   	 
-   	-- Grabamos en el log 
-   	insert into LogClientes (lgc_nro_nro, lgc_nro_nrocliente, lgc_nro_nroavalon, lgc_ede_rsocial, lgc_des_nomfantasia, 
-   							 lgc_des_accion, lgc_nom_usuario, lgc_fyh_fecha, instante, deleted, usuario, version) 
-   					values	(@nroLog, @nroCliente, @nroAvalon, @razonSocial, @nombreFantasia, 
-   							 'Desreserva', @nombre, @fecha, GetDate(), 0, 'JOB', 1) 
-    
-       -- Obtenemos el proximo registro de reservas vencidas 
-       FETCH NEXT FROM reservasVencidas_cursor 
-       INTO @nroCliente, @nroAvalon, @razonSocial, @nombreFantasia, @nombre, @fecha 
-   END 
-   CLOSE reservasVencidas_cursor; 
-   DEALLOCATE reservasVencidas_cursor; 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_JOBDESRESERVA to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: JobExecute
---- </summary>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_JOBEXECUTE'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_JOBEXECUTE'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_JOBEXECUTE
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_JOBEXECUTE
-(
-@usuario tngs_nombre
-)
-as
-begin
-
-   begin tran 
-    
-    
-   execute Clientes_JobLiberaVendsVenc @usuario 
-   if @@error = 1 
-      begin 
-         goto finMal 
-      end 
-    
-   execute Clientes_JobDesreserva @usuario 
-   if @@error = 1 
-      begin 
-         goto finMal 
-      end 
-    
-   update TNGS_Sima..Parametros 
-    set par_xde_valor = convert(char(10),getdate(),103), 
-        usuario = 'AUTOJOB', 
-        instante = GetDate() 
-   where par_xcd_codigo = 'CONTROLJOB' 
-   if @@error = 1 
-      begin 
-         goto finMal 
-      end 
-    
-   commit 
-    
-   /*Aca podemos ejecutar los jobs que no son criticos (no detienen el programa si hay error) */ 
-   goto fin 
-    
-   finMal: 
-   rollback 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_JOBEXECUTE to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: JobLiberaVendsVenc
---- </summary>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_JOBLIBERAVENDSVENC'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_JOBLIBERAVENDSVENC'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_JOBLIBERAVENDSVENC
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_JOBLIBERAVENDSVENC
-(
-@usuario tngs_nombre
-)
-as
-begin
-
-   update TNGS_SIMA..CliEntrevistas 
-   set TNGS_Sima..CliEntrevistas.deleted = 1.0000, 
-   	CliEntrevistas.version = ((CliEntrevistas.version+1) % 32767), 
-             instante= getdate(), 
-             usuario = 'SISTEMA' 
-    from TNGS_Sima..CliEntrevistas 
-    join TNGS_Sima..Vendedores on cle_cd6_codvend = vnd_cd6_cod 
-    where (Vendedores.deleted = 1 or Vendedores.vnd_cd1_historico = 'S') and 
-           year(cle_fyh_frealizada) = 1900 
-    
-    
-   update TNGS_Sima..Clientes 
-      set cli_fec_ffinres = dateadd(day,-1,getdate()) 
-    from TNGS_Sima..Clientes 
-    join TNGS_Sima..Vendedores on cli_cd6_codvend = vnd_cd6_cod 
-      where Vendedores.deleted = 1 or Vendedores.vnd_cd1_historico = 'S' 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_JOBLIBERAVENDSVENC to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: RemoveReserva
---- </summary>
---- <param name="@numcliente">Número de cliente</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_REMOVERESERVA'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_REMOVERESERVA'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_REMOVERESERVA
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_REMOVERESERVA
-(
-@numcliente tngs_numero,
-@usuario tngs_nombre
-)
-as
-begin
-
-   update TNGS_Sima..Clientes 
-        set 
-     cli_cd6_codvend = ''   , 
-     cli_nro_treservado = 0 , 
-     cli_fec_finires = ''   , 
-     cli_fec_ffinres = ''   , 
-     cli_cd1_extension = '' 
-    
-    where 
-     cli_nro_numero = @numcliente 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_REMOVERESERVA to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: Reservado
---- </summary>
---- <param name="@numero">Numero de Cliente</param>
---- <param name="@tiemporeserva">Tiempo que durara la Reserva</param>
---- <param name="@codvendedor">Codigo del Vendedor que realizo la reserva</param>
---- <param name="@fechainireserva">Fecha de Inicio de la Reserva</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_RESERVADO'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_RESERVADO'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_RESERVADO
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_RESERVADO
-(
-@numero tngs_numero,
-@tiemporeserva tngs_numero,
-@codvendedor tngs_codigo_6,
-@fechainireserva tngs_fecyhor,
-@usuario tngs_nombre
-)
-as
-begin
-
-   /* SI SE TOCA ESTE CODIGO HAY QUE TOCAR EL SP DEL JOB DE DESRESERVAR */ 
-    
-   update TNGS_Sima..Clientes 
-    
-      set cli_nro_treservado = @tiemporeserva, 
-          cli_cd6_codvend = @codvendedor, 
-          cli_fec_finires = @fechainireserva, 
-          cli_fec_ffinres = dateadd(d,@tiemporeserva,@fechainireserva) 
-    
-        where cli_nro_numero = @numero 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_RESERVADO to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: TieneDatosErroneos
---- </summary>
---- <param name="@numcliente">Numero del cliente</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_TIENEDATOSERRONEOS'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_TIENEDATOSERRONEOS'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_TIENEDATOSERRONEOS
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_TIENEDATOSERRONEOS
-(
-@numcliente tngs_numero,
-@usuario tngs_nombre
-)
-as
-begin
-
-   update TNGS_SIMA..Clientes 
-   	set deleted = 1.0000 
-   where cli_nro_numero = @numcliente 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_TIENEDATOSERRONEOS to tngsmodulos
 
 print ' '
 go
@@ -2067,7 +1423,7 @@ as
 begin
 
    select cli_nro_numero 
-   	from TNGS_SIMA..Clientes 
+   	from TNGS_Carm..Clientes 
    		where cli_ede_direccion =@dir 
 
 fin:
@@ -2088,7 +1444,6 @@ go
 --- Método Fijo: ValidaRSocial
 --- </summary>
 --- <param name="@razonsocial">Razon Social del Nuevo Cliente</param>
---- <param name="@codmarca">Codigo de Marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -2108,15 +1463,14 @@ go
 create procedure dbo.CLIENTES_VALIDARSOCIAL
 (
 @razonsocial tngs_descripcion,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
 begin
 
    select cli_nro_numero 
-   	from TNGS_SIMA..Clientes 
-   		where cli_ede_rsocial = replace(@razonsocial, '°', 'º') and cli_rcd_codmarca = @codmarca 
+   	from TNGS_Carm..Clientes 
+   		where cli_ede_rsocial = replace(@razonsocial, '°', 'º') 
 
 fin:
 
@@ -2136,7 +1490,6 @@ go
 --- Método Fijo: ValidaTelefono
 --- </summary>
 --- <param name="@telefono">Telefono del Nuevo Cliente</param>
---- <param name="@codmarca">Codigo de marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -2156,15 +1509,14 @@ go
 create procedure dbo.CLIENTES_VALIDATELEFONO
 (
 @telefono tngs_telefono,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
 begin
 
    select cli_nro_numero 
-   	from TNGS_SIMA..Clientes 
-   		where cli_tel_telefono1 = @telefono and cli_rcd_codmarca = @codmarca 
+   	from TNGS_Carm..Clientes 
+   		where cli_tel_telefono1 = @telefono 
 
 fin:
 
@@ -2184,7 +1536,6 @@ go
 --- Método Fijo: ValidarExistenciaAvl
 --- </summary>
 --- <param name="@nroavalon">Numero de Avalon</param>
---- <param name="@codmarca">codMarca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -2204,7 +1555,6 @@ go
 create procedure dbo.CLIENTES_VALIDAREXISTENCIAAVL
 (
 @nroavalon tngs_numero,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -2212,7 +1562,7 @@ begin
 
    select COUNT(*) as cantidad 
    from Clientes 
-   where cli_nro_nroavalon = @nroavalon and cli_rcd_codmarca = @codmarca 
+   where cli_nro_nroavalon = @nroavalon 
 
 fin:
 
@@ -2262,17 +1612,12 @@ create procedure dbo.CLIENTES_VENDIDO
 as
 begin
 
-   update TNGS_Sima..Clientes 
+   update TNGS_Carm..Clientes 
     
       set cli_cd1_alta = 'S', 
-          cli_nro_treservado = 0, 
           cli_cd6_codvend = '', /* Los clientes vendidos no tienen reservador, ni reserva. */ 
-          cli_fec_finires = '1-1-1900', 
-          cli_fec_ffinres = '1-1-1900', 
-          cli_cod_codcompetencia = '', 
           cli_imp_abono = @abono, 
-          cli_rcd_codtipocont = @codtipocont, 
-          cli_rcd_codmarca = @codmarca 
+          cli_rcd_codtipocont = @codtipocont 
     
         where cli_nro_numero = @numero 
 
@@ -2326,11 +1671,10 @@ begin
 
    select cli_nom_cargador, cli_nro_numero, cli_nro_nroavalon, cli_ede_rsocial,cli_fec_fingsima, 
    	   tin_des_des,cli_tel_telefono1, cli_tel_celular, cli_ede_direccion, 
-   	   cli_nro_altura, mrc_des_des 
+   	   cli_nro_altura 
    from Clientes 
    	join TipoInst 
    		on cli_cod_codtinst = tin_cod_cod 
-   	left outer join Marcas on mrc_rcd_cod = cli_rcd_codmarca 
    where cli_nom_cargador between @ininomcargador and @finnomcargador and cli_fec_fingsima between @fechaini and @fechafin 
 
 fin:
@@ -2394,104 +1738,6 @@ go
 print '       - Asignando permisos al nuevo SP'
 
 grant execute on dbo.CLIENTES_ZLOG to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: ZReservasFull
---- </summary>
---- <param name="@codvend">Codigo del vendedor</param>
---- <param name="@fechaini">Fecha inicial de la busqueda</param>
---- <param name="@fechafin">Fecha final de la busqueda</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_ZRESERVASFULL'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_ZRESERVASFULL'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_ZRESERVASFULL
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_ZRESERVASFULL
-(
-@codvend tngs_codigo_6,
-@fechaini tngs_fecyhor,
-@fechafin tngs_fecyhor,
-@usuario tngs_nombre
-)
-as
-begin
-
-   Select cli_nro_numero,
-          cli_ede_rsocial,
-          cli_des_nombrefant,
-          tin_des_des as cli_des_tinst,
-          cli_cod_codtinst,
-          tin_cd1_mayorista as cli_cd1_esmayo,
-          cli_cod_codfrq,
-          isnull(frq_des_des,'') as cli_des_frq,
-          cli_cd1_alta,
-          cli_tel_telefono1,
-          cli_tel_celular,
-          cli_tel_telefono2,
-          cli_tel_fax,
-          cli_ede_direccion,
-          cli_nro_altura,
-          cli_rde_piso,
-          cli_rde_oficina,
-          cli_ecd_codlocalidad,
-          loc_ede_nombre as cli_des_loc,
-          loc_des_provincia as cli_des_prov,
-          TNGS_SIMA.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
-          loc_ede_partido as cli_ede_partido,
-          loc_rcd_codzona as cli_rcd_codzona,
-          cli_des_cuil,
-          cli_xld_url,
-          cli_cd6_codvend,
-          cli_cd1_extension,
-          cli_ede_horarios,
-          cli_fec_fingsima,
-          cli_nro_cantempleados,
-          cli_txt_cobertura,
-          cli_nom_cargador,
-          cli_txt_observacion,
-          cli_xld_email,
-          cli_nro_nroavalon,
-          cli_imp_abono,
-          cli_rcd_codtipocont,
-          cli_imp_deuda,
-          TNGS_Carm..Clientes.instante,
-          TNGS_Carm..Clientes.deleted,
-          TNGS_Carm..Clientes.usuario,
-          TNGS_Carm..Clientes.version
-     from TNGS_Carm..Clientes 
-          join TNGS_Carm..TipoInst
-            on cli_cod_codtinst = tin_cod_cod
-          left outer join TNGS_Carm..Franquicias
-            on cli_cod_codfrq = frq_cod_cod
-          join TNGS_Carm..Localidades
-            on cli_ecd_codlocalidad = loc_ecd_codpost
-   join Solicitudes on cli_nro_numero = sol_nro_numcliente 
-   where sol_cd1_estado = 'C' and sol_cd6_codvend = @codvend and sol_fyh_fgeneracion between @fechaini and @fechafin 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_ZRESERVASFULL to tngsmodulos
 
 print ' '
 go

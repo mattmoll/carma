@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Localidades
 //----------------------------------------------------------------------------
@@ -693,7 +693,7 @@ begin
    select 
    		loc_ecd_codpost 
    	from 
-   		TNGS_Sima..Localidades 
+   		TNGS_Carm..Localidades 
    	where 
    		loc_ede_nombre = @localidad and loc_cd1_directa = 'S' 
 
@@ -803,7 +803,7 @@ begin
          loc_ecd_codpost, 
          loc_ede_nombre 
    from 
-         TNGS_Sima..Localidades 
+         TNGS_Carm..Localidades 
    where 
          loc_rcd_codzona = @codzona 
     
@@ -854,7 +854,7 @@ begin
     
           deleted 
     
-     from TNGS_SIMA..Localidades 
+     from TNGS_Carm..Localidades 
     
    where loc_des_provincia = @provincia 
     
@@ -904,7 +904,7 @@ begin
     
           deleted 
     
-     from TNGS_SIMA..Localidades 
+     from TNGS_Carm..Localidades 
     
    where deleted = 0 
 

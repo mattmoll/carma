@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Planes
 //----------------------------------------------------------------------------
@@ -556,7 +556,6 @@ go
 --- Método Fijo: GetPlanesFromTCont
 --- </summary>
 --- <param name="@codtcont">Codigo de Tipo de Contrato</param>
---- <param name="@codmarca">Codigo de Marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -576,7 +575,6 @@ go
 create procedure dbo.PLANES_GETPLANESFROMTCONT
 (
 @codtcont tngs_codigo_r,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -586,7 +584,6 @@ begin
    from Planes 
    join TipoCont on CHARINDEX(tcn_rcd_tcontratoavalon + ',',pln_d80_tcontratoavalon) <> 0 
    where tcn_rcd_cod = @codtcont 
-    and pln_rcd_codmarca = @codmarca 
 
 fin:
 

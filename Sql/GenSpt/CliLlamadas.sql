@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : CliLlamadas
 //----------------------------------------------------------------------------
@@ -1214,8 +1214,6 @@ go
 --- </summary>
 --- <param name="@fechaini">Fecha Inicial</param>
 --- <param name="@fechafin">Fecha Fin</param>
---- <param name="@codinimarca">Codigo Inicial Marca</param>
---- <param name="@codfinmarca">Codigo Fin Marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -1236,8 +1234,6 @@ create procedure dbo.CLILLAMADAS_ZBAJASGRAL
 (
 @fechaini tngs_fecha,
 @fechafin tngs_fecha,
-@codinimarca tngs_codigo_r,
-@codfinmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -1251,8 +1247,7 @@ begin
       	left outer join CliVentas on clv_nro_numcliente = cll_nro_numcliente and cll_fyh_frealizada > clv_fyh_fecha 
       	join Clientes on cli_nro_numero = cll_nro_numcliente 
       where cll_cd1_baja = 'S' and 
-   	  cll_fyh_frealizada between @fechaini and @fechafin and 
-         cli_rcd_codmarca between @codinimarca and @codfinmarca 
+   	  cll_fyh_frealizada between @fechaini and @fechafin 
       group by mot_rcd_codcategoria, mot_cod_cod 
     
 
@@ -1275,7 +1270,6 @@ go
 --- </summary>
 --- <param name="@nroavalon">Numero de Avalon</param>
 --- <param name="@anio">Anio a obtener historico</param>
---- <param name="@codmarca">Codigo de Marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -1296,7 +1290,6 @@ create procedure dbo.CLILLAMADAS_ZREAJUSTESXCLIEXANIO
 (
 @nroavalon tngs_numero,
 @anio tngs_numero,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -1306,7 +1299,7 @@ begin
           cll_imp_abonoanterior + cll_imp_ajuste as valor_ajustado, cll_imp_ajuste as diferencia 
    from CliLlamadas 
    join Clientes on cll_nro_numcliente = cli_nro_numero 
-   where cli_nro_nroavalon = @nroavalon and cli_rcd_codmarca = @codmarca and YEAR(cll_fyh_frealizada) = @anio 
+   where cli_nro_nroavalon = @nroavalon and YEAR(cll_fyh_frealizada) = @anio 
          and cll_imp_ajuste <> 0 
 
 fin:
@@ -1447,8 +1440,6 @@ go
 --- </summary>
 --- <param name="@fechaini">Fecha Inicial</param>
 --- <param name="@fechafin">Fecha Fin</param>
---- <param name="@codmarcaini">Codigo Marca Inicial</param>
---- <param name="@codmarcafin">Codigo Marca Fin</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -1469,8 +1460,6 @@ create procedure dbo.CLILLAMADAS_ZRECLAMOSGRAL
 (
 @fechaini tngs_fecha,
 @fechafin tngs_fecha,
-@codmarcaini tngs_codigo_r,
-@codmarcafin tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -1485,7 +1474,6 @@ begin
    	join Clientes on cli_nro_numero = cll_nro_numcliente 
    where mot_cd1_esreclamo = 'S' and 
    	  cll_fyh_frealizada between @fechaini and @fechafin 
-         and cli_rcd_codmarca between @codmarcaini and @codmarcafin 
    group by mot_rcd_codcategoria, mot_cod_cod 
 
 fin:
@@ -1570,8 +1558,6 @@ go
 --- </summary>
 --- <param name="@fechaini">Fecha Inicial</param>
 --- <param name="@fechafin">Fecha Fin</param>
---- <param name="@codmarcaini">Codigo Marca Inicial</param>
---- <param name="@codmarcafin">Codigo Marca Fin</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -1592,8 +1578,6 @@ create procedure dbo.CLILLAMADAS_ZRECUPEROSGRAL
 (
 @fechaini tngs_fecha,
 @fechafin tngs_fecha,
-@codmarcaini tngs_codigo_r,
-@codmarcafin tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -1609,7 +1593,6 @@ begin
        join Clientes on cli_nro_numero = cll_nro_numcliente 
       where cll_imp_abonorecuperado <> 0 and 
             cll_fyh_frealizada between @fechaini and @fechafin 
-            and cli_rcd_codmarca between @codmarcaini and @codmarcafin 
       group by mot_rcd_codcategoria, mot_cod_cod 
 
 fin:

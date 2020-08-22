@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : CliEntrevistas
 //----------------------------------------------------------------------------
@@ -54,15 +54,15 @@ begin
       begin
          Select cle_nro_numcliente,
                 cle_nro_numentrev,
-                TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+                TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
                 cli_ede_rsocial as cle_des_rsocial,
                 cle_fyh_fcoordinada,
                 cle_fyh_frealizada,
                 cle_cd6_codvend,
-                TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+                TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
                 cle_ede_motcambiof,
                 cle_des_nombre,
-                TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+                TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
                 cle_tel_telefono,
                 cle_des_cargo,
                 cle_des_titulo,
@@ -88,15 +88,15 @@ begin
       begin
          Select cle_nro_numcliente,
                 cle_nro_numentrev,
-                TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+                TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
                 cli_ede_rsocial as cle_des_rsocial,
                 cle_fyh_fcoordinada,
                 cle_fyh_frealizada,
                 cle_cd6_codvend,
-                TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+                TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
                 cle_ede_motcambiof,
                 cle_des_nombre,
-                TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+                TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
                 cle_tel_telefono,
                 cle_des_cargo,
                 cle_des_titulo,
@@ -216,15 +216,15 @@ begin
       begin
          Select cle_nro_numcliente,
                 cle_nro_numentrev,
-                TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+                TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
                 cli_ede_rsocial as cle_des_rsocial,
                 cle_fyh_fcoordinada,
                 cle_fyh_frealizada,
                 cle_cd6_codvend,
-                TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+                TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
                 cle_ede_motcambiof,
                 cle_des_nombre,
-                TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+                TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
                 cle_tel_telefono,
                 cle_des_cargo,
                 cle_des_titulo,
@@ -250,15 +250,15 @@ begin
       begin
          Select cle_nro_numcliente,
                 cle_nro_numentrev,
-                TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+                TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
                 cli_ede_rsocial as cle_des_rsocial,
                 cle_fyh_fcoordinada,
                 cle_fyh_frealizada,
                 cle_cd6_codvend,
-                TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+                TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
                 cle_ede_motcambiof,
                 cle_des_nombre,
-                TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+                TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
                 cle_tel_telefono,
                 cle_des_cargo,
                 cle_des_titulo,
@@ -326,15 +326,15 @@ begin
       begin
          Select cle_nro_numcliente,
                 cle_nro_numentrev,
-                TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+                TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
                 cli_ede_rsocial as cle_des_rsocial,
                 cle_fyh_fcoordinada,
                 cle_fyh_frealizada,
                 cle_cd6_codvend,
-                TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+                TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
                 cle_ede_motcambiof,
                 cle_des_nombre,
-                TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+                TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
                 cle_tel_telefono,
                 cle_des_cargo,
                 cle_des_titulo,
@@ -360,15 +360,15 @@ begin
       begin
          Select cle_nro_numcliente,
                 cle_nro_numentrev,
-                TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+                TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
                 cli_ede_rsocial as cle_des_rsocial,
                 cle_fyh_fcoordinada,
                 cle_fyh_frealizada,
                 cle_cd6_codvend,
-                TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+                TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
                 cle_ede_motcambiof,
                 cle_des_nombre,
-                TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+                TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
                 cle_tel_telefono,
                 cle_des_cargo,
                 cle_des_titulo,
@@ -1125,15 +1125,15 @@ begin
 
    Select cle_nro_numcliente,
           cle_nro_numentrev,
-          TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+          TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
           cli_ede_rsocial as cle_des_rsocial,
           cle_fyh_fcoordinada,
           cle_fyh_frealizada,
           cle_cd6_codvend,
-          TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+          TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
           cle_ede_motcambiof,
           cle_des_nombre,
-          TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+          TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
           cle_tel_telefono,
           cle_des_cargo,
           cle_des_titulo,
@@ -1155,7 +1155,7 @@ begin
            cli_cd6_codvend = @codvend and 
            cle_fyh_fcoordinada > getdate() and 
            cle_rcd_codresultado = ' ' and 
-           TNGS_Sima..CliEntrevistas.deleted = 0.0000 
+           TNGS_Carm..CliEntrevistas.deleted = 0.0000 
 
 fin:
 
@@ -1201,15 +1201,15 @@ begin
 
    Select cle_nro_numcliente,
           cle_nro_numentrev,
-          TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+          TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
           cli_ede_rsocial as cle_des_rsocial,
           cle_fyh_fcoordinada,
           cle_fyh_frealizada,
           cle_cd6_codvend,
-          TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+          TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
           cle_ede_motcambiof,
           cle_des_nombre,
-          TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+          TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
           cle_tel_telefono,
           cle_des_cargo,
           cle_des_titulo,
@@ -1228,7 +1228,7 @@ begin
           join TNGS_Carm..Clientes
             on cle_nro_numcliente = cli_nro_numero
     
-      join TNGS_SIMA..Vendedores 
+      join TNGS_Carm..Vendedores 
          on cle_cd6_codvend = vnd_cd6_cod 
     
      where cle_nro_numcliente = @cliente 
@@ -1284,23 +1284,18 @@ begin
      cli_ede_rsocial, 
      cle_fyh_fcoordinada, 
      cle_des_nombre, 
-     cle_des_cargo, 
-    CASE WHEN (cli_fec_ffinres < getdate()) 
-     THEN  'S' 
-     ELSE  'N' 
-    END as cli_ent_vencidas, 
-     cli_fec_ffinres 
+     cle_des_cargo 
     
    FROM 
-    TNGS_Sima..Clientes 
-    join TNGS_Sima..CliEntrevistas 
+    TNGS_Carm..Clientes 
+    join TNGS_Carm..CliEntrevistas 
      on cle_nro_numcliente = cli_nro_numero 
     
    WHERE 
     cli_nro_numero = @numcliente and 
     cle_fyh_fcoordinada < getdate() and 
     cle_rcd_codresultado = ' ' 
-    and TNGS_Sima..CliEntrevistas.deleted = 0.0000 
+    and TNGS_Carm..CliEntrevistas.deleted = 0.0000 
     
     
    ORDER BY cle_fyh_fcoordinada ASC 
@@ -1348,21 +1343,21 @@ as
 begin
 
    select 
-       TNGS_Sima..CliEntrevistas.cle_nro_numentrev, 
+       TNGS_Carm..CliEntrevistas.cle_nro_numentrev, 
        cli_ede_rsocial, 
-       TNGS_Sima..CliEntrevistas.cle_fyh_fcoordinada, 
-       TNGS_Sima..CliEntrevistas.cle_des_nombre, 
-       TNGS_Sima..CliEntrevistas.cle_des_cargo 
+       TNGS_Carm..CliEntrevistas.cle_fyh_fcoordinada, 
+       TNGS_Carm..CliEntrevistas.cle_des_nombre, 
+       TNGS_Carm..CliEntrevistas.cle_des_cargo 
    from 
-       TNGS_Sima..Clientes 
+       TNGS_Carm..Clientes 
     
-       join TNGS_Sima..CliEntrevistas 
+       join TNGS_Carm..CliEntrevistas 
            on cle_nro_numcliente = cli_nro_numero 
        where 
            cli_cd6_codvend = @codvend and 
            cle_fyh_fcoordinada > getdate() and 
            cle_rcd_codresultado <> ' ' and 
-           TNGS_Sima..CliEntrevistas.deleted = 0.0000 
+           TNGS_Carm..CliEntrevistas.deleted = 0.0000 
 
 fin:
 
@@ -1407,23 +1402,22 @@ as
 begin
 
    SELECT 
-       TNGS_Sima..CliEntrevistas.cle_nro_numentrev, 
+       TNGS_Carm..CliEntrevistas.cle_nro_numentrev, 
        cli_ede_rsocial, 
-       TNGS_Sima..CliEntrevistas.cle_fyh_fcoordinada, 
-       TNGS_Sima..CliEntrevistas.cle_des_nombre, 
-       TNGS_Sima..CliEntrevistas.cle_des_cargo, 
-       TNGS_Sima..Clientes.cli_nro_numero 
+       TNGS_Carm..CliEntrevistas.cle_fyh_fcoordinada, 
+       TNGS_Carm..CliEntrevistas.cle_des_nombre, 
+       TNGS_Carm..CliEntrevistas.cle_des_cargo, 
+       TNGS_Carm..Clientes.cli_nro_numero 
    FROM 
-       TNGS_Sima..Clientes 
+       TNGS_Carm..Clientes 
     
-       JOIN TNGS_Sima..CliEntrevistas 
+       JOIN TNGS_Carm..CliEntrevistas 
            ON cle_nro_numcliente = cli_nro_numero 
        WHERE 
            cli_cd6_codvend = @codvend and 
            cle_fyh_fcoordinada < getdate() and 
-           cli_fec_ffinres < getdate() and 
            cle_rcd_codresultado = ' 'and 
-           TNGS_Sima..CliEntrevistas.deleted = 0.0000 
+           TNGS_Carm..CliEntrevistas.deleted = 0.0000 
     
    ORDER BY cli_nro_numero, cle_fyh_fcoordinada 
 
@@ -1477,7 +1471,7 @@ create procedure dbo.CLIENTREVISTAS_SAVECOMPLETARENTREV
 as
 begin
 
-   update TNGS_Sima..CliEntrevistas 
+   update TNGS_Carm..CliEntrevistas 
         set 
             cle_fyh_frealizada = @frealizada, 
             cle_ede_motcambiof = @motivo, 

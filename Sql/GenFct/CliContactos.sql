@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 01:48
 // Sistema     : Carm
 // Tabla       : CliContactos
 //----------------------------------------------------------------------------
@@ -59,7 +59,7 @@ begin
                     when CliContactos.deleted = 0 then 'S' 
                     else 'N' 
                  end 
-     from TNGS_Sima..CliContactos 
+     from TNGS_Carm..CliContactos 
      where clc_nro_numcliente = @numcliente 
    			and clc_nro_numcontacto = @numcontacto 
     

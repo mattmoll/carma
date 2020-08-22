@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 01:48
 // Sistema     : Carm
 // Tabla       : CliNotas
 //----------------------------------------------------------------------------
@@ -59,7 +59,7 @@ begin
                     when ltrim(rtrim(CliNotas.cln_nom_removedor)) = '' then 'N' 
                     else 'S' 
                  end 
-     from TNGS_Sima..CliNotas 
+     from TNGS_Carm..CliNotas 
      where cln_nro_numcliente = @nrocliente 
    			and cln_fyh_fechayhora = @fyhcreada 
     

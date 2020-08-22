@@ -1045,7 +1045,7 @@ namespace Carm.Bel
     public sealed partial class LETipoVendedores : ListaEntidades
     {
         #region Metodos publicos de la clase
-        //---------------------------------------------------------------
+        //--------------------------------------------------------------- 
         // Metodos publicos
         //---------------------------------------------------------------
 

@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Vendedores
 //----------------------------------------------------------------------------
@@ -56,7 +56,7 @@ begin
                 vnd_des_apellido,
                 vnd_des_nombre,
                 vnd_nom_usuario,
-                TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
+                TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
                 vnd_tel_tel1,
                 vnd_tel_celular,
                 vnd_tel_tel2,
@@ -87,7 +87,7 @@ begin
                 vnd_des_apellido,
                 vnd_des_nombre,
                 vnd_nom_usuario,
-                TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
+                TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
                 vnd_tel_tel1,
                 vnd_tel_celular,
                 vnd_tel_tel2,
@@ -207,7 +207,7 @@ begin
                 vnd_des_apellido,
                 vnd_des_nombre,
                 vnd_nom_usuario,
-                TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
+                TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
                 vnd_tel_tel1,
                 vnd_tel_celular,
                 vnd_tel_tel2,
@@ -238,7 +238,7 @@ begin
                 vnd_des_apellido,
                 vnd_des_nombre,
                 vnd_nom_usuario,
-                TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
+                TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
                 vnd_tel_tel1,
                 vnd_tel_celular,
                 vnd_tel_tel2,
@@ -660,7 +660,7 @@ begin
    select 
    		vnd_cd6_cod 
    	from 
-   		TNGS_Sima..Vendedores 
+   		TNGS_Carm..Vendedores 
    	where 
    		vnd_nom_usuario = @usuario 
 
@@ -720,11 +720,11 @@ begin
        cle_xld_direccion, 
     isnull(ren_des_des, '') as ren_des_des 
     
-          FROM TNGS_SIMA..Clientes 
+          FROM TNGS_Carm..Clientes 
     
-    JOIN TNGS_Sima..CliEntrevistas 
+    JOIN TNGS_Carm..CliEntrevistas 
      ON cli_nro_numero = cle_nro_numcliente 
-    LEFT OUTER JOIN TNGS_Sima..ResEntrevista 
+    LEFT OUTER JOIN TNGS_Carm..ResEntrevista 
      ON ren_rcd_cod = cle_rcd_codresultado 
     
         WHERE cli_cd6_codvend = @codvend 
@@ -787,11 +787,11 @@ begin
        cle_xld_direccion, 
    	isnull(ren_des_des, '') as ren_des_des 
     
-       FROM TNGS_SIMA..CliEntrevistas 
+       FROM TNGS_Carm..CliEntrevistas 
     
-   	JOIN TNGS_Sima..Clientes 
+   	JOIN TNGS_Carm..Clientes 
    		ON cli_nro_numero = cle_nro_numcliente 
-   	LEFT OUTER JOIN TNGS_Sima..ResEntrevista 
+   	LEFT OUTER JOIN TNGS_Carm..ResEntrevista 
    		ON ren_rcd_cod = cle_rcd_codresultado 
     
         WHERE cle_cd6_codvend = @codvend 
@@ -846,13 +846,13 @@ begin
      cll_fyh_frealizada, 
      cll_txt_resultado 
     
-    FROM TNGS_SIMA..CliLlamadas 
+    FROM TNGS_Carm..CliLlamadas 
     
-    JOIN TNGS_SIMA..Clientes 
+    JOIN TNGS_Carm..Clientes 
      ON cll_nro_numcliente = cli_nro_numero 
-    JOIN TNGS_SIMA..MotivosLlamada 
+    JOIN TNGS_Carm..MotivosLlamada 
      ON cll_cod_codmotivo = mot_cod_cod 
-    Join TNGS_SIMA..CategoriasLlamada 
+    Join TNGS_Carm..CategoriasLlamada 
      ON ctl_rcd_cod = mot_rcd_codcategoria 
     
      WHERE cll_nom_codusuario = 'MATI' 
@@ -918,9 +918,9 @@ begin
     sol_xde_obssol, 
     sol_xde_obsaut 
     
-    FROM TNGS_Sima..Solicitudes 
+    FROM TNGS_Carm..Solicitudes 
     
-    JOIN TNGS_Sima..Clientes 
+    JOIN TNGS_Carm..Clientes 
      ON sol_nro_numcliente = cli_nro_numero 
     
     WHERE 
@@ -970,7 +970,7 @@ begin
           vnd_des_apellido,
           vnd_des_nombre,
           vnd_nom_usuario,
-          TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
+          TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
           vnd_tel_tel1,
           vnd_tel_celular,
           vnd_tel_tel2,
@@ -1043,7 +1043,7 @@ as
 begin
 
    select  cli_ede_rsocial, 
-           TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, 
+           TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, 
    		cle_des_nombre, 
            cle_des_cargo, 
            cle_fyh_frealizada, 
@@ -1175,9 +1175,9 @@ begin
     
    select cli_nro_nroavalon, 
           cli_ede_rsocial, 
-   	   TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, 
+   	   TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, 
    	   ctl_des_des, 
-   	   TNGS_Sima.dbo.CATEGORIASLLAMADA_GETTIPO(ctl_cd1_tipo) as mot_tipo, 
+   	   TNGS_Carm.dbo.CATEGORIASLLAMADA_GETTIPO(ctl_cd1_tipo) as mot_tipo, 
    	   mot_des_des, 
    	   cll_fyh_frealizada, 
    	   cll_txt_resultado, 
@@ -1187,7 +1187,7 @@ begin
    join Vendedores on cll_nom_codusuario = vnd_nom_usuario 
    join Clientes on cli_nro_numero = cll_nro_numcliente 
    join MotivosLlamada on cll_cod_codmotivo = mot_cod_cod 
-   join TNGS_SIMA..CategoriasLlamada on ctl_rcd_cod = mot_rcd_codcategoria 
+   join CategoriasLlamada on ctl_rcd_cod = mot_rcd_codcategoria 
    left outer join Marcas on mrc_rcd_cod = cli_rcd_codmarca 
    where cll_fyh_frealizada > @fechaini and 
    	  cll_fyh_frealizada < @fechafin and 
@@ -1243,7 +1243,7 @@ create procedure dbo.VENDEDORES_ZRESERVASBASICO
 as
 begin
 
-   select TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, cli_ede_rsocial, 
+   select TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, cli_ede_rsocial, 
    		tin_des_des,sol_fyh_fgeneracion as sol_finires, cli_fec_ffinres as sol_ffinres, 
    		mrc_des_des 
        from Solicitudes 
@@ -1300,7 +1300,7 @@ create procedure dbo.VENDEDORES_ZVENCIDAS
 as
 begin
 
-   select TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, cli_ede_rsocial, 
+   select TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, cli_ede_rsocial, 
            cle_fyh_fcoordinada as cle_fcoord, sol_fyh_fgeneracion as sol_finires, 
            cli_fec_ffinres as sol_ffinres, mrc_des_des 
        from Solicitudes 
@@ -1362,8 +1362,7 @@ begin
    select cle_nro_numcliente as nroCliente, 
    	   max(cle_cd6_codvend) as codVendedor, 
    	   max(vnd_cd6_codsuperv) as codSupervisorVendedor, 
-   	   max(vnd_des_apellido) as apellidoVendedor, 
-   	   MAX(vnd_rcd_codmarca) as codMarcaVendedor 
+   	   max(vnd_des_apellido) as apellidoVendedor 
      into #matTemp01 
      from CliEntrevistas 
      join ResEntrevista on cle_rcd_codresultado = ren_rcd_cod 
@@ -1377,12 +1376,10 @@ begin
     
     select 
    		max(mrc_des_des) as mrc_des_des, 
-   	    max(rtrim(jvt_nom_apellido) + ' '+ jvt_nom_nombre) as jvt_nom_apellido, 
    	    max(rtrim(sup_nom_apellido) + ' '+ sup_nom_nombre ) as sup_nom_nomyape, 
    	    max(apellidoVendedor)as vnd_des_apellido, 
            count(distinct cli_nro_numero) as cantidad, 
-           sum(clv_imp_abono) as clv_imp_abono, 
-           codMarcaVendedor 
+           sum(clv_imp_abono) as clv_imp_abono 
      from CliVentas 
           join Clientes 
                join #matTemp01 
@@ -1391,13 +1388,8 @@ begin
     
           left outer join Supervisores 
    	     on sup_cd6_cod = codSupervisorVendedor 
-          left outer join JefesVentas 
-   		 on sup_cd6_codjefevtas = jvt_cd6_cod 
-   	   join Marcas 
-            on codMarcaVendedor = mrc_rcd_cod	 
    where codVendedor between @codvendini and @codvendfin 
-   group by codMarcaVendedor 
-   order by codMarcaVendedor, clv_imp_abono desc 
+   order by clv_imp_abono desc 
 
 fin:
 

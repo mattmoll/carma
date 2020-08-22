@@ -1,7 +1,7 @@
 /*---------------------------------------------------------------------------
 //                   TNG Software (Scripts iniciales de la Base)
 //---------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 22/08/2020 01:19
 // Base de Datos      : TNGS_Carm
 // Objetivo           : Creación de los usuarios de la base
 //----------------------------------------------------------------------------
@@ -53,7 +53,7 @@ go
 /*---------------------------------------------------------------------------
 //                   TNG Software (Scripts iniciales de la Base)
 //---------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 22/08/2020 01:19
 // Base de Datos      : TNGS_Carm
 // Objetivo           : Creación de los tipos de datos
 //----------------------------------------------------------------------------
@@ -320,7 +320,7 @@ go
 /*---------------------------------------------------------------------------
 //                   TNG Software (Scripts iniciales de la Base)
 //---------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 22/08/2020 01:19
 // Base de Datos      : TNGS_Carm
 // Objetivo           : Creación de las funciones básicas
 //----------------------------------------------------------------------------
@@ -2731,7 +2731,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 01:48
 // Sistema     : Carm
 // Tabla       : CategoriasLlamada
 //----------------------------------------------------------------------------
@@ -2807,7 +2807,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 01:48
 // Sistema     : Carm
 // Tabla       : CliContactos
 //----------------------------------------------------------------------------
@@ -2865,7 +2865,7 @@ begin
                     when CliContactos.deleted = 0 then 'S' 
                     else 'N' 
                  end 
-     from TNGS_Sima..CliContactos 
+     from TNGS_Carm..CliContactos 
      where clc_nro_numcliente = @numcliente 
    			and clc_nro_numcontacto = @numcontacto 
     
@@ -2888,7 +2888,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 01:48
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -2944,11 +2944,11 @@ begin
                     when count(*) > 0 then 'S' 
                     else ' ' 
                  end 
-     from TNGS_Sima..CliEntrevistas 
+     from TNGS_Carm..CliEntrevistas 
     where cle_nro_numcliente = @cliente 
       and year(cle_fyh_frealizada) = 1900 
       and cle_fyh_fcoordinada > getdate() 
-      and TNGS_Sima..CliEntrevistas.deleted = 0.0000 
+      and TNGS_Carm..CliEntrevistas.deleted = 0.0000 
     
     
    return @ret 
@@ -2960,61 +2960,6 @@ print '       - Asignando permisos a la Función'
 
 grant execute on CLIENTES_ENTREVPENDIENTES to tngsmodulos
 grant execute on CLIENTES_ENTREVPENDIENTES to tngsqbe
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Función : EntrevPendientesVenc
---- </summary>
---- <param name="@cliente">Numero de cliente</param>
----
----////////////////////////////////////////////////////////
-
-print 'Function: CLIENTES_ENTREVPENDIENTESVENC'
-
-if exists (select * from sysobjects where id = object_id('CLIENTES_ENTREVPENDIENTESVENC'))
-begin
-   print '       - Borrando la vieja Función'
-   drop function CLIENTES_ENTREVPENDIENTESVENC
-end
-go
-
-print '       - Creando la nueva Función'
-go
-
-create function CLIENTES_ENTREVPENDIENTESVENC
-(
-@cliente tngs_numero
-)
-returns int
-as
-begin
-
-   declare @ret int 
-    
-   select @ret = count(cli_fec_ffinres) 
-     from TNGS_Sima..CliEntrevistas 
-        join TNGS_Sima..Clientes 
-             on cli_nro_numero = @cliente 
-    where cle_nro_numcliente = @cliente 
-      and year(cle_fyh_frealizada) = 1900 
-      and cle_fyh_fcoordinada <= getdate() 
-      and cli_fec_ffinres > getdate() 
-      and TNGS_Sima..CliEntrevistas.deleted = 0.0000 
-    
-   return @ret 
-    
-
-end
-go
-
-print '       - Asignando permisos a la Función'
-
-grant execute on CLIENTES_ENTREVPENDIENTESVENC to tngsmodulos
-grant execute on CLIENTES_ENTREVPENDIENTESVENC to tngsqbe
 
 print ' '
 go
@@ -3051,10 +2996,10 @@ begin
    declare @ret int 
     
    select @ret = count(*) 
-     from TNGS_Sima..CliEntrevistas 
+     from TNGS_Carm..CliEntrevistas 
     where cle_nro_numcliente = @cliente 
       and year(cle_fyh_frealizada) <> 1900 
-      and TNGS_Sima..CliEntrevistas.deleted = 0.0000 
+      and TNGS_Carm..CliEntrevistas.deleted = 0.0000 
     
    return @ret 
 
@@ -3069,72 +3014,13 @@ grant execute on CLIENTES_ENTREVREALIZADAS to tngsqbe
 print ' '
 go
 
----////////////////////////////////////////////////////////
----
---- <summary>
---- Función : EntrevVencidas
---- </summary>
---- <param name="@cliente">Numero de cliente</param>
----
----////////////////////////////////////////////////////////
-
-print 'Function: CLIENTES_ENTREVVENCIDAS'
-
-if exists (select * from sysobjects where id = object_id('CLIENTES_ENTREVVENCIDAS'))
-begin
-   print '       - Borrando la vieja Función'
-   drop function CLIENTES_ENTREVVENCIDAS
-end
-go
-
-print '       - Creando la nueva Función'
-go
-
-create function CLIENTES_ENTREVVENCIDAS
-(
-@cliente tngs_numero
-)
-returns varchar(1)
-as
-begin
-
-   declare @ret varchar(1) 
-    
-   select @ret = 
-            case 
-               when count(cli_fec_ffinres) > 0 then 'S' 
-               else ' ' 
-             end 
-     from TNGS_Sima..CliEntrevistas 
-        join TNGS_Sima..Clientes 
-             on cli_nro_numero = @cliente 
-    where cle_nro_numcliente = @cliente 
-      and year(cle_fyh_frealizada) = 1900 
-      and cle_fyh_fcoordinada <= getdate() 
-      and cli_fec_ffinres <= getdate() 
-      and TNGS_Sima..CliEntrevistas.deleted = 0.0000 
-    
-   return @ret 
-    
-
-end
-go
-
-print '       - Asignando permisos a la Función'
-
-grant execute on CLIENTES_ENTREVVENCIDAS to tngsmodulos
-grant execute on CLIENTES_ENTREVVENCIDAS to tngsqbe
-
-print ' '
-go
-
 /*--------------------------------------------------------------------------
 // Fin del script de creacion de las Funciones de la tabla: Clientes
 //--------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 01:48
 // Sistema     : Carm
 // Tabla       : CliEntrevistas
 //----------------------------------------------------------------------------
@@ -3192,7 +3078,7 @@ begin
                     when CliEntrevistas.deleted = 0.0000 then 'N' 
                     else 'S' 
                  end 
-     from TNGS_Sima..CliEntrevistas 
+     from TNGS_Carm..CliEntrevistas 
      where cle_nro_numcliente = @numcliente 
    			and cle_nro_numentrev = @numentrev 
     
@@ -3244,7 +3130,7 @@ begin
     
    select @ret =  case when year (cle_fyh_frealizada) = 1900 then 'S' 
          else 'N' end 
-     from TNGS_Sima..CliEntrevistas 
+     from TNGS_Carm..CliEntrevistas 
     
    where cle_nro_numcliente = @numcliente and 
          cle_nro_numentrev = @numentrev 
@@ -3270,7 +3156,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 01:48
 // Sistema     : Carm
 // Tabla       : CliNotas
 //----------------------------------------------------------------------------
@@ -3328,7 +3214,7 @@ begin
                     when ltrim(rtrim(CliNotas.cln_nom_removedor)) = '' then 'N' 
                     else 'S' 
                  end 
-     from TNGS_Sima..CliNotas 
+     from TNGS_Carm..CliNotas 
      where cln_nro_numcliente = @nrocliente 
    			and cln_fyh_fechayhora = @fyhcreada 
     
@@ -3351,7 +3237,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 01:48
 // Sistema     : Carm
 // Tabla       : Localidades
 //----------------------------------------------------------------------------
@@ -3404,9 +3290,9 @@ begin
     
    declare @ret varchar (30) 
     
-   select @ret = zns_des_nombre from TNGS_SIMA..Zonas 
+   select @ret = zns_des_nombre from TNGS_Carm..Zonas 
     
-   join TNGS_SIMA..Localidades on loc_rcd_codzona = zns_rcd_cod 
+   join TNGS_Carm..Localidades on loc_rcd_codzona = zns_rcd_cod 
     
    where loc_ecd_codpost = @codloc 
     
@@ -3429,7 +3315,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 01:48
 // Sistema     : Carm
 // Tabla       : Vendedores
 //----------------------------------------------------------------------------
@@ -3483,7 +3369,7 @@ begin
     
    SELECT @ret = COUNT (*) 
     
-       FROM TNGS_Sima..Clientes 
+       FROM TNGS_Carm..Clientes 
     
        WHERE cli_cd6_codvend = @codvend and cli_cd1_alta = 'N' 
     
@@ -3533,7 +3419,7 @@ begin
    declare @ret varchar(60) 
     
    select @ret =  rtrim(vnd_des_nombre) + ' '+ vnd_des_apellido 
-     from TNGS_Sima..Vendedores 
+     from TNGS_Carm..Vendedores 
     
       where vnd_cd6_cod = @codvend 
     
@@ -3583,9 +3469,9 @@ begin
    declare @ret varchar(60) 
     
    select @ret = rtrim(jvt_nom_nombre) + ' '+ jvt_nom_apellido 
-     from TNGS_Sima..JefesVentas 
-     join TNGS_SIMA..Supervisores on sup_cd6_codjefevtas = jvt_cd6_cod 
-     join TNGS_SIMA..Vendedores on vnd_cd6_codsuperv = sup_cd6_cod 
+     from TNGS_Carm..JefesVentas 
+     join TNGS_Carm..Supervisores on sup_cd6_codjefevtas = jvt_cd6_cod 
+     join TNGS_Carm..Vendedores on vnd_cd6_codsuperv = sup_cd6_cod 
     
       where vnd_cd6_cod = @codvend 
     
@@ -3609,7 +3495,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : CategoriasLlamada
 //----------------------------------------------------------------------------
@@ -4154,7 +4040,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : CliContactos
 //----------------------------------------------------------------------------
@@ -4211,7 +4097,7 @@ begin
                 clc_des_nombre,
                 clc_des_cargo,
                 clc_des_titulo,
-                TNGS_SIMA.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
+                TNGS_Carm.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
                 clc_tel_celular,
                 clc_tel_telefono1,
                 clc_tel_telefono2,
@@ -4237,7 +4123,7 @@ begin
                 clc_des_nombre,
                 clc_des_cargo,
                 clc_des_titulo,
-                TNGS_SIMA.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
+                TNGS_Carm.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
                 clc_tel_celular,
                 clc_tel_telefono1,
                 clc_tel_telefono2,
@@ -4357,7 +4243,7 @@ begin
                 clc_des_nombre,
                 clc_des_cargo,
                 clc_des_titulo,
-                TNGS_SIMA.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
+                TNGS_Carm.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
                 clc_tel_celular,
                 clc_tel_telefono1,
                 clc_tel_telefono2,
@@ -4383,7 +4269,7 @@ begin
                 clc_des_nombre,
                 clc_des_cargo,
                 clc_des_titulo,
-                TNGS_SIMA.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
+                TNGS_Carm.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
                 clc_tel_celular,
                 clc_tel_telefono1,
                 clc_tel_telefono2,
@@ -4451,7 +4337,7 @@ begin
                 clc_des_nombre,
                 clc_des_cargo,
                 clc_des_titulo,
-                TNGS_SIMA.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
+                TNGS_Carm.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
                 clc_tel_celular,
                 clc_tel_telefono1,
                 clc_tel_telefono2,
@@ -4477,7 +4363,7 @@ begin
                 clc_des_nombre,
                 clc_des_cargo,
                 clc_des_titulo,
-                TNGS_SIMA.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
+                TNGS_Carm.dbo.CliContactos_EstaActivo (clc_nro_numcliente,clc_nro_numcontacto) as clc_cd1_activo,
                 clc_tel_celular,
                 clc_tel_telefono1,
                 clc_tel_telefono2,
@@ -5120,7 +5006,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -5191,7 +5077,7 @@ begin
                 cli_ecd_codlocalidad,
                 loc_ede_nombre as cli_des_loc,
                 loc_des_provincia as cli_des_prov,
-                TNGS_SIMA.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
+                TNGS_Carm.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
                 loc_ede_partido as cli_ede_partido,
                 loc_rcd_codzona as cli_rcd_codzona,
                 cli_des_cuil,
@@ -5245,7 +5131,7 @@ begin
                 cli_ecd_codlocalidad,
                 loc_ede_nombre as cli_des_loc,
                 loc_des_provincia as cli_des_prov,
-                TNGS_SIMA.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
+                TNGS_Carm.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
                 loc_ede_partido as cli_ede_partido,
                 loc_rcd_codzona as cli_rcd_codzona,
                 cli_des_cuil,
@@ -5388,7 +5274,7 @@ begin
                 cli_ecd_codlocalidad,
                 loc_ede_nombre as cli_des_loc,
                 loc_des_provincia as cli_des_prov,
-                TNGS_SIMA.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
+                TNGS_Carm.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
                 loc_ede_partido as cli_ede_partido,
                 loc_rcd_codzona as cli_rcd_codzona,
                 cli_des_cuil,
@@ -5442,7 +5328,7 @@ begin
                 cli_ecd_codlocalidad,
                 loc_ede_nombre as cli_des_loc,
                 loc_des_provincia as cli_des_prov,
-                TNGS_SIMA.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
+                TNGS_Carm.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
                 loc_ede_partido as cli_ede_partido,
                 loc_rcd_codzona as cli_rcd_codzona,
                 cli_des_cuil,
@@ -5978,13 +5864,9 @@ begin
 
    update Clientes 
    set cli_cd1_alta = 'N', 
-   	cli_nro_treservado = 0, 
    	cli_cd6_codvend = '      ', 
-   	cli_fec_ffinres = '1900-1-1', 
-   	cli_fec_finires = '1900-1-1', 
        cli_imp_abono = 0, 
-       cli_rcd_codtipocont = '  ', 
-       cli_cod_codcompetencia = @codcompetencia 
+       cli_rcd_codtipocont = '  ' 
    where cli_nro_numero = @nrocliente 
     
    /* Borramos los servicios que tenia cargados el cliente */ 
@@ -6032,8 +5914,8 @@ create procedure dbo.CLIENTES_BORRAENTREVISTASPEND
 as
 begin
 
-   update TNGS_SIMA..CliEntrevistas 
-   set TNGS_Sima..CliEntrevistas.deleted = 1.0000, 
+   update TNGS_Carm..CliEntrevistas 
+   set TNGS_Carm..CliEntrevistas.deleted = 1.0000, 
    	version = ((version+1) % 32767), 
              instante= getdate(), 
              usuario = @usuario 
@@ -6103,52 +5985,6 @@ go
 ---////////////////////////////////////////////////////////
 ---
 --- <summary>
---- Método Fijo: FueArreglado
---- </summary>
---- <param name="@numcliente">Numero del Cliente</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_FUEARREGLADO'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_FUEARREGLADO'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_FUEARREGLADO
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_FUEARREGLADO
-(
-@numcliente tngs_numero,
-@usuario tngs_nombre
-)
-as
-begin
-
-   update TNGS_SIMA..Clientes 
-   	set deleted = 0.0000 
-   where cli_nro_numero = @numcliente 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_FUEARREGLADO to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
 --- Método Fijo: GetFromNroAvln
 --- </summary>
 --- <param name="@nroavalon">Numero de Avalon</param>
@@ -6196,7 +6032,6 @@ go
 --- Método Fijo: GetPorClaveAvalon
 --- </summary>
 --- <param name="@nroavalon">Numero de Avalon</param>
---- <param name="@codmarca">Codigo de Marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -6216,13 +6051,12 @@ go
 create procedure dbo.CLIENTES_GETPORCLAVEAVALON
 (
 @nroavalon tngs_numero,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
 begin
 
-   select * from Clientes where cli_nro_nroavalon = @nroavalon and cli_rcd_codmarca = @codmarca 
+   select * from Clientes where cli_nro_nroavalon = @nroavalon 
 
 fin:
 
@@ -6271,7 +6105,7 @@ begin
     cli_ede_rsocial 
     
     FROM 
-     TNGS_Sima..Clientes 
+     TNGS_Carm..Clientes 
     
     WHERE 
      cli_nro_numero = @numcliente 
@@ -6284,82 +6118,6 @@ go
 print '       - Asignando permisos al nuevo SP'
 
 grant execute on dbo.CLIENTES_GETRSOCIALCLIENTE to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: GetReservados
---- </summary>
---- <param name="@codvend">Codigo de Vendedor</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_GETRESERVADOS'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_GETRESERVADOS'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_GETRESERVADOS
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_GETRESERVADOS
-(
-@codvend tngs_codigo_6,
-@usuario tngs_nombre
-)
-as
-begin
-
-   select 
-             cli_nro_numero, 
-             cli_ede_rsocial, 
-             cli_des_nombrefant, 
-             TNGS_SIMA.dbo.Clientes_EntrevPendientes(cli_nro_numero) as cli_ent_pendientes, 
-             cli_tel_telefono1, 
-             isnull(tin_des_des,'') as cli_des_tipoinst, 
-             isnull(rbr_des_des,'') as cli_des_rubro, 
-             TNGS_SIMA.dbo.Clientes_EntrevPendientesVenc(cli_nro_numero) as cli_ent_pendientesvenc, 
-             cli_ede_direccion, 
-             loc_ede_nombre as cli_ede_localidad, 
-             zns_des_nombre as cli_des_zona, 
-             TNGS_SIMA.dbo.Clientes_EntrevRealizadas(cli_nro_numero) as cli_ent_realizadas, 
-             cli_fec_finires, 
-             cli_fec_ffinres, 
-             TNGS_SIMA.dbo.Clientes_EntrevVencidas(cli_nro_numero) as cli_ent_vencidas, 
-             case when (Clientes.deleted = 0.00) 
-              then 'S' 
-             else 'N'  end AS cli_cd1_validado 
-       from 
-             TNGS_Sima..Clientes 
-     join TNGS_Sima..Localidades 
-      on loc_ecd_codpost = cli_ecd_codlocalidad 
-     join TNGS_Sima..Zonas 
-      on zns_rcd_cod = loc_rcd_codzona 
-     join TNGS_Sima..TipoInst 
-      on tin_cod_cod = cli_cod_codtinst 
-     join TNGS_Sima..Rubros 
-      on rbr_rcd_cod = tin_rcd_codrubro 
-     left outer join TNGS_Sima..Franquicias 
-      on frq_cod_cod = cli_cod_codfrq 
-    
-       where cli_cd6_codvend = @codvend and cli_cd1_alta = 'N' 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_GETRESERVADOS to tngsmodulos
 
 print ' '
 go
@@ -6403,7 +6161,6 @@ begin
                    cli_cod_codfrq, 
                    frq_des_des as cli_des_frq, 
                    cli_cd1_alta, 
-                   cli_nro_treservado, 
                    cli_tel_telefono1, 
                    cli_tel_telefono2, 
                    cli_tel_fax, 
@@ -6414,24 +6171,20 @@ begin
                    loc_ede_nombre as cli_des_loc, 
                    cli_xld_url, 
                    cli_cd6_codvend, 
-    
-                   cli_fec_finires, 
-                   cli_fec_ffinres, 
-                   cli_cd1_extension, 
                    cli_ede_horarios, 
                    cli_fec_fingsima, 
                    cli_nro_cantempleados, 
                    cli_txt_cobertura, 
-                   TNGS_Sima..Clientes.instante, 
-                   TNGS_Sima..Clientes.deleted, 
-                   TNGS_Sima..Clientes.usuario, 
-                   TNGS_Sima..Clientes.version 
-              from TNGS_Sima..Clientes 
-                   join TNGS_Sima..TipoInst 
+                   TNGS_Carm..Clientes.instante, 
+                   TNGS_Carm..Clientes.deleted, 
+                   TNGS_Carm..Clientes.usuario, 
+                   TNGS_Carm..Clientes.version 
+              from TNGS_Carm..Clientes 
+                   join TNGS_Carm..TipoInst 
                      on cli_cod_codtinst = tin_cod_cod 
-                   left outer join TNGS_Sima..Franquicias 
+                   left outer join TNGS_Carm..Franquicias 
                      on cli_cod_codfrq = frq_cod_cod 
-                   join TNGS_Sima..Localidades 
+                   join TNGS_Carm..Localidades 
                      on cli_ecd_codlocalidad = loc_ecd_codpost 
     
              where cli_nro_numero = @numero 
@@ -6444,58 +6197,6 @@ go
 print '       - Asignando permisos al nuevo SP'
 
 grant execute on dbo.CLIENTES_GETSINCODVEND to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: GetTieneDatosError
---- </summary>
---- <param name="@nrocliente">Numero del Cliente</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_GETTIENEDATOSERROR'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_GETTIENEDATOSERROR'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_GETTIENEDATOSERROR
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_GETTIENEDATOSERROR
-(
-@nrocliente tngs_numero,
-@usuario tngs_nombre
-)
-as
-begin
-
-   select 
-            case 
-               when TNGS_Sima..CLientes.deleted = 0 then 'N' 
-               else 'S' 
-             end 
-     from TNGS_Sima..Clientes 
-    
-    where cli_nro_numero = @nrocliente 
-    
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_GETTIENEDATOSERROR to tngsmodulos
 
 print ' '
 go
@@ -6540,7 +6241,6 @@ begin
        then 0 
      end as cli_cd1_esmayo, 
      isnull(vnd_nom_usuario, 'Sin reserva') AS cli_nom_usuario, 
-           cli_nro_treservado, 
            frq_des_des as cli_des_frq, 
            case when (cli_cd1_alta = 'S') 
        then 1 
@@ -6548,28 +6248,21 @@ begin
        then 0 
      end as cli_cd1_alta, 
            loc_ede_nombre as cli_des_loc, 
-           cli_fec_finires, 
-           cli_fec_ffinres, 
-           case when (cli_cd1_extension = 1) 
-       then 'S' 
-      when (cli_cd1_extension = 0) 
-       then 'N' 
-     end as cli_cd1_extension, 
      case when (Clientes.deleted = 0.00) 
        then 'S' 
       else  'N' 
      end AS cli_cd1_validado 
     
-      FROM TNGS_Sima..Clientes 
-           JOIN TNGS_Sima..TipoInst 
+      FROM TNGS_Carm..Clientes 
+           JOIN TNGS_Carm..TipoInst 
              ON cli_cod_codtinst = tin_cod_cod 
-           LEFT OUTER JOIN TNGS_Sima..Franquicias 
+           LEFT OUTER JOIN TNGS_Carm..Franquicias 
              ON cli_cod_codfrq = frq_cod_cod 
-           JOIN TNGS_Sima..Localidades 
+           JOIN TNGS_Carm..Localidades 
              ON cli_ecd_codlocalidad = loc_ecd_codpost 
-     JOIN TNGS_Sima..Rubros 
+     JOIN TNGS_Carm..Rubros 
        ON tin_rcd_codrubro = rbr_rcd_cod 
-     LEFT OUTER JOIN TNGS_Sima..Vendedores 
+     LEFT OUTER JOIN TNGS_Carm..Vendedores 
        ON cli_cd6_codvend = vnd_nom_usuario 
 
 fin:
@@ -6580,56 +6273,6 @@ go
 print '       - Asignando permisos al nuevo SP'
 
 grant execute on dbo.CLIENTES_GETTODOSLOSCLIENTES to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: GetUltimasReservas
---- </summary>
---- <param name="@numero">Numero del Cliente</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_GETULTIMASRESERVAS'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_GETULTIMASRESERVAS'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_GETULTIMASRESERVAS
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_GETULTIMASRESERVAS
-(
-@numero tngs_numero,
-@usuario tngs_nombre
-)
-as
-begin
-
-   select top 2 cli_nro_treservado, sol_cd6_codvend 
-       from TNGS_SIMA..Clientes 
-          join TNGS_SIMA..Solicitudes 
-              on cli_nro_numero = sol_nro_numcliente 
-       where sol_cd1_estado = 'C' and cli_nro_numero = @numero 
-          order by sol_fyh_fproceso desc 
-    
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_GETULTIMASRESERVAS to tngsmodulos
 
 print ' '
 go
@@ -6668,32 +6311,30 @@ begin
              cli_nro_numero, 
              cli_ede_rsocial, 
              cli_des_nombrefant, 
-             TNGS_SIMA.dbo.Clientes_EntrevPendientes(cli_nro_numero) as cli_ent_pendientes, 
+             TNGS_Carm.dbo.Clientes_EntrevPendientes(cli_nro_numero) as cli_ent_pendientes, 
              cli_tel_telefono1, 
              isnull(tin_des_des,'') as cli_des_tipoinst, 
              isnull(rbr_des_des,'') as cli_des_rubro, 
-             TNGS_SIMA.dbo.Clientes_EntrevPendientesVenc(cli_nro_numero) as cli_ent_pendientesvenc, 
+             TNGS_Carm.dbo.Clientes_EntrevPendientesVenc(cli_nro_numero) as cli_ent_pendientesvenc, 
              cli_ede_direccion, 
              loc_ede_nombre as cli_ede_localidad, 
              zns_des_nombre as cli_des_zona, 
-             TNGS_SIMA.dbo.Clientes_EntrevRealizadas(cli_nro_numero) as cli_ent_realizadas, 
-             cli_fec_finires, 
-             cli_fec_ffinres, 
-             TNGS_SIMA.dbo.Clientes_EntrevVencidas(cli_nro_numero) as cli_ent_vencidas, 
+             TNGS_Carm.dbo.Clientes_EntrevRealizadas(cli_nro_numero) as cli_ent_realizadas, 
+             TNGS_Carm.dbo.Clientes_EntrevVencidas(cli_nro_numero) as cli_ent_vencidas, 
              case when (Clientes.deleted = 0.00) 
               then 'S' 
              else 'N'  end AS cli_cd1_validado 
        from 
-             TNGS_Sima..Clientes 
-     join TNGS_Sima..Localidades 
+             TNGS_Carm..Clientes 
+     join TNGS_Carm..Localidades 
       on loc_ecd_codpost = cli_ecd_codlocalidad 
-     join TNGS_Sima..Zonas 
+     join TNGS_Carm..Zonas 
       on zns_rcd_cod = loc_rcd_codzona 
-     join TNGS_Sima..TipoInst 
+     join TNGS_Carm..TipoInst 
       on tin_cod_cod = cli_cod_codtinst 
-     join TNGS_Sima..Rubros 
+     join TNGS_Carm..Rubros 
       on rbr_rcd_cod = tin_rcd_codrubro 
-     left outer join TNGS_Sima..Franquicias 
+     left outer join TNGS_Carm..Franquicias 
       on frq_cod_cod = cli_cod_codfrq 
     
        where cli_cd6_codvend = @codvend and cli_cd1_alta = 'S' 
@@ -6706,405 +6347,6 @@ go
 print '       - Asignando permisos al nuevo SP'
 
 grant execute on dbo.CLIENTES_GETVENDIDOS to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: JobDesreserva
---- </summary>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_JOBDESRESERVA'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_JOBDESRESERVA'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_JOBDESRESERVA
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_JOBDESRESERVA
-(
-@usuario tngs_nombre
-)
-as
-begin
-
-   /* SI SE TOCA ESTE CODIGO HAY QUE TOCAR EL SP de Reservar */ 
-    
-   SET NOCOUNT ON; 
-    
-   DECLARE @nroLog int, @nroCliente int, @nroAvalon int, @razonSocial varchar(60), @nombreFantasia varchar(30), 
-   		@accion varchar(30), @nombre varchar(30), @fecha DateTime 
-    
-    
-   DECLARE reservasVencidas_cursor CURSOR FOR 
-    
-   SELECT	cli_nro_numero, 
-   		cli_nro_nroavalon, 
-   		cli_ede_rsocial, 
-   		cli_des_nombrefant, 
-   		vnd_nom_usuario, 
-   		cli_fec_ffinres 
-    
-   from	Clientes 
-    
-   join	Vendedores 
-   on		cli_cd6_codvend = vnd_cd6_cod 
-    
-   where	year(cli_fec_ffinres) <> 1900 
-   		and cli_fec_ffinres < getdate() 
-   		and cli_nro_numero not in (	select distinct cle_nro_numcliente 
-   									from TNGS_Sima..CliEntrevistas 
-   									join TNGS_Sima..Clientes 
-                                          on cli_nro_numero = cle_nro_numcliente 
-   									where year(cle_fyh_frealizada) = 1900 and 
-                                           cli_fec_ffinres < getdate() and 
-                                           CliEntrevistas.deleted = 0) 
-    
-   OPEN reservasVencidas_cursor 
-    
-   FETCH NEXT FROM reservasVencidas_cursor 
-   INTO @nroCliente, @nroAvalon, @razonSocial, @nombreFantasia, @nombre, @fecha 
-    
-   WHILE @@FETCH_STATUS = 0 
-   BEGIN 
-   	-- Limpiamos la reserva 
-   	update TNGS_Sima..Clientes 
-    
-   	set cli_nro_treservado = 0, 
-   		cli_cd6_codvend = '', 
-   		cli_fec_finires = '', 
-   		cli_fec_ffinres = '' 
-       where cli_nro_numero = @nroCliente 
-    
-   	-- Hacemos el equivalente a TaloGet, obtenemos el valor y luego actualizamos el talonario de LogClientes. 
-   	select @nroLog = tal_nro_valor 
-   	from Talonarios 
-       where tal_xcd_codigo = 'nroLogCli' 
-   	 
-   	update Talonarios 
-       set tal_nro_valor = tal_nro_valor + 1 
-   	where tal_xcd_codigo = 'nroLogCli' 
-    
-   	 
-   	-- Grabamos en el log 
-   	insert into LogClientes (lgc_nro_nro, lgc_nro_nrocliente, lgc_nro_nroavalon, lgc_ede_rsocial, lgc_des_nomfantasia, 
-   							 lgc_des_accion, lgc_nom_usuario, lgc_fyh_fecha, instante, deleted, usuario, version) 
-   					values	(@nroLog, @nroCliente, @nroAvalon, @razonSocial, @nombreFantasia, 
-   							 'Desreserva', @nombre, @fecha, GetDate(), 0, 'JOB', 1) 
-    
-       -- Obtenemos el proximo registro de reservas vencidas 
-       FETCH NEXT FROM reservasVencidas_cursor 
-       INTO @nroCliente, @nroAvalon, @razonSocial, @nombreFantasia, @nombre, @fecha 
-   END 
-   CLOSE reservasVencidas_cursor; 
-   DEALLOCATE reservasVencidas_cursor; 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_JOBDESRESERVA to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: JobExecute
---- </summary>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_JOBEXECUTE'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_JOBEXECUTE'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_JOBEXECUTE
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_JOBEXECUTE
-(
-@usuario tngs_nombre
-)
-as
-begin
-
-   begin tran 
-    
-    
-   execute Clientes_JobLiberaVendsVenc @usuario 
-   if @@error = 1 
-      begin 
-         goto finMal 
-      end 
-    
-   execute Clientes_JobDesreserva @usuario 
-   if @@error = 1 
-      begin 
-         goto finMal 
-      end 
-    
-   update TNGS_Sima..Parametros 
-    set par_xde_valor = convert(char(10),getdate(),103), 
-        usuario = 'AUTOJOB', 
-        instante = GetDate() 
-   where par_xcd_codigo = 'CONTROLJOB' 
-   if @@error = 1 
-      begin 
-         goto finMal 
-      end 
-    
-   commit 
-    
-   /*Aca podemos ejecutar los jobs que no son criticos (no detienen el programa si hay error) */ 
-   goto fin 
-    
-   finMal: 
-   rollback 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_JOBEXECUTE to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: JobLiberaVendsVenc
---- </summary>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_JOBLIBERAVENDSVENC'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_JOBLIBERAVENDSVENC'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_JOBLIBERAVENDSVENC
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_JOBLIBERAVENDSVENC
-(
-@usuario tngs_nombre
-)
-as
-begin
-
-   update TNGS_SIMA..CliEntrevistas 
-   set TNGS_Sima..CliEntrevistas.deleted = 1.0000, 
-   	CliEntrevistas.version = ((CliEntrevistas.version+1) % 32767), 
-             instante= getdate(), 
-             usuario = 'SISTEMA' 
-    from TNGS_Sima..CliEntrevistas 
-    join TNGS_Sima..Vendedores on cle_cd6_codvend = vnd_cd6_cod 
-    where (Vendedores.deleted = 1 or Vendedores.vnd_cd1_historico = 'S') and 
-           year(cle_fyh_frealizada) = 1900 
-    
-    
-   update TNGS_Sima..Clientes 
-      set cli_fec_ffinres = dateadd(day,-1,getdate()) 
-    from TNGS_Sima..Clientes 
-    join TNGS_Sima..Vendedores on cli_cd6_codvend = vnd_cd6_cod 
-      where Vendedores.deleted = 1 or Vendedores.vnd_cd1_historico = 'S' 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_JOBLIBERAVENDSVENC to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: RemoveReserva
---- </summary>
---- <param name="@numcliente">Número de cliente</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_REMOVERESERVA'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_REMOVERESERVA'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_REMOVERESERVA
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_REMOVERESERVA
-(
-@numcliente tngs_numero,
-@usuario tngs_nombre
-)
-as
-begin
-
-   update TNGS_Sima..Clientes 
-        set 
-     cli_cd6_codvend = ''   , 
-     cli_nro_treservado = 0 , 
-     cli_fec_finires = ''   , 
-     cli_fec_ffinres = ''   , 
-     cli_cd1_extension = '' 
-    
-    where 
-     cli_nro_numero = @numcliente 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_REMOVERESERVA to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: Reservado
---- </summary>
---- <param name="@numero">Numero de Cliente</param>
---- <param name="@tiemporeserva">Tiempo que durara la Reserva</param>
---- <param name="@codvendedor">Codigo del Vendedor que realizo la reserva</param>
---- <param name="@fechainireserva">Fecha de Inicio de la Reserva</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_RESERVADO'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_RESERVADO'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_RESERVADO
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_RESERVADO
-(
-@numero tngs_numero,
-@tiemporeserva tngs_numero,
-@codvendedor tngs_codigo_6,
-@fechainireserva tngs_fecyhor,
-@usuario tngs_nombre
-)
-as
-begin
-
-   /* SI SE TOCA ESTE CODIGO HAY QUE TOCAR EL SP DEL JOB DE DESRESERVAR */ 
-    
-   update TNGS_Sima..Clientes 
-    
-      set cli_nro_treservado = @tiemporeserva, 
-          cli_cd6_codvend = @codvendedor, 
-          cli_fec_finires = @fechainireserva, 
-          cli_fec_ffinres = dateadd(d,@tiemporeserva,@fechainireserva) 
-    
-        where cli_nro_numero = @numero 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_RESERVADO to tngsmodulos
-
-print ' '
-go
-
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: TieneDatosErroneos
---- </summary>
---- <param name="@numcliente">Numero del cliente</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_TIENEDATOSERRONEOS'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_TIENEDATOSERRONEOS'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_TIENEDATOSERRONEOS
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_TIENEDATOSERRONEOS
-(
-@numcliente tngs_numero,
-@usuario tngs_nombre
-)
-as
-begin
-
-   update TNGS_SIMA..Clientes 
-   	set deleted = 1.0000 
-   where cli_nro_numero = @numcliente 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_TIENEDATOSERRONEOS to tngsmodulos
 
 print ' '
 go
@@ -7186,7 +6428,7 @@ as
 begin
 
    select cli_nro_numero 
-   	from TNGS_SIMA..Clientes 
+   	from TNGS_Carm..Clientes 
    		where cli_ede_direccion =@dir 
 
 fin:
@@ -7207,7 +6449,6 @@ go
 --- Método Fijo: ValidaRSocial
 --- </summary>
 --- <param name="@razonsocial">Razon Social del Nuevo Cliente</param>
---- <param name="@codmarca">Codigo de Marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -7227,15 +6468,14 @@ go
 create procedure dbo.CLIENTES_VALIDARSOCIAL
 (
 @razonsocial tngs_descripcion,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
 begin
 
    select cli_nro_numero 
-   	from TNGS_SIMA..Clientes 
-   		where cli_ede_rsocial = replace(@razonsocial, '°', 'º') and cli_rcd_codmarca = @codmarca 
+   	from TNGS_Carm..Clientes 
+   		where cli_ede_rsocial = replace(@razonsocial, '°', 'º') 
 
 fin:
 
@@ -7255,7 +6495,6 @@ go
 --- Método Fijo: ValidaTelefono
 --- </summary>
 --- <param name="@telefono">Telefono del Nuevo Cliente</param>
---- <param name="@codmarca">Codigo de marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -7275,15 +6514,14 @@ go
 create procedure dbo.CLIENTES_VALIDATELEFONO
 (
 @telefono tngs_telefono,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
 begin
 
    select cli_nro_numero 
-   	from TNGS_SIMA..Clientes 
-   		where cli_tel_telefono1 = @telefono and cli_rcd_codmarca = @codmarca 
+   	from TNGS_Carm..Clientes 
+   		where cli_tel_telefono1 = @telefono 
 
 fin:
 
@@ -7303,7 +6541,6 @@ go
 --- Método Fijo: ValidarExistenciaAvl
 --- </summary>
 --- <param name="@nroavalon">Numero de Avalon</param>
---- <param name="@codmarca">codMarca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -7323,7 +6560,6 @@ go
 create procedure dbo.CLIENTES_VALIDAREXISTENCIAAVL
 (
 @nroavalon tngs_numero,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -7331,7 +6567,7 @@ begin
 
    select COUNT(*) as cantidad 
    from Clientes 
-   where cli_nro_nroavalon = @nroavalon and cli_rcd_codmarca = @codmarca 
+   where cli_nro_nroavalon = @nroavalon 
 
 fin:
 
@@ -7381,17 +6617,12 @@ create procedure dbo.CLIENTES_VENDIDO
 as
 begin
 
-   update TNGS_Sima..Clientes 
+   update TNGS_Carm..Clientes 
     
       set cli_cd1_alta = 'S', 
-          cli_nro_treservado = 0, 
           cli_cd6_codvend = '', /* Los clientes vendidos no tienen reservador, ni reserva. */ 
-          cli_fec_finires = '1-1-1900', 
-          cli_fec_ffinres = '1-1-1900', 
-          cli_cod_codcompetencia = '', 
           cli_imp_abono = @abono, 
-          cli_rcd_codtipocont = @codtipocont, 
-          cli_rcd_codmarca = @codmarca 
+          cli_rcd_codtipocont = @codtipocont 
     
         where cli_nro_numero = @numero 
 
@@ -7445,11 +6676,10 @@ begin
 
    select cli_nom_cargador, cli_nro_numero, cli_nro_nroavalon, cli_ede_rsocial,cli_fec_fingsima, 
    	   tin_des_des,cli_tel_telefono1, cli_tel_celular, cli_ede_direccion, 
-   	   cli_nro_altura, mrc_des_des 
+   	   cli_nro_altura 
    from Clientes 
    	join TipoInst 
    		on cli_cod_codtinst = tin_cod_cod 
-   	left outer join Marcas on mrc_rcd_cod = cli_rcd_codmarca 
    where cli_nom_cargador between @ininomcargador and @finnomcargador and cli_fec_fingsima between @fechaini and @fechafin 
 
 fin:
@@ -7517,111 +6747,13 @@ grant execute on dbo.CLIENTES_ZLOG to tngsmodulos
 print ' '
 go
 
----////////////////////////////////////////////////////////
----
---- <summary>
---- Método Fijo: ZReservasFull
---- </summary>
---- <param name="@codvend">Codigo del vendedor</param>
---- <param name="@fechaini">Fecha inicial de la busqueda</param>
---- <param name="@fechafin">Fecha final de la busqueda</param>
---- <param name="@usuario">Usuario que ejecuta el SP</param>
----
----////////////////////////////////////////////////////////
-
-print 'Store Procedure: dbo.CLIENTES_ZRESERVASFULL'
-
-if exists (select * from sysobjects where id = object_id('dbo.CLIENTES_ZRESERVASFULL'))
-begin
-   print '       - Borrando el viejo SP'
-   drop procedure dbo.CLIENTES_ZRESERVASFULL
-end
-go
-
-print '       - Creando el nuevo SP'
-go
-
-create procedure dbo.CLIENTES_ZRESERVASFULL
-(
-@codvend tngs_codigo_6,
-@fechaini tngs_fecyhor,
-@fechafin tngs_fecyhor,
-@usuario tngs_nombre
-)
-as
-begin
-
-   Select cli_nro_numero,
-          cli_ede_rsocial,
-          cli_des_nombrefant,
-          tin_des_des as cli_des_tinst,
-          cli_cod_codtinst,
-          tin_cd1_mayorista as cli_cd1_esmayo,
-          cli_cod_codfrq,
-          isnull(frq_des_des,'') as cli_des_frq,
-          cli_cd1_alta,
-          cli_tel_telefono1,
-          cli_tel_celular,
-          cli_tel_telefono2,
-          cli_tel_fax,
-          cli_ede_direccion,
-          cli_nro_altura,
-          cli_rde_piso,
-          cli_rde_oficina,
-          cli_ecd_codlocalidad,
-          loc_ede_nombre as cli_des_loc,
-          loc_des_provincia as cli_des_prov,
-          TNGS_SIMA.dbo.Localidades_GetDesZona (cli_ecd_codlocalidad) as cli_des_zona,
-          loc_ede_partido as cli_ede_partido,
-          loc_rcd_codzona as cli_rcd_codzona,
-          cli_des_cuil,
-          cli_xld_url,
-          cli_cd6_codvend,
-          cli_cd1_extension,
-          cli_ede_horarios,
-          cli_fec_fingsima,
-          cli_nro_cantempleados,
-          cli_txt_cobertura,
-          cli_nom_cargador,
-          cli_txt_observacion,
-          cli_xld_email,
-          cli_nro_nroavalon,
-          cli_imp_abono,
-          cli_rcd_codtipocont,
-          cli_imp_deuda,
-          TNGS_Carm..Clientes.instante,
-          TNGS_Carm..Clientes.deleted,
-          TNGS_Carm..Clientes.usuario,
-          TNGS_Carm..Clientes.version
-     from TNGS_Carm..Clientes 
-          join TNGS_Carm..TipoInst
-            on cli_cod_codtinst = tin_cod_cod
-          left outer join TNGS_Carm..Franquicias
-            on cli_cod_codfrq = frq_cod_cod
-          join TNGS_Carm..Localidades
-            on cli_ecd_codlocalidad = loc_ecd_codpost
-   join Solicitudes on cli_nro_numero = sol_nro_numcliente 
-   where sol_cd1_estado = 'C' and sol_cd6_codvend = @codvend and sol_fyh_fgeneracion between @fechaini and @fechafin 
-
-fin:
-
-end
-go
-
-print '       - Asignando permisos al nuevo SP'
-
-grant execute on dbo.CLIENTES_ZRESERVASFULL to tngsmodulos
-
-print ' '
-go
-
 /*--------------------------------------------------------------------------
 // Fin del script de creacion de los SP de la tabla: Clientes
 //--------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : CliEntrevistas
 //----------------------------------------------------------------------------
@@ -7674,15 +6806,15 @@ begin
       begin
          Select cle_nro_numcliente,
                 cle_nro_numentrev,
-                TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+                TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
                 cli_ede_rsocial as cle_des_rsocial,
                 cle_fyh_fcoordinada,
                 cle_fyh_frealizada,
                 cle_cd6_codvend,
-                TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+                TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
                 cle_ede_motcambiof,
                 cle_des_nombre,
-                TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+                TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
                 cle_tel_telefono,
                 cle_des_cargo,
                 cle_des_titulo,
@@ -7708,15 +6840,15 @@ begin
       begin
          Select cle_nro_numcliente,
                 cle_nro_numentrev,
-                TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+                TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
                 cli_ede_rsocial as cle_des_rsocial,
                 cle_fyh_fcoordinada,
                 cle_fyh_frealizada,
                 cle_cd6_codvend,
-                TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+                TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
                 cle_ede_motcambiof,
                 cle_des_nombre,
-                TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+                TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
                 cle_tel_telefono,
                 cle_des_cargo,
                 cle_des_titulo,
@@ -7836,15 +6968,15 @@ begin
       begin
          Select cle_nro_numcliente,
                 cle_nro_numentrev,
-                TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+                TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
                 cli_ede_rsocial as cle_des_rsocial,
                 cle_fyh_fcoordinada,
                 cle_fyh_frealizada,
                 cle_cd6_codvend,
-                TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+                TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
                 cle_ede_motcambiof,
                 cle_des_nombre,
-                TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+                TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
                 cle_tel_telefono,
                 cle_des_cargo,
                 cle_des_titulo,
@@ -7870,15 +7002,15 @@ begin
       begin
          Select cle_nro_numcliente,
                 cle_nro_numentrev,
-                TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+                TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
                 cli_ede_rsocial as cle_des_rsocial,
                 cle_fyh_fcoordinada,
                 cle_fyh_frealizada,
                 cle_cd6_codvend,
-                TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+                TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
                 cle_ede_motcambiof,
                 cle_des_nombre,
-                TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+                TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
                 cle_tel_telefono,
                 cle_des_cargo,
                 cle_des_titulo,
@@ -7946,15 +7078,15 @@ begin
       begin
          Select cle_nro_numcliente,
                 cle_nro_numentrev,
-                TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+                TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
                 cli_ede_rsocial as cle_des_rsocial,
                 cle_fyh_fcoordinada,
                 cle_fyh_frealizada,
                 cle_cd6_codvend,
-                TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+                TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
                 cle_ede_motcambiof,
                 cle_des_nombre,
-                TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+                TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
                 cle_tel_telefono,
                 cle_des_cargo,
                 cle_des_titulo,
@@ -7980,15 +7112,15 @@ begin
       begin
          Select cle_nro_numcliente,
                 cle_nro_numentrev,
-                TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+                TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
                 cli_ede_rsocial as cle_des_rsocial,
                 cle_fyh_fcoordinada,
                 cle_fyh_frealizada,
                 cle_cd6_codvend,
-                TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+                TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
                 cle_ede_motcambiof,
                 cle_des_nombre,
-                TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+                TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
                 cle_tel_telefono,
                 cle_des_cargo,
                 cle_des_titulo,
@@ -8745,15 +7877,15 @@ begin
 
    Select cle_nro_numcliente,
           cle_nro_numentrev,
-          TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+          TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
           cli_ede_rsocial as cle_des_rsocial,
           cle_fyh_fcoordinada,
           cle_fyh_frealizada,
           cle_cd6_codvend,
-          TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+          TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
           cle_ede_motcambiof,
           cle_des_nombre,
-          TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+          TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
           cle_tel_telefono,
           cle_des_cargo,
           cle_des_titulo,
@@ -8775,7 +7907,7 @@ begin
            cli_cd6_codvend = @codvend and 
            cle_fyh_fcoordinada > getdate() and 
            cle_rcd_codresultado = ' ' and 
-           TNGS_Sima..CliEntrevistas.deleted = 0.0000 
+           TNGS_Carm..CliEntrevistas.deleted = 0.0000 
 
 fin:
 
@@ -8821,15 +7953,15 @@ begin
 
    Select cle_nro_numcliente,
           cle_nro_numentrev,
-          TNGS_SIMA.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
+          TNGS_Carm.dbo.CliEntrevistas_GetEsPendiente(cle_nro_numentrev,cle_nro_numcliente) as cle_cd1_pend,
           cli_ede_rsocial as cle_des_rsocial,
           cle_fyh_fcoordinada,
           cle_fyh_frealizada,
           cle_cd6_codvend,
-          TNGS_SIMA.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
+          TNGS_Carm.dbo.Vendedores_GetFullName(cle_cd6_codvend) as cle_des_vend,
           cle_ede_motcambiof,
           cle_des_nombre,
-          TNGS_SIMA.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
+          TNGS_Carm.dbo.CliEntrevistas_FueBorrada (cle_nro_numcliente,cle_nro_numentrev) as cle_cd1_borrada,
           cle_tel_telefono,
           cle_des_cargo,
           cle_des_titulo,
@@ -8848,7 +7980,7 @@ begin
           join TNGS_Carm..Clientes
             on cle_nro_numcliente = cli_nro_numero
     
-      join TNGS_SIMA..Vendedores 
+      join TNGS_Carm..Vendedores 
          on cle_cd6_codvend = vnd_cd6_cod 
     
      where cle_nro_numcliente = @cliente 
@@ -8904,23 +8036,18 @@ begin
      cli_ede_rsocial, 
      cle_fyh_fcoordinada, 
      cle_des_nombre, 
-     cle_des_cargo, 
-    CASE WHEN (cli_fec_ffinres < getdate()) 
-     THEN  'S' 
-     ELSE  'N' 
-    END as cli_ent_vencidas, 
-     cli_fec_ffinres 
+     cle_des_cargo 
     
    FROM 
-    TNGS_Sima..Clientes 
-    join TNGS_Sima..CliEntrevistas 
+    TNGS_Carm..Clientes 
+    join TNGS_Carm..CliEntrevistas 
      on cle_nro_numcliente = cli_nro_numero 
     
    WHERE 
     cli_nro_numero = @numcliente and 
     cle_fyh_fcoordinada < getdate() and 
     cle_rcd_codresultado = ' ' 
-    and TNGS_Sima..CliEntrevistas.deleted = 0.0000 
+    and TNGS_Carm..CliEntrevistas.deleted = 0.0000 
     
     
    ORDER BY cle_fyh_fcoordinada ASC 
@@ -8968,21 +8095,21 @@ as
 begin
 
    select 
-       TNGS_Sima..CliEntrevistas.cle_nro_numentrev, 
+       TNGS_Carm..CliEntrevistas.cle_nro_numentrev, 
        cli_ede_rsocial, 
-       TNGS_Sima..CliEntrevistas.cle_fyh_fcoordinada, 
-       TNGS_Sima..CliEntrevistas.cle_des_nombre, 
-       TNGS_Sima..CliEntrevistas.cle_des_cargo 
+       TNGS_Carm..CliEntrevistas.cle_fyh_fcoordinada, 
+       TNGS_Carm..CliEntrevistas.cle_des_nombre, 
+       TNGS_Carm..CliEntrevistas.cle_des_cargo 
    from 
-       TNGS_Sima..Clientes 
+       TNGS_Carm..Clientes 
     
-       join TNGS_Sima..CliEntrevistas 
+       join TNGS_Carm..CliEntrevistas 
            on cle_nro_numcliente = cli_nro_numero 
        where 
            cli_cd6_codvend = @codvend and 
            cle_fyh_fcoordinada > getdate() and 
            cle_rcd_codresultado <> ' ' and 
-           TNGS_Sima..CliEntrevistas.deleted = 0.0000 
+           TNGS_Carm..CliEntrevistas.deleted = 0.0000 
 
 fin:
 
@@ -9027,23 +8154,22 @@ as
 begin
 
    SELECT 
-       TNGS_Sima..CliEntrevistas.cle_nro_numentrev, 
+       TNGS_Carm..CliEntrevistas.cle_nro_numentrev, 
        cli_ede_rsocial, 
-       TNGS_Sima..CliEntrevistas.cle_fyh_fcoordinada, 
-       TNGS_Sima..CliEntrevistas.cle_des_nombre, 
-       TNGS_Sima..CliEntrevistas.cle_des_cargo, 
-       TNGS_Sima..Clientes.cli_nro_numero 
+       TNGS_Carm..CliEntrevistas.cle_fyh_fcoordinada, 
+       TNGS_Carm..CliEntrevistas.cle_des_nombre, 
+       TNGS_Carm..CliEntrevistas.cle_des_cargo, 
+       TNGS_Carm..Clientes.cli_nro_numero 
    FROM 
-       TNGS_Sima..Clientes 
+       TNGS_Carm..Clientes 
     
-       JOIN TNGS_Sima..CliEntrevistas 
+       JOIN TNGS_Carm..CliEntrevistas 
            ON cle_nro_numcliente = cli_nro_numero 
        WHERE 
            cli_cd6_codvend = @codvend and 
            cle_fyh_fcoordinada < getdate() and 
-           cli_fec_ffinres < getdate() and 
            cle_rcd_codresultado = ' 'and 
-           TNGS_Sima..CliEntrevistas.deleted = 0.0000 
+           TNGS_Carm..CliEntrevistas.deleted = 0.0000 
     
    ORDER BY cli_nro_numero, cle_fyh_fcoordinada 
 
@@ -9097,7 +8223,7 @@ create procedure dbo.CLIENTREVISTAS_SAVECOMPLETARENTREV
 as
 begin
 
-   update TNGS_Sima..CliEntrevistas 
+   update TNGS_Carm..CliEntrevistas 
         set 
             cle_fyh_frealizada = @frealizada, 
             cle_ede_motcambiof = @motivo, 
@@ -9124,7 +8250,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : CliLlamadas
 //----------------------------------------------------------------------------
@@ -10337,8 +9463,6 @@ go
 --- </summary>
 --- <param name="@fechaini">Fecha Inicial</param>
 --- <param name="@fechafin">Fecha Fin</param>
---- <param name="@codinimarca">Codigo Inicial Marca</param>
---- <param name="@codfinmarca">Codigo Fin Marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -10359,8 +9483,6 @@ create procedure dbo.CLILLAMADAS_ZBAJASGRAL
 (
 @fechaini tngs_fecha,
 @fechafin tngs_fecha,
-@codinimarca tngs_codigo_r,
-@codfinmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -10374,8 +9496,7 @@ begin
       	left outer join CliVentas on clv_nro_numcliente = cll_nro_numcliente and cll_fyh_frealizada > clv_fyh_fecha 
       	join Clientes on cli_nro_numero = cll_nro_numcliente 
       where cll_cd1_baja = 'S' and 
-   	  cll_fyh_frealizada between @fechaini and @fechafin and 
-         cli_rcd_codmarca between @codinimarca and @codfinmarca 
+   	  cll_fyh_frealizada between @fechaini and @fechafin 
       group by mot_rcd_codcategoria, mot_cod_cod 
     
 
@@ -10398,7 +9519,6 @@ go
 --- </summary>
 --- <param name="@nroavalon">Numero de Avalon</param>
 --- <param name="@anio">Anio a obtener historico</param>
---- <param name="@codmarca">Codigo de Marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -10419,7 +9539,6 @@ create procedure dbo.CLILLAMADAS_ZREAJUSTESXCLIEXANIO
 (
 @nroavalon tngs_numero,
 @anio tngs_numero,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -10429,7 +9548,7 @@ begin
           cll_imp_abonoanterior + cll_imp_ajuste as valor_ajustado, cll_imp_ajuste as diferencia 
    from CliLlamadas 
    join Clientes on cll_nro_numcliente = cli_nro_numero 
-   where cli_nro_nroavalon = @nroavalon and cli_rcd_codmarca = @codmarca and YEAR(cll_fyh_frealizada) = @anio 
+   where cli_nro_nroavalon = @nroavalon and YEAR(cll_fyh_frealizada) = @anio 
          and cll_imp_ajuste <> 0 
 
 fin:
@@ -10570,8 +9689,6 @@ go
 --- </summary>
 --- <param name="@fechaini">Fecha Inicial</param>
 --- <param name="@fechafin">Fecha Fin</param>
---- <param name="@codmarcaini">Codigo Marca Inicial</param>
---- <param name="@codmarcafin">Codigo Marca Fin</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -10592,8 +9709,6 @@ create procedure dbo.CLILLAMADAS_ZRECLAMOSGRAL
 (
 @fechaini tngs_fecha,
 @fechafin tngs_fecha,
-@codmarcaini tngs_codigo_r,
-@codmarcafin tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -10608,7 +9723,6 @@ begin
    	join Clientes on cli_nro_numero = cll_nro_numcliente 
    where mot_cd1_esreclamo = 'S' and 
    	  cll_fyh_frealizada between @fechaini and @fechafin 
-         and cli_rcd_codmarca between @codmarcaini and @codmarcafin 
    group by mot_rcd_codcategoria, mot_cod_cod 
 
 fin:
@@ -10693,8 +9807,6 @@ go
 --- </summary>
 --- <param name="@fechaini">Fecha Inicial</param>
 --- <param name="@fechafin">Fecha Fin</param>
---- <param name="@codmarcaini">Codigo Marca Inicial</param>
---- <param name="@codmarcafin">Codigo Marca Fin</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -10715,8 +9827,6 @@ create procedure dbo.CLILLAMADAS_ZRECUPEROSGRAL
 (
 @fechaini tngs_fecha,
 @fechafin tngs_fecha,
-@codmarcaini tngs_codigo_r,
-@codmarcafin tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -10732,7 +9842,6 @@ begin
        join Clientes on cli_nro_numero = cll_nro_numcliente 
       where cll_imp_abonorecuperado <> 0 and 
             cll_fyh_frealizada between @fechaini and @fechafin 
-            and cli_rcd_codmarca between @codmarcaini and @codmarcafin 
       group by mot_rcd_codcategoria, mot_cod_cod 
 
 fin:
@@ -10753,7 +9862,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : CliNotas
 //----------------------------------------------------------------------------
@@ -11689,7 +10798,7 @@ create procedure dbo.CLINOTAS_CANTIDADNOTAS
 as
 begin
 
-   select count(*) from TNGS_Sima..CliNotas 
+   select count(*) from TNGS_Carm..CliNotas 
    	where cln_nro_numcliente=@nrocliente and 
    		  (dbo.CLINOTAS_ESTABORRADA(@nrocliente,cln_fyh_fechayhora)) = 'N' 
 
@@ -11741,7 +10850,7 @@ create procedure dbo.CLINOTAS_REMOVER
 as
 begin
 
-   update TNGS_SIMA..CliNotas 
+   update TNGS_Carm..CliNotas 
    	set cln_nom_removedor = @removedor, 
    		cln_fyh_fyhremovida = @fyhremovida 
    	where cln_nro_numcliente = @nrocliente 
@@ -11765,7 +10874,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : CliServicios
 //----------------------------------------------------------------------------
@@ -12665,7 +11774,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : CliVentas
 //----------------------------------------------------------------------------
@@ -13607,8 +12716,6 @@ go
 --- Método Fijo: ZVentasPorMes
 --- </summary>
 --- <param name="@anioinicio">Anio de inicio</param>
---- <param name="@codmarcaini">Codigo inicial de marca</param>
---- <param name="@codmarcafin">Codigo Final de marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -13628,8 +12735,6 @@ go
 create procedure dbo.CLIVENTAS_ZVENTASPORMES
 (
 @anioinicio tngs_numero,
-@codmarcaini tngs_codigo_r,
-@codmarcafin tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -13642,7 +12747,6 @@ begin
    from CliVentas 
        join Clientes on cli_nro_numero = clv_nro_numcliente 
    where year(clv_fyh_fecha) = @anioinicio 
-   and clv_rcd_codmarca between @codmarcaini and @codmarcafin 
    group by MONTH(clv_fyh_fecha) 
    order by MONTH(clv_fyh_fecha) 
 
@@ -13664,7 +12768,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : ConversionColores
 //----------------------------------------------------------------------------
@@ -14255,7 +13359,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Franquicias
 //----------------------------------------------------------------------------
@@ -14790,7 +13894,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Localidades
 //----------------------------------------------------------------------------
@@ -15482,7 +14586,7 @@ begin
    select 
    		loc_ecd_codpost 
    	from 
-   		TNGS_Sima..Localidades 
+   		TNGS_Carm..Localidades 
    	where 
    		loc_ede_nombre = @localidad and loc_cd1_directa = 'S' 
 
@@ -15592,7 +14696,7 @@ begin
          loc_ecd_codpost, 
          loc_ede_nombre 
    from 
-         TNGS_Sima..Localidades 
+         TNGS_Carm..Localidades 
    where 
          loc_rcd_codzona = @codzona 
     
@@ -15643,7 +14747,7 @@ begin
     
           deleted 
     
-     from TNGS_SIMA..Localidades 
+     from TNGS_Carm..Localidades 
     
    where loc_des_provincia = @provincia 
     
@@ -15693,7 +14797,7 @@ begin
     
           deleted 
     
-     from TNGS_SIMA..Localidades 
+     from TNGS_Carm..Localidades 
     
    where deleted = 0 
 
@@ -15777,7 +14881,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : LogClientes
 //----------------------------------------------------------------------------
@@ -16329,7 +15433,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : MotivosLlamada
 //----------------------------------------------------------------------------
@@ -16941,7 +16045,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Parametros
 //----------------------------------------------------------------------------
@@ -17473,7 +16577,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Planes
 //----------------------------------------------------------------------------
@@ -18028,7 +17132,6 @@ go
 --- Método Fijo: GetPlanesFromTCont
 --- </summary>
 --- <param name="@codtcont">Codigo de Tipo de Contrato</param>
---- <param name="@codmarca">Codigo de Marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -18048,7 +17151,6 @@ go
 create procedure dbo.PLANES_GETPLANESFROMTCONT
 (
 @codtcont tngs_codigo_r,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -18058,7 +17160,6 @@ begin
    from Planes 
    join TipoCont on CHARINDEX(tcn_rcd_tcontratoavalon + ',',pln_d80_tcontratoavalon) <> 0 
    where tcn_rcd_cod = @codtcont 
-    and pln_rcd_codmarca = @codmarca 
 
 fin:
 
@@ -18078,7 +17179,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : PlnServicios
 //----------------------------------------------------------------------------
@@ -18927,7 +18028,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : PreciosServicios
 //----------------------------------------------------------------------------
@@ -19511,7 +18612,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : ResEntrevista
 //----------------------------------------------------------------------------
@@ -20056,7 +19157,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Rubros
 //----------------------------------------------------------------------------
@@ -20591,7 +19692,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Servicios
 //----------------------------------------------------------------------------
@@ -21179,7 +20280,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Supervisores
 //----------------------------------------------------------------------------
@@ -21715,7 +20816,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Talonarios
 //----------------------------------------------------------------------------
@@ -22247,7 +21348,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : TipoCont
 //----------------------------------------------------------------------------
@@ -22802,7 +21903,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : TipoInst
 //----------------------------------------------------------------------------
@@ -23397,7 +22498,7 @@ begin
          tin_cod_cod, 
          tin_des_des 
    from 
-         TNGS_Sima..TipoInst 
+         TNGS_Carm..TipoInst 
    where 
          tin_rcd_codrubro = @codrubro 
 
@@ -23419,7 +22520,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : TipoVend
 //----------------------------------------------------------------------------
@@ -23964,7 +23065,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Vendedores
 //----------------------------------------------------------------------------
@@ -24019,7 +23120,7 @@ begin
                 vnd_des_apellido,
                 vnd_des_nombre,
                 vnd_nom_usuario,
-                TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
+                TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
                 vnd_tel_tel1,
                 vnd_tel_celular,
                 vnd_tel_tel2,
@@ -24050,7 +23151,7 @@ begin
                 vnd_des_apellido,
                 vnd_des_nombre,
                 vnd_nom_usuario,
-                TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
+                TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
                 vnd_tel_tel1,
                 vnd_tel_celular,
                 vnd_tel_tel2,
@@ -24170,7 +23271,7 @@ begin
                 vnd_des_apellido,
                 vnd_des_nombre,
                 vnd_nom_usuario,
-                TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
+                TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
                 vnd_tel_tel1,
                 vnd_tel_celular,
                 vnd_tel_tel2,
@@ -24201,7 +23302,7 @@ begin
                 vnd_des_apellido,
                 vnd_des_nombre,
                 vnd_nom_usuario,
-                TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
+                TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
                 vnd_tel_tel1,
                 vnd_tel_celular,
                 vnd_tel_tel2,
@@ -24623,7 +23724,7 @@ begin
    select 
    		vnd_cd6_cod 
    	from 
-   		TNGS_Sima..Vendedores 
+   		TNGS_Carm..Vendedores 
    	where 
    		vnd_nom_usuario = @usuario 
 
@@ -24683,11 +23784,11 @@ begin
        cle_xld_direccion, 
     isnull(ren_des_des, '') as ren_des_des 
     
-          FROM TNGS_SIMA..Clientes 
+          FROM TNGS_Carm..Clientes 
     
-    JOIN TNGS_Sima..CliEntrevistas 
+    JOIN TNGS_Carm..CliEntrevistas 
      ON cli_nro_numero = cle_nro_numcliente 
-    LEFT OUTER JOIN TNGS_Sima..ResEntrevista 
+    LEFT OUTER JOIN TNGS_Carm..ResEntrevista 
      ON ren_rcd_cod = cle_rcd_codresultado 
     
         WHERE cli_cd6_codvend = @codvend 
@@ -24750,11 +23851,11 @@ begin
        cle_xld_direccion, 
    	isnull(ren_des_des, '') as ren_des_des 
     
-       FROM TNGS_SIMA..CliEntrevistas 
+       FROM TNGS_Carm..CliEntrevistas 
     
-   	JOIN TNGS_Sima..Clientes 
+   	JOIN TNGS_Carm..Clientes 
    		ON cli_nro_numero = cle_nro_numcliente 
-   	LEFT OUTER JOIN TNGS_Sima..ResEntrevista 
+   	LEFT OUTER JOIN TNGS_Carm..ResEntrevista 
    		ON ren_rcd_cod = cle_rcd_codresultado 
     
         WHERE cle_cd6_codvend = @codvend 
@@ -24809,13 +23910,13 @@ begin
      cll_fyh_frealizada, 
      cll_txt_resultado 
     
-    FROM TNGS_SIMA..CliLlamadas 
+    FROM TNGS_Carm..CliLlamadas 
     
-    JOIN TNGS_SIMA..Clientes 
+    JOIN TNGS_Carm..Clientes 
      ON cll_nro_numcliente = cli_nro_numero 
-    JOIN TNGS_SIMA..MotivosLlamada 
+    JOIN TNGS_Carm..MotivosLlamada 
      ON cll_cod_codmotivo = mot_cod_cod 
-    Join TNGS_SIMA..CategoriasLlamada 
+    Join TNGS_Carm..CategoriasLlamada 
      ON ctl_rcd_cod = mot_rcd_codcategoria 
     
      WHERE cll_nom_codusuario = 'MATI' 
@@ -24881,9 +23982,9 @@ begin
     sol_xde_obssol, 
     sol_xde_obsaut 
     
-    FROM TNGS_Sima..Solicitudes 
+    FROM TNGS_Carm..Solicitudes 
     
-    JOIN TNGS_Sima..Clientes 
+    JOIN TNGS_Carm..Clientes 
      ON sol_nro_numcliente = cli_nro_numero 
     
     WHERE 
@@ -24933,7 +24034,7 @@ begin
           vnd_des_apellido,
           vnd_des_nombre,
           vnd_nom_usuario,
-          TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
+          TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_ede_nya,
           vnd_tel_tel1,
           vnd_tel_celular,
           vnd_tel_tel2,
@@ -25006,7 +24107,7 @@ as
 begin
 
    select  cli_ede_rsocial, 
-           TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, 
+           TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, 
    		cle_des_nombre, 
            cle_des_cargo, 
            cle_fyh_frealizada, 
@@ -25138,9 +24239,9 @@ begin
     
    select cli_nro_nroavalon, 
           cli_ede_rsocial, 
-   	   TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, 
+   	   TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, 
    	   ctl_des_des, 
-   	   TNGS_Sima.dbo.CATEGORIASLLAMADA_GETTIPO(ctl_cd1_tipo) as mot_tipo, 
+   	   TNGS_Carm.dbo.CATEGORIASLLAMADA_GETTIPO(ctl_cd1_tipo) as mot_tipo, 
    	   mot_des_des, 
    	   cll_fyh_frealizada, 
    	   cll_txt_resultado, 
@@ -25150,7 +24251,7 @@ begin
    join Vendedores on cll_nom_codusuario = vnd_nom_usuario 
    join Clientes on cli_nro_numero = cll_nro_numcliente 
    join MotivosLlamada on cll_cod_codmotivo = mot_cod_cod 
-   join TNGS_SIMA..CategoriasLlamada on ctl_rcd_cod = mot_rcd_codcategoria 
+   join CategoriasLlamada on ctl_rcd_cod = mot_rcd_codcategoria 
    left outer join Marcas on mrc_rcd_cod = cli_rcd_codmarca 
    where cll_fyh_frealizada > @fechaini and 
    	  cll_fyh_frealizada < @fechafin and 
@@ -25206,7 +24307,7 @@ create procedure dbo.VENDEDORES_ZRESERVASBASICO
 as
 begin
 
-   select TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, cli_ede_rsocial, 
+   select TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, cli_ede_rsocial, 
    		tin_des_des,sol_fyh_fgeneracion as sol_finires, cli_fec_ffinres as sol_ffinres, 
    		mrc_des_des 
        from Solicitudes 
@@ -25263,7 +24364,7 @@ create procedure dbo.VENDEDORES_ZVENCIDAS
 as
 begin
 
-   select TNGS_Sima.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, cli_ede_rsocial, 
+   select TNGS_Carm.dbo.VENDEDORES_GETFULLNAME(vnd_cd6_cod) as vnd_apeynom, cli_ede_rsocial, 
            cle_fyh_fcoordinada as cle_fcoord, sol_fyh_fgeneracion as sol_finires, 
            cli_fec_ffinres as sol_ffinres, mrc_des_des 
        from Solicitudes 
@@ -25325,8 +24426,7 @@ begin
    select cle_nro_numcliente as nroCliente, 
    	   max(cle_cd6_codvend) as codVendedor, 
    	   max(vnd_cd6_codsuperv) as codSupervisorVendedor, 
-   	   max(vnd_des_apellido) as apellidoVendedor, 
-   	   MAX(vnd_rcd_codmarca) as codMarcaVendedor 
+   	   max(vnd_des_apellido) as apellidoVendedor 
      into #matTemp01 
      from CliEntrevistas 
      join ResEntrevista on cle_rcd_codresultado = ren_rcd_cod 
@@ -25340,12 +24440,10 @@ begin
     
     select 
    		max(mrc_des_des) as mrc_des_des, 
-   	    max(rtrim(jvt_nom_apellido) + ' '+ jvt_nom_nombre) as jvt_nom_apellido, 
    	    max(rtrim(sup_nom_apellido) + ' '+ sup_nom_nombre ) as sup_nom_nomyape, 
    	    max(apellidoVendedor)as vnd_des_apellido, 
            count(distinct cli_nro_numero) as cantidad, 
-           sum(clv_imp_abono) as clv_imp_abono, 
-           codMarcaVendedor 
+           sum(clv_imp_abono) as clv_imp_abono 
      from CliVentas 
           join Clientes 
                join #matTemp01 
@@ -25354,13 +24452,8 @@ begin
     
           left outer join Supervisores 
    	     on sup_cd6_cod = codSupervisorVendedor 
-          left outer join JefesVentas 
-   		 on sup_cd6_codjefevtas = jvt_cd6_cod 
-   	   join Marcas 
-            on codMarcaVendedor = mrc_rcd_cod	 
    where codVendedor between @codvendini and @codvendfin 
-   group by codMarcaVendedor 
-   order by codMarcaVendedor, clv_imp_abono desc 
+   order by clv_imp_abono desc 
 
 fin:
 
@@ -25435,7 +24528,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 00:49
+// Fecha       : 22/08/2020 01:51
 // Sistema     : Carm
 // Tabla       : Zonas
 //----------------------------------------------------------------------------
