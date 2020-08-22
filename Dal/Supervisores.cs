@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:46
+    // Fecha                    : 22/08/2020 00:50
     // Sistema                  : Carm
     // Clase para Administrar   : Supervisores
     // Basada en la Tabla       : Supervisores
@@ -343,7 +343,6 @@ namespace Carm.Dal
                 DBRuts.ClearDTCaptions(ref p_dtResult);
 
                 // Fijamos los nuevos captions de la grilla
-                p_dtResult.Columns["sup_des_jvtas"].Caption= "V1Jefe de VentasCN1";
                 p_dtResult.Columns["sup_ede_nya"].Caption= "V1Nom y ApellidoCN1";
                 p_dtResult.Columns["sup_nom_apellido"].Caption= "V1ApellidoCN1";
                 p_dtResult.Columns["sup_tel_cel"].Caption= "V1CelularCN1";

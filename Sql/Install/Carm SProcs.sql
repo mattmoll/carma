@@ -879,7 +879,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : CategoriasLlamada
 //----------------------------------------------------------------------------
@@ -1424,7 +1424,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : CliContactos
 //----------------------------------------------------------------------------
@@ -2390,7 +2390,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -2450,7 +2450,6 @@ begin
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
-                cli_nro_treservado,
                 cli_tel_telefono1,
                 cli_tel_celular,
                 cli_tel_telefono2,
@@ -2468,8 +2467,6 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_fec_finires,
-                cli_fec_ffinres,
                 cli_cd1_extension,
                 cli_ede_horarios,
                 cli_fec_fingsima,
@@ -2479,10 +2476,6 @@ begin
                 cli_txt_observacion,
                 cli_xld_email,
                 cli_nro_nroavalon,
-                cli_rcd_codmarca,
-                isnull(mrc_des_des,'') as cli_des_marca,
-                cli_cod_codcompetencia,
-                isnull(cmp_ede_empresa,'') as cli_des_comp,
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
@@ -2493,12 +2486,10 @@ begin
            from TNGS_Carm..Clientes
                 join TNGS_Carm..TipoInst
                   on cli_cod_codtinst = tin_cod_cod
-                left outer join TNGS_Carm..Competencia
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
-                left outer join TNGS_Carm..Marcas
           where TNGS_Carm..Clientes.deleted = 0
           order by cli_nro_numero
       end
@@ -2513,7 +2504,6 @@ begin
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
-                cli_nro_treservado,
                 cli_tel_telefono1,
                 cli_tel_celular,
                 cli_tel_telefono2,
@@ -2531,8 +2521,6 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_fec_finires,
-                cli_fec_ffinres,
                 cli_cd1_extension,
                 cli_ede_horarios,
                 cli_fec_fingsima,
@@ -2542,10 +2530,6 @@ begin
                 cli_txt_observacion,
                 cli_xld_email,
                 cli_nro_nroavalon,
-                cli_rcd_codmarca,
-                isnull(mrc_des_des,'') as cli_des_marca,
-                cli_cod_codcompetencia,
-                isnull(cmp_ede_empresa,'') as cli_des_comp,
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
@@ -2556,12 +2540,10 @@ begin
            from TNGS_Carm..Clientes
                 join TNGS_Carm..TipoInst
                   on cli_cod_codtinst = tin_cod_cod
-                left outer join TNGS_Carm..Competencia
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
-                left outer join TNGS_Carm..Marcas
           order by cli_nro_numero
       end
 
@@ -2665,7 +2647,6 @@ begin
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
-                cli_nro_treservado,
                 cli_tel_telefono1,
                 cli_tel_celular,
                 cli_tel_telefono2,
@@ -2683,8 +2664,6 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_fec_finires,
-                cli_fec_ffinres,
                 cli_cd1_extension,
                 cli_ede_horarios,
                 cli_fec_fingsima,
@@ -2694,10 +2673,6 @@ begin
                 cli_txt_observacion,
                 cli_xld_email,
                 cli_nro_nroavalon,
-                cli_rcd_codmarca,
-                isnull(mrc_des_des,'') as cli_des_marca,
-                cli_cod_codcompetencia,
-                isnull(cmp_ede_empresa,'') as cli_des_comp,
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
@@ -2708,12 +2683,10 @@ begin
            from TNGS_Carm..Clientes
                 join TNGS_Carm..TipoInst
                   on cli_cod_codtinst = tin_cod_cod
-                left outer join TNGS_Carm..Competencia
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
-                left outer join TNGS_Carm..Marcas
           where cli_nro_numero = @cli_nro_numero
             and TNGS_Carm..Clientes.deleted = 0
       end
@@ -2728,7 +2701,6 @@ begin
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
-                cli_nro_treservado,
                 cli_tel_telefono1,
                 cli_tel_celular,
                 cli_tel_telefono2,
@@ -2746,8 +2718,6 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_fec_finires,
-                cli_fec_ffinres,
                 cli_cd1_extension,
                 cli_ede_horarios,
                 cli_fec_fingsima,
@@ -2757,10 +2727,6 @@ begin
                 cli_txt_observacion,
                 cli_xld_email,
                 cli_nro_nroavalon,
-                cli_rcd_codmarca,
-                isnull(mrc_des_des,'') as cli_des_marca,
-                cli_cod_codcompetencia,
-                isnull(cmp_ede_empresa,'') as cli_des_comp,
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
@@ -2771,12 +2737,10 @@ begin
            from TNGS_Carm..Clientes
                 join TNGS_Carm..TipoInst
                   on cli_cod_codtinst = tin_cod_cod
-                left outer join TNGS_Carm..Competencia
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
-                left outer join TNGS_Carm..Marcas
           where cli_nro_numero = @cli_nro_numero
       end
 
@@ -2803,7 +2767,6 @@ go
 --- <param name="@cli_cod_codtinst">Tipo de Institucion</param>
 --- <param name="@cli_cod_codfrq">Franquicia</param>
 --- <param name="@cli_cd1_alta">Alta en Avalon</param>
---- <param name="@cli_nro_treservado">Tiempo Reservado</param>
 --- <param name="@cli_tel_telefono1">Teléfono 1</param>
 --- <param name="@cli_tel_celular">Celular</param>
 --- <param name="@cli_tel_telefono2">Teléfono 2</param>
@@ -2816,8 +2779,6 @@ go
 --- <param name="@cli_des_cuil">Cuil</param>
 --- <param name="@cli_xld_url">Url</param>
 --- <param name="@cli_cd6_codvend">Código de vendedor</param>
---- <param name="@cli_fec_finires">Fecha inicio reserva</param>
---- <param name="@cli_fec_ffinres">Fecha fin reserva</param>
 --- <param name="@cli_cd1_extension">Extensión</param>
 --- <param name="@cli_ede_horarios">Horarios</param>
 --- <param name="@cli_fec_fingsima">Fecha de ingreso</param>
@@ -2827,8 +2788,6 @@ go
 --- <param name="@cli_txt_observacion">Observacion</param>
 --- <param name="@cli_xld_email">E-Mail</param>
 --- <param name="@cli_nro_nroavalon">Número Avalon</param>
---- <param name="@cli_rcd_codmarca">Marca</param>
---- <param name="@cli_cod_codcompetencia">Competencia</param>
 --- <param name="@cli_imp_abono">Abono</param>
 --- <param name="@cli_rcd_codtipocont">Tipo Contrato</param>
 --- <param name="@cli_imp_deuda">Deuda</param>
@@ -2856,7 +2815,6 @@ create procedure dbo.CLIENTES_INSERT
 @cli_cod_codtinst tngs_codigo,
 @cli_cod_codfrq tngs_codigo,
 @cli_cd1_alta tngs_codigo_1,
-@cli_nro_treservado tngs_numero,
 @cli_tel_telefono1 tngs_telefono,
 @cli_tel_celular tngs_telefono,
 @cli_tel_telefono2 tngs_telefono,
@@ -2869,8 +2827,6 @@ create procedure dbo.CLIENTES_INSERT
 @cli_des_cuil tngs_descripcion,
 @cli_xld_url tngs_descripcion_xl,
 @cli_cd6_codvend tngs_codigo_6,
-@cli_fec_finires tngs_fecha,
-@cli_fec_ffinres tngs_fecha,
 @cli_cd1_extension tngs_codigo_1,
 @cli_ede_horarios tngs_descripcion_e,
 @cli_fec_fingsima tngs_fecha,
@@ -2880,8 +2836,6 @@ create procedure dbo.CLIENTES_INSERT
 @cli_txt_observacion tngs_texto,
 @cli_xld_email tngs_descripcion_xl,
 @cli_nro_nroavalon tngs_numero,
-@cli_rcd_codmarca tngs_codigo_r,
-@cli_cod_codcompetencia tngs_codigo,
 @cli_imp_abono tngs_importe,
 @cli_rcd_codtipocont tngs_codigo_r,
 @cli_imp_deuda tngs_importe,
@@ -2898,7 +2852,6 @@ begin
            @cli_cod_codtinst,
            @cli_cod_codfrq,
            @cli_cd1_alta,
-           @cli_nro_treservado,
            @cli_tel_telefono1,
            @cli_tel_celular,
            @cli_tel_telefono2,
@@ -2911,8 +2864,6 @@ begin
            @cli_des_cuil,
            @cli_xld_url,
            @cli_cd6_codvend,
-           @cli_fec_finires,
-           @cli_fec_ffinres,
            @cli_cd1_extension,
            @cli_ede_horarios,
            @cli_fec_fingsima,
@@ -2922,8 +2873,6 @@ begin
            @cli_txt_observacion,
            @cli_xld_email,
            @cli_nro_nroavalon,
-           @cli_rcd_codmarca,
-           @cli_cod_codcompetencia,
            @cli_imp_abono,
            @cli_rcd_codtipocont,
            @cli_imp_deuda,
@@ -2953,7 +2902,6 @@ go
 --- <param name="@cli_cod_codtinst">Tipo de Institucion</param>
 --- <param name="@cli_cod_codfrq">Franquicia</param>
 --- <param name="@cli_cd1_alta">Alta en Avalon</param>
---- <param name="@cli_nro_treservado">Tiempo Reservado</param>
 --- <param name="@cli_tel_telefono1">Teléfono 1</param>
 --- <param name="@cli_tel_celular">Celular</param>
 --- <param name="@cli_tel_telefono2">Teléfono 2</param>
@@ -2966,8 +2914,6 @@ go
 --- <param name="@cli_des_cuil">Cuil</param>
 --- <param name="@cli_xld_url">Url</param>
 --- <param name="@cli_cd6_codvend">Código de vendedor</param>
---- <param name="@cli_fec_finires">Fecha inicio reserva</param>
---- <param name="@cli_fec_ffinres">Fecha fin reserva</param>
 --- <param name="@cli_cd1_extension">Extensión</param>
 --- <param name="@cli_ede_horarios">Horarios</param>
 --- <param name="@cli_fec_fingsima">Fecha de ingreso</param>
@@ -2977,8 +2923,6 @@ go
 --- <param name="@cli_txt_observacion">Observacion</param>
 --- <param name="@cli_xld_email">E-Mail</param>
 --- <param name="@cli_nro_nroavalon">Número Avalon</param>
---- <param name="@cli_rcd_codmarca">Marca</param>
---- <param name="@cli_cod_codcompetencia">Competencia</param>
 --- <param name="@cli_imp_abono">Abono</param>
 --- <param name="@cli_rcd_codtipocont">Tipo Contrato</param>
 --- <param name="@cli_imp_deuda">Deuda</param>
@@ -3006,7 +2950,6 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_cod_codtinst tngs_codigo,
 @cli_cod_codfrq tngs_codigo,
 @cli_cd1_alta tngs_codigo_1,
-@cli_nro_treservado tngs_numero,
 @cli_tel_telefono1 tngs_telefono,
 @cli_tel_celular tngs_telefono,
 @cli_tel_telefono2 tngs_telefono,
@@ -3019,8 +2962,6 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_des_cuil tngs_descripcion,
 @cli_xld_url tngs_descripcion_xl,
 @cli_cd6_codvend tngs_codigo_6,
-@cli_fec_finires tngs_fecha,
-@cli_fec_ffinres tngs_fecha,
 @cli_cd1_extension tngs_codigo_1,
 @cli_ede_horarios tngs_descripcion_e,
 @cli_fec_fingsima tngs_fecha,
@@ -3030,8 +2971,6 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_txt_observacion tngs_texto,
 @cli_xld_email tngs_descripcion_xl,
 @cli_nro_nroavalon tngs_numero,
-@cli_rcd_codmarca tngs_codigo_r,
-@cli_cod_codcompetencia tngs_codigo,
 @cli_imp_abono tngs_importe,
 @cli_rcd_codtipocont tngs_codigo_r,
 @cli_imp_deuda tngs_importe,
@@ -3046,7 +2985,6 @@ begin
           cli_cod_codtinst= @cli_cod_codtinst,
           cli_cod_codfrq= @cli_cod_codfrq,
           cli_cd1_alta= @cli_cd1_alta,
-          cli_nro_treservado= @cli_nro_treservado,
           cli_tel_telefono1= @cli_tel_telefono1,
           cli_tel_celular= @cli_tel_celular,
           cli_tel_telefono2= @cli_tel_telefono2,
@@ -3059,8 +2997,6 @@ begin
           cli_des_cuil= @cli_des_cuil,
           cli_xld_url= @cli_xld_url,
           cli_cd6_codvend= @cli_cd6_codvend,
-          cli_fec_finires= @cli_fec_finires,
-          cli_fec_ffinres= @cli_fec_ffinres,
           cli_cd1_extension= @cli_cd1_extension,
           cli_ede_horarios= @cli_ede_horarios,
           cli_fec_fingsima= @cli_fec_fingsima,
@@ -3070,8 +3006,6 @@ begin
           cli_txt_observacion= @cli_txt_observacion,
           cli_xld_email= @cli_xld_email,
           cli_nro_nroavalon= @cli_nro_nroavalon,
-          cli_rcd_codmarca= @cli_rcd_codmarca,
-          cli_cod_codcompetencia= @cli_cod_codcompetencia,
           cli_imp_abono= @cli_imp_abono,
           cli_rcd_codtipocont= @cli_rcd_codtipocont,
           cli_imp_deuda= @cli_imp_deuda,
@@ -4896,7 +4830,6 @@ begin
           cli_cod_codfrq,
           isnull(frq_des_des,'') as cli_des_frq,
           cli_cd1_alta,
-          cli_nro_treservado,
           cli_tel_telefono1,
           cli_tel_celular,
           cli_tel_telefono2,
@@ -4914,8 +4847,6 @@ begin
           cli_des_cuil,
           cli_xld_url,
           cli_cd6_codvend,
-          cli_fec_finires,
-          cli_fec_ffinres,
           cli_cd1_extension,
           cli_ede_horarios,
           cli_fec_fingsima,
@@ -4925,10 +4856,6 @@ begin
           cli_txt_observacion,
           cli_xld_email,
           cli_nro_nroavalon,
-          cli_rcd_codmarca,
-          isnull(mrc_des_des,'') as cli_des_marca,
-          cli_cod_codcompetencia,
-          isnull(cmp_ede_empresa,'') as cli_des_comp,
           cli_imp_abono,
           cli_rcd_codtipocont,
           cli_imp_deuda,
@@ -4939,12 +4866,10 @@ begin
      from TNGS_Carm..Clientes 
           join TNGS_Carm..TipoInst
             on cli_cod_codtinst = tin_cod_cod
-          left outer join TNGS_Carm..Competencia
           left outer join TNGS_Carm..Franquicias
             on cli_cod_codfrq = frq_cod_cod
           join TNGS_Carm..Localidades
             on cli_ecd_codlocalidad = loc_ecd_codpost
-          left outer join TNGS_Carm..Marcas
    join Solicitudes on cli_nro_numero = sol_nro_numcliente 
    where sol_cd1_estado = 'C' and sol_cd6_codvend = @codvend and sol_fyh_fgeneracion between @fechaini and @fechafin 
 
@@ -4966,7 +4891,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : CliEntrevistas
 //----------------------------------------------------------------------------
@@ -6469,7 +6394,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : CliLlamadas
 //----------------------------------------------------------------------------
@@ -8098,7 +8023,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : CliNotas
 //----------------------------------------------------------------------------
@@ -9110,7 +9035,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : CliServicios
 //----------------------------------------------------------------------------
@@ -10010,7 +9935,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : CliVentas
 //----------------------------------------------------------------------------
@@ -10070,7 +9995,6 @@ begin
                 clv_imp_abono,
                 clv_nro_cantcapitas,
                 clv_imp_valorcapita,
-                clv_rcd_codmarca,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
@@ -10095,7 +10019,6 @@ begin
                 clv_imp_abono,
                 clv_nro_cantcapitas,
                 clv_imp_valorcapita,
-                clv_rcd_codmarca,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
@@ -10214,7 +10137,6 @@ begin
                 clv_imp_abono,
                 clv_nro_cantcapitas,
                 clv_imp_valorcapita,
-                clv_rcd_codmarca,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
@@ -10239,7 +10161,6 @@ begin
                 clv_imp_abono,
                 clv_nro_cantcapitas,
                 clv_imp_valorcapita,
-                clv_rcd_codmarca,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
@@ -10306,7 +10227,6 @@ begin
                 clv_imp_abono,
                 clv_nro_cantcapitas,
                 clv_imp_valorcapita,
-                clv_rcd_codmarca,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
@@ -10331,7 +10251,6 @@ begin
                 clv_imp_abono,
                 clv_nro_cantcapitas,
                 clv_imp_valorcapita,
-                clv_rcd_codmarca,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
@@ -10369,7 +10288,6 @@ go
 --- <param name="@clv_imp_abono">Abono</param>
 --- <param name="@clv_nro_cantcapitas">Capitas</param>
 --- <param name="@clv_imp_valorcapita">Valor Capita</param>
---- <param name="@clv_rcd_codmarca">Marca</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -10395,7 +10313,6 @@ create procedure dbo.CLIVENTAS_INSERT
 @clv_imp_abono tngs_importe,
 @clv_nro_cantcapitas tngs_numero,
 @clv_imp_valorcapita tngs_importe,
-@clv_rcd_codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -10410,7 +10327,6 @@ begin
            @clv_imp_abono,
            @clv_nro_cantcapitas,
            @clv_imp_valorcapita,
-           @clv_rcd_codmarca,
            getdate(), 0, @usuario, 1
           )
 
@@ -10438,7 +10354,6 @@ go
 --- <param name="@clv_imp_abono">Abono</param>
 --- <param name="@clv_nro_cantcapitas">Capitas</param>
 --- <param name="@clv_imp_valorcapita">Valor Capita</param>
---- <param name="@clv_rcd_codmarca">Marca</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -10464,7 +10379,6 @@ create procedure dbo.CLIVENTAS_UPDATE
 @clv_imp_abono tngs_importe,
 @clv_nro_cantcapitas tngs_numero,
 @clv_imp_valorcapita tngs_importe,
-@clv_rcd_codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -10476,7 +10390,6 @@ begin
           clv_imp_abono= @clv_imp_abono,
           clv_nro_cantcapitas= @clv_nro_cantcapitas,
           clv_imp_valorcapita= @clv_imp_valorcapita,
-          clv_rcd_codmarca= @clv_rcd_codmarca,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario
@@ -11021,7 +10934,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : ConversionColores
 //----------------------------------------------------------------------------
@@ -11073,8 +10986,6 @@ begin
    if @onlyactive = 1
       begin
          Select con_cod_cod,
-                con_rcd_codmarca,
-                mrc_des_des as con_des_marca,
                 con_des_coloraconvertir,
                 con_cd1_colorconvertido,
                 TNGS_Carm..ConversionColores.instante,
@@ -11082,15 +10993,12 @@ begin
                 TNGS_Carm..ConversionColores.usuario,
                 TNGS_Carm..ConversionColores.version
            from TNGS_Carm..ConversionColores
-                join TNGS_Carm..Marcas
-          where TNGS_Carm..ConversionColores.deleted = 0
+          where deleted = 0
           order by con_cod_cod
       end
    else
       begin
          Select con_cod_cod,
-                con_rcd_codmarca,
-                mrc_des_des as con_des_marca,
                 con_des_coloraconvertir,
                 con_cd1_colorconvertido,
                 TNGS_Carm..ConversionColores.instante,
@@ -11098,7 +11006,6 @@ begin
                 TNGS_Carm..ConversionColores.usuario,
                 TNGS_Carm..ConversionColores.version
            from TNGS_Carm..ConversionColores
-                join TNGS_Carm..Marcas
           order by con_cod_cod
       end
 
@@ -11194,8 +11101,6 @@ begin
    if @onlyactive = 1
       begin
          Select con_cod_cod,
-                con_rcd_codmarca,
-                mrc_des_des as con_des_marca,
                 con_des_coloraconvertir,
                 con_cd1_colorconvertido,
                 TNGS_Carm..ConversionColores.instante,
@@ -11203,15 +11108,12 @@ begin
                 TNGS_Carm..ConversionColores.usuario,
                 TNGS_Carm..ConversionColores.version
            from TNGS_Carm..ConversionColores
-                join TNGS_Carm..Marcas
           where con_cod_cod = @con_cod_cod
-            and TNGS_Carm..ConversionColores.deleted = 0
+            and deleted = 0
       end
    else
       begin
          Select con_cod_cod,
-                con_rcd_codmarca,
-                mrc_des_des as con_des_marca,
                 con_des_coloraconvertir,
                 con_cd1_colorconvertido,
                 TNGS_Carm..ConversionColores.instante,
@@ -11219,7 +11121,6 @@ begin
                 TNGS_Carm..ConversionColores.usuario,
                 TNGS_Carm..ConversionColores.version
            from TNGS_Carm..ConversionColores
-                join TNGS_Carm..Marcas
           where con_cod_cod = @con_cod_cod
       end
 
@@ -11284,7 +11185,6 @@ go
 --- Inserta un registro en la tabla
 --- </summary>
 --- <param name="@con_cod_cod">Código</param>
---- <param name="@con_rcd_codmarca">Marca</param>
 --- <param name="@con_des_coloraconvertir">Color a Convertir</param>
 --- <param name="@con_cd1_colorconvertido">Color Convertido</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
@@ -11306,7 +11206,6 @@ go
 create procedure dbo.CONVERSIONCOLORES_INSERT
 (
 @con_cod_cod tngs_codigo,
-@con_rcd_codmarca tngs_codigo_r,
 @con_des_coloraconvertir tngs_descripcion,
 @con_cd1_colorconvertido tngs_codigo_1,
 @usuario tngs_nombre
@@ -11317,7 +11216,6 @@ begin
    Insert into TNGS_Carm..ConversionColores
    values (
            @con_cod_cod,
-           @con_rcd_codmarca,
            @con_des_coloraconvertir,
            @con_cd1_colorconvertido,
            getdate(), 0, @usuario, 1
@@ -11341,7 +11239,6 @@ go
 --- Actualiza un registro de la tabla
 --- </summary>
 --- <param name="@con_cod_cod">Código</param>
---- <param name="@con_rcd_codmarca">Marca</param>
 --- <param name="@con_des_coloraconvertir">Color a Convertir</param>
 --- <param name="@con_cd1_colorconvertido">Color Convertido</param>
 --- <param name="@usuario">Usuario que genera el update</param>
@@ -11363,7 +11260,6 @@ go
 create procedure dbo.CONVERSIONCOLORES_UPDATE
 (
 @con_cod_cod tngs_codigo,
-@con_rcd_codmarca tngs_codigo_r,
 @con_des_coloraconvertir tngs_descripcion,
 @con_cd1_colorconvertido tngs_codigo_1,
 @usuario tngs_nombre
@@ -11372,8 +11268,7 @@ as
 begin
 
    Update TNGS_Carm..ConversionColores
-      set con_rcd_codmarca= @con_rcd_codmarca,
-          con_des_coloraconvertir= @con_des_coloraconvertir,
+      set con_des_coloraconvertir= @con_des_coloraconvertir,
           con_cd1_colorconvertido= @con_cd1_colorconvertido,
           version = ((version+1) % 32767),
           instante= getdate(),
@@ -11583,7 +11478,6 @@ go
 --- <summary>
 --- Método Fijo: getConvertido
 --- </summary>
---- <param name="@codmarca">Codigo de Marca</param>
 --- <param name="@coloraconvertir">Color a Convertir</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
@@ -11603,7 +11497,6 @@ go
 
 create procedure dbo.CONVERSIONCOLORES_GETCONVERTIDO
 (
-@codmarca tngs_codigo_r,
 @coloraconvertir tngs_descripcion,
 @usuario tngs_nombre
 )
@@ -11612,8 +11505,7 @@ begin
 
    select con_cd1_colorconvertido 
    	from ConversionColores 
-   where con_rcd_codmarca = @codmarca 
-   	and con_des_coloraconvertir = @coloraconvertir 
+   where con_des_coloraconvertir = @coloraconvertir 
 
 fin:
 
@@ -11633,7 +11525,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Franquicias
 //----------------------------------------------------------------------------
@@ -12168,7 +12060,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Localidades
 //----------------------------------------------------------------------------
@@ -13155,7 +13047,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : LogClientes
 //----------------------------------------------------------------------------
@@ -13707,7 +13599,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : MotivosLlamada
 //----------------------------------------------------------------------------
@@ -14319,7 +14211,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Parametros
 //----------------------------------------------------------------------------
@@ -14851,7 +14743,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Planes
 //----------------------------------------------------------------------------
@@ -14906,15 +14798,12 @@ begin
                 pln_des_des,
                 pln_cod_codplanavalon,
                 pln_d80_tcontratoavalon,
-                pln_rcd_codmarca,
-                mrc_des_des as pln_des_marca,
                 TNGS_Carm..Planes.instante,
                 TNGS_Carm..Planes.deleted,
                 TNGS_Carm..Planes.usuario,
                 TNGS_Carm..Planes.version
            from TNGS_Carm..Planes
-                join TNGS_Carm..Marcas
-          where TNGS_Carm..Planes.deleted = 0
+          where deleted = 0
           order by pln_cod_cod
       end
    else
@@ -14923,14 +14812,11 @@ begin
                 pln_des_des,
                 pln_cod_codplanavalon,
                 pln_d80_tcontratoavalon,
-                pln_rcd_codmarca,
-                mrc_des_des as pln_des_marca,
                 TNGS_Carm..Planes.instante,
                 TNGS_Carm..Planes.deleted,
                 TNGS_Carm..Planes.usuario,
                 TNGS_Carm..Planes.version
            from TNGS_Carm..Planes
-                join TNGS_Carm..Marcas
           order by pln_cod_cod
       end
 
@@ -15029,16 +14915,13 @@ begin
                 pln_des_des,
                 pln_cod_codplanavalon,
                 pln_d80_tcontratoavalon,
-                pln_rcd_codmarca,
-                mrc_des_des as pln_des_marca,
                 TNGS_Carm..Planes.instante,
                 TNGS_Carm..Planes.deleted,
                 TNGS_Carm..Planes.usuario,
                 TNGS_Carm..Planes.version
            from TNGS_Carm..Planes
-                join TNGS_Carm..Marcas
           where pln_cod_cod = @pln_cod_cod
-            and TNGS_Carm..Planes.deleted = 0
+            and deleted = 0
       end
    else
       begin
@@ -15046,14 +14929,11 @@ begin
                 pln_des_des,
                 pln_cod_codplanavalon,
                 pln_d80_tcontratoavalon,
-                pln_rcd_codmarca,
-                mrc_des_des as pln_des_marca,
                 TNGS_Carm..Planes.instante,
                 TNGS_Carm..Planes.deleted,
                 TNGS_Carm..Planes.usuario,
                 TNGS_Carm..Planes.version
            from TNGS_Carm..Planes
-                join TNGS_Carm..Marcas
           where pln_cod_cod = @pln_cod_cod
       end
 
@@ -15121,7 +15001,6 @@ go
 --- <param name="@pln_des_des">Descripción</param>
 --- <param name="@pln_cod_codplanavalon">Cod Plan Avalon</param>
 --- <param name="@pln_d80_tcontratoavalon">Lista de T Contratos Avalon</param>
---- <param name="@pln_rcd_codmarca">Marca</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -15144,7 +15023,6 @@ create procedure dbo.PLANES_INSERT
 @pln_des_des tngs_descripcion,
 @pln_cod_codplanavalon tngs_codigo,
 @pln_d80_tcontratoavalon tngs_descripcion_80,
-@pln_rcd_codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -15156,7 +15034,6 @@ begin
            @pln_des_des,
            @pln_cod_codplanavalon,
            @pln_d80_tcontratoavalon,
-           @pln_rcd_codmarca,
            getdate(), 0, @usuario, 1
           )
 
@@ -15181,7 +15058,6 @@ go
 --- <param name="@pln_des_des">Descripción</param>
 --- <param name="@pln_cod_codplanavalon">Cod Plan Avalon</param>
 --- <param name="@pln_d80_tcontratoavalon">Lista de T Contratos Avalon</param>
---- <param name="@pln_rcd_codmarca">Marca</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -15204,7 +15080,6 @@ create procedure dbo.PLANES_UPDATE
 @pln_des_des tngs_descripcion,
 @pln_cod_codplanavalon tngs_codigo,
 @pln_d80_tcontratoavalon tngs_descripcion_80,
-@pln_rcd_codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -15214,7 +15089,6 @@ begin
       set pln_des_des= @pln_des_des,
           pln_cod_codplanavalon= @pln_cod_codplanavalon,
           pln_d80_tcontratoavalon= @pln_d80_tcontratoavalon,
-          pln_rcd_codmarca= @pln_rcd_codmarca,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario
@@ -15474,7 +15348,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : PlnServicios
 //----------------------------------------------------------------------------
@@ -16323,7 +16197,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : PreciosServicios
 //----------------------------------------------------------------------------
@@ -16907,7 +16781,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : ResEntrevista
 //----------------------------------------------------------------------------
@@ -17452,7 +17326,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Rubros
 //----------------------------------------------------------------------------
@@ -17987,7 +17861,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Servicios
 //----------------------------------------------------------------------------
@@ -18575,7 +18449,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Supervisores
 //----------------------------------------------------------------------------
@@ -18630,18 +18504,15 @@ begin
                 sup_nom_apellido,
                 sup_nom_nombre,
                 sup_nom_usuario,
-                rtrim(jvt_nom_nombre) + ' '+ jvt_nom_apellido as sup_des_jvtas,
                 ltrim(rtrim(sup_nom_apellido)) + ' ' + ltrim(rtrim(sup_nom_nombre)) as sup_ede_nya,
                 sup_tel_tel,
                 sup_tel_cel,
-                sup_cd6_codjefevtas,
                 TNGS_Carm..Supervisores.instante,
                 TNGS_Carm..Supervisores.deleted,
                 TNGS_Carm..Supervisores.usuario,
                 TNGS_Carm..Supervisores.version
            from TNGS_Carm..Supervisores
-                join TNGS_Carm..JefesVentas
-          where TNGS_Carm..Supervisores.deleted = 0
+          where deleted = 0
           order by sup_cd6_cod
       end
    else
@@ -18650,17 +18521,14 @@ begin
                 sup_nom_apellido,
                 sup_nom_nombre,
                 sup_nom_usuario,
-                rtrim(jvt_nom_nombre) + ' '+ jvt_nom_apellido as sup_des_jvtas,
                 ltrim(rtrim(sup_nom_apellido)) + ' ' + ltrim(rtrim(sup_nom_nombre)) as sup_ede_nya,
                 sup_tel_tel,
                 sup_tel_cel,
-                sup_cd6_codjefevtas,
                 TNGS_Carm..Supervisores.instante,
                 TNGS_Carm..Supervisores.deleted,
                 TNGS_Carm..Supervisores.usuario,
                 TNGS_Carm..Supervisores.version
            from TNGS_Carm..Supervisores
-                join TNGS_Carm..JefesVentas
           order by sup_cd6_cod
       end
 
@@ -18759,19 +18627,16 @@ begin
                 sup_nom_apellido,
                 sup_nom_nombre,
                 sup_nom_usuario,
-                rtrim(jvt_nom_nombre) + ' '+ jvt_nom_apellido as sup_des_jvtas,
                 ltrim(rtrim(sup_nom_apellido)) + ' ' + ltrim(rtrim(sup_nom_nombre)) as sup_ede_nya,
                 sup_tel_tel,
                 sup_tel_cel,
-                sup_cd6_codjefevtas,
                 TNGS_Carm..Supervisores.instante,
                 TNGS_Carm..Supervisores.deleted,
                 TNGS_Carm..Supervisores.usuario,
                 TNGS_Carm..Supervisores.version
            from TNGS_Carm..Supervisores
-                join TNGS_Carm..JefesVentas
           where sup_cd6_cod = @sup_cd6_cod
-            and TNGS_Carm..Supervisores.deleted = 0
+            and deleted = 0
       end
    else
       begin
@@ -18779,17 +18644,14 @@ begin
                 sup_nom_apellido,
                 sup_nom_nombre,
                 sup_nom_usuario,
-                rtrim(jvt_nom_nombre) + ' '+ jvt_nom_apellido as sup_des_jvtas,
                 ltrim(rtrim(sup_nom_apellido)) + ' ' + ltrim(rtrim(sup_nom_nombre)) as sup_ede_nya,
                 sup_tel_tel,
                 sup_tel_cel,
-                sup_cd6_codjefevtas,
                 TNGS_Carm..Supervisores.instante,
                 TNGS_Carm..Supervisores.deleted,
                 TNGS_Carm..Supervisores.usuario,
                 TNGS_Carm..Supervisores.version
            from TNGS_Carm..Supervisores
-                join TNGS_Carm..JefesVentas
           where sup_cd6_cod = @sup_cd6_cod
       end
 
@@ -18816,7 +18678,6 @@ go
 --- <param name="@sup_nom_usuario">Usuario del Sistema</param>
 --- <param name="@sup_tel_tel">Télefono</param>
 --- <param name="@sup_tel_cel">Celular</param>
---- <param name="@sup_cd6_codjefevtas">Jefe de Ventas</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -18841,7 +18702,6 @@ create procedure dbo.SUPERVISORES_INSERT
 @sup_nom_usuario tngs_nombre,
 @sup_tel_tel tngs_telefono,
 @sup_tel_cel tngs_telefono,
-@sup_cd6_codjefevtas tngs_codigo_6,
 @usuario tngs_nombre
 )
 as
@@ -18855,7 +18715,6 @@ begin
            @sup_nom_usuario,
            @sup_tel_tel,
            @sup_tel_cel,
-           @sup_cd6_codjefevtas,
            getdate(), 0, @usuario, 1
           )
 
@@ -18882,7 +18741,6 @@ go
 --- <param name="@sup_nom_usuario">Usuario del Sistema</param>
 --- <param name="@sup_tel_tel">Télefono</param>
 --- <param name="@sup_tel_cel">Celular</param>
---- <param name="@sup_cd6_codjefevtas">Jefe de Ventas</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -18907,7 +18765,6 @@ create procedure dbo.SUPERVISORES_UPDATE
 @sup_nom_usuario tngs_nombre,
 @sup_tel_tel tngs_telefono,
 @sup_tel_cel tngs_telefono,
-@sup_cd6_codjefevtas tngs_codigo_6,
 @usuario tngs_nombre
 )
 as
@@ -18919,7 +18776,6 @@ begin
           sup_nom_usuario= @sup_nom_usuario,
           sup_tel_tel= @sup_tel_tel,
           sup_tel_cel= @sup_tel_cel,
-          sup_cd6_codjefevtas= @sup_cd6_codjefevtas,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario
@@ -19129,7 +18985,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Talonarios
 //----------------------------------------------------------------------------
@@ -19661,7 +19517,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : TipoCont
 //----------------------------------------------------------------------------
@@ -20216,7 +20072,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : TipoInst
 //----------------------------------------------------------------------------
@@ -20833,7 +20689,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : TipoVend
 //----------------------------------------------------------------------------
@@ -20885,10 +20741,7 @@ begin
    if @onlyactive = 1
       begin
          Select tvn_rcd_cod,
-                tvn_cd1_nivel,
                 tvn_des_des,
-                tvn_nro_vtasminimas,
-                tvn_nro_reservasmax,
                 tvn_cd1_vemayor,
                 TNGS_Carm..TipoVend.instante,
                 TNGS_Carm..TipoVend.deleted,
@@ -20901,10 +20754,7 @@ begin
    else
       begin
          Select tvn_rcd_cod,
-                tvn_cd1_nivel,
                 tvn_des_des,
-                tvn_nro_vtasminimas,
-                tvn_nro_reservasmax,
                 tvn_cd1_vemayor,
                 TNGS_Carm..TipoVend.instante,
                 TNGS_Carm..TipoVend.deleted,
@@ -21006,10 +20856,7 @@ begin
    if @onlyactive = 1
       begin
          Select tvn_rcd_cod,
-                tvn_cd1_nivel,
                 tvn_des_des,
-                tvn_nro_vtasminimas,
-                tvn_nro_reservasmax,
                 tvn_cd1_vemayor,
                 TNGS_Carm..TipoVend.instante,
                 TNGS_Carm..TipoVend.deleted,
@@ -21022,10 +20869,7 @@ begin
    else
       begin
          Select tvn_rcd_cod,
-                tvn_cd1_nivel,
                 tvn_des_des,
-                tvn_nro_vtasminimas,
-                tvn_nro_reservasmax,
                 tvn_cd1_vemayor,
                 TNGS_Carm..TipoVend.instante,
                 TNGS_Carm..TipoVend.deleted,
@@ -21096,10 +20940,7 @@ go
 --- Inserta un registro en la tabla
 --- </summary>
 --- <param name="@tvn_rcd_cod">Codigo</param>
---- <param name="@tvn_cd1_nivel">Nivel</param>
 --- <param name="@tvn_des_des">Descripcion</param>
---- <param name="@tvn_nro_vtasminimas">Ventas Minimas</param>
---- <param name="@tvn_nro_reservasmax">Reservas Maximas</param>
 --- <param name="@tvn_cd1_vemayor">Ve Mayoristas</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
@@ -21120,10 +20961,7 @@ go
 create procedure dbo.TIPOVEND_INSERT
 (
 @tvn_rcd_cod tngs_codigo_r,
-@tvn_cd1_nivel tngs_codigo_1,
 @tvn_des_des tngs_descripcion,
-@tvn_nro_vtasminimas tngs_numero,
-@tvn_nro_reservasmax tngs_numero,
 @tvn_cd1_vemayor tngs_codigo_1,
 @usuario tngs_nombre
 )
@@ -21133,10 +20971,7 @@ begin
    Insert into TNGS_Carm..TipoVend
    values (
            @tvn_rcd_cod,
-           @tvn_cd1_nivel,
            @tvn_des_des,
-           @tvn_nro_vtasminimas,
-           @tvn_nro_reservasmax,
            @tvn_cd1_vemayor,
            getdate(), 0, @usuario, 1
           )
@@ -21159,10 +20994,7 @@ go
 --- Actualiza un registro de la tabla
 --- </summary>
 --- <param name="@tvn_rcd_cod">Codigo</param>
---- <param name="@tvn_cd1_nivel">Nivel</param>
 --- <param name="@tvn_des_des">Descripcion</param>
---- <param name="@tvn_nro_vtasminimas">Ventas Minimas</param>
---- <param name="@tvn_nro_reservasmax">Reservas Maximas</param>
 --- <param name="@tvn_cd1_vemayor">Ve Mayoristas</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
@@ -21183,10 +21015,7 @@ go
 create procedure dbo.TIPOVEND_UPDATE
 (
 @tvn_rcd_cod tngs_codigo_r,
-@tvn_cd1_nivel tngs_codigo_1,
 @tvn_des_des tngs_descripcion,
-@tvn_nro_vtasminimas tngs_numero,
-@tvn_nro_reservasmax tngs_numero,
 @tvn_cd1_vemayor tngs_codigo_1,
 @usuario tngs_nombre
 )
@@ -21194,10 +21023,7 @@ as
 begin
 
    Update TNGS_Carm..TipoVend
-      set tvn_cd1_nivel= @tvn_cd1_nivel,
-          tvn_des_des= @tvn_des_des,
-          tvn_nro_vtasminimas= @tvn_nro_vtasminimas,
-          tvn_nro_reservasmax= @tvn_nro_reservasmax,
+      set tvn_des_des= @tvn_des_des,
           tvn_cd1_vemayor= @tvn_cd1_vemayor,
           version = ((version+1) % 32767),
           instante= getdate(),
@@ -21408,7 +21234,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Vendedores
 //----------------------------------------------------------------------------
@@ -21469,24 +21295,12 @@ begin
                 vnd_tel_tel2,
                 vnd_fec_fecnacim,
                 vnd_ede_direccion,
-                vnd_ede_email,
-                vnd_ede_contrasenia,
                 vnd_cd6_codsuperv,
-                TNGS_SIMA.dbo.Vendedores_GetJefeVentas (vnd_cd6_cod) as vnd_des_jvta,
                 rtrim(sup_nom_nombre) + ' '+ sup_nom_apellido as vnd_nom_superv,
                 vnd_rcd_codtvend,
                 tvn_cd1_vemayor as vnd_cd1_vemayor,
                 tvn_des_des as vnd_des_tipovnd,
-                TNGS_SIMA.dbo.Vendedores_CantReservasAct (vnd_cd6_cod) as vnd_nro_resact,
-                tvn_nro_reservasmax as vnd_nro_resmax,
-                vnd_rcd_codmarca,
-                mrc_des_des as vnd_des_marca,
                 vnd_txt_horarios,
-                vnd_cod_codbaseop,
-                bop_des_des as vnd_des_baseop,
-                vnd_ede_mailremitente,
-                vnd_ede_nombreamostrar,
-                vnd_rcd_coddominio,
                 vnd_cd1_historico,
                 TNGS_Carm..Vendedores.instante,
                 TNGS_Carm..Vendedores.deleted,
@@ -21495,8 +21309,6 @@ begin
            from TNGS_Carm..Vendedores
                 join TNGS_Carm..TipoVend
                   on vnd_rcd_codtvend = tvn_rcd_cod
-                join TNGS_Carm..BasesOp
-                join TNGS_Carm..Marcas
                 join TNGS_Carm..Supervisores
                   on vnd_cd6_codsuperv = sup_cd6_cod
           where TNGS_Carm..Vendedores.deleted = 0
@@ -21514,24 +21326,12 @@ begin
                 vnd_tel_tel2,
                 vnd_fec_fecnacim,
                 vnd_ede_direccion,
-                vnd_ede_email,
-                vnd_ede_contrasenia,
                 vnd_cd6_codsuperv,
-                TNGS_SIMA.dbo.Vendedores_GetJefeVentas (vnd_cd6_cod) as vnd_des_jvta,
                 rtrim(sup_nom_nombre) + ' '+ sup_nom_apellido as vnd_nom_superv,
                 vnd_rcd_codtvend,
                 tvn_cd1_vemayor as vnd_cd1_vemayor,
                 tvn_des_des as vnd_des_tipovnd,
-                TNGS_SIMA.dbo.Vendedores_CantReservasAct (vnd_cd6_cod) as vnd_nro_resact,
-                tvn_nro_reservasmax as vnd_nro_resmax,
-                vnd_rcd_codmarca,
-                mrc_des_des as vnd_des_marca,
                 vnd_txt_horarios,
-                vnd_cod_codbaseop,
-                bop_des_des as vnd_des_baseop,
-                vnd_ede_mailremitente,
-                vnd_ede_nombreamostrar,
-                vnd_rcd_coddominio,
                 vnd_cd1_historico,
                 TNGS_Carm..Vendedores.instante,
                 TNGS_Carm..Vendedores.deleted,
@@ -21540,8 +21340,6 @@ begin
            from TNGS_Carm..Vendedores
                 join TNGS_Carm..TipoVend
                   on vnd_rcd_codtvend = tvn_rcd_cod
-                join TNGS_Carm..BasesOp
-                join TNGS_Carm..Marcas
                 join TNGS_Carm..Supervisores
                   on vnd_cd6_codsuperv = sup_cd6_cod
           order by vnd_cd6_cod
@@ -21648,24 +21446,12 @@ begin
                 vnd_tel_tel2,
                 vnd_fec_fecnacim,
                 vnd_ede_direccion,
-                vnd_ede_email,
-                vnd_ede_contrasenia,
                 vnd_cd6_codsuperv,
-                TNGS_SIMA.dbo.Vendedores_GetJefeVentas (vnd_cd6_cod) as vnd_des_jvta,
                 rtrim(sup_nom_nombre) + ' '+ sup_nom_apellido as vnd_nom_superv,
                 vnd_rcd_codtvend,
                 tvn_cd1_vemayor as vnd_cd1_vemayor,
                 tvn_des_des as vnd_des_tipovnd,
-                TNGS_SIMA.dbo.Vendedores_CantReservasAct (vnd_cd6_cod) as vnd_nro_resact,
-                tvn_nro_reservasmax as vnd_nro_resmax,
-                vnd_rcd_codmarca,
-                mrc_des_des as vnd_des_marca,
                 vnd_txt_horarios,
-                vnd_cod_codbaseop,
-                bop_des_des as vnd_des_baseop,
-                vnd_ede_mailremitente,
-                vnd_ede_nombreamostrar,
-                vnd_rcd_coddominio,
                 vnd_cd1_historico,
                 TNGS_Carm..Vendedores.instante,
                 TNGS_Carm..Vendedores.deleted,
@@ -21674,8 +21460,6 @@ begin
            from TNGS_Carm..Vendedores
                 join TNGS_Carm..TipoVend
                   on vnd_rcd_codtvend = tvn_rcd_cod
-                join TNGS_Carm..BasesOp
-                join TNGS_Carm..Marcas
                 join TNGS_Carm..Supervisores
                   on vnd_cd6_codsuperv = sup_cd6_cod
           where vnd_cd6_cod = @vnd_cd6_cod
@@ -21693,24 +21477,12 @@ begin
                 vnd_tel_tel2,
                 vnd_fec_fecnacim,
                 vnd_ede_direccion,
-                vnd_ede_email,
-                vnd_ede_contrasenia,
                 vnd_cd6_codsuperv,
-                TNGS_SIMA.dbo.Vendedores_GetJefeVentas (vnd_cd6_cod) as vnd_des_jvta,
                 rtrim(sup_nom_nombre) + ' '+ sup_nom_apellido as vnd_nom_superv,
                 vnd_rcd_codtvend,
                 tvn_cd1_vemayor as vnd_cd1_vemayor,
                 tvn_des_des as vnd_des_tipovnd,
-                TNGS_SIMA.dbo.Vendedores_CantReservasAct (vnd_cd6_cod) as vnd_nro_resact,
-                tvn_nro_reservasmax as vnd_nro_resmax,
-                vnd_rcd_codmarca,
-                mrc_des_des as vnd_des_marca,
                 vnd_txt_horarios,
-                vnd_cod_codbaseop,
-                bop_des_des as vnd_des_baseop,
-                vnd_ede_mailremitente,
-                vnd_ede_nombreamostrar,
-                vnd_rcd_coddominio,
                 vnd_cd1_historico,
                 TNGS_Carm..Vendedores.instante,
                 TNGS_Carm..Vendedores.deleted,
@@ -21719,8 +21491,6 @@ begin
            from TNGS_Carm..Vendedores
                 join TNGS_Carm..TipoVend
                   on vnd_rcd_codtvend = tvn_rcd_cod
-                join TNGS_Carm..BasesOp
-                join TNGS_Carm..Marcas
                 join TNGS_Carm..Supervisores
                   on vnd_cd6_codsuperv = sup_cd6_cod
           where vnd_cd6_cod = @vnd_cd6_cod
@@ -21752,16 +21522,9 @@ go
 --- <param name="@vnd_tel_tel2">Telefono2</param>
 --- <param name="@vnd_fec_fecnacim">Fecha Nacimiento</param>
 --- <param name="@vnd_ede_direccion">Dirección</param>
---- <param name="@vnd_ede_email">Usuario Credencial Mail</param>
---- <param name="@vnd_ede_contrasenia">Contraseña</param>
 --- <param name="@vnd_cd6_codsuperv">Supervisor</param>
 --- <param name="@vnd_rcd_codtvend">Tipo Vendedor</param>
---- <param name="@vnd_rcd_codmarca">Marca</param>
 --- <param name="@vnd_txt_horarios">Horarios</param>
---- <param name="@vnd_cod_codbaseop">Base Operativa</param>
---- <param name="@vnd_ede_mailremitente">Mail Remitente</param>
---- <param name="@vnd_ede_nombreamostrar">Nombre a Mostrar</param>
---- <param name="@vnd_rcd_coddominio">Dominio</param>
 --- <param name="@vnd_cd1_historico">Es Historico</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
@@ -21790,16 +21553,9 @@ create procedure dbo.VENDEDORES_INSERT
 @vnd_tel_tel2 tngs_telefono,
 @vnd_fec_fecnacim tngs_fecha,
 @vnd_ede_direccion tngs_descripcion_e,
-@vnd_ede_email tngs_descripcion_e,
-@vnd_ede_contrasenia tngs_descripcion_e,
 @vnd_cd6_codsuperv tngs_codigo_6,
 @vnd_rcd_codtvend tngs_codigo_r,
-@vnd_rcd_codmarca tngs_codigo_r,
 @vnd_txt_horarios tngs_texto,
-@vnd_cod_codbaseop tngs_codigo,
-@vnd_ede_mailremitente tngs_descripcion_e,
-@vnd_ede_nombreamostrar tngs_descripcion_e,
-@vnd_rcd_coddominio tngs_codigo_r,
 @vnd_cd1_historico tngs_codigo_1,
 @usuario tngs_nombre
 )
@@ -21817,16 +21573,9 @@ begin
            @vnd_tel_tel2,
            @vnd_fec_fecnacim,
            @vnd_ede_direccion,
-           @vnd_ede_email,
-           @vnd_ede_contrasenia,
            @vnd_cd6_codsuperv,
            @vnd_rcd_codtvend,
-           @vnd_rcd_codmarca,
            @vnd_txt_horarios,
-           @vnd_cod_codbaseop,
-           @vnd_ede_mailremitente,
-           @vnd_ede_nombreamostrar,
-           @vnd_rcd_coddominio,
            @vnd_cd1_historico,
            getdate(), 0, @usuario, 1
           )
@@ -21857,16 +21606,9 @@ go
 --- <param name="@vnd_tel_tel2">Telefono2</param>
 --- <param name="@vnd_fec_fecnacim">Fecha Nacimiento</param>
 --- <param name="@vnd_ede_direccion">Dirección</param>
---- <param name="@vnd_ede_email">Usuario Credencial Mail</param>
---- <param name="@vnd_ede_contrasenia">Contraseña</param>
 --- <param name="@vnd_cd6_codsuperv">Supervisor</param>
 --- <param name="@vnd_rcd_codtvend">Tipo Vendedor</param>
---- <param name="@vnd_rcd_codmarca">Marca</param>
 --- <param name="@vnd_txt_horarios">Horarios</param>
---- <param name="@vnd_cod_codbaseop">Base Operativa</param>
---- <param name="@vnd_ede_mailremitente">Mail Remitente</param>
---- <param name="@vnd_ede_nombreamostrar">Nombre a Mostrar</param>
---- <param name="@vnd_rcd_coddominio">Dominio</param>
 --- <param name="@vnd_cd1_historico">Es Historico</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
@@ -21895,16 +21637,9 @@ create procedure dbo.VENDEDORES_UPDATE
 @vnd_tel_tel2 tngs_telefono,
 @vnd_fec_fecnacim tngs_fecha,
 @vnd_ede_direccion tngs_descripcion_e,
-@vnd_ede_email tngs_descripcion_e,
-@vnd_ede_contrasenia tngs_descripcion_e,
 @vnd_cd6_codsuperv tngs_codigo_6,
 @vnd_rcd_codtvend tngs_codigo_r,
-@vnd_rcd_codmarca tngs_codigo_r,
 @vnd_txt_horarios tngs_texto,
-@vnd_cod_codbaseop tngs_codigo,
-@vnd_ede_mailremitente tngs_descripcion_e,
-@vnd_ede_nombreamostrar tngs_descripcion_e,
-@vnd_rcd_coddominio tngs_codigo_r,
 @vnd_cd1_historico tngs_codigo_1,
 @usuario tngs_nombre
 )
@@ -21920,16 +21655,9 @@ begin
           vnd_tel_tel2= @vnd_tel_tel2,
           vnd_fec_fecnacim= @vnd_fec_fecnacim,
           vnd_ede_direccion= @vnd_ede_direccion,
-          vnd_ede_email= @vnd_ede_email,
-          vnd_ede_contrasenia= @vnd_ede_contrasenia,
           vnd_cd6_codsuperv= @vnd_cd6_codsuperv,
           vnd_rcd_codtvend= @vnd_rcd_codtvend,
-          vnd_rcd_codmarca= @vnd_rcd_codmarca,
           vnd_txt_horarios= @vnd_txt_horarios,
-          vnd_cod_codbaseop= @vnd_cod_codbaseop,
-          vnd_ede_mailremitente= @vnd_ede_mailremitente,
-          vnd_ede_nombreamostrar= @vnd_ede_nombreamostrar,
-          vnd_rcd_coddominio= @vnd_rcd_coddominio,
           vnd_cd1_historico= @vnd_cd1_historico,
           version = ((version+1) % 32767),
           instante= getdate(),
@@ -22481,24 +22209,12 @@ begin
           vnd_tel_tel2,
           vnd_fec_fecnacim,
           vnd_ede_direccion,
-          vnd_ede_email,
-          vnd_ede_contrasenia,
           vnd_cd6_codsuperv,
-          TNGS_SIMA.dbo.Vendedores_GetJefeVentas (vnd_cd6_cod) as vnd_des_jvta,
           rtrim(sup_nom_nombre) + ' '+ sup_nom_apellido as vnd_nom_superv,
           vnd_rcd_codtvend,
           tvn_cd1_vemayor as vnd_cd1_vemayor,
           tvn_des_des as vnd_des_tipovnd,
-          TNGS_SIMA.dbo.Vendedores_CantReservasAct (vnd_cd6_cod) as vnd_nro_resact,
-          tvn_nro_reservasmax as vnd_nro_resmax,
-          vnd_rcd_codmarca,
-          mrc_des_des as vnd_des_marca,
           vnd_txt_horarios,
-          vnd_cod_codbaseop,
-          bop_des_des as vnd_des_baseop,
-          vnd_ede_mailremitente,
-          vnd_ede_nombreamostrar,
-          vnd_rcd_coddominio,
           vnd_cd1_historico,
           TNGS_Carm..Vendedores.instante,
           TNGS_Carm..Vendedores.deleted,
@@ -22507,8 +22223,6 @@ begin
      from TNGS_Carm..Vendedores 
           join TNGS_Carm..TipoVend
             on vnd_rcd_codtvend = tvn_rcd_cod
-          join TNGS_Carm..BasesOp
-          join TNGS_Carm..Marcas
           join TNGS_Carm..Supervisores
             on vnd_cd6_codsuperv = sup_cd6_cod
    where vnd_nom_usuario = @usuario 
@@ -22991,7 +22705,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Zonas
 //----------------------------------------------------------------------------

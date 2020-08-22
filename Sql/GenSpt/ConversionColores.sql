@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : ConversionColores
 //----------------------------------------------------------------------------
@@ -53,8 +53,6 @@ begin
    if @onlyactive = 1
       begin
          Select con_cod_cod,
-                con_rcd_codmarca,
-                mrc_des_des as con_des_marca,
                 con_des_coloraconvertir,
                 con_cd1_colorconvertido,
                 TNGS_Carm..ConversionColores.instante,
@@ -62,15 +60,12 @@ begin
                 TNGS_Carm..ConversionColores.usuario,
                 TNGS_Carm..ConversionColores.version
            from TNGS_Carm..ConversionColores
-                join TNGS_Carm..Marcas
-          where TNGS_Carm..ConversionColores.deleted = 0
+          where deleted = 0
           order by con_cod_cod
       end
    else
       begin
          Select con_cod_cod,
-                con_rcd_codmarca,
-                mrc_des_des as con_des_marca,
                 con_des_coloraconvertir,
                 con_cd1_colorconvertido,
                 TNGS_Carm..ConversionColores.instante,
@@ -78,7 +73,6 @@ begin
                 TNGS_Carm..ConversionColores.usuario,
                 TNGS_Carm..ConversionColores.version
            from TNGS_Carm..ConversionColores
-                join TNGS_Carm..Marcas
           order by con_cod_cod
       end
 
@@ -174,8 +168,6 @@ begin
    if @onlyactive = 1
       begin
          Select con_cod_cod,
-                con_rcd_codmarca,
-                mrc_des_des as con_des_marca,
                 con_des_coloraconvertir,
                 con_cd1_colorconvertido,
                 TNGS_Carm..ConversionColores.instante,
@@ -183,15 +175,12 @@ begin
                 TNGS_Carm..ConversionColores.usuario,
                 TNGS_Carm..ConversionColores.version
            from TNGS_Carm..ConversionColores
-                join TNGS_Carm..Marcas
           where con_cod_cod = @con_cod_cod
-            and TNGS_Carm..ConversionColores.deleted = 0
+            and deleted = 0
       end
    else
       begin
          Select con_cod_cod,
-                con_rcd_codmarca,
-                mrc_des_des as con_des_marca,
                 con_des_coloraconvertir,
                 con_cd1_colorconvertido,
                 TNGS_Carm..ConversionColores.instante,
@@ -199,7 +188,6 @@ begin
                 TNGS_Carm..ConversionColores.usuario,
                 TNGS_Carm..ConversionColores.version
            from TNGS_Carm..ConversionColores
-                join TNGS_Carm..Marcas
           where con_cod_cod = @con_cod_cod
       end
 
@@ -264,7 +252,6 @@ go
 --- Inserta un registro en la tabla
 --- </summary>
 --- <param name="@con_cod_cod">Código</param>
---- <param name="@con_rcd_codmarca">Marca</param>
 --- <param name="@con_des_coloraconvertir">Color a Convertir</param>
 --- <param name="@con_cd1_colorconvertido">Color Convertido</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
@@ -286,7 +273,6 @@ go
 create procedure dbo.CONVERSIONCOLORES_INSERT
 (
 @con_cod_cod tngs_codigo,
-@con_rcd_codmarca tngs_codigo_r,
 @con_des_coloraconvertir tngs_descripcion,
 @con_cd1_colorconvertido tngs_codigo_1,
 @usuario tngs_nombre
@@ -297,7 +283,6 @@ begin
    Insert into TNGS_Carm..ConversionColores
    values (
            @con_cod_cod,
-           @con_rcd_codmarca,
            @con_des_coloraconvertir,
            @con_cd1_colorconvertido,
            getdate(), 0, @usuario, 1
@@ -321,7 +306,6 @@ go
 --- Actualiza un registro de la tabla
 --- </summary>
 --- <param name="@con_cod_cod">Código</param>
---- <param name="@con_rcd_codmarca">Marca</param>
 --- <param name="@con_des_coloraconvertir">Color a Convertir</param>
 --- <param name="@con_cd1_colorconvertido">Color Convertido</param>
 --- <param name="@usuario">Usuario que genera el update</param>
@@ -343,7 +327,6 @@ go
 create procedure dbo.CONVERSIONCOLORES_UPDATE
 (
 @con_cod_cod tngs_codigo,
-@con_rcd_codmarca tngs_codigo_r,
 @con_des_coloraconvertir tngs_descripcion,
 @con_cd1_colorconvertido tngs_codigo_1,
 @usuario tngs_nombre
@@ -352,8 +335,7 @@ as
 begin
 
    Update TNGS_Carm..ConversionColores
-      set con_rcd_codmarca= @con_rcd_codmarca,
-          con_des_coloraconvertir= @con_des_coloraconvertir,
+      set con_des_coloraconvertir= @con_des_coloraconvertir,
           con_cd1_colorconvertido= @con_cd1_colorconvertido,
           version = ((version+1) % 32767),
           instante= getdate(),
@@ -563,7 +545,6 @@ go
 --- <summary>
 --- Método Fijo: getConvertido
 --- </summary>
---- <param name="@codmarca">Codigo de Marca</param>
 --- <param name="@coloraconvertir">Color a Convertir</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
@@ -583,7 +564,6 @@ go
 
 create procedure dbo.CONVERSIONCOLORES_GETCONVERTIDO
 (
-@codmarca tngs_codigo_r,
 @coloraconvertir tngs_descripcion,
 @usuario tngs_nombre
 )
@@ -592,8 +572,7 @@ begin
 
    select con_cd1_colorconvertido 
    	from ConversionColores 
-   where con_rcd_codmarca = @codmarca 
-   	and con_des_coloraconvertir = @coloraconvertir 
+   where con_des_coloraconvertir = @coloraconvertir 
 
 fin:
 

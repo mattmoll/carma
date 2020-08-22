@@ -5,10 +5,10 @@ using System.Reflection;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: AssemblyConfiguration("VS2017-C#4-TNGS5.2")]
-[assembly: AssemblyCompany("TNGSoftware")]
-[assembly: AssemblyProduct("Sistema Informático de Marketing y Agenda")]
-[assembly: AssemblyCopyright("Copyright© 2019, TNGSoftware")]
+[assembly: AssemblyConfiguration("VS2020-C#4-TNGS5.2")]
+[assembly: AssemblyCompany("Moll Matias")]
+[assembly: AssemblyProduct("Sistema Carma")]
+[assembly: AssemblyCopyright("Copyright© 2020, Moll Matias")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -23,8 +23,8 @@ using System.Reflection;
 // You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 
-[assembly: AssemblyInformationalVersion("3.00.0.0")]
-[assembly: AssemblyVersion("3.00.*")]
+[assembly: AssemblyInformationalVersion("1.00.0.0")]
+[assembly: AssemblyVersion("1.00.*")]
 
 //
 // In order to sign your assembly you must specify a key to use. Refer to the

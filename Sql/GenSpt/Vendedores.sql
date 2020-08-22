@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Vendedores
 //----------------------------------------------------------------------------
@@ -62,24 +62,12 @@ begin
                 vnd_tel_tel2,
                 vnd_fec_fecnacim,
                 vnd_ede_direccion,
-                vnd_ede_email,
-                vnd_ede_contrasenia,
                 vnd_cd6_codsuperv,
-                TNGS_SIMA.dbo.Vendedores_GetJefeVentas (vnd_cd6_cod) as vnd_des_jvta,
                 rtrim(sup_nom_nombre) + ' '+ sup_nom_apellido as vnd_nom_superv,
                 vnd_rcd_codtvend,
                 tvn_cd1_vemayor as vnd_cd1_vemayor,
                 tvn_des_des as vnd_des_tipovnd,
-                TNGS_SIMA.dbo.Vendedores_CantReservasAct (vnd_cd6_cod) as vnd_nro_resact,
-                tvn_nro_reservasmax as vnd_nro_resmax,
-                vnd_rcd_codmarca,
-                mrc_des_des as vnd_des_marca,
                 vnd_txt_horarios,
-                vnd_cod_codbaseop,
-                bop_des_des as vnd_des_baseop,
-                vnd_ede_mailremitente,
-                vnd_ede_nombreamostrar,
-                vnd_rcd_coddominio,
                 vnd_cd1_historico,
                 TNGS_Carm..Vendedores.instante,
                 TNGS_Carm..Vendedores.deleted,
@@ -88,8 +76,6 @@ begin
            from TNGS_Carm..Vendedores
                 join TNGS_Carm..TipoVend
                   on vnd_rcd_codtvend = tvn_rcd_cod
-                join TNGS_Carm..BasesOp
-                join TNGS_Carm..Marcas
                 join TNGS_Carm..Supervisores
                   on vnd_cd6_codsuperv = sup_cd6_cod
           where TNGS_Carm..Vendedores.deleted = 0
@@ -107,24 +93,12 @@ begin
                 vnd_tel_tel2,
                 vnd_fec_fecnacim,
                 vnd_ede_direccion,
-                vnd_ede_email,
-                vnd_ede_contrasenia,
                 vnd_cd6_codsuperv,
-                TNGS_SIMA.dbo.Vendedores_GetJefeVentas (vnd_cd6_cod) as vnd_des_jvta,
                 rtrim(sup_nom_nombre) + ' '+ sup_nom_apellido as vnd_nom_superv,
                 vnd_rcd_codtvend,
                 tvn_cd1_vemayor as vnd_cd1_vemayor,
                 tvn_des_des as vnd_des_tipovnd,
-                TNGS_SIMA.dbo.Vendedores_CantReservasAct (vnd_cd6_cod) as vnd_nro_resact,
-                tvn_nro_reservasmax as vnd_nro_resmax,
-                vnd_rcd_codmarca,
-                mrc_des_des as vnd_des_marca,
                 vnd_txt_horarios,
-                vnd_cod_codbaseop,
-                bop_des_des as vnd_des_baseop,
-                vnd_ede_mailremitente,
-                vnd_ede_nombreamostrar,
-                vnd_rcd_coddominio,
                 vnd_cd1_historico,
                 TNGS_Carm..Vendedores.instante,
                 TNGS_Carm..Vendedores.deleted,
@@ -133,8 +107,6 @@ begin
            from TNGS_Carm..Vendedores
                 join TNGS_Carm..TipoVend
                   on vnd_rcd_codtvend = tvn_rcd_cod
-                join TNGS_Carm..BasesOp
-                join TNGS_Carm..Marcas
                 join TNGS_Carm..Supervisores
                   on vnd_cd6_codsuperv = sup_cd6_cod
           order by vnd_cd6_cod
@@ -241,24 +213,12 @@ begin
                 vnd_tel_tel2,
                 vnd_fec_fecnacim,
                 vnd_ede_direccion,
-                vnd_ede_email,
-                vnd_ede_contrasenia,
                 vnd_cd6_codsuperv,
-                TNGS_SIMA.dbo.Vendedores_GetJefeVentas (vnd_cd6_cod) as vnd_des_jvta,
                 rtrim(sup_nom_nombre) + ' '+ sup_nom_apellido as vnd_nom_superv,
                 vnd_rcd_codtvend,
                 tvn_cd1_vemayor as vnd_cd1_vemayor,
                 tvn_des_des as vnd_des_tipovnd,
-                TNGS_SIMA.dbo.Vendedores_CantReservasAct (vnd_cd6_cod) as vnd_nro_resact,
-                tvn_nro_reservasmax as vnd_nro_resmax,
-                vnd_rcd_codmarca,
-                mrc_des_des as vnd_des_marca,
                 vnd_txt_horarios,
-                vnd_cod_codbaseop,
-                bop_des_des as vnd_des_baseop,
-                vnd_ede_mailremitente,
-                vnd_ede_nombreamostrar,
-                vnd_rcd_coddominio,
                 vnd_cd1_historico,
                 TNGS_Carm..Vendedores.instante,
                 TNGS_Carm..Vendedores.deleted,
@@ -267,8 +227,6 @@ begin
            from TNGS_Carm..Vendedores
                 join TNGS_Carm..TipoVend
                   on vnd_rcd_codtvend = tvn_rcd_cod
-                join TNGS_Carm..BasesOp
-                join TNGS_Carm..Marcas
                 join TNGS_Carm..Supervisores
                   on vnd_cd6_codsuperv = sup_cd6_cod
           where vnd_cd6_cod = @vnd_cd6_cod
@@ -286,24 +244,12 @@ begin
                 vnd_tel_tel2,
                 vnd_fec_fecnacim,
                 vnd_ede_direccion,
-                vnd_ede_email,
-                vnd_ede_contrasenia,
                 vnd_cd6_codsuperv,
-                TNGS_SIMA.dbo.Vendedores_GetJefeVentas (vnd_cd6_cod) as vnd_des_jvta,
                 rtrim(sup_nom_nombre) + ' '+ sup_nom_apellido as vnd_nom_superv,
                 vnd_rcd_codtvend,
                 tvn_cd1_vemayor as vnd_cd1_vemayor,
                 tvn_des_des as vnd_des_tipovnd,
-                TNGS_SIMA.dbo.Vendedores_CantReservasAct (vnd_cd6_cod) as vnd_nro_resact,
-                tvn_nro_reservasmax as vnd_nro_resmax,
-                vnd_rcd_codmarca,
-                mrc_des_des as vnd_des_marca,
                 vnd_txt_horarios,
-                vnd_cod_codbaseop,
-                bop_des_des as vnd_des_baseop,
-                vnd_ede_mailremitente,
-                vnd_ede_nombreamostrar,
-                vnd_rcd_coddominio,
                 vnd_cd1_historico,
                 TNGS_Carm..Vendedores.instante,
                 TNGS_Carm..Vendedores.deleted,
@@ -312,8 +258,6 @@ begin
            from TNGS_Carm..Vendedores
                 join TNGS_Carm..TipoVend
                   on vnd_rcd_codtvend = tvn_rcd_cod
-                join TNGS_Carm..BasesOp
-                join TNGS_Carm..Marcas
                 join TNGS_Carm..Supervisores
                   on vnd_cd6_codsuperv = sup_cd6_cod
           where vnd_cd6_cod = @vnd_cd6_cod
@@ -345,16 +289,9 @@ go
 --- <param name="@vnd_tel_tel2">Telefono2</param>
 --- <param name="@vnd_fec_fecnacim">Fecha Nacimiento</param>
 --- <param name="@vnd_ede_direccion">Dirección</param>
---- <param name="@vnd_ede_email">Usuario Credencial Mail</param>
---- <param name="@vnd_ede_contrasenia">Contraseña</param>
 --- <param name="@vnd_cd6_codsuperv">Supervisor</param>
 --- <param name="@vnd_rcd_codtvend">Tipo Vendedor</param>
---- <param name="@vnd_rcd_codmarca">Marca</param>
 --- <param name="@vnd_txt_horarios">Horarios</param>
---- <param name="@vnd_cod_codbaseop">Base Operativa</param>
---- <param name="@vnd_ede_mailremitente">Mail Remitente</param>
---- <param name="@vnd_ede_nombreamostrar">Nombre a Mostrar</param>
---- <param name="@vnd_rcd_coddominio">Dominio</param>
 --- <param name="@vnd_cd1_historico">Es Historico</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
@@ -383,16 +320,9 @@ create procedure dbo.VENDEDORES_INSERT
 @vnd_tel_tel2 tngs_telefono,
 @vnd_fec_fecnacim tngs_fecha,
 @vnd_ede_direccion tngs_descripcion_e,
-@vnd_ede_email tngs_descripcion_e,
-@vnd_ede_contrasenia tngs_descripcion_e,
 @vnd_cd6_codsuperv tngs_codigo_6,
 @vnd_rcd_codtvend tngs_codigo_r,
-@vnd_rcd_codmarca tngs_codigo_r,
 @vnd_txt_horarios tngs_texto,
-@vnd_cod_codbaseop tngs_codigo,
-@vnd_ede_mailremitente tngs_descripcion_e,
-@vnd_ede_nombreamostrar tngs_descripcion_e,
-@vnd_rcd_coddominio tngs_codigo_r,
 @vnd_cd1_historico tngs_codigo_1,
 @usuario tngs_nombre
 )
@@ -410,16 +340,9 @@ begin
            @vnd_tel_tel2,
            @vnd_fec_fecnacim,
            @vnd_ede_direccion,
-           @vnd_ede_email,
-           @vnd_ede_contrasenia,
            @vnd_cd6_codsuperv,
            @vnd_rcd_codtvend,
-           @vnd_rcd_codmarca,
            @vnd_txt_horarios,
-           @vnd_cod_codbaseop,
-           @vnd_ede_mailremitente,
-           @vnd_ede_nombreamostrar,
-           @vnd_rcd_coddominio,
            @vnd_cd1_historico,
            getdate(), 0, @usuario, 1
           )
@@ -450,16 +373,9 @@ go
 --- <param name="@vnd_tel_tel2">Telefono2</param>
 --- <param name="@vnd_fec_fecnacim">Fecha Nacimiento</param>
 --- <param name="@vnd_ede_direccion">Dirección</param>
---- <param name="@vnd_ede_email">Usuario Credencial Mail</param>
---- <param name="@vnd_ede_contrasenia">Contraseña</param>
 --- <param name="@vnd_cd6_codsuperv">Supervisor</param>
 --- <param name="@vnd_rcd_codtvend">Tipo Vendedor</param>
---- <param name="@vnd_rcd_codmarca">Marca</param>
 --- <param name="@vnd_txt_horarios">Horarios</param>
---- <param name="@vnd_cod_codbaseop">Base Operativa</param>
---- <param name="@vnd_ede_mailremitente">Mail Remitente</param>
---- <param name="@vnd_ede_nombreamostrar">Nombre a Mostrar</param>
---- <param name="@vnd_rcd_coddominio">Dominio</param>
 --- <param name="@vnd_cd1_historico">Es Historico</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
@@ -488,16 +404,9 @@ create procedure dbo.VENDEDORES_UPDATE
 @vnd_tel_tel2 tngs_telefono,
 @vnd_fec_fecnacim tngs_fecha,
 @vnd_ede_direccion tngs_descripcion_e,
-@vnd_ede_email tngs_descripcion_e,
-@vnd_ede_contrasenia tngs_descripcion_e,
 @vnd_cd6_codsuperv tngs_codigo_6,
 @vnd_rcd_codtvend tngs_codigo_r,
-@vnd_rcd_codmarca tngs_codigo_r,
 @vnd_txt_horarios tngs_texto,
-@vnd_cod_codbaseop tngs_codigo,
-@vnd_ede_mailremitente tngs_descripcion_e,
-@vnd_ede_nombreamostrar tngs_descripcion_e,
-@vnd_rcd_coddominio tngs_codigo_r,
 @vnd_cd1_historico tngs_codigo_1,
 @usuario tngs_nombre
 )
@@ -513,16 +422,9 @@ begin
           vnd_tel_tel2= @vnd_tel_tel2,
           vnd_fec_fecnacim= @vnd_fec_fecnacim,
           vnd_ede_direccion= @vnd_ede_direccion,
-          vnd_ede_email= @vnd_ede_email,
-          vnd_ede_contrasenia= @vnd_ede_contrasenia,
           vnd_cd6_codsuperv= @vnd_cd6_codsuperv,
           vnd_rcd_codtvend= @vnd_rcd_codtvend,
-          vnd_rcd_codmarca= @vnd_rcd_codmarca,
           vnd_txt_horarios= @vnd_txt_horarios,
-          vnd_cod_codbaseop= @vnd_cod_codbaseop,
-          vnd_ede_mailremitente= @vnd_ede_mailremitente,
-          vnd_ede_nombreamostrar= @vnd_ede_nombreamostrar,
-          vnd_rcd_coddominio= @vnd_rcd_coddominio,
           vnd_cd1_historico= @vnd_cd1_historico,
           version = ((version+1) % 32767),
           instante= getdate(),
@@ -1074,24 +976,12 @@ begin
           vnd_tel_tel2,
           vnd_fec_fecnacim,
           vnd_ede_direccion,
-          vnd_ede_email,
-          vnd_ede_contrasenia,
           vnd_cd6_codsuperv,
-          TNGS_SIMA.dbo.Vendedores_GetJefeVentas (vnd_cd6_cod) as vnd_des_jvta,
           rtrim(sup_nom_nombre) + ' '+ sup_nom_apellido as vnd_nom_superv,
           vnd_rcd_codtvend,
           tvn_cd1_vemayor as vnd_cd1_vemayor,
           tvn_des_des as vnd_des_tipovnd,
-          TNGS_SIMA.dbo.Vendedores_CantReservasAct (vnd_cd6_cod) as vnd_nro_resact,
-          tvn_nro_reservasmax as vnd_nro_resmax,
-          vnd_rcd_codmarca,
-          mrc_des_des as vnd_des_marca,
           vnd_txt_horarios,
-          vnd_cod_codbaseop,
-          bop_des_des as vnd_des_baseop,
-          vnd_ede_mailremitente,
-          vnd_ede_nombreamostrar,
-          vnd_rcd_coddominio,
           vnd_cd1_historico,
           TNGS_Carm..Vendedores.instante,
           TNGS_Carm..Vendedores.deleted,
@@ -1100,8 +990,6 @@ begin
      from TNGS_Carm..Vendedores 
           join TNGS_Carm..TipoVend
             on vnd_rcd_codtvend = tvn_rcd_cod
-          join TNGS_Carm..BasesOp
-          join TNGS_Carm..Marcas
           join TNGS_Carm..Supervisores
             on vnd_cd6_codsuperv = sup_cd6_cod
    where vnd_nom_usuario = @usuario 

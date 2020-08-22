@@ -6,7 +6,7 @@ CliNotas
 CliServicios      
 CliVentas         
 Clientes            
-ConversionColores   
+ConversionColores   (not used on UIs, just in case we need it later)
 Franquicias     
 Localidades 
 LogClientes     

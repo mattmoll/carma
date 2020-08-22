@@ -8,8 +8,8 @@
     <ProjectGuid>{2DB928E6-300C-4110-A8A1-6B153CE0389A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sima.Bll</RootNamespace>
-    <AssemblyName>Sima.Bll</AssemblyName>
+    <RootNamespace>Carm.Bll</RootNamespace>
+    <AssemblyName>Carm.Bll</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

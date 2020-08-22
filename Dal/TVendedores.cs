@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 09/08/2020 22:10
+    // Fecha                    : 22/08/2020 00:52
     // Sistema                  : Carm
     // Clase para Administrar   : Tipos de vendedor
     // Basada en la Tabla       : TipoVend

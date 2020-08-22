@@ -19,7 +19,7 @@ namespace Carm.Tg
     //----------------------------------------------------------------------------
     //                         TNG Software PRG Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 02/08/2020 01:01
+    // Fecha                    : 22/08/2020 00:22
     // Sistema                  : Carm
     // Programa                 : Tablas Clasificadoras
     //----------------------------------------------------------------------------
@@ -156,6 +156,11 @@ namespace Carm.Tg
                 // *************************************************
                 // ** Menu: RR.HH.
                 // **
+                case "SUP"           : {new Supervisores().Show(); return;}
+                // **
+                case "TIPOVEND"      : {new TipoVendedores().Show(); return;}
+                // **
+                case "VEND"          : {new Vendedores().Show(); return;}
 
                 // *************************************************
                 // ** Menu: Comunicaciones
@@ -169,10 +174,16 @@ namespace Carm.Tg
                 // *************************************************
                 // ** Menu: Operativa
                 // **
+                case "FRQ"           : {new Franquicias().Show(); return;}
+                // **
+                case "SRV"           : {new Servicios().Show(); return;}
+                // **
+                case "PLNS"          : {new PlnServicios().Show(); return;}
+                // **
+                case "PRSRV"         : {new PreciosServicios().Show(); return;}
 
                 // *************************************************
                 // ** Menu: Clasificadores
-                // **
                 // **
                 case "TCONT"         : {new TipoConts().Show(); return;}
                 // **

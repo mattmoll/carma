@@ -687,6 +687,9 @@ namespace Carm.Bll
                                        ref ETipoVendedor p_entTipoVendedor,
                                        StatMsg p_smResult)
         {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
         }
 
         /// <summary>
@@ -704,6 +707,9 @@ namespace Carm.Bll
                                           ref int p_iFxdVersion,
                                           StatMsg p_smResult)
         {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
         }
 
         /// <summary>
@@ -719,6 +725,9 @@ namespace Carm.Bll
                                          int p_iFxdVersion,
                                          StatMsg p_smResult)
         {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
         }
 
         /// <summary>
@@ -732,7 +741,11 @@ namespace Carm.Bll
                                        ETipoVendedor p_entTipoVendedor,
                                        StatMsg p_smResult)
         {
+            // *********
+            // Agregar acá las validaciones adicionales
+            // *********
         }
+
 
         /// <summary>
         /// Agrega o modifica un registro de la tabla: TipoCont

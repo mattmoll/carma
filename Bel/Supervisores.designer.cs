@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:37
+    // Fecha                    : 22/08/2020 00:50
     // Sistema                  : Carm
     // Clase para Administrar   : Supervisores
     //----------------------------------------------------------------------------
@@ -84,7 +84,6 @@ namespace Carm.Bel
             l_drTemp["sup_nom_usuario"]= XMLRuts.ExtractXAttr(l_xndData, "sup_nom_usuario");
             l_drTemp["sup_tel_tel"]= XMLRuts.ExtractXAttr(l_xndData, "sup_tel_tel");
             l_drTemp["sup_tel_cel"]= XMLRuts.ExtractXAttr(l_xndData, "sup_tel_cel");
-            l_drTemp["sup_des_jvtas"]= XMLRuts.ExtractXAttr(l_xndData, "sup_des_jvtas");
             l_drTemp["sup_ede_nya"]= XMLRuts.ExtractXAttr(l_xndData, "sup_ede_nya");
 
             // Llenamos los campos fijos
@@ -135,7 +134,6 @@ namespace Carm.Bel
             l_drTemp["sup_nom_usuario"]= "";
             l_drTemp["sup_tel_tel"]= "";
             l_drTemp["sup_tel_cel"]= "";
-            l_drTemp["sup_des_jvtas"]= "";
             l_drTemp["sup_ede_nya"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
@@ -177,7 +175,6 @@ namespace Carm.Bel
             l_drTemp["sup_nom_usuario"]= p_strUsuario;
             l_drTemp["sup_tel_tel"]= p_strTel;
             l_drTemp["sup_tel_cel"]= p_strCel;
-            l_drTemp["sup_des_jvtas"]= "";
             l_drTemp["sup_ede_nya"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
@@ -204,17 +201,16 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[12];
+                DataColumn[] l_dcStruct= new DataColumn[11];
 
                 l_dcStruct[0]= new DataColumn("sup_cd6_cod", typeof(string));
                 l_dcStruct[1]= new DataColumn("sup_nom_apellido", typeof(string));
                 l_dcStruct[2]= new DataColumn("sup_nom_nombre", typeof(string));
                 l_dcStruct[3]= new DataColumn("sup_nom_usuario", typeof(string));
-                l_dcStruct[4]= new DataColumn("sup_des_jvtas", typeof(string));
-                l_dcStruct[5]= new DataColumn("sup_ede_nya", typeof(string));
-                l_dcStruct[6]= new DataColumn("sup_tel_tel", typeof(string));
-                l_dcStruct[7]= new DataColumn("sup_tel_cel", typeof(string));
-                ESupervisor.FillFixedFields(ref l_dcStruct, 8);
+                l_dcStruct[4]= new DataColumn("sup_ede_nya", typeof(string));
+                l_dcStruct[5]= new DataColumn("sup_tel_tel", typeof(string));
+                l_dcStruct[6]= new DataColumn("sup_tel_cel", typeof(string));
+                ESupervisor.FillFixedFields(ref l_dcStruct, 7);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -342,15 +338,6 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Jefe de Ventas
-        /// </summary>
-        public string Sup_des_jvtas
-        {
-            get {return (string) InternalData["sup_des_jvtas"];}
-            set {InternalData["sup_des_jvtas"]= value;}
-        }
-
-        /// <summary>
         /// Nom y Apellido
         /// </summary>
         public string Sup_ede_nya
@@ -384,7 +371,6 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "sup_nom_usuario", Usuario));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "sup_tel_tel", Tel));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "sup_tel_cel", Cel));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "sup_des_jvtas", Sup_des_jvtas));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "sup_ede_nya", Sup_ede_nya));
 
                 // Asignamos los campos fijos

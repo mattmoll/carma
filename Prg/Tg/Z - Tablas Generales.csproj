@@ -8,8 +8,8 @@
     <ProjectGuid>{289F5A64-7E24-40D1-877C-2EC485E34AB8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sima.Tg</RootNamespace>
-    <AssemblyName>Sima.Tg</AssemblyName>
+    <RootNamespace>Carm.Tg</RootNamespace>
+    <AssemblyName>Carm.Tg</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -177,6 +177,12 @@
       <DependentUpon>PrgRuts.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RR.HH\Supervisores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RR.HH\Supervisores.Designer.cs">
+      <DependentUpon>Supervisores.cs</DependentUpon>
+    </Compile>
     <Compile Include="RR.HH\TipoVendedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RR.HH\Supervisores.resx">
+      <DependentUpon>Supervisores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RR.HH\TipoVendedores.resx">
       <DependentUpon>TipoVendedores.cs</DependentUpon>
     </EmbeddedResource>

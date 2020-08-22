@@ -8,8 +8,8 @@
     <ProjectGuid>{ADB33A4B-53FB-4950-B11D-EAEC285D8DF8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sima.Dal</RootNamespace>
-    <AssemblyName>Sima.Dal</AssemblyName>
+    <RootNamespace>Carm.Dal</RootNamespace>
+    <AssemblyName>Carm.Dal</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

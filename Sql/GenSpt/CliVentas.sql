@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : CliVentas
 //----------------------------------------------------------------------------
@@ -61,7 +61,6 @@ begin
                 clv_imp_abono,
                 clv_nro_cantcapitas,
                 clv_imp_valorcapita,
-                clv_rcd_codmarca,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
@@ -86,7 +85,6 @@ begin
                 clv_imp_abono,
                 clv_nro_cantcapitas,
                 clv_imp_valorcapita,
-                clv_rcd_codmarca,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
@@ -205,7 +203,6 @@ begin
                 clv_imp_abono,
                 clv_nro_cantcapitas,
                 clv_imp_valorcapita,
-                clv_rcd_codmarca,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
@@ -230,7 +227,6 @@ begin
                 clv_imp_abono,
                 clv_nro_cantcapitas,
                 clv_imp_valorcapita,
-                clv_rcd_codmarca,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
@@ -297,7 +293,6 @@ begin
                 clv_imp_abono,
                 clv_nro_cantcapitas,
                 clv_imp_valorcapita,
-                clv_rcd_codmarca,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
@@ -322,7 +317,6 @@ begin
                 clv_imp_abono,
                 clv_nro_cantcapitas,
                 clv_imp_valorcapita,
-                clv_rcd_codmarca,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
@@ -360,7 +354,6 @@ go
 --- <param name="@clv_imp_abono">Abono</param>
 --- <param name="@clv_nro_cantcapitas">Capitas</param>
 --- <param name="@clv_imp_valorcapita">Valor Capita</param>
---- <param name="@clv_rcd_codmarca">Marca</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -386,7 +379,6 @@ create procedure dbo.CLIVENTAS_INSERT
 @clv_imp_abono tngs_importe,
 @clv_nro_cantcapitas tngs_numero,
 @clv_imp_valorcapita tngs_importe,
-@clv_rcd_codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -401,7 +393,6 @@ begin
            @clv_imp_abono,
            @clv_nro_cantcapitas,
            @clv_imp_valorcapita,
-           @clv_rcd_codmarca,
            getdate(), 0, @usuario, 1
           )
 
@@ -429,7 +420,6 @@ go
 --- <param name="@clv_imp_abono">Abono</param>
 --- <param name="@clv_nro_cantcapitas">Capitas</param>
 --- <param name="@clv_imp_valorcapita">Valor Capita</param>
---- <param name="@clv_rcd_codmarca">Marca</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -455,7 +445,6 @@ create procedure dbo.CLIVENTAS_UPDATE
 @clv_imp_abono tngs_importe,
 @clv_nro_cantcapitas tngs_numero,
 @clv_imp_valorcapita tngs_importe,
-@clv_rcd_codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -467,7 +456,6 @@ begin
           clv_imp_abono= @clv_imp_abono,
           clv_nro_cantcapitas= @clv_nro_cantcapitas,
           clv_imp_valorcapita= @clv_imp_valorcapita,
-          clv_rcd_codmarca= @clv_rcd_codmarca,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario

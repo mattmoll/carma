@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Planes
 //----------------------------------------------------------------------------
@@ -56,15 +56,12 @@ begin
                 pln_des_des,
                 pln_cod_codplanavalon,
                 pln_d80_tcontratoavalon,
-                pln_rcd_codmarca,
-                mrc_des_des as pln_des_marca,
                 TNGS_Carm..Planes.instante,
                 TNGS_Carm..Planes.deleted,
                 TNGS_Carm..Planes.usuario,
                 TNGS_Carm..Planes.version
            from TNGS_Carm..Planes
-                join TNGS_Carm..Marcas
-          where TNGS_Carm..Planes.deleted = 0
+          where deleted = 0
           order by pln_cod_cod
       end
    else
@@ -73,14 +70,11 @@ begin
                 pln_des_des,
                 pln_cod_codplanavalon,
                 pln_d80_tcontratoavalon,
-                pln_rcd_codmarca,
-                mrc_des_des as pln_des_marca,
                 TNGS_Carm..Planes.instante,
                 TNGS_Carm..Planes.deleted,
                 TNGS_Carm..Planes.usuario,
                 TNGS_Carm..Planes.version
            from TNGS_Carm..Planes
-                join TNGS_Carm..Marcas
           order by pln_cod_cod
       end
 
@@ -179,16 +173,13 @@ begin
                 pln_des_des,
                 pln_cod_codplanavalon,
                 pln_d80_tcontratoavalon,
-                pln_rcd_codmarca,
-                mrc_des_des as pln_des_marca,
                 TNGS_Carm..Planes.instante,
                 TNGS_Carm..Planes.deleted,
                 TNGS_Carm..Planes.usuario,
                 TNGS_Carm..Planes.version
            from TNGS_Carm..Planes
-                join TNGS_Carm..Marcas
           where pln_cod_cod = @pln_cod_cod
-            and TNGS_Carm..Planes.deleted = 0
+            and deleted = 0
       end
    else
       begin
@@ -196,14 +187,11 @@ begin
                 pln_des_des,
                 pln_cod_codplanavalon,
                 pln_d80_tcontratoavalon,
-                pln_rcd_codmarca,
-                mrc_des_des as pln_des_marca,
                 TNGS_Carm..Planes.instante,
                 TNGS_Carm..Planes.deleted,
                 TNGS_Carm..Planes.usuario,
                 TNGS_Carm..Planes.version
            from TNGS_Carm..Planes
-                join TNGS_Carm..Marcas
           where pln_cod_cod = @pln_cod_cod
       end
 
@@ -271,7 +259,6 @@ go
 --- <param name="@pln_des_des">Descripción</param>
 --- <param name="@pln_cod_codplanavalon">Cod Plan Avalon</param>
 --- <param name="@pln_d80_tcontratoavalon">Lista de T Contratos Avalon</param>
---- <param name="@pln_rcd_codmarca">Marca</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -294,7 +281,6 @@ create procedure dbo.PLANES_INSERT
 @pln_des_des tngs_descripcion,
 @pln_cod_codplanavalon tngs_codigo,
 @pln_d80_tcontratoavalon tngs_descripcion_80,
-@pln_rcd_codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -306,7 +292,6 @@ begin
            @pln_des_des,
            @pln_cod_codplanavalon,
            @pln_d80_tcontratoavalon,
-           @pln_rcd_codmarca,
            getdate(), 0, @usuario, 1
           )
 
@@ -331,7 +316,6 @@ go
 --- <param name="@pln_des_des">Descripción</param>
 --- <param name="@pln_cod_codplanavalon">Cod Plan Avalon</param>
 --- <param name="@pln_d80_tcontratoavalon">Lista de T Contratos Avalon</param>
---- <param name="@pln_rcd_codmarca">Marca</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -354,7 +338,6 @@ create procedure dbo.PLANES_UPDATE
 @pln_des_des tngs_descripcion,
 @pln_cod_codplanavalon tngs_codigo,
 @pln_d80_tcontratoavalon tngs_descripcion_80,
-@pln_rcd_codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -364,7 +347,6 @@ begin
       set pln_des_des= @pln_des_des,
           pln_cod_codplanavalon= @pln_cod_codplanavalon,
           pln_d80_tcontratoavalon= @pln_d80_tcontratoavalon,
-          pln_rcd_codmarca= @pln_rcd_codmarca,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario

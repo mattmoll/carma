@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : TipoVend
 //----------------------------------------------------------------------------
@@ -53,10 +53,7 @@ begin
    if @onlyactive = 1
       begin
          Select tvn_rcd_cod,
-                tvn_cd1_nivel,
                 tvn_des_des,
-                tvn_nro_vtasminimas,
-                tvn_nro_reservasmax,
                 tvn_cd1_vemayor,
                 TNGS_Carm..TipoVend.instante,
                 TNGS_Carm..TipoVend.deleted,
@@ -69,10 +66,7 @@ begin
    else
       begin
          Select tvn_rcd_cod,
-                tvn_cd1_nivel,
                 tvn_des_des,
-                tvn_nro_vtasminimas,
-                tvn_nro_reservasmax,
                 tvn_cd1_vemayor,
                 TNGS_Carm..TipoVend.instante,
                 TNGS_Carm..TipoVend.deleted,
@@ -174,10 +168,7 @@ begin
    if @onlyactive = 1
       begin
          Select tvn_rcd_cod,
-                tvn_cd1_nivel,
                 tvn_des_des,
-                tvn_nro_vtasminimas,
-                tvn_nro_reservasmax,
                 tvn_cd1_vemayor,
                 TNGS_Carm..TipoVend.instante,
                 TNGS_Carm..TipoVend.deleted,
@@ -190,10 +181,7 @@ begin
    else
       begin
          Select tvn_rcd_cod,
-                tvn_cd1_nivel,
                 tvn_des_des,
-                tvn_nro_vtasminimas,
-                tvn_nro_reservasmax,
                 tvn_cd1_vemayor,
                 TNGS_Carm..TipoVend.instante,
                 TNGS_Carm..TipoVend.deleted,
@@ -264,10 +252,7 @@ go
 --- Inserta un registro en la tabla
 --- </summary>
 --- <param name="@tvn_rcd_cod">Codigo</param>
---- <param name="@tvn_cd1_nivel">Nivel</param>
 --- <param name="@tvn_des_des">Descripcion</param>
---- <param name="@tvn_nro_vtasminimas">Ventas Minimas</param>
---- <param name="@tvn_nro_reservasmax">Reservas Maximas</param>
 --- <param name="@tvn_cd1_vemayor">Ve Mayoristas</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
@@ -288,10 +273,7 @@ go
 create procedure dbo.TIPOVEND_INSERT
 (
 @tvn_rcd_cod tngs_codigo_r,
-@tvn_cd1_nivel tngs_codigo_1,
 @tvn_des_des tngs_descripcion,
-@tvn_nro_vtasminimas tngs_numero,
-@tvn_nro_reservasmax tngs_numero,
 @tvn_cd1_vemayor tngs_codigo_1,
 @usuario tngs_nombre
 )
@@ -301,10 +283,7 @@ begin
    Insert into TNGS_Carm..TipoVend
    values (
            @tvn_rcd_cod,
-           @tvn_cd1_nivel,
            @tvn_des_des,
-           @tvn_nro_vtasminimas,
-           @tvn_nro_reservasmax,
            @tvn_cd1_vemayor,
            getdate(), 0, @usuario, 1
           )
@@ -327,10 +306,7 @@ go
 --- Actualiza un registro de la tabla
 --- </summary>
 --- <param name="@tvn_rcd_cod">Codigo</param>
---- <param name="@tvn_cd1_nivel">Nivel</param>
 --- <param name="@tvn_des_des">Descripcion</param>
---- <param name="@tvn_nro_vtasminimas">Ventas Minimas</param>
---- <param name="@tvn_nro_reservasmax">Reservas Maximas</param>
 --- <param name="@tvn_cd1_vemayor">Ve Mayoristas</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
@@ -351,10 +327,7 @@ go
 create procedure dbo.TIPOVEND_UPDATE
 (
 @tvn_rcd_cod tngs_codigo_r,
-@tvn_cd1_nivel tngs_codigo_1,
 @tvn_des_des tngs_descripcion,
-@tvn_nro_vtasminimas tngs_numero,
-@tvn_nro_reservasmax tngs_numero,
 @tvn_cd1_vemayor tngs_codigo_1,
 @usuario tngs_nombre
 )
@@ -362,10 +335,7 @@ as
 begin
 
    Update TNGS_Carm..TipoVend
-      set tvn_cd1_nivel= @tvn_cd1_nivel,
-          tvn_des_des= @tvn_des_des,
-          tvn_nro_vtasminimas= @tvn_nro_vtasminimas,
-          tvn_nro_reservasmax= @tvn_nro_reservasmax,
+      set tvn_des_des= @tvn_des_des,
           tvn_cd1_vemayor= @tvn_cd1_vemayor,
           version = ((version+1) % 32767),
           instante= getdate(),

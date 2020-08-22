@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -61,7 +61,6 @@ begin
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
-                cli_nro_treservado,
                 cli_tel_telefono1,
                 cli_tel_celular,
                 cli_tel_telefono2,
@@ -79,8 +78,6 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_fec_finires,
-                cli_fec_ffinres,
                 cli_cd1_extension,
                 cli_ede_horarios,
                 cli_fec_fingsima,
@@ -90,10 +87,6 @@ begin
                 cli_txt_observacion,
                 cli_xld_email,
                 cli_nro_nroavalon,
-                cli_rcd_codmarca,
-                isnull(mrc_des_des,'') as cli_des_marca,
-                cli_cod_codcompetencia,
-                isnull(cmp_ede_empresa,'') as cli_des_comp,
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
@@ -104,12 +97,10 @@ begin
            from TNGS_Carm..Clientes
                 join TNGS_Carm..TipoInst
                   on cli_cod_codtinst = tin_cod_cod
-                left outer join TNGS_Carm..Competencia
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
-                left outer join TNGS_Carm..Marcas
           where TNGS_Carm..Clientes.deleted = 0
           order by cli_nro_numero
       end
@@ -124,7 +115,6 @@ begin
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
-                cli_nro_treservado,
                 cli_tel_telefono1,
                 cli_tel_celular,
                 cli_tel_telefono2,
@@ -142,8 +132,6 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_fec_finires,
-                cli_fec_ffinres,
                 cli_cd1_extension,
                 cli_ede_horarios,
                 cli_fec_fingsima,
@@ -153,10 +141,6 @@ begin
                 cli_txt_observacion,
                 cli_xld_email,
                 cli_nro_nroavalon,
-                cli_rcd_codmarca,
-                isnull(mrc_des_des,'') as cli_des_marca,
-                cli_cod_codcompetencia,
-                isnull(cmp_ede_empresa,'') as cli_des_comp,
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
@@ -167,12 +151,10 @@ begin
            from TNGS_Carm..Clientes
                 join TNGS_Carm..TipoInst
                   on cli_cod_codtinst = tin_cod_cod
-                left outer join TNGS_Carm..Competencia
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
-                left outer join TNGS_Carm..Marcas
           order by cli_nro_numero
       end
 
@@ -276,7 +258,6 @@ begin
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
-                cli_nro_treservado,
                 cli_tel_telefono1,
                 cli_tel_celular,
                 cli_tel_telefono2,
@@ -294,8 +275,6 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_fec_finires,
-                cli_fec_ffinres,
                 cli_cd1_extension,
                 cli_ede_horarios,
                 cli_fec_fingsima,
@@ -305,10 +284,6 @@ begin
                 cli_txt_observacion,
                 cli_xld_email,
                 cli_nro_nroavalon,
-                cli_rcd_codmarca,
-                isnull(mrc_des_des,'') as cli_des_marca,
-                cli_cod_codcompetencia,
-                isnull(cmp_ede_empresa,'') as cli_des_comp,
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
@@ -319,12 +294,10 @@ begin
            from TNGS_Carm..Clientes
                 join TNGS_Carm..TipoInst
                   on cli_cod_codtinst = tin_cod_cod
-                left outer join TNGS_Carm..Competencia
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
-                left outer join TNGS_Carm..Marcas
           where cli_nro_numero = @cli_nro_numero
             and TNGS_Carm..Clientes.deleted = 0
       end
@@ -339,7 +312,6 @@ begin
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
-                cli_nro_treservado,
                 cli_tel_telefono1,
                 cli_tel_celular,
                 cli_tel_telefono2,
@@ -357,8 +329,6 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_fec_finires,
-                cli_fec_ffinres,
                 cli_cd1_extension,
                 cli_ede_horarios,
                 cli_fec_fingsima,
@@ -368,10 +338,6 @@ begin
                 cli_txt_observacion,
                 cli_xld_email,
                 cli_nro_nroavalon,
-                cli_rcd_codmarca,
-                isnull(mrc_des_des,'') as cli_des_marca,
-                cli_cod_codcompetencia,
-                isnull(cmp_ede_empresa,'') as cli_des_comp,
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
@@ -382,12 +348,10 @@ begin
            from TNGS_Carm..Clientes
                 join TNGS_Carm..TipoInst
                   on cli_cod_codtinst = tin_cod_cod
-                left outer join TNGS_Carm..Competencia
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
-                left outer join TNGS_Carm..Marcas
           where cli_nro_numero = @cli_nro_numero
       end
 
@@ -414,7 +378,6 @@ go
 --- <param name="@cli_cod_codtinst">Tipo de Institucion</param>
 --- <param name="@cli_cod_codfrq">Franquicia</param>
 --- <param name="@cli_cd1_alta">Alta en Avalon</param>
---- <param name="@cli_nro_treservado">Tiempo Reservado</param>
 --- <param name="@cli_tel_telefono1">Teléfono 1</param>
 --- <param name="@cli_tel_celular">Celular</param>
 --- <param name="@cli_tel_telefono2">Teléfono 2</param>
@@ -427,8 +390,6 @@ go
 --- <param name="@cli_des_cuil">Cuil</param>
 --- <param name="@cli_xld_url">Url</param>
 --- <param name="@cli_cd6_codvend">Código de vendedor</param>
---- <param name="@cli_fec_finires">Fecha inicio reserva</param>
---- <param name="@cli_fec_ffinres">Fecha fin reserva</param>
 --- <param name="@cli_cd1_extension">Extensión</param>
 --- <param name="@cli_ede_horarios">Horarios</param>
 --- <param name="@cli_fec_fingsima">Fecha de ingreso</param>
@@ -438,8 +399,6 @@ go
 --- <param name="@cli_txt_observacion">Observacion</param>
 --- <param name="@cli_xld_email">E-Mail</param>
 --- <param name="@cli_nro_nroavalon">Número Avalon</param>
---- <param name="@cli_rcd_codmarca">Marca</param>
---- <param name="@cli_cod_codcompetencia">Competencia</param>
 --- <param name="@cli_imp_abono">Abono</param>
 --- <param name="@cli_rcd_codtipocont">Tipo Contrato</param>
 --- <param name="@cli_imp_deuda">Deuda</param>
@@ -467,7 +426,6 @@ create procedure dbo.CLIENTES_INSERT
 @cli_cod_codtinst tngs_codigo,
 @cli_cod_codfrq tngs_codigo,
 @cli_cd1_alta tngs_codigo_1,
-@cli_nro_treservado tngs_numero,
 @cli_tel_telefono1 tngs_telefono,
 @cli_tel_celular tngs_telefono,
 @cli_tel_telefono2 tngs_telefono,
@@ -480,8 +438,6 @@ create procedure dbo.CLIENTES_INSERT
 @cli_des_cuil tngs_descripcion,
 @cli_xld_url tngs_descripcion_xl,
 @cli_cd6_codvend tngs_codigo_6,
-@cli_fec_finires tngs_fecha,
-@cli_fec_ffinres tngs_fecha,
 @cli_cd1_extension tngs_codigo_1,
 @cli_ede_horarios tngs_descripcion_e,
 @cli_fec_fingsima tngs_fecha,
@@ -491,8 +447,6 @@ create procedure dbo.CLIENTES_INSERT
 @cli_txt_observacion tngs_texto,
 @cli_xld_email tngs_descripcion_xl,
 @cli_nro_nroavalon tngs_numero,
-@cli_rcd_codmarca tngs_codigo_r,
-@cli_cod_codcompetencia tngs_codigo,
 @cli_imp_abono tngs_importe,
 @cli_rcd_codtipocont tngs_codigo_r,
 @cli_imp_deuda tngs_importe,
@@ -509,7 +463,6 @@ begin
            @cli_cod_codtinst,
            @cli_cod_codfrq,
            @cli_cd1_alta,
-           @cli_nro_treservado,
            @cli_tel_telefono1,
            @cli_tel_celular,
            @cli_tel_telefono2,
@@ -522,8 +475,6 @@ begin
            @cli_des_cuil,
            @cli_xld_url,
            @cli_cd6_codvend,
-           @cli_fec_finires,
-           @cli_fec_ffinres,
            @cli_cd1_extension,
            @cli_ede_horarios,
            @cli_fec_fingsima,
@@ -533,8 +484,6 @@ begin
            @cli_txt_observacion,
            @cli_xld_email,
            @cli_nro_nroavalon,
-           @cli_rcd_codmarca,
-           @cli_cod_codcompetencia,
            @cli_imp_abono,
            @cli_rcd_codtipocont,
            @cli_imp_deuda,
@@ -564,7 +513,6 @@ go
 --- <param name="@cli_cod_codtinst">Tipo de Institucion</param>
 --- <param name="@cli_cod_codfrq">Franquicia</param>
 --- <param name="@cli_cd1_alta">Alta en Avalon</param>
---- <param name="@cli_nro_treservado">Tiempo Reservado</param>
 --- <param name="@cli_tel_telefono1">Teléfono 1</param>
 --- <param name="@cli_tel_celular">Celular</param>
 --- <param name="@cli_tel_telefono2">Teléfono 2</param>
@@ -577,8 +525,6 @@ go
 --- <param name="@cli_des_cuil">Cuil</param>
 --- <param name="@cli_xld_url">Url</param>
 --- <param name="@cli_cd6_codvend">Código de vendedor</param>
---- <param name="@cli_fec_finires">Fecha inicio reserva</param>
---- <param name="@cli_fec_ffinres">Fecha fin reserva</param>
 --- <param name="@cli_cd1_extension">Extensión</param>
 --- <param name="@cli_ede_horarios">Horarios</param>
 --- <param name="@cli_fec_fingsima">Fecha de ingreso</param>
@@ -588,8 +534,6 @@ go
 --- <param name="@cli_txt_observacion">Observacion</param>
 --- <param name="@cli_xld_email">E-Mail</param>
 --- <param name="@cli_nro_nroavalon">Número Avalon</param>
---- <param name="@cli_rcd_codmarca">Marca</param>
---- <param name="@cli_cod_codcompetencia">Competencia</param>
 --- <param name="@cli_imp_abono">Abono</param>
 --- <param name="@cli_rcd_codtipocont">Tipo Contrato</param>
 --- <param name="@cli_imp_deuda">Deuda</param>
@@ -617,7 +561,6 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_cod_codtinst tngs_codigo,
 @cli_cod_codfrq tngs_codigo,
 @cli_cd1_alta tngs_codigo_1,
-@cli_nro_treservado tngs_numero,
 @cli_tel_telefono1 tngs_telefono,
 @cli_tel_celular tngs_telefono,
 @cli_tel_telefono2 tngs_telefono,
@@ -630,8 +573,6 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_des_cuil tngs_descripcion,
 @cli_xld_url tngs_descripcion_xl,
 @cli_cd6_codvend tngs_codigo_6,
-@cli_fec_finires tngs_fecha,
-@cli_fec_ffinres tngs_fecha,
 @cli_cd1_extension tngs_codigo_1,
 @cli_ede_horarios tngs_descripcion_e,
 @cli_fec_fingsima tngs_fecha,
@@ -641,8 +582,6 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_txt_observacion tngs_texto,
 @cli_xld_email tngs_descripcion_xl,
 @cli_nro_nroavalon tngs_numero,
-@cli_rcd_codmarca tngs_codigo_r,
-@cli_cod_codcompetencia tngs_codigo,
 @cli_imp_abono tngs_importe,
 @cli_rcd_codtipocont tngs_codigo_r,
 @cli_imp_deuda tngs_importe,
@@ -657,7 +596,6 @@ begin
           cli_cod_codtinst= @cli_cod_codtinst,
           cli_cod_codfrq= @cli_cod_codfrq,
           cli_cd1_alta= @cli_cd1_alta,
-          cli_nro_treservado= @cli_nro_treservado,
           cli_tel_telefono1= @cli_tel_telefono1,
           cli_tel_celular= @cli_tel_celular,
           cli_tel_telefono2= @cli_tel_telefono2,
@@ -670,8 +608,6 @@ begin
           cli_des_cuil= @cli_des_cuil,
           cli_xld_url= @cli_xld_url,
           cli_cd6_codvend= @cli_cd6_codvend,
-          cli_fec_finires= @cli_fec_finires,
-          cli_fec_ffinres= @cli_fec_ffinres,
           cli_cd1_extension= @cli_cd1_extension,
           cli_ede_horarios= @cli_ede_horarios,
           cli_fec_fingsima= @cli_fec_fingsima,
@@ -681,8 +617,6 @@ begin
           cli_txt_observacion= @cli_txt_observacion,
           cli_xld_email= @cli_xld_email,
           cli_nro_nroavalon= @cli_nro_nroavalon,
-          cli_rcd_codmarca= @cli_rcd_codmarca,
-          cli_cod_codcompetencia= @cli_cod_codcompetencia,
           cli_imp_abono= @cli_imp_abono,
           cli_rcd_codtipocont= @cli_rcd_codtipocont,
           cli_imp_deuda= @cli_imp_deuda,
@@ -2507,7 +2441,6 @@ begin
           cli_cod_codfrq,
           isnull(frq_des_des,'') as cli_des_frq,
           cli_cd1_alta,
-          cli_nro_treservado,
           cli_tel_telefono1,
           cli_tel_celular,
           cli_tel_telefono2,
@@ -2525,8 +2458,6 @@ begin
           cli_des_cuil,
           cli_xld_url,
           cli_cd6_codvend,
-          cli_fec_finires,
-          cli_fec_ffinres,
           cli_cd1_extension,
           cli_ede_horarios,
           cli_fec_fingsima,
@@ -2536,10 +2467,6 @@ begin
           cli_txt_observacion,
           cli_xld_email,
           cli_nro_nroavalon,
-          cli_rcd_codmarca,
-          isnull(mrc_des_des,'') as cli_des_marca,
-          cli_cod_codcompetencia,
-          isnull(cmp_ede_empresa,'') as cli_des_comp,
           cli_imp_abono,
           cli_rcd_codtipocont,
           cli_imp_deuda,
@@ -2550,12 +2477,10 @@ begin
      from TNGS_Carm..Clientes 
           join TNGS_Carm..TipoInst
             on cli_cod_codtinst = tin_cod_cod
-          left outer join TNGS_Carm..Competencia
           left outer join TNGS_Carm..Franquicias
             on cli_cod_codfrq = frq_cod_cod
           join TNGS_Carm..Localidades
             on cli_ecd_codlocalidad = loc_ecd_codpost
-          left outer join TNGS_Carm..Marcas
    join Solicitudes on cli_nro_numero = sol_nro_numcliente 
    where sol_cd1_estado = 'C' and sol_cd6_codvend = @codvend and sol_fyh_fgeneracion between @fechaini and @fechafin 
 

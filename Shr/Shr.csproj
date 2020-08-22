@@ -8,8 +8,8 @@
     <ProjectGuid>{722B9DD4-BAF2-4308-A5AA-1A83A8D0D052}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sima.Shr</RootNamespace>
-    <AssemblyName>Sima.Shr</AssemblyName>
+    <RootNamespace>Carm.Shr</RootNamespace>
+    <AssemblyName>Carm.Shr</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

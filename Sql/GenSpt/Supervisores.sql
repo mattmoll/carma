@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 25/07/2020 18:14
+// Fecha       : 22/08/2020 00:49
 // Sistema     : Carm
 // Tabla       : Supervisores
 //----------------------------------------------------------------------------
@@ -56,18 +56,15 @@ begin
                 sup_nom_apellido,
                 sup_nom_nombre,
                 sup_nom_usuario,
-                rtrim(jvt_nom_nombre) + ' '+ jvt_nom_apellido as sup_des_jvtas,
                 ltrim(rtrim(sup_nom_apellido)) + ' ' + ltrim(rtrim(sup_nom_nombre)) as sup_ede_nya,
                 sup_tel_tel,
                 sup_tel_cel,
-                sup_cd6_codjefevtas,
                 TNGS_Carm..Supervisores.instante,
                 TNGS_Carm..Supervisores.deleted,
                 TNGS_Carm..Supervisores.usuario,
                 TNGS_Carm..Supervisores.version
            from TNGS_Carm..Supervisores
-                join TNGS_Carm..JefesVentas
-          where TNGS_Carm..Supervisores.deleted = 0
+          where deleted = 0
           order by sup_cd6_cod
       end
    else
@@ -76,17 +73,14 @@ begin
                 sup_nom_apellido,
                 sup_nom_nombre,
                 sup_nom_usuario,
-                rtrim(jvt_nom_nombre) + ' '+ jvt_nom_apellido as sup_des_jvtas,
                 ltrim(rtrim(sup_nom_apellido)) + ' ' + ltrim(rtrim(sup_nom_nombre)) as sup_ede_nya,
                 sup_tel_tel,
                 sup_tel_cel,
-                sup_cd6_codjefevtas,
                 TNGS_Carm..Supervisores.instante,
                 TNGS_Carm..Supervisores.deleted,
                 TNGS_Carm..Supervisores.usuario,
                 TNGS_Carm..Supervisores.version
            from TNGS_Carm..Supervisores
-                join TNGS_Carm..JefesVentas
           order by sup_cd6_cod
       end
 
@@ -185,19 +179,16 @@ begin
                 sup_nom_apellido,
                 sup_nom_nombre,
                 sup_nom_usuario,
-                rtrim(jvt_nom_nombre) + ' '+ jvt_nom_apellido as sup_des_jvtas,
                 ltrim(rtrim(sup_nom_apellido)) + ' ' + ltrim(rtrim(sup_nom_nombre)) as sup_ede_nya,
                 sup_tel_tel,
                 sup_tel_cel,
-                sup_cd6_codjefevtas,
                 TNGS_Carm..Supervisores.instante,
                 TNGS_Carm..Supervisores.deleted,
                 TNGS_Carm..Supervisores.usuario,
                 TNGS_Carm..Supervisores.version
            from TNGS_Carm..Supervisores
-                join TNGS_Carm..JefesVentas
           where sup_cd6_cod = @sup_cd6_cod
-            and TNGS_Carm..Supervisores.deleted = 0
+            and deleted = 0
       end
    else
       begin
@@ -205,17 +196,14 @@ begin
                 sup_nom_apellido,
                 sup_nom_nombre,
                 sup_nom_usuario,
-                rtrim(jvt_nom_nombre) + ' '+ jvt_nom_apellido as sup_des_jvtas,
                 ltrim(rtrim(sup_nom_apellido)) + ' ' + ltrim(rtrim(sup_nom_nombre)) as sup_ede_nya,
                 sup_tel_tel,
                 sup_tel_cel,
-                sup_cd6_codjefevtas,
                 TNGS_Carm..Supervisores.instante,
                 TNGS_Carm..Supervisores.deleted,
                 TNGS_Carm..Supervisores.usuario,
                 TNGS_Carm..Supervisores.version
            from TNGS_Carm..Supervisores
-                join TNGS_Carm..JefesVentas
           where sup_cd6_cod = @sup_cd6_cod
       end
 
@@ -242,7 +230,6 @@ go
 --- <param name="@sup_nom_usuario">Usuario del Sistema</param>
 --- <param name="@sup_tel_tel">Télefono</param>
 --- <param name="@sup_tel_cel">Celular</param>
---- <param name="@sup_cd6_codjefevtas">Jefe de Ventas</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -267,7 +254,6 @@ create procedure dbo.SUPERVISORES_INSERT
 @sup_nom_usuario tngs_nombre,
 @sup_tel_tel tngs_telefono,
 @sup_tel_cel tngs_telefono,
-@sup_cd6_codjefevtas tngs_codigo_6,
 @usuario tngs_nombre
 )
 as
@@ -281,7 +267,6 @@ begin
            @sup_nom_usuario,
            @sup_tel_tel,
            @sup_tel_cel,
-           @sup_cd6_codjefevtas,
            getdate(), 0, @usuario, 1
           )
 
@@ -308,7 +293,6 @@ go
 --- <param name="@sup_nom_usuario">Usuario del Sistema</param>
 --- <param name="@sup_tel_tel">Télefono</param>
 --- <param name="@sup_tel_cel">Celular</param>
---- <param name="@sup_cd6_codjefevtas">Jefe de Ventas</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -333,7 +317,6 @@ create procedure dbo.SUPERVISORES_UPDATE
 @sup_nom_usuario tngs_nombre,
 @sup_tel_tel tngs_telefono,
 @sup_tel_cel tngs_telefono,
-@sup_cd6_codjefevtas tngs_codigo_6,
 @usuario tngs_nombre
 )
 as
@@ -345,7 +328,6 @@ begin
           sup_nom_usuario= @sup_nom_usuario,
           sup_tel_tel= @sup_tel_tel,
           sup_tel_cel= @sup_tel_cel,
-          sup_cd6_codjefevtas= @sup_cd6_codjefevtas,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario

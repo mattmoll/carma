@@ -7,8 +7,8 @@
     <ProjectGuid>{B1CD76AC-D1A1-4D43-81C5-77627B0E83EE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sima.Bel</RootNamespace>
-    <AssemblyName>Sima.Bel</AssemblyName>
+    <RootNamespace>Carm.Bel</RootNamespace>
+    <AssemblyName>Carm.Bel</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
