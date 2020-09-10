@@ -41,5 +41,35 @@ namespace Carm.Ad
 
         }
 
+        private void gbBusqueda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbDetalle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbLlamada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbVenta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbBorrarCliente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbCargarCliente_Click(object sender, EventArgs e)
+        {
+            CargaCliente cargaClienteForm = new CargaCliente();
+            cargaClienteForm.ShowDialog(this);
+        }
     }
 }

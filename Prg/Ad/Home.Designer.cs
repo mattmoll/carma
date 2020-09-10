@@ -161,6 +161,7 @@
             this.gbBusqueda.Text = "Busqueda";
             this.gbBusqueda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.gbBusqueda.W8Color = System.Drawing.Color.Gray;
+            this.gbBusqueda.Click += new System.EventHandler(this.gbBusqueda_Click);
             // 
             // gbDetalle
             // 
@@ -183,6 +184,7 @@
             this.gbDetalle.Text = "Detalle";
             this.gbDetalle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.gbDetalle.W8Color = System.Drawing.Color.LimeGreen;
+            this.gbDetalle.Click += new System.EventHandler(this.gbDetalle_Click);
             // 
             // gbLlamada
             // 
@@ -205,6 +207,7 @@
             this.gbLlamada.Text = "Llamada";
             this.gbLlamada.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.gbLlamada.W8Color = System.Drawing.Color.LimeGreen;
+            this.gbLlamada.Click += new System.EventHandler(this.gbLlamada_Click);
             // 
             // gbVenta
             // 
@@ -227,6 +230,7 @@
             this.gbVenta.Text = "Venta";
             this.gbVenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.gbVenta.W8Color = System.Drawing.Color.LimeGreen;
+            this.gbVenta.Click += new System.EventHandler(this.gbVenta_Click);
             // 
             // gbCargarCliente
             // 
@@ -249,6 +253,7 @@
             this.gbCargarCliente.Text = "Nuevo Cliente";
             this.gbCargarCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.gbCargarCliente.W8Color = System.Drawing.Color.DodgerBlue;
+            this.gbCargarCliente.Click += new System.EventHandler(this.gbCargarCliente_Click);
             // 
             // gbBorrarCliente
             // 
@@ -271,6 +276,7 @@
             this.gbBorrarCliente.Text = "Borrar";
             this.gbBorrarCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.gbBorrarCliente.W8Color = System.Drawing.Color.Red;
+            this.gbBorrarCliente.Click += new System.EventHandler(this.gbBorrarCliente_Click);
             // 
             // Home
             // 

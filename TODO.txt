@@ -1,6 +1,9 @@
 - Test both Tablas Generales and Reports.
 
-- Generate Admin program.
+- Bring all the forms I need from Sima.
 
-- Copy Merlin views and mdofiy them according to the proposal document.
+- Make the 3 big screens (client, phone call and interview) work for addition and edition.
+
+- Then make the Details popup show all the info in a read only manner. Buttons to edit and add show the corresponding
+big screen on top passing the id and it will retrieve the entity from DB and update in on close.
 
