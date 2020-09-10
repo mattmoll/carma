@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Carm.Bll;
-using TNGS.NetAppBll;
+using TNGS.NetApp;
 using TNGS.NetRoutines;
 using TNGS.NetControls;
 
-namespace Carm.Shr
+namespace Carm.Ad
 {
     public partial class BusquedaClientes : Form
     {
@@ -22,10 +22,10 @@ namespace Carm.Shr
         ListaEntidades m_leTiposInsts;
         ListaEntidades m_leLocalidades;
 
-        Bll.BusquedaSecretaria m_bsBusqueda;
+        Bll.BusquedaAdministracion m_bsBusqueda;
 
         // Constructor 
-        public BusquedaClientes(Bll.BusquedaSecretaria p_bsUltimaBusqueda)
+        public BusquedaClientes(Bll.BusquedaAdministracion p_bsUltimaBusqueda)
         {
             InitializeComponent();
 
@@ -36,28 +36,28 @@ namespace Carm.Shr
         // Evento de load del form que se encarga de cargar todo en pantalla
         private void BusquedaClientesSecretaria_Load(object sender, EventArgs e)
         {
-            AppRuts.App_ShowMsg("Cargando...");
+            App.ShowMsg("Cargando...");
 
             // Trae todas las franquicias existentes a un comboBox
             m_leFranquicias = Tablas.FrqUpFull(false, m_smResult);
-            if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
+            if (MsgRuts.AnalizeError(this, m_smResult)) return;
             cargaCombo(m_leFranquicias, cmbFranquicias, Bel.EFranquicia.CodCmp, Bel.EFranquicia.DesCmp);
 
             // Trae todas los rubros existentes a un comboBox
             m_leRubros = Tablas.RbrUpFull(false, m_smResult);
-            if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
+            if (MsgRuts.AnalizeError(this, m_smResult)) return;
             filtraRubros();
             cargaCombo(m_leRubros,cmbRubros,Bel.ERubro.CodCmp, Bel.ERubro.DesCmp);
 
             // Trae todas las tipos de instituciones existentes a una comboBox.
             m_leTiposInsts = Tablas.TinUpFull(false, m_smResult);
-            if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
+            if (MsgRuts.AnalizeError(this, m_smResult)) return;
             filtraTiposInst();
             cargaCombo(m_leTiposInsts, cmbTiposInsts, Bel.ETipoInst.CodCmp, Bel.ETipoInst.DesCmp);
 
             // Trae todas las zonas existentes a un comboBox
             m_leZonas = Tablas.ZnsUpFull(false, m_smResult);
-            if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
+            if (MsgRuts.AnalizeError(this, m_smResult)) return;
             cargaCombo(m_leZonas, cmbZonas, Bel.EZona.CodCmp, Bel.EZona.NombreCmp);
 
             // Mostramos en pantalla los filtros cargados.
@@ -67,6 +67,7 @@ namespace Carm.Shr
             teNombreFant.Text = m_bsBusqueda.NFant;
             teCargador.Text = m_bsBusqueda.Cargador;
             teCodVend.Text = m_bsBusqueda.CodVend;
+            cdcMarcas.SelectedStrCode = m_bsBusqueda.Marca.PadLeft(2, ' ');
             cmbFranquicias.SelectedStrCode = m_bsBusqueda.Franq.PadLeft(4, ' ');
             cmbRubros.SelectedStrCode = m_bsBusqueda.Rubro.PadLeft(2, ' ');
             cmbTiposInsts.SelectedStrCode = m_bsBusqueda.TInst.PadLeft(4, ' ');
@@ -80,27 +81,31 @@ namespace Carm.Shr
             checkRadioButton(m_bsBusqueda.Vendido, rbVndSi, rbVndNo, rbVndAmbos);
             checkRadioButton(m_bsBusqueda.Mayorista, rbMaySi, rbMayNo, rbMayAmbos);
 
-            AppRuts.App_HideMsg();
+            App.HideMsg();
         }
 
         #region Eventos
-
-        // Evento del click del boton que dispara la busqueda definida en pantalla
-        private void gbBuscar_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
             // Obtenemos las condiciones especificadas por el usuario.
             cargarDatosDePantallaAModelo();
-            
+
 
             //Si todos los campos están vacios, tirar mensaje de error y cancelar búsqueda
             if (m_bsBusqueda.busquedaVacia())
             {
-                AppRuts.MsgRuts_ShowMsg(this, "Debe especificar al menos un parámetro para la búsqueda, no es factible traer todos los clientes sin filtro alguno.");
+                MsgRuts.ShowMsg(this, "Debe especificar al menos un parámetro para la búsqueda, no es factible traer todos los clientes sin filtro alguno.");
                 return;
             }
 
             this.DialogResult = DialogResult.OK;
 
+            this.Close();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -112,6 +117,7 @@ namespace Carm.Shr
             m_bsBusqueda.NFant = teNombreFant.Text.Trim();
             m_bsBusqueda.CodVend = teCodVend.Text.Trim();
             m_bsBusqueda.Cargador = teCargador.Text.Trim();
+            m_bsBusqueda.Marca = cdcMarcas.SelectedStrCode.ToString().Trim();
             m_bsBusqueda.Franq = cmbFranquicias.SelectedStrCode.ToString().Trim();
             m_bsBusqueda.Rubro = cmbRubros.SelectedStrCode.ToString().Trim();
             m_bsBusqueda.TInst = cmbTiposInsts.SelectedStrCode.ToString().Trim();
@@ -128,45 +134,44 @@ namespace Carm.Shr
             // Si es el enter, disparamos la busqueda.
             if (e.KeyChar == '\r')
             {
-                gbBuscar_Click(sender, e);
+                btnBuscar_Click(sender, e);
             }
         }
 
         // Evento de cambio del index de la combo de rubros que trae las t inst correspondientes
         private void cmbRubros_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AppRuts.App_ShowMsg("Cargando...");
+            App.ShowMsg("Cargando...");
 
             // Cuando cambia de rubro, traer los tipos de institución pertenecientes
             m_leTiposInsts = Tablas.TinGetTiposInstRubro(cmbRubros.SelectedStrCode, m_smResult);
-            if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
+            if (MsgRuts.AnalizeError(this, m_smResult)) return;
             m_leTiposInsts.AddExprColumn("Deleted", typeof(decimal), "0");
             filtraTiposInst();
             cmbTiposInsts.FillFromStrLEntidad(m_leTiposInsts, "tin_cod_cod", "tin_des_des", "Deleted");
             cmbTiposInsts.AddStrCD("", "", 0);
             cmbTiposInsts.SelectedStrCode = "";
 
-            AppRuts.App_HideMsg();
+            App.HideMsg();
         }
 
         // Evento de cambio del indez de la combo de zonas que trae las localidades correspondientes
         private void cmbZonas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AppRuts.App_ShowMsg("Cargando...");
+            App.ShowMsg("Cargando...");
 
             // Cuando cambia de zona, traer las localidades pertenecientes
             m_leLocalidades = Tablas.LocGetLocalidadesZona(cmbZonas.SelectedStrCode, m_smResult);
-            if (AppRuts.MsgRuts_AnalizeError(this, m_smResult)) return;
+            if (MsgRuts.AnalizeError(this, m_smResult)) return;
             m_leLocalidades.AddExprColumn("Deleted", typeof(decimal), "0");
             cmbLocalidades.FillFromStrLEntidad(m_leLocalidades, "loc_ecd_codpost", "loc_ede_nombre", "Deleted");
             cmbLocalidades.AddStrCD("", "", 0);
             cmbLocalidades.SelectedStrCode = "";
 
-            AppRuts.App_HideMsg();
+            App.HideMsg();
         }
 
         #region Eventos para el cambio de checked de los radiobutton (un evento por cada grupo de radiobuttons)
-
 
         private void rbCheckedVendChanged(object sender, EventArgs e)
         {
@@ -177,7 +182,6 @@ namespace Carm.Shr
         {
             m_bsBusqueda.Mayorista = cargaValorRadioButton(rbMaySi, rbMayNo, rbMayAmbos);
         }
-
 
         #endregion
 
@@ -234,44 +238,12 @@ namespace Carm.Shr
 
 
         // Propiedades
-        public BusquedaSecretaria filtrosBusqueda
+        public BusquedaAdministracion filtrosBusqueda
         {
             get { return m_bsBusqueda; }
         }
 
-        private void gbBusquedaExistencial_Click(object sender, EventArgs e)
-        {
-            // Obtenemos las condiciones especificadas por el usuario.
-            cargarDatosDePantallaAModelo();
 
-            //Si todos los campos están vacios, tirar mensaje de error y cancelar búsqueda
-            if (m_bsBusqueda.busquedaVacia())
-            {
-                AppRuts.MsgRuts_ShowMsg(this, "Debe especificar al menos un parámetro para la búsqueda, no es factible traer todos los clientes sin filtro alguno.");
-                return;
-            }
-            
-            // Para busqueda existencial necesitamos que no se filtre ningun cliente (deshabilitamos esquema de permisos).
-            bool estadoPermisos = m_bsBusqueda.aplicarPermisos;
-            m_bsBusqueda.aplicarPermisos = false;
-            ListaEntidades l_leClientes = Bll.Clientes.fGetClientesSecretaria(m_bsBusqueda, m_smResult);
-            m_bsBusqueda.aplicarPermisos = estadoPermisos;
 
-            // Si no hay clientes.
-            if (l_leClientes.Count == 0)
-                AppRuts.MsgRuts_ShowMsg(this, "La busqueda que usted realizo no trajo ningun cliente. Por lo tanto el mismo no está cargado, " +
-                                       "al menos con esos datos exactos, en la base de datos.");
-            else
-                AppRuts.MsgRuts_ShowMsg(this, "Existe al menos un cliente que cumple con la busqueda realizada. " +
-                                      "Si no puede verlo en las busquedas normales es debido al esquema de permisos.");
-            
-
-        }
-
-        private void gbCancelar_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
     }
 }

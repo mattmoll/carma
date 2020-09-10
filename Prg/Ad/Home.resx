@@ -184,4 +184,46 @@
         nwweYV0AAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="cmdExcel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAADvSURBVDhPpdPPBgJRFMfxISLa
+        RquI3qBtq4ho1aoHiGjVNlq1atsqeoCIVhE9QNvoAaJVRNuIiPr+ODdmutMMHT7cc+/8uefMncATBTQx
+        xBJH1BAbbYyxwRkvjwaqHiV4b4jqe+bkDu9CVAdzbI3Ga2jt62If14OWUWhOa6GLynhiijxcT+JKkM/g
+        gAxm0JeYwK25Jg6Mxl2EHiB6UxYVPGxOUveghxxUys3mJNUDdkqIBVS/DpJbSyxB29W265brYKkUnULl
+        iU3Udve4Wq4DovxiearP+MvfBymuBJX+/88UjSL0O4+wwgmuB5EIgjcHFqZvx4eBxwAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <data name="gbRemoverFiltros.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAAEJSURBVDhPY0ACTkBcDcTrgPgM
+        EJ8H4v9QfAkqthGI64DYA4jhAMSBKZgAxGlAHALExkAsCsRCUHYgEIPkQGqOAfENqBjDcyDOATFIBCDD
+        voEYH4AY5MwDQFwKxK5ArAjE6AAkBpIDqdkLxDDvMTQicUjFIO+AATmGwDXDACmGYGiGAWIMwakZBlAM
+        EeDj+y8tJfWfEUmzjqYmMxDPB+IoEB8bgBsiA9QMVPhfSV7+BlQjCC8FiQHxIrBqHAAcvSCbZaSlwYZA
+        NcI0g2hmiFLsAJY+wIZoa2isgmokSjMIoBuwHMmARUQbQLEXYIEI9QJJgdgFxK8EBQS+KMrL3wRphAjD
+        oxHoDc1YALqtmUrLb8OYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="gbAgregarFiltros.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAACxSURBVDhPY0ACTkBcDcTrgPgM
+        EJ8H4v9QfAkqthGI64DYA4jhAMSBKZgAxGlAHALExkAsCsRCUHYgEIPkQGqOAfENqBjDcyDOATFIBCDD
+        voEYH4AY5MwDQFwKxK5ArAjE6AAkBpIDqdkLxDDvMTQicUjFIO+AATmGwDXDACmGYGiGAWIMwakZBvAZ
+        QlAzDGAzhGjNMACLXhjmB2KSwKgBDAxdQPwKiN8C8TSQACZgYAAAHK5r757OJNoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="gbActualizar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAAEBSURBVDhPxZPBagIxEIYDQqGn
+        noRevQqFgiAUCp58J08+QKFQKPgqgiD4AEJPvXryDQRBEPT7QiLuanZ76w8fySYzs0lmJtxRD75gDSfY
+        pfknvEBRDzCBPehYwkDaVuTCAjQ4wDeM4RmeYAQzcE+bOXRgClE6uLGFVxcKegNttP1JY+jDEYze5Jw1
+        hHySGCD/3fEv8tjZOQb4TZN3P1pUd44B/l/1I/m6pq9JXldbr19xXoF5b1Pl4a8DmOc2Wc6m0dRbAtFx
+        k0aLZAAlWSe5kC5p/wBLeQlu5FK2fB+hC5a1a7lPtL3pB41tFA2asCe0Lco7GsgWziXra9vitXYO4QxR
+        K1zpWcbSLwAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

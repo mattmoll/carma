@@ -22,7 +22,7 @@ namespace Carm.Shr
         public enum formMode { cambioVisibilidad = 0, seleccionClientesMails, cambioVendidos };
 
         StatMsg m_smResult = new StatMsg();
-        BusquedaSecretaria m_bsBusqueda = new BusquedaSecretaria();
+        BusquedaAdministracion m_bsBusqueda = new BusquedaAdministracion();
         formMode modoFormulario;
 
         private enum cambioVisibilidad { habilitar, deshabilitar };
@@ -63,6 +63,7 @@ namespace Carm.Shr
 
         private void gbAgregarFiltros_Click(object sender, EventArgs e)
         {
+            /*
             BusquedaClientes l_fArmaFiltros;
 
             // Instanciamos el form con el objeto busqueda
@@ -78,6 +79,7 @@ namespace Carm.Shr
                 // Actualizamos la grilla.
                 cargarClientes();
             }
+            */
         }
 
         private void gbAgregarVisibilidad_Click(object sender, EventArgs e)
@@ -178,7 +180,7 @@ namespace Carm.Shr
         private void reiniciarForm()
         {
             flCantidad.Text = "";
-            m_bsBusqueda = new BusquedaSecretaria();
+            m_bsBusqueda = new BusquedaAdministracion();
             cdcMarcas.SelectedStrCode = "";
             mrClientes.Clear();
 

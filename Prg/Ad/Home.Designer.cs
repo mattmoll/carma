@@ -35,16 +35,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.dragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.fgKm = new TNGS.NetControls.FullGrid();
-            this.fullLabel1 = new TNGS.NetControls.FullLabel();
             this.gbBusqueda = new TNGS.NetControls.GlassButton();
             this.gbDetalle = new TNGS.NetControls.GlassButton();
             this.gbLlamada = new TNGS.NetControls.GlassButton();
             this.gbVenta = new TNGS.NetControls.GlassButton();
             this.gbCargarCliente = new TNGS.NetControls.GlassButton();
             this.gbBorrarCliente = new TNGS.NetControls.GlassButton();
+            this.mrClientes = new TNGS.NetControls.MiniReport();
+            this.lblCantReg = new TNGS.NetControls.FullLabel();
+            this.fullLabel4 = new TNGS.NetControls.FullLabel();
+            this.cmdExcel = new TNGS.NetControls.GlassButton();
+            this.gbRemoverFiltros = new TNGS.NetControls.GlassButton();
+            this.gbAgregarFiltros = new TNGS.NetControls.GlassButton();
+            this.gbActualizar = new TNGS.NetControls.GlassButton();
             this.topPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fgKm)).BeginInit();
             this.SuspendLayout();
             // 
             // topPanel
@@ -109,36 +113,6 @@
             this.dragControl.Horizontal = true;
             this.dragControl.TargetControl = this.topPanel;
             this.dragControl.Vertical = true;
-            // 
-            // fgKm
-            // 
-            this.fgKm.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.fgKm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fgKm.CaptionBackColor = System.Drawing.Color.DodgerBlue;
-            this.fgKm.CaptionFilterColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.fgKm.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.fgKm.CaptionVisible = false;
-            this.fgKm.DataMember = "";
-            this.fgKm.ExcelName = "Datos Exportados";
-            this.fgKm.ExcelTitle = "";
-            this.fgKm.GridOrder = "";
-            this.fgKm.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-            this.fgKm.Location = new System.Drawing.Point(12, 156);
-            this.fgKm.Name = "fgKm";
-            this.fgKm.Size = new System.Drawing.Size(1000, 529);
-            this.fgKm.SkinFixed = true;
-            this.fgKm.TabIndex = 61;
-            // 
-            // fullLabel1
-            // 
-            this.fullLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel1.Location = new System.Drawing.Point(9, 136);
-            this.fullLabel1.Name = "fullLabel1";
-            this.fullLabel1.Size = new System.Drawing.Size(140, 15);
-            this.fullLabel1.TabIndex = 62;
-            this.fullLabel1.Text = "Resultados Busqueda";
-            this.fullLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbBusqueda
             // 
@@ -278,19 +252,155 @@
             this.gbBorrarCliente.W8Color = System.Drawing.Color.Red;
             this.gbBorrarCliente.Click += new System.EventHandler(this.gbBorrarCliente_Click);
             // 
+            // mrClientes
+            // 
+            this.mrClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mrClientes.BackColor = System.Drawing.Color.Transparent;
+            this.mrClientes.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mrClientes.Location = new System.Drawing.Point(12, 138);
+            this.mrClientes.Name = "mrClientes";
+            this.mrClientes.ShowExcel = false;
+            this.mrClientes.ShowFilter = false;
+            this.mrClientes.ShowPrtAll = false;
+            this.mrClientes.ShowPrtOne = false;
+            this.mrClientes.ShowZoom = false;
+            this.mrClientes.Size = new System.Drawing.Size(1000, 547);
+            this.mrClientes.SkinFixed = true;
+            this.mrClientes.TabIndex = 69;
+            this.mrClientes.TextPrtDetalle = " ";
+            // 
+            // lblCantReg
+            // 
+            this.lblCantReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCantReg.BackColor = System.Drawing.Color.Transparent;
+            this.lblCantReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantReg.Location = new System.Drawing.Point(175, 143);
+            this.lblCantReg.Name = "lblCantReg";
+            this.lblCantReg.Size = new System.Drawing.Size(102, 17);
+            this.lblCantReg.TabIndex = 71;
+            // 
+            // fullLabel4
+            // 
+            this.fullLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.fullLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel4.Location = new System.Drawing.Point(12, 143);
+            this.fullLabel4.Name = "fullLabel4";
+            this.fullLabel4.Size = new System.Drawing.Size(167, 17);
+            this.fullLabel4.TabIndex = 70;
+            this.fullLabel4.Text = "Cantidad de Registros:";
+            // 
+            // cmdExcel
+            // 
+            this.cmdExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdExcel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdExcel.BackgroundImage")));
+            this.cmdExcel.BlackBorder = true;
+            this.cmdExcel.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.cmdExcel.CircleButton = false;
+            this.cmdExcel.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.fExcel;
+            this.cmdExcel.FlatColor = System.Drawing.Color.LimeGreen;
+            this.cmdExcel.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
+            this.cmdExcel.FlatFontSize = 9;
+            this.cmdExcel.FlatTextColor = System.Drawing.Color.Black;
+            this.cmdExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmdExcel.Location = new System.Drawing.Point(878, 140);
+            this.cmdExcel.Name = "cmdExcel";
+            this.cmdExcel.PCode = "EXCELADMIN";
+            this.cmdExcel.RoundCorners = 2;
+            this.cmdExcel.Size = new System.Drawing.Size(26, 24);
+            this.cmdExcel.TabIndex = 72;
+            this.cmdExcel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdExcel.W8Color = System.Drawing.Color.LimeGreen;
+            this.cmdExcel.Click += new System.EventHandler(this.cmdExcel_Click);
+            // 
+            // gbRemoverFiltros
+            // 
+            this.gbRemoverFiltros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbRemoverFiltros.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbRemoverFiltros.BackgroundImage")));
+            this.gbRemoverFiltros.BlackBorder = true;
+            this.gbRemoverFiltros.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbRemoverFiltros.CircleButton = false;
+            this.gbRemoverFiltros.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.fUnfilter;
+            this.gbRemoverFiltros.FlatColor = System.Drawing.SystemColors.HotTrack;
+            this.gbRemoverFiltros.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.None;
+            this.gbRemoverFiltros.FlatFontSize = 9;
+            this.gbRemoverFiltros.FlatTextColor = System.Drawing.Color.Black;
+            this.gbRemoverFiltros.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbRemoverFiltros.Location = new System.Drawing.Point(981, 140);
+            this.gbRemoverFiltros.Name = "gbRemoverFiltros";
+            this.gbRemoverFiltros.RoundCorners = 2;
+            this.gbRemoverFiltros.Size = new System.Drawing.Size(26, 24);
+            this.gbRemoverFiltros.TabIndex = 75;
+            this.gbRemoverFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gbRemoverFiltros.ToolTipText = "Remover Filtros";
+            this.gbRemoverFiltros.W8Color = System.Drawing.SystemColors.HotTrack;
+            this.gbRemoverFiltros.Click += new System.EventHandler(this.gbRemoverFiltros_Click);
+            // 
+            // gbAgregarFiltros
+            // 
+            this.gbAgregarFiltros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbAgregarFiltros.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbAgregarFiltros.BackgroundImage")));
+            this.gbAgregarFiltros.BlackBorder = true;
+            this.gbAgregarFiltros.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbAgregarFiltros.CircleButton = false;
+            this.gbAgregarFiltros.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.fFilter;
+            this.gbAgregarFiltros.FlatColor = System.Drawing.SystemColors.HotTrack;
+            this.gbAgregarFiltros.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.None;
+            this.gbAgregarFiltros.FlatFontSize = 9;
+            this.gbAgregarFiltros.FlatTextColor = System.Drawing.Color.Black;
+            this.gbAgregarFiltros.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbAgregarFiltros.Location = new System.Drawing.Point(949, 140);
+            this.gbAgregarFiltros.Name = "gbAgregarFiltros";
+            this.gbAgregarFiltros.RoundCorners = 2;
+            this.gbAgregarFiltros.Size = new System.Drawing.Size(26, 24);
+            this.gbAgregarFiltros.TabIndex = 74;
+            this.gbAgregarFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gbAgregarFiltros.ToolTipText = "Agregar Filtros a la busqueda";
+            this.gbAgregarFiltros.W8Color = System.Drawing.SystemColors.HotTrack;
+            this.gbAgregarFiltros.Click += new System.EventHandler(this.gbAgregarFiltros_Click);
+            // 
+            // gbActualizar
+            // 
+            this.gbActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbActualizar.BackgroundImage")));
+            this.gbActualizar.BlackBorder = true;
+            this.gbActualizar.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbActualizar.CircleButton = false;
+            this.gbActualizar.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.fRefresh;
+            this.gbActualizar.FlatColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.gbActualizar.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Aceptar;
+            this.gbActualizar.FlatFontSize = 9;
+            this.gbActualizar.FlatTextColor = System.Drawing.Color.Black;
+            this.gbActualizar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbActualizar.Location = new System.Drawing.Point(912, 140);
+            this.gbActualizar.Name = "gbActualizar";
+            this.gbActualizar.RoundCorners = 2;
+            this.gbActualizar.Size = new System.Drawing.Size(26, 24);
+            this.gbActualizar.TabIndex = 73;
+            this.gbActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gbActualizar.W8Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.gbActualizar.Click += new System.EventHandler(this.gbActualizar_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 693);
+            this.Controls.Add(this.cmdExcel);
+            this.Controls.Add(this.gbRemoverFiltros);
+            this.Controls.Add(this.gbAgregarFiltros);
+            this.Controls.Add(this.gbActualizar);
+            this.Controls.Add(this.lblCantReg);
+            this.Controls.Add(this.fullLabel4);
+            this.Controls.Add(this.mrClientes);
             this.Controls.Add(this.gbBorrarCliente);
             this.Controls.Add(this.gbCargarCliente);
             this.Controls.Add(this.gbVenta);
             this.Controls.Add(this.gbLlamada);
             this.Controls.Add(this.gbDetalle);
             this.Controls.Add(this.gbBusqueda);
-            this.Controls.Add(this.fgKm);
-            this.Controls.Add(this.fullLabel1);
             this.Controls.Add(this.topPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -302,7 +412,6 @@
             this.Load += new System.EventHandler(this.Home_Load);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fgKm)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -314,13 +423,18 @@
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuDragControl dragControl;
         private System.Windows.Forms.Button btnMinimize;
-        private TNGS.NetControls.FullGrid fgKm;
-        private TNGS.NetControls.FullLabel fullLabel1;
         private TNGS.NetControls.GlassButton gbBusqueda;
         private TNGS.NetControls.GlassButton gbDetalle;
         private TNGS.NetControls.GlassButton gbLlamada;
         private TNGS.NetControls.GlassButton gbVenta;
         private TNGS.NetControls.GlassButton gbCargarCliente;
         private TNGS.NetControls.GlassButton gbBorrarCliente;
+        private TNGS.NetControls.MiniReport mrClientes;
+        private TNGS.NetControls.FullLabel lblCantReg;
+        private TNGS.NetControls.FullLabel fullLabel4;
+        private TNGS.NetControls.GlassButton cmdExcel;
+        private TNGS.NetControls.GlassButton gbRemoverFiltros;
+        private TNGS.NetControls.GlassButton gbAgregarFiltros;
+        private TNGS.NetControls.GlassButton gbActualizar;
     }
 }

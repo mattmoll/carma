@@ -173,7 +173,7 @@ namespace Carm.Bll
         /// <param name="p_smResult">StatMsg</param>
         /// <returns></returns>
         public static ListaEntidades fGetClientesSecretaria(
-                                                            BusquedaSecretaria p_bsBusqueda,
+                                                            BusquedaAdministracion p_bsBusqueda,
                                                             StatMsg p_smResult
                                                             )
         {
@@ -199,11 +199,9 @@ namespace Carm.Bll
 
                 // Armamos los where de campos que validan Ambos-Si-No con el metodo generico
                 makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Reservado, ECliente.CodvendCmp, "", ref l_strWhere);
-                makeWhereEvaluandoPropertyNumberMode(p_bsBusqueda.ConError, "Clientes.deleted", 0, ref l_strWhere);
                 makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Vendido, ECliente.AltaCmp, "N", ref l_strWhere);
                 makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Mayorista, ETipoInst.MayoristaCmp, "N", ref l_strWhere);
                 makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.MailCargado, ECliente.EmailCmp, "",  ref l_strWhere);
-                makeWhereEvaluandoPropertyNumberMode(p_bsBusqueda.Deudor, ECliente.DeudaCmp, 0, ref l_strWhere);
 
                 l_strWhere = AppRuts.RemoveRAnd(l_strWhere);
 

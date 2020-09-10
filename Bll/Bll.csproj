@@ -73,7 +73,7 @@
     <Compile Include="BllRuts.designer.cs">
       <DependentUpon>BllRuts.cs</DependentUpon>
     </Compile>
-    <Compile Include="ObjetosSoporte\BusquedaSecretaria.cs" />
+    <Compile Include="ObjetosSoporte\BusquedaAdministracion.cs" />
     <Compile Include="Clientes.cs" />
     <Compile Include="Clientes.designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>

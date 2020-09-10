@@ -19,7 +19,7 @@ namespace Carm.Ad
     //----------------------------------------------------------------------------
     //                         TNG Software PRG Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 09/09/2020 21:19
+    // Fecha                    : 10/09/2020 01:08
     // Sistema                  : Carm
     // Programa                 : Administración
     //----------------------------------------------------------------------------
@@ -62,7 +62,7 @@ namespace Carm.Ad
                 App.EnableXPStyle();
 
                 // Definimos el skin
-                TNGSSkin.ChangeSkin(FixedSkins.Office14);
+                TNGSSkin.ChangeSkin(FixedSkins.ModernUI);
 
                 // Llamamos al PreInit del Shr y del Programa
                 if (!SysRuts.PreInit()) return;
@@ -70,8 +70,7 @@ namespace Carm.Ad
 
 #if (!DEBUG)
                 // Mostramos la ventana Splash (con la imagen interna del programa)
-                App.ShowSplash((Bitmap)(l_rmApp.GetObject("AppSplash")), false, 296, 
-                               (Bitmap)(l_rmApp.GetObject("AppSplashMarquee")));
+                App.ShowSplash((Bitmap)(l_rmApp.GetObject("AppSplash")), false, -1, null);
 #endif
 
                 // Inicializamos nuestra clase App
@@ -101,14 +100,11 @@ namespace Carm.Ad
             }
 
             try {
-                // Creamos la ventana MDI de la aplicacion
-                MainFrame l_frmMain= new MainFrame(MFSizes.MF1024x768, 0, false, true, true);
+                // Ejecutamos la funcion que construye la pantalla principal
+                PrgRuts.MakeMainFrame();
 
                 // Fijamos la imagen de Login/Pasword
                 App.FdoLoginPassw= App.Imagen("AppLogPassw");
-
-                // Ejecutamos la funcion que arma la info de About
-                PrgRuts.MakeAboutInfo();
 
                 // Llamamos al PreRun del Shr y del Programa
                 if (!SysRuts.PreRun()) return;
@@ -120,7 +116,7 @@ namespace Carm.Ad
 
                 App.Run(LoginModes.Full,
                         IMenuOptions.None,
-                        ExitModes.Normal,
+                        ExitModes.Confirm,
                         l_smResult);
             }
             catch (Exception l_expData) {

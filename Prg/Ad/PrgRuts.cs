@@ -33,14 +33,16 @@ namespace Carm.Ad
         /// </summary>
         public static void AutoExec()
         {
-            // Creamos el DockManager
-            ((MainFrame) App.GetMainWindow()).CreateDockManager();
-
             // Liberamos el menu
             App.LockMenu(false);
             App.HideMsg();
+
         }
 
+        internal static void MakeMainFrame()
+        {
+            Home home = new Home();
+        }
         /// <summary>
         /// Metodo de fin del programa
         /// </summary>

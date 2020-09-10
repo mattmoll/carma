@@ -3,7 +3,7 @@ using TNGS.NetAppBll;
 
 namespace Carm.Bll
 {
-    public class BusquedaSecretaria
+    public class BusquedaAdministracion
     {
         StatMsg m_smResult = new StatMsg();
 
@@ -23,20 +23,15 @@ namespace Carm.Bll
         public string CodVend { get; set; }
         public string Dir { get; set; }
         public string Reservado { get; set; }
-        public string ConError { get; set; }
         public string Vendido { get; set; }
-        public string Deudor { get; set; }
         public string Mayorista { get; set; }
-        public string Competencia { get; set; }
         public string MailCargado { get; set; }
         public string Telefono { get; set; }
-        public string codMarcaCliente { get; set; }
-        public string codMarcaUsuario { get; set; }
 
         public bool aplicarPermisos = true;
 
         // Constructor que inicializa los filtros.
-        public BusquedaSecretaria()
+        public BusquedaAdministracion()
         {
             limpiarBusqueda();
         }
@@ -49,19 +44,17 @@ namespace Carm.Bll
             return ((Numero == "") && (NumeroAvalon == "") && (Rsocial == "") && (NFant == "") && (CodVend == "")
                     && (Cargador == "") && (m_strFranq == "") && (m_strRubro == "") && (m_strTInst == "")
                     && (m_strZona == "") && (m_strLoc == "") && (Dir == "") && (Altura == "") && (Telefono == "")
-                    && (codMarcaCliente == "") && (codMarcaUsuario == "") && (Marca == "") 
-                    && ((Reservado == "") || (Reservado == "A")) && ((ConError == "") || (ConError == "A"))
+                    && (Marca == "")
+                    && ((Reservado == "") || (Reservado == "A"))
                     && ((Vendido == "") || (Vendido == "A")) && ((Mayorista == "") || (Mayorista == "A"))
-                    && ((Competencia == "") || (Competencia == "A")) && ((MailCargado == "") || (MailCargado == "A"))
-                    && ((Deudor == "") || (Deudor == "A")));
+                    && ((MailCargado == "") || (MailCargado == "A")));
         }
 
         public void limpiarBusqueda()
         {
             // Asignamos string vacia a todos los filtros de la busqueda.
             Numero = NumeroAvalon = Rsocial = NFant = CodVend = Cargador = Franq = Rubro = TInst = Marca = Telefono = Zona = Loc = Dir = Altura = "";
-            codMarcaCliente = codMarcaUsuario = "";
-            Reservado = ConError = Vendido = Mayorista = Competencia = MailCargado = Deudor = "A";
+            Reservado  = Vendido = Mayorista  = MailCargado = "A";
         }
 
         public string Numero
