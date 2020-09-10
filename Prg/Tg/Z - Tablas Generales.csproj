@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Carm.Tg</RootNamespace>
     <AssemblyName>Carm.Tg</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -33,26 +34,47 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>
     </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bohman.MonthCalendar.520">
+    <Reference Include="Bohman.MonthCalendar.520, Version=1.8.2.0, Culture=neutral, PublicKeyToken=9d22151b1b463438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\Bohman.MonthCalendar.520.dll</HintPath>
     </Reference>
-    <Reference Include="MikeHankey.XPControlLib.520">
+    <Reference Include="MigraDoc.DocumentObjectModel-gdi.520, Version=1.50.4740.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\MigraDoc.DocumentObjectModel-gdi.520.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering-gdi.520, Version=1.50.4740.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\MigraDoc.Rendering-gdi.520.dll</HintPath>
+    </Reference>
+    <Reference Include="MikeHankey.XPControlLib.520, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\MikeHankey.XPControlLib.520.dll</HintPath>
     </Reference>
-    <Reference Include="MS.TabStripControlLibrary.520">
+    <Reference Include="MS.TabStripControlLibrary.520, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\MS.TabStripControlLibrary.520.dll</HintPath>
     </Reference>
     <Reference Include="netchartdir, Version=5.0.3.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\netchartdir.dll</HintPath>
     </Reference>
-    <Reference Include="PS.TaskDialog.520">
+    <Reference Include="PdfSharp-gdi.520, Version=1.50.4740.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\PdfSharp-gdi.520.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting-gdi.520, Version=1.50.4740.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\PdfSharp.Charting-gdi.520.dll</HintPath>
+    </Reference>
+    <Reference Include="PS.TaskDialog.520, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\PS.TaskDialog.520.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -61,28 +83,40 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TNGS.NetApp.520">
+    <Reference Include="TNGS.NetApp.520, Version=5.20.7557.38069, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\TNGS.NetApp.520.dll</HintPath>
     </Reference>
-    <Reference Include="TNGS.NetAppSupport.520">
-      <HintPath>C:\DiscoT\Ambiente0520\DNet0520\Release_Uil\TNGS.NetAppSupport.520.dll</HintPath>
+    <Reference Include="TNGS.NetAppBll.520, Version=5.20.7557.38068, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\TNGS.NetAppBll.520.dll</HintPath>
     </Reference>
-    <Reference Include="TNGS.NetControls.520">
+    <Reference Include="TNGS.NetAppSupport.520, Version=5.20.7557.38069, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\TNGS.NetAppSupport.520.dll</HintPath>
+    </Reference>
+    <Reference Include="TNGS.NetControls.520, Version=5.20.7557.38068, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\TNGS.NetControls.520.dll</HintPath>
     </Reference>
-    <Reference Include="TNGS.NetIPlugin.520">
+    <Reference Include="TNGS.NetIPlugin.520, Version=5.20.7557.38068, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\TNGS.NetIPlugin.520.dll</HintPath>
     </Reference>
-    <Reference Include="TNGS.NetOffice.520">
+    <Reference Include="TNGS.NetOffice.520, Version=5.20.7557.38068, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\TNGS.NetOffice.520.dll</HintPath>
     </Reference>
-    <Reference Include="TNGS.NetRoutines.520">
+    <Reference Include="TNGS.NetRoutines.520, Version=5.20.7557.38068, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\TNGS.NetRoutines.520.dll</HintPath>
     </Reference>
-    <Reference Include="TNGS.NetSocket.520">
+    <Reference Include="TNGS.NetSocket.520, Version=5.20.7557.38068, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\TNGS.NetSocket.520.dll</HintPath>
     </Reference>
-    <Reference Include="WeifenLuo.WinFormsUI.Docking.520">
+    <Reference Include="WeifenLuo.WinFormsUI.Docking.520, Version=3.1.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Ambiente0520\DNet0520\Release_Uil\WeifenLuo.WinFormsUI.Docking.520.dll</HintPath>
     </Reference>
   </ItemGroup>
