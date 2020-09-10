@@ -1,5 +1,3 @@
-- Generate all the missing CRUDs and make them work.
-
 - Test both Tablas Generales and Reports.
 
 - Generate Admin program.
