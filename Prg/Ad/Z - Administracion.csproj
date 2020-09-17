@@ -104,6 +104,18 @@
     <Compile Include="..\..\Shr\Properties\ShrAssemblyInfo.cs">
       <Link>Properties\ShrAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="AgendaLlamadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgendaLlamadas.Designer.cs">
+      <DependentUpon>AgendaLlamadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgendarEntrevista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgendarEntrevista.Designer.cs">
+      <DependentUpon>AgendarEntrevista.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusquedaClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,15 +132,69 @@
     <Compile Include="Arranque.designer.cs">
       <DependentUpon>Arranque.cs</DependentUpon>
     </Compile>
+    <Compile Include="CargaContacto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargaContacto.Designer.cs">
+      <DependentUpon>CargaContacto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CargaServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargaServicio.Designer.cs">
+      <DependentUpon>CargaServicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CargaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargaVenta.Designer.cs">
+      <DependentUpon>CargaVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreaNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreaNota.Designer.cs">
+      <DependentUpon>CreaNota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElegirVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElegirVendedor.Designer.cs">
+      <DependentUpon>ElegirVendedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Observacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Observacion.Designer.cs">
+      <DependentUpon>Observacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedirImporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedirImporte.Designer.cs">
+      <DependentUpon>PedirImporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrgRuts.cs" />
     <Compile Include="PrgRuts.designer.cs">
       <DependentUpon>PrgRuts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultadoEntrevista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultadoEntrevista.Designer.cs">
+      <DependentUpon>ResultadoEntrevista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultadoLlamada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultadoLlamada.Designer.cs">
+      <DependentUpon>ResultadoLlamada.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +211,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgendaLlamadas.resx">
+      <DependentUpon>AgendaLlamadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgendarEntrevista.resx">
+      <DependentUpon>AgendarEntrevista.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BusquedaClientes.resx">
       <DependentUpon>BusquedaClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,8 +226,29 @@
     <EmbeddedResource Include="Arranque.resx">
       <DependentUpon>Arranque.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CargaContacto.resx">
+      <DependentUpon>CargaContacto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CargaServicio.resx">
+      <DependentUpon>CargaServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CargaVenta.resx">
+      <DependentUpon>CargaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreaNota.resx">
+      <DependentUpon>CreaNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElegirVendedor.resx">
+      <DependentUpon>ElegirVendedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Observacion.resx">
+      <DependentUpon>Observacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedirImporte.resx">
+      <DependentUpon>PedirImporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -167,6 +260,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ResultadoEntrevista.resx">
+      <DependentUpon>ResultadoEntrevista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultadoLlamada.resx">
+      <DependentUpon>ResultadoLlamada.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
