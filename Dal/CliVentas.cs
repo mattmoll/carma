@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:46
+    // Fecha                    : 20/09/2020 03:42
     // Sistema                  : Carm
     // Clase para Administrar   : Ventas de los Clientes
     // Basada en la Tabla       : CliVentas
@@ -539,15 +539,11 @@ namespace Carm.Dal
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= "p_iAnioinicio">Anio de inicio</param>
-        /// <param name= "p_strCodmarcaini">Codigo inicial de marca</param>
-        /// <param name= "p_strCodmarcafin">Codigo Final de marca</param>
         /// <param name="p_dsResult">DataSet donde devolver el registro</param>
         /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int ZVentasPorMes(DBConn p_dbcAccess,
                                         int p_iAnioinicio,
-                                        string p_strCodmarcaini,
-                                        string p_strCodmarcafin,
                                         ref DataSet p_dsResult,
                                         string p_strTabla,
                                         StatMsg p_smResult)
@@ -557,8 +553,6 @@ namespace Carm.Dal
                                       "TNGS_Carm..CLIVENTAS_ZVENTASPORMES",
                                       new DbParameter[] {
                                           p_dbcAccess.MakeParam("@anioinicio", p_iAnioinicio),
-                                          p_dbcAccess.MakeParam("@codmarcaini", p_strCodmarcaini),
-                                          p_dbcAccess.MakeParam("@codmarcafin", p_strCodmarcafin),
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
                                       ref p_dsResult, p_strTabla);

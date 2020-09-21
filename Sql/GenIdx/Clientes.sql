@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Indices)                    
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 20/09/2020 20:55
 // Base de Datos      : TNGS_Carm
 // Tabla              : Clientes
 //----------------------------------------------------------------------------
@@ -33,23 +33,6 @@ print '    - Creando el nuevo indice'
 create index Clientes_is1 on Clientes
    (
        cli_cd6_codvend
-   )
-go
-
-print '  '
-go
-
-/*-----------------------------------------------
-// Crea el indice: is2
-//-----------------------------------------------*/
-
-print 'Indice: Clientes_is2'
-
-print '    - Creando el nuevo indice'
-
-create index Clientes_is2 on Clientes
-   (
-       cli_fec_ffinres
    )
 go
 

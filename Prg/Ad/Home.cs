@@ -58,13 +58,22 @@ namespace Carm.Ad
                 estadoBusqueda = busquedaForm.filtrosBusqueda;
 
                 // Actualizamos la grilla.
-                ActualizarGrilla();
+                realizarBusqueda();
             }
         }
 
         private void gbDetalle_Click(object sender, EventArgs e)
         {
+            object objNroCliente = mrClientes.GetMatrixValueObj(0);
+            if ((objNroCliente == null) || (objNroCliente == DBNull.Value)) return;
 
+
+            int nroCliente = (int)objNroCliente;
+
+            Bel.ECliente cliente = Bll.Clientes.Get(nroCliente, true, statMessage);
+
+            CargaCliente clienteForm = new CargaCliente(cliente);
+            clienteForm.ShowDialog(this);
         }
 
         private void gbLlamada_Click(object sender, EventArgs e)
@@ -89,7 +98,7 @@ namespace Carm.Ad
         }
 
 
-        private void ActualizarGrilla()
+        private void realizarBusqueda()
         {
             App.ShowMsg("Cargando...");
 
@@ -132,7 +141,7 @@ namespace Carm.Ad
             }
             else
             {
-                ActualizarGrilla();
+                realizarBusqueda();
             }
         }
 
@@ -146,7 +155,7 @@ namespace Carm.Ad
             if (busquedaForm.DialogResult == DialogResult.OK)
             {
                 estadoBusqueda = busquedaForm.filtrosBusqueda;
-                ActualizarGrilla();
+                realizarBusqueda();
             }
         }
 

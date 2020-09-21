@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:46
+    // Fecha                    : 20/09/2020 03:42
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     // Basada en la Tabla       : Clientes
@@ -157,8 +157,6 @@ namespace Carm.Dal
         /// <param name="p_strCuil">Cuil</param>
         /// <param name="p_strUrl">Url</param>
         /// <param name="p_strCodvend">Código de vendedor</param>
-        /// <param name="p_strExtension">Extensión</param>
-        /// <param name="p_strHorarios">Horarios</param>
         /// <param name="p_dtFingsima">Fecha de ingreso</param>
         /// <param name="p_iCantempleados">Cantidad de Empleados</param>
         /// <param name="p_strCobertura">Cobertura</param>
@@ -189,8 +187,6 @@ namespace Carm.Dal
                                  string p_strCuil,
                                  string p_strUrl,
                                  string p_strCodvend,
-                                 string p_strExtension,
-                                 string p_strHorarios,
                                  DateTime p_dtFingsima,
                                  int p_iCantempleados,
                                  string p_strCobertura,
@@ -226,8 +222,6 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@cli_des_cuil", p_strCuil),
                                        p_dbcAccess.MakeParam("@cli_xld_url", p_strUrl),
                                        p_dbcAccess.MakeParam("@cli_cd6_codvend", p_strCodvend),
-                                       p_dbcAccess.MakeParam("@cli_cd1_extension", p_strExtension),
-                                       p_dbcAccess.MakeParam("@cli_ede_horarios", p_strHorarios),
                                        p_dbcAccess.MakeParamF("@cli_fec_fingsima", p_dtFingsima),
                                        p_dbcAccess.MakeParam("@cli_nro_cantempleados", p_iCantempleados),
                                        p_dbcAccess.MakeParam("@cli_txt_cobertura", p_strCobertura),
@@ -271,8 +265,6 @@ namespace Carm.Dal
         /// <param name="p_strCuil">Cuil</param>
         /// <param name="p_strUrl">Url</param>
         /// <param name="p_strCodvend">Código de vendedor</param>
-        /// <param name="p_strExtension">Extensión</param>
-        /// <param name="p_strHorarios">Horarios</param>
         /// <param name="p_dtFingsima">Fecha de ingreso</param>
         /// <param name="p_iCantempleados">Cantidad de Empleados</param>
         /// <param name="p_strCobertura">Cobertura</param>
@@ -303,8 +295,6 @@ namespace Carm.Dal
                                  string p_strCuil,
                                  string p_strUrl,
                                  string p_strCodvend,
-                                 string p_strExtension,
-                                 string p_strHorarios,
                                  DateTime p_dtFingsima,
                                  int p_iCantempleados,
                                  string p_strCobertura,
@@ -340,8 +330,6 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@cli_des_cuil", p_strCuil),
                                        p_dbcAccess.MakeParam("@cli_xld_url", p_strUrl),
                                        p_dbcAccess.MakeParam("@cli_cd6_codvend", p_strCodvend),
-                                       p_dbcAccess.MakeParam("@cli_cd1_extension", p_strExtension),
-                                       p_dbcAccess.MakeParam("@cli_ede_horarios", p_strHorarios),
                                        p_dbcAccess.MakeParamF("@cli_fec_fingsima", p_dtFingsima),
                                        p_dbcAccess.MakeParam("@cli_nro_cantempleados", p_iCantempleados),
                                        p_dbcAccess.MakeParam("@cli_txt_cobertura", p_strCobertura),
@@ -559,32 +547,6 @@ namespace Carm.Dal
         }
 
         /// <summary>
-        /// Método Fijo: FueArreglado
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= "p_iNumcliente">Numero del Cliente</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static int FueArreglado(DBConn p_dbcAccess,
-                                       int p_iNumcliente,
-                                       StatMsg p_smResult)
-        {
-            try {
-                return DBRuts.Exec(p_dbcAccess,
-                                   "TNGS_Carm..CLIENTES_FUEARREGLADO",
-                                   new DbParameter[] {
-                                       p_dbcAccess.MakeParam("@numcliente", p_iNumcliente),
-                                       p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
-                                   }
-                                  );
-            }
-            catch (Exception l_expData) {
-                // Error en el método fijo
-                p_smResult.DalError(l_expData);
-                return -1;
-            }
-        }
-
-        /// <summary>
         /// Método Fijo: GetFromNroAvln
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
@@ -619,13 +581,11 @@ namespace Carm.Dal
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= "p_iNroavalon">Numero de Avalon</param>
-        /// <param name= "p_strCodmarca">Codigo de Marca</param>
         /// <param name="p_dsResult">DataSet donde devolver el registro</param>
         /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int GetPorClaveAvalon(DBConn p_dbcAccess,
                                             int p_iNroavalon,
-                                            string p_strCodmarca,
                                             ref DataSet p_dsResult,
                                             string p_strTabla,
                                             StatMsg p_smResult)
@@ -635,7 +595,6 @@ namespace Carm.Dal
                                       "TNGS_Carm..CLIENTES_GETPORCLAVEAVALON",
                                       new DbParameter[] {
                                           p_dbcAccess.MakeParam("@nroavalon", p_iNroavalon),
-                                          p_dbcAccess.MakeParam("@codmarca", p_strCodmarca),
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
                                       ref p_dsResult, p_strTabla);
@@ -678,36 +637,6 @@ namespace Carm.Dal
         }
 
         /// <summary>
-        /// Método Fijo: GetReservados
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= "p_strCodvend">Codigo de Vendedor</param>
-        /// <param name="p_dsResult">DataSet donde devolver el registro</param>
-        /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static int GetReservados(DBConn p_dbcAccess,
-                                        string p_strCodvend,
-                                        ref DataSet p_dsResult,
-                                        string p_strTabla,
-                                        StatMsg p_smResult)
-        {
-            try {
-                return DBRuts.Exec_DS(p_dbcAccess,
-                                      "TNGS_Carm..CLIENTES_GETRESERVADOS",
-                                      new DbParameter[] {
-                                          p_dbcAccess.MakeParam("@codvend", p_strCodvend),
-                                          p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
-                                      },
-                                      ref p_dsResult, p_strTabla);
-            }
-            catch (Exception l_expData) {
-                // Error en el método fijo
-                p_smResult.DalError(l_expData);
-                return -1;
-            }
-        }
-
-        /// <summary>
         /// Método Fijo: GetSinCodVend
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
@@ -726,36 +655,6 @@ namespace Carm.Dal
                                       "TNGS_Carm..CLIENTES_GETSINCODVEND",
                                       new DbParameter[] {
                                           p_dbcAccess.MakeParam("@numero", p_iNumero),
-                                          p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
-                                      },
-                                      ref p_dsResult, p_strTabla);
-            }
-            catch (Exception l_expData) {
-                // Error en el método fijo
-                p_smResult.DalError(l_expData);
-                return -1;
-            }
-        }
-
-        /// <summary>
-        /// Método Fijo: GetTieneDatosError
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= "p_iNrocliente">Numero del Cliente</param>
-        /// <param name="p_dsResult">DataSet donde devolver el registro</param>
-        /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static int GetTieneDatosError(DBConn p_dbcAccess,
-                                             int p_iNrocliente,
-                                             ref DataSet p_dsResult,
-                                             string p_strTabla,
-                                             StatMsg p_smResult)
-        {
-            try {
-                return DBRuts.Exec_DS(p_dbcAccess,
-                                      "TNGS_Carm..CLIENTES_GETTIENEDATOSERROR",
-                                      new DbParameter[] {
-                                          p_dbcAccess.MakeParam("@nrocliente", p_iNrocliente),
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
                                       ref p_dsResult, p_strTabla);
@@ -795,36 +694,6 @@ namespace Carm.Dal
         }
 
         /// <summary>
-        /// Método Fijo: GetUltimasReservas
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= "p_iNumero">Numero del Cliente</param>
-        /// <param name="p_dsResult">DataSet donde devolver el registro</param>
-        /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static int GetUltimasReservas(DBConn p_dbcAccess,
-                                             int p_iNumero,
-                                             ref DataSet p_dsResult,
-                                             string p_strTabla,
-                                             StatMsg p_smResult)
-        {
-            try {
-                return DBRuts.Exec_DS(p_dbcAccess,
-                                      "TNGS_Carm..CLIENTES_GETULTIMASRESERVAS",
-                                      new DbParameter[] {
-                                          p_dbcAccess.MakeParam("@numero", p_iNumero),
-                                          p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
-                                      },
-                                      ref p_dsResult, p_strTabla);
-            }
-            catch (Exception l_expData) {
-                // Error en el método fijo
-                p_smResult.DalError(l_expData);
-                return -1;
-            }
-        }
-
-        /// <summary>
         /// Método Fijo: GetVendidos
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
@@ -846,162 +715,6 @@ namespace Carm.Dal
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
                                       ref p_dsResult, p_strTabla);
-            }
-            catch (Exception l_expData) {
-                // Error en el método fijo
-                p_smResult.DalError(l_expData);
-                return -1;
-            }
-        }
-
-        /// <summary>
-        /// Método Fijo: JobDesreserva
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static int JobDesreserva(DBConn p_dbcAccess,
-                                        StatMsg p_smResult)
-        {
-            try {
-                return DBRuts.Exec(p_dbcAccess,
-                                   "TNGS_Carm..CLIENTES_JOBDESRESERVA",
-                                   new DbParameter[] {
-                                       p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
-                                   }
-                                  );
-            }
-            catch (Exception l_expData) {
-                // Error en el método fijo
-                p_smResult.DalError(l_expData);
-                return -1;
-            }
-        }
-
-        /// <summary>
-        /// Método Fijo: JobExecute
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static int JobExecute(DBConn p_dbcAccess,
-                                     StatMsg p_smResult)
-        {
-            try {
-                return DBRuts.Exec(p_dbcAccess,
-                                   "TNGS_Carm..CLIENTES_JOBEXECUTE",
-                                   new DbParameter[] {
-                                       p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
-                                   }
-                                  );
-            }
-            catch (Exception l_expData) {
-                // Error en el método fijo
-                p_smResult.DalError(l_expData);
-                return -1;
-            }
-        }
-
-        /// <summary>
-        /// Método Fijo: JobLiberaVendsVenc
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static int JobLiberaVendsVenc(DBConn p_dbcAccess,
-                                             StatMsg p_smResult)
-        {
-            try {
-                return DBRuts.Exec(p_dbcAccess,
-                                   "TNGS_Carm..CLIENTES_JOBLIBERAVENDSVENC",
-                                   new DbParameter[] {
-                                       p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
-                                   }
-                                  );
-            }
-            catch (Exception l_expData) {
-                // Error en el método fijo
-                p_smResult.DalError(l_expData);
-                return -1;
-            }
-        }
-
-        /// <summary>
-        /// Método Fijo: RemoveReserva
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= "p_iNumcliente">Número de cliente</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static int RemoveReserva(DBConn p_dbcAccess,
-                                        int p_iNumcliente,
-                                        StatMsg p_smResult)
-        {
-            try {
-                return DBRuts.Exec(p_dbcAccess,
-                                   "TNGS_Carm..CLIENTES_REMOVERESERVA",
-                                   new DbParameter[] {
-                                       p_dbcAccess.MakeParam("@numcliente", p_iNumcliente),
-                                       p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
-                                   }
-                                  );
-            }
-            catch (Exception l_expData) {
-                // Error en el método fijo
-                p_smResult.DalError(l_expData);
-                return -1;
-            }
-        }
-
-        /// <summary>
-        /// Método Fijo: Reservado
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= "p_iNumero">Numero de Cliente</param>
-        /// <param name= "p_iTiemporeserva">Tiempo que durara la Reserva</param>
-        /// <param name= "p_strCodvendedor">Codigo del Vendedor que realizo la reserva</param>
-        /// <param name= "p_dtFechainireserva">Fecha de Inicio de la Reserva</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static int Reservado(DBConn p_dbcAccess,
-                                    int p_iNumero,
-                                    int p_iTiemporeserva,
-                                    string p_strCodvendedor,
-                                    DateTime p_dtFechainireserva,
-                                    StatMsg p_smResult)
-        {
-            try {
-                return DBRuts.Exec(p_dbcAccess,
-                                   "TNGS_Carm..CLIENTES_RESERVADO",
-                                   new DbParameter[] {
-                                       p_dbcAccess.MakeParam("@numero", p_iNumero),
-                                       p_dbcAccess.MakeParam("@tiemporeserva", p_iTiemporeserva),
-                                       p_dbcAccess.MakeParam("@codvendedor", p_strCodvendedor),
-                                       p_dbcAccess.MakeParam("@fechainireserva", p_dtFechainireserva),
-                                       p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
-                                   }
-                                  );
-            }
-            catch (Exception l_expData) {
-                // Error en el método fijo
-                p_smResult.DalError(l_expData);
-                return -1;
-            }
-        }
-
-        /// <summary>
-        /// Método Fijo: TieneDatosErroneos
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= "p_iNumcliente">Numero del cliente</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static int TieneDatosErroneos(DBConn p_dbcAccess,
-                                             int p_iNumcliente,
-                                             StatMsg p_smResult)
-        {
-            try {
-                return DBRuts.Exec(p_dbcAccess,
-                                   "TNGS_Carm..CLIENTES_TIENEDATOSERRONEOS",
-                                   new DbParameter[] {
-                                       p_dbcAccess.MakeParam("@numcliente", p_iNumcliente),
-                                       p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
-                                   }
-                                  );
             }
             catch (Exception l_expData) {
                 // Error en el método fijo
@@ -1074,13 +787,11 @@ namespace Carm.Dal
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= "p_strRazonsocial">Razon Social del Nuevo Cliente</param>
-        /// <param name= "p_strCodmarca">Codigo de Marca</param>
         /// <param name="p_dsResult">DataSet donde devolver el registro</param>
         /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int ValidaRSocial(DBConn p_dbcAccess,
                                         string p_strRazonsocial,
-                                        string p_strCodmarca,
                                         ref DataSet p_dsResult,
                                         string p_strTabla,
                                         StatMsg p_smResult)
@@ -1090,7 +801,6 @@ namespace Carm.Dal
                                       "TNGS_Carm..CLIENTES_VALIDARSOCIAL",
                                       new DbParameter[] {
                                           p_dbcAccess.MakeParam("@razonsocial", p_strRazonsocial),
-                                          p_dbcAccess.MakeParam("@codmarca", p_strCodmarca),
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
                                       ref p_dsResult, p_strTabla);
@@ -1107,13 +817,11 @@ namespace Carm.Dal
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= "p_strTelefono">Telefono del Nuevo Cliente</param>
-        /// <param name= "p_strCodmarca">Codigo de marca</param>
         /// <param name="p_dsResult">DataSet donde devolver el registro</param>
         /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int ValidaTelefono(DBConn p_dbcAccess,
                                          string p_strTelefono,
-                                         string p_strCodmarca,
                                          ref DataSet p_dsResult,
                                          string p_strTabla,
                                          StatMsg p_smResult)
@@ -1123,7 +831,6 @@ namespace Carm.Dal
                                       "TNGS_Carm..CLIENTES_VALIDATELEFONO",
                                       new DbParameter[] {
                                           p_dbcAccess.MakeParam("@telefono", p_strTelefono),
-                                          p_dbcAccess.MakeParam("@codmarca", p_strCodmarca),
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
                                       ref p_dsResult, p_strTabla);
@@ -1140,13 +847,11 @@ namespace Carm.Dal
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= "p_iNroavalon">Numero de Avalon</param>
-        /// <param name= "p_strCodmarca">codMarca</param>
         /// <param name="p_dsResult">DataSet donde devolver el registro</param>
         /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int ValidarExistenciaAvl(DBConn p_dbcAccess,
                                                int p_iNroavalon,
-                                               string p_strCodmarca,
                                                ref DataSet p_dsResult,
                                                string p_strTabla,
                                                StatMsg p_smResult)
@@ -1156,7 +861,6 @@ namespace Carm.Dal
                                       "TNGS_Carm..CLIENTES_VALIDAREXISTENCIAAVL",
                                       new DbParameter[] {
                                           p_dbcAccess.MakeParam("@nroavalon", p_iNroavalon),
-                                          p_dbcAccess.MakeParam("@codmarca", p_strCodmarca),
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
                                       ref p_dsResult, p_strTabla);
@@ -1175,13 +879,11 @@ namespace Carm.Dal
         /// <param name= "p_iNumero">Numero del Cliente</param>
         /// <param name= "p_dcAbono">Abono vendido</param>
         /// <param name= "p_strCodtipocont">Cod Tipo de Contrato Vendido</param>
-        /// <param name= "p_strCodmarca">Codigo de marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Vendido(DBConn p_dbcAccess,
                                   int p_iNumero,
                                   decimal p_dcAbono,
                                   string p_strCodtipocont,
-                                  string p_strCodmarca,
                                   StatMsg p_smResult)
         {
             try {
@@ -1191,7 +893,6 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@numero", p_iNumero),
                                        p_dbcAccess.MakeParam("@abono", p_dcAbono),
                                        p_dbcAccess.MakeParam("@codtipocont", p_strCodtipocont),
-                                       p_dbcAccess.MakeParam("@codmarca", p_strCodmarca),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -1270,42 +971,6 @@ namespace Carm.Dal
                                           p_dbcAccess.MakeParam("@finnomusuario", p_strFinnomusuario),
                                           p_dbcAccess.MakeParam("@fechaini", p_dtFechaini),
                                           p_dbcAccess.MakeParamF("@fechafin", p_dtFechafin),
-                                          p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
-                                      },
-                                      ref p_dsResult, p_strTabla);
-            }
-            catch (Exception l_expData) {
-                // Error en el método fijo
-                p_smResult.DalError(l_expData);
-                return -1;
-            }
-        }
-
-        /// <summary>
-        /// Método Fijo: ZReservasFull
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= "p_strCodvend">Codigo del vendedor</param>
-        /// <param name= "p_dtFechaini">Fecha inicial de la busqueda</param>
-        /// <param name= "p_dtFechafin">Fecha final de la busqueda</param>
-        /// <param name="p_dsResult">DataSet donde devolver el registro</param>
-        /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static int ZReservasFull(DBConn p_dbcAccess,
-                                        string p_strCodvend,
-                                        DateTime p_dtFechaini,
-                                        DateTime p_dtFechafin,
-                                        ref DataSet p_dsResult,
-                                        string p_strTabla,
-                                        StatMsg p_smResult)
-        {
-            try {
-                return DBRuts.Exec_DS(p_dbcAccess,
-                                      "TNGS_Carm..CLIENTES_ZRESERVASFULL",
-                                      new DbParameter[] {
-                                          p_dbcAccess.MakeParam("@codvend", p_strCodvend),
-                                          p_dbcAccess.MakeParam("@fechaini", p_dtFechaini),
-                                          p_dbcAccess.MakeParam("@fechafin", p_dtFechafin),
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
                                       ref p_dsResult, p_strTabla);

@@ -1248,7 +1248,6 @@ namespace Carm.Bll
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         public static ListaEntidades GetPlanesFromTCont(string p_strCodtcont,
-                                                        string p_strCodmarca,
                                                         StatMsg p_smResult)
         {
             // No hay errores aun
@@ -1261,7 +1260,6 @@ namespace Carm.Bll
                 // Llamamos al metodo interno
                 return GetPlanesFromTCont(l_dbcAccess,
                                           p_strCodtcont,
-                                          p_strCodmarca,
                                           p_smResult);
             }
             catch (Exception l_expData) {
@@ -1750,7 +1748,6 @@ namespace Carm.Bll
         /// <returns>ListaEntidad con los datos solicitados</returns>
         internal static ListaEntidades GetPlanesFromTCont(DBConn p_dbcAccess,
                                                           string p_strCodtcont,
-                                                          string p_strCodmarca,
                                                           StatMsg p_smResult)
         {
             try {
@@ -1759,7 +1756,6 @@ namespace Carm.Bll
 
                 Dal.Planes.GetPlanesFromTCont(p_dbcAccess,
                                               p_strCodtcont,
-                                              p_strCodmarca,
                                               ref l_dsTemp,
                                               "Temporal",
                                               p_smResult);

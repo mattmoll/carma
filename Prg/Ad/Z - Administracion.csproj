@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon administracion.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>C:\DiscoT\Carma\ExternalLibraries\Bunifu_UI_v1.52.dll</HintPath>
@@ -162,6 +165,7 @@
     <Compile Include="ElegirVendedor.Designer.cs">
       <DependentUpon>ElegirVendedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +296,9 @@
       <Project>{722b9dd4-baf2-4308-a5aa-1a83a8d0d052}</Project>
       <Name>Shr</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon administracion.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

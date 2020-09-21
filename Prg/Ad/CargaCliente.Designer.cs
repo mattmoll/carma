@@ -33,12 +33,15 @@ namespace Carm.Ad
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CargaCliente));
             this.xPanel1 = new TNGS.NetControls.XPanel();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.gbLimpiarTodo = new TNGS.NetControls.GlassButton();
+            this.ftDetalleCliente = new TNGS.NetControls.FullTab();
+            this.tabCliente = new System.Windows.Forms.TabPage();
+            this.xPanel2 = new TNGS.NetControls.XPanel();
             this.tgrpDatosBasicos = new TNGS.NetControls.ImgGroup();
+            this.gbCancelar = new TNGS.NetControls.GlassButton();
             this.gbCargarLocalidad = new TNGS.NetControls.GlassButton();
             this.cdcFranquicia = new TNGS.NetControls.CDCombo();
             this.fullLabel10 = new TNGS.NetControls.FullLabel();
+            this.gbGrabar = new TNGS.NetControls.GlassButton();
             this.teZona = new TNGS.NetControls.TextEdit();
             this.fullLabel9 = new TNGS.NetControls.FullLabel();
             this.teProvincia = new TNGS.NetControls.TextEdit();
@@ -69,9 +72,51 @@ namespace Carm.Ad
             this.lblAnioFabricacion = new TNGS.NetControls.FullLabel();
             this.lblNroMotor = new TNGS.NetControls.FullLabel();
             this.lblAnotaciones = new TNGS.NetControls.FullLabel();
-            this.gbGrabar = new TNGS.NetControls.GlassButton();
+            this.tabLlamadas = new System.Windows.Forms.TabPage();
+            this.xPanel3 = new TNGS.NetControls.XPanel();
+            this.gbLlamadaNueva = new TNGS.NetControls.GlassButton();
+            this.mrLlamadas = new TNGS.NetControls.MiniReport();
+            this.tabEntrev = new System.Windows.Forms.TabPage();
+            this.xPanel4 = new TNGS.NetControls.XPanel();
+            this.gbVerDetalle = new TNGS.NetControls.GlassButton();
+            this.gbNuevaEntrevista = new TNGS.NetControls.GlassButton();
+            this.gbEditarEntrevista = new TNGS.NetControls.GlassButton();
+            this.mrEntrevistas = new TNGS.NetControls.MiniReport();
+            this.tabContactos = new System.Windows.Forms.TabPage();
+            this.xPanel7 = new TNGS.NetControls.XPanel();
+            this.gbBorrarContacto = new TNGS.NetControls.GlassButton();
+            this.gbNuevoContacto = new TNGS.NetControls.GlassButton();
+            this.gbEditarContacto = new TNGS.NetControls.GlassButton();
+            this.mrContactos = new TNGS.NetControls.MiniReport();
+            this.tabServicios = new System.Windows.Forms.TabPage();
+            this.xPanel5 = new TNGS.NetControls.XPanel();
+            this.gbServicioNuevo = new TNGS.NetControls.GlassButton();
+            this.mrServicios = new TNGS.NetControls.MiniReport();
+            this.tabNotas = new System.Windows.Forms.TabPage();
+            this.xPanel6 = new TNGS.NetControls.XPanel();
+            this.gbNuevaNota = new TNGS.NetControls.GlassButton();
+            this.gbVerNota = new TNGS.NetControls.GlassButton();
+            this.mrNotas = new TNGS.NetControls.MiniReport();
+            this.topPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.xPanel1.SuspendLayout();
+            this.ftDetalleCliente.SuspendLayout();
+            this.tabCliente.SuspendLayout();
+            this.xPanel2.SuspendLayout();
             this.tgrpDatosBasicos.SuspendLayout();
+            this.tabLlamadas.SuspendLayout();
+            this.xPanel3.SuspendLayout();
+            this.tabEntrev.SuspendLayout();
+            this.xPanel4.SuspendLayout();
+            this.tabContactos.SuspendLayout();
+            this.xPanel7.SuspendLayout();
+            this.tabServicios.SuspendLayout();
+            this.xPanel5.SuspendLayout();
+            this.tabNotas.SuspendLayout();
+            this.xPanel6.SuspendLayout();
+            this.topPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // xPanel1
@@ -79,54 +124,59 @@ namespace Carm.Ad
             this.xPanel1.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel1.BorderColor = System.Drawing.Color.Black;
+            this.xPanel1.Controls.Add(this.ftDetalleCliente);
+            this.xPanel1.Controls.Add(this.topPanel);
             this.xPanel1.Controls.Add(this.btnExit);
-            this.xPanel1.Controls.Add(this.gbLimpiarTodo);
-            this.xPanel1.Controls.Add(this.tgrpDatosBasicos);
-            this.xPanel1.Controls.Add(this.gbGrabar);
             this.xPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel1.Location = new System.Drawing.Point(0, 0);
             this.xPanel1.Name = "xPanel1";
-            this.xPanel1.Size = new System.Drawing.Size(1008, 550);
+            this.xPanel1.Size = new System.Drawing.Size(1029, 592);
             this.xPanel1.SkinFixed = true;
             this.xPanel1.TabIndex = 0;
             // 
-            // btnExit
+            // ftDetalleCliente
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.Black;
-            this.btnExit.Location = new System.Drawing.Point(942, 3);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(58, 40);
-            this.btnExit.TabIndex = 4;
-            this.btnExit.TabStop = false;
-            this.btnExit.Text = "X";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.ftDetalleCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ftDetalleCliente.Controls.Add(this.tabCliente);
+            this.ftDetalleCliente.Controls.Add(this.tabLlamadas);
+            this.ftDetalleCliente.Controls.Add(this.tabEntrev);
+            this.ftDetalleCliente.Controls.Add(this.tabContactos);
+            this.ftDetalleCliente.Controls.Add(this.tabServicios);
+            this.ftDetalleCliente.Controls.Add(this.tabNotas);
+            this.ftDetalleCliente.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.ftDetalleCliente.FlatColor = System.Drawing.Color.DarkGreen;
+            this.ftDetalleCliente.FlatMode = true;
+            this.ftDetalleCliente.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.ftDetalleCliente.Location = new System.Drawing.Point(10, 55);
+            this.ftDetalleCliente.Name = "ftDetalleCliente";
+            this.ftDetalleCliente.SelectedIndex = 0;
+            this.ftDetalleCliente.Size = new System.Drawing.Size(1005, 520);
+            this.ftDetalleCliente.TabIndex = 143;
             // 
-            // gbLimpiarTodo
+            // tabCliente
             // 
-            this.gbLimpiarTodo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbLimpiarTodo.BackgroundImage")));
-            this.gbLimpiarTodo.BlackBorder = true;
-            this.gbLimpiarTodo.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.gbLimpiarTodo.CircleButton = false;
-            this.gbLimpiarTodo.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Delete;
-            this.gbLimpiarTodo.FlatColor = System.Drawing.Color.DodgerBlue;
-            this.gbLimpiarTodo.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
-            this.gbLimpiarTodo.FlatFontSize = 9;
-            this.gbLimpiarTodo.FlatTextColor = System.Drawing.Color.Black;
-            this.gbLimpiarTodo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbLimpiarTodo.Location = new System.Drawing.Point(15, 12);
-            this.gbLimpiarTodo.Name = "gbLimpiarTodo";
-            this.gbLimpiarTodo.RoundCorners = 2;
-            this.gbLimpiarTodo.Size = new System.Drawing.Size(99, 55);
-            this.gbLimpiarTodo.TabIndex = 3;
-            this.gbLimpiarTodo.Text = "Limpiar Campos";
-            this.gbLimpiarTodo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gbLimpiarTodo.W8Color = System.Drawing.Color.DodgerBlue;
-            this.gbLimpiarTodo.Click += new System.EventHandler(this.btnLimpiarTodo_Click);
+            this.tabCliente.Controls.Add(this.xPanel2);
+            this.tabCliente.Location = new System.Drawing.Point(4, 25);
+            this.tabCliente.Name = "tabCliente";
+            this.tabCliente.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCliente.Size = new System.Drawing.Size(997, 491);
+            this.tabCliente.TabIndex = 1;
+            this.tabCliente.Text = "Cliente";
+            this.tabCliente.UseVisualStyleBackColor = true;
+            // 
+            // xPanel2
+            // 
+            this.xPanel2.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel2.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel2.Controls.Add(this.tgrpDatosBasicos);
+            this.xPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xPanel2.Location = new System.Drawing.Point(3, 3);
+            this.xPanel2.Name = "xPanel2";
+            this.xPanel2.Size = new System.Drawing.Size(991, 485);
+            this.xPanel2.SkinFixed = true;
+            this.xPanel2.TabIndex = 0;
             // 
             // tgrpDatosBasicos
             // 
@@ -136,9 +186,11 @@ namespace Carm.Ad
             this.tgrpDatosBasicos.BlackBorder = true;
             this.tgrpDatosBasicos.BorderColor = System.Drawing.Color.DodgerBlue;
             this.tgrpDatosBasicos.BorderThickness = 1F;
+            this.tgrpDatosBasicos.Controls.Add(this.gbCancelar);
             this.tgrpDatosBasicos.Controls.Add(this.gbCargarLocalidad);
             this.tgrpDatosBasicos.Controls.Add(this.cdcFranquicia);
             this.tgrpDatosBasicos.Controls.Add(this.fullLabel10);
+            this.tgrpDatosBasicos.Controls.Add(this.gbGrabar);
             this.tgrpDatosBasicos.Controls.Add(this.teZona);
             this.tgrpDatosBasicos.Controls.Add(this.fullLabel9);
             this.tgrpDatosBasicos.Controls.Add(this.teProvincia);
@@ -175,8 +227,8 @@ namespace Carm.Ad
             this.tgrpDatosBasicos.FontTitle = new System.Drawing.Font("Arial", 9F);
             this.tgrpDatosBasicos.ForeColor = System.Drawing.Color.Black;
             this.tgrpDatosBasicos.GroupImage = null;
-            this.tgrpDatosBasicos.GroupTitle = "Datos Cliente";
-            this.tgrpDatosBasicos.Location = new System.Drawing.Point(15, 84);
+            this.tgrpDatosBasicos.GroupTitle = "";
+            this.tgrpDatosBasicos.Location = new System.Drawing.Point(5, 12);
             this.tgrpDatosBasicos.Name = "tgrpDatosBasicos";
             this.tgrpDatosBasicos.Padding = new System.Windows.Forms.Padding(20);
             this.tgrpDatosBasicos.PaintGroupBox = false;
@@ -184,12 +236,34 @@ namespace Carm.Ad
             this.tgrpDatosBasicos.ShadowColor = System.Drawing.Color.DarkGray;
             this.tgrpDatosBasicos.ShadowControl = false;
             this.tgrpDatosBasicos.ShadowThickness = 3;
-            this.tgrpDatosBasicos.Size = new System.Drawing.Size(981, 457);
+            this.tgrpDatosBasicos.Size = new System.Drawing.Size(981, 462);
             this.tgrpDatosBasicos.SkinFixed = true;
             this.tgrpDatosBasicos.TabIndex = 0;
             this.tgrpDatosBasicos.TitleBackground = System.Drawing.Color.DarkGreen;
             this.tgrpDatosBasicos.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.tgrpDatosBasicos.TitleFontColor = System.Drawing.Color.White;
+            // 
+            // gbCancelar
+            // 
+            this.gbCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbCancelar.BackgroundImage")));
+            this.gbCancelar.BlackBorder = true;
+            this.gbCancelar.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbCancelar.CircleButton = false;
+            this.gbCancelar.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Cancel;
+            this.gbCancelar.FlatColor = System.Drawing.Color.Red;
+            this.gbCancelar.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Cancelar;
+            this.gbCancelar.FlatFontSize = 9;
+            this.gbCancelar.FlatTextColor = System.Drawing.Color.Black;
+            this.gbCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbCancelar.Location = new System.Drawing.Point(32, 394);
+            this.gbCancelar.Name = "gbCancelar";
+            this.gbCancelar.RoundCorners = 2;
+            this.gbCancelar.Size = new System.Drawing.Size(100, 47);
+            this.gbCancelar.TabIndex = 14;
+            this.gbCancelar.Text = "Cancelar";
+            this.gbCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gbCancelar.W8Color = System.Drawing.Color.Red;
+            this.gbCancelar.Click += new System.EventHandler(this.gbCancelar_Click);
             // 
             // gbCargarLocalidad
             // 
@@ -204,13 +278,15 @@ namespace Carm.Ad
             this.gbCargarLocalidad.FlatFontSize = 9;
             this.gbCargarLocalidad.FlatTextColor = System.Drawing.Color.Black;
             this.gbCargarLocalidad.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbCargarLocalidad.Location = new System.Drawing.Point(504, 156);
+            this.gbCargarLocalidad.Location = new System.Drawing.Point(514, 125);
             this.gbCargarLocalidad.Name = "gbCargarLocalidad";
             this.gbCargarLocalidad.PCode = "TNGS.EXCEL";
             this.gbCargarLocalidad.RoundCorners = 2;
             this.gbCargarLocalidad.Size = new System.Drawing.Size(26, 24);
-            this.gbCargarLocalidad.TabIndex = 43;
+            this.gbCargarLocalidad.TabIndex = 11;
+            this.gbCargarLocalidad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbCargarLocalidad.W8Color = System.Drawing.Color.DodgerBlue;
+            this.gbCargarLocalidad.Click += new System.EventHandler(this.gbCargarLocalidad_Click);
             // 
             // cdcFranquicia
             // 
@@ -218,342 +294,22 @@ namespace Carm.Ad
             this.cdcFranquicia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cdcFranquicia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cdcFranquicia.FormattingEnabled = true;
-            this.cdcFranquicia.Location = new System.Drawing.Point(176, 274);
+            this.cdcFranquicia.Location = new System.Drawing.Point(186, 243);
             this.cdcFranquicia.Name = "cdcFranquicia";
             this.cdcFranquicia.Size = new System.Drawing.Size(276, 23);
             this.cdcFranquicia.Sorted = true;
-            this.cdcFranquicia.TabIndex = 41;
+            this.cdcFranquicia.TabIndex = 7;
             // 
             // fullLabel10
             // 
             this.fullLabel10.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel10.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel10.Location = new System.Drawing.Point(70, 278);
+            this.fullLabel10.Location = new System.Drawing.Point(80, 247);
             this.fullLabel10.Name = "fullLabel10";
             this.fullLabel10.Size = new System.Drawing.Size(96, 18);
             this.fullLabel10.TabIndex = 42;
             this.fullLabel10.Text = "Franquicia:";
-            // 
-            // teZona
-            // 
-            this.teZona.BackColor = System.Drawing.SystemColors.Window;
-            this.teZona.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teZona.Location = new System.Drawing.Point(618, 277);
-            this.teZona.Name = "teZona";
-            this.teZona.ReadOnly = true;
-            this.teZona.Size = new System.Drawing.Size(276, 21);
-            this.teZona.TabIndex = 39;
-            this.teZona.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // fullLabel9
-            // 
-            this.fullLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel9.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel9.Location = new System.Drawing.Point(551, 279);
-            this.fullLabel9.Name = "fullLabel9";
-            this.fullLabel9.Size = new System.Drawing.Size(61, 18);
-            this.fullLabel9.TabIndex = 40;
-            this.fullLabel9.Text = "Zona:";
-            // 
-            // teProvincia
-            // 
-            this.teProvincia.BackColor = System.Drawing.SystemColors.Window;
-            this.teProvincia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teProvincia.Location = new System.Drawing.Point(618, 236);
-            this.teProvincia.Name = "teProvincia";
-            this.teProvincia.ReadOnly = true;
-            this.teProvincia.Size = new System.Drawing.Size(276, 21);
-            this.teProvincia.TabIndex = 37;
-            this.teProvincia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // fullLabel8
-            // 
-            this.fullLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel8.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel8.Location = new System.Drawing.Point(536, 238);
-            this.fullLabel8.Name = "fullLabel8";
-            this.fullLabel8.Size = new System.Drawing.Size(76, 18);
-            this.fullLabel8.TabIndex = 38;
-            this.fullLabel8.Text = "Provincia:";
-            // 
-            // tePartido
-            // 
-            this.tePartido.BackColor = System.Drawing.SystemColors.Window;
-            this.tePartido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tePartido.Location = new System.Drawing.Point(618, 200);
-            this.tePartido.Name = "tePartido";
-            this.tePartido.ReadOnly = true;
-            this.tePartido.Size = new System.Drawing.Size(276, 21);
-            this.tePartido.TabIndex = 35;
-            this.tePartido.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // fullLabel7
-            // 
-            this.fullLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel7.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel7.Location = new System.Drawing.Point(536, 202);
-            this.fullLabel7.Name = "fullLabel7";
-            this.fullLabel7.Size = new System.Drawing.Size(76, 18);
-            this.fullLabel7.TabIndex = 36;
-            this.fullLabel7.Text = "Partido:";
-            // 
-            // teLocalidad
-            // 
-            this.teLocalidad.BackColor = System.Drawing.SystemColors.Window;
-            this.teLocalidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teLocalidad.Location = new System.Drawing.Point(618, 160);
-            this.teLocalidad.Name = "teLocalidad";
-            this.teLocalidad.ReadOnly = true;
-            this.teLocalidad.Size = new System.Drawing.Size(276, 21);
-            this.teLocalidad.TabIndex = 33;
-            this.teLocalidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // fullLabel3
-            // 
-            this.fullLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel3.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel3.Location = new System.Drawing.Point(536, 162);
-            this.fullLabel3.Name = "fullLabel3";
-            this.fullLabel3.Size = new System.Drawing.Size(76, 18);
-            this.fullLabel3.TabIndex = 34;
-            this.fullLabel3.Text = "Localidad:";
-            // 
-            // teEmail
-            // 
-            this.teEmail.BackColor = System.Drawing.SystemColors.Window;
-            this.teEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teEmail.Location = new System.Drawing.Point(618, 122);
-            this.teEmail.Name = "teEmail";
-            this.teEmail.Size = new System.Drawing.Size(276, 21);
-            this.teEmail.TabIndex = 31;
-            this.teEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // fullLabel1
-            // 
-            this.fullLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel1.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel1.Location = new System.Drawing.Point(558, 124);
-            this.fullLabel1.Name = "fullLabel1";
-            this.fullLabel1.Size = new System.Drawing.Size(54, 18);
-            this.fullLabel1.TabIndex = 32;
-            this.fullLabel1.Text = "Email:";
-            // 
-            // teTelefono
-            // 
-            this.teTelefono.BackColor = System.Drawing.SystemColors.Window;
-            this.teTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teTelefono.Location = new System.Drawing.Point(618, 86);
-            this.teTelefono.Name = "teTelefono";
-            this.teTelefono.Size = new System.Drawing.Size(276, 21);
-            this.teTelefono.TabIndex = 29;
-            this.teTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // fullLabel6
-            // 
-            this.fullLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel6.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel6.Location = new System.Drawing.Point(521, 88);
-            this.fullLabel6.Name = "fullLabel6";
-            this.fullLabel6.Size = new System.Drawing.Size(91, 18);
-            this.fullLabel6.TabIndex = 30;
-            this.fullLabel6.Text = "1er Teléfono:";
-            // 
-            // teCelular
-            // 
-            this.teCelular.BackColor = System.Drawing.SystemColors.Window;
-            this.teCelular.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teCelular.Location = new System.Drawing.Point(618, 49);
-            this.teCelular.Name = "teCelular";
-            this.teCelular.Size = new System.Drawing.Size(276, 21);
-            this.teCelular.TabIndex = 27;
-            this.teCelular.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // fullLabel5
-            // 
-            this.fullLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel5.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel5.Location = new System.Drawing.Point(548, 49);
-            this.fullLabel5.Name = "fullLabel5";
-            this.fullLabel5.Size = new System.Drawing.Size(64, 18);
-            this.fullLabel5.TabIndex = 28;
-            this.fullLabel5.Text = "Celular:";
-            // 
-            // tePaginaWeb
-            // 
-            this.tePaginaWeb.BackColor = System.Drawing.SystemColors.Window;
-            this.tePaginaWeb.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tePaginaWeb.Location = new System.Drawing.Point(176, 237);
-            this.tePaginaWeb.Name = "tePaginaWeb";
-            this.tePaginaWeb.Size = new System.Drawing.Size(276, 21);
-            this.tePaginaWeb.TabIndex = 25;
-            this.tePaginaWeb.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // fullLabel4
-            // 
-            this.fullLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel4.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel4.Location = new System.Drawing.Point(63, 239);
-            this.fullLabel4.Name = "fullLabel4";
-            this.fullLabel4.Size = new System.Drawing.Size(97, 18);
-            this.fullLabel4.TabIndex = 26;
-            this.fullLabel4.Text = "Página Web:";
-            // 
-            // teRazonSocial
-            // 
-            this.teRazonSocial.BackColor = System.Drawing.SystemColors.Window;
-            this.teRazonSocial.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teRazonSocial.Location = new System.Drawing.Point(177, 49);
-            this.teRazonSocial.MaxLength = 8;
-            this.teRazonSocial.Name = "teRazonSocial";
-            this.teRazonSocial.Size = new System.Drawing.Size(275, 21);
-            this.teRazonSocial.TabIndex = 0;
-            this.teRazonSocial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // teDireccion
-            // 
-            this.teDireccion.BackColor = System.Drawing.SystemColors.Window;
-            this.teDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teDireccion.Location = new System.Drawing.Point(176, 161);
-            this.teDireccion.Name = "teDireccion";
-            this.teDireccion.Size = new System.Drawing.Size(276, 21);
-            this.teDireccion.TabIndex = 4;
-            this.teDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tePisoDepto
-            // 
-            this.tePisoDepto.BackColor = System.Drawing.SystemColors.Window;
-            this.tePisoDepto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tePisoDepto.Location = new System.Drawing.Point(339, 200);
-            this.tePisoDepto.MaxLength = 8;
-            this.tePisoDepto.Name = "tePisoDepto";
-            this.tePisoDepto.Size = new System.Drawing.Size(113, 21);
-            this.tePisoDepto.TabIndex = 8;
-            this.tePisoDepto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // neAltura
-            // 
-            this.neAltura.BackColor = System.Drawing.SystemColors.Window;
-            this.neAltura.Location = new System.Drawing.Point(177, 201);
-            this.neAltura.Name = "neAltura";
-            this.neAltura.Size = new System.Drawing.Size(75, 21);
-            this.neAltura.TabIndex = 5;
-            this.neAltura.Text = "0";
-            // 
-            // fullLabel2
-            // 
-            this.fullLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel2.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel2.Location = new System.Drawing.Point(268, 203);
-            this.fullLabel2.Name = "fullLabel2";
-            this.fullLabel2.Size = new System.Drawing.Size(79, 18);
-            this.fullLabel2.TabIndex = 22;
-            this.fullLabel2.Text = "Piso/Dpto: ";
-            // 
-            // cdcTipoCliente
-            // 
-            this.cdcTipoCliente.BackColor = System.Drawing.SystemColors.Window;
-            this.cdcTipoCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cdcTipoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cdcTipoCliente.FormattingEnabled = true;
-            this.cdcTipoCliente.Location = new System.Drawing.Point(176, 122);
-            this.cdcTipoCliente.Name = "cdcTipoCliente";
-            this.cdcTipoCliente.Size = new System.Drawing.Size(276, 23);
-            this.cdcTipoCliente.Sorted = true;
-            this.cdcTipoCliente.TabIndex = 3;
-            // 
-            // teNombreFantasia
-            // 
-            this.teNombreFantasia.BackColor = System.Drawing.SystemColors.Window;
-            this.teNombreFantasia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teNombreFantasia.Location = new System.Drawing.Point(176, 86);
-            this.teNombreFantasia.Name = "teNombreFantasia";
-            this.teNombreFantasia.Size = new System.Drawing.Size(276, 21);
-            this.teNombreFantasia.TabIndex = 1;
-            // 
-            // lblRazonSocial
-            // 
-            this.lblRazonSocial.BackColor = System.Drawing.Color.Transparent;
-            this.lblRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRazonSocial.ForeColor = System.Drawing.Color.Black;
-            this.lblRazonSocial.Location = new System.Drawing.Point(60, 51);
-            this.lblRazonSocial.Name = "lblRazonSocial";
-            this.lblRazonSocial.Size = new System.Drawing.Size(104, 18);
-            this.lblRazonSocial.TabIndex = 6;
-            this.lblRazonSocial.Text = "Razón Social:";
-            // 
-            // teAnotaciones
-            // 
-            this.teAnotaciones.BackColor = System.Drawing.SystemColors.Window;
-            this.teAnotaciones.Location = new System.Drawing.Point(34, 359);
-            this.teAnotaciones.Multiline = true;
-            this.teAnotaciones.Name = "teAnotaciones";
-            this.teAnotaciones.Size = new System.Drawing.Size(916, 81);
-            this.teAnotaciones.TabIndex = 10;
-            // 
-            // lblNroChasis
-            // 
-            this.lblNroChasis.BackColor = System.Drawing.Color.Transparent;
-            this.lblNroChasis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNroChasis.ForeColor = System.Drawing.Color.Black;
-            this.lblNroChasis.Location = new System.Drawing.Point(70, 126);
-            this.lblNroChasis.Name = "lblNroChasis";
-            this.lblNroChasis.Size = new System.Drawing.Size(96, 18);
-            this.lblNroChasis.TabIndex = 14;
-            this.lblNroChasis.Text = "Tipo Cliente:";
-            // 
-            // lblDescripcionMovil
-            // 
-            this.lblDescripcionMovil.BackColor = System.Drawing.Color.Transparent;
-            this.lblDescripcionMovil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcionMovil.ForeColor = System.Drawing.Color.Black;
-            this.lblDescripcionMovil.Location = new System.Drawing.Point(38, 86);
-            this.lblDescripcionMovil.Name = "lblDescripcionMovil";
-            this.lblDescripcionMovil.Size = new System.Drawing.Size(122, 19);
-            this.lblDescripcionMovil.TabIndex = 10;
-            this.lblDescripcionMovil.Text = "Nombre Fantasía:";
-            // 
-            // lblAnioFabricacion
-            // 
-            this.lblAnioFabricacion.BackColor = System.Drawing.Color.Transparent;
-            this.lblAnioFabricacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAnioFabricacion.ForeColor = System.Drawing.Color.Black;
-            this.lblAnioFabricacion.Location = new System.Drawing.Point(106, 203);
-            this.lblAnioFabricacion.Name = "lblAnioFabricacion";
-            this.lblAnioFabricacion.Size = new System.Drawing.Size(67, 18);
-            this.lblAnioFabricacion.TabIndex = 17;
-            this.lblAnioFabricacion.Text = "Altura:";
-            // 
-            // lblNroMotor
-            // 
-            this.lblNroMotor.BackColor = System.Drawing.Color.Transparent;
-            this.lblNroMotor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNroMotor.ForeColor = System.Drawing.Color.Black;
-            this.lblNroMotor.Location = new System.Drawing.Point(85, 163);
-            this.lblNroMotor.Name = "lblNroMotor";
-            this.lblNroMotor.Size = new System.Drawing.Size(75, 18);
-            this.lblNroMotor.TabIndex = 15;
-            this.lblNroMotor.Text = "Dirección:";
-            // 
-            // lblAnotaciones
-            // 
-            this.lblAnotaciones.BackColor = System.Drawing.Color.Transparent;
-            this.lblAnotaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAnotaciones.ForeColor = System.Drawing.Color.Black;
-            this.lblAnotaciones.Location = new System.Drawing.Point(43, 338);
-            this.lblAnotaciones.Name = "lblAnotaciones";
-            this.lblAnotaciones.Size = new System.Drawing.Size(117, 18);
-            this.lblAnotaciones.TabIndex = 13;
-            this.lblAnotaciones.Text = "Anotaciones:";
             // 
             // gbGrabar
             // 
@@ -567,20 +323,788 @@ namespace Carm.Ad
             this.gbGrabar.FlatFontSize = 9;
             this.gbGrabar.FlatTextColor = System.Drawing.Color.Black;
             this.gbGrabar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbGrabar.Location = new System.Drawing.Point(148, 12);
+            this.gbGrabar.Location = new System.Drawing.Point(848, 394);
             this.gbGrabar.Name = "gbGrabar";
             this.gbGrabar.RoundCorners = 2;
-            this.gbGrabar.Size = new System.Drawing.Size(100, 55);
-            this.gbGrabar.TabIndex = 0;
+            this.gbGrabar.Size = new System.Drawing.Size(100, 47);
+            this.gbGrabar.TabIndex = 13;
             this.gbGrabar.Text = "Guardar";
             this.gbGrabar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbGrabar.W8Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.gbGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
+            // teZona
+            // 
+            this.teZona.BackColor = System.Drawing.SystemColors.Window;
+            this.teZona.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teZona.Location = new System.Drawing.Point(628, 246);
+            this.teZona.Name = "teZona";
+            this.teZona.ReadOnly = true;
+            this.teZona.Size = new System.Drawing.Size(276, 21);
+            this.teZona.TabIndex = 39;
+            // 
+            // fullLabel9
+            // 
+            this.fullLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel9.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel9.Location = new System.Drawing.Point(561, 248);
+            this.fullLabel9.Name = "fullLabel9";
+            this.fullLabel9.Size = new System.Drawing.Size(61, 18);
+            this.fullLabel9.TabIndex = 40;
+            this.fullLabel9.Text = "Zona:";
+            // 
+            // teProvincia
+            // 
+            this.teProvincia.BackColor = System.Drawing.SystemColors.Window;
+            this.teProvincia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teProvincia.Location = new System.Drawing.Point(628, 205);
+            this.teProvincia.Name = "teProvincia";
+            this.teProvincia.ReadOnly = true;
+            this.teProvincia.Size = new System.Drawing.Size(276, 21);
+            this.teProvincia.TabIndex = 37;
+            // 
+            // fullLabel8
+            // 
+            this.fullLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel8.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel8.Location = new System.Drawing.Point(546, 207);
+            this.fullLabel8.Name = "fullLabel8";
+            this.fullLabel8.Size = new System.Drawing.Size(76, 18);
+            this.fullLabel8.TabIndex = 38;
+            this.fullLabel8.Text = "Provincia:";
+            // 
+            // tePartido
+            // 
+            this.tePartido.BackColor = System.Drawing.SystemColors.Window;
+            this.tePartido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tePartido.Location = new System.Drawing.Point(628, 169);
+            this.tePartido.Name = "tePartido";
+            this.tePartido.ReadOnly = true;
+            this.tePartido.Size = new System.Drawing.Size(276, 21);
+            this.tePartido.TabIndex = 35;
+            // 
+            // fullLabel7
+            // 
+            this.fullLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel7.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel7.Location = new System.Drawing.Point(546, 171);
+            this.fullLabel7.Name = "fullLabel7";
+            this.fullLabel7.Size = new System.Drawing.Size(76, 18);
+            this.fullLabel7.TabIndex = 36;
+            this.fullLabel7.Text = "Partido:";
+            // 
+            // teLocalidad
+            // 
+            this.teLocalidad.BackColor = System.Drawing.SystemColors.Window;
+            this.teLocalidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teLocalidad.Location = new System.Drawing.Point(628, 129);
+            this.teLocalidad.Name = "teLocalidad";
+            this.teLocalidad.ReadOnly = true;
+            this.teLocalidad.Size = new System.Drawing.Size(276, 21);
+            this.teLocalidad.TabIndex = 33;
+            // 
+            // fullLabel3
+            // 
+            this.fullLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel3.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel3.Location = new System.Drawing.Point(546, 131);
+            this.fullLabel3.Name = "fullLabel3";
+            this.fullLabel3.Size = new System.Drawing.Size(76, 18);
+            this.fullLabel3.TabIndex = 34;
+            this.fullLabel3.Text = "Localidad:";
+            // 
+            // teEmail
+            // 
+            this.teEmail.BackColor = System.Drawing.SystemColors.Window;
+            this.teEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teEmail.Location = new System.Drawing.Point(628, 91);
+            this.teEmail.Name = "teEmail";
+            this.teEmail.Size = new System.Drawing.Size(276, 21);
+            this.teEmail.TabIndex = 10;
+            // 
+            // fullLabel1
+            // 
+            this.fullLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel1.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel1.Location = new System.Drawing.Point(568, 93);
+            this.fullLabel1.Name = "fullLabel1";
+            this.fullLabel1.Size = new System.Drawing.Size(54, 18);
+            this.fullLabel1.TabIndex = 32;
+            this.fullLabel1.Text = "Email:";
+            // 
+            // teTelefono
+            // 
+            this.teTelefono.BackColor = System.Drawing.SystemColors.Window;
+            this.teTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teTelefono.Location = new System.Drawing.Point(628, 55);
+            this.teTelefono.Name = "teTelefono";
+            this.teTelefono.Size = new System.Drawing.Size(276, 21);
+            this.teTelefono.TabIndex = 9;
+            // 
+            // fullLabel6
+            // 
+            this.fullLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel6.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel6.Location = new System.Drawing.Point(531, 57);
+            this.fullLabel6.Name = "fullLabel6";
+            this.fullLabel6.Size = new System.Drawing.Size(91, 18);
+            this.fullLabel6.TabIndex = 30;
+            this.fullLabel6.Text = "1er Teléfono:";
+            // 
+            // teCelular
+            // 
+            this.teCelular.BackColor = System.Drawing.SystemColors.Window;
+            this.teCelular.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teCelular.Location = new System.Drawing.Point(628, 18);
+            this.teCelular.Name = "teCelular";
+            this.teCelular.Size = new System.Drawing.Size(276, 21);
+            this.teCelular.TabIndex = 8;
+            // 
+            // fullLabel5
+            // 
+            this.fullLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel5.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel5.Location = new System.Drawing.Point(558, 18);
+            this.fullLabel5.Name = "fullLabel5";
+            this.fullLabel5.Size = new System.Drawing.Size(64, 18);
+            this.fullLabel5.TabIndex = 28;
+            this.fullLabel5.Text = "Celular:";
+            // 
+            // tePaginaWeb
+            // 
+            this.tePaginaWeb.BackColor = System.Drawing.SystemColors.Window;
+            this.tePaginaWeb.Location = new System.Drawing.Point(186, 206);
+            this.tePaginaWeb.Name = "tePaginaWeb";
+            this.tePaginaWeb.Size = new System.Drawing.Size(276, 21);
+            this.tePaginaWeb.TabIndex = 6;
+            // 
+            // fullLabel4
+            // 
+            this.fullLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel4.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel4.Location = new System.Drawing.Point(73, 208);
+            this.fullLabel4.Name = "fullLabel4";
+            this.fullLabel4.Size = new System.Drawing.Size(97, 18);
+            this.fullLabel4.TabIndex = 26;
+            this.fullLabel4.Text = "Página Web:";
+            // 
+            // teRazonSocial
+            // 
+            this.teRazonSocial.BackColor = System.Drawing.SystemColors.Window;
+            this.teRazonSocial.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teRazonSocial.Location = new System.Drawing.Point(187, 18);
+            this.teRazonSocial.MaxLength = 60;
+            this.teRazonSocial.Name = "teRazonSocial";
+            this.teRazonSocial.Size = new System.Drawing.Size(275, 21);
+            this.teRazonSocial.TabIndex = 0;
+            // 
+            // teDireccion
+            // 
+            this.teDireccion.BackColor = System.Drawing.SystemColors.Window;
+            this.teDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teDireccion.Location = new System.Drawing.Point(186, 130);
+            this.teDireccion.Name = "teDireccion";
+            this.teDireccion.Size = new System.Drawing.Size(276, 21);
+            this.teDireccion.TabIndex = 3;
+            // 
+            // tePisoDepto
+            // 
+            this.tePisoDepto.BackColor = System.Drawing.SystemColors.Window;
+            this.tePisoDepto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tePisoDepto.Location = new System.Drawing.Point(349, 169);
+            this.tePisoDepto.MaxLength = 8;
+            this.tePisoDepto.Name = "tePisoDepto";
+            this.tePisoDepto.Size = new System.Drawing.Size(113, 21);
+            this.tePisoDepto.TabIndex = 5;
+            // 
+            // neAltura
+            // 
+            this.neAltura.BackColor = System.Drawing.SystemColors.Window;
+            this.neAltura.Location = new System.Drawing.Point(187, 170);
+            this.neAltura.Name = "neAltura";
+            this.neAltura.Size = new System.Drawing.Size(75, 21);
+            this.neAltura.TabIndex = 4;
+            this.neAltura.Text = "0";
+            // 
+            // fullLabel2
+            // 
+            this.fullLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel2.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel2.Location = new System.Drawing.Point(278, 172);
+            this.fullLabel2.Name = "fullLabel2";
+            this.fullLabel2.Size = new System.Drawing.Size(79, 18);
+            this.fullLabel2.TabIndex = 22;
+            this.fullLabel2.Text = "Piso/Dpto: ";
+            // 
+            // cdcTipoCliente
+            // 
+            this.cdcTipoCliente.BackColor = System.Drawing.SystemColors.Window;
+            this.cdcTipoCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cdcTipoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cdcTipoCliente.FormattingEnabled = true;
+            this.cdcTipoCliente.Location = new System.Drawing.Point(186, 91);
+            this.cdcTipoCliente.Name = "cdcTipoCliente";
+            this.cdcTipoCliente.Size = new System.Drawing.Size(276, 23);
+            this.cdcTipoCliente.Sorted = true;
+            this.cdcTipoCliente.TabIndex = 2;
+            // 
+            // teNombreFantasia
+            // 
+            this.teNombreFantasia.BackColor = System.Drawing.SystemColors.Window;
+            this.teNombreFantasia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teNombreFantasia.Location = new System.Drawing.Point(186, 55);
+            this.teNombreFantasia.Name = "teNombreFantasia";
+            this.teNombreFantasia.Size = new System.Drawing.Size(276, 21);
+            this.teNombreFantasia.TabIndex = 1;
+            // 
+            // lblRazonSocial
+            // 
+            this.lblRazonSocial.BackColor = System.Drawing.Color.Transparent;
+            this.lblRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRazonSocial.ForeColor = System.Drawing.Color.Black;
+            this.lblRazonSocial.Location = new System.Drawing.Point(70, 20);
+            this.lblRazonSocial.Name = "lblRazonSocial";
+            this.lblRazonSocial.Size = new System.Drawing.Size(104, 18);
+            this.lblRazonSocial.TabIndex = 6;
+            this.lblRazonSocial.Text = "Razón Social:";
+            // 
+            // teAnotaciones
+            // 
+            this.teAnotaciones.BackColor = System.Drawing.SystemColors.Window;
+            this.teAnotaciones.Location = new System.Drawing.Point(32, 299);
+            this.teAnotaciones.Multiline = true;
+            this.teAnotaciones.Name = "teAnotaciones";
+            this.teAnotaciones.Size = new System.Drawing.Size(916, 81);
+            this.teAnotaciones.TabIndex = 12;
+            // 
+            // lblNroChasis
+            // 
+            this.lblNroChasis.BackColor = System.Drawing.Color.Transparent;
+            this.lblNroChasis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNroChasis.ForeColor = System.Drawing.Color.Black;
+            this.lblNroChasis.Location = new System.Drawing.Point(80, 95);
+            this.lblNroChasis.Name = "lblNroChasis";
+            this.lblNroChasis.Size = new System.Drawing.Size(96, 18);
+            this.lblNroChasis.TabIndex = 14;
+            this.lblNroChasis.Text = "Tipo Cliente:";
+            // 
+            // lblDescripcionMovil
+            // 
+            this.lblDescripcionMovil.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescripcionMovil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcionMovil.ForeColor = System.Drawing.Color.Black;
+            this.lblDescripcionMovil.Location = new System.Drawing.Point(48, 55);
+            this.lblDescripcionMovil.Name = "lblDescripcionMovil";
+            this.lblDescripcionMovil.Size = new System.Drawing.Size(122, 19);
+            this.lblDescripcionMovil.TabIndex = 10;
+            this.lblDescripcionMovil.Text = "Nombre Fantasía:";
+            // 
+            // lblAnioFabricacion
+            // 
+            this.lblAnioFabricacion.BackColor = System.Drawing.Color.Transparent;
+            this.lblAnioFabricacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnioFabricacion.ForeColor = System.Drawing.Color.Black;
+            this.lblAnioFabricacion.Location = new System.Drawing.Point(116, 172);
+            this.lblAnioFabricacion.Name = "lblAnioFabricacion";
+            this.lblAnioFabricacion.Size = new System.Drawing.Size(67, 18);
+            this.lblAnioFabricacion.TabIndex = 17;
+            this.lblAnioFabricacion.Text = "Altura:";
+            // 
+            // lblNroMotor
+            // 
+            this.lblNroMotor.BackColor = System.Drawing.Color.Transparent;
+            this.lblNroMotor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNroMotor.ForeColor = System.Drawing.Color.Black;
+            this.lblNroMotor.Location = new System.Drawing.Point(95, 132);
+            this.lblNroMotor.Name = "lblNroMotor";
+            this.lblNroMotor.Size = new System.Drawing.Size(75, 18);
+            this.lblNroMotor.TabIndex = 15;
+            this.lblNroMotor.Text = "Dirección:";
+            // 
+            // lblAnotaciones
+            // 
+            this.lblAnotaciones.BackColor = System.Drawing.Color.Transparent;
+            this.lblAnotaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnotaciones.ForeColor = System.Drawing.Color.Black;
+            this.lblAnotaciones.Location = new System.Drawing.Point(41, 278);
+            this.lblAnotaciones.Name = "lblAnotaciones";
+            this.lblAnotaciones.Size = new System.Drawing.Size(117, 18);
+            this.lblAnotaciones.TabIndex = 13;
+            this.lblAnotaciones.Text = "Anotaciones:";
+            // 
+            // tabLlamadas
+            // 
+            this.tabLlamadas.Controls.Add(this.xPanel3);
+            this.tabLlamadas.Location = new System.Drawing.Point(4, 25);
+            this.tabLlamadas.Name = "tabLlamadas";
+            this.tabLlamadas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLlamadas.Size = new System.Drawing.Size(997, 491);
+            this.tabLlamadas.TabIndex = 2;
+            this.tabLlamadas.Text = "Llamadas";
+            this.tabLlamadas.UseVisualStyleBackColor = true;
+            // 
+            // xPanel3
+            // 
+            this.xPanel3.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel3.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel3.Controls.Add(this.gbLlamadaNueva);
+            this.xPanel3.Controls.Add(this.mrLlamadas);
+            this.xPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xPanel3.Location = new System.Drawing.Point(3, 3);
+            this.xPanel3.Name = "xPanel3";
+            this.xPanel3.Size = new System.Drawing.Size(991, 485);
+            this.xPanel3.SkinFixed = true;
+            this.xPanel3.TabIndex = 0;
+            // 
+            // gbLlamadaNueva
+            // 
+            this.gbLlamadaNueva.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbLlamadaNueva.BackgroundImage")));
+            this.gbLlamadaNueva.BlackBorder = true;
+            this.gbLlamadaNueva.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbLlamadaNueva.CircleButton = false;
+            this.gbLlamadaNueva.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Phone;
+            this.gbLlamadaNueva.FlatColor = System.Drawing.Color.LimeGreen;
+            this.gbLlamadaNueva.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
+            this.gbLlamadaNueva.FlatFontSize = 9;
+            this.gbLlamadaNueva.FlatTextColor = System.Drawing.Color.Black;
+            this.gbLlamadaNueva.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbLlamadaNueva.ImageOnTop = true;
+            this.gbLlamadaNueva.Location = new System.Drawing.Point(459, 7);
+            this.gbLlamadaNueva.Name = "gbLlamadaNueva";
+            this.gbLlamadaNueva.RoundCorners = 2;
+            this.gbLlamadaNueva.Size = new System.Drawing.Size(83, 70);
+            this.gbLlamadaNueva.TabIndex = 10;
+            this.gbLlamadaNueva.Text = "Nueva";
+            this.gbLlamadaNueva.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbLlamadaNueva.W8Color = System.Drawing.Color.LimeGreen;
+            // 
+            // mrLlamadas
+            // 
+            this.mrLlamadas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mrLlamadas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mrLlamadas.Location = new System.Drawing.Point(6, 73);
+            this.mrLlamadas.Name = "mrLlamadas";
+            this.mrLlamadas.Size = new System.Drawing.Size(981, 409);
+            this.mrLlamadas.SkinFixed = true;
+            this.mrLlamadas.TabIndex = 0;
+            // 
+            // tabEntrev
+            // 
+            this.tabEntrev.Controls.Add(this.xPanel4);
+            this.tabEntrev.Location = new System.Drawing.Point(4, 25);
+            this.tabEntrev.Name = "tabEntrev";
+            this.tabEntrev.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEntrev.Size = new System.Drawing.Size(997, 491);
+            this.tabEntrev.TabIndex = 3;
+            this.tabEntrev.Text = "Entrevistas";
+            this.tabEntrev.UseVisualStyleBackColor = true;
+            // 
+            // xPanel4
+            // 
+            this.xPanel4.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel4.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel4.Controls.Add(this.gbVerDetalle);
+            this.xPanel4.Controls.Add(this.gbNuevaEntrevista);
+            this.xPanel4.Controls.Add(this.gbEditarEntrevista);
+            this.xPanel4.Controls.Add(this.mrEntrevistas);
+            this.xPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xPanel4.Location = new System.Drawing.Point(3, 3);
+            this.xPanel4.Name = "xPanel4";
+            this.xPanel4.Size = new System.Drawing.Size(991, 485);
+            this.xPanel4.SkinFixed = true;
+            this.xPanel4.TabIndex = 0;
+            // 
+            // gbVerDetalle
+            // 
+            this.gbVerDetalle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbVerDetalle.BackgroundImage")));
+            this.gbVerDetalle.BlackBorder = true;
+            this.gbVerDetalle.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbVerDetalle.CircleButton = false;
+            this.gbVerDetalle.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Search;
+            this.gbVerDetalle.FlatColor = System.Drawing.Color.LimeGreen;
+            this.gbVerDetalle.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
+            this.gbVerDetalle.FlatFontSize = 9;
+            this.gbVerDetalle.FlatTextColor = System.Drawing.Color.Black;
+            this.gbVerDetalle.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbVerDetalle.ImageOnTop = true;
+            this.gbVerDetalle.Location = new System.Drawing.Point(667, 5);
+            this.gbVerDetalle.Name = "gbVerDetalle";
+            this.gbVerDetalle.RoundCorners = 2;
+            this.gbVerDetalle.Size = new System.Drawing.Size(83, 70);
+            this.gbVerDetalle.TabIndex = 10;
+            this.gbVerDetalle.Text = "Detalle";
+            this.gbVerDetalle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbVerDetalle.W8Color = System.Drawing.Color.LimeGreen;
+            // 
+            // gbNuevaEntrevista
+            // 
+            this.gbNuevaEntrevista.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbNuevaEntrevista.BackgroundImage")));
+            this.gbNuevaEntrevista.BlackBorder = true;
+            this.gbNuevaEntrevista.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbNuevaEntrevista.CircleButton = false;
+            this.gbNuevaEntrevista.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.New;
+            this.gbNuevaEntrevista.FlatColor = System.Drawing.Color.LimeGreen;
+            this.gbNuevaEntrevista.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
+            this.gbNuevaEntrevista.FlatFontSize = 9;
+            this.gbNuevaEntrevista.FlatTextColor = System.Drawing.Color.Black;
+            this.gbNuevaEntrevista.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbNuevaEntrevista.ImageOnTop = true;
+            this.gbNuevaEntrevista.Location = new System.Drawing.Point(463, 5);
+            this.gbNuevaEntrevista.Name = "gbNuevaEntrevista";
+            this.gbNuevaEntrevista.RoundCorners = 2;
+            this.gbNuevaEntrevista.Size = new System.Drawing.Size(83, 70);
+            this.gbNuevaEntrevista.TabIndex = 9;
+            this.gbNuevaEntrevista.Text = "Nueva";
+            this.gbNuevaEntrevista.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbNuevaEntrevista.W8Color = System.Drawing.Color.LimeGreen;
+            // 
+            // gbEditarEntrevista
+            // 
+            this.gbEditarEntrevista.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbEditarEntrevista.BackgroundImage")));
+            this.gbEditarEntrevista.BlackBorder = true;
+            this.gbEditarEntrevista.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbEditarEntrevista.CircleButton = false;
+            this.gbEditarEntrevista.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Edit;
+            this.gbEditarEntrevista.FlatColor = System.Drawing.Color.LimeGreen;
+            this.gbEditarEntrevista.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
+            this.gbEditarEntrevista.FlatFontSize = 9;
+            this.gbEditarEntrevista.FlatTextColor = System.Drawing.Color.Black;
+            this.gbEditarEntrevista.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbEditarEntrevista.ImageOnTop = true;
+            this.gbEditarEntrevista.Location = new System.Drawing.Point(268, 5);
+            this.gbEditarEntrevista.Name = "gbEditarEntrevista";
+            this.gbEditarEntrevista.PCode = "MODCLIENTREV";
+            this.gbEditarEntrevista.RoundCorners = 2;
+            this.gbEditarEntrevista.Size = new System.Drawing.Size(83, 70);
+            this.gbEditarEntrevista.TabIndex = 8;
+            this.gbEditarEntrevista.Text = "Editar";
+            this.gbEditarEntrevista.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbEditarEntrevista.W8Color = System.Drawing.Color.LimeGreen;
+            // 
+            // mrEntrevistas
+            // 
+            this.mrEntrevistas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mrEntrevistas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mrEntrevistas.Location = new System.Drawing.Point(6, 81);
+            this.mrEntrevistas.Name = "mrEntrevistas";
+            this.mrEntrevistas.Size = new System.Drawing.Size(981, 399);
+            this.mrEntrevistas.SkinFixed = true;
+            this.mrEntrevistas.TabIndex = 1;
+            // 
+            // tabContactos
+            // 
+            this.tabContactos.Controls.Add(this.xPanel7);
+            this.tabContactos.Location = new System.Drawing.Point(4, 25);
+            this.tabContactos.Name = "tabContactos";
+            this.tabContactos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabContactos.Size = new System.Drawing.Size(997, 491);
+            this.tabContactos.TabIndex = 7;
+            this.tabContactos.Text = "Contactos";
+            this.tabContactos.UseVisualStyleBackColor = true;
+            // 
+            // xPanel7
+            // 
+            this.xPanel7.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel7.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel7.Controls.Add(this.gbBorrarContacto);
+            this.xPanel7.Controls.Add(this.gbNuevoContacto);
+            this.xPanel7.Controls.Add(this.gbEditarContacto);
+            this.xPanel7.Controls.Add(this.mrContactos);
+            this.xPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xPanel7.Location = new System.Drawing.Point(3, 3);
+            this.xPanel7.Name = "xPanel7";
+            this.xPanel7.Size = new System.Drawing.Size(991, 485);
+            this.xPanel7.SkinFixed = true;
+            this.xPanel7.TabIndex = 0;
+            // 
+            // gbBorrarContacto
+            // 
+            this.gbBorrarContacto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbBorrarContacto.BackgroundImage")));
+            this.gbBorrarContacto.BlackBorder = true;
+            this.gbBorrarContacto.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbBorrarContacto.CircleButton = false;
+            this.gbBorrarContacto.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Delete;
+            this.gbBorrarContacto.FlatColor = System.Drawing.Color.Red;
+            this.gbBorrarContacto.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Cancelar;
+            this.gbBorrarContacto.FlatFontSize = 9;
+            this.gbBorrarContacto.FlatTextColor = System.Drawing.Color.Black;
+            this.gbBorrarContacto.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbBorrarContacto.ImageOnTop = true;
+            this.gbBorrarContacto.Location = new System.Drawing.Point(636, 7);
+            this.gbBorrarContacto.Name = "gbBorrarContacto";
+            this.gbBorrarContacto.PCode = "MODCLICONTACTOS";
+            this.gbBorrarContacto.RoundCorners = 2;
+            this.gbBorrarContacto.Size = new System.Drawing.Size(83, 70);
+            this.gbBorrarContacto.TabIndex = 13;
+            this.gbBorrarContacto.Text = "Borrar";
+            this.gbBorrarContacto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbBorrarContacto.W8Color = System.Drawing.Color.Red;
+            // 
+            // gbNuevoContacto
+            // 
+            this.gbNuevoContacto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbNuevoContacto.BackgroundImage")));
+            this.gbNuevoContacto.BlackBorder = true;
+            this.gbNuevoContacto.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbNuevoContacto.CircleButton = false;
+            this.gbNuevoContacto.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.New;
+            this.gbNuevoContacto.FlatColor = System.Drawing.Color.LimeGreen;
+            this.gbNuevoContacto.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
+            this.gbNuevoContacto.FlatFontSize = 9;
+            this.gbNuevoContacto.FlatTextColor = System.Drawing.Color.Black;
+            this.gbNuevoContacto.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbNuevoContacto.ImageOnTop = true;
+            this.gbNuevoContacto.Location = new System.Drawing.Point(464, 7);
+            this.gbNuevoContacto.Name = "gbNuevoContacto";
+            this.gbNuevoContacto.RoundCorners = 2;
+            this.gbNuevoContacto.Size = new System.Drawing.Size(83, 70);
+            this.gbNuevoContacto.TabIndex = 12;
+            this.gbNuevoContacto.Text = "Nuevo";
+            this.gbNuevoContacto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbNuevoContacto.W8Color = System.Drawing.Color.LimeGreen;
+            // 
+            // gbEditarContacto
+            // 
+            this.gbEditarContacto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbEditarContacto.BackgroundImage")));
+            this.gbEditarContacto.BlackBorder = true;
+            this.gbEditarContacto.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbEditarContacto.CircleButton = false;
+            this.gbEditarContacto.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Edit;
+            this.gbEditarContacto.FlatColor = System.Drawing.Color.LimeGreen;
+            this.gbEditarContacto.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
+            this.gbEditarContacto.FlatFontSize = 9;
+            this.gbEditarContacto.FlatTextColor = System.Drawing.Color.Black;
+            this.gbEditarContacto.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbEditarContacto.ImageOnTop = true;
+            this.gbEditarContacto.Location = new System.Drawing.Point(288, 7);
+            this.gbEditarContacto.Name = "gbEditarContacto";
+            this.gbEditarContacto.PCode = "MODCLICONTACTOS";
+            this.gbEditarContacto.RoundCorners = 2;
+            this.gbEditarContacto.Size = new System.Drawing.Size(83, 70);
+            this.gbEditarContacto.TabIndex = 11;
+            this.gbEditarContacto.Text = "Editar";
+            this.gbEditarContacto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbEditarContacto.W8Color = System.Drawing.Color.LimeGreen;
+            // 
+            // mrContactos
+            // 
+            this.mrContactos.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mrContactos.Location = new System.Drawing.Point(6, 74);
+            this.mrContactos.Name = "mrContactos";
+            this.mrContactos.Size = new System.Drawing.Size(982, 390);
+            this.mrContactos.SkinFixed = true;
+            this.mrContactos.TabIndex = 5;
+            // 
+            // tabServicios
+            // 
+            this.tabServicios.Controls.Add(this.xPanel5);
+            this.tabServicios.Location = new System.Drawing.Point(4, 25);
+            this.tabServicios.Name = "tabServicios";
+            this.tabServicios.Padding = new System.Windows.Forms.Padding(3);
+            this.tabServicios.Size = new System.Drawing.Size(997, 491);
+            this.tabServicios.TabIndex = 5;
+            this.tabServicios.Text = "Servicios";
+            this.tabServicios.UseVisualStyleBackColor = true;
+            // 
+            // xPanel5
+            // 
+            this.xPanel5.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel5.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel5.Controls.Add(this.gbServicioNuevo);
+            this.xPanel5.Controls.Add(this.mrServicios);
+            this.xPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xPanel5.Location = new System.Drawing.Point(3, 3);
+            this.xPanel5.Name = "xPanel5";
+            this.xPanel5.Size = new System.Drawing.Size(991, 485);
+            this.xPanel5.SkinFixed = true;
+            this.xPanel5.TabIndex = 0;
+            // 
+            // gbServicioNuevo
+            // 
+            this.gbServicioNuevo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbServicioNuevo.BackgroundImage")));
+            this.gbServicioNuevo.BlackBorder = true;
+            this.gbServicioNuevo.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbServicioNuevo.CircleButton = false;
+            this.gbServicioNuevo.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Botiquin;
+            this.gbServicioNuevo.FlatColor = System.Drawing.Color.LimeGreen;
+            this.gbServicioNuevo.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
+            this.gbServicioNuevo.FlatFontSize = 9;
+            this.gbServicioNuevo.FlatTextColor = System.Drawing.Color.Black;
+            this.gbServicioNuevo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbServicioNuevo.ImageOnTop = true;
+            this.gbServicioNuevo.Location = new System.Drawing.Point(445, 3);
+            this.gbServicioNuevo.Name = "gbServicioNuevo";
+            this.gbServicioNuevo.RoundCorners = 2;
+            this.gbServicioNuevo.Size = new System.Drawing.Size(83, 70);
+            this.gbServicioNuevo.TabIndex = 10;
+            this.gbServicioNuevo.Text = "Nuevo";
+            this.gbServicioNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbServicioNuevo.W8Color = System.Drawing.Color.LimeGreen;
+            // 
+            // mrServicios
+            // 
+            this.mrServicios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mrServicios.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mrServicios.Location = new System.Drawing.Point(6, 71);
+            this.mrServicios.Name = "mrServicios";
+            this.mrServicios.Size = new System.Drawing.Size(981, 409);
+            this.mrServicios.SkinFixed = true;
+            this.mrServicios.TabIndex = 1;
+            // 
+            // tabNotas
+            // 
+            this.tabNotas.Controls.Add(this.xPanel6);
+            this.tabNotas.Location = new System.Drawing.Point(4, 25);
+            this.tabNotas.Name = "tabNotas";
+            this.tabNotas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabNotas.Size = new System.Drawing.Size(997, 491);
+            this.tabNotas.TabIndex = 4;
+            this.tabNotas.Text = "Notas";
+            this.tabNotas.UseVisualStyleBackColor = true;
+            // 
+            // xPanel6
+            // 
+            this.xPanel6.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel6.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel6.Controls.Add(this.gbNuevaNota);
+            this.xPanel6.Controls.Add(this.gbVerNota);
+            this.xPanel6.Controls.Add(this.mrNotas);
+            this.xPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xPanel6.Location = new System.Drawing.Point(3, 3);
+            this.xPanel6.Name = "xPanel6";
+            this.xPanel6.Size = new System.Drawing.Size(991, 485);
+            this.xPanel6.SkinFixed = true;
+            this.xPanel6.TabIndex = 0;
+            // 
+            // gbNuevaNota
+            // 
+            this.gbNuevaNota.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbNuevaNota.BackgroundImage")));
+            this.gbNuevaNota.BlackBorder = true;
+            this.gbNuevaNota.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbNuevaNota.CircleButton = false;
+            this.gbNuevaNota.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.New;
+            this.gbNuevaNota.FlatColor = System.Drawing.Color.LimeGreen;
+            this.gbNuevaNota.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
+            this.gbNuevaNota.FlatFontSize = 9;
+            this.gbNuevaNota.FlatTextColor = System.Drawing.Color.Black;
+            this.gbNuevaNota.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbNuevaNota.ImageOnTop = true;
+            this.gbNuevaNota.Location = new System.Drawing.Point(370, 3);
+            this.gbNuevaNota.Name = "gbNuevaNota";
+            this.gbNuevaNota.RoundCorners = 2;
+            this.gbNuevaNota.Size = new System.Drawing.Size(83, 70);
+            this.gbNuevaNota.TabIndex = 13;
+            this.gbNuevaNota.Text = "Nuevo";
+            this.gbNuevaNota.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbNuevaNota.W8Color = System.Drawing.Color.LimeGreen;
+            // 
+            // gbVerNota
+            // 
+            this.gbVerNota.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbVerNota.BackgroundImage")));
+            this.gbVerNota.BlackBorder = true;
+            this.gbVerNota.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbVerNota.CircleButton = false;
+            this.gbVerNota.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Search;
+            this.gbVerNota.FlatColor = System.Drawing.Color.LimeGreen;
+            this.gbVerNota.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
+            this.gbVerNota.FlatFontSize = 9;
+            this.gbVerNota.FlatTextColor = System.Drawing.Color.Black;
+            this.gbVerNota.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbVerNota.ImageOnTop = true;
+            this.gbVerNota.Location = new System.Drawing.Point(580, 3);
+            this.gbVerNota.Name = "gbVerNota";
+            this.gbVerNota.RoundCorners = 2;
+            this.gbVerNota.Size = new System.Drawing.Size(83, 70);
+            this.gbVerNota.TabIndex = 10;
+            this.gbVerNota.Text = "Ver Nota";
+            this.gbVerNota.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbVerNota.W8Color = System.Drawing.Color.LimeGreen;
+            // 
+            // mrNotas
+            // 
+            this.mrNotas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mrNotas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mrNotas.Location = new System.Drawing.Point(6, 66);
+            this.mrNotas.Name = "mrNotas";
+            this.mrNotas.Size = new System.Drawing.Size(981, 414);
+            this.mrNotas.SkinFixed = true;
+            this.mrNotas.TabIndex = 1;
+            // 
+            // topPanel
+            // 
+            this.topPanel.BackColor = System.Drawing.Color.DarkGreen;
+            this.topPanel.Controls.Add(this.label1);
+            this.topPanel.Controls.Add(this.btnClose);
+            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topPanel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.topPanel.Location = new System.Drawing.Point(0, 0);
+            this.topPanel.Name = "topPanel";
+            this.topPanel.Size = new System.Drawing.Size(1029, 40);
+            this.topPanel.TabIndex = 142;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(7, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 23);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Carga Cliente";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(971, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(58, 40);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.TabStop = false;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.Black;
+            this.btnExit.Location = new System.Drawing.Point(963, 3);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(58, 40);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.TabStop = false;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // CargaCliente
             // 
             this.AcceptButton = this.gbGrabar;
-            this.ClientSize = new System.Drawing.Size(1008, 550);
+            this.ClientSize = new System.Drawing.Size(1029, 592);
             this.Controls.Add(this.xPanel1);
             this.Font = new System.Drawing.Font("Arial", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -589,9 +1113,25 @@ namespace Carm.Ad
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo Movil";
+            this.Load += new System.EventHandler(this.CargaCliente_Load);
             this.xPanel1.ResumeLayout(false);
+            this.ftDetalleCliente.ResumeLayout(false);
+            this.tabCliente.ResumeLayout(false);
+            this.xPanel2.ResumeLayout(false);
             this.tgrpDatosBasicos.ResumeLayout(false);
             this.tgrpDatosBasicos.PerformLayout();
+            this.tabLlamadas.ResumeLayout(false);
+            this.xPanel3.ResumeLayout(false);
+            this.tabEntrev.ResumeLayout(false);
+            this.xPanel4.ResumeLayout(false);
+            this.tabContactos.ResumeLayout(false);
+            this.xPanel7.ResumeLayout(false);
+            this.tabServicios.ResumeLayout(false);
+            this.xPanel5.ResumeLayout(false);
+            this.tabNotas.ResumeLayout(false);
+            this.xPanel6.ResumeLayout(false);
+            this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -612,7 +1152,6 @@ namespace Carm.Ad
         private TNGS.NetControls.FullLabel lblNroMotor;
         private TNGS.NetControls.FullLabel lblNroChasis;
         private TNGS.NetControls.GlassButton gbGrabar;
-        private TNGS.NetControls.GlassButton gbLimpiarTodo;
         private TNGS.NetControls.TextEdit tePisoDepto;
         private TNGS.NetControls.FullLabel fullLabel2;
         private TNGS.NetControls.ImgGroup tgrpDatosBasicos;
@@ -636,5 +1175,37 @@ namespace Carm.Ad
         private TNGS.NetControls.FullLabel fullLabel5;
         private TNGS.NetControls.TextEdit tePaginaWeb;
         private TNGS.NetControls.FullLabel fullLabel4;
+        private TNGS.NetControls.GlassButton gbCancelar;
+        private System.Windows.Forms.Panel topPanel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnClose;
+        private TNGS.NetControls.FullTab ftDetalleCliente;
+        private System.Windows.Forms.TabPage tabCliente;
+        private TNGS.NetControls.XPanel xPanel2;
+        private System.Windows.Forms.TabPage tabLlamadas;
+        private TNGS.NetControls.XPanel xPanel3;
+        private TNGS.NetControls.MiniReport mrLlamadas;
+        private System.Windows.Forms.TabPage tabEntrev;
+        private TNGS.NetControls.XPanel xPanel4;
+        private TNGS.NetControls.MiniReport mrEntrevistas;
+        private System.Windows.Forms.TabPage tabContactos;
+        private TNGS.NetControls.XPanel xPanel7;
+        private TNGS.NetControls.MiniReport mrContactos;
+        private System.Windows.Forms.TabPage tabServicios;
+        private TNGS.NetControls.XPanel xPanel5;
+        private TNGS.NetControls.MiniReport mrServicios;
+        private System.Windows.Forms.TabPage tabNotas;
+        private TNGS.NetControls.XPanel xPanel6;
+        private TNGS.NetControls.MiniReport mrNotas;
+        private TNGS.NetControls.GlassButton gbLlamadaNueva;
+        private TNGS.NetControls.GlassButton gbVerDetalle;
+        private TNGS.NetControls.GlassButton gbNuevaEntrevista;
+        private TNGS.NetControls.GlassButton gbEditarEntrevista;
+        private TNGS.NetControls.GlassButton gbBorrarContacto;
+        private TNGS.NetControls.GlassButton gbNuevoContacto;
+        private TNGS.NetControls.GlassButton gbEditarContacto;
+        private TNGS.NetControls.GlassButton gbServicioNuevo;
+        private TNGS.NetControls.GlassButton gbNuevaNota;
+        private TNGS.NetControls.GlassButton gbVerNota;
     }
 }

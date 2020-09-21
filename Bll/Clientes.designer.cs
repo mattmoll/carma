@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:37
+    // Fecha                    : 20/09/2020 03:44
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -2721,14 +2721,10 @@ namespace Carm.Bll
         /// </summary>
         /// <param name= p_dtFechaini>Fecha Inicial</param>
         /// <param name= p_dtFechafin>Fecha Fin</param>
-        /// <param name= p_strCodinimarca>Codigo Inicial Marca</param>
-        /// <param name= p_strCodfinmarca>Codigo Fin Marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         public static ListaEntidades CllZBajasGral(DateTime p_dtFechaini,
                                                    DateTime p_dtFechafin,
-                                                   string p_strCodinimarca,
-                                                   string p_strCodfinmarca,
                                                    StatMsg p_smResult)
         {
             // No hay errores aun
@@ -2742,8 +2738,6 @@ namespace Carm.Bll
                 return CllZBajasGral(l_dbcAccess,
                                      p_dtFechaini,
                                      p_dtFechafin,
-                                     p_strCodinimarca,
-                                     p_strCodfinmarca,
                                      p_smResult);
             }
             catch (Exception l_expData) {
@@ -2762,12 +2756,10 @@ namespace Carm.Bll
         /// </summary>
         /// <param name= p_iNroavalon>Numero de Avalon</param>
         /// <param name= p_iAnio>Anio a obtener historico</param>
-        /// <param name= p_strCodmarca>Codigo de Marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         public static ListaEntidades CllZReajustesXClieXAnio(int p_iNroavalon,
                                                              int p_iAnio,
-                                                             string p_strCodmarca,
                                                              StatMsg p_smResult)
         {
             // No hay errores aun
@@ -2781,7 +2773,6 @@ namespace Carm.Bll
                 return CllZReajustesXClieXAnio(l_dbcAccess,
                                                p_iNroavalon,
                                                p_iAnio,
-                                               p_strCodmarca,
                                                p_smResult);
             }
             catch (Exception l_expData) {
@@ -2882,14 +2873,10 @@ namespace Carm.Bll
         /// </summary>
         /// <param name= p_dtFechaini>Fecha Inicial</param>
         /// <param name= p_dtFechafin>Fecha Fin</param>
-        /// <param name= p_strCodmarcaini>Codigo Marca Inicial</param>
-        /// <param name= p_strCodmarcafin>Codigo Marca Fin</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         public static ListaEntidades CllZReclamosGral(DateTime p_dtFechaini,
                                                       DateTime p_dtFechafin,
-                                                      string p_strCodmarcaini,
-                                                      string p_strCodmarcafin,
                                                       StatMsg p_smResult)
         {
             // No hay errores aun
@@ -2903,8 +2890,6 @@ namespace Carm.Bll
                 return CllZReclamosGral(l_dbcAccess,
                                         p_dtFechaini,
                                         p_dtFechafin,
-                                        p_strCodmarcaini,
-                                        p_strCodmarcafin,
                                         p_smResult);
             }
             catch (Exception l_expData) {
@@ -2964,14 +2949,10 @@ namespace Carm.Bll
         /// </summary>
         /// <param name= p_dtFechaini>Fecha Inicial</param>
         /// <param name= p_dtFechafin>Fecha Fin</param>
-        /// <param name= p_strCodmarcaini>Codigo Marca Inicial</param>
-        /// <param name= p_strCodmarcafin>Codigo Marca Fin</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         public static ListaEntidades CllZRecuperosGral(DateTime p_dtFechaini,
                                                        DateTime p_dtFechafin,
-                                                       string p_strCodmarcaini,
-                                                       string p_strCodmarcafin,
                                                        StatMsg p_smResult)
         {
             // No hay errores aun
@@ -2985,8 +2966,6 @@ namespace Carm.Bll
                 return CllZRecuperosGral(l_dbcAccess,
                                          p_dtFechaini,
                                          p_dtFechafin,
-                                         p_strCodmarcaini,
-                                         p_strCodmarcafin,
                                          p_smResult);
             }
             catch (Exception l_expData) {
@@ -3762,15 +3741,11 @@ namespace Carm.Bll
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= p_dtFechaini>Fecha Inicial</param>
         /// <param name= p_dtFechafin>Fecha Fin</param>
-        /// <param name= p_strCodinimarca>Codigo Inicial Marca</param>
-        /// <param name= p_strCodfinmarca>Codigo Fin Marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         internal static ListaEntidades CllZBajasGral(DBConn p_dbcAccess,
                                                      DateTime p_dtFechaini,
                                                      DateTime p_dtFechafin,
-                                                     string p_strCodinimarca,
-                                                     string p_strCodfinmarca,
                                                      StatMsg p_smResult)
         {
             try {
@@ -3780,8 +3755,6 @@ namespace Carm.Bll
                 Dal.CliLlamadas.ZBajasGral(p_dbcAccess,
                                            p_dtFechaini,
                                            p_dtFechafin,
-                                           p_strCodinimarca,
-                                           p_strCodfinmarca,
                                            ref l_dsTemp,
                                            "Temporal",
                                            p_smResult);
@@ -3811,13 +3784,11 @@ namespace Carm.Bll
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= p_iNroavalon>Numero de Avalon</param>
         /// <param name= p_iAnio>Anio a obtener historico</param>
-        /// <param name= p_strCodmarca>Codigo de Marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         internal static ListaEntidades CllZReajustesXClieXAnio(DBConn p_dbcAccess,
                                                                int p_iNroavalon,
                                                                int p_iAnio,
-                                                               string p_strCodmarca,
                                                                StatMsg p_smResult)
         {
             try {
@@ -3827,7 +3798,6 @@ namespace Carm.Bll
                 Dal.CliLlamadas.ZReajustesXClieXAnio(p_dbcAccess,
                                                      p_iNroavalon,
                                                      p_iAnio,
-                                                     p_strCodmarca,
                                                      ref l_dsTemp,
                                                      "Temporal",
                                                      p_smResult);
@@ -3955,15 +3925,11 @@ namespace Carm.Bll
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= p_dtFechaini>Fecha Inicial</param>
         /// <param name= p_dtFechafin>Fecha Fin</param>
-        /// <param name= p_strCodmarcaini>Codigo Marca Inicial</param>
-        /// <param name= p_strCodmarcafin>Codigo Marca Fin</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         internal static ListaEntidades CllZReclamosGral(DBConn p_dbcAccess,
                                                         DateTime p_dtFechaini,
                                                         DateTime p_dtFechafin,
-                                                        string p_strCodmarcaini,
-                                                        string p_strCodmarcafin,
                                                         StatMsg p_smResult)
         {
             try {
@@ -3973,8 +3939,6 @@ namespace Carm.Bll
                 Dal.CliLlamadas.ZReclamosGral(p_dbcAccess,
                                               p_dtFechaini,
                                               p_dtFechafin,
-                                              p_strCodmarcaini,
-                                              p_strCodmarcafin,
                                               ref l_dsTemp,
                                               "Temporal",
                                               p_smResult);
@@ -4053,15 +4017,11 @@ namespace Carm.Bll
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= p_dtFechaini>Fecha Inicial</param>
         /// <param name= p_dtFechafin>Fecha Fin</param>
-        /// <param name= p_strCodmarcaini>Codigo Marca Inicial</param>
-        /// <param name= p_strCodmarcafin>Codigo Marca Fin</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         internal static ListaEntidades CllZRecuperosGral(DBConn p_dbcAccess,
                                                          DateTime p_dtFechaini,
                                                          DateTime p_dtFechafin,
-                                                         string p_strCodmarcaini,
-                                                         string p_strCodmarcafin,
                                                          StatMsg p_smResult)
         {
             try {
@@ -4071,8 +4031,6 @@ namespace Carm.Bll
                 Dal.CliLlamadas.ZRecuperosGral(p_dbcAccess,
                                                p_dtFechaini,
                                                p_dtFechafin,
-                                               p_strCodmarcaini,
-                                               p_strCodmarcafin,
                                                ref l_dsTemp,
                                                "Temporal",
                                                p_smResult);
@@ -6423,13 +6381,9 @@ namespace Carm.Bll
         /// Ejecuta el SP definido por el usuario: ZVentasPorMes
         /// </summary>
         /// <param name= p_iAnioinicio>Anio de inicio</param>
-        /// <param name= p_strCodmarcaini>Codigo inicial de marca</param>
-        /// <param name= p_strCodmarcafin>Codigo Final de marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         public static ListaEntidades ClvZVentasPorMes(int p_iAnioinicio,
-                                                      string p_strCodmarcaini,
-                                                      string p_strCodmarcafin,
                                                       StatMsg p_smResult)
         {
             // No hay errores aun
@@ -6442,8 +6396,6 @@ namespace Carm.Bll
                 // Llamamos al metodo interno
                 return ClvZVentasPorMes(l_dbcAccess,
                                         p_iAnioinicio,
-                                        p_strCodmarcaini,
-                                        p_strCodmarcafin,
                                         p_smResult);
             }
             catch (Exception l_expData) {
@@ -7078,14 +7030,10 @@ namespace Carm.Bll
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= p_iAnioinicio>Anio de inicio</param>
-        /// <param name= p_strCodmarcaini>Codigo inicial de marca</param>
-        /// <param name= p_strCodmarcafin>Codigo Final de marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         internal static ListaEntidades ClvZVentasPorMes(DBConn p_dbcAccess,
                                                         int p_iAnioinicio,
-                                                        string p_strCodmarcaini,
-                                                        string p_strCodmarcafin,
                                                         StatMsg p_smResult)
         {
             try {
@@ -7094,8 +7042,6 @@ namespace Carm.Bll
 
                 Dal.CliVentas.ZVentasPorMes(p_dbcAccess,
                                             p_iAnioinicio,
-                                            p_strCodmarcaini,
-                                            p_strCodmarcafin,
                                             ref l_dsTemp,
                                             "Temporal",
                                             p_smResult);
@@ -7535,68 +7481,6 @@ namespace Carm.Bll
         }
 
         /// <summary>
-        /// Ejecuta el SP definido por el usuario: FueArreglado
-        /// </summary>
-        /// <param name= p_iNumcliente>Numero del Cliente</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static void FueArreglado(int p_iNumcliente,
-                                        StatMsg p_smResult)
-        {
-            // No hay errores aun
-            DBConn l_dbcAccess= null;
-
-            try {
-                // Abrimos una conexion
-                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
-
-                // Llamamos al metodo interno
-                FueArreglado(l_dbcAccess,
-                             p_iNumcliente,
-                             p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-            }
-            finally {
-                // Si abrimos una conexion -> la cerramos
-                if (l_dbcAccess != null) l_dbcAccess.Close();
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: GetReservados
-        /// </summary>
-        /// <param name= p_strCodvend>Codigo de Vendedor</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        /// <returns>ListaEntidad con los datos solicitados</returns>
-        public static ListaEntidades GetReservados(string p_strCodvend,
-                                                   StatMsg p_smResult)
-        {
-            // No hay errores aun
-            DBConn l_dbcAccess= null;
-
-            try {
-                // Abrimos una conexion
-                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
-
-                // Llamamos al metodo interno
-                return GetReservados(l_dbcAccess,
-                                     p_strCodvend,
-                                     p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-                return null;
-            }
-            finally {
-                // Si abrimos una conexion -> la cerramos
-                if (l_dbcAccess != null) l_dbcAccess.Close();
-            }
-        }
-
-        /// <summary>
         /// Ejecuta el SP definido por el usuario: GetSinCodVend
         /// </summary>
         /// <param name= p_iNumero>Numero del cliente</param>
@@ -7616,38 +7500,6 @@ namespace Carm.Bll
                 return GetSinCodVend(l_dbcAccess,
                                      p_iNumero,
                                      p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-                return null;
-            }
-            finally {
-                // Si abrimos una conexion -> la cerramos
-                if (l_dbcAccess != null) l_dbcAccess.Close();
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: GetTieneDatosError
-        /// </summary>
-        /// <param name= p_iNrocliente>Numero del Cliente</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        /// <returns>ListaEntidad con los datos solicitados</returns>
-        public static ListaEntidades GetTieneDatosError(int p_iNrocliente,
-                                                        StatMsg p_smResult)
-        {
-            // No hay errores aun
-            DBConn l_dbcAccess= null;
-
-            try {
-                // Abrimos una conexion
-                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
-
-                // Llamamos al metodo interno
-                return GetTieneDatosError(l_dbcAccess,
-                                          p_iNrocliente,
-                                          p_smResult);
             }
             catch (Exception l_expData) {
                 // Error en la operacion
@@ -7714,66 +7566,6 @@ namespace Carm.Bll
                 // Error en la operacion
                 p_smResult.BllError(l_expData);
                 return null;
-            }
-            finally {
-                // Si abrimos una conexion -> la cerramos
-                if (l_dbcAccess != null) l_dbcAccess.Close();
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: RemoveReserva
-        /// </summary>
-        /// <param name= p_iNumcliente>Número de cliente</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static void RemoveReserva(int p_iNumcliente,
-                                         StatMsg p_smResult)
-        {
-            // No hay errores aun
-            DBConn l_dbcAccess= null;
-
-            try {
-                // Abrimos una conexion
-                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
-
-                // Llamamos al metodo interno
-                RemoveReserva(l_dbcAccess,
-                              p_iNumcliente,
-                              p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-            }
-            finally {
-                // Si abrimos una conexion -> la cerramos
-                if (l_dbcAccess != null) l_dbcAccess.Close();
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: TieneDatosErroneos
-        /// </summary>
-        /// <param name= p_iNumcliente>Numero del cliente</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        public static void TieneDatosErroneos(int p_iNumcliente,
-                                              StatMsg p_smResult)
-        {
-            // No hay errores aun
-            DBConn l_dbcAccess= null;
-
-            try {
-                // Abrimos una conexion
-                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
-
-                // Llamamos al metodo interno
-                TieneDatosErroneos(l_dbcAccess,
-                                   p_iNumcliente,
-                                   p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
             }
             finally {
                 // Si abrimos una conexion -> la cerramos
@@ -7851,44 +7643,6 @@ namespace Carm.Bll
                             p_dtFechaini,
                             p_dtFechafin,
                             p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-                return null;
-            }
-            finally {
-                // Si abrimos una conexion -> la cerramos
-                if (l_dbcAccess != null) l_dbcAccess.Close();
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: ZReservasFull
-        /// </summary>
-        /// <param name= p_strCodvend>Codigo del vendedor</param>
-        /// <param name= p_dtFechaini>Fecha inicial de la busqueda</param>
-        /// <param name= p_dtFechafin>Fecha final de la busqueda</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        /// <returns>ListaEntidad con los datos solicitados</returns>
-        public static LEClientes ZReservasFull(string p_strCodvend,
-                                               DateTime p_dtFechaini,
-                                               DateTime p_dtFechafin,
-                                               StatMsg p_smResult)
-        {
-            // No hay errores aun
-            DBConn l_dbcAccess= null;
-
-            try {
-                // Abrimos una conexion
-                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
-
-                // Llamamos al metodo interno
-                return ZReservasFull(l_dbcAccess,
-                                     p_strCodvend,
-                                     p_dtFechaini,
-                                     p_dtFechafin,
-                                     p_smResult);
             }
             catch (Exception l_expData) {
                 // Error en la operacion
@@ -8279,8 +8033,6 @@ namespace Carm.Bll
                                     p_entCliente.Cuil,
                                     p_entCliente.Url,
                                     p_entCliente.Codvend,
-                                    p_entCliente.Extension,
-                                    p_entCliente.Horarios,
                                     p_entCliente.Fingsima,
                                     p_entCliente.Cantempleados,
                                     p_entCliente.Cobertura,
@@ -8334,8 +8086,6 @@ namespace Carm.Bll
                                     p_entCliente.Cuil,
                                     p_entCliente.Url,
                                     p_entCliente.Codvend,
-                                    p_entCliente.Extension,
-                                    p_entCliente.Horarios,
                                     p_entCliente.Fingsima,
                                     p_entCliente.Cantempleados,
                                     p_entCliente.Cobertura,
@@ -8606,31 +8356,6 @@ namespace Carm.Bll
         }
 
         /// <summary>
-        /// Ejecuta el SP definido por el usuario: FueArreglado
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= p_iNumcliente>Numero del Cliente</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        internal static void FueArreglado(DBConn p_dbcAccess,
-                                          int p_iNumcliente,
-                                          StatMsg p_smResult)
-        {
-            try {
-                // Llamamos al metodo definido por el usuario
-                Dal.Clientes.FueArreglado(p_dbcAccess,
-                                          p_iNumcliente,
-                                          p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-            }
-            finally {
-                // Terminamos
-            }
-        }
-
-        /// <summary>
         /// Ejecuta el SP definido por el usuario: GetFromNroAvln
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
@@ -8675,12 +8400,10 @@ namespace Carm.Bll
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= p_iNroavalon>Numero de Avalon</param>
-        /// <param name= p_strCodmarca>Codigo de Marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         internal static ListaEntidades GetPorClaveAvalon(DBConn p_dbcAccess,
                                                          int p_iNroavalon,
-                                                         string p_strCodmarca,
                                                          StatMsg p_smResult)
         {
             try {
@@ -8689,7 +8412,6 @@ namespace Carm.Bll
 
                 Dal.Clientes.GetPorClaveAvalon(p_dbcAccess,
                                                p_iNroavalon,
-                                               p_strCodmarca,
                                                ref l_dsTemp,
                                                "Temporal",
                                                p_smResult);
@@ -8754,46 +8476,6 @@ namespace Carm.Bll
         }
 
         /// <summary>
-        /// Ejecuta el SP definido por el usuario: GetReservados
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= p_strCodvend>Codigo de Vendedor</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        /// <returns>ListaEntidad con los datos solicitados</returns>
-        internal static ListaEntidades GetReservados(DBConn p_dbcAccess,
-                                                     string p_strCodvend,
-                                                     StatMsg p_smResult)
-        {
-            try {
-                // Llamamos al metodo definido por el usuario
-                DataSet l_dsTemp= new DataSet();
-
-                Dal.Clientes.GetReservados(p_dbcAccess,
-                                           p_strCodvend,
-                                           ref l_dsTemp,
-                                           "Temporal",
-                                           p_smResult);
-                if (p_smResult.NOk) return null;
-
-                // Creamos la LE y Captionamos
-                ListaEntidades l_lentRet= new ListaEntidades(l_dsTemp.Tables["Temporal"]);
-                BllRuts.FillStdCaptions(ref l_lentRet);
-
-                // Devolvemos la LE
-                l_dsTemp.Dispose();
-                return l_lentRet;
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-                return null;
-            }
-            finally {
-                // Terminamos
-            }
-        }
-
-        /// <summary>
         /// Ejecuta el SP definido por el usuario: GetSinCodVend
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
@@ -8813,46 +8495,6 @@ namespace Carm.Bll
                                            ref l_dsTemp,
                                            "Temporal",
                                            p_smResult);
-                if (p_smResult.NOk) return null;
-
-                // Creamos la LE y Captionamos
-                ListaEntidades l_lentRet= new ListaEntidades(l_dsTemp.Tables["Temporal"]);
-                BllRuts.FillStdCaptions(ref l_lentRet);
-
-                // Devolvemos la LE
-                l_dsTemp.Dispose();
-                return l_lentRet;
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-                return null;
-            }
-            finally {
-                // Terminamos
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: GetTieneDatosError
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= p_iNrocliente>Numero del Cliente</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        /// <returns>ListaEntidad con los datos solicitados</returns>
-        internal static ListaEntidades GetTieneDatosError(DBConn p_dbcAccess,
-                                                          int p_iNrocliente,
-                                                          StatMsg p_smResult)
-        {
-            try {
-                // Llamamos al metodo definido por el usuario
-                DataSet l_dsTemp= new DataSet();
-
-                Dal.Clientes.GetTieneDatosError(p_dbcAccess,
-                                                p_iNrocliente,
-                                                ref l_dsTemp,
-                                                "Temporal",
-                                                p_smResult);
                 if (p_smResult.NOk) return null;
 
                 // Creamos la LE y Captionamos
@@ -8911,46 +8553,6 @@ namespace Carm.Bll
         }
 
         /// <summary>
-        /// Ejecuta el SP definido por el usuario: GetUltimasReservas
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= p_iNumero>Numero del Cliente</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        /// <returns>ListaEntidad con los datos solicitados</returns>
-        internal static ListaEntidades GetUltimasReservas(DBConn p_dbcAccess,
-                                                          int p_iNumero,
-                                                          StatMsg p_smResult)
-        {
-            try {
-                // Llamamos al metodo definido por el usuario
-                DataSet l_dsTemp= new DataSet();
-
-                Dal.Clientes.GetUltimasReservas(p_dbcAccess,
-                                                p_iNumero,
-                                                ref l_dsTemp,
-                                                "Temporal",
-                                                p_smResult);
-                if (p_smResult.NOk) return null;
-
-                // Creamos la LE y Captionamos
-                ListaEntidades l_lentRet= new ListaEntidades(l_dsTemp.Tables["Temporal"]);
-                BllRuts.FillStdCaptions(ref l_lentRet);
-
-                // Devolvemos la LE
-                l_dsTemp.Dispose();
-                return l_lentRet;
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-                return null;
-            }
-            finally {
-                // Terminamos
-            }
-        }
-
-        /// <summary>
         /// Ejecuta el SP definido por el usuario: GetVendidos
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
@@ -8984,156 +8586,6 @@ namespace Carm.Bll
                 // Error en la operacion
                 p_smResult.BllError(l_expData);
                 return null;
-            }
-            finally {
-                // Terminamos
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: JobDesreserva
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        internal static void JobDesreserva(DBConn p_dbcAccess,
-                                           StatMsg p_smResult)
-        {
-            try {
-                // Llamamos al metodo definido por el usuario
-                Dal.Clientes.JobDesreserva(p_dbcAccess,
-                                           p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-            }
-            finally {
-                // Terminamos
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: JobExecute
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        internal static void JobExecute(DBConn p_dbcAccess,
-                                        StatMsg p_smResult)
-        {
-            try {
-                // Llamamos al metodo definido por el usuario
-                Dal.Clientes.JobExecute(p_dbcAccess,
-                                        p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-            }
-            finally {
-                // Terminamos
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: JobLiberaVendsVenc
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        internal static void JobLiberaVendsVenc(DBConn p_dbcAccess,
-                                                StatMsg p_smResult)
-        {
-            try {
-                // Llamamos al metodo definido por el usuario
-                Dal.Clientes.JobLiberaVendsVenc(p_dbcAccess,
-                                                p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-            }
-            finally {
-                // Terminamos
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: RemoveReserva
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= p_iNumcliente>Número de cliente</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        internal static void RemoveReserva(DBConn p_dbcAccess,
-                                           int p_iNumcliente,
-                                           StatMsg p_smResult)
-        {
-            try {
-                // Llamamos al metodo definido por el usuario
-                Dal.Clientes.RemoveReserva(p_dbcAccess,
-                                           p_iNumcliente,
-                                           p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-            }
-            finally {
-                // Terminamos
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: Reservado
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= p_iNumero>Numero de Cliente</param>
-        /// <param name= p_iTiemporeserva>Tiempo que durara la Reserva</param>
-        /// <param name= p_strCodvendedor>Codigo del Vendedor que realizo la reserva</param>
-        /// <param name= p_dtFechainireserva>Fecha de Inicio de la Reserva</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        internal static void Reservado(DBConn p_dbcAccess,
-                                       int p_iNumero,
-                                       int p_iTiemporeserva,
-                                       string p_strCodvendedor,
-                                       DateTime p_dtFechainireserva,
-                                       StatMsg p_smResult)
-        {
-            try {
-                // Llamamos al metodo definido por el usuario
-                Dal.Clientes.Reservado(p_dbcAccess,
-                                       p_iNumero,
-                                       p_iTiemporeserva,
-                                       p_strCodvendedor,
-                                       p_dtFechainireserva,
-                                       p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-            }
-            finally {
-                // Terminamos
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: TieneDatosErroneos
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= p_iNumcliente>Numero del cliente</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        internal static void TieneDatosErroneos(DBConn p_dbcAccess,
-                                                int p_iNumcliente,
-                                                StatMsg p_smResult)
-        {
-            try {
-                // Llamamos al metodo definido por el usuario
-                Dal.Clientes.TieneDatosErroneos(p_dbcAccess,
-                                                p_iNumcliente,
-                                                p_smResult);
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
             }
             finally {
                 // Terminamos
@@ -9213,7 +8665,6 @@ namespace Carm.Bll
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= p_strRazonsocial>Razon Social del Nuevo Cliente</param>
-        /// <param name= p_strCodmarca>Codigo de Marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         internal static ListaEntidades ValidaRSocial(DBConn p_dbcAccess,
@@ -9226,7 +8677,6 @@ namespace Carm.Bll
 
                 Dal.Clientes.ValidaRSocial(p_dbcAccess,
                                            p_strRazonsocial,
-                                           "",
                                            ref l_dsTemp,
                                            "Temporal",
                                            p_smResult);
@@ -9255,7 +8705,6 @@ namespace Carm.Bll
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= p_strTelefono>Telefono del Nuevo Cliente</param>
-        /// <param name= p_strCodmarca>Codigo de marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         internal static ListaEntidades ValidaTelefono(DBConn p_dbcAccess,
@@ -9268,7 +8717,6 @@ namespace Carm.Bll
 
                 Dal.Clientes.ValidaTelefono(p_dbcAccess,
                                             p_strTelefono,
-                                            "",
                                             ref l_dsTemp,
                                             "Temporal",
                                             p_smResult);
@@ -9297,12 +8745,10 @@ namespace Carm.Bll
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= p_iNroavalon>Numero de Avalon</param>
-        /// <param name= p_strCodmarca>codMarca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         internal static ListaEntidades ValidarExistenciaAvl(DBConn p_dbcAccess,
                                                             int p_iNroavalon,
-                                                            string p_strCodmarca,
                                                             StatMsg p_smResult)
         {
             try {
@@ -9311,7 +8757,6 @@ namespace Carm.Bll
 
                 Dal.Clientes.ValidarExistenciaAvl(p_dbcAccess,
                                                   p_iNroavalon,
-                                                  p_strCodmarca,
                                                   ref l_dsTemp,
                                                   "Temporal",
                                                   p_smResult);
@@ -9342,7 +8787,6 @@ namespace Carm.Bll
         /// <param name= p_iNumero>Numero del Cliente</param>
         /// <param name= p_dcAbono>Abono vendido</param>
         /// <param name= p_strCodtipocont>Cod Tipo de Contrato Vendido</param>
-        /// <param name= p_strCodmarca>Codigo de marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         internal static void Vendido(DBConn p_dbcAccess,
                                      int p_iNumero,
@@ -9356,7 +8800,6 @@ namespace Carm.Bll
                                      p_iNumero,
                                      p_dcAbono,
                                      p_strCodtipocont,
-                                     "",
                                      p_smResult);
             }
             catch (Exception l_expData) {
@@ -9453,53 +8896,6 @@ namespace Carm.Bll
                 BllRuts.FillStdCaptions(ref l_lentRet);
 
                 // Devolvemos la LE
-                l_dsTemp.Dispose();
-                return l_lentRet;
-            }
-            catch (Exception l_expData) {
-                // Error en la operacion
-                p_smResult.BllError(l_expData);
-                return null;
-            }
-            finally {
-                // Terminamos
-            }
-        }
-
-        /// <summary>
-        /// Ejecuta el SP definido por el usuario: ZReservasFull
-        /// </summary>
-        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
-        /// <param name= p_strCodvend>Codigo del vendedor</param>
-        /// <param name= p_dtFechaini>Fecha inicial de la busqueda</param>
-        /// <param name= p_dtFechafin>Fecha final de la busqueda</param>
-        /// <param name="p_smResult">Estado final de la operacion</param>
-        /// <returns>ListaEntidad con los datos solicitados</returns>
-        internal static LEClientes ZReservasFull(DBConn p_dbcAccess,
-                                                 string p_strCodvend,
-                                                 DateTime p_dtFechaini,
-                                                 DateTime p_dtFechafin,
-                                                 StatMsg p_smResult)
-        {
-            try {
-                // Llamamos al metodo definido por el usuario
-                DataSet l_dsTemp= new DataSet();
-
-                Dal.Clientes.ZReservasFull(p_dbcAccess,
-                                           p_strCodvend,
-                                           p_dtFechaini,
-                                           p_dtFechafin,
-                                           ref l_dsTemp,
-                                           "Temporal",
-                                           p_smResult);
-                if (p_smResult.NOk) return null;
-
-                // Captionamos el resultado
-                Dal.Clientes.MakeGridCaptions(ref l_dsTemp, "Temporal", p_smResult);
-                if (p_smResult.NOk) return null;
-
-                // Creamos la ListaEntidad y la devolvemos
-                LEClientes l_lentRet= new LEClientes(l_dsTemp.Tables["Temporal"]);
                 l_dsTemp.Dispose();
                 return l_lentRet;
             }

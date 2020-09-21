@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 22/08/2020 01:51
+// Fecha       : 20/09/2020 20:59
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -78,8 +78,6 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_cd1_extension,
-                cli_ede_horarios,
                 cli_fec_fingsima,
                 cli_nro_cantempleados,
                 cli_txt_cobertura,
@@ -132,8 +130,6 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_cd1_extension,
-                cli_ede_horarios,
                 cli_fec_fingsima,
                 cli_nro_cantempleados,
                 cli_txt_cobertura,
@@ -275,8 +271,6 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_cd1_extension,
-                cli_ede_horarios,
                 cli_fec_fingsima,
                 cli_nro_cantempleados,
                 cli_txt_cobertura,
@@ -329,8 +323,6 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_cd1_extension,
-                cli_ede_horarios,
                 cli_fec_fingsima,
                 cli_nro_cantempleados,
                 cli_txt_cobertura,
@@ -390,8 +382,6 @@ go
 --- <param name="@cli_des_cuil">Cuil</param>
 --- <param name="@cli_xld_url">Url</param>
 --- <param name="@cli_cd6_codvend">Código de vendedor</param>
---- <param name="@cli_cd1_extension">Extensión</param>
---- <param name="@cli_ede_horarios">Horarios</param>
 --- <param name="@cli_fec_fingsima">Fecha de ingreso</param>
 --- <param name="@cli_nro_cantempleados">Cantidad de Empleados</param>
 --- <param name="@cli_txt_cobertura">Cobertura</param>
@@ -438,8 +428,6 @@ create procedure dbo.CLIENTES_INSERT
 @cli_des_cuil tngs_descripcion,
 @cli_xld_url tngs_descripcion_xl,
 @cli_cd6_codvend tngs_codigo_6,
-@cli_cd1_extension tngs_codigo_1,
-@cli_ede_horarios tngs_descripcion_e,
 @cli_fec_fingsima tngs_fecha,
 @cli_nro_cantempleados tngs_numero,
 @cli_txt_cobertura tngs_texto,
@@ -475,8 +463,6 @@ begin
            @cli_des_cuil,
            @cli_xld_url,
            @cli_cd6_codvend,
-           @cli_cd1_extension,
-           @cli_ede_horarios,
            @cli_fec_fingsima,
            @cli_nro_cantempleados,
            @cli_txt_cobertura,
@@ -525,8 +511,6 @@ go
 --- <param name="@cli_des_cuil">Cuil</param>
 --- <param name="@cli_xld_url">Url</param>
 --- <param name="@cli_cd6_codvend">Código de vendedor</param>
---- <param name="@cli_cd1_extension">Extensión</param>
---- <param name="@cli_ede_horarios">Horarios</param>
 --- <param name="@cli_fec_fingsima">Fecha de ingreso</param>
 --- <param name="@cli_nro_cantempleados">Cantidad de Empleados</param>
 --- <param name="@cli_txt_cobertura">Cobertura</param>
@@ -573,8 +557,6 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_des_cuil tngs_descripcion,
 @cli_xld_url tngs_descripcion_xl,
 @cli_cd6_codvend tngs_codigo_6,
-@cli_cd1_extension tngs_codigo_1,
-@cli_ede_horarios tngs_descripcion_e,
 @cli_fec_fingsima tngs_fecha,
 @cli_nro_cantempleados tngs_numero,
 @cli_txt_cobertura tngs_texto,
@@ -608,8 +590,6 @@ begin
           cli_des_cuil= @cli_des_cuil,
           cli_xld_url= @cli_xld_url,
           cli_cd6_codvend= @cli_cd6_codvend,
-          cli_cd1_extension= @cli_cd1_extension,
-          cli_ede_horarios= @cli_ede_horarios,
           cli_fec_fingsima= @cli_fec_fingsima,
           cli_nro_cantempleados= @cli_nro_cantempleados,
           cli_txt_cobertura= @cli_txt_cobertura,
@@ -1166,7 +1146,6 @@ begin
                    loc_ede_nombre as cli_des_loc, 
                    cli_xld_url, 
                    cli_cd6_codvend, 
-                   cli_ede_horarios, 
                    cli_fec_fingsima, 
                    cli_nro_cantempleados, 
                    cli_txt_cobertura, 
@@ -1584,7 +1563,6 @@ go
 --- <param name="@numero">Numero del Cliente</param>
 --- <param name="@abono">Abono vendido</param>
 --- <param name="@codtipocont">Cod Tipo de Contrato Vendido</param>
---- <param name="@codmarca">Codigo de marca</param>
 --- <param name="@usuario">Usuario que ejecuta el SP</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -1606,7 +1584,6 @@ create procedure dbo.CLIENTES_VENDIDO
 @numero tngs_numero,
 @abono tngs_importe,
 @codtipocont tngs_codigo_r,
-@codmarca tngs_codigo_r,
 @usuario tngs_nombre
 )
 as

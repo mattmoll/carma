@@ -11,40 +11,72 @@ using TNGS.NetApp;
 using TNGS.NetRoutines;
 using TNGS.NetControls;
 using WeifenLuo.WinFormsUI.Docking;
-
+using Carm.Bel;
+using Carm.Shr;
 
 namespace Carm.Ad
 {
     public partial class CargaCliente : Form
     {
-        private StatMsg m_smResult;
+        private StatMsg statMessage;
+        private Bel.ECliente cliente;
 
         public CargaCliente()
         {
             InitializeComponent();
-           
-            m_smResult = new StatMsg();
 
+            statMessage = new StatMsg();
+            this.cliente = Bel.ECliente.NewEmpty();
         }
 
-        // pone en blanco todos los campos de DatosBasicos Movil
-        private void limpiarTodosLosCamposDatosBasicos()
+        public CargaCliente(Bel.ECliente cliente): this()
         {
-            teNombreFantasia.Clear();
-            teAnotaciones.Clear();
-
+            this.cliente = cliente;
         }
 
-        // chequea que todos los campos tengan datos validos.
+        private void CargaCliente_Load(object sender, EventArgs e)
+        {
+            ListaEntidades tipoInstituciones = Bll.Tablas.TinUpFull(false, statMessage);
+            if (MsgRuts.AnalizeError(this, statMessage)) return;
+
+            cdcTipoCliente.FillFromStrLEntidad(tipoInstituciones, ETipoInst.CodCmp, ETipoInst.DesCmp, "deleted");
+            cdcTipoCliente.AddStrCD("", "", 0);
+
+            ListaEntidades franquicias = Bll.Tablas.FrqUpFull(false, statMessage);
+            if (MsgRuts.AnalizeError(this, statMessage)) return;
+
+            cdcFranquicia.FillFromStrLEntidad(franquicias, EFranquicia.CodCmp, EFranquicia.DesCmp, "deleted");
+            cdcFranquicia.AddStrCD("", "", 0);
+
+            // When new client, hide everything except main data.
+            if (cliente == null)
+                ftDetalleCliente.hidePages(new List<TabPage>() { tabContactos, tabEntrev, tabLlamadas, tabNotas, tabServicios });
+            else
+                cargarClienteEnPantalla(cliente);
+        }
+
         private bool ValidarControles()
         {
-            // si alguno de los campos basico es invalido, mostramos un error.
             if (
                    (!teAnotaciones.IsValid)
                    || (!teNombreFantasia.IsValid)
+                   || (!teRazonSocial.IsValid)
+                   || (!cdcTipoCliente.IsValid)
+                   || (!teDireccion.IsValid)
+                   || (!neAltura.IsValid)
+                   || (!tePisoDepto.IsValid)
+                   || (!tePaginaWeb.IsValid)
+                   || (!cdcFranquicia.IsValid)
+                   || (!teCelular.IsValid)
+                   || (!teTelefono.IsValid)
+                   || (!teEmail.IsValid)
+                   || (!teLocalidad.IsValid)
+                   || (!tePartido.IsValid)
+                   || (!teProvincia.IsValid)
+                   || (!teZona.IsValid)
                )
             {
-                MsgRuts.ShowMsg(this, "Algun campo basico es invalido");
+                MsgRuts.ShowMsg(this, "Revise los campos ingresados, hay valores invalidos.");
                 return false;
             }
             else
@@ -54,41 +86,93 @@ namespace Carm.Ad
 
 
         }
-        private void btnLimpiarTodo_Click(object sender, EventArgs e)
-        {
-            MsgRuts.ShowMsg(this, "Esta seguro que desea limpiar los campos?", MessageBoxButtons.OKCancel);
-            limpiarTodosLosCamposDatosBasicos();
-        }
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            /*
-            //nos fijamos que todos los campos sean validos.
             if (!ValidarControles())
                 return;
 
-            //llenamos la entidad Movil con los datos basicos
-            CargarDatosBasicosEnEntidadMovil(m_entMovil);
+            cargarDatosEnCliente(cliente);
 
-            //generamos el estado default y nos fijamos que se haya creado con exito, sino lanzamos un error
-            Bel.EMovilEstado l_eMvlEstado = GenerarEstadoDefault();
-            if (l_eMvlEstado.Patente == "")
-            {
-                MsgRuts.ShowMsg(this, "Error al cargar el estado");
-                return;
-            }
-            */
+            Bll.Clientes.Save(cliente, statMessage);
+            if (MsgRuts.AnalizeError(this, statMessage)) return;
 
-                // si es estado de Update se llama al metodo que elimina todos los equipamientos, carga los nuevos y graba la entidad.
-                //Bll.Moviles.CambiarEquipamientoYGrabarMovil(m_entMovil, ObtenerLEntidadSeleccionadosCheckedList(), m_smResult);
-                if (MsgRuts.AnalizeError(this, m_smResult)) return;
-                MsgRuts.ShowMsg(this, "El Movil ha sido modificado satisfactoriamente");
+            MsgRuts.ShowMsg(this, "El Cliente ha sido guardado satisfactoriamente");
             
-
             this.Close();
         }
 
+        private void cargarDatosEnCliente(ECliente cliente)
+        {
+            cliente.Rsocial = teRazonSocial.Text;
+            cliente.Nombrefant = teNombreFantasia.Text;
+            cliente.Codtinst = cdcTipoCliente.SelectedStrCode;
+            cliente.Direccion = teDireccion.Text;
+            cliente.Altura = neAltura.Numero;
+            cliente.Piso = tePisoDepto.Text;
+            cliente.Url = tePaginaWeb.Text;
+            cliente.Codfrq = cdcFranquicia.SelectedStrCode;
+            cliente.Celular = teCelular.Text;
+            cliente.Telefono1 = teTelefono.Text;
+            cliente.Email = teEmail.Text;
+            cliente.Observacion = teAnotaciones.Text;
+
+            // Datos base de alta
+            cliente.Alta = "N";
+            cliente.Fingsima = DateTime.Now;
+            cliente.Cargador = App.Usuario.Usuario;
+        }
+
+        private void cargarClienteEnPantalla(ECliente cliente)
+        {
+            teRazonSocial.Text = cliente.Rsocial;
+            teNombreFantasia.Text = cliente.Nombrefant;
+            cdcTipoCliente.SelectedStrCode = cliente.Codtinst;
+            teDireccion.Text = cliente.Direccion;
+            neAltura.Numero = cliente.Altura;
+            tePisoDepto.Text = cliente.Piso;
+            tePaginaWeb.Text = cliente.Url;
+            cdcFranquicia.Text = cliente.Codfrq;
+            teCelular.Text = cliente.Celular;
+            teTelefono.Text = cliente.Telefono1;
+            teEmail.Text = cliente.Email;
+            teLocalidad.Text = cliente.Codlocalidad;
+            teAnotaciones.Text = cliente.Observacion;
+
+            mrLlamadas.fill(cliente.CliLlamadas, "Llamadas", statMessage);
+            mrEntrevistas.fill(cliente.CliEntrevistas, "Entrevistas", statMessage);
+            mrContactos.fill(cliente.CliContactos, "Contactos", statMessage);
+            mrServicios.fill(cliente.CliServicios, "Servicios", statMessage);
+            mrNotas.fill(cliente.CliNotas, "Notas", statMessage);
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void gbCargarLocalidad_Click(object sender, EventArgs e)
+        {
+            // Llamamos al metodo que levanta la ventana para las localidades del pais, el true es para permitirle que no elija ninguna.
+            Bel.ELocalidad l_eLocalidad = SysRuts.fGetLocalidadesPais(this, true);
+            if (l_eLocalidad != null)
+            {
+                // Cargamos los valores resultantes en pantalla.
+                teLocalidad.Text = l_eLocalidad.Nombre;
+                tePartido.Text = l_eLocalidad.Partido;
+                teProvincia.Text = l_eLocalidad.Provincia;
+                teZona.Text = l_eLocalidad.Loc_des_zona;
+
+                cliente.Codlocalidad = l_eLocalidad.Codpost;
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void gbCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }

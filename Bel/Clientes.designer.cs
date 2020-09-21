@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:37
+    // Fecha                    : 20/09/2020 03:44
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -4780,8 +4780,6 @@ namespace Carm.Bel
             l_drTemp["cli_des_cuil"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_cuil");
             l_drTemp["cli_xld_url"]= XMLRuts.ExtractXAttr(l_xndData, "cli_xld_url");
             l_drTemp["cli_cd6_codvend"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd6_codvend");
-            l_drTemp["cli_cd1_extension"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_extension");
-            l_drTemp["cli_ede_horarios"]= XMLRuts.ExtractXAttr(l_xndData, "cli_ede_horarios");
             l_drTemp["cli_fec_fingsima"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fingsima", true);
             l_drTemp["cli_nro_cantempleados"]= XMLRuts.ExtractXAttr(l_xndData, "cli_nro_cantempleados", 0);
             l_drTemp["cli_txt_cobertura"]= XMLRuts.ExtractXAttr(l_xndData, "cli_txt_cobertura");
@@ -4878,8 +4876,6 @@ namespace Carm.Bel
             l_drTemp["cli_des_cuil"]= "";
             l_drTemp["cli_xld_url"]= "";
             l_drTemp["cli_cd6_codvend"]= "";
-            l_drTemp["cli_cd1_extension"]= "";
-            l_drTemp["cli_ede_horarios"]= "";
             l_drTemp["cli_fec_fingsima"]= DateTimeRuts.Empty;
             l_drTemp["cli_nro_cantempleados"]= 0;
             l_drTemp["cli_txt_cobertura"]= "";
@@ -4928,8 +4924,6 @@ namespace Carm.Bel
         /// <param name="p_strCuil">Cuil</param>
         /// <param name="p_strUrl">Url</param>
         /// <param name="p_strCodvend">Código de vendedor</param>
-        /// <param name="p_strExtension">Extensión</param>
-        /// <param name="p_strHorarios">Horarios</param>
         /// <param name="p_dtFingsima">Fecha de ingreso</param>
         /// <param name="p_iCantempleados">Cantidad de Empleados</param>
         /// <param name="p_strCobertura">Cobertura</param>
@@ -4959,8 +4953,6 @@ namespace Carm.Bel
                                          string p_strCuil,
                                          string p_strUrl,
                                          string p_strCodvend,
-                                         string p_strExtension,
-                                         string p_strHorarios,
                                          DateTime p_dtFingsima,
                                          int p_iCantempleados,
                                          string p_strCobertura,
@@ -4998,8 +4990,6 @@ namespace Carm.Bel
             l_drTemp["cli_des_cuil"]= p_strCuil;
             l_drTemp["cli_xld_url"]= p_strUrl;
             l_drTemp["cli_cd6_codvend"]= p_strCodvend;
-            l_drTemp["cli_cd1_extension"]= p_strExtension;
-            l_drTemp["cli_ede_horarios"]= p_strHorarios;
             l_drTemp["cli_fec_fingsima"]= p_dtFingsima;
             l_drTemp["cli_nro_cantempleados"]= p_iCantempleados;
             l_drTemp["cli_txt_cobertura"]= p_strCobertura;
@@ -5091,7 +5081,7 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[42];
+                DataColumn[] l_dcStruct= new DataColumn[40];
 
                 l_dcStruct[0]= new DataColumn("cli_nro_numero", typeof(int));
                 l_dcStruct[1]= new DataColumn("cli_ede_rsocial", typeof(string));
@@ -5119,19 +5109,17 @@ namespace Carm.Bel
                 l_dcStruct[23]= new DataColumn("cli_des_cuil", typeof(string));
                 l_dcStruct[24]= new DataColumn("cli_xld_url", typeof(string));
                 l_dcStruct[25]= new DataColumn("cli_cd6_codvend", typeof(string));
-                l_dcStruct[26]= new DataColumn("cli_cd1_extension", typeof(string));
-                l_dcStruct[27]= new DataColumn("cli_ede_horarios", typeof(string));
-                l_dcStruct[28]= new DataColumn("cli_fec_fingsima", typeof(DateTime));
-                l_dcStruct[29]= new DataColumn("cli_nro_cantempleados", typeof(int));
-                l_dcStruct[30]= new DataColumn("cli_txt_cobertura", typeof(string));
-                l_dcStruct[31]= new DataColumn("cli_nom_cargador", typeof(string));
-                l_dcStruct[32]= new DataColumn("cli_txt_observacion", typeof(string));
-                l_dcStruct[33]= new DataColumn("cli_xld_email", typeof(string));
-                l_dcStruct[34]= new DataColumn("cli_nro_nroavalon", typeof(int));
-                l_dcStruct[35]= new DataColumn("cli_imp_abono", typeof(decimal));
-                l_dcStruct[36]= new DataColumn("cli_rcd_codtipocont", typeof(string));
-                l_dcStruct[37]= new DataColumn("cli_imp_deuda", typeof(decimal));
-                ECliente.FillFixedFields(ref l_dcStruct, 38);
+                l_dcStruct[26]= new DataColumn("cli_fec_fingsima", typeof(DateTime));
+                l_dcStruct[27]= new DataColumn("cli_nro_cantempleados", typeof(int));
+                l_dcStruct[28]= new DataColumn("cli_txt_cobertura", typeof(string));
+                l_dcStruct[29]= new DataColumn("cli_nom_cargador", typeof(string));
+                l_dcStruct[30]= new DataColumn("cli_txt_observacion", typeof(string));
+                l_dcStruct[31]= new DataColumn("cli_xld_email", typeof(string));
+                l_dcStruct[32]= new DataColumn("cli_nro_nroavalon", typeof(int));
+                l_dcStruct[33]= new DataColumn("cli_imp_abono", typeof(decimal));
+                l_dcStruct[34]= new DataColumn("cli_rcd_codtipocont", typeof(string));
+                l_dcStruct[35]= new DataColumn("cli_imp_deuda", typeof(decimal));
+                ECliente.FillFixedFields(ref l_dcStruct, 36);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -5478,46 +5466,6 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Extensión
-        /// </summary>
-        public static string ExtensionCmp
-        {
-           get {return "cli_cd1_extension";}
-        }
-
-        /// <summary>
-        /// Extensión
-        /// </summary>
-        public string Extension
-        {
-            get {return ((string) InternalData["cli_cd1_extension"]).Trim();}
-            set {
-                if (value.Trim().Length > 1) value= value.Trim().Substring(0,1);
-                InternalData["cli_cd1_extension"]= value.Trim();
-            }
-        }
-
-        /// <summary>
-        /// Horarios
-        /// </summary>
-        public static string HorariosCmp
-        {
-           get {return "cli_ede_horarios";}
-        }
-
-        /// <summary>
-        /// Horarios
-        /// </summary>
-        public string Horarios
-        {
-            get {return ((string) InternalData["cli_ede_horarios"]).Trim();}
-            set {
-                if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
-                InternalData["cli_ede_horarios"]= value.Trim();
-            }
-        }
-
-        /// <summary>
         /// Fecha de ingreso
         /// </summary>
         public static string FingsimaCmp
@@ -5856,8 +5804,6 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_cuil", Cuil));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_xld_url", Url));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd6_codvend", Codvend));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_extension", Extension));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_ede_horarios", Horarios));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fingsima", Fingsima));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_nro_cantempleados", Cantempleados));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_txt_cobertura", Cobertura));

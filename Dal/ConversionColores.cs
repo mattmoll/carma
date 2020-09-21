@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 09/08/2020 22:33
+    // Fecha                    : 20/09/2020 03:42
     // Sistema                  : Carm
     // Clase para Administrar   : Conversion de Colores
     // Basada en la Tabla       : ConversionColores

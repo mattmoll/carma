@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 22/08/2020 00:50
+    // Fecha                    : 20/09/2020 03:42
     // Sistema                  : Carm
     // Clase para Administrar   : Supervisores
     // Basada en la Tabla       : Supervisores

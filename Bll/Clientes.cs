@@ -198,10 +198,8 @@ namespace Carm.Bll
                 l_strWhere += AppRuts.MakeWhere(ECliente.NroavalonCmp, p_bsBusqueda.NumeroAvalon, StringModes.Equal);
 
                 // Armamos los where de campos que validan Ambos-Si-No con el metodo generico
-                makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Reservado, ECliente.CodvendCmp, "", ref l_strWhere);
                 makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Vendido, ECliente.AltaCmp, "N", ref l_strWhere);
                 makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Mayorista, ETipoInst.MayoristaCmp, "N", ref l_strWhere);
-                makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.MailCargado, ECliente.EmailCmp, "",  ref l_strWhere);
 
                 l_strWhere = AppRuts.RemoveRAnd(l_strWhere);
 
@@ -406,7 +404,6 @@ namespace Carm.Bll
                                      int p_iNumCliente,
                                      decimal p_dcNuevoAbono,
                                      ECliLlamada p_eCliLlamada,
-                                     string p_strCodMarca,
                                      StatMsg p_smResult
                                     )
         {
@@ -423,7 +420,7 @@ namespace Carm.Bll
                 l_dbcAccess.BeginTransaction();
 
                 // Marcamos al cliente como vendido, proque se lo recupero. No sabemos el tipo de contrato en este contexto.
-                Clientes.Vendido(l_dbcAccess, p_iNumCliente, p_dcNuevoAbono, p_strCodMarca, p_smResult);
+                Clientes.Vendido(l_dbcAccess, p_iNumCliente, p_dcNuevoAbono, "", p_smResult);
                 if (p_smResult.NOk) return;
 
                 // Grabamos la llamada que provocó la el recupero.
@@ -1473,7 +1470,6 @@ namespace Carm.Bll
 
                 // Cargo los parametros de los datos de la ubicacion.
                 l_eCliente.Cantempleados = p_intCantEmp;
-                l_eCliente.Horarios = p_strHorarios;
                 l_eCliente.Cobertura = p_strCobertura;
                 l_eCliente.Cuil = p_strCuil;
                 l_eCliente.Observacion = p_strObservaciones;
@@ -2051,19 +2047,11 @@ namespace Carm.Bll
                                  ECliente.RsocialCmp + ", " +
                                  ECliente.NombrefantCmp + ", " +
                                  "tin_des_des as cli_des_tinst," +
-                                 "rbr_des_des as cli_des_rubro," +
                                  "tin_cd1_mayorista as cli_cd1_esmayo," +
-                                 "isnull(vnd_nom_usuario, 'Sin reserva') AS cli_nom_usuario," +
                                  ECliente.Telefono1Cmp + ", " +
                                  ECliente.AltaCmp + ", " +
                                  "loc_ede_nombre as cli_ede_loc," +
-                                 ECliente.ExtensionCmp + ", " +
-                                 "case when (Clientes.deleted = 0.00)" +
-                                     "then 'S'" +
-                                         "else 'N'" +
-                                     "end AS cli_cd1_validado," +
                                  ECliente.CodvendCmp + ", " +
-                                 "TNGS_Carm.dbo.Clientes_EntrevPendientesVenc(cli_nro_numero) as cli_ent_pendientesvenc," +
                                  ECliente.NroavalonCmp + ", " +
                                  ECliente.EmailCmp + ", " +
                                  ECliente.CelularCmp;
@@ -2080,19 +2068,14 @@ namespace Carm.Bll
             l_leClientes.ChangeCaption(ECliente.RsocialCmp, "V1Razón SocialCN2");               /*1*/
             l_leClientes.ChangeCaption(ECliente.NombrefantCmp, "V1Nombre FantasíaCN2");         /*2*/
             l_leClientes.ChangeCaption("cli_des_tinst", "V1Tipo de InstituciónCN2");            /*3*/
-            l_leClientes.ChangeCaption("cli_des_rubro", "V1RubroCN2");                          /*4*/
-            l_leClientes.ChangeCaption("cli_cd1_esmayo", "V1MayoristaCN2");                     /*5*/
-            l_leClientes.ChangeCaption("cli_nom_usuario", "V1ReservadorCN2");                   /*6*/
-            l_leClientes.ChangeCaption(ECliente.Telefono1Cmp, "V1TeléfonoCN2");                 /*7*/
-            l_leClientes.ChangeCaption(ECliente.AltaCmp, "V1Alta en AvalonCN2");                /*8*/
-            l_leClientes.ChangeCaption("cli_ede_loc", "V1LocalidadCN2");                        /*9*/
-            l_leClientes.ChangeCaption(ECliente.ExtensionCmp, "V1ExtensiónCN2");                /*10*/
-            l_leClientes.ChangeCaption("cli_cd1_validado", "V1ValidoCN2");                      /*11*/
-            l_leClientes.ChangeCaption(ECliente.CodvendCmp, "V1Cod. Vend.CN2");                 /*12*/
-            l_leClientes.ChangeCaption("cli_ent_pendientesvenc", "V1Ent. Pend.NN2");            /*13*/
-            l_leClientes.ChangeCaption(ECliente.NroavalonCmp, "V1Nro. AvalonNN2");              /*14*/
-            l_leClientes.ChangeCaption(ECliente.EmailCmp, "V1EmailCN1");                        /*15*/
-            l_leClientes.ChangeCaption(ECliente.CelularCmp, "V1CelularCN1");                    /*16*/
+            l_leClientes.ChangeCaption("cli_cd1_esmayo", "V1MayoristaCN2");                     /*4*/
+            l_leClientes.ChangeCaption(ECliente.Telefono1Cmp, "V1TeléfonoCN2");                 /*5*/
+            l_leClientes.ChangeCaption(ECliente.AltaCmp, "V1Alta en AvalonCN2");                /*6*/
+            l_leClientes.ChangeCaption("cli_ede_loc", "V1LocalidadCN2");                        /*7*/
+            l_leClientes.ChangeCaption(ECliente.CodvendCmp, "V1Cod. Vend.CN2");                 /*8*/
+            l_leClientes.ChangeCaption(ECliente.NroavalonCmp, "V1Nro. AvalonNN2");              /*9*/
+            l_leClientes.ChangeCaption(ECliente.EmailCmp, "V1EmailCN1");                        /*10*/
+            l_leClientes.ChangeCaption(ECliente.CelularCmp, "V1CelularCN1");                    /*11*/
         }
 
         #endregion

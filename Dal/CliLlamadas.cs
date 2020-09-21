@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:46
+    // Fecha                    : 20/09/2020 03:42
     // Sistema                  : Carm
     // Clase para Administrar   : Llamadas de los Clientes
     // Basada en la Tabla       : CliLlamadas
@@ -662,16 +662,12 @@ namespace Carm.Dal
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= "p_dtFechaini">Fecha Inicial</param>
         /// <param name= "p_dtFechafin">Fecha Fin</param>
-        /// <param name= "p_strCodinimarca">Codigo Inicial Marca</param>
-        /// <param name= "p_strCodfinmarca">Codigo Fin Marca</param>
         /// <param name="p_dsResult">DataSet donde devolver el registro</param>
         /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int ZBajasGral(DBConn p_dbcAccess,
                                      DateTime p_dtFechaini,
                                      DateTime p_dtFechafin,
-                                     string p_strCodinimarca,
-                                     string p_strCodfinmarca,
                                      ref DataSet p_dsResult,
                                      string p_strTabla,
                                      StatMsg p_smResult)
@@ -682,8 +678,6 @@ namespace Carm.Dal
                                       new DbParameter[] {
                                           p_dbcAccess.MakeParamF("@fechaini", p_dtFechaini),
                                           p_dbcAccess.MakeParamF("@fechafin", p_dtFechafin),
-                                          p_dbcAccess.MakeParam("@codinimarca", p_strCodinimarca),
-                                          p_dbcAccess.MakeParam("@codfinmarca", p_strCodfinmarca),
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
                                       ref p_dsResult, p_strTabla);
@@ -701,14 +695,12 @@ namespace Carm.Dal
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= "p_iNroavalon">Numero de Avalon</param>
         /// <param name= "p_iAnio">Anio a obtener historico</param>
-        /// <param name= "p_strCodmarca">Codigo de Marca</param>
         /// <param name="p_dsResult">DataSet donde devolver el registro</param>
         /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int ZReajustesXClieXAnio(DBConn p_dbcAccess,
                                                int p_iNroavalon,
                                                int p_iAnio,
-                                               string p_strCodmarca,
                                                ref DataSet p_dsResult,
                                                string p_strTabla,
                                                StatMsg p_smResult)
@@ -719,7 +711,6 @@ namespace Carm.Dal
                                       new DbParameter[] {
                                           p_dbcAccess.MakeParam("@nroavalon", p_iNroavalon),
                                           p_dbcAccess.MakeParam("@anio", p_iAnio),
-                                          p_dbcAccess.MakeParam("@codmarca", p_strCodmarca),
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
                                       ref p_dsResult, p_strTabla);
@@ -815,16 +806,12 @@ namespace Carm.Dal
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= "p_dtFechaini">Fecha Inicial</param>
         /// <param name= "p_dtFechafin">Fecha Fin</param>
-        /// <param name= "p_strCodmarcaini">Codigo Marca Inicial</param>
-        /// <param name= "p_strCodmarcafin">Codigo Marca Fin</param>
         /// <param name="p_dsResult">DataSet donde devolver el registro</param>
         /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int ZReclamosGral(DBConn p_dbcAccess,
                                         DateTime p_dtFechaini,
                                         DateTime p_dtFechafin,
-                                        string p_strCodmarcaini,
-                                        string p_strCodmarcafin,
                                         ref DataSet p_dsResult,
                                         string p_strTabla,
                                         StatMsg p_smResult)
@@ -835,8 +822,6 @@ namespace Carm.Dal
                                       new DbParameter[] {
                                           p_dbcAccess.MakeParamF("@fechaini", p_dtFechaini),
                                           p_dbcAccess.MakeParamF("@fechafin", p_dtFechafin),
-                                          p_dbcAccess.MakeParam("@codmarcaini", p_strCodmarcaini),
-                                          p_dbcAccess.MakeParam("@codmarcafin", p_strCodmarcafin),
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
                                       ref p_dsResult, p_strTabla);
@@ -893,16 +878,12 @@ namespace Carm.Dal
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= "p_dtFechaini">Fecha Inicial</param>
         /// <param name= "p_dtFechafin">Fecha Fin</param>
-        /// <param name= "p_strCodmarcaini">Codigo Marca Inicial</param>
-        /// <param name= "p_strCodmarcafin">Codigo Marca Fin</param>
         /// <param name="p_dsResult">DataSet donde devolver el registro</param>
         /// <param name="p_strTabla">Nombre de la tabla a llenar</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int ZRecuperosGral(DBConn p_dbcAccess,
                                          DateTime p_dtFechaini,
                                          DateTime p_dtFechafin,
-                                         string p_strCodmarcaini,
-                                         string p_strCodmarcafin,
                                          ref DataSet p_dsResult,
                                          string p_strTabla,
                                          StatMsg p_smResult)
@@ -913,8 +894,6 @@ namespace Carm.Dal
                                       new DbParameter[] {
                                           p_dbcAccess.MakeParamF("@fechaini", p_dtFechaini),
                                           p_dbcAccess.MakeParamF("@fechafin", p_dtFechafin),
-                                          p_dbcAccess.MakeParam("@codmarcaini", p_strCodmarcaini),
-                                          p_dbcAccess.MakeParam("@codmarcafin", p_strCodmarcafin),
                                           p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                       },
                                       ref p_dsResult, p_strTabla);

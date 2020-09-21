@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 20/09/2020 20:55
 // Base de Datos      : TNGS_Carm
 // Tabla              : Clientes
 //----------------------------------------------------------------------------
@@ -57,8 +57,6 @@ create table Clientes
       cli_des_cuil tngs_descripcion,
       cli_xld_url tngs_descripcion_xl,
       cli_cd6_codvend tngs_codigo_6,
-      cli_cd1_extension tngs_codigo_1,
-      cli_ede_horarios tngs_descripcion_e,
       cli_fec_fingsima tngs_fecha,
       cli_nro_cantempleados tngs_numero,
       cli_txt_cobertura tngs_texto,
