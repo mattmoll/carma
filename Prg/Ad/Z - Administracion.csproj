@@ -194,11 +194,11 @@
     <Compile Include="ResultadoEntrevista.Designer.cs">
       <DependentUpon>ResultadoEntrevista.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResultadoLlamada.cs">
+    <Compile Include="Llamada.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ResultadoLlamada.Designer.cs">
-      <DependentUpon>ResultadoLlamada.cs</DependentUpon>
+    <Compile Include="Llamada.Designer.cs">
+      <DependentUpon>Llamada.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -267,8 +267,8 @@
     <EmbeddedResource Include="ResultadoEntrevista.resx">
       <DependentUpon>ResultadoEntrevista.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResultadoLlamada.resx">
-      <DependentUpon>ResultadoLlamada.cs</DependentUpon>
+    <EmbeddedResource Include="Llamada.resx">
+      <DependentUpon>Llamada.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

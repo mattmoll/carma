@@ -98,7 +98,7 @@ namespace Carm.Ad
             this.gbVerNota = new TNGS.NetControls.GlassButton();
             this.mrNotas = new TNGS.NetControls.MiniReport();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.titulo = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.xPanel1.SuspendLayout();
@@ -1049,7 +1049,7 @@ namespace Carm.Ad
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.DarkGreen;
-            this.topPanel.Controls.Add(this.label1);
+            this.topPanel.Controls.Add(this.titulo);
             this.topPanel.Controls.Add(this.btnClose);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -1058,16 +1058,16 @@ namespace Carm.Ad
             this.topPanel.Size = new System.Drawing.Size(1029, 40);
             this.topPanel.TabIndex = 142;
             // 
-            // label1
+            // titulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(7, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 23);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Carga Cliente";
+            this.titulo.AutoSize = true;
+            this.titulo.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titulo.ForeColor = System.Drawing.Color.White;
+            this.titulo.Location = new System.Drawing.Point(7, 9);
+            this.titulo.Name = "titulo";
+            this.titulo.Size = new System.Drawing.Size(167, 23);
+            this.titulo.TabIndex = 2;
+            this.titulo.Text = "Carga Prospecto";
             // 
             // btnClose
             // 
@@ -1177,7 +1177,7 @@ namespace Carm.Ad
         private TNGS.NetControls.FullLabel fullLabel4;
         private TNGS.NetControls.GlassButton gbCancelar;
         private System.Windows.Forms.Panel topPanel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label titulo;
         private System.Windows.Forms.Button btnClose;
         private TNGS.NetControls.FullTab ftDetalleCliente;
         private System.Windows.Forms.TabPage tabCliente;

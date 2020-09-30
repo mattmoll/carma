@@ -219,12 +219,12 @@
             this.gbCargarCliente.FlatTextColor = System.Drawing.Color.Black;
             this.gbCargarCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.gbCargarCliente.ImageOnTop = true;
-            this.gbCargarCliente.Location = new System.Drawing.Point(871, 59);
+            this.gbCargarCliente.Location = new System.Drawing.Point(849, 59);
             this.gbCargarCliente.Name = "gbCargarCliente";
             this.gbCargarCliente.RoundCorners = 2;
-            this.gbCargarCliente.Size = new System.Drawing.Size(100, 60);
+            this.gbCargarCliente.Size = new System.Drawing.Size(122, 60);
             this.gbCargarCliente.TabIndex = 67;
-            this.gbCargarCliente.Text = "Nuevo Cliente";
+            this.gbCargarCliente.Text = "Nuevo Prospecto";
             this.gbCargarCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.gbCargarCliente.W8Color = System.Drawing.Color.DodgerBlue;
             this.gbCargarCliente.Click += new System.EventHandler(this.gbCargarCliente_Click);

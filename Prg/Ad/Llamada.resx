@@ -118,17 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="gbReajusteAbono.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAAEQSURBVDhPjZPBZgNRFIZDGELp
-        A3RVSlfdhtBtt1mVvkGeZFZ9g5BVKSGU0lXJKmQbuiollFLK0FVW4eb/xj3TY/RM+/OZc++5978z59zp
-        pZRqftFKkHiqR062p94XGJyKjSCBUV806jIYihfBhOdL3IpjERpw6jf5zN7FxlIUkcEsL9qJS2E1YNMi
-        x3ATGdiGVwaSL+KJmGbGkcGdIIBH8Zbjf3fhQlTkW1CXubgWhQgN0JkoxbvwJgbz510GXmtBghb67jxH
-        BpPMFQPJF5H+W02qyOAjL+C0I+ENEN1hvI0M+HYC4DQz5Gba50AZGQzEfV4U8SAGkYFpJHibT0GCJ/8B
-        t7PWXwamdg0a/Rik3gEcIVRClgqLQgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="gbRecupero.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
@@ -158,17 +147,6 @@
         EFYmQUewBY3Pz1AFW0yccTibhNgmDK9Y3AZ22ox06lZYJ4l0zVqC1yQuYWgS3oale2KbxE1MP2MH0jWr
         CfElysfPyLCzKDtIbEIa5wdJMQNb8AsvV+EoK/69TFxiadjr/AQWHmACyXUO4Q2985oPYuN3OQAAAABJ
         RU5ErkJggg==
-</value>
-  </data>
-  <data name="gbRegularizoDeuda.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxMAAAsTAQCanBgAAAEQSURBVDhPjZPBZgNRFIZDGELp
-        A3RVSlfdhtBtt1mVvkGeZFZ9g5BVKSGU0lXJKmQbuiollFLK0FVW4eb/xj3TY/RM+/OZc++5978z59zp
-        pZRqftFKkHiqR062p94XGJyKjSCBUV806jIYihfBhOdL3IpjERpw6jf5zN7FxlIUkcEsL9qJS2E1YNMi
-        x3ATGdiGVwaSL+KJmGbGkcGdIIBH8Zbjf3fhQlTkW1CXubgWhQgN0JkoxbvwJgbz510GXmtBghb67jxH
-        BpPMFQPJF5H+W02qyOAjL+C0I+ENEN1hvI0M+HYC4DQz5Gba50AZGQzEfV4U8SAGkYFpJHibT0GCJ/8B
-        t7PWXwamdg0a/Rik3gEcIVRClgqLQgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="bCancelar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

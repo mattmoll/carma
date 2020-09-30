@@ -60,7 +60,7 @@ namespace Carm.Ad
             Bel.ECliLlamada l_eLlamadaProgramada = Bll.Clientes.CllGet(l_intNumCliente, l_intNumLlamada, true, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
-            ResultadoLlamada l_frmResultadoLlamada = new ResultadoLlamada(l_eLlamadaProgramada);
+            Llamada l_frmResultadoLlamada = new Llamada(l_eLlamadaProgramada);
             l_frmResultadoLlamada.ShowDialog(this);
 
 

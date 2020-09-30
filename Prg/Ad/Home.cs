@@ -64,13 +64,11 @@ namespace Carm.Ad
 
         private void gbDetalle_Click(object sender, EventArgs e)
         {
-            object objNroCliente = mrClientes.GetMatrixValueObj(0);
-            if ((objNroCliente == null) || (objNroCliente == DBNull.Value)) return;
-
-
-            int nroCliente = (int)objNroCliente;
+            int nroCliente = getClientNumberSelected();
+            if (nroCliente == 0) return;
 
             Bel.ECliente cliente = Bll.Clientes.Get(nroCliente, true, statMessage);
+            if (MsgRuts.AnalizeError(this, statMessage)) return;
 
             CargaCliente clienteForm = new CargaCliente(cliente);
             clienteForm.ShowDialog(this);
@@ -78,7 +76,11 @@ namespace Carm.Ad
 
         private void gbLlamada_Click(object sender, EventArgs e)
         {
+            int nroCliente = getClientNumberSelected();
+            if (nroCliente == 0) return;
 
+            Llamada formLlamada = new Llamada(nroCliente);
+            formLlamada.ShowDialog(this);
         }
 
         private void gbVenta_Click(object sender, EventArgs e)
@@ -88,7 +90,11 @@ namespace Carm.Ad
 
         private void gbBorrarCliente_Click(object sender, EventArgs e)
         {
+            int nroCliente = getClientNumberSelected();
+            if (nroCliente == 0) return;
 
+            Bll.Clientes.fBorraCliente(nroCliente, statMessage);
+            if (MsgRuts.AnalizeError(this, statMessage)) return;
         }
 
         private void gbCargarCliente_Click(object sender, EventArgs e)
@@ -166,6 +172,14 @@ namespace Carm.Ad
 
             mrClientes.Clear();
             lblCantReg.Text = "";
+        }
+
+        private int getClientNumberSelected()
+        {
+            object objNroCliente = mrClientes.GetMatrixValueObj(0);
+            if ((objNroCliente == null) || (objNroCliente == DBNull.Value)) return 0;
+
+            return (int)objNroCliente;
         }
     }
 }

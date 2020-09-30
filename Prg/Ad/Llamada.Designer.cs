@@ -1,6 +1,6 @@
 ﻿namespace Carm.Ad
 {
-    partial class ResultadoLlamada
+    partial class Llamada
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResultadoLlamada));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Llamada));
             this.xPanel1 = new TNGS.NetControls.XPanel();
             this.imgGroup1 = new TNGS.NetControls.ImgGroup();
             this.teNTelefono = new TNGS.NetControls.TextEdit();
             this.fullLabel6 = new TNGS.NetControls.FullLabel();
-            this.gbReajusteAbono = new TNGS.NetControls.GlassButton();
             this.gbRecupero = new TNGS.NetControls.GlassButton();
             this.pnObservacionProg = new System.Windows.Forms.Panel();
             this.teObservacionProg = new TNGS.NetControls.TextEdit();
@@ -52,7 +51,6 @@
             this.rbEntrantes = new System.Windows.Forms.RadioButton();
             this.cdcContactos = new TNGS.NetControls.CDCombo();
             this.gbBaja = new TNGS.NetControls.GlassButton();
-            this.gbRegularizoDeuda = new TNGS.NetControls.GlassButton();
             this.bCancelar = new TNGS.NetControls.GlassButton();
             this.bAceptar = new TNGS.NetControls.GlassButton();
             this.teHora = new TNGS.NetControls.TimeEdit();
@@ -89,7 +87,6 @@
             this.imgGroup1.BorderThickness = 1F;
             this.imgGroup1.Controls.Add(this.teNTelefono);
             this.imgGroup1.Controls.Add(this.fullLabel6);
-            this.imgGroup1.Controls.Add(this.gbReajusteAbono);
             this.imgGroup1.Controls.Add(this.gbRecupero);
             this.imgGroup1.Controls.Add(this.pnObservacionProg);
             this.imgGroup1.Controls.Add(this.gbNuevoContacto);
@@ -97,7 +94,6 @@
             this.imgGroup1.Controls.Add(this.pnlSeleccionTipo);
             this.imgGroup1.Controls.Add(this.cdcContactos);
             this.imgGroup1.Controls.Add(this.gbBaja);
-            this.imgGroup1.Controls.Add(this.gbRegularizoDeuda);
             this.imgGroup1.Controls.Add(this.bCancelar);
             this.imgGroup1.Controls.Add(this.bAceptar);
             this.imgGroup1.Controls.Add(this.teHora);
@@ -109,7 +105,7 @@
             this.imgGroup1.FontTitle = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.imgGroup1.ForeColor = System.Drawing.Color.Black;
             this.imgGroup1.GroupImage = null;
-            this.imgGroup1.GroupTitle = "Resultado de una llamada";
+            this.imgGroup1.GroupTitle = "Llamada";
             this.imgGroup1.Location = new System.Drawing.Point(12, 8);
             this.imgGroup1.Name = "imgGroup1";
             this.imgGroup1.Padding = new System.Windows.Forms.Padding(20);
@@ -121,7 +117,7 @@
             this.imgGroup1.Size = new System.Drawing.Size(818, 413);
             this.imgGroup1.SkinFixed = true;
             this.imgGroup1.TabIndex = 8;
-            this.imgGroup1.TitleBackground = System.Drawing.Color.DodgerBlue;
+            this.imgGroup1.TitleBackground = System.Drawing.Color.Green;
             this.imgGroup1.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.imgGroup1.TitleFontColor = System.Drawing.Color.White;
             // 
@@ -143,29 +139,6 @@
             this.fullLabel6.TabIndex = 83;
             this.fullLabel6.Text = "Teléfono:";
             // 
-            // gbReajusteAbono
-            // 
-            this.gbReajusteAbono.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbReajusteAbono.BackgroundImage")));
-            this.gbReajusteAbono.BlackBorder = true;
-            this.gbReajusteAbono.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.gbReajusteAbono.CircleButton = false;
-            this.gbReajusteAbono.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Money;
-            this.gbReajusteAbono.FlatColor = System.Drawing.Color.DodgerBlue;
-            this.gbReajusteAbono.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
-            this.gbReajusteAbono.FlatFontSize = 9;
-            this.gbReajusteAbono.FlatTextColor = System.Drawing.Color.Black;
-            this.gbReajusteAbono.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbReajusteAbono.Location = new System.Drawing.Point(30, 366);
-            this.gbReajusteAbono.Name = "gbReajusteAbono";
-            this.gbReajusteAbono.RoundCorners = 2;
-            this.gbReajusteAbono.Size = new System.Drawing.Size(87, 40);
-            this.gbReajusteAbono.TabIndex = 24;
-            this.gbReajusteAbono.Text = "Reajuste Abono";
-            this.gbReajusteAbono.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gbReajusteAbono.ToolTipText = "Permite hacer un ajuste cargando un nuevo abono";
-            this.gbReajusteAbono.W8Color = System.Drawing.Color.DodgerBlue;
-            this.gbReajusteAbono.Click += new System.EventHandler(this.gbReajusteAbono_Click);
-            // 
             // gbRecupero
             // 
             this.gbRecupero.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbRecupero.BackgroundImage")));
@@ -178,7 +151,7 @@
             this.gbRecupero.FlatFontSize = 9;
             this.gbRecupero.FlatTextColor = System.Drawing.Color.Black;
             this.gbRecupero.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbRecupero.Location = new System.Drawing.Point(369, 366);
+            this.gbRecupero.Location = new System.Drawing.Point(280, 366);
             this.gbRecupero.Name = "gbRecupero";
             this.gbRecupero.PCode = "CLIRECUPERO";
             this.gbRecupero.RoundCorners = 2;
@@ -247,6 +220,7 @@
             this.cbProgramada.TabIndex = 14;
             this.cbProgramada.Text = "Programada";
             this.cbProgramada.UseVisualStyleBackColor = true;
+            this.cbProgramada.Visible = false;
             this.cbProgramada.CheckedChanged += new System.EventHandler(this.cbProgramada_CheckedChanged);
             // 
             // pnlSeleccionTipo
@@ -343,10 +317,10 @@
             this.rbSalientes.AutoSize = true;
             this.rbSalientes.Location = new System.Drawing.Point(139, 3);
             this.rbSalientes.Name = "rbSalientes";
-            this.rbSalientes.Size = new System.Drawing.Size(68, 17);
+            this.rbSalientes.Size = new System.Drawing.Size(63, 17);
             this.rbSalientes.TabIndex = 0;
             this.rbSalientes.TabStop = true;
-            this.rbSalientes.Text = "Salientes";
+            this.rbSalientes.Text = "Saliente";
             this.rbSalientes.UseVisualStyleBackColor = true;
             this.rbSalientes.CheckedChanged += new System.EventHandler(this.rbSalientes_CheckedChanged);
             // 
@@ -355,10 +329,10 @@
             this.rbEntrantes.AutoSize = true;
             this.rbEntrantes.Location = new System.Drawing.Point(234, 3);
             this.rbEntrantes.Name = "rbEntrantes";
-            this.rbEntrantes.Size = new System.Drawing.Size(70, 17);
+            this.rbEntrantes.Size = new System.Drawing.Size(65, 17);
             this.rbEntrantes.TabIndex = 1;
             this.rbEntrantes.TabStop = true;
-            this.rbEntrantes.Text = "Entrantes";
+            this.rbEntrantes.Text = "Entrante";
             this.rbEntrantes.UseVisualStyleBackColor = true;
             this.rbEntrantes.CheckedChanged += new System.EventHandler(this.rbEntrantes_CheckedChanged);
             // 
@@ -387,7 +361,7 @@
             this.gbBaja.FlatFontSize = 9;
             this.gbBaja.FlatTextColor = System.Drawing.Color.Black;
             this.gbBaja.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbBaja.Location = new System.Drawing.Point(257, 366);
+            this.gbBaja.Location = new System.Drawing.Point(168, 366);
             this.gbBaja.Name = "gbBaja";
             this.gbBaja.PCode = "CLIBAJA";
             this.gbBaja.RoundCorners = 2;
@@ -397,28 +371,6 @@
             this.gbBaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbBaja.W8Color = System.Drawing.Color.Red;
             this.gbBaja.Click += new System.EventHandler(this.gbBaja_Click);
-            // 
-            // gbRegularizoDeuda
-            // 
-            this.gbRegularizoDeuda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbRegularizoDeuda.BackgroundImage")));
-            this.gbRegularizoDeuda.BlackBorder = true;
-            this.gbRegularizoDeuda.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.gbRegularizoDeuda.CircleButton = false;
-            this.gbRegularizoDeuda.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Money;
-            this.gbRegularizoDeuda.FlatColor = System.Drawing.Color.DodgerBlue;
-            this.gbRegularizoDeuda.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
-            this.gbRegularizoDeuda.FlatFontSize = 9;
-            this.gbRegularizoDeuda.FlatTextColor = System.Drawing.Color.Black;
-            this.gbRegularizoDeuda.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbRegularizoDeuda.Location = new System.Drawing.Point(137, 366);
-            this.gbRegularizoDeuda.Name = "gbRegularizoDeuda";
-            this.gbRegularizoDeuda.RoundCorners = 2;
-            this.gbRegularizoDeuda.Size = new System.Drawing.Size(101, 40);
-            this.gbRegularizoDeuda.TabIndex = 7;
-            this.gbRegularizoDeuda.Text = "Regularizo Deuda";
-            this.gbRegularizoDeuda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gbRegularizoDeuda.W8Color = System.Drawing.Color.DodgerBlue;
-            this.gbRegularizoDeuda.Click += new System.EventHandler(this.gbRegularizoDeuda_Click);
             // 
             // bCancelar
             // 
@@ -539,7 +491,6 @@
         private TNGS.NetControls.ImgGroup imgGroup1;
         private TNGS.NetControls.GlassButton bCancelar;
         private TNGS.NetControls.GlassButton bAceptar;
-        private TNGS.NetControls.GlassButton gbRegularizoDeuda;
         private System.Windows.Forms.RadioButton rbSalientes;
         private System.Windows.Forms.RadioButton rbEntrantes;
         private TNGS.NetControls.CDCombo cdcCategorias;
@@ -555,7 +506,6 @@
         private System.Windows.Forms.Panel pnObservacionProg;
         private System.Windows.Forms.Panel pnlLlamado;
         private TNGS.NetControls.GlassButton gbRecupero;
-        private TNGS.NetControls.GlassButton gbReajusteAbono;
         private TNGS.NetControls.TextEdit teNTelefono;
         private TNGS.NetControls.FullLabel fullLabel6;
     }

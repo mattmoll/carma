@@ -1,9 +1,21 @@
-- Test both Tablas Generales and Reports.
+Tablas Generales:
+- Agregar ABM de Planes
+- Quitar ABM de tipos de vendedores
+- Quitar menu de importaciones
+- Preparar la tabla de localidades con solo las de bs as.
 
-- Bring all the forms I need from Sima.
+Administración:
+- Agregar campos obligatorios segun corresponda
+- Agregar tipo de cliente como radio buttons arriba condicionan pantalla de cliente
+- Agregar ventana de Venta.
+- Agregar campo de marca al cliente.
+- Agregar campo de marca en el alta de cliente.
+- Probar llamadas
+- Probar el delete de cliente.
+- Agregar entrevistas si es necesario
 
-- Make the 3 big screens (client, phone call and interview) work for addition and edition.
+Reportes:
+- Armar programa de reportes con la definicion del mail..
 
-- Then make the Details popup show all the info in a read only manner. Buttons to edit and add show the corresponding
-big screen on top passing the id and it will retrieve the entity from DB and update in on close.
+
 
