@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 20/09/2020 20:55
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Clientes
 //----------------------------------------------------------------------------
@@ -67,6 +67,15 @@ create table Clientes
       cli_imp_abono tngs_importe,
       cli_rcd_codtipocont tngs_codigo_r,
       cli_imp_deuda tngs_importe,
+      cli_rcd_codrubro tngs_codigo_r,
+      cli_cd1_genero tngs_codigo_1,
+      cli_des_tarjetacred tngs_descripcion,
+      cli_cd1_fueclienteantes tngs_codigo_1,
+      cli_ede_titular tngs_descripcion_e,
+      cli_cod_empresaprest tngs_codigo,
+      cli_xde_domcobertura tngs_descripcion_x,
+      cli_xde_domcobro tngs_descripcion_x,
+      cli_cd1_tipoprestacion tngs_codigo_1,
       instante tngs_fecyhor,
       deleted tngs_borrado,
       usuario tngs_nombre,

@@ -1,9 +1,9 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 01/12/2020 21:33
+// Fecha              : 01/12/2020 09:41
 // Base de Datos      : TNGS_Carm
-// Tabla              : TipoInst
+// Tabla              : SituacionesIVA
 //----------------------------------------------------------------------------
 // © 1999-2020 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
@@ -26,41 +26,40 @@ go
 /* Crea la tabla en la base indicada */
 /*-----------------------------------*/
 
-print 'Tabla: TipoInst'
+print 'Tabla: SituacionesIVA'
 
-if exists (select * from sysobjects where id = object_id('dbo.TipoInst'))
+if exists (select * from sysobjects where id = object_id('dbo.SituacionesIVA'))
 begin
    print '   - Borrando la vieja tabla'
-   drop table dbo.TipoInst
+   drop table dbo.SituacionesIVA
 end
 go
 
 print '   - Creando la nueva tabla'
 
-create table TipoInst
+create table SituacionesIVA
    (
-      tin_cod_cod tngs_codigo,
-      tin_des_des tngs_descripcion,
-      tin_rcd_codrubro tngs_codigo_r,
-      tin_cd1_mayorista tngs_codigo_1,
+      siv_rcd_codigo tngs_codigo_r,
+      siv_des_descripcion tngs_descripcion,
+      siv_cd1_discrimina tngs_codigo_1,
       instante tngs_fecyhor,
       deleted tngs_borrado,
       usuario tngs_nombre,
       version tngs_numero,
-      constraint TipoInst_pk primary key clustered
+      constraint SituacionesIVA_pk primary key clustered
       (
-         tin_cod_cod
+         siv_rcd_codigo
       )
    )
 go
 
 print '   - Asignando permisos a la nueva tabla'
 
-grant select on TipoInst to tngsqbe
+grant select on SituacionesIVA to tngsqbe
 
 print ' '
 go
 
 /*--------------------------------------------------------------------------
-// Fin del script de creacion de la tabla: TipoInst
+// Fin del script de creacion de la tabla: SituacionesIVA
 //--------------------------------------------------------------------------*/

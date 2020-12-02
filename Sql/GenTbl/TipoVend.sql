@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : TipoVend
 //----------------------------------------------------------------------------
@@ -40,10 +40,7 @@ print '   - Creando la nueva tabla'
 create table TipoVend
    (
       tvn_rcd_cod tngs_codigo_r,
-      tvn_cd1_nivel tngs_codigo_1,
       tvn_des_des tngs_descripcion,
-      tvn_nro_vtasminimas tngs_numero,
-      tvn_nro_reservasmax tngs_numero,
       tvn_cd1_vemayor tngs_codigo_1,
       instante tngs_fecyhor,
       deleted tngs_borrado,

@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : CategoriasLlamada
 //----------------------------------------------------------------------------
@@ -66,7 +66,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : CliContactos
 //----------------------------------------------------------------------------
@@ -140,7 +140,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Clientes
 //----------------------------------------------------------------------------
@@ -196,8 +196,6 @@ create table Clientes
       cli_des_cuil tngs_descripcion,
       cli_xld_url tngs_descripcion_xl,
       cli_cd6_codvend tngs_codigo_6,
-      cli_cd1_extension tngs_codigo_1,
-      cli_ede_horarios tngs_descripcion_e,
       cli_fec_fingsima tngs_fecha,
       cli_nro_cantempleados tngs_numero,
       cli_txt_cobertura tngs_texto,
@@ -208,6 +206,15 @@ create table Clientes
       cli_imp_abono tngs_importe,
       cli_rcd_codtipocont tngs_codigo_r,
       cli_imp_deuda tngs_importe,
+      cli_rcd_codrubro tngs_codigo_r,
+      cli_cd1_genero tngs_codigo_1,
+      cli_des_tarjetacred tngs_descripcion,
+      cli_cd1_fueclienteantes tngs_codigo_1,
+      cli_ede_titular tngs_descripcion_e,
+      cli_cod_empresaprest tngs_codigo,
+      cli_xde_domcobertura tngs_descripcion_x,
+      cli_xde_domcobro tngs_descripcion_x,
+      cli_cd1_tipoprestacion tngs_codigo_1,
       instante tngs_fecyhor,
       deleted tngs_borrado,
       usuario tngs_nombre,
@@ -232,7 +239,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : CliEntrevistas
 //----------------------------------------------------------------------------
@@ -312,7 +319,77 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
+// Base de Datos      : TNGS_Carm
+// Tabla              : CliGrupoFamiliar
+//----------------------------------------------------------------------------
+// © 1999-2020 by TNG Software                                      Gndr 5.20
+//---------------------------------------------------------------------------*/
+
+/* ***************************************************************************
+/  Atencion!!!
+/     Este archivo fue generado por un programa en forma automática. Cualquier
+/     modificación que se realize sobre él se perderá en la próxima
+/     regeneración.
+/  **************************************************************************/
+
+/*-------------------------------------------------*/
+/* Selecciono la base en la que se creara la tabla */
+/*-------------------------------------------------*/
+
+use TNGS_Carm
+go
+
+/*-----------------------------------*/
+/* Crea la tabla en la base indicada */
+/*-----------------------------------*/
+
+print 'Tabla: CliGrupoFamiliar'
+
+if exists (select * from sysobjects where id = object_id('dbo.CliGrupoFamiliar'))
+begin
+   print '   - Borrando la vieja tabla'
+   drop table dbo.CliGrupoFamiliar
+end
+go
+
+print '   - Creando la nueva tabla'
+
+create table CliGrupoFamiliar
+   (
+      cgf_nro_numcliente tngs_numero,
+      cgf_nro_numfamiliar tngs_numero,
+      cgf_des_nombre tngs_descripcion,
+      cgf_des_apellido tngs_descripcion,
+      cgf_d20_dni tngs_descripcion_20,
+      cgf_fec_fecnacimiento tngs_fecha,
+      cgf_ede_obrasocial tngs_descripcion_e,
+      instante tngs_fecyhor,
+      deleted tngs_borrado,
+      usuario tngs_nombre,
+      version tngs_numero,
+      constraint CliGrupoFamiliar_pk primary key clustered
+      (
+         cgf_nro_numcliente,
+         cgf_nro_numfamiliar
+      )
+   )
+go
+
+print '   - Asignando permisos a la nueva tabla'
+
+grant select on CliGrupoFamiliar to tngsqbe
+
+print ' '
+go
+
+/*--------------------------------------------------------------------------
+// Fin del script de creacion de la tabla: CliGrupoFamiliar
+//--------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------
+//                 TNG Software Script Generator (Tablas)                     
+//----------------------------------------------------------------------------
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : CliLlamadas
 //----------------------------------------------------------------------------
@@ -388,7 +465,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : CliNotas
 //----------------------------------------------------------------------------
@@ -459,7 +536,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : CliServicios
 //----------------------------------------------------------------------------
@@ -528,7 +605,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : CliVentas
 //----------------------------------------------------------------------------
@@ -598,7 +675,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : ConversionColores
 //----------------------------------------------------------------------------
@@ -637,7 +714,6 @@ print '   - Creando la nueva tabla'
 create table ConversionColores
    (
       con_cod_cod tngs_codigo,
-      con_rcd_codmarca tngs_codigo_r,
       con_des_coloraconvertir tngs_descripcion,
       con_cd1_colorconvertido tngs_codigo_1,
       instante tngs_fecyhor,
@@ -664,7 +740,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Franquicias
 //----------------------------------------------------------------------------
@@ -728,7 +804,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Localidades
 //----------------------------------------------------------------------------
@@ -797,7 +873,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : LogClientes
 //----------------------------------------------------------------------------
@@ -867,7 +943,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : MotivosLlamada
 //----------------------------------------------------------------------------
@@ -933,7 +1009,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Parametros
 //----------------------------------------------------------------------------
@@ -1001,7 +1077,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Planes
 //----------------------------------------------------------------------------
@@ -1067,7 +1143,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : PlnServicios
 //----------------------------------------------------------------------------
@@ -1134,7 +1210,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : PreciosServicios
 //----------------------------------------------------------------------------
@@ -1201,7 +1277,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : ResEntrevista
 //----------------------------------------------------------------------------
@@ -1266,7 +1342,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Rubros
 //----------------------------------------------------------------------------
@@ -1330,7 +1406,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Servicios
 //----------------------------------------------------------------------------
@@ -1395,7 +1471,72 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 09:41
+// Base de Datos      : TNGS_Carm
+// Tabla              : SituacionesIVA
+//----------------------------------------------------------------------------
+// © 1999-2020 by TNG Software                                      Gndr 5.20
+//---------------------------------------------------------------------------*/
+
+/* ***************************************************************************
+/  Atencion!!!
+/     Este archivo fue generado por un programa en forma automática. Cualquier
+/     modificación que se realize sobre él se perderá en la próxima
+/     regeneración.
+/  **************************************************************************/
+
+/*-------------------------------------------------*/
+/* Selecciono la base en la que se creara la tabla */
+/*-------------------------------------------------*/
+
+use TNGS_Carm
+go
+
+/*-----------------------------------*/
+/* Crea la tabla en la base indicada */
+/*-----------------------------------*/
+
+print 'Tabla: SituacionesIVA'
+
+if exists (select * from sysobjects where id = object_id('dbo.SituacionesIVA'))
+begin
+   print '   - Borrando la vieja tabla'
+   drop table dbo.SituacionesIVA
+end
+go
+
+print '   - Creando la nueva tabla'
+
+create table SituacionesIVA
+   (
+      siv_rcd_codigo tngs_codigo_r,
+      siv_des_descripcion tngs_descripcion,
+      siv_cd1_discrimina tngs_codigo_1,
+      instante tngs_fecyhor,
+      deleted tngs_borrado,
+      usuario tngs_nombre,
+      version tngs_numero,
+      constraint SituacionesIVA_pk primary key clustered
+      (
+         siv_rcd_codigo
+      )
+   )
+go
+
+print '   - Asignando permisos a la nueva tabla'
+
+grant select on SituacionesIVA to tngsqbe
+
+print ' '
+go
+
+/*--------------------------------------------------------------------------
+// Fin del script de creacion de la tabla: SituacionesIVA
+//--------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------
+//                 TNG Software Script Generator (Tablas)                     
+//----------------------------------------------------------------------------
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Supervisores
 //----------------------------------------------------------------------------
@@ -1463,7 +1604,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Talonarios
 //----------------------------------------------------------------------------
@@ -1531,7 +1672,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : TipoCont
 //----------------------------------------------------------------------------
@@ -1597,7 +1738,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : TipoInst
 //----------------------------------------------------------------------------
@@ -1663,7 +1804,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : TipoVend
 //----------------------------------------------------------------------------
@@ -1702,10 +1843,7 @@ print '   - Creando la nueva tabla'
 create table TipoVend
    (
       tvn_rcd_cod tngs_codigo_r,
-      tvn_cd1_nivel tngs_codigo_1,
       tvn_des_des tngs_descripcion,
-      tvn_nro_vtasminimas tngs_numero,
-      tvn_nro_reservasmax tngs_numero,
       tvn_cd1_vemayor tngs_codigo_1,
       instante tngs_fecyhor,
       deleted tngs_borrado,
@@ -1731,7 +1869,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Vendedores
 //----------------------------------------------------------------------------
@@ -1778,14 +1916,9 @@ create table Vendedores
       vnd_tel_tel2 tngs_telefono,
       vnd_fec_fecnacim tngs_fecha,
       vnd_ede_direccion tngs_descripcion_e,
-      vnd_ede_email tngs_descripcion_e,
-      vnd_ede_contrasenia tngs_descripcion_e,
       vnd_cd6_codsuperv tngs_codigo_6,
       vnd_rcd_codtvend tngs_codigo_r,
       vnd_txt_horarios tngs_texto,
-      vnd_ede_mailremitente tngs_descripcion_e,
-      vnd_ede_nombreamostrar tngs_descripcion_e,
-      vnd_rcd_coddominio tngs_codigo_r,
       vnd_cd1_historico tngs_codigo_1,
       instante tngs_fecyhor,
       deleted tngs_borrado,
@@ -1811,7 +1944,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Zonas
 //----------------------------------------------------------------------------
@@ -1876,7 +2009,7 @@ go
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Indices)                    
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : Clientes
 //----------------------------------------------------------------------------
@@ -1914,30 +2047,13 @@ go
 print '  '
 go
 
-/*-----------------------------------------------
-// Crea el indice: is2
-//-----------------------------------------------*/
-
-print 'Indice: Clientes_is2'
-
-print '    - Creando el nuevo indice'
-
-create index Clientes_is2 on Clientes
-   (
-       cli_fec_ffinres
-   )
-go
-
-print '  '
-go
-
 /*--------------------------------------------------------------------------
 // Fin del script de creacion de los indices de la tabla: Clientes
 //--------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Indices)                    
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : CliEntrevistas
 //----------------------------------------------------------------------------

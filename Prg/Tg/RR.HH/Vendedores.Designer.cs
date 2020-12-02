@@ -104,6 +104,7 @@ namespace Carm.Tg
             this.cmdPrint = new TNGS.NetControls.GlassButton();
             this.cmdExcel = new TNGS.NetControls.GlassButton();
             this.frmEdicion = new TNGS.NetControls.ImgGroup();
+            this.cdcEsHistorico = new TNGS.NetControls.CDCombo();
             this.lblCod = new System.Windows.Forms.Label();
             this.txtCod = new TNGS.NetControls.TextEdit();
             this.lblApellido = new System.Windows.Forms.Label();
@@ -129,7 +130,6 @@ namespace Carm.Tg
             this.lblHorarios = new System.Windows.Forms.Label();
             this.txtHorarios = new TNGS.NetControls.TextEdit();
             this.lblHistorico = new System.Windows.Forms.Label();
-            this.cdcEsHistorico = new TNGS.NetControls.CDCombo();
             this.xpnlBase.SuspendLayout();
             this.tsContainer1.SuspendLayout();
             this.tabPageSwitcher1.SuspendLayout();
@@ -570,6 +570,20 @@ namespace Carm.Tg
             this.frmEdicion.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.frmEdicion.TitleFontColor = System.Drawing.Color.White;
             // 
+            // cdcEsHistorico
+            // 
+            this.cdcEsHistorico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cdcEsHistorico.BackColor = System.Drawing.SystemColors.Window;
+            this.cdcEsHistorico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cdcEsHistorico.Enabled = false;
+            this.cdcEsHistorico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cdcEsHistorico.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cdcEsHistorico.Location = new System.Drawing.Point(570, 197);
+            this.cdcEsHistorico.Name = "cdcEsHistorico";
+            this.cdcEsHistorico.Size = new System.Drawing.Size(79, 24);
+            this.cdcEsHistorico.Sorted = true;
+            this.cdcEsHistorico.TabIndex = 126;
+            // 
             // lblCod
             // 
             this.lblCod.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -845,20 +859,6 @@ namespace Carm.Tg
             this.lblHistorico.TabIndex = 123;
             this.lblHistorico.Text = "Es Historico:";
             this.lblHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cdcEsHistorico
-            // 
-            this.cdcEsHistorico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cdcEsHistorico.BackColor = System.Drawing.SystemColors.Window;
-            this.cdcEsHistorico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cdcEsHistorico.Enabled = false;
-            this.cdcEsHistorico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cdcEsHistorico.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cdcEsHistorico.Location = new System.Drawing.Point(570, 197);
-            this.cdcEsHistorico.Name = "cdcEsHistorico";
-            this.cdcEsHistorico.Size = new System.Drawing.Size(79, 24);
-            this.cdcEsHistorico.Sorted = true;
-            this.cdcEsHistorico.TabIndex = 126;
             // 
             // Vendedores
             // 

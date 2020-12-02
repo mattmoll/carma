@@ -463,7 +463,6 @@
             this.Name = "ResultadoLlamada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Resultado de Llamada";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ResultadoLlamada_FormClosing);
             this.Load += new System.EventHandler(this.ResultadoLlamada_Load);
             this.xPanel1.ResumeLayout(false);
             this.imgGroup1.ResumeLayout(false);

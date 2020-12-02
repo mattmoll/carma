@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 25/07/2020 18:48
+// Fecha              : 01/12/2020 21:33
 // Base de Datos      : TNGS_Carm
 // Tabla              : ConversionColores
 //----------------------------------------------------------------------------
@@ -40,7 +40,6 @@ print '   - Creando la nueva tabla'
 create table ConversionColores
    (
       con_cod_cod tngs_codigo,
-      con_rcd_codmarca tngs_codigo_r,
       con_des_coloraconvertir tngs_descripcion,
       con_cd1_colorconvertido tngs_codigo_1,
       instante tngs_fecyhor,
