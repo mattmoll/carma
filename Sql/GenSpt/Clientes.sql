@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 01/12/2020 21:33
+// Fecha       : 03/12/2020 22:16
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -88,15 +88,15 @@ begin
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
-                cli_rcd_codrubro,
                 cli_cd1_genero,
                 cli_des_tarjetacred,
                 cli_cd1_fueclienteantes,
                 cli_ede_titular,
-                cli_cod_empresaprest,
-                cli_xde_domcobertura,
-                cli_xde_domcobro,
-                cli_cd1_tipoprestacion,
+                cli_ede_direccioncobertura,
+                cli_nro_alturacobertura,
+                cli_rde_pisocobertura,
+                cli_rde_oficinacobertura,
+                cli_ecd_codloccobertura,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -149,15 +149,15 @@ begin
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
-                cli_rcd_codrubro,
                 cli_cd1_genero,
                 cli_des_tarjetacred,
                 cli_cd1_fueclienteantes,
                 cli_ede_titular,
-                cli_cod_empresaprest,
-                cli_xde_domcobertura,
-                cli_xde_domcobro,
-                cli_cd1_tipoprestacion,
+                cli_ede_direccioncobertura,
+                cli_nro_alturacobertura,
+                cli_rde_pisocobertura,
+                cli_rde_oficinacobertura,
+                cli_ecd_codloccobertura,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -299,15 +299,15 @@ begin
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
-                cli_rcd_codrubro,
                 cli_cd1_genero,
                 cli_des_tarjetacred,
                 cli_cd1_fueclienteantes,
                 cli_ede_titular,
-                cli_cod_empresaprest,
-                cli_xde_domcobertura,
-                cli_xde_domcobro,
-                cli_cd1_tipoprestacion,
+                cli_ede_direccioncobertura,
+                cli_nro_alturacobertura,
+                cli_rde_pisocobertura,
+                cli_rde_oficinacobertura,
+                cli_ecd_codloccobertura,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -360,15 +360,15 @@ begin
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
-                cli_rcd_codrubro,
                 cli_cd1_genero,
                 cli_des_tarjetacred,
                 cli_cd1_fueclienteantes,
                 cli_ede_titular,
-                cli_cod_empresaprest,
-                cli_xde_domcobertura,
-                cli_xde_domcobro,
-                cli_cd1_tipoprestacion,
+                cli_ede_direccioncobertura,
+                cli_nro_alturacobertura,
+                cli_rde_pisocobertura,
+                cli_rde_oficinacobertura,
+                cli_ecd_codloccobertura,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -428,15 +428,15 @@ go
 --- <param name="@cli_imp_abono">Abono</param>
 --- <param name="@cli_rcd_codtipocont">Tipo Contrato</param>
 --- <param name="@cli_imp_deuda">Deuda</param>
---- <param name="@cli_rcd_codrubro">Rubro</param>
 --- <param name="@cli_cd1_genero">Género</param>
 --- <param name="@cli_des_tarjetacred">Tarjeta de Crédito</param>
 --- <param name="@cli_cd1_fueclienteantes">Fue Cliente Antes</param>
 --- <param name="@cli_ede_titular">Titular</param>
---- <param name="@cli_cod_empresaprest">Empresa Prestadora</param>
---- <param name="@cli_xde_domcobertura">Domicilio Cobertura</param>
---- <param name="@cli_xde_domcobro">Domicilio Cobro</param>
---- <param name="@cli_cd1_tipoprestacion">Tipo Prestacion</param>
+--- <param name="@cli_ede_direccioncobertura">Direccion Cobertura</param>
+--- <param name="@cli_nro_alturacobertura">Altura Cobertura</param>
+--- <param name="@cli_rde_pisocobertura">Piso Cobertura</param>
+--- <param name="@cli_rde_oficinacobertura">Oficina Cobertura</param>
+--- <param name="@cli_ecd_codloccobertura">Localidad Cobertura</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -483,15 +483,15 @@ create procedure dbo.CLIENTES_INSERT
 @cli_imp_abono tngs_importe,
 @cli_rcd_codtipocont tngs_codigo_r,
 @cli_imp_deuda tngs_importe,
-@cli_rcd_codrubro tngs_codigo_r,
 @cli_cd1_genero tngs_codigo_1,
 @cli_des_tarjetacred tngs_descripcion,
 @cli_cd1_fueclienteantes tngs_codigo_1,
 @cli_ede_titular tngs_descripcion_e,
-@cli_cod_empresaprest tngs_codigo,
-@cli_xde_domcobertura tngs_descripcion_x,
-@cli_xde_domcobro tngs_descripcion_x,
-@cli_cd1_tipoprestacion tngs_codigo_1,
+@cli_ede_direccioncobertura tngs_descripcion_e,
+@cli_nro_alturacobertura tngs_numero,
+@cli_rde_pisocobertura tngs_descripcion_r,
+@cli_rde_oficinacobertura tngs_descripcion_r,
+@cli_ecd_codloccobertura tngs_codigo_e,
 @usuario tngs_nombre
 )
 as
@@ -527,15 +527,15 @@ begin
            @cli_imp_abono,
            @cli_rcd_codtipocont,
            @cli_imp_deuda,
-           @cli_rcd_codrubro,
            @cli_cd1_genero,
            @cli_des_tarjetacred,
            @cli_cd1_fueclienteantes,
            @cli_ede_titular,
-           @cli_cod_empresaprest,
-           @cli_xde_domcobertura,
-           @cli_xde_domcobro,
-           @cli_cd1_tipoprestacion,
+           @cli_ede_direccioncobertura,
+           @cli_nro_alturacobertura,
+           @cli_rde_pisocobertura,
+           @cli_rde_oficinacobertura,
+           @cli_ecd_codloccobertura,
            getdate(), 0, @usuario, 1
           )
 
@@ -584,15 +584,15 @@ go
 --- <param name="@cli_imp_abono">Abono</param>
 --- <param name="@cli_rcd_codtipocont">Tipo Contrato</param>
 --- <param name="@cli_imp_deuda">Deuda</param>
---- <param name="@cli_rcd_codrubro">Rubro</param>
 --- <param name="@cli_cd1_genero">Género</param>
 --- <param name="@cli_des_tarjetacred">Tarjeta de Crédito</param>
 --- <param name="@cli_cd1_fueclienteantes">Fue Cliente Antes</param>
 --- <param name="@cli_ede_titular">Titular</param>
---- <param name="@cli_cod_empresaprest">Empresa Prestadora</param>
---- <param name="@cli_xde_domcobertura">Domicilio Cobertura</param>
---- <param name="@cli_xde_domcobro">Domicilio Cobro</param>
---- <param name="@cli_cd1_tipoprestacion">Tipo Prestacion</param>
+--- <param name="@cli_ede_direccioncobertura">Direccion Cobertura</param>
+--- <param name="@cli_nro_alturacobertura">Altura Cobertura</param>
+--- <param name="@cli_rde_pisocobertura">Piso Cobertura</param>
+--- <param name="@cli_rde_oficinacobertura">Oficina Cobertura</param>
+--- <param name="@cli_ecd_codloccobertura">Localidad Cobertura</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -639,15 +639,15 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_imp_abono tngs_importe,
 @cli_rcd_codtipocont tngs_codigo_r,
 @cli_imp_deuda tngs_importe,
-@cli_rcd_codrubro tngs_codigo_r,
 @cli_cd1_genero tngs_codigo_1,
 @cli_des_tarjetacred tngs_descripcion,
 @cli_cd1_fueclienteantes tngs_codigo_1,
 @cli_ede_titular tngs_descripcion_e,
-@cli_cod_empresaprest tngs_codigo,
-@cli_xde_domcobertura tngs_descripcion_x,
-@cli_xde_domcobro tngs_descripcion_x,
-@cli_cd1_tipoprestacion tngs_codigo_1,
+@cli_ede_direccioncobertura tngs_descripcion_e,
+@cli_nro_alturacobertura tngs_numero,
+@cli_rde_pisocobertura tngs_descripcion_r,
+@cli_rde_oficinacobertura tngs_descripcion_r,
+@cli_ecd_codloccobertura tngs_codigo_e,
 @usuario tngs_nombre
 )
 as
@@ -681,15 +681,15 @@ begin
           cli_imp_abono= @cli_imp_abono,
           cli_rcd_codtipocont= @cli_rcd_codtipocont,
           cli_imp_deuda= @cli_imp_deuda,
-          cli_rcd_codrubro= @cli_rcd_codrubro,
           cli_cd1_genero= @cli_cd1_genero,
           cli_des_tarjetacred= @cli_des_tarjetacred,
           cli_cd1_fueclienteantes= @cli_cd1_fueclienteantes,
           cli_ede_titular= @cli_ede_titular,
-          cli_cod_empresaprest= @cli_cod_empresaprest,
-          cli_xde_domcobertura= @cli_xde_domcobertura,
-          cli_xde_domcobro= @cli_xde_domcobro,
-          cli_cd1_tipoprestacion= @cli_cd1_tipoprestacion,
+          cli_ede_direccioncobertura= @cli_ede_direccioncobertura,
+          cli_nro_alturacobertura= @cli_nro_alturacobertura,
+          cli_rde_pisocobertura= @cli_rde_pisocobertura,
+          cli_rde_oficinacobertura= @cli_rde_oficinacobertura,
+          cli_ecd_codloccobertura= @cli_ecd_codloccobertura,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario
