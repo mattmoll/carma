@@ -42,11 +42,6 @@
             this.fullLabel18 = new TNGS.NetControls.FullLabel();
             this.neNumeroAvalon = new TNGS.NetControls.NumberEdit();
             this.fullLabel17 = new TNGS.NetControls.FullLabel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.rbMaySi = new System.Windows.Forms.RadioButton();
-            this.rbMayAmbos = new System.Windows.Forms.RadioButton();
-            this.rbMayNo = new System.Windows.Forms.RadioButton();
-            this.fullLabel16 = new TNGS.NetControls.FullLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rbVndSi = new System.Windows.Forms.RadioButton();
             this.rbVndAmbos = new System.Windows.Forms.RadioButton();
@@ -60,9 +55,6 @@
             this.teNombreFant = new System.Windows.Forms.TextBox();
             this.cmbLocalidades = new TNGS.NetControls.CDCombo();
             this.cmbZonas = new TNGS.NetControls.CDCombo();
-            this.cmbTiposInsts = new TNGS.NetControls.CDCombo();
-            this.cmbRubros = new TNGS.NetControls.CDCombo();
-            this.cmbFranquicias = new TNGS.NetControls.CDCombo();
             this.teRSocial = new TNGS.NetControls.TextEdit();
             this.fullLabel13 = new TNGS.NetControls.FullLabel();
             this.fullLabel14 = new TNGS.NetControls.FullLabel();
@@ -70,15 +62,15 @@
             this.fullLabel11 = new TNGS.NetControls.FullLabel();
             this.fullLabel10 = new TNGS.NetControls.FullLabel();
             this.fullLabel7 = new TNGS.NetControls.FullLabel();
-            this.fullLabel6 = new TNGS.NetControls.FullLabel();
-            this.fullLabel5 = new TNGS.NetControls.FullLabel();
             this.fullLabel4 = new TNGS.NetControls.FullLabel();
             this.fullLabel3 = new TNGS.NetControls.FullLabel();
-            this.fullLabel2 = new TNGS.NetControls.FullLabel();
             this.fullLabel1 = new TNGS.NetControls.FullLabel();
+            this.teNombreYApellido = new System.Windows.Forms.TextBox();
+            this.fullLabel8 = new TNGS.NetControls.FullLabel();
+            this.cdcTipoCliente = new TNGS.NetControls.CDCombo();
+            this.fullLabel5 = new TNGS.NetControls.FullLabel();
             this.xPanel1.SuspendLayout();
             this.topPanel.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +80,10 @@
             this.xPanel1.BackColor1 = System.Drawing.Color.PaleGreen;
             this.xPanel1.BackColor2 = System.Drawing.SystemColors.Control;
             this.xPanel1.BorderColor = System.Drawing.Color.Black;
+            this.xPanel1.Controls.Add(this.cdcTipoCliente);
+            this.xPanel1.Controls.Add(this.fullLabel5);
+            this.xPanel1.Controls.Add(this.teNombreYApellido);
+            this.xPanel1.Controls.Add(this.fullLabel8);
             this.xPanel1.Controls.Add(this.btnBuscar);
             this.xPanel1.Controls.Add(this.topPanel);
             this.xPanel1.Controls.Add(this.lblTitulo);
@@ -97,8 +93,6 @@
             this.xPanel1.Controls.Add(this.fullLabel18);
             this.xPanel1.Controls.Add(this.neNumeroAvalon);
             this.xPanel1.Controls.Add(this.fullLabel17);
-            this.xPanel1.Controls.Add(this.panel3);
-            this.xPanel1.Controls.Add(this.fullLabel16);
             this.xPanel1.Controls.Add(this.panel2);
             this.xPanel1.Controls.Add(this.fullLabel15);
             this.xPanel1.Controls.Add(this.neAltura);
@@ -109,9 +103,6 @@
             this.xPanel1.Controls.Add(this.teNombreFant);
             this.xPanel1.Controls.Add(this.cmbLocalidades);
             this.xPanel1.Controls.Add(this.cmbZonas);
-            this.xPanel1.Controls.Add(this.cmbTiposInsts);
-            this.xPanel1.Controls.Add(this.cmbRubros);
-            this.xPanel1.Controls.Add(this.cmbFranquicias);
             this.xPanel1.Controls.Add(this.teRSocial);
             this.xPanel1.Controls.Add(this.fullLabel13);
             this.xPanel1.Controls.Add(this.fullLabel14);
@@ -119,17 +110,15 @@
             this.xPanel1.Controls.Add(this.fullLabel11);
             this.xPanel1.Controls.Add(this.fullLabel10);
             this.xPanel1.Controls.Add(this.fullLabel7);
-            this.xPanel1.Controls.Add(this.fullLabel6);
-            this.xPanel1.Controls.Add(this.fullLabel5);
             this.xPanel1.Controls.Add(this.fullLabel4);
             this.xPanel1.Controls.Add(this.fullLabel3);
-            this.xPanel1.Controls.Add(this.fullLabel2);
             this.xPanel1.Controls.Add(this.fullLabel1);
             this.xPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel1.Location = new System.Drawing.Point(0, 0);
             this.xPanel1.Name = "xPanel1";
             this.xPanel1.Size = new System.Drawing.Size(648, 500);
             this.xPanel1.TabIndex = 0;
+            this.xPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.xPanel1_Paint);
             // 
             // btnBuscar
             // 
@@ -201,7 +190,7 @@
             this.cdcMarcas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cdcMarcas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cdcMarcas.FormattingEnabled = true;
-            this.cdcMarcas.Location = new System.Drawing.Point(425, 66);
+            this.cdcMarcas.Location = new System.Drawing.Point(423, 111);
             this.cdcMarcas.Name = "cdcMarcas";
             this.cdcMarcas.Size = new System.Drawing.Size(197, 21);
             this.cdcMarcas.Sorted = true;
@@ -211,7 +200,7 @@
             // fullLabel19
             // 
             this.fullLabel19.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel19.Location = new System.Drawing.Point(328, 69);
+            this.fullLabel19.Location = new System.Drawing.Point(326, 114);
             this.fullLabel19.Name = "fullLabel19";
             this.fullLabel19.Size = new System.Drawing.Size(97, 16);
             this.fullLabel19.TabIndex = 131;
@@ -220,7 +209,7 @@
             // teTelefono
             // 
             this.teTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teTelefono.Location = new System.Drawing.Point(425, 329);
+            this.teTelefono.Location = new System.Drawing.Point(423, 244);
             this.teTelefono.Name = "teTelefono";
             this.teTelefono.Size = new System.Drawing.Size(197, 20);
             this.teTelefono.TabIndex = 14;
@@ -229,7 +218,7 @@
             // fullLabel18
             // 
             this.fullLabel18.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel18.Location = new System.Drawing.Point(326, 332);
+            this.fullLabel18.Location = new System.Drawing.Point(324, 247);
             this.fullLabel18.Name = "fullLabel18";
             this.fullLabel18.Size = new System.Drawing.Size(76, 17);
             this.fullLabel18.TabIndex = 130;
@@ -255,74 +244,13 @@
             this.fullLabel17.TabIndex = 128;
             this.fullLabel17.Text = "Número Avalon:";
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.rbMaySi);
-            this.panel3.Controls.Add(this.rbMayAmbos);
-            this.panel3.Controls.Add(this.rbMayNo);
-            this.panel3.Location = new System.Drawing.Point(429, 377);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(181, 21);
-            this.panel3.TabIndex = 20;
-            // 
-            // rbMaySi
-            // 
-            this.rbMaySi.AutoSize = true;
-            this.rbMaySi.BackColor = System.Drawing.Color.Transparent;
-            this.rbMaySi.Location = new System.Drawing.Point(3, 3);
-            this.rbMaySi.Name = "rbMaySi";
-            this.rbMaySi.Size = new System.Drawing.Size(34, 17);
-            this.rbMaySi.TabIndex = 0;
-            this.rbMaySi.Text = "Si";
-            this.rbMaySi.UseVisualStyleBackColor = false;
-            this.rbMaySi.CheckedChanged += new System.EventHandler(this.rbCheckedMayorChanged);
-            this.rbMaySi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
-            // rbMayAmbos
-            // 
-            this.rbMayAmbos.AutoSize = true;
-            this.rbMayAmbos.BackColor = System.Drawing.Color.Transparent;
-            this.rbMayAmbos.Checked = true;
-            this.rbMayAmbos.Location = new System.Drawing.Point(113, 3);
-            this.rbMayAmbos.Name = "rbMayAmbos";
-            this.rbMayAmbos.Size = new System.Drawing.Size(57, 17);
-            this.rbMayAmbos.TabIndex = 2;
-            this.rbMayAmbos.TabStop = true;
-            this.rbMayAmbos.Text = "Ambos";
-            this.rbMayAmbos.UseVisualStyleBackColor = false;
-            this.rbMayAmbos.CheckedChanged += new System.EventHandler(this.rbCheckedMayorChanged);
-            this.rbMayAmbos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
-            // rbMayNo
-            // 
-            this.rbMayNo.AutoSize = true;
-            this.rbMayNo.BackColor = System.Drawing.Color.Transparent;
-            this.rbMayNo.Location = new System.Drawing.Point(55, 3);
-            this.rbMayNo.Name = "rbMayNo";
-            this.rbMayNo.Size = new System.Drawing.Size(39, 17);
-            this.rbMayNo.TabIndex = 1;
-            this.rbMayNo.Text = "No";
-            this.rbMayNo.UseVisualStyleBackColor = false;
-            this.rbMayNo.CheckedChanged += new System.EventHandler(this.rbCheckedMayorChanged);
-            this.rbMayNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
-            // fullLabel16
-            // 
-            this.fullLabel16.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel16.Location = new System.Drawing.Point(330, 382);
-            this.fullLabel16.Name = "fullLabel16";
-            this.fullLabel16.Size = new System.Drawing.Size(61, 16);
-            this.fullLabel16.TabIndex = 125;
-            this.fullLabel16.Text = "Mayoristas:";
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.rbVndSi);
             this.panel2.Controls.Add(this.rbVndAmbos);
             this.panel2.Controls.Add(this.rbVndNo);
-            this.panel2.Location = new System.Drawing.Point(116, 376);
+            this.panel2.Location = new System.Drawing.Point(423, 324);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(181, 21);
             this.panel2.TabIndex = 19;
@@ -371,7 +299,7 @@
             // fullLabel15
             // 
             this.fullLabel15.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel15.Location = new System.Drawing.Point(12, 381);
+            this.fullLabel15.Location = new System.Drawing.Point(325, 329);
             this.fullLabel15.Name = "fullLabel15";
             this.fullLabel15.Size = new System.Drawing.Size(61, 16);
             this.fullLabel15.TabIndex = 123;
@@ -380,7 +308,7 @@
             // neAltura
             // 
             this.neAltura.BackColor = System.Drawing.SystemColors.Window;
-            this.neAltura.Location = new System.Drawing.Point(116, 329);
+            this.neAltura.Location = new System.Drawing.Point(423, 283);
             this.neAltura.Name = "neAltura";
             this.neAltura.NegativeValid = false;
             this.neAltura.Size = new System.Drawing.Size(100, 20);
@@ -391,7 +319,7 @@
             // teDir
             // 
             this.teDir.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teDir.Location = new System.Drawing.Point(116, 284);
+            this.teDir.Location = new System.Drawing.Point(116, 326);
             this.teDir.Name = "teDir";
             this.teDir.Size = new System.Drawing.Size(197, 20);
             this.teDir.TabIndex = 6;
@@ -400,7 +328,7 @@
             // teCodVend
             // 
             this.teCodVend.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teCodVend.Location = new System.Drawing.Point(116, 199);
+            this.teCodVend.Location = new System.Drawing.Point(116, 241);
             this.teCodVend.Name = "teCodVend";
             this.teCodVend.Size = new System.Drawing.Size(197, 20);
             this.teCodVend.TabIndex = 4;
@@ -409,7 +337,7 @@
             // teCargador
             // 
             this.teCargador.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teCargador.Location = new System.Drawing.Point(116, 240);
+            this.teCargador.Location = new System.Drawing.Point(116, 282);
             this.teCargador.Name = "teCargador";
             this.teCargador.Size = new System.Drawing.Size(197, 20);
             this.teCargador.TabIndex = 5;
@@ -441,7 +369,7 @@
             this.cmbLocalidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLocalidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbLocalidades.FormattingEnabled = true;
-            this.cmbLocalidades.Location = new System.Drawing.Point(425, 285);
+            this.cmbLocalidades.Location = new System.Drawing.Point(423, 202);
             this.cmbLocalidades.Name = "cmbLocalidades";
             this.cmbLocalidades.Size = new System.Drawing.Size(197, 21);
             this.cmbLocalidades.Sorted = true;
@@ -454,53 +382,13 @@
             this.cmbZonas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbZonas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbZonas.FormattingEnabled = true;
-            this.cmbZonas.Location = new System.Drawing.Point(425, 239);
+            this.cmbZonas.Location = new System.Drawing.Point(423, 156);
             this.cmbZonas.Name = "cmbZonas";
             this.cmbZonas.Size = new System.Drawing.Size(197, 21);
             this.cmbZonas.Sorted = true;
             this.cmbZonas.TabIndex = 12;
             this.cmbZonas.SelectedIndexChanged += new System.EventHandler(this.cmbZonas_SelectedIndexChanged);
             this.cmbZonas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
-            // cmbTiposInsts
-            // 
-            this.cmbTiposInsts.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbTiposInsts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTiposInsts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbTiposInsts.FormattingEnabled = true;
-            this.cmbTiposInsts.Location = new System.Drawing.Point(425, 198);
-            this.cmbTiposInsts.Name = "cmbTiposInsts";
-            this.cmbTiposInsts.Size = new System.Drawing.Size(197, 21);
-            this.cmbTiposInsts.Sorted = true;
-            this.cmbTiposInsts.TabIndex = 11;
-            this.cmbTiposInsts.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
-            // cmbRubros
-            // 
-            this.cmbRubros.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbRubros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRubros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbRubros.FormattingEnabled = true;
-            this.cmbRubros.Location = new System.Drawing.Point(425, 156);
-            this.cmbRubros.Name = "cmbRubros";
-            this.cmbRubros.Size = new System.Drawing.Size(197, 21);
-            this.cmbRubros.Sorted = true;
-            this.cmbRubros.TabIndex = 10;
-            this.cmbRubros.SelectedIndexChanged += new System.EventHandler(this.cmbRubros_SelectedIndexChanged);
-            this.cmbRubros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
-            // 
-            // cmbFranquicias
-            // 
-            this.cmbFranquicias.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbFranquicias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbFranquicias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbFranquicias.FormattingEnabled = true;
-            this.cmbFranquicias.Location = new System.Drawing.Point(425, 113);
-            this.cmbFranquicias.Name = "cmbFranquicias";
-            this.cmbFranquicias.Size = new System.Drawing.Size(197, 21);
-            this.cmbFranquicias.Sorted = true;
-            this.cmbFranquicias.TabIndex = 9;
-            this.cmbFranquicias.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Every_KeyPress);
             // 
             // teRSocial
             // 
@@ -516,7 +404,7 @@
             // fullLabel13
             // 
             this.fullLabel13.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel13.Location = new System.Drawing.Point(11, 332);
+            this.fullLabel13.Location = new System.Drawing.Point(325, 286);
             this.fullLabel13.Name = "fullLabel13";
             this.fullLabel13.Size = new System.Drawing.Size(58, 17);
             this.fullLabel13.TabIndex = 122;
@@ -525,7 +413,7 @@
             // fullLabel14
             // 
             this.fullLabel14.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel14.Location = new System.Drawing.Point(12, 287);
+            this.fullLabel14.Location = new System.Drawing.Point(19, 327);
             this.fullLabel14.Name = "fullLabel14";
             this.fullLabel14.Size = new System.Drawing.Size(76, 17);
             this.fullLabel14.TabIndex = 121;
@@ -534,7 +422,7 @@
             // fullLabel12
             // 
             this.fullLabel12.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel12.Location = new System.Drawing.Point(12, 202);
+            this.fullLabel12.Location = new System.Drawing.Point(19, 242);
             this.fullLabel12.Name = "fullLabel12";
             this.fullLabel12.Size = new System.Drawing.Size(110, 17);
             this.fullLabel12.TabIndex = 117;
@@ -543,7 +431,7 @@
             // fullLabel11
             // 
             this.fullLabel11.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel11.Location = new System.Drawing.Point(12, 243);
+            this.fullLabel11.Location = new System.Drawing.Point(19, 283);
             this.fullLabel11.Name = "fullLabel11";
             this.fullLabel11.Size = new System.Drawing.Size(110, 17);
             this.fullLabel11.TabIndex = 115;
@@ -567,28 +455,10 @@
             this.fullLabel7.TabIndex = 18;
             this.fullLabel7.Text = "Nombre de fantasía:";
             // 
-            // fullLabel6
-            // 
-            this.fullLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel6.Location = new System.Drawing.Point(326, 159);
-            this.fullLabel6.Name = "fullLabel6";
-            this.fullLabel6.Size = new System.Drawing.Size(97, 16);
-            this.fullLabel6.TabIndex = 16;
-            this.fullLabel6.Text = "Rubro:";
-            // 
-            // fullLabel5
-            // 
-            this.fullLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel5.Location = new System.Drawing.Point(326, 116);
-            this.fullLabel5.Name = "fullLabel5";
-            this.fullLabel5.Size = new System.Drawing.Size(97, 16);
-            this.fullLabel5.TabIndex = 4;
-            this.fullLabel5.Text = "Franquicia:";
-            // 
             // fullLabel4
             // 
             this.fullLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel4.Location = new System.Drawing.Point(326, 244);
+            this.fullLabel4.Location = new System.Drawing.Point(324, 161);
             this.fullLabel4.Name = "fullLabel4";
             this.fullLabel4.Size = new System.Drawing.Size(97, 16);
             this.fullLabel4.TabIndex = 3;
@@ -597,20 +467,11 @@
             // fullLabel3
             // 
             this.fullLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel3.Location = new System.Drawing.Point(326, 288);
+            this.fullLabel3.Location = new System.Drawing.Point(324, 205);
             this.fullLabel3.Name = "fullLabel3";
             this.fullLabel3.Size = new System.Drawing.Size(97, 16);
             this.fullLabel3.TabIndex = 2;
             this.fullLabel3.Text = "Localidad:";
-            // 
-            // fullLabel2
-            // 
-            this.fullLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel2.Location = new System.Drawing.Point(323, 202);
-            this.fullLabel2.Name = "fullLabel2";
-            this.fullLabel2.Size = new System.Drawing.Size(97, 16);
-            this.fullLabel2.TabIndex = 1;
-            this.fullLabel2.Text = "Tipo de institución:";
             // 
             // fullLabel1
             // 
@@ -620,6 +481,44 @@
             this.fullLabel1.Size = new System.Drawing.Size(95, 16);
             this.fullLabel1.TabIndex = 0;
             this.fullLabel1.Text = "Razón social:";
+            // 
+            // teNombreYApellido
+            // 
+            this.teNombreYApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teNombreYApellido.Location = new System.Drawing.Point(116, 198);
+            this.teNombreYApellido.Name = "teNombreYApellido";
+            this.teNombreYApellido.Size = new System.Drawing.Size(197, 20);
+            this.teNombreYApellido.TabIndex = 143;
+            // 
+            // fullLabel8
+            // 
+            this.fullLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel8.Location = new System.Drawing.Point(12, 201);
+            this.fullLabel8.Name = "fullLabel8";
+            this.fullLabel8.Size = new System.Drawing.Size(110, 17);
+            this.fullLabel8.TabIndex = 144;
+            this.fullLabel8.Text = "Nombre y Apellido:";
+            // 
+            // cdcTipoCliente
+            // 
+            this.cdcTipoCliente.BackColor = System.Drawing.SystemColors.Window;
+            this.cdcTipoCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cdcTipoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cdcTipoCliente.FormattingEnabled = true;
+            this.cdcTipoCliente.Location = new System.Drawing.Point(423, 67);
+            this.cdcTipoCliente.Name = "cdcTipoCliente";
+            this.cdcTipoCliente.Size = new System.Drawing.Size(197, 21);
+            this.cdcTipoCliente.Sorted = true;
+            this.cdcTipoCliente.TabIndex = 145;
+            // 
+            // fullLabel5
+            // 
+            this.fullLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel5.Location = new System.Drawing.Point(326, 70);
+            this.fullLabel5.Name = "fullLabel5";
+            this.fullLabel5.Size = new System.Drawing.Size(97, 16);
+            this.fullLabel5.TabIndex = 146;
+            this.fullLabel5.Text = "Tipo Cliente:";
             // 
             // BusquedaClientes
             // 
@@ -639,8 +538,6 @@
             this.xPanel1.PerformLayout();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -650,18 +547,12 @@
         #endregion
 
         private TNGS.NetControls.XPanel xPanel1;
-        private TNGS.NetControls.FullLabel fullLabel5;
         private TNGS.NetControls.FullLabel fullLabel4;
         private TNGS.NetControls.FullLabel fullLabel3;
-        private TNGS.NetControls.FullLabel fullLabel2;
         private TNGS.NetControls.FullLabel fullLabel1;
         private TNGS.NetControls.TextEdit teRSocial;
-        private TNGS.NetControls.FullLabel fullLabel6;
         private TNGS.NetControls.CDCombo cmbLocalidades;
         private TNGS.NetControls.CDCombo cmbZonas;
-        private TNGS.NetControls.CDCombo cmbTiposInsts;
-        private TNGS.NetControls.CDCombo cmbRubros;
-        private TNGS.NetControls.CDCombo cmbFranquicias;
         private TNGS.NetControls.FullLabel fullLabel7;
         private System.Windows.Forms.TextBox teNombreFant;
         private TNGS.NetControls.FullLabel fullLabel11;
@@ -674,11 +565,6 @@
         private System.Windows.Forms.TextBox teDir;
         private TNGS.NetControls.NumberEdit neAltura;
         private TNGS.NetControls.FullLabel fullLabel13;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton rbMaySi;
-        private System.Windows.Forms.RadioButton rbMayAmbos;
-        private System.Windows.Forms.RadioButton rbMayNo;
-        private TNGS.NetControls.FullLabel fullLabel16;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RadioButton rbVndSi;
         private System.Windows.Forms.RadioButton rbVndAmbos;
@@ -695,5 +581,9 @@
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.TextBox teNombreYApellido;
+        private TNGS.NetControls.FullLabel fullLabel8;
+        private TNGS.NetControls.CDCombo cdcTipoCliente;
+        private TNGS.NetControls.FullLabel fullLabel5;
     }
 }

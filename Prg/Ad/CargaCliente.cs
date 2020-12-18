@@ -41,12 +41,21 @@ namespace Carm.Ad
 
             cdcMarca.FillFromStrLEntidad(marcas, EMarca.CodCmp, EMarca.DesCmp);
             cdcMarca.AddStrCD("", "");
+            cdcMarca.SelectedStrCode = "";
 
-            cdcSexo.AddStrCD("M", "Masculino");
-            cdcSexo.AddStrCD("F", "Femenino");
+            cdcSexo.AddStrCD("M", "MASCULINO");
+            cdcSexo.AddStrCD("F", "FEMENINO");
+            cdcSexo.AddStrCD("", "");
+            cdcSexo.SelectedStrCode = "";
+
+            LESituacionesIVAs situacionesIVAs = Bll.Tablas.SivUpFull(true, statMessage);
+            if (MsgRuts.AnalizeError(this, statMessage)) return;
+            cdcSitIva.FillFromStrLEntidad(situacionesIVAs, ESituacionIVA.CodigoCmp, ESituacionIVA.DescripcionCmp);
+            cdcSitIva.AddStrCD("", "");
+            cdcSitIva.SelectedStrCode = "";
 
             // When new client, hide everything except main data.
-            if (cliente == null)
+            if (cliente.EsNueva)
                 ftDetalleCliente.hidePages(new List<TabPage>() { tabContactos, tabEntrev, tabLlamadas, tabNotas, tabServicios });
             else
                 cargarClienteEnPantalla(cliente);
@@ -112,14 +121,25 @@ namespace Carm.Ad
         private void cargarDatosEnCliente(ECliente cliente)
         {
             cliente.Tipocliente = getTipoCliente();
-            cliente.Rsocial = teRazonSocial.Text;
-            cliente.Nombrefant = teNombreFantasia.Text;
+            cliente.Codmarca = cdcMarca.SelectedStrCode;
+            cliente.Situacioniva = cdcSitIva.SelectedStrCode;
+            cliente.Cuil = cteCUIT.Text;
             cliente.Direccion = teDireccion.Text;
             cliente.Altura = neAltura.Numero;
             cliente.Piso = tePisoDepto.Text;
             cliente.Celular = teCelular.Text;
             cliente.Telefono1 = teTelefono.Text;
             cliente.Email = teEmail.Text;
+
+            cliente.Rsocial = teRazonSocial.Text;
+            cliente.Nombrefant = teNombreFantasia.Text;
+
+            cliente.Nomyape = teNombreYApellido.Text;
+            cliente.Fechanacimiento = deFechaNacimiento.Fecha;
+            cliente.Sexo = cdcSexo.SelectedStrCode;
+            cliente.Tarjetacred = teTarjetaCredito.Text;
+            cliente.Fueclienteantes = cbFueClienteAntes.Checked ? "S" : "N";
+
             cliente.Observacion = teAnotaciones.Text;
 
             // Datos base de alta
@@ -130,7 +150,7 @@ namespace Carm.Ad
 
         private string getTipoCliente()
         {
-            return rbAreasProtegidas.Checked ? "AP" : "SD";
+            return rbAreasProtegidas.Checked ? ECliente.CodigoAreasProtegidas : ECliente.CodigoSociosDirectos;
         }
 
         private void cargarClienteEnPantalla(ECliente cliente)

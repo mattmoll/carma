@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 18/12/2020 01:45
+    // Fecha                    : 18/12/2020 03:04
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -4803,6 +4803,7 @@ namespace Carm.Bel
             l_drTemp["cli_rcd_tipocliente"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_tipocliente");
             l_drTemp["cli_xde_nomyape"]= XMLRuts.ExtractXAttr(l_xndData, "cli_xde_nomyape");
             l_drTemp["cli_fec_fechanacimiento"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fechanacimiento", true);
+            l_drTemp["cli_rcd_situacioniva"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_situacioniva");
             l_drTemp["cli_cd1_esmayo"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_esmayo");
             l_drTemp["cli_des_frq"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_frq");
             l_drTemp["cli_des_loc"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_loc");
@@ -4912,6 +4913,7 @@ namespace Carm.Bel
             l_drTemp["cli_rcd_tipocliente"]= "";
             l_drTemp["cli_xde_nomyape"]= "";
             l_drTemp["cli_fec_fechanacimiento"]= DateTimeRuts.Empty;
+            l_drTemp["cli_rcd_situacioniva"]= "";
             l_drTemp["cli_cd1_esmayo"]= "";
             l_drTemp["cli_des_frq"]= "";
             l_drTemp["cli_des_loc"]= "";
@@ -4973,6 +4975,7 @@ namespace Carm.Bel
         /// <param name="p_strTipocliente">Tipo Cliente</param>
         /// <param name="p_strNomyape">Nombre y Apellido</param>
         /// <param name="p_dtFechanacimiento">Fecha nacimiento</param>
+        /// <param name="p_strSituacioniva">Situacion IVA</param>
         /// <returns>Entidad: Cliente</returns>
         public static ECliente NewFilled(int p_iNumero,
                                          string p_strRsocial,
@@ -5014,7 +5017,8 @@ namespace Carm.Bel
                                          string p_strCodmarca,
                                          string p_strTipocliente,
                                          string p_strNomyape,
-                                         DateTime p_dtFechanacimiento)
+                                         DateTime p_dtFechanacimiento,
+                                         string p_strSituacioniva)
         {
             // Creamos una tabla compatible con la entidad
             DataTable l_dtTemp= new DataTable();
@@ -5065,6 +5069,7 @@ namespace Carm.Bel
             l_drTemp["cli_rcd_tipocliente"]= p_strTipocliente;
             l_drTemp["cli_xde_nomyape"]= p_strNomyape;
             l_drTemp["cli_fec_fechanacimiento"]= p_dtFechanacimiento;
+            l_drTemp["cli_rcd_situacioniva"]= p_strSituacioniva;
             l_drTemp["cli_cd1_esmayo"]= "";
             l_drTemp["cli_des_frq"]= "";
             l_drTemp["cli_des_loc"]= "";
@@ -5146,7 +5151,7 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[53];
+                DataColumn[] l_dcStruct= new DataColumn[54];
 
                 l_dcStruct[0]= new DataColumn("cli_nro_numero", typeof(int));
                 l_dcStruct[1]= new DataColumn("cli_ede_rsocial", typeof(string));
@@ -5197,7 +5202,8 @@ namespace Carm.Bel
                 l_dcStruct[46]= new DataColumn("cli_rcd_tipocliente", typeof(string));
                 l_dcStruct[47]= new DataColumn("cli_xde_nomyape", typeof(string));
                 l_dcStruct[48]= new DataColumn("cli_fec_fechanacimiento", typeof(DateTime));
-                ECliente.FillFixedFields(ref l_dcStruct, 49);
+                l_dcStruct[49]= new DataColumn("cli_rcd_situacioniva", typeof(string));
+                ECliente.FillFixedFields(ref l_dcStruct, 50);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -5237,7 +5243,7 @@ namespace Carm.Bel
             get {return ((string) InternalData["cli_ede_rsocial"]).Trim();}
             set {
                 if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
-                InternalData["cli_ede_rsocial"]= value.Trim().ToUpper();
+                InternalData["cli_ede_rsocial"]= value.Trim();
             }
         }
 
@@ -5971,6 +5977,23 @@ namespace Carm.Bel
         }
 
         /// <summary>
+        /// Situacion IVA
+        /// </summary>
+        public static string SituacionivaCmp
+        {
+           get {return "cli_rcd_situacioniva";}
+        }
+
+        /// <summary>
+        /// Situacion IVA
+        /// </summary>
+        public string Situacioniva
+        {
+            get {return (string) InternalData["cli_rcd_situacioniva"];}
+            set {InternalData["cli_rcd_situacioniva"]= value;}
+        }
+
+        /// <summary>
         /// Contactos de los Clientes
         /// </summary>
         public LECliContactos CliContactos
@@ -6156,6 +6179,7 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_tipocliente", Tipocliente));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_xde_nomyape", Nomyape));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fechanacimiento", Fechanacimiento));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_situacioniva", Situacioniva));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_esmayo", Cli_cd1_esmayo));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_frq", Cli_des_frq));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_loc", Cli_des_loc));

@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 18/12/2020 01:45
+    // Fecha                    : 18/12/2020 02:18
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     // Basada en la Tabla       : Clientes
@@ -180,6 +180,7 @@ namespace Carm.Dal
         /// <param name="p_strTipocliente">Tipo Cliente</param>
         /// <param name="p_strNomyape">Nombre y Apellido</param>
         /// <param name="p_dtFechanacimiento">Fecha nacimiento</param>
+        /// <param name="p_strSituacioniva">Situacion IVA</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Insert(DBConn p_dbcAccess,
                                  int p_iNumero,
@@ -223,6 +224,7 @@ namespace Carm.Dal
                                  string p_strTipocliente,
                                  string p_strNomyape,
                                  DateTime p_dtFechanacimiento,
+                                 string p_strSituacioniva,
                                  StatMsg p_smResult)
         {
             try {
@@ -271,6 +273,7 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@cli_rcd_tipocliente", p_strTipocliente),
                                        p_dbcAccess.MakeParam("@cli_xde_nomyape", p_strNomyape),
                                        p_dbcAccess.MakeParamF("@cli_fec_fechanacimiento", p_dtFechanacimiento),
+                                       p_dbcAccess.MakeParam("@cli_rcd_situacioniva", p_strSituacioniva),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -327,6 +330,7 @@ namespace Carm.Dal
         /// <param name="p_strTipocliente">Tipo Cliente</param>
         /// <param name="p_strNomyape">Nombre y Apellido</param>
         /// <param name="p_dtFechanacimiento">Fecha nacimiento</param>
+        /// <param name="p_strSituacioniva">Situacion IVA</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Update(DBConn p_dbcAccess,
                                  int p_iNumero,
@@ -370,6 +374,7 @@ namespace Carm.Dal
                                  string p_strTipocliente,
                                  string p_strNomyape,
                                  DateTime p_dtFechanacimiento,
+                                 string p_strSituacioniva,
                                  StatMsg p_smResult)
         {
             try {
@@ -418,6 +423,7 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@cli_rcd_tipocliente", p_strTipocliente),
                                        p_dbcAccess.MakeParam("@cli_xde_nomyape", p_strNomyape),
                                        p_dbcAccess.MakeParamF("@cli_fec_fechanacimiento", p_dtFechanacimiento),
+                                       p_dbcAccess.MakeParam("@cli_rcd_situacioniva", p_strSituacioniva),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );

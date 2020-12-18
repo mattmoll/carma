@@ -430,6 +430,75 @@ namespace Carm.Bll
             // *********
         }
 
+        /// <summary>
+        /// Agrega o modifica un registro de la tabla: Marcas
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_entMarca">Entidad con los datos a procesar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void MrcSave_f(DBConn p_dbcAccess,
+                                       ref EMarca p_entMarca,
+                                       StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Habilita/Deshabilita un registro de la tabla: Marcas
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_bEnable">Tipo de operacion</param>
+        /// <param name="p_strCod">Codigo</param>
+        /// <param name="p_iFxdVersion">Versión del registro a borrar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void MrcEnabled_f(DBConn p_dbcAccess,
+                                          bool p_bEnable,
+                                          string p_strCod,
+                                          ref int p_iFxdVersion,
+                                          StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Borra físicamento un registro de la tabla: Marcas
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_strCod">Codigo</param>
+        /// <param name="p_iFxdVersion">Versión del registro a borrar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void MrcRemove_f(DBConn p_dbcAccess,
+                                         string p_strCod,
+                                         int p_iFxdVersion,
+                                         StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Agrega validacion de integridad a una entidad: Marca
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_entMarca">Entidad con los datos a validar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void MrcTInt_f(DBConn p_dbcAccess,
+                                       EMarca p_entMarca,
+                                       StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá las validaciones adicionales
+            // *********
+        }
 
         /// <summary>
         /// Agrega o modifica un registro de la tabla: MotivosLlamada
@@ -674,6 +743,76 @@ namespace Carm.Bll
                                        ERubro p_entRubro,
                                        StatMsg p_smResult)
         {
+        }
+
+        /// <summary>
+        /// Agrega o modifica un registro de la tabla: SituacionesIVA
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_entSituacionIVA">Entidad con los datos a procesar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void SivSave_f(DBConn p_dbcAccess,
+                                       ref ESituacionIVA p_entSituacionIVA,
+                                       StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Habilita/Deshabilita un registro de la tabla: SituacionesIVA
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_bEnable">Tipo de operacion</param>
+        /// <param name="p_strCodigo">Codigo</param>
+        /// <param name="p_iFxdVersion">Versión del registro a borrar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void SivEnabled_f(DBConn p_dbcAccess,
+                                          bool p_bEnable,
+                                          string p_strCodigo,
+                                          ref int p_iFxdVersion,
+                                          StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Borra físicamento un registro de la tabla: SituacionesIVA
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_strCodigo">Codigo</param>
+        /// <param name="p_iFxdVersion">Versión del registro a borrar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void SivRemove_f(DBConn p_dbcAccess,
+                                         string p_strCodigo,
+                                         int p_iFxdVersion,
+                                         StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Agrega validacion de integridad a una entidad: SituacionIVA
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_entSituacionIVA">Entidad con los datos a validar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void SivTInt_f(DBConn p_dbcAccess,
+                                       ESituacionIVA p_entSituacionIVA,
+                                       StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá las validaciones adicionales
+            // *********
         }
 
         /// <summary>

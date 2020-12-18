@@ -74,6 +74,7 @@
     <Compile Include="Franquicias.cs" />
     <Compile Include="Localidades.cs" />
     <Compile Include="LogClientes.cs" />
+    <Compile Include="Marcas.cs" />
     <Compile Include="MotivosLlamada.cs" />
     <Compile Include="Planes.cs" />
     <Compile Include="PlnServicios.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="ResEntrevista.cs" />
     <Compile Include="Rubros.cs" />
     <Compile Include="Servicios.cs" />
+    <Compile Include="SituacionesIVA.cs" />
     <Compile Include="Supervisores.cs" />
     <Compile Include="TipoCont.cs" />
     <Compile Include="TipoInst.cs" />

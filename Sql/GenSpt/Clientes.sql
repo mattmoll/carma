@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 01:46
+// Fecha       : 18/12/2020 03:40
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -55,9 +55,8 @@ begin
          Select cli_nro_numero,
                 cli_ede_rsocial,
                 cli_des_nombrefant,
-                tin_des_des as cli_des_tinst,
+                ISNULL(tin_des_des, '') as cli_des_tinst,
                 cli_cod_codtinst,
-                tin_cd1_mayorista as cli_cd1_esmayo,
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
@@ -101,17 +100,18 @@ begin
                 cli_rcd_tipocliente,
                 cli_xde_nomyape,
                 cli_fec_fechanacimiento,
+                cli_rcd_situacioniva,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
                 TNGS_Carm..Clientes.version
            from TNGS_Carm..Clientes
-                join TNGS_Carm..TipoInst
-                  on cli_cod_codtinst = tin_cod_cod
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
+                left outer join TNGS_Carm..TipoInst
+                  on cli_cod_codtinst = tin_cod_cod
           where TNGS_Carm..Clientes.deleted = 0
           order by cli_nro_numero
       end
@@ -120,9 +120,8 @@ begin
          Select cli_nro_numero,
                 cli_ede_rsocial,
                 cli_des_nombrefant,
-                tin_des_des as cli_des_tinst,
+                ISNULL(tin_des_des, '') as cli_des_tinst,
                 cli_cod_codtinst,
-                tin_cd1_mayorista as cli_cd1_esmayo,
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
@@ -166,17 +165,18 @@ begin
                 cli_rcd_tipocliente,
                 cli_xde_nomyape,
                 cli_fec_fechanacimiento,
+                cli_rcd_situacioniva,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
                 TNGS_Carm..Clientes.version
            from TNGS_Carm..Clientes
-                join TNGS_Carm..TipoInst
-                  on cli_cod_codtinst = tin_cod_cod
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
+                left outer join TNGS_Carm..TipoInst
+                  on cli_cod_codtinst = tin_cod_cod
           order by cli_nro_numero
       end
 
@@ -274,9 +274,8 @@ begin
          Select cli_nro_numero,
                 cli_ede_rsocial,
                 cli_des_nombrefant,
-                tin_des_des as cli_des_tinst,
+                ISNULL(tin_des_des, '') as cli_des_tinst,
                 cli_cod_codtinst,
-                tin_cd1_mayorista as cli_cd1_esmayo,
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
@@ -320,17 +319,18 @@ begin
                 cli_rcd_tipocliente,
                 cli_xde_nomyape,
                 cli_fec_fechanacimiento,
+                cli_rcd_situacioniva,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
                 TNGS_Carm..Clientes.version
            from TNGS_Carm..Clientes
-                join TNGS_Carm..TipoInst
-                  on cli_cod_codtinst = tin_cod_cod
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
+                left outer join TNGS_Carm..TipoInst
+                  on cli_cod_codtinst = tin_cod_cod
           where cli_nro_numero = @cli_nro_numero
             and TNGS_Carm..Clientes.deleted = 0
       end
@@ -339,9 +339,8 @@ begin
          Select cli_nro_numero,
                 cli_ede_rsocial,
                 cli_des_nombrefant,
-                tin_des_des as cli_des_tinst,
+                ISNULL(tin_des_des, '') as cli_des_tinst,
                 cli_cod_codtinst,
-                tin_cd1_mayorista as cli_cd1_esmayo,
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
@@ -385,17 +384,18 @@ begin
                 cli_rcd_tipocliente,
                 cli_xde_nomyape,
                 cli_fec_fechanacimiento,
+                cli_rcd_situacioniva,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
                 TNGS_Carm..Clientes.version
            from TNGS_Carm..Clientes
-                join TNGS_Carm..TipoInst
-                  on cli_cod_codtinst = tin_cod_cod
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
+                left outer join TNGS_Carm..TipoInst
+                  on cli_cod_codtinst = tin_cod_cod
           where cli_nro_numero = @cli_nro_numero
       end
 
@@ -457,6 +457,7 @@ go
 --- <param name="@cli_rcd_tipocliente">Tipo Cliente</param>
 --- <param name="@cli_xde_nomyape">Nombre y Apellido</param>
 --- <param name="@cli_fec_fechanacimiento">Fecha nacimiento</param>
+--- <param name="@cli_rcd_situacioniva">Situacion IVA</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -516,6 +517,7 @@ create procedure dbo.CLIENTES_INSERT
 @cli_rcd_tipocliente tngs_codigo_r,
 @cli_xde_nomyape tngs_descripcion_x,
 @cli_fec_fechanacimiento tngs_fecha,
+@cli_rcd_situacioniva tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -564,6 +566,7 @@ begin
            @cli_rcd_tipocliente,
            @cli_xde_nomyape,
            @cli_fec_fechanacimiento,
+           @cli_rcd_situacioniva,
            getdate(), 0, @usuario, 1
           )
 
@@ -625,6 +628,7 @@ go
 --- <param name="@cli_rcd_tipocliente">Tipo Cliente</param>
 --- <param name="@cli_xde_nomyape">Nombre y Apellido</param>
 --- <param name="@cli_fec_fechanacimiento">Fecha nacimiento</param>
+--- <param name="@cli_rcd_situacioniva">Situacion IVA</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -684,6 +688,7 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_rcd_tipocliente tngs_codigo_r,
 @cli_xde_nomyape tngs_descripcion_x,
 @cli_fec_fechanacimiento tngs_fecha,
+@cli_rcd_situacioniva tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -730,6 +735,7 @@ begin
           cli_rcd_tipocliente= @cli_rcd_tipocliente,
           cli_xde_nomyape= @cli_xde_nomyape,
           cli_fec_fechanacimiento= @cli_fec_fechanacimiento,
+          cli_rcd_situacioniva= @cli_rcd_situacioniva,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario

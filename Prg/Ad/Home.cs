@@ -90,11 +90,20 @@ namespace Carm.Ad
 
         private void gbBorrarCliente_Click(object sender, EventArgs e)
         {
+            // Le preguntamos al usuario si esta seguro de borrar al cliente
+            if (MsgRuts.AskUser(this, "Atención!!!!\r\n" +
+                                      "Está a punto de borrar físicamente un cliente, sus contactos" +
+                                      " y su historial de llamadas y entrevistas. ¿Está seguro?")
+                                      == DialogResult.No) return;
+
             int nroCliente = getClientNumberSelected();
             if (nroCliente == 0) return;
 
             Bll.Clientes.fBorraCliente(nroCliente, statMessage);
             if (MsgRuts.AnalizeError(this, statMessage)) return;
+
+            MsgRuts.ShowMsg(this, "El cliente fue borrado exitosamente!");
+            gbActualizar_Click(this, null);
         }
 
         private void gbCargarCliente_Click(object sender, EventArgs e)

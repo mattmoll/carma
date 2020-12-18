@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 18/12/2020 01:45
+    // Fecha                    : 18/12/2020 03:04
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -7682,12 +7682,6 @@ namespace Carm.Bll
                 return;
             }
 
-            if (p_entCliente.Rsocial.Trim() == "") {
-                // El campo [Razón social] no puede ser vacío
-                p_smResult.BllWarning("El dato [Razón social] no puede ser vacío","");
-                return;
-            }
-
             if ((p_entCliente.Alta != "S") &&
                 (p_entCliente.Alta != "N")) {
                 // El campo [Alta en Avalon] tiene opciones
@@ -7713,12 +7707,6 @@ namespace Carm.Bll
                 return;
             }
 
-            if (p_entCliente.Cantempleados < 0) {
-                // El campo [Cantidad de Empleados] no puede menor a cero
-                p_smResult.BllWarning("El dato [Cantidad de Empleados] no puede ser negativo","");
-                return;
-            }
-
             if (p_entCliente.Cargador.Trim() == "") {
                 // El campo [Usuario Cargador] no puede ser vacío
                 p_smResult.BllWarning("El dato [Usuario Cargador] no puede ser vacío","");
@@ -7741,15 +7729,17 @@ namespace Carm.Bll
             // Validaciones de los campos con conexion
             // ********
 
-            Tablas.TinVKey(p_dbcAccess,
-                           p_entCliente.Codtinst,
-                           p_smResult);
-            if (p_smResult.NOk) return;
+            if (p_entCliente.Codtinst.Trim() != "") {
+                Tablas.TinVKey(p_dbcAccess,
+                               p_entCliente.Codtinst,
+                               p_smResult);
+                if (p_smResult.NOk) return;
 
-            if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
-                // El campo [Tipo de Institucion] debe existir en la tabla [Tablas.Tin]
-                p_smResult.BllWarning("El dato [Tipo de Institucion] debe existir en la tabla [Tablas.Tin]","");
-                return;
+                if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                    // El campo [Tipo de Institucion] debe existir en la tabla [Tablas.Tin]
+                    p_smResult.BllWarning("El dato [Tipo de Institucion] debe existir en la tabla [Tablas.Tin]","");
+                    return;
+                }
             }
 
             if (p_entCliente.Codfrq.Trim() != "") {
@@ -7811,6 +7801,19 @@ namespace Carm.Bll
                 if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
                     // El campo [Marca] debe existir en la tabla [Tablas.Mrc]
                     p_smResult.BllWarning("El dato [Marca] debe existir en la tabla [Tablas.Mrc]","");
+                    return;
+                }
+            }
+
+            if (p_entCliente.Situacioniva.Trim() != "") {
+                Tablas.SivVKey(p_dbcAccess,
+                               p_entCliente.Situacioniva,
+                               p_smResult);
+                if (p_smResult.NOk) return;
+
+                if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                    // El campo [Situacion IVA] debe existir en la tabla [Tablas.Siv]
+                    p_smResult.BllWarning("El dato [Situacion IVA] debe existir en la tabla [Tablas.Siv]","");
                     return;
                 }
             }
@@ -8069,6 +8072,7 @@ namespace Carm.Bll
                                     p_entCliente.Tipocliente,
                                     p_entCliente.Nomyape,
                                     p_entCliente.Fechanacimiento,
+                                    p_entCliente.Situacioniva,
                                     p_smResult);
             }
             catch (Exception l_expData) {
@@ -8135,6 +8139,7 @@ namespace Carm.Bll
                                     p_entCliente.Tipocliente,
                                     p_entCliente.Nomyape,
                                     p_entCliente.Fechanacimiento,
+                                    p_entCliente.Situacioniva,
                                     p_smResult);
             }
             catch (Exception l_expData) {

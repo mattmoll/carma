@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 18/12/2020 01:45
+// Fecha              : 18/12/2020 02:58
 // Base de Datos      : TNGS_Carm
 // Tabla              : Clientes
 //----------------------------------------------------------------------------
@@ -80,6 +80,7 @@ create table Clientes
       cli_rcd_tipocliente tngs_codigo_r,
       cli_xde_nomyape tngs_descripcion_x,
       cli_fec_fechanacimiento tngs_fecha,
+      cli_rcd_situacioniva tngs_codigo_r,
       instante tngs_fecyhor,
       deleted tngs_borrado,
       usuario tngs_nombre,

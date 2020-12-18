@@ -145,6 +145,7 @@ namespace Carm.Ad
             this.xPanel1.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel1.BorderColor = System.Drawing.Color.Black;
+            this.xPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.xPanel1.Controls.Add(this.ftDetalleCliente);
             this.xPanel1.Controls.Add(this.topPanel);
             this.xPanel1.Controls.Add(this.btnExit);
@@ -173,7 +174,7 @@ namespace Carm.Ad
             this.ftDetalleCliente.Location = new System.Drawing.Point(10, 55);
             this.ftDetalleCliente.Name = "ftDetalleCliente";
             this.ftDetalleCliente.SelectedIndex = 0;
-            this.ftDetalleCliente.Size = new System.Drawing.Size(997, 626);
+            this.ftDetalleCliente.Size = new System.Drawing.Size(995, 624);
             this.ftDetalleCliente.TabIndex = 143;
             // 
             // tabCliente
@@ -182,7 +183,7 @@ namespace Carm.Ad
             this.tabCliente.Location = new System.Drawing.Point(4, 25);
             this.tabCliente.Name = "tabCliente";
             this.tabCliente.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCliente.Size = new System.Drawing.Size(989, 597);
+            this.tabCliente.Size = new System.Drawing.Size(987, 595);
             this.tabCliente.TabIndex = 1;
             this.tabCliente.Text = "Cliente";
             this.tabCliente.UseVisualStyleBackColor = true;
@@ -195,7 +196,7 @@ namespace Carm.Ad
             this.xPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel2.Location = new System.Drawing.Point(3, 3);
             this.xPanel2.Name = "xPanel2";
-            this.xPanel2.Size = new System.Drawing.Size(983, 591);
+            this.xPanel2.Size = new System.Drawing.Size(981, 589);
             this.xPanel2.SkinFixed = true;
             this.xPanel2.TabIndex = 0;
             // 
@@ -267,7 +268,7 @@ namespace Carm.Ad
             this.cbFueClienteAntes.Location = new System.Drawing.Point(156, 188);
             this.cbFueClienteAntes.Name = "cbFueClienteAntes";
             this.cbFueClienteAntes.Size = new System.Drawing.Size(129, 19);
-            this.cbFueClienteAntes.TabIndex = 138;
+            this.cbFueClienteAntes.TabIndex = 4;
             this.cbFueClienteAntes.Text = "Fue Cliente Antes?";
             this.cbFueClienteAntes.UseVisualStyleBackColor = true;
             // 
@@ -292,7 +293,7 @@ namespace Carm.Ad
             this.cdcSexo.Name = "cdcSexo";
             this.cdcSexo.Size = new System.Drawing.Size(276, 23);
             this.cdcSexo.Sorted = true;
-            this.cdcSexo.TabIndex = 136;
+            this.cdcSexo.TabIndex = 2;
             // 
             // fullLabel15
             // 
@@ -311,7 +312,7 @@ namespace Carm.Ad
             this.deFechaNacimiento.Location = new System.Drawing.Point(156, 81);
             this.deFechaNacimiento.Name = "deFechaNacimiento";
             this.deFechaNacimiento.Size = new System.Drawing.Size(100, 21);
-            this.deFechaNacimiento.TabIndex = 11;
+            this.deFechaNacimiento.TabIndex = 1;
             this.deFechaNacimiento.Text = "01/01/1900";
             // 
             // teNombreYApellido
@@ -353,7 +354,7 @@ namespace Carm.Ad
             this.teTarjetaCredito.Location = new System.Drawing.Point(156, 150);
             this.teTarjetaCredito.Name = "teTarjetaCredito";
             this.teTarjetaCredito.Size = new System.Drawing.Size(276, 21);
-            this.teTarjetaCredito.TabIndex = 1;
+            this.teTarjetaCredito.TabIndex = 3;
             // 
             // teRazonSocial
             // 
@@ -436,7 +437,7 @@ namespace Carm.Ad
             this.gbBuscarLocalidadCobertura.PCode = "TNGS.EXCEL";
             this.gbBuscarLocalidadCobertura.RoundCorners = 2;
             this.gbBuscarLocalidadCobertura.Size = new System.Drawing.Size(26, 24);
-            this.gbBuscarLocalidadCobertura.TabIndex = 136;
+            this.gbBuscarLocalidadCobertura.TabIndex = 2;
             this.gbBuscarLocalidadCobertura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbBuscarLocalidadCobertura.W8Color = System.Drawing.Color.DodgerBlue;
             this.gbBuscarLocalidadCobertura.Click += new System.EventHandler(this.gbBuscarLocalidadCobertura_Click);
@@ -489,7 +490,7 @@ namespace Carm.Ad
             this.cteCUIT.Location = new System.Drawing.Point(624, 82);
             this.cteCUIT.Name = "cteCUIT";
             this.cteCUIT.Size = new System.Drawing.Size(100, 21);
-            this.cteCUIT.TabIndex = 143;
+            this.cteCUIT.TabIndex = 6;
             // 
             // cdcMarca
             // 
@@ -501,7 +502,7 @@ namespace Carm.Ad
             this.cdcMarca.Name = "cdcMarca";
             this.cdcMarca.Size = new System.Drawing.Size(276, 23);
             this.cdcMarca.Sorted = true;
-            this.cdcMarca.TabIndex = 142;
+            this.cdcMarca.TabIndex = 0;
             // 
             // cdcSitIva
             // 
@@ -513,7 +514,7 @@ namespace Carm.Ad
             this.cdcSitIva.Name = "cdcSitIva";
             this.cdcSitIva.Size = new System.Drawing.Size(276, 23);
             this.cdcSitIva.Sorted = true;
-            this.cdcSitIva.TabIndex = 134;
+            this.cdcSitIva.TabIndex = 5;
             // 
             // fullLabel9
             // 
@@ -620,7 +621,7 @@ namespace Carm.Ad
             this.gbCargarLocalidad.PCode = "TNGS.EXCEL";
             this.gbCargarLocalidad.RoundCorners = 2;
             this.gbCargarLocalidad.Size = new System.Drawing.Size(26, 24);
-            this.gbCargarLocalidad.TabIndex = 11;
+            this.gbCargarLocalidad.TabIndex = 4;
             this.gbCargarLocalidad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbCargarLocalidad.W8Color = System.Drawing.Color.DodgerBlue;
             this.gbCargarLocalidad.Click += new System.EventHandler(this.gbCargarLocalidad_Click);
@@ -696,7 +697,7 @@ namespace Carm.Ad
             this.teEmail.Location = new System.Drawing.Point(624, 204);
             this.teEmail.Name = "teEmail";
             this.teEmail.Size = new System.Drawing.Size(276, 21);
-            this.teEmail.TabIndex = 10;
+            this.teEmail.TabIndex = 9;
             // 
             // fullLabel1
             // 
@@ -716,7 +717,7 @@ namespace Carm.Ad
             this.teTelefono.Location = new System.Drawing.Point(624, 165);
             this.teTelefono.Name = "teTelefono";
             this.teTelefono.Size = new System.Drawing.Size(276, 21);
-            this.teTelefono.TabIndex = 9;
+            this.teTelefono.TabIndex = 8;
             // 
             // fullLabel6
             // 
@@ -736,7 +737,7 @@ namespace Carm.Ad
             this.teCelular.Location = new System.Drawing.Point(624, 125);
             this.teCelular.Name = "teCelular";
             this.teCelular.Size = new System.Drawing.Size(276, 21);
-            this.teCelular.TabIndex = 8;
+            this.teCelular.TabIndex = 7;
             // 
             // fullLabel5
             // 
@@ -756,7 +757,7 @@ namespace Carm.Ad
             this.teDireccion.Location = new System.Drawing.Point(185, 83);
             this.teDireccion.Name = "teDireccion";
             this.teDireccion.Size = new System.Drawing.Size(276, 21);
-            this.teDireccion.TabIndex = 3;
+            this.teDireccion.TabIndex = 1;
             // 
             // tePisoDepto
             // 
@@ -766,7 +767,7 @@ namespace Carm.Ad
             this.tePisoDepto.MaxLength = 8;
             this.tePisoDepto.Name = "tePisoDepto";
             this.tePisoDepto.Size = new System.Drawing.Size(113, 21);
-            this.tePisoDepto.TabIndex = 5;
+            this.tePisoDepto.TabIndex = 3;
             // 
             // neAltura
             // 
@@ -774,7 +775,7 @@ namespace Carm.Ad
             this.neAltura.Location = new System.Drawing.Point(186, 123);
             this.neAltura.Name = "neAltura";
             this.neAltura.Size = new System.Drawing.Size(75, 21);
-            this.neAltura.TabIndex = 4;
+            this.neAltura.TabIndex = 2;
             this.neAltura.Text = "0";
             // 
             // fullLabel2
@@ -1255,7 +1256,7 @@ namespace Carm.Ad
             this.topPanel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(1021, 40);
+            this.topPanel.Size = new System.Drawing.Size(1019, 40);
             this.topPanel.TabIndex = 142;
             // 
             // titulo
@@ -1276,7 +1277,7 @@ namespace Carm.Ad
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(963, 0);
+            this.btnClose.Location = new System.Drawing.Point(961, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(58, 40);
             this.btnClose.TabIndex = 1;
@@ -1292,7 +1293,7 @@ namespace Carm.Ad
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Black;
-            this.btnExit.Location = new System.Drawing.Point(955, 3);
+            this.btnExit.Location = new System.Drawing.Point(953, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(58, 40);
             this.btnExit.TabIndex = 4;
@@ -1319,6 +1320,7 @@ namespace Carm.Ad
             this.igSocios.Controls.Add(this.fullLabel13);
             this.igSocios.Controls.Add(this.deFechaNacimiento);
             this.igSocios.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.igSocios.Enabled = false;
             this.igSocios.FlatMode = true;
             this.igSocios.FontTitle = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.igSocios.ForeColor = System.Drawing.Color.Black;
@@ -1334,7 +1336,7 @@ namespace Carm.Ad
             this.igSocios.ShadowThickness = 3;
             this.igSocios.Size = new System.Drawing.Size(447, 223);
             this.igSocios.SkinFixed = true;
-            this.igSocios.TabIndex = 147;
+            this.igSocios.TabIndex = 10;
             this.igSocios.TitleBackground = System.Drawing.Color.ForestGreen;
             this.igSocios.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.igSocios.TitleFontColor = System.Drawing.Color.White;
@@ -1358,6 +1360,7 @@ namespace Carm.Ad
             this.igAreas.Controls.Add(this.gbBuscarLocalidadCobertura);
             this.igAreas.Controls.Add(this.fullLabel12);
             this.igAreas.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.igAreas.Enabled = false;
             this.igAreas.FlatMode = true;
             this.igAreas.FontTitle = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.igAreas.ForeColor = System.Drawing.Color.Black;
@@ -1373,7 +1376,7 @@ namespace Carm.Ad
             this.igAreas.ShadowThickness = 3;
             this.igAreas.Size = new System.Drawing.Size(447, 223);
             this.igAreas.SkinFixed = true;
-            this.igAreas.TabIndex = 148;
+            this.igAreas.TabIndex = 11;
             this.igAreas.TitleBackground = System.Drawing.Color.ForestGreen;
             this.igAreas.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.igAreas.TitleFontColor = System.Drawing.Color.White;

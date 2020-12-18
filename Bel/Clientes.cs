@@ -711,6 +711,10 @@ namespace Carm.Bel
         #endregion
 
         public bool esCargaExcel { get { return m_bEsCargaExcel; } set { m_bEsCargaExcel = value; } }
+
+        public static string CodigoAreasProtegidas { get { return "AP"; } }
+
+        public static string CodigoSociosDirectos { get { return "SD"; } }
     }
     #endregion
 
