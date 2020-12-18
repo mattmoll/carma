@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 20/09/2020 03:44
+    // Fecha                    : 17/12/2020 23:32
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -8043,6 +8043,15 @@ namespace Carm.Bll
                                     p_entCliente.Abono,
                                     p_entCliente.Codtipocont,
                                     p_entCliente.Deuda,
+                                    p_entCliente.Genero,
+                                    p_entCliente.Tarjetacred,
+                                    p_entCliente.Fueclienteantes,
+                                    p_entCliente.Titular,
+                                    p_entCliente.Direccioncobertura,
+                                    p_entCliente.Alturacobertura,
+                                    p_entCliente.Pisocobertura,
+                                    p_entCliente.Oficinacobertura,
+                                    p_entCliente.Codloccobertura,
                                     p_smResult);
             }
             catch (Exception l_expData) {
@@ -8096,6 +8105,15 @@ namespace Carm.Bll
                                     p_entCliente.Abono,
                                     p_entCliente.Codtipocont,
                                     p_entCliente.Deuda,
+                                    p_entCliente.Genero,
+                                    p_entCliente.Tarjetacred,
+                                    p_entCliente.Fueclienteantes,
+                                    p_entCliente.Titular,
+                                    p_entCliente.Direccioncobertura,
+                                    p_entCliente.Alturacobertura,
+                                    p_entCliente.Pisocobertura,
+                                    p_entCliente.Oficinacobertura,
+                                    p_entCliente.Codloccobertura,
                                     p_smResult);
             }
             catch (Exception l_expData) {

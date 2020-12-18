@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 20/09/2020 03:42
+    // Fecha                    : 17/12/2020 23:32
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     // Basada en la Tabla       : Clientes
@@ -167,6 +167,15 @@ namespace Carm.Dal
         /// <param name="p_dcAbono">Abono</param>
         /// <param name="p_strCodtipocont">Tipo Contrato</param>
         /// <param name="p_dcDeuda">Deuda</param>
+        /// <param name="p_strGenero">Género</param>
+        /// <param name="p_strTarjetacred">Tarjeta de Crédito</param>
+        /// <param name="p_strFueclienteantes">Fue Cliente Antes</param>
+        /// <param name="p_strTitular">Titular</param>
+        /// <param name="p_strDireccioncobertura">Direccion Cobertura</param>
+        /// <param name="p_iAlturacobertura">Altura Cobertura</param>
+        /// <param name="p_strPisocobertura">Piso Cobertura</param>
+        /// <param name="p_strOficinacobertura">Oficina Cobertura</param>
+        /// <param name="p_strCodloccobertura">Localidad Cobertura</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Insert(DBConn p_dbcAccess,
                                  int p_iNumero,
@@ -197,6 +206,15 @@ namespace Carm.Dal
                                  decimal p_dcAbono,
                                  string p_strCodtipocont,
                                  decimal p_dcDeuda,
+                                 string p_strGenero,
+                                 string p_strTarjetacred,
+                                 string p_strFueclienteantes,
+                                 string p_strTitular,
+                                 string p_strDireccioncobertura,
+                                 int p_iAlturacobertura,
+                                 string p_strPisocobertura,
+                                 string p_strOficinacobertura,
+                                 string p_strCodloccobertura,
                                  StatMsg p_smResult)
         {
             try {
@@ -232,6 +250,15 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@cli_imp_abono", p_dcAbono),
                                        p_dbcAccess.MakeParam("@cli_rcd_codtipocont", p_strCodtipocont),
                                        p_dbcAccess.MakeParam("@cli_imp_deuda", p_dcDeuda),
+                                       p_dbcAccess.MakeParam("@cli_cd1_genero", p_strGenero),
+                                       p_dbcAccess.MakeParam("@cli_des_tarjetacred", p_strTarjetacred),
+                                       p_dbcAccess.MakeParam("@cli_cd1_fueclienteantes", p_strFueclienteantes),
+                                       p_dbcAccess.MakeParam("@cli_ede_titular", p_strTitular),
+                                       p_dbcAccess.MakeParam("@cli_ede_direccioncobertura", p_strDireccioncobertura),
+                                       p_dbcAccess.MakeParam("@cli_nro_alturacobertura", p_iAlturacobertura),
+                                       p_dbcAccess.MakeParam("@cli_rde_pisocobertura", p_strPisocobertura),
+                                       p_dbcAccess.MakeParam("@cli_rde_oficinacobertura", p_strOficinacobertura),
+                                       p_dbcAccess.MakeParam("@cli_ecd_codloccobertura", p_strCodloccobertura),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -275,6 +302,15 @@ namespace Carm.Dal
         /// <param name="p_dcAbono">Abono</param>
         /// <param name="p_strCodtipocont">Tipo Contrato</param>
         /// <param name="p_dcDeuda">Deuda</param>
+        /// <param name="p_strGenero">Género</param>
+        /// <param name="p_strTarjetacred">Tarjeta de Crédito</param>
+        /// <param name="p_strFueclienteantes">Fue Cliente Antes</param>
+        /// <param name="p_strTitular">Titular</param>
+        /// <param name="p_strDireccioncobertura">Direccion Cobertura</param>
+        /// <param name="p_iAlturacobertura">Altura Cobertura</param>
+        /// <param name="p_strPisocobertura">Piso Cobertura</param>
+        /// <param name="p_strOficinacobertura">Oficina Cobertura</param>
+        /// <param name="p_strCodloccobertura">Localidad Cobertura</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Update(DBConn p_dbcAccess,
                                  int p_iNumero,
@@ -305,6 +341,15 @@ namespace Carm.Dal
                                  decimal p_dcAbono,
                                  string p_strCodtipocont,
                                  decimal p_dcDeuda,
+                                 string p_strGenero,
+                                 string p_strTarjetacred,
+                                 string p_strFueclienteantes,
+                                 string p_strTitular,
+                                 string p_strDireccioncobertura,
+                                 int p_iAlturacobertura,
+                                 string p_strPisocobertura,
+                                 string p_strOficinacobertura,
+                                 string p_strCodloccobertura,
                                  StatMsg p_smResult)
         {
             try {
@@ -340,6 +385,15 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@cli_imp_abono", p_dcAbono),
                                        p_dbcAccess.MakeParam("@cli_rcd_codtipocont", p_strCodtipocont),
                                        p_dbcAccess.MakeParam("@cli_imp_deuda", p_dcDeuda),
+                                       p_dbcAccess.MakeParam("@cli_cd1_genero", p_strGenero),
+                                       p_dbcAccess.MakeParam("@cli_des_tarjetacred", p_strTarjetacred),
+                                       p_dbcAccess.MakeParam("@cli_cd1_fueclienteantes", p_strFueclienteantes),
+                                       p_dbcAccess.MakeParam("@cli_ede_titular", p_strTitular),
+                                       p_dbcAccess.MakeParam("@cli_ede_direccioncobertura", p_strDireccioncobertura),
+                                       p_dbcAccess.MakeParam("@cli_nro_alturacobertura", p_iAlturacobertura),
+                                       p_dbcAccess.MakeParam("@cli_rde_pisocobertura", p_strPisocobertura),
+                                       p_dbcAccess.MakeParam("@cli_rde_oficinacobertura", p_strOficinacobertura),
+                                       p_dbcAccess.MakeParam("@cli_ecd_codloccobertura", p_strCodloccobertura),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );

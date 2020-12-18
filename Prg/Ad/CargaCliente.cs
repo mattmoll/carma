@@ -45,9 +45,6 @@ namespace Carm.Ad
             ListaEntidades franquicias = Bll.Tablas.FrqUpFull(false, statMessage);
             if (MsgRuts.AnalizeError(this, statMessage)) return;
 
-            cdcFranquicia.FillFromStrLEntidad(franquicias, EFranquicia.CodCmp, EFranquicia.DesCmp, "deleted");
-            cdcFranquicia.AddStrCD("", "", 0);
-
             // When new client, hide everything except main data.
             if (cliente == null)
                 ftDetalleCliente.hidePages(new List<TabPage>() { tabContactos, tabEntrev, tabLlamadas, tabNotas, tabServicios });
@@ -65,15 +62,11 @@ namespace Carm.Ad
                    || (!teDireccion.IsValid)
                    || (!neAltura.IsValid)
                    || (!tePisoDepto.IsValid)
-                   || (!tePaginaWeb.IsValid)
-                   || (!cdcFranquicia.IsValid)
                    || (!teCelular.IsValid)
                    || (!teTelefono.IsValid)
                    || (!teEmail.IsValid)
                    || (!teLocalidad.IsValid)
                    || (!tePartido.IsValid)
-                   || (!teProvincia.IsValid)
-                   || (!teZona.IsValid)
                )
             {
                 MsgRuts.ShowMsg(this, "Revise los campos ingresados, hay valores invalidos.");
@@ -110,8 +103,6 @@ namespace Carm.Ad
             cliente.Direccion = teDireccion.Text;
             cliente.Altura = neAltura.Numero;
             cliente.Piso = tePisoDepto.Text;
-            cliente.Url = tePaginaWeb.Text;
-            cliente.Codfrq = cdcFranquicia.SelectedStrCode;
             cliente.Celular = teCelular.Text;
             cliente.Telefono1 = teTelefono.Text;
             cliente.Email = teEmail.Text;
@@ -131,8 +122,6 @@ namespace Carm.Ad
             teDireccion.Text = cliente.Direccion;
             neAltura.Numero = cliente.Altura;
             tePisoDepto.Text = cliente.Piso;
-            tePaginaWeb.Text = cliente.Url;
-            cdcFranquicia.Text = cliente.Codfrq;
             teCelular.Text = cliente.Celular;
             teTelefono.Text = cliente.Telefono1;
             teEmail.Text = cliente.Email;
@@ -160,8 +149,6 @@ namespace Carm.Ad
                 // Cargamos los valores resultantes en pantalla.
                 teLocalidad.Text = l_eLocalidad.Nombre;
                 tePartido.Text = l_eLocalidad.Partido;
-                teProvincia.Text = l_eLocalidad.Provincia;
-                teZona.Text = l_eLocalidad.Loc_des_zona;
 
                 cliente.Codlocalidad = l_eLocalidad.Codpost;
             }

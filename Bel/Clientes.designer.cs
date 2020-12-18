@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 20/09/2020 03:44
+    // Fecha                    : 17/12/2020 23:32
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -4790,6 +4790,15 @@ namespace Carm.Bel
             l_drTemp["cli_imp_abono"]= XMLRuts.ExtractXAttr(l_xndData, "cli_imp_abono", (decimal) 0);
             l_drTemp["cli_rcd_codtipocont"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_codtipocont");
             l_drTemp["cli_imp_deuda"]= XMLRuts.ExtractXAttr(l_xndData, "cli_imp_deuda", (decimal) 0);
+            l_drTemp["cli_cd1_genero"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_genero");
+            l_drTemp["cli_des_tarjetacred"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_tarjetacred");
+            l_drTemp["cli_cd1_fueclienteantes"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_fueclienteantes");
+            l_drTemp["cli_ede_titular"]= XMLRuts.ExtractXAttr(l_xndData, "cli_ede_titular");
+            l_drTemp["cli_ede_direccioncobertura"]= XMLRuts.ExtractXAttr(l_xndData, "cli_ede_direccioncobertura");
+            l_drTemp["cli_nro_alturacobertura"]= XMLRuts.ExtractXAttr(l_xndData, "cli_nro_alturacobertura", 0);
+            l_drTemp["cli_rde_pisocobertura"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rde_pisocobertura");
+            l_drTemp["cli_rde_oficinacobertura"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rde_oficinacobertura");
+            l_drTemp["cli_ecd_codloccobertura"]= XMLRuts.ExtractXAttr(l_xndData, "cli_ecd_codloccobertura");
             l_drTemp["cli_cd1_esmayo"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_esmayo");
             l_drTemp["cli_des_frq"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_frq");
             l_drTemp["cli_des_loc"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_loc");
@@ -4886,6 +4895,15 @@ namespace Carm.Bel
             l_drTemp["cli_imp_abono"]= 0;
             l_drTemp["cli_rcd_codtipocont"]= "";
             l_drTemp["cli_imp_deuda"]= 0;
+            l_drTemp["cli_cd1_genero"]= "";
+            l_drTemp["cli_des_tarjetacred"]= "";
+            l_drTemp["cli_cd1_fueclienteantes"]= "";
+            l_drTemp["cli_ede_titular"]= "";
+            l_drTemp["cli_ede_direccioncobertura"]= "";
+            l_drTemp["cli_nro_alturacobertura"]= 0;
+            l_drTemp["cli_rde_pisocobertura"]= "";
+            l_drTemp["cli_rde_oficinacobertura"]= "";
+            l_drTemp["cli_ecd_codloccobertura"]= "";
             l_drTemp["cli_cd1_esmayo"]= "";
             l_drTemp["cli_des_frq"]= "";
             l_drTemp["cli_des_loc"]= "";
@@ -4934,6 +4952,15 @@ namespace Carm.Bel
         /// <param name="p_dcAbono">Abono</param>
         /// <param name="p_strCodtipocont">Tipo Contrato</param>
         /// <param name="p_dcDeuda">Deuda</param>
+        /// <param name="p_strGenero">Género</param>
+        /// <param name="p_strTarjetacred">Tarjeta de Crédito</param>
+        /// <param name="p_strFueclienteantes">Fue Cliente Antes</param>
+        /// <param name="p_strTitular">Titular</param>
+        /// <param name="p_strDireccioncobertura">Direccion Cobertura</param>
+        /// <param name="p_iAlturacobertura">Altura Cobertura</param>
+        /// <param name="p_strPisocobertura">Piso Cobertura</param>
+        /// <param name="p_strOficinacobertura">Oficina Cobertura</param>
+        /// <param name="p_strCodloccobertura">Localidad Cobertura</param>
         /// <returns>Entidad: Cliente</returns>
         public static ECliente NewFilled(int p_iNumero,
                                          string p_strRsocial,
@@ -4962,7 +4989,16 @@ namespace Carm.Bel
                                          int p_iNroavalon,
                                          decimal p_dcAbono,
                                          string p_strCodtipocont,
-                                         decimal p_dcDeuda)
+                                         decimal p_dcDeuda,
+                                         string p_strGenero,
+                                         string p_strTarjetacred,
+                                         string p_strFueclienteantes,
+                                         string p_strTitular,
+                                         string p_strDireccioncobertura,
+                                         int p_iAlturacobertura,
+                                         string p_strPisocobertura,
+                                         string p_strOficinacobertura,
+                                         string p_strCodloccobertura)
         {
             // Creamos una tabla compatible con la entidad
             DataTable l_dtTemp= new DataTable();
@@ -5000,6 +5036,15 @@ namespace Carm.Bel
             l_drTemp["cli_imp_abono"]= p_dcAbono;
             l_drTemp["cli_rcd_codtipocont"]= p_strCodtipocont;
             l_drTemp["cli_imp_deuda"]= p_dcDeuda;
+            l_drTemp["cli_cd1_genero"]= p_strGenero;
+            l_drTemp["cli_des_tarjetacred"]= p_strTarjetacred;
+            l_drTemp["cli_cd1_fueclienteantes"]= p_strFueclienteantes;
+            l_drTemp["cli_ede_titular"]= p_strTitular;
+            l_drTemp["cli_ede_direccioncobertura"]= p_strDireccioncobertura;
+            l_drTemp["cli_nro_alturacobertura"]= p_iAlturacobertura;
+            l_drTemp["cli_rde_pisocobertura"]= p_strPisocobertura;
+            l_drTemp["cli_rde_oficinacobertura"]= p_strOficinacobertura;
+            l_drTemp["cli_ecd_codloccobertura"]= p_strCodloccobertura;
             l_drTemp["cli_cd1_esmayo"]= "";
             l_drTemp["cli_des_frq"]= "";
             l_drTemp["cli_des_loc"]= "";
@@ -5081,7 +5126,7 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[40];
+                DataColumn[] l_dcStruct= new DataColumn[49];
 
                 l_dcStruct[0]= new DataColumn("cli_nro_numero", typeof(int));
                 l_dcStruct[1]= new DataColumn("cli_ede_rsocial", typeof(string));
@@ -5119,7 +5164,16 @@ namespace Carm.Bel
                 l_dcStruct[33]= new DataColumn("cli_imp_abono", typeof(decimal));
                 l_dcStruct[34]= new DataColumn("cli_rcd_codtipocont", typeof(string));
                 l_dcStruct[35]= new DataColumn("cli_imp_deuda", typeof(decimal));
-                ECliente.FillFixedFields(ref l_dcStruct, 36);
+                l_dcStruct[36]= new DataColumn("cli_cd1_genero", typeof(string));
+                l_dcStruct[37]= new DataColumn("cli_des_tarjetacred", typeof(string));
+                l_dcStruct[38]= new DataColumn("cli_cd1_fueclienteantes", typeof(string));
+                l_dcStruct[39]= new DataColumn("cli_ede_titular", typeof(string));
+                l_dcStruct[40]= new DataColumn("cli_ede_direccioncobertura", typeof(string));
+                l_dcStruct[41]= new DataColumn("cli_nro_alturacobertura", typeof(int));
+                l_dcStruct[42]= new DataColumn("cli_rde_pisocobertura", typeof(string));
+                l_dcStruct[43]= new DataColumn("cli_rde_oficinacobertura", typeof(string));
+                l_dcStruct[44]= new DataColumn("cli_ecd_codloccobertura", typeof(string));
+                ECliente.FillFixedFields(ref l_dcStruct, 45);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -5642,6 +5696,183 @@ namespace Carm.Bel
         }
 
         /// <summary>
+        /// Género
+        /// </summary>
+        public static string GeneroCmp
+        {
+           get {return "cli_cd1_genero";}
+        }
+
+        /// <summary>
+        /// Género
+        /// </summary>
+        public string Genero
+        {
+            get {return ((string) InternalData["cli_cd1_genero"]).Trim();}
+            set {
+                if (value.Trim().Length > 1) value= value.Trim().Substring(0,1);
+                InternalData["cli_cd1_genero"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Tarjeta de Crédito
+        /// </summary>
+        public static string TarjetacredCmp
+        {
+           get {return "cli_des_tarjetacred";}
+        }
+
+        /// <summary>
+        /// Tarjeta de Crédito
+        /// </summary>
+        public string Tarjetacred
+        {
+            get {return ((string) InternalData["cli_des_tarjetacred"]).Trim();}
+            set {
+                if (value.Trim().Length > 30) value= value.Trim().Substring(0,30);
+                InternalData["cli_des_tarjetacred"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Fue Cliente Antes
+        /// </summary>
+        public static string FueclienteantesCmp
+        {
+           get {return "cli_cd1_fueclienteantes";}
+        }
+
+        /// <summary>
+        /// Fue Cliente Antes
+        /// </summary>
+        public string Fueclienteantes
+        {
+            get {return ((string) InternalData["cli_cd1_fueclienteantes"]).Trim();}
+            set {
+                if (value.Trim().Length > 1) value= value.Trim().Substring(0,1);
+                InternalData["cli_cd1_fueclienteantes"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Titular
+        /// </summary>
+        public static string TitularCmp
+        {
+           get {return "cli_ede_titular";}
+        }
+
+        /// <summary>
+        /// Titular
+        /// </summary>
+        public string Titular
+        {
+            get {return ((string) InternalData["cli_ede_titular"]).Trim();}
+            set {
+                if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
+                InternalData["cli_ede_titular"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Direccion Cobertura
+        /// </summary>
+        public static string DireccioncoberturaCmp
+        {
+           get {return "cli_ede_direccioncobertura";}
+        }
+
+        /// <summary>
+        /// Direccion Cobertura
+        /// </summary>
+        public string Direccioncobertura
+        {
+            get {return ((string) InternalData["cli_ede_direccioncobertura"]).Trim();}
+            set {
+                if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
+                InternalData["cli_ede_direccioncobertura"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Altura Cobertura
+        /// </summary>
+        public static string AlturacoberturaCmp
+        {
+           get {return "cli_nro_alturacobertura";}
+        }
+
+        /// <summary>
+        /// Altura Cobertura
+        /// </summary>
+        public int Alturacobertura
+        {
+            get {return (int) InternalData["cli_nro_alturacobertura"];}
+            set {InternalData["cli_nro_alturacobertura"]= value;}
+        }
+
+        /// <summary>
+        /// Piso Cobertura
+        /// </summary>
+        public static string PisocoberturaCmp
+        {
+           get {return "cli_rde_pisocobertura";}
+        }
+
+        /// <summary>
+        /// Piso Cobertura
+        /// </summary>
+        public string Pisocobertura
+        {
+            get {return ((string) InternalData["cli_rde_pisocobertura"]).Trim();}
+            set {
+                if (value.Trim().Length > 15) value= value.Trim().Substring(0,15);
+                InternalData["cli_rde_pisocobertura"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Oficina Cobertura
+        /// </summary>
+        public static string OficinacoberturaCmp
+        {
+           get {return "cli_rde_oficinacobertura";}
+        }
+
+        /// <summary>
+        /// Oficina Cobertura
+        /// </summary>
+        public string Oficinacobertura
+        {
+            get {return ((string) InternalData["cli_rde_oficinacobertura"]).Trim();}
+            set {
+                if (value.Trim().Length > 15) value= value.Trim().Substring(0,15);
+                InternalData["cli_rde_oficinacobertura"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Localidad Cobertura
+        /// </summary>
+        public static string CodloccoberturaCmp
+        {
+           get {return "cli_ecd_codloccobertura";}
+        }
+
+        /// <summary>
+        /// Localidad Cobertura
+        /// </summary>
+        public string Codloccobertura
+        {
+            get {return ((string) InternalData["cli_ecd_codloccobertura"]).Trim();}
+            set {
+                if (value.Trim().Length > 8) value= value.Trim().Substring(0,8);
+                InternalData["cli_ecd_codloccobertura"]= value.Trim();
+            }
+        }
+
+        /// <summary>
         /// Contactos de los Clientes
         /// </summary>
         public LECliContactos CliContactos
@@ -5814,6 +6045,15 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_imp_abono", Abono));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_codtipocont", Codtipocont));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_imp_deuda", Deuda));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_genero", Genero));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_tarjetacred", Tarjetacred));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_fueclienteantes", Fueclienteantes));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_ede_titular", Titular));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_ede_direccioncobertura", Direccioncobertura));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_nro_alturacobertura", Alturacobertura));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rde_pisocobertura", Pisocobertura));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rde_oficinacobertura", Oficinacobertura));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_ecd_codloccobertura", Codloccobertura));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_esmayo", Cli_cd1_esmayo));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_frq", Cli_des_frq));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_loc", Cli_des_loc));
