@@ -155,15 +155,27 @@ namespace Carm.Ad
 
         private void cargarClienteEnPantalla(ECliente cliente)
         {
-            teRazonSocial.Text = cliente.Rsocial;
-            teNombreFantasia.Text = cliente.Nombrefant;
+            rbAreasProtegidas.Checked = cliente.EsAreaProtegida;
+            rbSociosDirectos.Checked = cliente.EsSocioDirecto;
+
+            cdcMarca.SelectedStrCode = cliente.Codmarca;
+            cdcSitIva.SelectedStrCode = cliente.Situacioniva;
+            cteCUIT.Text = cliente.Cuil;
             teDireccion.Text = cliente.Direccion;
             neAltura.Numero = cliente.Altura;
             tePisoDepto.Text = cliente.Piso;
             teCelular.Text = cliente.Celular;
             teTelefono.Text = cliente.Telefono1;
             teEmail.Text = cliente.Email;
-            teLocalidadCobro.Text = cliente.Codlocalidad;
+            // TODO: Get localidad y partido fields from code. for both.
+            teRazonSocial.Text = cliente.Rsocial;
+            teNombreFantasia.Text = cliente.Nombrefant;
+
+            teNombreYApellido.Text = cliente.Nomyape;
+            deFechaNacimiento.Fecha = cliente.Fechanacimiento;
+            cdcSexo.SelectedStrCode = cliente.Sexo;
+            teTarjetaCredito.Text = cliente.Tarjetacred;
+
             teAnotaciones.Text = cliente.Observacion;
 
             mrLlamadas.fill(cliente.CliLlamadas, "Llamadas", statMessage);

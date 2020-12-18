@@ -5,7 +5,7 @@ using System.Reflection;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: AssemblyConfiguration("VS2020-C#4-TNGS5.2")]
+[assembly: AssemblyConfiguration("VS2020-C#4-TNGS 5.2")]
 [assembly: AssemblyCompany("Moll Matias")]
 [assembly: AssemblyProduct("Sistema Carma")]
 [assembly: AssemblyCopyright("Copyright© 2020, Moll Matias")]
