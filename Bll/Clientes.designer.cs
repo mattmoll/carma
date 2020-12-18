@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 17/12/2020 23:32
+    // Fecha                    : 18/12/2020 01:45
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -7707,7 +7707,7 @@ namespace Carm.Bll
                 return;
             }
 
-            if (p_entCliente.Fingsima.Year == 1900) {
+            if (p_entCliente.Fechaingreso.Year == 1900) {
                 // El campo [Fecha de ingreso] no puede ser vacío
                 p_smResult.BllWarning("El dato [Fecha de ingreso] no puede ser vacío","");
                 return;
@@ -7798,6 +7798,19 @@ namespace Carm.Bll
                 if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
                     // El campo [Tipo Contrato] debe existir en la tabla [Tablas.Tcn]
                     p_smResult.BllWarning("El dato [Tipo Contrato] debe existir en la tabla [Tablas.Tcn]","");
+                    return;
+                }
+            }
+
+            if (p_entCliente.Codmarca.Trim() != "") {
+                Tablas.MrcVKey(p_dbcAccess,
+                               p_entCliente.Codmarca,
+                               p_smResult);
+                if (p_smResult.NOk) return;
+
+                if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                    // El campo [Marca] debe existir en la tabla [Tablas.Mrc]
+                    p_smResult.BllWarning("El dato [Marca] debe existir en la tabla [Tablas.Mrc]","");
                     return;
                 }
             }
@@ -8033,7 +8046,7 @@ namespace Carm.Bll
                                     p_entCliente.Cuil,
                                     p_entCliente.Url,
                                     p_entCliente.Codvend,
-                                    p_entCliente.Fingsima,
+                                    p_entCliente.Fechaingreso,
                                     p_entCliente.Cantempleados,
                                     p_entCliente.Cobertura,
                                     p_entCliente.Cargador,
@@ -8043,7 +8056,7 @@ namespace Carm.Bll
                                     p_entCliente.Abono,
                                     p_entCliente.Codtipocont,
                                     p_entCliente.Deuda,
-                                    p_entCliente.Genero,
+                                    p_entCliente.Sexo,
                                     p_entCliente.Tarjetacred,
                                     p_entCliente.Fueclienteantes,
                                     p_entCliente.Titular,
@@ -8052,6 +8065,10 @@ namespace Carm.Bll
                                     p_entCliente.Pisocobertura,
                                     p_entCliente.Oficinacobertura,
                                     p_entCliente.Codloccobertura,
+                                    p_entCliente.Codmarca,
+                                    p_entCliente.Tipocliente,
+                                    p_entCliente.Nomyape,
+                                    p_entCliente.Fechanacimiento,
                                     p_smResult);
             }
             catch (Exception l_expData) {
@@ -8095,7 +8112,7 @@ namespace Carm.Bll
                                     p_entCliente.Cuil,
                                     p_entCliente.Url,
                                     p_entCliente.Codvend,
-                                    p_entCliente.Fingsima,
+                                    p_entCliente.Fechaingreso,
                                     p_entCliente.Cantempleados,
                                     p_entCliente.Cobertura,
                                     p_entCliente.Cargador,
@@ -8105,7 +8122,7 @@ namespace Carm.Bll
                                     p_entCliente.Abono,
                                     p_entCliente.Codtipocont,
                                     p_entCliente.Deuda,
-                                    p_entCliente.Genero,
+                                    p_entCliente.Sexo,
                                     p_entCliente.Tarjetacred,
                                     p_entCliente.Fueclienteantes,
                                     p_entCliente.Titular,
@@ -8114,6 +8131,10 @@ namespace Carm.Bll
                                     p_entCliente.Pisocobertura,
                                     p_entCliente.Oficinacobertura,
                                     p_entCliente.Codloccobertura,
+                                    p_entCliente.Codmarca,
+                                    p_entCliente.Tipocliente,
+                                    p_entCliente.Nomyape,
+                                    p_entCliente.Fechanacimiento,
                                     p_smResult);
             }
             catch (Exception l_expData) {

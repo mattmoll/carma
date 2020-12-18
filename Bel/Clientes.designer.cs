@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 17/12/2020 23:32
+    // Fecha                    : 18/12/2020 01:45
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -4780,7 +4780,7 @@ namespace Carm.Bel
             l_drTemp["cli_des_cuil"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_cuil");
             l_drTemp["cli_xld_url"]= XMLRuts.ExtractXAttr(l_xndData, "cli_xld_url");
             l_drTemp["cli_cd6_codvend"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd6_codvend");
-            l_drTemp["cli_fec_fingsima"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fingsima", true);
+            l_drTemp["cli_fec_fechaingreso"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fechaingreso", true);
             l_drTemp["cli_nro_cantempleados"]= XMLRuts.ExtractXAttr(l_xndData, "cli_nro_cantempleados", 0);
             l_drTemp["cli_txt_cobertura"]= XMLRuts.ExtractXAttr(l_xndData, "cli_txt_cobertura");
             l_drTemp["cli_nom_cargador"]= XMLRuts.ExtractXAttr(l_xndData, "cli_nom_cargador");
@@ -4790,7 +4790,7 @@ namespace Carm.Bel
             l_drTemp["cli_imp_abono"]= XMLRuts.ExtractXAttr(l_xndData, "cli_imp_abono", (decimal) 0);
             l_drTemp["cli_rcd_codtipocont"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_codtipocont");
             l_drTemp["cli_imp_deuda"]= XMLRuts.ExtractXAttr(l_xndData, "cli_imp_deuda", (decimal) 0);
-            l_drTemp["cli_cd1_genero"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_genero");
+            l_drTemp["cli_cd1_sexo"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_sexo");
             l_drTemp["cli_des_tarjetacred"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_tarjetacred");
             l_drTemp["cli_cd1_fueclienteantes"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_fueclienteantes");
             l_drTemp["cli_ede_titular"]= XMLRuts.ExtractXAttr(l_xndData, "cli_ede_titular");
@@ -4799,6 +4799,10 @@ namespace Carm.Bel
             l_drTemp["cli_rde_pisocobertura"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rde_pisocobertura");
             l_drTemp["cli_rde_oficinacobertura"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rde_oficinacobertura");
             l_drTemp["cli_ecd_codloccobertura"]= XMLRuts.ExtractXAttr(l_xndData, "cli_ecd_codloccobertura");
+            l_drTemp["cli_rcd_codmarca"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_codmarca");
+            l_drTemp["cli_rcd_tipocliente"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_tipocliente");
+            l_drTemp["cli_xde_nomyape"]= XMLRuts.ExtractXAttr(l_xndData, "cli_xde_nomyape");
+            l_drTemp["cli_fec_fechanacimiento"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fechanacimiento", true);
             l_drTemp["cli_cd1_esmayo"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_esmayo");
             l_drTemp["cli_des_frq"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_frq");
             l_drTemp["cli_des_loc"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_loc");
@@ -4885,7 +4889,7 @@ namespace Carm.Bel
             l_drTemp["cli_des_cuil"]= "";
             l_drTemp["cli_xld_url"]= "";
             l_drTemp["cli_cd6_codvend"]= "";
-            l_drTemp["cli_fec_fingsima"]= DateTimeRuts.Empty;
+            l_drTemp["cli_fec_fechaingreso"]= DateTimeRuts.Empty;
             l_drTemp["cli_nro_cantempleados"]= 0;
             l_drTemp["cli_txt_cobertura"]= "";
             l_drTemp["cli_nom_cargador"]= "";
@@ -4895,7 +4899,7 @@ namespace Carm.Bel
             l_drTemp["cli_imp_abono"]= 0;
             l_drTemp["cli_rcd_codtipocont"]= "";
             l_drTemp["cli_imp_deuda"]= 0;
-            l_drTemp["cli_cd1_genero"]= "";
+            l_drTemp["cli_cd1_sexo"]= "";
             l_drTemp["cli_des_tarjetacred"]= "";
             l_drTemp["cli_cd1_fueclienteantes"]= "";
             l_drTemp["cli_ede_titular"]= "";
@@ -4904,6 +4908,10 @@ namespace Carm.Bel
             l_drTemp["cli_rde_pisocobertura"]= "";
             l_drTemp["cli_rde_oficinacobertura"]= "";
             l_drTemp["cli_ecd_codloccobertura"]= "";
+            l_drTemp["cli_rcd_codmarca"]= "";
+            l_drTemp["cli_rcd_tipocliente"]= "";
+            l_drTemp["cli_xde_nomyape"]= "";
+            l_drTemp["cli_fec_fechanacimiento"]= DateTimeRuts.Empty;
             l_drTemp["cli_cd1_esmayo"]= "";
             l_drTemp["cli_des_frq"]= "";
             l_drTemp["cli_des_loc"]= "";
@@ -4942,7 +4950,7 @@ namespace Carm.Bel
         /// <param name="p_strCuil">Cuil</param>
         /// <param name="p_strUrl">Url</param>
         /// <param name="p_strCodvend">Código de vendedor</param>
-        /// <param name="p_dtFingsima">Fecha de ingreso</param>
+        /// <param name="p_dtFechaingreso">Fecha de ingreso</param>
         /// <param name="p_iCantempleados">Cantidad de Empleados</param>
         /// <param name="p_strCobertura">Cobertura</param>
         /// <param name="p_strCargador">Usuario Cargador</param>
@@ -4952,7 +4960,7 @@ namespace Carm.Bel
         /// <param name="p_dcAbono">Abono</param>
         /// <param name="p_strCodtipocont">Tipo Contrato</param>
         /// <param name="p_dcDeuda">Deuda</param>
-        /// <param name="p_strGenero">Género</param>
+        /// <param name="p_strSexo">Sexo</param>
         /// <param name="p_strTarjetacred">Tarjeta de Crédito</param>
         /// <param name="p_strFueclienteantes">Fue Cliente Antes</param>
         /// <param name="p_strTitular">Titular</param>
@@ -4961,6 +4969,10 @@ namespace Carm.Bel
         /// <param name="p_strPisocobertura">Piso Cobertura</param>
         /// <param name="p_strOficinacobertura">Oficina Cobertura</param>
         /// <param name="p_strCodloccobertura">Localidad Cobertura</param>
+        /// <param name="p_strCodmarca">Marca</param>
+        /// <param name="p_strTipocliente">Tipo Cliente</param>
+        /// <param name="p_strNomyape">Nombre y Apellido</param>
+        /// <param name="p_dtFechanacimiento">Fecha nacimiento</param>
         /// <returns>Entidad: Cliente</returns>
         public static ECliente NewFilled(int p_iNumero,
                                          string p_strRsocial,
@@ -4980,7 +4992,7 @@ namespace Carm.Bel
                                          string p_strCuil,
                                          string p_strUrl,
                                          string p_strCodvend,
-                                         DateTime p_dtFingsima,
+                                         DateTime p_dtFechaingreso,
                                          int p_iCantempleados,
                                          string p_strCobertura,
                                          string p_strCargador,
@@ -4990,7 +5002,7 @@ namespace Carm.Bel
                                          decimal p_dcAbono,
                                          string p_strCodtipocont,
                                          decimal p_dcDeuda,
-                                         string p_strGenero,
+                                         string p_strSexo,
                                          string p_strTarjetacred,
                                          string p_strFueclienteantes,
                                          string p_strTitular,
@@ -4998,7 +5010,11 @@ namespace Carm.Bel
                                          int p_iAlturacobertura,
                                          string p_strPisocobertura,
                                          string p_strOficinacobertura,
-                                         string p_strCodloccobertura)
+                                         string p_strCodloccobertura,
+                                         string p_strCodmarca,
+                                         string p_strTipocliente,
+                                         string p_strNomyape,
+                                         DateTime p_dtFechanacimiento)
         {
             // Creamos una tabla compatible con la entidad
             DataTable l_dtTemp= new DataTable();
@@ -5026,7 +5042,7 @@ namespace Carm.Bel
             l_drTemp["cli_des_cuil"]= p_strCuil;
             l_drTemp["cli_xld_url"]= p_strUrl;
             l_drTemp["cli_cd6_codvend"]= p_strCodvend;
-            l_drTemp["cli_fec_fingsima"]= p_dtFingsima;
+            l_drTemp["cli_fec_fechaingreso"]= p_dtFechaingreso;
             l_drTemp["cli_nro_cantempleados"]= p_iCantempleados;
             l_drTemp["cli_txt_cobertura"]= p_strCobertura;
             l_drTemp["cli_nom_cargador"]= p_strCargador;
@@ -5036,7 +5052,7 @@ namespace Carm.Bel
             l_drTemp["cli_imp_abono"]= p_dcAbono;
             l_drTemp["cli_rcd_codtipocont"]= p_strCodtipocont;
             l_drTemp["cli_imp_deuda"]= p_dcDeuda;
-            l_drTemp["cli_cd1_genero"]= p_strGenero;
+            l_drTemp["cli_cd1_sexo"]= p_strSexo;
             l_drTemp["cli_des_tarjetacred"]= p_strTarjetacred;
             l_drTemp["cli_cd1_fueclienteantes"]= p_strFueclienteantes;
             l_drTemp["cli_ede_titular"]= p_strTitular;
@@ -5045,6 +5061,10 @@ namespace Carm.Bel
             l_drTemp["cli_rde_pisocobertura"]= p_strPisocobertura;
             l_drTemp["cli_rde_oficinacobertura"]= p_strOficinacobertura;
             l_drTemp["cli_ecd_codloccobertura"]= p_strCodloccobertura;
+            l_drTemp["cli_rcd_codmarca"]= p_strCodmarca;
+            l_drTemp["cli_rcd_tipocliente"]= p_strTipocliente;
+            l_drTemp["cli_xde_nomyape"]= p_strNomyape;
+            l_drTemp["cli_fec_fechanacimiento"]= p_dtFechanacimiento;
             l_drTemp["cli_cd1_esmayo"]= "";
             l_drTemp["cli_des_frq"]= "";
             l_drTemp["cli_des_loc"]= "";
@@ -5126,7 +5146,7 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[49];
+                DataColumn[] l_dcStruct= new DataColumn[53];
 
                 l_dcStruct[0]= new DataColumn("cli_nro_numero", typeof(int));
                 l_dcStruct[1]= new DataColumn("cli_ede_rsocial", typeof(string));
@@ -5154,7 +5174,7 @@ namespace Carm.Bel
                 l_dcStruct[23]= new DataColumn("cli_des_cuil", typeof(string));
                 l_dcStruct[24]= new DataColumn("cli_xld_url", typeof(string));
                 l_dcStruct[25]= new DataColumn("cli_cd6_codvend", typeof(string));
-                l_dcStruct[26]= new DataColumn("cli_fec_fingsima", typeof(DateTime));
+                l_dcStruct[26]= new DataColumn("cli_fec_fechaingreso", typeof(DateTime));
                 l_dcStruct[27]= new DataColumn("cli_nro_cantempleados", typeof(int));
                 l_dcStruct[28]= new DataColumn("cli_txt_cobertura", typeof(string));
                 l_dcStruct[29]= new DataColumn("cli_nom_cargador", typeof(string));
@@ -5164,7 +5184,7 @@ namespace Carm.Bel
                 l_dcStruct[33]= new DataColumn("cli_imp_abono", typeof(decimal));
                 l_dcStruct[34]= new DataColumn("cli_rcd_codtipocont", typeof(string));
                 l_dcStruct[35]= new DataColumn("cli_imp_deuda", typeof(decimal));
-                l_dcStruct[36]= new DataColumn("cli_cd1_genero", typeof(string));
+                l_dcStruct[36]= new DataColumn("cli_cd1_sexo", typeof(string));
                 l_dcStruct[37]= new DataColumn("cli_des_tarjetacred", typeof(string));
                 l_dcStruct[38]= new DataColumn("cli_cd1_fueclienteantes", typeof(string));
                 l_dcStruct[39]= new DataColumn("cli_ede_titular", typeof(string));
@@ -5173,7 +5193,11 @@ namespace Carm.Bel
                 l_dcStruct[42]= new DataColumn("cli_rde_pisocobertura", typeof(string));
                 l_dcStruct[43]= new DataColumn("cli_rde_oficinacobertura", typeof(string));
                 l_dcStruct[44]= new DataColumn("cli_ecd_codloccobertura", typeof(string));
-                ECliente.FillFixedFields(ref l_dcStruct, 45);
+                l_dcStruct[45]= new DataColumn("cli_rcd_codmarca", typeof(string));
+                l_dcStruct[46]= new DataColumn("cli_rcd_tipocliente", typeof(string));
+                l_dcStruct[47]= new DataColumn("cli_xde_nomyape", typeof(string));
+                l_dcStruct[48]= new DataColumn("cli_fec_fechanacimiento", typeof(DateTime));
+                ECliente.FillFixedFields(ref l_dcStruct, 49);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -5522,18 +5546,18 @@ namespace Carm.Bel
         /// <summary>
         /// Fecha de ingreso
         /// </summary>
-        public static string FingsimaCmp
+        public static string FechaingresoCmp
         {
-           get {return "cli_fec_fingsima";}
+           get {return "cli_fec_fechaingreso";}
         }
 
         /// <summary>
         /// Fecha de ingreso
         /// </summary>
-        public DateTime Fingsima
+        public DateTime Fechaingreso
         {
-            get {return (DateTime) InternalData["cli_fec_fingsima"];}
-            set {InternalData["cli_fec_fingsima"]= value;}
+            get {return (DateTime) InternalData["cli_fec_fechaingreso"];}
+            set {InternalData["cli_fec_fechaingreso"]= value;}
         }
 
         /// <summary>
@@ -5696,22 +5720,22 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Género
+        /// Sexo
         /// </summary>
-        public static string GeneroCmp
+        public static string SexoCmp
         {
-           get {return "cli_cd1_genero";}
+           get {return "cli_cd1_sexo";}
         }
 
         /// <summary>
-        /// Género
+        /// Sexo
         /// </summary>
-        public string Genero
+        public string Sexo
         {
-            get {return ((string) InternalData["cli_cd1_genero"]).Trim();}
+            get {return ((string) InternalData["cli_cd1_sexo"]).Trim();}
             set {
                 if (value.Trim().Length > 1) value= value.Trim().Substring(0,1);
-                InternalData["cli_cd1_genero"]= value.Trim();
+                InternalData["cli_cd1_sexo"]= value.Trim();
             }
         }
 
@@ -5870,6 +5894,80 @@ namespace Carm.Bel
                 if (value.Trim().Length > 8) value= value.Trim().Substring(0,8);
                 InternalData["cli_ecd_codloccobertura"]= value.Trim();
             }
+        }
+
+        /// <summary>
+        /// Marca
+        /// </summary>
+        public static string CodmarcaCmp
+        {
+           get {return "cli_rcd_codmarca";}
+        }
+
+        /// <summary>
+        /// Marca
+        /// </summary>
+        public string Codmarca
+        {
+            get {return (string) InternalData["cli_rcd_codmarca"];}
+            set {InternalData["cli_rcd_codmarca"]= value;}
+        }
+
+        /// <summary>
+        /// Tipo Cliente
+        /// </summary>
+        public static string TipoclienteCmp
+        {
+           get {return "cli_rcd_tipocliente";}
+        }
+
+        /// <summary>
+        /// Tipo Cliente
+        /// </summary>
+        public string Tipocliente
+        {
+            get {return ((string) InternalData["cli_rcd_tipocliente"]).Trim();}
+            set {
+                if (value.Trim().Length > 2) value= value.Trim().Substring(0,2);
+                InternalData["cli_rcd_tipocliente"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Nombre y Apellido
+        /// </summary>
+        public static string NomyapeCmp
+        {
+           get {return "cli_xde_nomyape";}
+        }
+
+        /// <summary>
+        /// Nombre y Apellido
+        /// </summary>
+        public string Nomyape
+        {
+            get {return ((string) InternalData["cli_xde_nomyape"]).Trim();}
+            set {
+                if (value.Trim().Length > 120) value= value.Trim().Substring(0,120);
+                InternalData["cli_xde_nomyape"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Fecha nacimiento
+        /// </summary>
+        public static string FechanacimientoCmp
+        {
+           get {return "cli_fec_fechanacimiento";}
+        }
+
+        /// <summary>
+        /// Fecha nacimiento
+        /// </summary>
+        public DateTime Fechanacimiento
+        {
+            get {return (DateTime) InternalData["cli_fec_fechanacimiento"];}
+            set {InternalData["cli_fec_fechanacimiento"]= value;}
         }
 
         /// <summary>
@@ -6035,7 +6133,7 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_cuil", Cuil));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_xld_url", Url));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd6_codvend", Codvend));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fingsima", Fingsima));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fechaingreso", Fechaingreso));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_nro_cantempleados", Cantempleados));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_txt_cobertura", Cobertura));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_nom_cargador", Cargador));
@@ -6045,7 +6143,7 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_imp_abono", Abono));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_codtipocont", Codtipocont));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_imp_deuda", Deuda));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_genero", Genero));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_sexo", Sexo));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_tarjetacred", Tarjetacred));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_fueclienteantes", Fueclienteantes));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_ede_titular", Titular));
@@ -6054,6 +6152,10 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rde_pisocobertura", Pisocobertura));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rde_oficinacobertura", Oficinacobertura));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_ecd_codloccobertura", Codloccobertura));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_codmarca", Codmarca));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_tipocliente", Tipocliente));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_xde_nomyape", Nomyape));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fechanacimiento", Fechanacimiento));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_esmayo", Cli_cd1_esmayo));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_frq", Cli_des_frq));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_loc", Cli_des_loc));

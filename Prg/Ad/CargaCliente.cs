@@ -36,14 +36,14 @@ namespace Carm.Ad
 
         private void CargaCliente_Load(object sender, EventArgs e)
         {
-            ListaEntidades tipoInstituciones = Bll.Tablas.TinUpFull(false, statMessage);
+            ListaEntidades marcas = Bll.Tablas.MrcUpFull(true, statMessage);
             if (MsgRuts.AnalizeError(this, statMessage)) return;
 
-            cdcTipoCliente.FillFromStrLEntidad(tipoInstituciones, ETipoInst.CodCmp, ETipoInst.DesCmp, "deleted");
-            cdcTipoCliente.AddStrCD("", "", 0);
+            cdcMarca.FillFromStrLEntidad(marcas, EMarca.CodCmp, EMarca.DesCmp);
+            cdcMarca.AddStrCD("", "");
 
-            ListaEntidades franquicias = Bll.Tablas.FrqUpFull(false, statMessage);
-            if (MsgRuts.AnalizeError(this, statMessage)) return;
+            cdcSexo.AddStrCD("M", "Masculino");
+            cdcSexo.AddStrCD("F", "Femenino");
 
             // When new client, hide everything except main data.
             if (cliente == null)
@@ -54,22 +54,28 @@ namespace Carm.Ad
 
         private bool ValidarControles()
         {
+            string listaCamposObligatorios;
+            if (camposObligatoriosIncompletos(out listaCamposObligatorios))
+            {
+                MsgRuts.ShowMsg(this, "Falta ingresar alguno de los campos obligatorios: " + listaCamposObligatorios);
+                return false;
+            }
+
             if (
                    (!teAnotaciones.IsValid)
                    || (!teNombreFantasia.IsValid)
                    || (!teRazonSocial.IsValid)
-                   || (!cdcTipoCliente.IsValid)
                    || (!teDireccion.IsValid)
                    || (!neAltura.IsValid)
                    || (!tePisoDepto.IsValid)
                    || (!teCelular.IsValid)
                    || (!teTelefono.IsValid)
                    || (!teEmail.IsValid)
-                   || (!teLocalidad.IsValid)
-                   || (!tePartido.IsValid)
+                   || (!teLocalidadCobro.IsValid)
+                   || (!tePartidoCobro.IsValid)
                )
             {
-                MsgRuts.ShowMsg(this, "Revise los campos ingresados, hay valores invalidos.");
+                MsgRuts.ShowMsg(this, "Revise los campos ingresados, hay valores invalidos (resaltado en rojo).");
                 return false;
             }
             else
@@ -77,7 +83,15 @@ namespace Carm.Ad
                 return true;
             }
 
+        }
 
+        private bool camposObligatoriosIncompletos(out string listaCamposObligatorios)
+        {
+            listaCamposObligatorios = "Empresa Prestadora, Denominación (Razon social o Nombre), Localidad Cobro, Telefono o Celular";
+
+            return ((cdcMarca.SelectedStrCode == "") || (teLocalidadCobro.Text == "") ||
+                ((teRazonSocial.Text == "") && (teNombreYApellido.Text == "")) || 
+                ((teTelefono.Text == "") && (teCelular.Text == "")));
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -97,9 +111,9 @@ namespace Carm.Ad
 
         private void cargarDatosEnCliente(ECliente cliente)
         {
+            cliente.Tipocliente = getTipoCliente();
             cliente.Rsocial = teRazonSocial.Text;
             cliente.Nombrefant = teNombreFantasia.Text;
-            cliente.Codtinst = cdcTipoCliente.SelectedStrCode;
             cliente.Direccion = teDireccion.Text;
             cliente.Altura = neAltura.Numero;
             cliente.Piso = tePisoDepto.Text;
@@ -110,22 +124,26 @@ namespace Carm.Ad
 
             // Datos base de alta
             cliente.Alta = "N";
-            cliente.Fingsima = DateTime.Now;
+            cliente.Fechaingreso = DateTime.Now;
             cliente.Cargador = App.Usuario.Usuario;
+        }
+
+        private string getTipoCliente()
+        {
+            return rbAreasProtegidas.Checked ? "AP" : "SD";
         }
 
         private void cargarClienteEnPantalla(ECliente cliente)
         {
             teRazonSocial.Text = cliente.Rsocial;
             teNombreFantasia.Text = cliente.Nombrefant;
-            cdcTipoCliente.SelectedStrCode = cliente.Codtinst;
             teDireccion.Text = cliente.Direccion;
             neAltura.Numero = cliente.Altura;
             tePisoDepto.Text = cliente.Piso;
             teCelular.Text = cliente.Celular;
             teTelefono.Text = cliente.Telefono1;
             teEmail.Text = cliente.Email;
-            teLocalidad.Text = cliente.Codlocalidad;
+            teLocalidadCobro.Text = cliente.Codlocalidad;
             teAnotaciones.Text = cliente.Observacion;
 
             mrLlamadas.fill(cliente.CliLlamadas, "Llamadas", statMessage);
@@ -147,8 +165,8 @@ namespace Carm.Ad
             if (l_eLocalidad != null)
             {
                 // Cargamos los valores resultantes en pantalla.
-                teLocalidad.Text = l_eLocalidad.Nombre;
-                tePartido.Text = l_eLocalidad.Partido;
+                teLocalidadCobro.Text = l_eLocalidad.Nombre;
+                tePartidoCobro.Text = l_eLocalidad.Partido;
 
                 cliente.Codlocalidad = l_eLocalidad.Codpost;
             }
@@ -162,6 +180,38 @@ namespace Carm.Ad
         private void gbCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void rbAreasProtegidas_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbAreasProtegidas.Checked)
+            {
+                igAreas.Enabled = true;
+                igSocios.Enabled = false;
+            }
+        }
+
+        private void rbSociosDirectos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSociosDirectos.Checked)
+            {
+                igAreas.Enabled = false;
+                igSocios.Enabled = true;
+            }
+        }
+
+        private void gbBuscarLocalidadCobertura_Click(object sender, EventArgs e)
+        {
+            // Llamamos al metodo que levanta la ventana para las localidades del pais, el true es para permitirle que no elija ninguna.
+            Bel.ELocalidad l_eLocalidad = SysRuts.fGetLocalidadesPais(this, true);
+            if (l_eLocalidad != null)
+            {
+                // Cargamos los valores resultantes en pantalla.
+                teLocalidadCobertura.Text = l_eLocalidad.Nombre;
+                tePartidoCobertura.Text = l_eLocalidad.Partido;
+
+                cliente.Codloccobertura = l_eLocalidad.Codpost;
+            }
         }
     }
 }
