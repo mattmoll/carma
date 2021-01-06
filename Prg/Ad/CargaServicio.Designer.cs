@@ -84,7 +84,6 @@
             this.cdcPlanes.Size = new System.Drawing.Size(226, 24);
             this.cdcPlanes.Sorted = true;
             this.cdcPlanes.TabIndex = 3;
-            this.cdcPlanes.SelectedIndexChanged += new System.EventHandler(this.cdcPlanes_SelectedIndexChanged);
             // 
             // GBCancel
             // 

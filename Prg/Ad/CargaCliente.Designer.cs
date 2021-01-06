@@ -37,25 +37,27 @@ namespace Carm.Ad
             this.tabCliente = new System.Windows.Forms.TabPage();
             this.xPanel2 = new TNGS.NetControls.XPanel();
             this.tgrpDatosBasicos = new TNGS.NetControls.ImgGroup();
-            this.cbFueClienteAntes = new System.Windows.Forms.CheckBox();
-            this.fullLabel17 = new TNGS.NetControls.FullLabel();
-            this.cdcSexo = new TNGS.NetControls.CDCombo();
-            this.fullLabel15 = new TNGS.NetControls.FullLabel();
-            this.deFechaNacimiento = new TNGS.NetControls.DateEdit();
-            this.teNombreYApellido = new TNGS.NetControls.TextEdit();
-            this.fullLabel13 = new TNGS.NetControls.FullLabel();
-            this.fullLabel14 = new TNGS.NetControls.FullLabel();
-            this.teTarjetaCredito = new TNGS.NetControls.TextEdit();
+            this.igAreas = new TNGS.NetControls.ImgGroup();
             this.teRazonSocial = new TNGS.NetControls.TextEdit();
             this.lblDescripcionMovil = new TNGS.NetControls.FullLabel();
-            this.lblRazonSocial = new TNGS.NetControls.FullLabel();
-            this.teNombreFantasia = new TNGS.NetControls.TextEdit();
-            this.fullLabel8 = new TNGS.NetControls.FullLabel();
-            this.fullLabel12 = new TNGS.NetControls.FullLabel();
-            this.gbBuscarLocalidadCobertura = new TNGS.NetControls.GlassButton();
-            this.teLocalidadCobertura = new TNGS.NetControls.TextEdit();
-            this.tePartidoCobertura = new TNGS.NetControls.TextEdit();
             this.fullLabel11 = new TNGS.NetControls.FullLabel();
+            this.lblRazonSocial = new TNGS.NetControls.FullLabel();
+            this.tePartidoCobertura = new TNGS.NetControls.TextEdit();
+            this.teNombreFantasia = new TNGS.NetControls.TextEdit();
+            this.teLocalidadCobertura = new TNGS.NetControls.TextEdit();
+            this.fullLabel8 = new TNGS.NetControls.FullLabel();
+            this.gbBuscarLocalidadCobertura = new TNGS.NetControls.GlassButton();
+            this.fullLabel12 = new TNGS.NetControls.FullLabel();
+            this.igSocios = new TNGS.NetControls.ImgGroup();
+            this.cbFueClienteAntes = new System.Windows.Forms.CheckBox();
+            this.teApellido = new TNGS.NetControls.TextEdit();
+            this.fullLabel17 = new TNGS.NetControls.FullLabel();
+            this.teTarjetaCredito = new TNGS.NetControls.TextEdit();
+            this.cdcSexo = new TNGS.NetControls.CDCombo();
+            this.fullLabel14 = new TNGS.NetControls.FullLabel();
+            this.fullLabel15 = new TNGS.NetControls.FullLabel();
+            this.fullLabel13 = new TNGS.NetControls.FullLabel();
+            this.deFechaNacimiento = new TNGS.NetControls.DateEdit();
             this.fullLabel10 = new TNGS.NetControls.FullLabel();
             this.cteCUIT = new TNGS.NetControls.CuitEdit();
             this.cdcMarca = new TNGS.NetControls.CDCombo();
@@ -117,13 +119,26 @@ namespace Carm.Ad
             this.titulo = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.igSocios = new TNGS.NetControls.ImgGroup();
-            this.igAreas = new TNGS.NetControls.ImgGroup();
+            this.fullLabel18 = new TNGS.NetControls.FullLabel();
+            this.teNombre = new TNGS.NetControls.TextEdit();
+            this.fullLabel19 = new TNGS.NetControls.FullLabel();
+            this.numberEdit1 = new TNGS.NetControls.NumberEdit();
+            this.glassButton1 = new TNGS.NetControls.GlassButton();
+            this.teDireccionCobertura = new TNGS.NetControls.TextEdit();
+            this.tePisoDptoCobertura = new TNGS.NetControls.TextEdit();
+            this.neAlturaCobertura = new TNGS.NetControls.NumberEdit();
+            this.fullLabel20 = new TNGS.NetControls.FullLabel();
+            this.fullLabel21 = new TNGS.NetControls.FullLabel();
+            this.fullLabel22 = new TNGS.NetControls.FullLabel();
+            this.cdcRubro = new TNGS.NetControls.CDCombo();
+            this.fullLabel23 = new TNGS.NetControls.FullLabel();
             this.xPanel1.SuspendLayout();
             this.ftDetalleCliente.SuspendLayout();
             this.tabCliente.SuspendLayout();
             this.xPanel2.SuspendLayout();
             this.tgrpDatosBasicos.SuspendLayout();
+            this.igAreas.SuspendLayout();
+            this.igSocios.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabLlamadas.SuspendLayout();
             this.xPanel3.SuspendLayout();
@@ -136,8 +151,6 @@ namespace Carm.Ad
             this.tabNotas.SuspendLayout();
             this.xPanel6.SuspendLayout();
             this.topPanel.SuspendLayout();
-            this.igSocios.SuspendLayout();
-            this.igAreas.SuspendLayout();
             this.SuspendLayout();
             // 
             // xPanel1
@@ -208,6 +221,8 @@ namespace Carm.Ad
             this.tgrpDatosBasicos.BlackBorder = true;
             this.tgrpDatosBasicos.BorderColor = System.Drawing.Color.DodgerBlue;
             this.tgrpDatosBasicos.BorderThickness = 1F;
+            this.tgrpDatosBasicos.Controls.Add(this.cdcRubro);
+            this.tgrpDatosBasicos.Controls.Add(this.fullLabel23);
             this.tgrpDatosBasicos.Controls.Add(this.igAreas);
             this.tgrpDatosBasicos.Controls.Add(this.igSocios);
             this.tgrpDatosBasicos.Controls.Add(this.fullLabel10);
@@ -261,106 +276,59 @@ namespace Carm.Ad
             this.tgrpDatosBasicos.TitleBackground = System.Drawing.Color.DarkGreen;
             this.tgrpDatosBasicos.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.tgrpDatosBasicos.TitleFontColor = System.Drawing.Color.White;
+            this.tgrpDatosBasicos.Load += new System.EventHandler(this.tgrpDatosBasicos_Load);
             // 
-            // cbFueClienteAntes
+            // igAreas
             // 
-            this.cbFueClienteAntes.AutoSize = true;
-            this.cbFueClienteAntes.Location = new System.Drawing.Point(156, 188);
-            this.cbFueClienteAntes.Name = "cbFueClienteAntes";
-            this.cbFueClienteAntes.Size = new System.Drawing.Size(129, 19);
-            this.cbFueClienteAntes.TabIndex = 4;
-            this.cbFueClienteAntes.Text = "Fue Cliente Antes?";
-            this.cbFueClienteAntes.UseVisualStyleBackColor = true;
-            // 
-            // fullLabel17
-            // 
-            this.fullLabel17.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel17.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel17.Location = new System.Drawing.Point(40, 150);
-            this.fullLabel17.Name = "fullLabel17";
-            this.fullLabel17.Size = new System.Drawing.Size(107, 19);
-            this.fullLabel17.TabIndex = 137;
-            this.fullLabel17.Text = "Tarjeta Crédito:";
-            // 
-            // cdcSexo
-            // 
-            this.cdcSexo.BackColor = System.Drawing.SystemColors.Window;
-            this.cdcSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cdcSexo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cdcSexo.FormattingEnabled = true;
-            this.cdcSexo.Location = new System.Drawing.Point(156, 112);
-            this.cdcSexo.Name = "cdcSexo";
-            this.cdcSexo.Size = new System.Drawing.Size(276, 23);
-            this.cdcSexo.Sorted = true;
-            this.cdcSexo.TabIndex = 2;
-            // 
-            // fullLabel15
-            // 
-            this.fullLabel15.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel15.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel15.Location = new System.Drawing.Point(94, 117);
-            this.fullLabel15.Name = "fullLabel15";
-            this.fullLabel15.Size = new System.Drawing.Size(49, 18);
-            this.fullLabel15.TabIndex = 135;
-            this.fullLabel15.Text = "Sexo:";
-            // 
-            // deFechaNacimiento
-            // 
-            this.deFechaNacimiento.BackColor = System.Drawing.SystemColors.Window;
-            this.deFechaNacimiento.Location = new System.Drawing.Point(156, 81);
-            this.deFechaNacimiento.Name = "deFechaNacimiento";
-            this.deFechaNacimiento.Size = new System.Drawing.Size(100, 21);
-            this.deFechaNacimiento.TabIndex = 1;
-            this.deFechaNacimiento.Text = "01/01/1900";
-            // 
-            // teNombreYApellido
-            // 
-            this.teNombreYApellido.BackColor = System.Drawing.SystemColors.Window;
-            this.teNombreYApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teNombreYApellido.Location = new System.Drawing.Point(156, 46);
-            this.teNombreYApellido.MaxLength = 60;
-            this.teNombreYApellido.Name = "teNombreYApellido";
-            this.teNombreYApellido.Size = new System.Drawing.Size(275, 21);
-            this.teNombreYApellido.TabIndex = 0;
-            // 
-            // fullLabel13
-            // 
-            this.fullLabel13.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel13.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel13.Location = new System.Drawing.Point(18, 85);
-            this.fullLabel13.Name = "fullLabel13";
-            this.fullLabel13.Size = new System.Drawing.Size(122, 19);
-            this.fullLabel13.TabIndex = 10;
-            this.fullLabel13.Text = "Fecha Nacimiento:";
-            // 
-            // fullLabel14
-            // 
-            this.fullLabel14.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel14.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel14.Location = new System.Drawing.Point(15, 48);
-            this.fullLabel14.Name = "fullLabel14";
-            this.fullLabel14.Size = new System.Drawing.Size(128, 18);
-            this.fullLabel14.TabIndex = 6;
-            this.fullLabel14.Text = "Nombre y Apellido:";
-            // 
-            // teTarjetaCredito
-            // 
-            this.teTarjetaCredito.BackColor = System.Drawing.SystemColors.Window;
-            this.teTarjetaCredito.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teTarjetaCredito.Location = new System.Drawing.Point(156, 150);
-            this.teTarjetaCredito.Name = "teTarjetaCredito";
-            this.teTarjetaCredito.Size = new System.Drawing.Size(276, 21);
-            this.teTarjetaCredito.TabIndex = 3;
+            this.igAreas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.igAreas.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.igAreas.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
+            this.igAreas.BlackBorder = true;
+            this.igAreas.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.igAreas.BorderThickness = 1F;
+            this.igAreas.Controls.Add(this.teDireccionCobertura);
+            this.igAreas.Controls.Add(this.tePisoDptoCobertura);
+            this.igAreas.Controls.Add(this.neAlturaCobertura);
+            this.igAreas.Controls.Add(this.fullLabel20);
+            this.igAreas.Controls.Add(this.fullLabel21);
+            this.igAreas.Controls.Add(this.fullLabel22);
+            this.igAreas.Controls.Add(this.teRazonSocial);
+            this.igAreas.Controls.Add(this.lblDescripcionMovil);
+            this.igAreas.Controls.Add(this.fullLabel11);
+            this.igAreas.Controls.Add(this.lblRazonSocial);
+            this.igAreas.Controls.Add(this.tePartidoCobertura);
+            this.igAreas.Controls.Add(this.teNombreFantasia);
+            this.igAreas.Controls.Add(this.teLocalidadCobertura);
+            this.igAreas.Controls.Add(this.fullLabel8);
+            this.igAreas.Controls.Add(this.gbBuscarLocalidadCobertura);
+            this.igAreas.Controls.Add(this.fullLabel12);
+            this.igAreas.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.igAreas.Enabled = false;
+            this.igAreas.FlatMode = true;
+            this.igAreas.FontTitle = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.igAreas.ForeColor = System.Drawing.Color.Black;
+            this.igAreas.GroupImage = null;
+            this.igAreas.GroupTitle = "Areas Protegidas";
+            this.igAreas.Location = new System.Drawing.Point(36, 232);
+            this.igAreas.Name = "igAreas";
+            this.igAreas.Padding = new System.Windows.Forms.Padding(20);
+            this.igAreas.PaintGroupBox = false;
+            this.igAreas.RoundCorners = 4;
+            this.igAreas.ShadowColor = System.Drawing.Color.DarkGray;
+            this.igAreas.ShadowControl = false;
+            this.igAreas.ShadowThickness = 3;
+            this.igAreas.Size = new System.Drawing.Size(447, 254);
+            this.igAreas.SkinFixed = true;
+            this.igAreas.TabIndex = 11;
+            this.igAreas.TitleBackground = System.Drawing.Color.ForestGreen;
+            this.igAreas.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
+            this.igAreas.TitleFontColor = System.Drawing.Color.White;
             // 
             // teRazonSocial
             // 
             this.teRazonSocial.BackColor = System.Drawing.SystemColors.Window;
             this.teRazonSocial.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teRazonSocial.Location = new System.Drawing.Point(152, 43);
+            this.teRazonSocial.Location = new System.Drawing.Point(152, 37);
             this.teRazonSocial.MaxLength = 60;
             this.teRazonSocial.Name = "teRazonSocial";
             this.teRazonSocial.Size = new System.Drawing.Size(275, 21);
@@ -371,53 +339,73 @@ namespace Carm.Ad
             this.lblDescripcionMovil.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcionMovil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcionMovil.ForeColor = System.Drawing.Color.Black;
-            this.lblDescripcionMovil.Location = new System.Drawing.Point(14, 82);
+            this.lblDescripcionMovil.Location = new System.Drawing.Point(14, 67);
             this.lblDescripcionMovil.Name = "lblDescripcionMovil";
             this.lblDescripcionMovil.Size = new System.Drawing.Size(122, 19);
             this.lblDescripcionMovil.TabIndex = 10;
             this.lblDescripcionMovil.Text = "Nombre Fantasía:";
+            // 
+            // fullLabel11
+            // 
+            this.fullLabel11.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel11.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel11.Location = new System.Drawing.Point(70, 222);
+            this.fullLabel11.Name = "fullLabel11";
+            this.fullLabel11.Size = new System.Drawing.Size(76, 18);
+            this.fullLabel11.TabIndex = 140;
+            this.fullLabel11.Text = "Partido:";
             // 
             // lblRazonSocial
             // 
             this.lblRazonSocial.BackColor = System.Drawing.Color.Transparent;
             this.lblRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRazonSocial.ForeColor = System.Drawing.Color.Black;
-            this.lblRazonSocial.Location = new System.Drawing.Point(35, 45);
+            this.lblRazonSocial.Location = new System.Drawing.Point(35, 39);
             this.lblRazonSocial.Name = "lblRazonSocial";
             this.lblRazonSocial.Size = new System.Drawing.Size(104, 18);
             this.lblRazonSocial.TabIndex = 6;
             this.lblRazonSocial.Text = "Razón Social:";
             // 
+            // tePartidoCobertura
+            // 
+            this.tePartidoCobertura.BackColor = System.Drawing.SystemColors.Window;
+            this.tePartidoCobertura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tePartidoCobertura.Location = new System.Drawing.Point(152, 220);
+            this.tePartidoCobertura.Name = "tePartidoCobertura";
+            this.tePartidoCobertura.ReadOnly = true;
+            this.tePartidoCobertura.Size = new System.Drawing.Size(276, 21);
+            this.tePartidoCobertura.TabIndex = 139;
+            // 
             // teNombreFantasia
             // 
             this.teNombreFantasia.BackColor = System.Drawing.SystemColors.Window;
             this.teNombreFantasia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teNombreFantasia.Location = new System.Drawing.Point(152, 82);
+            this.teNombreFantasia.Location = new System.Drawing.Point(152, 67);
             this.teNombreFantasia.Name = "teNombreFantasia";
             this.teNombreFantasia.Size = new System.Drawing.Size(276, 21);
             this.teNombreFantasia.TabIndex = 1;
+            // 
+            // teLocalidadCobertura
+            // 
+            this.teLocalidadCobertura.BackColor = System.Drawing.SystemColors.Window;
+            this.teLocalidadCobertura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teLocalidadCobertura.Location = new System.Drawing.Point(152, 186);
+            this.teLocalidadCobertura.Name = "teLocalidadCobertura";
+            this.teLocalidadCobertura.ReadOnly = true;
+            this.teLocalidadCobertura.Size = new System.Drawing.Size(276, 21);
+            this.teLocalidadCobertura.TabIndex = 137;
             // 
             // fullLabel8
             // 
             this.fullLabel8.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel8.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel8.Location = new System.Drawing.Point(13, 114);
+            this.fullLabel8.Location = new System.Drawing.Point(14, 96);
             this.fullLabel8.Name = "fullLabel8";
             this.fullLabel8.Size = new System.Drawing.Size(175, 18);
             this.fullLabel8.TabIndex = 141;
             this.fullLabel8.Text = "Domicilio Cobertura";
-            // 
-            // fullLabel12
-            // 
-            this.fullLabel12.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel12.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel12.Location = new System.Drawing.Point(70, 147);
-            this.fullLabel12.Name = "fullLabel12";
-            this.fullLabel12.Size = new System.Drawing.Size(76, 18);
-            this.fullLabel12.TabIndex = 138;
-            this.fullLabel12.Text = "Localidad:";
             // 
             // gbBuscarLocalidadCobertura
             // 
@@ -432,7 +420,7 @@ namespace Carm.Ad
             this.gbBuscarLocalidadCobertura.FlatFontSize = 9;
             this.gbBuscarLocalidadCobertura.FlatTextColor = System.Drawing.Color.Black;
             this.gbBuscarLocalidadCobertura.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbBuscarLocalidadCobertura.Location = new System.Drawing.Point(18, 141);
+            this.gbBuscarLocalidadCobertura.Location = new System.Drawing.Point(18, 182);
             this.gbBuscarLocalidadCobertura.Name = "gbBuscarLocalidadCobertura";
             this.gbBuscarLocalidadCobertura.PCode = "TNGS.EXCEL";
             this.gbBuscarLocalidadCobertura.RoundCorners = 2;
@@ -442,43 +430,161 @@ namespace Carm.Ad
             this.gbBuscarLocalidadCobertura.W8Color = System.Drawing.Color.DodgerBlue;
             this.gbBuscarLocalidadCobertura.Click += new System.EventHandler(this.gbBuscarLocalidadCobertura_Click);
             // 
-            // teLocalidadCobertura
+            // fullLabel12
             // 
-            this.teLocalidadCobertura.BackColor = System.Drawing.SystemColors.Window;
-            this.teLocalidadCobertura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teLocalidadCobertura.Location = new System.Drawing.Point(152, 145);
-            this.teLocalidadCobertura.Name = "teLocalidadCobertura";
-            this.teLocalidadCobertura.ReadOnly = true;
-            this.teLocalidadCobertura.Size = new System.Drawing.Size(276, 21);
-            this.teLocalidadCobertura.TabIndex = 137;
+            this.fullLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel12.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel12.Location = new System.Drawing.Point(70, 188);
+            this.fullLabel12.Name = "fullLabel12";
+            this.fullLabel12.Size = new System.Drawing.Size(76, 18);
+            this.fullLabel12.TabIndex = 138;
+            this.fullLabel12.Text = "Localidad:";
             // 
-            // tePartidoCobertura
+            // igSocios
             // 
-            this.tePartidoCobertura.BackColor = System.Drawing.SystemColors.Window;
-            this.tePartidoCobertura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tePartidoCobertura.Location = new System.Drawing.Point(152, 185);
-            this.tePartidoCobertura.Name = "tePartidoCobertura";
-            this.tePartidoCobertura.ReadOnly = true;
-            this.tePartidoCobertura.Size = new System.Drawing.Size(276, 21);
-            this.tePartidoCobertura.TabIndex = 139;
+            this.igSocios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.igSocios.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.igSocios.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
+            this.igSocios.BlackBorder = true;
+            this.igSocios.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.igSocios.BorderThickness = 1F;
+            this.igSocios.Controls.Add(this.glassButton1);
+            this.igSocios.Controls.Add(this.numberEdit1);
+            this.igSocios.Controls.Add(this.fullLabel19);
+            this.igSocios.Controls.Add(this.teNombre);
+            this.igSocios.Controls.Add(this.fullLabel18);
+            this.igSocios.Controls.Add(this.cbFueClienteAntes);
+            this.igSocios.Controls.Add(this.teApellido);
+            this.igSocios.Controls.Add(this.fullLabel17);
+            this.igSocios.Controls.Add(this.teTarjetaCredito);
+            this.igSocios.Controls.Add(this.cdcSexo);
+            this.igSocios.Controls.Add(this.fullLabel14);
+            this.igSocios.Controls.Add(this.fullLabel15);
+            this.igSocios.Controls.Add(this.fullLabel13);
+            this.igSocios.Controls.Add(this.deFechaNacimiento);
+            this.igSocios.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.igSocios.Enabled = false;
+            this.igSocios.FlatMode = true;
+            this.igSocios.FontTitle = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.igSocios.ForeColor = System.Drawing.Color.Black;
+            this.igSocios.GroupImage = null;
+            this.igSocios.GroupTitle = "Socios Directos";
+            this.igSocios.Location = new System.Drawing.Point(505, 232);
+            this.igSocios.Name = "igSocios";
+            this.igSocios.Padding = new System.Windows.Forms.Padding(20);
+            this.igSocios.PaintGroupBox = false;
+            this.igSocios.RoundCorners = 4;
+            this.igSocios.ShadowColor = System.Drawing.Color.DarkGray;
+            this.igSocios.ShadowControl = false;
+            this.igSocios.ShadowThickness = 3;
+            this.igSocios.Size = new System.Drawing.Size(447, 254);
+            this.igSocios.SkinFixed = true;
+            this.igSocios.TabIndex = 10;
+            this.igSocios.TitleBackground = System.Drawing.Color.ForestGreen;
+            this.igSocios.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
+            this.igSocios.TitleFontColor = System.Drawing.Color.White;
             // 
-            // fullLabel11
+            // cbFueClienteAntes
             // 
-            this.fullLabel11.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel11.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel11.Location = new System.Drawing.Point(70, 187);
-            this.fullLabel11.Name = "fullLabel11";
-            this.fullLabel11.Size = new System.Drawing.Size(76, 18);
-            this.fullLabel11.TabIndex = 140;
-            this.fullLabel11.Text = "Partido:";
+            this.cbFueClienteAntes.AutoSize = true;
+            this.cbFueClienteAntes.Location = new System.Drawing.Point(295, 97);
+            this.cbFueClienteAntes.Name = "cbFueClienteAntes";
+            this.cbFueClienteAntes.Size = new System.Drawing.Size(129, 19);
+            this.cbFueClienteAntes.TabIndex = 4;
+            this.cbFueClienteAntes.Text = "Fue Cliente Antes?";
+            this.cbFueClienteAntes.UseVisualStyleBackColor = true;
+            // 
+            // teApellido
+            // 
+            this.teApellido.BackColor = System.Drawing.SystemColors.Window;
+            this.teApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teApellido.Location = new System.Drawing.Point(156, 37);
+            this.teApellido.MaxLength = 60;
+            this.teApellido.Name = "teApellido";
+            this.teApellido.Size = new System.Drawing.Size(275, 21);
+            this.teApellido.TabIndex = 0;
+            // 
+            // fullLabel17
+            // 
+            this.fullLabel17.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel17.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel17.Location = new System.Drawing.Point(40, 172);
+            this.fullLabel17.Name = "fullLabel17";
+            this.fullLabel17.Size = new System.Drawing.Size(107, 19);
+            this.fullLabel17.TabIndex = 137;
+            this.fullLabel17.Text = "Tarjeta Crédito:";
+            // 
+            // teTarjetaCredito
+            // 
+            this.teTarjetaCredito.BackColor = System.Drawing.SystemColors.Window;
+            this.teTarjetaCredito.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teTarjetaCredito.Location = new System.Drawing.Point(156, 172);
+            this.teTarjetaCredito.Name = "teTarjetaCredito";
+            this.teTarjetaCredito.Size = new System.Drawing.Size(276, 21);
+            this.teTarjetaCredito.TabIndex = 3;
+            // 
+            // cdcSexo
+            // 
+            this.cdcSexo.BackColor = System.Drawing.SystemColors.Window;
+            this.cdcSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cdcSexo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cdcSexo.FormattingEnabled = true;
+            this.cdcSexo.Location = new System.Drawing.Point(156, 131);
+            this.cdcSexo.Name = "cdcSexo";
+            this.cdcSexo.Size = new System.Drawing.Size(276, 23);
+            this.cdcSexo.Sorted = true;
+            this.cdcSexo.TabIndex = 2;
+            // 
+            // fullLabel14
+            // 
+            this.fullLabel14.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel14.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel14.Location = new System.Drawing.Point(58, 39);
+            this.fullLabel14.Name = "fullLabel14";
+            this.fullLabel14.Size = new System.Drawing.Size(66, 18);
+            this.fullLabel14.TabIndex = 6;
+            this.fullLabel14.Text = "Apellido:";
+            // 
+            // fullLabel15
+            // 
+            this.fullLabel15.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel15.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel15.Location = new System.Drawing.Point(94, 136);
+            this.fullLabel15.Name = "fullLabel15";
+            this.fullLabel15.Size = new System.Drawing.Size(49, 18);
+            this.fullLabel15.TabIndex = 135;
+            this.fullLabel15.Text = "Sexo:";
+            // 
+            // fullLabel13
+            // 
+            this.fullLabel13.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel13.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel13.Location = new System.Drawing.Point(18, 101);
+            this.fullLabel13.Name = "fullLabel13";
+            this.fullLabel13.Size = new System.Drawing.Size(122, 19);
+            this.fullLabel13.TabIndex = 10;
+            this.fullLabel13.Text = "Fecha Nacimiento:";
+            // 
+            // deFechaNacimiento
+            // 
+            this.deFechaNacimiento.BackColor = System.Drawing.SystemColors.Window;
+            this.deFechaNacimiento.Location = new System.Drawing.Point(156, 97);
+            this.deFechaNacimiento.Name = "deFechaNacimiento";
+            this.deFechaNacimiento.Size = new System.Drawing.Size(100, 21);
+            this.deFechaNacimiento.TabIndex = 1;
+            this.deFechaNacimiento.Text = "01/01/1900";
             // 
             // fullLabel10
             // 
             this.fullLabel10.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel10.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel10.Location = new System.Drawing.Point(564, 84);
+            this.fullLabel10.Location = new System.Drawing.Point(564, 69);
             this.fullLabel10.Name = "fullLabel10";
             this.fullLabel10.Size = new System.Drawing.Size(50, 18);
             this.fullLabel10.TabIndex = 144;
@@ -487,7 +593,7 @@ namespace Carm.Ad
             // cteCUIT
             // 
             this.cteCUIT.BackColor = System.Drawing.SystemColors.Window;
-            this.cteCUIT.Location = new System.Drawing.Point(624, 82);
+            this.cteCUIT.Location = new System.Drawing.Point(624, 67);
             this.cteCUIT.Name = "cteCUIT";
             this.cteCUIT.Size = new System.Drawing.Size(100, 21);
             this.cteCUIT.TabIndex = 6;
@@ -498,7 +604,7 @@ namespace Carm.Ad
             this.cdcMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cdcMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cdcMarca.FormattingEnabled = true;
-            this.cdcMarca.Location = new System.Drawing.Point(185, 43);
+            this.cdcMarca.Location = new System.Drawing.Point(185, 36);
             this.cdcMarca.Name = "cdcMarca";
             this.cdcMarca.Size = new System.Drawing.Size(276, 23);
             this.cdcMarca.Sorted = true;
@@ -510,7 +616,7 @@ namespace Carm.Ad
             this.cdcSitIva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cdcSitIva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cdcSitIva.FormattingEnabled = true;
-            this.cdcSitIva.Location = new System.Drawing.Point(624, 43);
+            this.cdcSitIva.Location = new System.Drawing.Point(624, 36);
             this.cdcSitIva.Name = "cdcSitIva";
             this.cdcSitIva.Size = new System.Drawing.Size(276, 23);
             this.cdcSitIva.Sorted = true;
@@ -521,7 +627,7 @@ namespace Carm.Ad
             this.fullLabel9.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel9.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel9.Location = new System.Drawing.Point(47, 151);
+            this.fullLabel9.Location = new System.Drawing.Point(71, 73);
             this.fullLabel9.Name = "fullLabel9";
             this.fullLabel9.Size = new System.Drawing.Size(175, 18);
             this.fullLabel9.TabIndex = 133;
@@ -532,7 +638,7 @@ namespace Carm.Ad
             this.fullLabel4.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel4.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel4.Location = new System.Drawing.Point(26, 48);
+            this.fullLabel4.Location = new System.Drawing.Point(26, 41);
             this.fullLabel4.Name = "fullLabel4";
             this.fullLabel4.Size = new System.Drawing.Size(143, 18);
             this.fullLabel4.TabIndex = 129;
@@ -543,7 +649,7 @@ namespace Carm.Ad
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.rbAreasProtegidas);
             this.panel3.Controls.Add(this.rbSociosDirectos);
-            this.panel3.Location = new System.Drawing.Point(384, 5);
+            this.panel3.Location = new System.Drawing.Point(384, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(264, 26);
             this.panel3.TabIndex = 126;
@@ -575,7 +681,7 @@ namespace Carm.Ad
             // fullLabel16
             // 
             this.fullLabel16.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel16.Location = new System.Drawing.Point(316, 10);
+            this.fullLabel16.Location = new System.Drawing.Point(316, 8);
             this.fullLabel16.Name = "fullLabel16";
             this.fullLabel16.Size = new System.Drawing.Size(80, 16);
             this.fullLabel16.TabIndex = 127;
@@ -616,7 +722,7 @@ namespace Carm.Ad
             this.gbCargarLocalidad.FlatFontSize = 9;
             this.gbCargarLocalidad.FlatTextColor = System.Drawing.Color.Black;
             this.gbCargarLocalidad.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbCargarLocalidad.Location = new System.Drawing.Point(66, 178);
+            this.gbCargarLocalidad.Location = new System.Drawing.Point(52, 157);
             this.gbCargarLocalidad.Name = "gbCargarLocalidad";
             this.gbCargarLocalidad.PCode = "TNGS.EXCEL";
             this.gbCargarLocalidad.RoundCorners = 2;
@@ -652,7 +758,7 @@ namespace Carm.Ad
             // 
             this.tePartidoCobro.BackColor = System.Drawing.SystemColors.Window;
             this.tePartidoCobro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tePartidoCobro.Location = new System.Drawing.Point(186, 222);
+            this.tePartidoCobro.Location = new System.Drawing.Point(186, 196);
             this.tePartidoCobro.Name = "tePartidoCobro";
             this.tePartidoCobro.ReadOnly = true;
             this.tePartidoCobro.Size = new System.Drawing.Size(276, 21);
@@ -663,7 +769,7 @@ namespace Carm.Ad
             this.fullLabel7.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel7.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel7.Location = new System.Drawing.Point(104, 224);
+            this.fullLabel7.Location = new System.Drawing.Point(104, 198);
             this.fullLabel7.Name = "fullLabel7";
             this.fullLabel7.Size = new System.Drawing.Size(76, 18);
             this.fullLabel7.TabIndex = 36;
@@ -673,7 +779,7 @@ namespace Carm.Ad
             // 
             this.teLocalidadCobro.BackColor = System.Drawing.SystemColors.Window;
             this.teLocalidadCobro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teLocalidadCobro.Location = new System.Drawing.Point(186, 182);
+            this.teLocalidadCobro.Location = new System.Drawing.Point(186, 163);
             this.teLocalidadCobro.Name = "teLocalidadCobro";
             this.teLocalidadCobro.ReadOnly = true;
             this.teLocalidadCobro.Size = new System.Drawing.Size(276, 21);
@@ -684,7 +790,7 @@ namespace Carm.Ad
             this.fullLabel3.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel3.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel3.Location = new System.Drawing.Point(104, 184);
+            this.fullLabel3.Location = new System.Drawing.Point(90, 163);
             this.fullLabel3.Name = "fullLabel3";
             this.fullLabel3.Size = new System.Drawing.Size(76, 18);
             this.fullLabel3.TabIndex = 34;
@@ -694,7 +800,7 @@ namespace Carm.Ad
             // 
             this.teEmail.BackColor = System.Drawing.SystemColors.Window;
             this.teEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teEmail.Location = new System.Drawing.Point(624, 204);
+            this.teEmail.Location = new System.Drawing.Point(624, 198);
             this.teEmail.Name = "teEmail";
             this.teEmail.Size = new System.Drawing.Size(276, 21);
             this.teEmail.TabIndex = 9;
@@ -704,7 +810,7 @@ namespace Carm.Ad
             this.fullLabel1.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel1.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel1.Location = new System.Drawing.Point(563, 206);
+            this.fullLabel1.Location = new System.Drawing.Point(563, 200);
             this.fullLabel1.Name = "fullLabel1";
             this.fullLabel1.Size = new System.Drawing.Size(54, 18);
             this.fullLabel1.TabIndex = 32;
@@ -714,7 +820,7 @@ namespace Carm.Ad
             // 
             this.teTelefono.BackColor = System.Drawing.SystemColors.Window;
             this.teTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teTelefono.Location = new System.Drawing.Point(624, 165);
+            this.teTelefono.Location = new System.Drawing.Point(624, 164);
             this.teTelefono.Name = "teTelefono";
             this.teTelefono.Size = new System.Drawing.Size(276, 21);
             this.teTelefono.TabIndex = 8;
@@ -724,7 +830,7 @@ namespace Carm.Ad
             this.fullLabel6.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel6.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel6.Location = new System.Drawing.Point(521, 167);
+            this.fullLabel6.Location = new System.Drawing.Point(521, 166);
             this.fullLabel6.Name = "fullLabel6";
             this.fullLabel6.Size = new System.Drawing.Size(91, 18);
             this.fullLabel6.TabIndex = 30;
@@ -734,7 +840,7 @@ namespace Carm.Ad
             // 
             this.teCelular.BackColor = System.Drawing.SystemColors.Window;
             this.teCelular.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teCelular.Location = new System.Drawing.Point(624, 125);
+            this.teCelular.Location = new System.Drawing.Point(624, 130);
             this.teCelular.Name = "teCelular";
             this.teCelular.Size = new System.Drawing.Size(276, 21);
             this.teCelular.TabIndex = 7;
@@ -744,7 +850,7 @@ namespace Carm.Ad
             this.fullLabel5.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel5.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel5.Location = new System.Drawing.Point(554, 125);
+            this.fullLabel5.Location = new System.Drawing.Point(554, 130);
             this.fullLabel5.Name = "fullLabel5";
             this.fullLabel5.Size = new System.Drawing.Size(64, 18);
             this.fullLabel5.TabIndex = 28;
@@ -754,7 +860,7 @@ namespace Carm.Ad
             // 
             this.teDireccion.BackColor = System.Drawing.SystemColors.Window;
             this.teDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teDireccion.Location = new System.Drawing.Point(185, 83);
+            this.teDireccion.Location = new System.Drawing.Point(185, 98);
             this.teDireccion.Name = "teDireccion";
             this.teDireccion.Size = new System.Drawing.Size(276, 21);
             this.teDireccion.TabIndex = 1;
@@ -763,7 +869,7 @@ namespace Carm.Ad
             // 
             this.tePisoDepto.BackColor = System.Drawing.SystemColors.Window;
             this.tePisoDepto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tePisoDepto.Location = new System.Drawing.Point(348, 122);
+            this.tePisoDepto.Location = new System.Drawing.Point(348, 129);
             this.tePisoDepto.MaxLength = 8;
             this.tePisoDepto.Name = "tePisoDepto";
             this.tePisoDepto.Size = new System.Drawing.Size(113, 21);
@@ -772,7 +878,7 @@ namespace Carm.Ad
             // neAltura
             // 
             this.neAltura.BackColor = System.Drawing.SystemColors.Window;
-            this.neAltura.Location = new System.Drawing.Point(186, 123);
+            this.neAltura.Location = new System.Drawing.Point(186, 130);
             this.neAltura.Name = "neAltura";
             this.neAltura.Size = new System.Drawing.Size(75, 21);
             this.neAltura.TabIndex = 2;
@@ -783,7 +889,7 @@ namespace Carm.Ad
             this.fullLabel2.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel2.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel2.Location = new System.Drawing.Point(277, 125);
+            this.fullLabel2.Location = new System.Drawing.Point(277, 132);
             this.fullLabel2.Name = "fullLabel2";
             this.fullLabel2.Size = new System.Drawing.Size(79, 18);
             this.fullLabel2.TabIndex = 22;
@@ -792,7 +898,7 @@ namespace Carm.Ad
             // teAnotaciones
             // 
             this.teAnotaciones.BackColor = System.Drawing.SystemColors.Window;
-            this.teAnotaciones.Location = new System.Drawing.Point(234, 509);
+            this.teAnotaciones.Location = new System.Drawing.Point(234, 515);
             this.teAnotaciones.Multiline = true;
             this.teAnotaciones.Name = "teAnotaciones";
             this.teAnotaciones.Size = new System.Drawing.Size(544, 47);
@@ -803,7 +909,7 @@ namespace Carm.Ad
             this.lblNroChasis.BackColor = System.Drawing.Color.Transparent;
             this.lblNroChasis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroChasis.ForeColor = System.Drawing.Color.Black;
-            this.lblNroChasis.Location = new System.Drawing.Point(553, 48);
+            this.lblNroChasis.Location = new System.Drawing.Point(553, 41);
             this.lblNroChasis.Name = "lblNroChasis";
             this.lblNroChasis.Size = new System.Drawing.Size(65, 18);
             this.lblNroChasis.TabIndex = 14;
@@ -814,7 +920,7 @@ namespace Carm.Ad
             this.lblAnioFabricacion.BackColor = System.Drawing.Color.Transparent;
             this.lblAnioFabricacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnioFabricacion.ForeColor = System.Drawing.Color.Black;
-            this.lblAnioFabricacion.Location = new System.Drawing.Point(115, 125);
+            this.lblAnioFabricacion.Location = new System.Drawing.Point(115, 132);
             this.lblAnioFabricacion.Name = "lblAnioFabricacion";
             this.lblAnioFabricacion.Size = new System.Drawing.Size(67, 18);
             this.lblAnioFabricacion.TabIndex = 17;
@@ -825,7 +931,7 @@ namespace Carm.Ad
             this.lblNroMotor.BackColor = System.Drawing.Color.Transparent;
             this.lblNroMotor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroMotor.ForeColor = System.Drawing.Color.Black;
-            this.lblNroMotor.Location = new System.Drawing.Point(94, 85);
+            this.lblNroMotor.Location = new System.Drawing.Point(94, 100);
             this.lblNroMotor.Name = "lblNroMotor";
             this.lblNroMotor.Size = new System.Drawing.Size(75, 18);
             this.lblNroMotor.TabIndex = 15;
@@ -836,7 +942,7 @@ namespace Carm.Ad
             this.lblAnotaciones.BackColor = System.Drawing.Color.Transparent;
             this.lblAnotaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnotaciones.ForeColor = System.Drawing.Color.Black;
-            this.lblAnotaciones.Location = new System.Drawing.Point(231, 488);
+            this.lblAnotaciones.Location = new System.Drawing.Point(231, 494);
             this.lblAnotaciones.Name = "lblAnotaciones";
             this.lblAnotaciones.Size = new System.Drawing.Size(117, 18);
             this.lblAnotaciones.TabIndex = 13;
@@ -848,7 +954,7 @@ namespace Carm.Ad
             this.tabLlamadas.Location = new System.Drawing.Point(4, 25);
             this.tabLlamadas.Name = "tabLlamadas";
             this.tabLlamadas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLlamadas.Size = new System.Drawing.Size(989, 597);
+            this.tabLlamadas.Size = new System.Drawing.Size(987, 595);
             this.tabLlamadas.TabIndex = 2;
             this.tabLlamadas.Text = "Llamadas";
             this.tabLlamadas.UseVisualStyleBackColor = true;
@@ -862,7 +968,7 @@ namespace Carm.Ad
             this.xPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel3.Location = new System.Drawing.Point(3, 3);
             this.xPanel3.Name = "xPanel3";
-            this.xPanel3.Size = new System.Drawing.Size(983, 591);
+            this.xPanel3.Size = new System.Drawing.Size(981, 589);
             this.xPanel3.SkinFixed = true;
             this.xPanel3.TabIndex = 0;
             // 
@@ -896,7 +1002,7 @@ namespace Carm.Ad
             this.mrLlamadas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mrLlamadas.Location = new System.Drawing.Point(6, 73);
             this.mrLlamadas.Name = "mrLlamadas";
-            this.mrLlamadas.Size = new System.Drawing.Size(973, 515);
+            this.mrLlamadas.Size = new System.Drawing.Size(971, 513);
             this.mrLlamadas.SkinFixed = true;
             this.mrLlamadas.TabIndex = 0;
             // 
@@ -906,7 +1012,7 @@ namespace Carm.Ad
             this.tabEntrev.Location = new System.Drawing.Point(4, 25);
             this.tabEntrev.Name = "tabEntrev";
             this.tabEntrev.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEntrev.Size = new System.Drawing.Size(989, 597);
+            this.tabEntrev.Size = new System.Drawing.Size(987, 595);
             this.tabEntrev.TabIndex = 3;
             this.tabEntrev.Text = "Entrevistas";
             this.tabEntrev.UseVisualStyleBackColor = true;
@@ -922,7 +1028,7 @@ namespace Carm.Ad
             this.xPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel4.Location = new System.Drawing.Point(3, 3);
             this.xPanel4.Name = "xPanel4";
-            this.xPanel4.Size = new System.Drawing.Size(983, 591);
+            this.xPanel4.Size = new System.Drawing.Size(981, 589);
             this.xPanel4.SkinFixed = true;
             this.xPanel4.TabIndex = 0;
             // 
@@ -1001,7 +1107,7 @@ namespace Carm.Ad
             this.mrEntrevistas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mrEntrevistas.Location = new System.Drawing.Point(6, 81);
             this.mrEntrevistas.Name = "mrEntrevistas";
-            this.mrEntrevistas.Size = new System.Drawing.Size(973, 505);
+            this.mrEntrevistas.Size = new System.Drawing.Size(971, 503);
             this.mrEntrevistas.SkinFixed = true;
             this.mrEntrevistas.TabIndex = 1;
             // 
@@ -1011,7 +1117,7 @@ namespace Carm.Ad
             this.tabContactos.Location = new System.Drawing.Point(4, 25);
             this.tabContactos.Name = "tabContactos";
             this.tabContactos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabContactos.Size = new System.Drawing.Size(989, 597);
+            this.tabContactos.Size = new System.Drawing.Size(987, 595);
             this.tabContactos.TabIndex = 7;
             this.tabContactos.Text = "Contactos";
             this.tabContactos.UseVisualStyleBackColor = true;
@@ -1027,7 +1133,7 @@ namespace Carm.Ad
             this.xPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel7.Location = new System.Drawing.Point(3, 3);
             this.xPanel7.Name = "xPanel7";
-            this.xPanel7.Size = new System.Drawing.Size(983, 591);
+            this.xPanel7.Size = new System.Drawing.Size(981, 589);
             this.xPanel7.SkinFixed = true;
             this.xPanel7.TabIndex = 0;
             // 
@@ -1114,7 +1220,7 @@ namespace Carm.Ad
             this.tabServicios.Location = new System.Drawing.Point(4, 25);
             this.tabServicios.Name = "tabServicios";
             this.tabServicios.Padding = new System.Windows.Forms.Padding(3);
-            this.tabServicios.Size = new System.Drawing.Size(989, 597);
+            this.tabServicios.Size = new System.Drawing.Size(987, 595);
             this.tabServicios.TabIndex = 5;
             this.tabServicios.Text = "Servicios";
             this.tabServicios.UseVisualStyleBackColor = true;
@@ -1128,7 +1234,7 @@ namespace Carm.Ad
             this.xPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel5.Location = new System.Drawing.Point(3, 3);
             this.xPanel5.Name = "xPanel5";
-            this.xPanel5.Size = new System.Drawing.Size(983, 591);
+            this.xPanel5.Size = new System.Drawing.Size(981, 589);
             this.xPanel5.SkinFixed = true;
             this.xPanel5.TabIndex = 0;
             // 
@@ -1162,7 +1268,7 @@ namespace Carm.Ad
             this.mrServicios.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mrServicios.Location = new System.Drawing.Point(6, 71);
             this.mrServicios.Name = "mrServicios";
-            this.mrServicios.Size = new System.Drawing.Size(973, 515);
+            this.mrServicios.Size = new System.Drawing.Size(971, 513);
             this.mrServicios.SkinFixed = true;
             this.mrServicios.TabIndex = 1;
             // 
@@ -1172,7 +1278,7 @@ namespace Carm.Ad
             this.tabNotas.Location = new System.Drawing.Point(4, 25);
             this.tabNotas.Name = "tabNotas";
             this.tabNotas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNotas.Size = new System.Drawing.Size(989, 597);
+            this.tabNotas.Size = new System.Drawing.Size(987, 595);
             this.tabNotas.TabIndex = 4;
             this.tabNotas.Text = "Notas";
             this.tabNotas.UseVisualStyleBackColor = true;
@@ -1187,7 +1293,7 @@ namespace Carm.Ad
             this.xPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel6.Location = new System.Drawing.Point(3, 3);
             this.xPanel6.Name = "xPanel6";
-            this.xPanel6.Size = new System.Drawing.Size(983, 591);
+            this.xPanel6.Size = new System.Drawing.Size(981, 589);
             this.xPanel6.SkinFixed = true;
             this.xPanel6.TabIndex = 0;
             // 
@@ -1243,7 +1349,7 @@ namespace Carm.Ad
             this.mrNotas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mrNotas.Location = new System.Drawing.Point(6, 66);
             this.mrNotas.Name = "mrNotas";
-            this.mrNotas.Size = new System.Drawing.Size(973, 520);
+            this.mrNotas.Size = new System.Drawing.Size(971, 518);
             this.mrNotas.SkinFixed = true;
             this.mrNotas.TabIndex = 1;
             // 
@@ -1302,84 +1408,153 @@ namespace Carm.Ad
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // igSocios
+            // fullLabel18
             // 
-            this.igSocios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.igSocios.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.igSocios.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
-            this.igSocios.BlackBorder = true;
-            this.igSocios.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.igSocios.BorderThickness = 1F;
-            this.igSocios.Controls.Add(this.cbFueClienteAntes);
-            this.igSocios.Controls.Add(this.teNombreYApellido);
-            this.igSocios.Controls.Add(this.fullLabel17);
-            this.igSocios.Controls.Add(this.teTarjetaCredito);
-            this.igSocios.Controls.Add(this.cdcSexo);
-            this.igSocios.Controls.Add(this.fullLabel14);
-            this.igSocios.Controls.Add(this.fullLabel15);
-            this.igSocios.Controls.Add(this.fullLabel13);
-            this.igSocios.Controls.Add(this.deFechaNacimiento);
-            this.igSocios.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.igSocios.Enabled = false;
-            this.igSocios.FlatMode = true;
-            this.igSocios.FontTitle = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.igSocios.ForeColor = System.Drawing.Color.Black;
-            this.igSocios.GroupImage = null;
-            this.igSocios.GroupTitle = "Socios Directos";
-            this.igSocios.Location = new System.Drawing.Point(505, 253);
-            this.igSocios.Name = "igSocios";
-            this.igSocios.Padding = new System.Windows.Forms.Padding(20);
-            this.igSocios.PaintGroupBox = false;
-            this.igSocios.RoundCorners = 4;
-            this.igSocios.ShadowColor = System.Drawing.Color.DarkGray;
-            this.igSocios.ShadowControl = false;
-            this.igSocios.ShadowThickness = 3;
-            this.igSocios.Size = new System.Drawing.Size(447, 223);
-            this.igSocios.SkinFixed = true;
-            this.igSocios.TabIndex = 10;
-            this.igSocios.TitleBackground = System.Drawing.Color.ForestGreen;
-            this.igSocios.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
-            this.igSocios.TitleFontColor = System.Drawing.Color.White;
+            this.fullLabel18.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel18.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel18.Location = new System.Drawing.Point(58, 67);
+            this.fullLabel18.Name = "fullLabel18";
+            this.fullLabel18.Size = new System.Drawing.Size(66, 18);
+            this.fullLabel18.TabIndex = 138;
+            this.fullLabel18.Text = "Nombre:";
             // 
-            // igAreas
+            // teNombre
             // 
-            this.igAreas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.igAreas.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.igAreas.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
-            this.igAreas.BlackBorder = true;
-            this.igAreas.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.igAreas.BorderThickness = 1F;
-            this.igAreas.Controls.Add(this.teRazonSocial);
-            this.igAreas.Controls.Add(this.lblDescripcionMovil);
-            this.igAreas.Controls.Add(this.fullLabel11);
-            this.igAreas.Controls.Add(this.lblRazonSocial);
-            this.igAreas.Controls.Add(this.tePartidoCobertura);
-            this.igAreas.Controls.Add(this.teNombreFantasia);
-            this.igAreas.Controls.Add(this.teLocalidadCobertura);
-            this.igAreas.Controls.Add(this.fullLabel8);
-            this.igAreas.Controls.Add(this.gbBuscarLocalidadCobertura);
-            this.igAreas.Controls.Add(this.fullLabel12);
-            this.igAreas.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.igAreas.Enabled = false;
-            this.igAreas.FlatMode = true;
-            this.igAreas.FontTitle = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.igAreas.ForeColor = System.Drawing.Color.Black;
-            this.igAreas.GroupImage = null;
-            this.igAreas.GroupTitle = "Areas Protegidas";
-            this.igAreas.Location = new System.Drawing.Point(36, 253);
-            this.igAreas.Name = "igAreas";
-            this.igAreas.Padding = new System.Windows.Forms.Padding(20);
-            this.igAreas.PaintGroupBox = false;
-            this.igAreas.RoundCorners = 4;
-            this.igAreas.ShadowColor = System.Drawing.Color.DarkGray;
-            this.igAreas.ShadowControl = false;
-            this.igAreas.ShadowThickness = 3;
-            this.igAreas.Size = new System.Drawing.Size(447, 223);
-            this.igAreas.SkinFixed = true;
-            this.igAreas.TabIndex = 11;
-            this.igAreas.TitleBackground = System.Drawing.Color.ForestGreen;
-            this.igAreas.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
-            this.igAreas.TitleFontColor = System.Drawing.Color.White;
+            this.teNombre.BackColor = System.Drawing.SystemColors.Window;
+            this.teNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teNombre.Location = new System.Drawing.Point(156, 67);
+            this.teNombre.MaxLength = 60;
+            this.teNombre.Name = "teNombre";
+            this.teNombre.Size = new System.Drawing.Size(275, 21);
+            this.teNombre.TabIndex = 139;
+            // 
+            // fullLabel19
+            // 
+            this.fullLabel19.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel19.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel19.Location = new System.Drawing.Point(23, 212);
+            this.fullLabel19.Name = "fullLabel19";
+            this.fullLabel19.Size = new System.Drawing.Size(124, 19);
+            this.fullLabel19.TabIndex = 140;
+            this.fullLabel19.Text = "Grupo Familiar (#):";
+            // 
+            // numberEdit1
+            // 
+            this.numberEdit1.BackColor = System.Drawing.SystemColors.Window;
+            this.numberEdit1.Location = new System.Drawing.Point(156, 210);
+            this.numberEdit1.Name = "numberEdit1";
+            this.numberEdit1.Size = new System.Drawing.Size(49, 21);
+            this.numberEdit1.TabIndex = 141;
+            this.numberEdit1.Text = "0";
+            // 
+            // glassButton1
+            // 
+            this.glassButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.glassButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("glassButton1.BackgroundImage")));
+            this.glassButton1.BlackBorder = true;
+            this.glassButton1.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.glassButton1.CircleButton = false;
+            this.glassButton1.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Edit;
+            this.glassButton1.FlatColor = System.Drawing.Color.DodgerBlue;
+            this.glassButton1.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
+            this.glassButton1.FlatFontSize = 9;
+            this.glassButton1.FlatTextColor = System.Drawing.Color.Black;
+            this.glassButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.glassButton1.Location = new System.Drawing.Point(230, 207);
+            this.glassButton1.Name = "glassButton1";
+            this.glassButton1.PCode = "TNGS.EXCEL";
+            this.glassButton1.RoundCorners = 2;
+            this.glassButton1.Size = new System.Drawing.Size(80, 25);
+            this.glassButton1.TabIndex = 142;
+            this.glassButton1.Text = "Editar";
+            this.glassButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.glassButton1.W8Color = System.Drawing.Color.DodgerBlue;
+            // 
+            // teDireccionCobertura
+            // 
+            this.teDireccionCobertura.BackColor = System.Drawing.SystemColors.Window;
+            this.teDireccionCobertura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teDireccionCobertura.Location = new System.Drawing.Point(152, 122);
+            this.teDireccionCobertura.Name = "teDireccionCobertura";
+            this.teDireccionCobertura.Size = new System.Drawing.Size(276, 21);
+            this.teDireccionCobertura.TabIndex = 142;
+            // 
+            // tePisoDptoCobertura
+            // 
+            this.tePisoDptoCobertura.BackColor = System.Drawing.SystemColors.Window;
+            this.tePisoDptoCobertura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tePisoDptoCobertura.Location = new System.Drawing.Point(315, 153);
+            this.tePisoDptoCobertura.MaxLength = 8;
+            this.tePisoDptoCobertura.Name = "tePisoDptoCobertura";
+            this.tePisoDptoCobertura.Size = new System.Drawing.Size(113, 21);
+            this.tePisoDptoCobertura.TabIndex = 144;
+            // 
+            // neAlturaCobertura
+            // 
+            this.neAlturaCobertura.BackColor = System.Drawing.SystemColors.Window;
+            this.neAlturaCobertura.Location = new System.Drawing.Point(153, 154);
+            this.neAlturaCobertura.Name = "neAlturaCobertura";
+            this.neAlturaCobertura.Size = new System.Drawing.Size(75, 21);
+            this.neAlturaCobertura.TabIndex = 143;
+            this.neAlturaCobertura.Text = "0";
+            // 
+            // fullLabel20
+            // 
+            this.fullLabel20.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel20.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel20.Location = new System.Drawing.Point(244, 156);
+            this.fullLabel20.Name = "fullLabel20";
+            this.fullLabel20.Size = new System.Drawing.Size(79, 18);
+            this.fullLabel20.TabIndex = 147;
+            this.fullLabel20.Text = "Piso/Dpto: ";
+            // 
+            // fullLabel21
+            // 
+            this.fullLabel21.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel21.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel21.Location = new System.Drawing.Point(82, 156);
+            this.fullLabel21.Name = "fullLabel21";
+            this.fullLabel21.Size = new System.Drawing.Size(67, 18);
+            this.fullLabel21.TabIndex = 146;
+            this.fullLabel21.Text = "Altura:";
+            // 
+            // fullLabel22
+            // 
+            this.fullLabel22.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel22.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel22.Location = new System.Drawing.Point(61, 124);
+            this.fullLabel22.Name = "fullLabel22";
+            this.fullLabel22.Size = new System.Drawing.Size(75, 18);
+            this.fullLabel22.TabIndex = 145;
+            this.fullLabel22.Text = "Dirección:";
+            // 
+            // cdcRubro
+            // 
+            this.cdcRubro.BackColor = System.Drawing.SystemColors.Window;
+            this.cdcRubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cdcRubro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cdcRubro.FormattingEnabled = true;
+            this.cdcRubro.Location = new System.Drawing.Point(624, 96);
+            this.cdcRubro.Name = "cdcRubro";
+            this.cdcRubro.Size = new System.Drawing.Size(276, 23);
+            this.cdcRubro.Sorted = true;
+            this.cdcRubro.TabIndex = 145;
+            // 
+            // fullLabel23
+            // 
+            this.fullLabel23.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel23.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel23.Location = new System.Drawing.Point(553, 101);
+            this.fullLabel23.Name = "fullLabel23";
+            this.fullLabel23.Size = new System.Drawing.Size(65, 18);
+            this.fullLabel23.TabIndex = 146;
+            this.fullLabel23.Text = "Rubro:";
             // 
             // CargaCliente
             // 
@@ -1400,6 +1575,10 @@ namespace Carm.Ad
             this.xPanel2.ResumeLayout(false);
             this.tgrpDatosBasicos.ResumeLayout(false);
             this.tgrpDatosBasicos.PerformLayout();
+            this.igAreas.ResumeLayout(false);
+            this.igAreas.PerformLayout();
+            this.igSocios.ResumeLayout(false);
+            this.igSocios.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.tabLlamadas.ResumeLayout(false);
@@ -1414,10 +1593,6 @@ namespace Carm.Ad
             this.xPanel6.ResumeLayout(false);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
-            this.igSocios.ResumeLayout(false);
-            this.igSocios.PerformLayout();
-            this.igAreas.ResumeLayout(false);
-            this.igAreas.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1505,11 +1680,24 @@ namespace Carm.Ad
         private TNGS.NetControls.CDCombo cdcSexo;
         private TNGS.NetControls.FullLabel fullLabel15;
         private TNGS.NetControls.DateEdit deFechaNacimiento;
-        private TNGS.NetControls.TextEdit teNombreYApellido;
+        private TNGS.NetControls.TextEdit teApellido;
         private TNGS.NetControls.FullLabel fullLabel13;
         private TNGS.NetControls.FullLabel fullLabel14;
         private TNGS.NetControls.TextEdit teTarjetaCredito;
         private TNGS.NetControls.ImgGroup igAreas;
         private TNGS.NetControls.ImgGroup igSocios;
+        private TNGS.NetControls.TextEdit teNombre;
+        private TNGS.NetControls.FullLabel fullLabel18;
+        private TNGS.NetControls.CDCombo cdcRubro;
+        private TNGS.NetControls.FullLabel fullLabel23;
+        private TNGS.NetControls.TextEdit teDireccionCobertura;
+        private TNGS.NetControls.TextEdit tePisoDptoCobertura;
+        private TNGS.NetControls.NumberEdit neAlturaCobertura;
+        private TNGS.NetControls.FullLabel fullLabel20;
+        private TNGS.NetControls.FullLabel fullLabel21;
+        private TNGS.NetControls.FullLabel fullLabel22;
+        private TNGS.NetControls.GlassButton glassButton1;
+        private TNGS.NetControls.NumberEdit numberEdit1;
+        private TNGS.NetControls.FullLabel fullLabel19;
     }
 }

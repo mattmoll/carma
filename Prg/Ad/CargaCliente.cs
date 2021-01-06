@@ -99,7 +99,7 @@ namespace Carm.Ad
             listaCamposObligatorios = "Empresa Prestadora, Denominación (Razon social o Nombre), Localidad Cobro, Telefono o Celular";
 
             return ((cdcMarca.SelectedStrCode == "") || (teLocalidadCobro.Text == "") ||
-                ((teRazonSocial.Text == "") && (teNombreYApellido.Text == "")) || 
+                ((teRazonSocial.Text == "") && (teApellido.Text == "")) || 
                 ((teTelefono.Text == "") && (teCelular.Text == "")));
         }
 
@@ -134,7 +134,7 @@ namespace Carm.Ad
             cliente.Rsocial = teRazonSocial.Text;
             cliente.Nombrefant = teNombreFantasia.Text;
 
-            cliente.Nomyape = teNombreYApellido.Text;
+            cliente.Nomyape = teApellido.Text;
             cliente.Fechanacimiento = deFechaNacimiento.Fecha;
             cliente.Sexo = cdcSexo.SelectedStrCode;
             cliente.Tarjetacred = teTarjetaCredito.Text;
@@ -171,7 +171,7 @@ namespace Carm.Ad
             teRazonSocial.Text = cliente.Rsocial;
             teNombreFantasia.Text = cliente.Nombrefant;
 
-            teNombreYApellido.Text = cliente.Nomyape;
+            teApellido.Text = cliente.Nomyape;
             deFechaNacimiento.Fecha = cliente.Fechanacimiento;
             cdcSexo.SelectedStrCode = cliente.Sexo;
             teTarjetaCredito.Text = cliente.Tarjetacred;
@@ -244,6 +244,11 @@ namespace Carm.Ad
 
                 cliente.Codloccobertura = l_eLocalidad.Codpost;
             }
+        }
+
+        private void tgrpDatosBasicos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
