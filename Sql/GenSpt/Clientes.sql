@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 03/12/2020 22:16
+// Fecha       : 18/12/2020 03:40
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -55,9 +55,8 @@ begin
          Select cli_nro_numero,
                 cli_ede_rsocial,
                 cli_des_nombrefant,
-                tin_des_des as cli_des_tinst,
+                ISNULL(tin_des_des, '') as cli_des_tinst,
                 cli_cod_codtinst,
-                tin_cd1_mayorista as cli_cd1_esmayo,
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
@@ -78,7 +77,7 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_fec_fingsima,
+                cli_fec_fechaingreso,
                 cli_nro_cantempleados,
                 cli_txt_cobertura,
                 cli_nom_cargador,
@@ -88,7 +87,7 @@ begin
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
-                cli_cd1_genero,
+                cli_cd1_sexo,
                 cli_des_tarjetacred,
                 cli_cd1_fueclienteantes,
                 cli_ede_titular,
@@ -97,17 +96,22 @@ begin
                 cli_rde_pisocobertura,
                 cli_rde_oficinacobertura,
                 cli_ecd_codloccobertura,
+                cli_rcd_codmarca,
+                cli_rcd_tipocliente,
+                cli_xde_nomyape,
+                cli_fec_fechanacimiento,
+                cli_rcd_situacioniva,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
                 TNGS_Carm..Clientes.version
            from TNGS_Carm..Clientes
-                join TNGS_Carm..TipoInst
-                  on cli_cod_codtinst = tin_cod_cod
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
+                left outer join TNGS_Carm..TipoInst
+                  on cli_cod_codtinst = tin_cod_cod
           where TNGS_Carm..Clientes.deleted = 0
           order by cli_nro_numero
       end
@@ -116,9 +120,8 @@ begin
          Select cli_nro_numero,
                 cli_ede_rsocial,
                 cli_des_nombrefant,
-                tin_des_des as cli_des_tinst,
+                ISNULL(tin_des_des, '') as cli_des_tinst,
                 cli_cod_codtinst,
-                tin_cd1_mayorista as cli_cd1_esmayo,
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
@@ -139,7 +142,7 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_fec_fingsima,
+                cli_fec_fechaingreso,
                 cli_nro_cantempleados,
                 cli_txt_cobertura,
                 cli_nom_cargador,
@@ -149,7 +152,7 @@ begin
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
-                cli_cd1_genero,
+                cli_cd1_sexo,
                 cli_des_tarjetacred,
                 cli_cd1_fueclienteantes,
                 cli_ede_titular,
@@ -158,17 +161,22 @@ begin
                 cli_rde_pisocobertura,
                 cli_rde_oficinacobertura,
                 cli_ecd_codloccobertura,
+                cli_rcd_codmarca,
+                cli_rcd_tipocliente,
+                cli_xde_nomyape,
+                cli_fec_fechanacimiento,
+                cli_rcd_situacioniva,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
                 TNGS_Carm..Clientes.version
            from TNGS_Carm..Clientes
-                join TNGS_Carm..TipoInst
-                  on cli_cod_codtinst = tin_cod_cod
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
+                left outer join TNGS_Carm..TipoInst
+                  on cli_cod_codtinst = tin_cod_cod
           order by cli_nro_numero
       end
 
@@ -266,9 +274,8 @@ begin
          Select cli_nro_numero,
                 cli_ede_rsocial,
                 cli_des_nombrefant,
-                tin_des_des as cli_des_tinst,
+                ISNULL(tin_des_des, '') as cli_des_tinst,
                 cli_cod_codtinst,
-                tin_cd1_mayorista as cli_cd1_esmayo,
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
@@ -289,7 +296,7 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_fec_fingsima,
+                cli_fec_fechaingreso,
                 cli_nro_cantempleados,
                 cli_txt_cobertura,
                 cli_nom_cargador,
@@ -299,7 +306,7 @@ begin
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
-                cli_cd1_genero,
+                cli_cd1_sexo,
                 cli_des_tarjetacred,
                 cli_cd1_fueclienteantes,
                 cli_ede_titular,
@@ -308,17 +315,22 @@ begin
                 cli_rde_pisocobertura,
                 cli_rde_oficinacobertura,
                 cli_ecd_codloccobertura,
+                cli_rcd_codmarca,
+                cli_rcd_tipocliente,
+                cli_xde_nomyape,
+                cli_fec_fechanacimiento,
+                cli_rcd_situacioniva,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
                 TNGS_Carm..Clientes.version
            from TNGS_Carm..Clientes
-                join TNGS_Carm..TipoInst
-                  on cli_cod_codtinst = tin_cod_cod
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
+                left outer join TNGS_Carm..TipoInst
+                  on cli_cod_codtinst = tin_cod_cod
           where cli_nro_numero = @cli_nro_numero
             and TNGS_Carm..Clientes.deleted = 0
       end
@@ -327,9 +339,8 @@ begin
          Select cli_nro_numero,
                 cli_ede_rsocial,
                 cli_des_nombrefant,
-                tin_des_des as cli_des_tinst,
+                ISNULL(tin_des_des, '') as cli_des_tinst,
                 cli_cod_codtinst,
-                tin_cd1_mayorista as cli_cd1_esmayo,
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
@@ -350,7 +361,7 @@ begin
                 cli_des_cuil,
                 cli_xld_url,
                 cli_cd6_codvend,
-                cli_fec_fingsima,
+                cli_fec_fechaingreso,
                 cli_nro_cantempleados,
                 cli_txt_cobertura,
                 cli_nom_cargador,
@@ -360,7 +371,7 @@ begin
                 cli_imp_abono,
                 cli_rcd_codtipocont,
                 cli_imp_deuda,
-                cli_cd1_genero,
+                cli_cd1_sexo,
                 cli_des_tarjetacred,
                 cli_cd1_fueclienteantes,
                 cli_ede_titular,
@@ -369,17 +380,22 @@ begin
                 cli_rde_pisocobertura,
                 cli_rde_oficinacobertura,
                 cli_ecd_codloccobertura,
+                cli_rcd_codmarca,
+                cli_rcd_tipocliente,
+                cli_xde_nomyape,
+                cli_fec_fechanacimiento,
+                cli_rcd_situacioniva,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
                 TNGS_Carm..Clientes.version
            from TNGS_Carm..Clientes
-                join TNGS_Carm..TipoInst
-                  on cli_cod_codtinst = tin_cod_cod
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
+                left outer join TNGS_Carm..TipoInst
+                  on cli_cod_codtinst = tin_cod_cod
           where cli_nro_numero = @cli_nro_numero
       end
 
@@ -418,7 +434,7 @@ go
 --- <param name="@cli_des_cuil">Cuil</param>
 --- <param name="@cli_xld_url">Url</param>
 --- <param name="@cli_cd6_codvend">Código de vendedor</param>
---- <param name="@cli_fec_fingsima">Fecha de ingreso</param>
+--- <param name="@cli_fec_fechaingreso">Fecha de ingreso</param>
 --- <param name="@cli_nro_cantempleados">Cantidad de Empleados</param>
 --- <param name="@cli_txt_cobertura">Cobertura</param>
 --- <param name="@cli_nom_cargador">Usuario Cargador</param>
@@ -428,7 +444,7 @@ go
 --- <param name="@cli_imp_abono">Abono</param>
 --- <param name="@cli_rcd_codtipocont">Tipo Contrato</param>
 --- <param name="@cli_imp_deuda">Deuda</param>
---- <param name="@cli_cd1_genero">Género</param>
+--- <param name="@cli_cd1_sexo">Sexo</param>
 --- <param name="@cli_des_tarjetacred">Tarjeta de Crédito</param>
 --- <param name="@cli_cd1_fueclienteantes">Fue Cliente Antes</param>
 --- <param name="@cli_ede_titular">Titular</param>
@@ -437,6 +453,11 @@ go
 --- <param name="@cli_rde_pisocobertura">Piso Cobertura</param>
 --- <param name="@cli_rde_oficinacobertura">Oficina Cobertura</param>
 --- <param name="@cli_ecd_codloccobertura">Localidad Cobertura</param>
+--- <param name="@cli_rcd_codmarca">Marca</param>
+--- <param name="@cli_rcd_tipocliente">Tipo Cliente</param>
+--- <param name="@cli_xde_nomyape">Nombre y Apellido</param>
+--- <param name="@cli_fec_fechanacimiento">Fecha nacimiento</param>
+--- <param name="@cli_rcd_situacioniva">Situacion IVA</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -473,7 +494,7 @@ create procedure dbo.CLIENTES_INSERT
 @cli_des_cuil tngs_descripcion,
 @cli_xld_url tngs_descripcion_xl,
 @cli_cd6_codvend tngs_codigo_6,
-@cli_fec_fingsima tngs_fecha,
+@cli_fec_fechaingreso tngs_fecha,
 @cli_nro_cantempleados tngs_numero,
 @cli_txt_cobertura tngs_texto,
 @cli_nom_cargador tngs_nombre,
@@ -483,7 +504,7 @@ create procedure dbo.CLIENTES_INSERT
 @cli_imp_abono tngs_importe,
 @cli_rcd_codtipocont tngs_codigo_r,
 @cli_imp_deuda tngs_importe,
-@cli_cd1_genero tngs_codigo_1,
+@cli_cd1_sexo tngs_codigo_1,
 @cli_des_tarjetacred tngs_descripcion,
 @cli_cd1_fueclienteantes tngs_codigo_1,
 @cli_ede_titular tngs_descripcion_e,
@@ -492,6 +513,11 @@ create procedure dbo.CLIENTES_INSERT
 @cli_rde_pisocobertura tngs_descripcion_r,
 @cli_rde_oficinacobertura tngs_descripcion_r,
 @cli_ecd_codloccobertura tngs_codigo_e,
+@cli_rcd_codmarca tngs_codigo_r,
+@cli_rcd_tipocliente tngs_codigo_r,
+@cli_xde_nomyape tngs_descripcion_x,
+@cli_fec_fechanacimiento tngs_fecha,
+@cli_rcd_situacioniva tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -517,7 +543,7 @@ begin
            @cli_des_cuil,
            @cli_xld_url,
            @cli_cd6_codvend,
-           @cli_fec_fingsima,
+           @cli_fec_fechaingreso,
            @cli_nro_cantempleados,
            @cli_txt_cobertura,
            @cli_nom_cargador,
@@ -527,7 +553,7 @@ begin
            @cli_imp_abono,
            @cli_rcd_codtipocont,
            @cli_imp_deuda,
-           @cli_cd1_genero,
+           @cli_cd1_sexo,
            @cli_des_tarjetacred,
            @cli_cd1_fueclienteantes,
            @cli_ede_titular,
@@ -536,6 +562,11 @@ begin
            @cli_rde_pisocobertura,
            @cli_rde_oficinacobertura,
            @cli_ecd_codloccobertura,
+           @cli_rcd_codmarca,
+           @cli_rcd_tipocliente,
+           @cli_xde_nomyape,
+           @cli_fec_fechanacimiento,
+           @cli_rcd_situacioniva,
            getdate(), 0, @usuario, 1
           )
 
@@ -574,7 +605,7 @@ go
 --- <param name="@cli_des_cuil">Cuil</param>
 --- <param name="@cli_xld_url">Url</param>
 --- <param name="@cli_cd6_codvend">Código de vendedor</param>
---- <param name="@cli_fec_fingsima">Fecha de ingreso</param>
+--- <param name="@cli_fec_fechaingreso">Fecha de ingreso</param>
 --- <param name="@cli_nro_cantempleados">Cantidad de Empleados</param>
 --- <param name="@cli_txt_cobertura">Cobertura</param>
 --- <param name="@cli_nom_cargador">Usuario Cargador</param>
@@ -584,7 +615,7 @@ go
 --- <param name="@cli_imp_abono">Abono</param>
 --- <param name="@cli_rcd_codtipocont">Tipo Contrato</param>
 --- <param name="@cli_imp_deuda">Deuda</param>
---- <param name="@cli_cd1_genero">Género</param>
+--- <param name="@cli_cd1_sexo">Sexo</param>
 --- <param name="@cli_des_tarjetacred">Tarjeta de Crédito</param>
 --- <param name="@cli_cd1_fueclienteantes">Fue Cliente Antes</param>
 --- <param name="@cli_ede_titular">Titular</param>
@@ -593,6 +624,11 @@ go
 --- <param name="@cli_rde_pisocobertura">Piso Cobertura</param>
 --- <param name="@cli_rde_oficinacobertura">Oficina Cobertura</param>
 --- <param name="@cli_ecd_codloccobertura">Localidad Cobertura</param>
+--- <param name="@cli_rcd_codmarca">Marca</param>
+--- <param name="@cli_rcd_tipocliente">Tipo Cliente</param>
+--- <param name="@cli_xde_nomyape">Nombre y Apellido</param>
+--- <param name="@cli_fec_fechanacimiento">Fecha nacimiento</param>
+--- <param name="@cli_rcd_situacioniva">Situacion IVA</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -629,7 +665,7 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_des_cuil tngs_descripcion,
 @cli_xld_url tngs_descripcion_xl,
 @cli_cd6_codvend tngs_codigo_6,
-@cli_fec_fingsima tngs_fecha,
+@cli_fec_fechaingreso tngs_fecha,
 @cli_nro_cantempleados tngs_numero,
 @cli_txt_cobertura tngs_texto,
 @cli_nom_cargador tngs_nombre,
@@ -639,7 +675,7 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_imp_abono tngs_importe,
 @cli_rcd_codtipocont tngs_codigo_r,
 @cli_imp_deuda tngs_importe,
-@cli_cd1_genero tngs_codigo_1,
+@cli_cd1_sexo tngs_codigo_1,
 @cli_des_tarjetacred tngs_descripcion,
 @cli_cd1_fueclienteantes tngs_codigo_1,
 @cli_ede_titular tngs_descripcion_e,
@@ -648,6 +684,11 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_rde_pisocobertura tngs_descripcion_r,
 @cli_rde_oficinacobertura tngs_descripcion_r,
 @cli_ecd_codloccobertura tngs_codigo_e,
+@cli_rcd_codmarca tngs_codigo_r,
+@cli_rcd_tipocliente tngs_codigo_r,
+@cli_xde_nomyape tngs_descripcion_x,
+@cli_fec_fechanacimiento tngs_fecha,
+@cli_rcd_situacioniva tngs_codigo_r,
 @usuario tngs_nombre
 )
 as
@@ -671,7 +712,7 @@ begin
           cli_des_cuil= @cli_des_cuil,
           cli_xld_url= @cli_xld_url,
           cli_cd6_codvend= @cli_cd6_codvend,
-          cli_fec_fingsima= @cli_fec_fingsima,
+          cli_fec_fechaingreso= @cli_fec_fechaingreso,
           cli_nro_cantempleados= @cli_nro_cantempleados,
           cli_txt_cobertura= @cli_txt_cobertura,
           cli_nom_cargador= @cli_nom_cargador,
@@ -681,7 +722,7 @@ begin
           cli_imp_abono= @cli_imp_abono,
           cli_rcd_codtipocont= @cli_rcd_codtipocont,
           cli_imp_deuda= @cli_imp_deuda,
-          cli_cd1_genero= @cli_cd1_genero,
+          cli_cd1_sexo= @cli_cd1_sexo,
           cli_des_tarjetacred= @cli_des_tarjetacred,
           cli_cd1_fueclienteantes= @cli_cd1_fueclienteantes,
           cli_ede_titular= @cli_ede_titular,
@@ -690,6 +731,11 @@ begin
           cli_rde_pisocobertura= @cli_rde_pisocobertura,
           cli_rde_oficinacobertura= @cli_rde_oficinacobertura,
           cli_ecd_codloccobertura= @cli_ecd_codloccobertura,
+          cli_rcd_codmarca= @cli_rcd_codmarca,
+          cli_rcd_tipocliente= @cli_rcd_tipocliente,
+          cli_xde_nomyape= @cli_xde_nomyape,
+          cli_fec_fechanacimiento= @cli_fec_fechanacimiento,
+          cli_rcd_situacioniva= @cli_rcd_situacioniva,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario

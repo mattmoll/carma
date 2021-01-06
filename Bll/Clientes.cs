@@ -187,8 +187,9 @@ namespace Carm.Bll
                 l_strWhere += AppRuts.MakeWhere(ECliente.NombrefantCmp, p_bsBusqueda.NFant, StringModes.FullLike);
                 l_strWhere += AppRuts.MakeWhere(ECliente.CodvendCmp, p_bsBusqueda.CodVend, StringModes.FullLike);
                 l_strWhere += AppRuts.MakeWhere(ECliente.CargadorCmp, p_bsBusqueda.Cargador, StringModes.FullLike);
-                l_strWhere += AppRuts.MakeWhere(EFranquicia.CodCmp, p_bsBusqueda.Franq, StringModes.Equal);
+                l_strWhere += AppRuts.MakeWhere(ECliente.NomyapeCmp, p_bsBusqueda.NombreYApellido, StringModes.Equal);
                 l_strWhere += AppRuts.MakeWhere(ERubro.CodCmp, p_bsBusqueda.Rubro, StringModes.Equal);
+                l_strWhere += AppRuts.MakeWhere(EMarca.CodCmp, p_bsBusqueda.Marca, StringModes.Equal);
                 l_strWhere += AppRuts.MakeWhere(ETipoInst.CodCmp, p_bsBusqueda.TInst, StringModes.Equal);
                 l_strWhere += AppRuts.MakeWhere(EZona.CodCmp, p_bsBusqueda.Zona, StringModes.Equal);
                 l_strWhere += AppRuts.MakeWhere(ELocalidad.CodpostCmp, p_bsBusqueda.Loc, StringModes.Equal);
@@ -196,10 +197,10 @@ namespace Carm.Bll
                 l_strWhere += AppRuts.MakeWhere(ECliente.AlturaCmp, p_bsBusqueda.Altura, StringModes.Equal);
                 l_strWhere += AppRuts.MakeWhere(ECliente.Telefono1Cmp, p_bsBusqueda.Telefono, StringModes.FullLike);
                 l_strWhere += AppRuts.MakeWhere(ECliente.NroavalonCmp, p_bsBusqueda.NumeroAvalon, StringModes.Equal);
+                l_strWhere += AppRuts.MakeWhere(ECliente.TipoclienteCmp, p_bsBusqueda.TipoCliente, StringModes.Equal);
 
                 // Armamos los where de campos que validan Ambos-Si-No con el metodo generico
                 makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Vendido, ECliente.AltaCmp, "N", ref l_strWhere);
-                makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Mayorista, ETipoInst.MayoristaCmp, "N", ref l_strWhere);
 
                 l_strWhere = AppRuts.RemoveRAnd(l_strWhere);
 
@@ -958,7 +959,7 @@ namespace Carm.Bll
             p_eCliente.Codlocalidad = p_strCodLoc;
 
             // Completamos el resto de los datos obligatorios:
-            p_eCliente.Fingsima = DateTime.Today;
+            p_eCliente.Fechaingreso = DateTime.Today;
 
             // Completamos el usuario que esta cargando el cliente.
             p_eCliente.Cargador = DBConn.Usuario;
@@ -2028,11 +2029,9 @@ namespace Carm.Bll
                                                   bool p_boolAplicarPermisos)
         {
             // Agregamos los particulares de la busqueda de secretaria
-            AppRuts.AddTable("TipoInst", JoinModes.LeftOuter, condicionJoin(ECliente.CodtinstCmp, ETipoInst.CodCmp), ref p_strTablas);
-            AppRuts.AddTable("Franquicias", JoinModes.LeftOuter, condicionJoin(ECliente.CodfrqCmp, EFranquicia.CodCmp), ref p_strTablas);
             AppRuts.AddTable("Localidades", JoinModes.LeftOuter, condicionJoin(ECliente.CodlocalidadCmp, ELocalidad.CodpostCmp), ref p_strTablas);
-            AppRuts.AddTable("Rubros", JoinModes.LeftOuter, condicionJoin(ETipoInst.CodrubroCmp, ERubro.CodCmp), ref p_strTablas);
             AppRuts.AddTable("Zonas", JoinModes.LeftOuter, condicionJoin(EZona.CodCmp, ELocalidad.CodzonaCmp), ref p_strTablas);
+            AppRuts.AddTable("Marcas", JoinModes.LeftOuter, condicionJoin(ECliente.CodmarcaCmp, EMarca.CodCmp), ref p_strTablas);
             AppRuts.AddTable("Vendedores", JoinModes.LeftOuter, condicionJoin(ECliente.CodvendCmp, EVendedor.CodCmp), ref p_strTablas);
             if (p_boolEsBusquedaXContacto)
                 AppRuts.AddTable("CliContactos", JoinModes.Full, "cli_nro_numero = clc_nro_numcliente", ref p_strTablas);
@@ -2046,8 +2045,7 @@ namespace Carm.Bll
             string l_strCampos = ECliente.NumeroCmp + ", " +
                                  ECliente.RsocialCmp + ", " +
                                  ECliente.NombrefantCmp + ", " +
-                                 "tin_des_des as cli_des_tinst," +
-                                 "tin_cd1_mayorista as cli_cd1_esmayo," +
+                                 ECliente.NomyapeCmp + ", " +
                                  ECliente.Telefono1Cmp + ", " +
                                  ECliente.AltaCmp + ", " +
                                  "loc_ede_nombre as cli_ede_loc," +
@@ -2067,15 +2065,14 @@ namespace Carm.Bll
             l_leClientes.ChangeCaption(ECliente.NumeroCmp, "V1NúmeroNN2");                      /*0*/
             l_leClientes.ChangeCaption(ECliente.RsocialCmp, "V1Razón SocialCN2");               /*1*/
             l_leClientes.ChangeCaption(ECliente.NombrefantCmp, "V1Nombre FantasíaCN2");         /*2*/
-            l_leClientes.ChangeCaption("cli_des_tinst", "V1Tipo de InstituciónCN2");            /*3*/
-            l_leClientes.ChangeCaption("cli_cd1_esmayo", "V1MayoristaCN2");                     /*4*/
-            l_leClientes.ChangeCaption(ECliente.Telefono1Cmp, "V1TeléfonoCN2");                 /*5*/
-            l_leClientes.ChangeCaption(ECliente.AltaCmp, "V1Alta en AvalonCN2");                /*6*/
-            l_leClientes.ChangeCaption("cli_ede_loc", "V1LocalidadCN2");                        /*7*/
-            l_leClientes.ChangeCaption(ECliente.CodvendCmp, "V1Cod. Vend.CN2");                 /*8*/
-            l_leClientes.ChangeCaption(ECliente.NroavalonCmp, "V1Nro. AvalonNN2");              /*9*/
-            l_leClientes.ChangeCaption(ECliente.EmailCmp, "V1EmailCN1");                        /*10*/
-            l_leClientes.ChangeCaption(ECliente.CelularCmp, "V1CelularCN1");                    /*11*/
+            l_leClientes.ChangeCaption(ECliente.NomyapeCmp, "V1Nombre y ApellidoCN2");          /*3*/
+            l_leClientes.ChangeCaption(ECliente.Telefono1Cmp, "V1TeléfonoCN2");                 /*4*/
+            l_leClientes.ChangeCaption(ECliente.AltaCmp, "V1Alta en AvalonCN2");                /*5*/
+            l_leClientes.ChangeCaption("cli_ede_loc", "V1LocalidadCN2");                        /*6*/
+            l_leClientes.ChangeCaption(ECliente.CodvendCmp, "V1Cod. Vend.CN2");                 /*7*/
+            l_leClientes.ChangeCaption(ECliente.NroavalonCmp, "V1Nro. AvalonNN2");              /*8*/
+            l_leClientes.ChangeCaption(ECliente.EmailCmp, "V1EmailCN1");                        /*9*/
+            l_leClientes.ChangeCaption(ECliente.CelularCmp, "V1CelularCN1");                    /*10*/
         }
 
         #endregion

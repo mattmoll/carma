@@ -675,7 +675,11 @@ namespace Carm.Bel
     /// </summary>
     public sealed partial class ECliente : Entidad
     {
+        public static string CodigoAreasProtegidas { get { return "AP"; } }
+        public static string CodigoSociosDirectos { get { return "SD"; } }
+
         private bool m_bEsCargaExcel = false;
+
         #region Metodos publicos de la clase
         //---------------------------------------------------------------
         // Metodos públicos de la clase
@@ -711,6 +715,9 @@ namespace Carm.Bel
         #endregion
 
         public bool esCargaExcel { get { return m_bEsCargaExcel; } set { m_bEsCargaExcel = value; } }
+
+        public bool EsAreaProtegida { get { return this.Tipocliente == ECliente.CodigoAreasProtegidas; } }
+        public bool EsSocioDirecto { get { return this.Tipocliente == ECliente.CodigoSociosDirectos; } }
     }
     #endregion
 

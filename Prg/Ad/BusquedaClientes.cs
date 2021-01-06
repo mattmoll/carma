@@ -38,22 +38,14 @@ namespace Carm.Ad
         {
             App.ShowMsg("Cargando...");
 
-            // Trae todas las franquicias existentes a un comboBox
-            m_leFranquicias = Tablas.FrqUpFull(false, m_smResult);
+            ListaEntidades marcas = Bll.Tablas.MrcUpFull(true, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
-            cargaCombo(m_leFranquicias, cmbFranquicias, Bel.EFranquicia.CodCmp, Bel.EFranquicia.DesCmp);
+            cargaCombo(marcas, cdcMarcas, Bel.EMarca.CodCmp, Bel.EMarca.DesCmp);
 
-            // Trae todas los rubros existentes a un comboBox
-            m_leRubros = Tablas.RbrUpFull(false, m_smResult);
-            if (MsgRuts.AnalizeError(this, m_smResult)) return;
-            filtraRubros();
-            cargaCombo(m_leRubros,cmbRubros,Bel.ERubro.CodCmp, Bel.ERubro.DesCmp);
-
-            // Trae todas las tipos de instituciones existentes a una comboBox.
-            m_leTiposInsts = Tablas.TinUpFull(false, m_smResult);
-            if (MsgRuts.AnalizeError(this, m_smResult)) return;
-            filtraTiposInst();
-            cargaCombo(m_leTiposInsts, cmbTiposInsts, Bel.ETipoInst.CodCmp, Bel.ETipoInst.DesCmp);
+            cdcTipoCliente.AddStrCD("AP", "AREAS PROTEGIDAS");
+            cdcTipoCliente.AddStrCD("SD", "SOCIOS DIRECTOS");
+            cdcTipoCliente.AddStrCD("", "");
+            cdcTipoCliente.SelectedStrCode = "";
 
             // Trae todas las zonas existentes a un comboBox
             m_leZonas = Tablas.ZnsUpFull(false, m_smResult);
@@ -68,18 +60,15 @@ namespace Carm.Ad
             teCargador.Text = m_bsBusqueda.Cargador;
             teCodVend.Text = m_bsBusqueda.CodVend;
             cdcMarcas.SelectedStrCode = m_bsBusqueda.Marca.PadLeft(2, ' ');
-            cmbFranquicias.SelectedStrCode = m_bsBusqueda.Franq.PadLeft(4, ' ');
-            cmbRubros.SelectedStrCode = m_bsBusqueda.Rubro.PadLeft(2, ' ');
-            cmbTiposInsts.SelectedStrCode = m_bsBusqueda.TInst.PadLeft(4, ' ');
             cmbZonas.SelectedStrCode = m_bsBusqueda.Zona.PadLeft(2, ' ');
             cmbLocalidades.SelectedStrCode = m_bsBusqueda.Loc.PadLeft(8, ' ');
             teDir.Text = m_bsBusqueda.Dir;
             neAltura.Text = m_bsBusqueda.Altura;
             teTelefono.Text = m_bsBusqueda.Telefono;
+            cdcTipoCliente.SelectedStrCode = m_bsBusqueda.TipoCliente.PadLeft(2, ' ');
 
             // Chequeamos los radiobuttons correspondientes a cada filtro.
             checkRadioButton(m_bsBusqueda.Vendido, rbVndSi, rbVndNo, rbVndAmbos);
-            checkRadioButton(m_bsBusqueda.Mayorista, rbMaySi, rbMayNo, rbMayAmbos);
 
             App.HideMsg();
         }
@@ -117,10 +106,8 @@ namespace Carm.Ad
             m_bsBusqueda.NFant = teNombreFant.Text.Trim();
             m_bsBusqueda.CodVend = teCodVend.Text.Trim();
             m_bsBusqueda.Cargador = teCargador.Text.Trim();
+            m_bsBusqueda.TipoCliente = cdcTipoCliente.SelectedStrCode.Trim();
             m_bsBusqueda.Marca = cdcMarcas.SelectedStrCode.ToString().Trim();
-            m_bsBusqueda.Franq = cmbFranquicias.SelectedStrCode.ToString().Trim();
-            m_bsBusqueda.Rubro = cmbRubros.SelectedStrCode.ToString().Trim();
-            m_bsBusqueda.TInst = cmbTiposInsts.SelectedStrCode.ToString().Trim();
             m_bsBusqueda.Zona = cmbZonas.SelectedStrCode.ToString().Trim();
             m_bsBusqueda.Loc = cmbLocalidades.SelectedStrCode.ToString().Trim();
             m_bsBusqueda.Dir = teDir.Text.Trim();
@@ -136,23 +123,6 @@ namespace Carm.Ad
             {
                 btnBuscar_Click(sender, e);
             }
-        }
-
-        // Evento de cambio del index de la combo de rubros que trae las t inst correspondientes
-        private void cmbRubros_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            App.ShowMsg("Cargando...");
-
-            // Cuando cambia de rubro, traer los tipos de institución pertenecientes
-            m_leTiposInsts = Tablas.TinGetTiposInstRubro(cmbRubros.SelectedStrCode, m_smResult);
-            if (MsgRuts.AnalizeError(this, m_smResult)) return;
-            m_leTiposInsts.AddExprColumn("Deleted", typeof(decimal), "0");
-            filtraTiposInst();
-            cmbTiposInsts.FillFromStrLEntidad(m_leTiposInsts, "tin_cod_cod", "tin_des_des", "Deleted");
-            cmbTiposInsts.AddStrCD("", "", 0);
-            cmbTiposInsts.SelectedStrCode = "";
-
-            App.HideMsg();
         }
 
         // Evento de cambio del indez de la combo de zonas que trae las localidades correspondientes
@@ -176,11 +146,6 @@ namespace Carm.Ad
         private void rbCheckedVendChanged(object sender, EventArgs e)
         {
             m_bsBusqueda.Vendido = cargaValorRadioButton(rbVndSi, rbVndNo, rbVndAmbos);
-        }
-
-        private void rbCheckedMayorChanged(object sender, EventArgs e)
-        {
-            m_bsBusqueda.Mayorista = cargaValorRadioButton(rbMaySi, rbMayNo, rbMayAmbos);
         }
 
         #endregion
@@ -243,7 +208,9 @@ namespace Carm.Ad
             get { return m_bsBusqueda; }
         }
 
+        private void xPanel1_Paint(object sender, PaintEventArgs e)
+        {
 
-
+        }
     }
 }

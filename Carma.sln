@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z - Tablas Generales", "Prg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bel", "Bel\Bel.csproj", "{B1CD76AC-D1A1-4D43-81C5-77627B0E83EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z - Administracion", "T:\Carma\Prg\Ad\Z - Administracion.csproj", "{106B634B-8940-469A-95F5-950253508944}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z - Administracion", "Prg\Ad\Z - Administracion.csproj", "{106B634B-8940-469A-95F5-950253508944}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

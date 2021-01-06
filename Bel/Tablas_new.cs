@@ -5,130 +5,24 @@ using System.Collections.Generic;
 using System.Data;
 using System.Xml;
 using TNGS.NetRoutines;
-using Sima;
+using Carm;
 #endregion
 
-namespace Sima.Bel
+namespace Carm.Bel
 {
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 07/06/2016 22:00
-    // Sistema                  : Sima
+    // Fecha                    : 18/12/2020 02:22
+    // Sistema                  : Carm
     // Clase para Administrar   : Tablas
     //----------------------------------------------------------------------------
-    // © 1996-2016 by TNG Software                                      Gndr 5.20
+    // © 1996-2020 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
     //    Agregue en esta clase los metodos fijos que desea incorporar 
     //****************************************************************************
-
-    #region Entidad: BasesOp
-    /// <summary>
-    /// Clase que representa la Entidad: BasesOp
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class EBasesOp : Entidad
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos públicos de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados de la clase
-        //---------------------------------------------------------------
-
-        /// <summary>
-        /// Permite agregar datos al XML de la entidad
-        /// </summary>
-        private void fAddXMLData(ref XmlDocument p_xdocData,
-                                 ref XmlNode p_xndEntidad)
-        {
-        }
-
-        /// <summary>
-        /// Permite agregar datos a una entidad generada desde un XML
-        /// </summary>
-        private void fNewFromXML(ref DataRow p_drTemp,
-                                 XmlNode p_xndData)
-        {
-        }
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad: BasesOps
-    /// <summary>
-    /// Clase que representa la Lista-Entidad: BasesOps
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LEBasesOps : ListaEntidades
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad-Tipada: BasesOps
-    /// <summary>
-    /// Clase que representa la Lista-Entidad-Tipada: BasesOps
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LETBasesOps : LET<EBasesOp>
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
 
     #region Entidad: CategoriaLlamada
     /// <summary>
@@ -212,112 +106,6 @@ namespace Sima.Bel
     ///   - Elementos no producidos por el Generador
     /// </summary>
     public sealed partial class LETCategoriasLlamada : LET<ECategoriaLlamada>
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Entidad: Codigo
-    /// <summary>
-    /// Clase que representa la Entidad: Codigo
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class ECodigo : Entidad
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos públicos de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados de la clase
-        //---------------------------------------------------------------
-
-        /// <summary>
-        /// Permite agregar datos al XML de la entidad
-        /// </summary>
-        private void fAddXMLData(ref XmlDocument p_xdocData,
-                                 ref XmlNode p_xndEntidad)
-        {
-        }
-
-        /// <summary>
-        /// Permite agregar datos a una entidad generada desde un XML
-        /// </summary>
-        private void fNewFromXML(ref DataRow p_drTemp,
-                                 XmlNode p_xndData)
-        {
-        }
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad: Codigos
-    /// <summary>
-    /// Clase que representa la Lista-Entidad: Codigos
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LECodigos : ListaEntidades
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad-Tipada: Codigos
-    /// <summary>
-    /// Clase que representa la Lista-Entidad-Tipada: Codigos
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LETCodigos : LET<ECodigo>
     {
         #region Metodos publicos de la clase
         //---------------------------------------------------------------
@@ -448,112 +236,6 @@ namespace Sima.Bel
     }
     #endregion
 
-    #region Entidad: Dominio
-    /// <summary>
-    /// Clase que representa la Entidad: Dominio
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class EDominio : Entidad
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos públicos de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados de la clase
-        //---------------------------------------------------------------
-
-        /// <summary>
-        /// Permite agregar datos al XML de la entidad
-        /// </summary>
-        private void fAddXMLData(ref XmlDocument p_xdocData,
-                                 ref XmlNode p_xndEntidad)
-        {
-        }
-
-        /// <summary>
-        /// Permite agregar datos a una entidad generada desde un XML
-        /// </summary>
-        private void fNewFromXML(ref DataRow p_drTemp,
-                                 XmlNode p_xndData)
-        {
-        }
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad: Dominios
-    /// <summary>
-    /// Clase que representa la Lista-Entidad: Dominios
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LEDominios : ListaEntidades
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad-Tipada: Dominios
-    /// <summary>
-    /// Clase que representa la Lista-Entidad-Tipada: Dominios
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LETDominios : LET<EDominio>
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
     #region Entidad: Franquicia
     /// <summary>
     /// Clase que representa la Entidad: Franquicia
@@ -636,112 +318,6 @@ namespace Sima.Bel
     ///   - Elementos no producidos por el Generador
     /// </summary>
     public sealed partial class LETFranquicias : LET<EFranquicia>
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Entidad: HistoricoAbono
-    /// <summary>
-    /// Clase que representa la Entidad: HistoricoAbono
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class EHistoricoAbono : Entidad
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos públicos de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados de la clase
-        //---------------------------------------------------------------
-
-        /// <summary>
-        /// Permite agregar datos al XML de la entidad
-        /// </summary>
-        private void fAddXMLData(ref XmlDocument p_xdocData,
-                                 ref XmlNode p_xndEntidad)
-        {
-        }
-
-        /// <summary>
-        /// Permite agregar datos a una entidad generada desde un XML
-        /// </summary>
-        private void fNewFromXML(ref DataRow p_drTemp,
-                                 XmlNode p_xndData)
-        {
-        }
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad: HistoricoAbonos
-    /// <summary>
-    /// Clase que representa la Lista-Entidad: HistoricoAbonos
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LEHistoricoAbonos : ListaEntidades
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad-Tipada: HistoricoAbonos
-    /// <summary>
-    /// Clase que representa la Lista-Entidad-Tipada: HistoricoAbonos
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LETHistoricoAbonos : LET<EHistoricoAbono>
     {
         #region Metodos publicos de la clase
         //---------------------------------------------------------------
@@ -978,112 +554,6 @@ namespace Sima.Bel
     }
     #endregion
 
-    #region Entidad: MarcaNotificado
-    /// <summary>
-    /// Clase que representa la Entidad: MarcaNotificado
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class EMarcaNotificado : Entidad
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos públicos de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados de la clase
-        //---------------------------------------------------------------
-
-        /// <summary>
-        /// Permite agregar datos al XML de la entidad
-        /// </summary>
-        private void fAddXMLData(ref XmlDocument p_xdocData,
-                                 ref XmlNode p_xndEntidad)
-        {
-        }
-
-        /// <summary>
-        /// Permite agregar datos a una entidad generada desde un XML
-        /// </summary>
-        private void fNewFromXML(ref DataRow p_drTemp,
-                                 XmlNode p_xndData)
-        {
-        }
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad: MarcaNotificados
-    /// <summary>
-    /// Clase que representa la Lista-Entidad: MarcaNotificados
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LEMarcaNotificados : ListaEntidades
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad-Tipada: MarcaNotificados
-    /// <summary>
-    /// Clase que representa la Lista-Entidad-Tipada: MarcaNotificados
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LETMarcaNotificados : LET<EMarcaNotificado>
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
     #region Entidad: Marca
     /// <summary>
     /// Clase que representa la Entidad: Marca
@@ -1190,218 +660,6 @@ namespace Sima.Bel
     }
     #endregion
 
-    #region Entidad: MarcaXCliente
-    /// <summary>
-    /// Clase que representa la Entidad: MarcaXCliente
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class EMarcaXCliente : Entidad
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos públicos de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados de la clase
-        //---------------------------------------------------------------
-
-        /// <summary>
-        /// Permite agregar datos al XML de la entidad
-        /// </summary>
-        private void fAddXMLData(ref XmlDocument p_xdocData,
-                                 ref XmlNode p_xndEntidad)
-        {
-        }
-
-        /// <summary>
-        /// Permite agregar datos a una entidad generada desde un XML
-        /// </summary>
-        private void fNewFromXML(ref DataRow p_drTemp,
-                                 XmlNode p_xndData)
-        {
-        }
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad: MarcasXClientes
-    /// <summary>
-    /// Clase que representa la Lista-Entidad: MarcasXClientes
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LEMarcasXClientes : ListaEntidades
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad-Tipada: MarcasXClientes
-    /// <summary>
-    /// Clase que representa la Lista-Entidad-Tipada: MarcasXClientes
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LETMarcasXClientes : LET<EMarcaXCliente>
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Entidad: ModeloCarta
-    /// <summary>
-    /// Clase que representa la Entidad: ModeloCarta
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class EModeloCarta : Entidad
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos públicos de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados de la clase
-        //---------------------------------------------------------------
-
-        /// <summary>
-        /// Permite agregar datos al XML de la entidad
-        /// </summary>
-        private void fAddXMLData(ref XmlDocument p_xdocData,
-                                 ref XmlNode p_xndEntidad)
-        {
-        }
-
-        /// <summary>
-        /// Permite agregar datos a una entidad generada desde un XML
-        /// </summary>
-        private void fNewFromXML(ref DataRow p_drTemp,
-                                 XmlNode p_xndData)
-        {
-        }
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad: ModeloCartas
-    /// <summary>
-    /// Clase que representa la Lista-Entidad: ModeloCartas
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LEModeloCartas : ListaEntidades
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad-Tipada: ModeloCartas
-    /// <summary>
-    /// Clase que representa la Lista-Entidad-Tipada: ModeloCartas
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LETModeloCartas : LET<EModeloCarta>
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
     #region Entidad: MotivosLlamada
     /// <summary>
     /// Clase que representa la Entidad: MotivosLlamada
@@ -1484,112 +742,6 @@ namespace Sima.Bel
     ///   - Elementos no producidos por el Generador
     /// </summary>
     public sealed partial class LETMotivosLlamadas : LET<EMotivosLlamada>
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Entidad: Notificado
-    /// <summary>
-    /// Clase que representa la Entidad: Notificado
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class ENotificado : Entidad
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos públicos de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados de la clase
-        //---------------------------------------------------------------
-
-        /// <summary>
-        /// Permite agregar datos al XML de la entidad
-        /// </summary>
-        private void fAddXMLData(ref XmlDocument p_xdocData,
-                                 ref XmlNode p_xndEntidad)
-        {
-        }
-
-        /// <summary>
-        /// Permite agregar datos a una entidad generada desde un XML
-        /// </summary>
-        private void fNewFromXML(ref DataRow p_drTemp,
-                                 XmlNode p_xndData)
-        {
-        }
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad: Notificados
-    /// <summary>
-    /// Clase que representa la Lista-Entidad: Notificados
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LENotificados : ListaEntidades
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad-Tipada: Notificados
-    /// <summary>
-    /// Clase que representa la Lista-Entidad-Tipada: Notificados
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LETNotificados : LET<ENotificado>
     {
         #region Metodos publicos de la clase
         //---------------------------------------------------------------
@@ -1932,6 +1084,112 @@ namespace Sima.Bel
     }
     #endregion
 
+    #region Entidad: SituacionIVA
+    /// <summary>
+    /// Clase que representa la Entidad: SituacionIVA
+    ///   - Elementos no producidos por el Generador
+    /// </summary>
+    public sealed partial class ESituacionIVA : Entidad
+    {
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos públicos de la clase
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Metodos privados de la clase
+        //---------------------------------------------------------------
+        // Metodos privados de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Permite agregar datos al XML de la entidad
+        /// </summary>
+        private void fAddXMLData(ref XmlDocument p_xdocData,
+                                 ref XmlNode p_xndEntidad)
+        {
+        }
+
+        /// <summary>
+        /// Permite agregar datos a una entidad generada desde un XML
+        /// </summary>
+        private void fNewFromXML(ref DataRow p_drTemp,
+                                 XmlNode p_xndData)
+        {
+        }
+
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        #endregion
+    }
+    #endregion
+
+    #region Lista-Entidad: SituacionesIVAs
+    /// <summary>
+    /// Clase que representa la Lista-Entidad: SituacionesIVAs
+    ///   - Elementos no producidos por el Generador
+    /// </summary>
+    public sealed partial class LESituacionesIVAs : ListaEntidades
+    {
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos publicos
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Metodos privados de la clase
+        //---------------------------------------------------------------
+        // Metodos privados
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        #endregion
+    }
+    #endregion
+
+    #region Lista-Entidad-Tipada: SituacionesIVAs
+    /// <summary>
+    /// Clase que representa la Lista-Entidad-Tipada: SituacionesIVAs
+    ///   - Elementos no producidos por el Generador
+    /// </summary>
+    public sealed partial class LETSituacionesIVAs : LET<ESituacionIVA>
+    {
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos publicos
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Metodos privados de la clase
+        //---------------------------------------------------------------
+        // Metodos privados
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        #endregion
+    }
+    #endregion
+
     #region Entidad: TipoVendedor
     /// <summary>
     /// Clase que representa la Entidad: TipoVendedor
@@ -2226,112 +1484,6 @@ namespace Sima.Bel
     ///   - Elementos no producidos por el Generador
     /// </summary>
     public sealed partial class LETTipoInsts : LET<ETipoInst>
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Entidad: TipoSol
-    /// <summary>
-    /// Clase que representa la Entidad: TipoSol
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class ETipoSol : Entidad
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos públicos de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados de la clase
-        //---------------------------------------------------------------
-
-        /// <summary>
-        /// Permite agregar datos al XML de la entidad
-        /// </summary>
-        private void fAddXMLData(ref XmlDocument p_xdocData,
-                                 ref XmlNode p_xndEntidad)
-        {
-        }
-
-        /// <summary>
-        /// Permite agregar datos a una entidad generada desde un XML
-        /// </summary>
-        private void fNewFromXML(ref DataRow p_drTemp,
-                                 XmlNode p_xndData)
-        {
-        }
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad: TipoSols
-    /// <summary>
-    /// Clase que representa la Lista-Entidad: TipoSols
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LETipoSols : ListaEntidades
-    {
-        #region Metodos publicos de la clase
-        //---------------------------------------------------------------
-        // Metodos publicos
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Metodos privados de la clase
-        //---------------------------------------------------------------
-        // Metodos privados
-        //---------------------------------------------------------------
-
-        #endregion
-
-        #region Propiedades de la clase
-        //---------------------------------------------------------------
-        // Propiedades de la clase
-        //---------------------------------------------------------------
-
-        #endregion
-    }
-    #endregion
-
-    #region Lista-Entidad-Tipada: TipoSols
-    /// <summary>
-    /// Clase que representa la Lista-Entidad-Tipada: TipoSols
-    ///   - Elementos no producidos por el Generador
-    /// </summary>
-    public sealed partial class LETTipoSols : LET<ETipoSol>
     {
         #region Metodos publicos de la clase
         //---------------------------------------------------------------

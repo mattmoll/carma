@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 03/12/2020 22:16
+// Fecha              : 18/12/2020 02:58
 // Base de Datos      : TNGS_Carm
 // Tabla              : Clientes
 //----------------------------------------------------------------------------
@@ -57,7 +57,7 @@ create table Clientes
       cli_des_cuil tngs_descripcion,
       cli_xld_url tngs_descripcion_xl,
       cli_cd6_codvend tngs_codigo_6,
-      cli_fec_fingsima tngs_fecha,
+      cli_fec_fechaingreso tngs_fecha,
       cli_nro_cantempleados tngs_numero,
       cli_txt_cobertura tngs_texto,
       cli_nom_cargador tngs_nombre,
@@ -67,7 +67,7 @@ create table Clientes
       cli_imp_abono tngs_importe,
       cli_rcd_codtipocont tngs_codigo_r,
       cli_imp_deuda tngs_importe,
-      cli_cd1_genero tngs_codigo_1,
+      cli_cd1_sexo tngs_codigo_1,
       cli_des_tarjetacred tngs_descripcion,
       cli_cd1_fueclienteantes tngs_codigo_1,
       cli_ede_titular tngs_descripcion_e,
@@ -76,6 +76,11 @@ create table Clientes
       cli_rde_pisocobertura tngs_descripcion_r,
       cli_rde_oficinacobertura tngs_descripcion_r,
       cli_ecd_codloccobertura tngs_codigo_e,
+      cli_rcd_codmarca tngs_codigo_r,
+      cli_rcd_tipocliente tngs_codigo_r,
+      cli_xde_nomyape tngs_descripcion_x,
+      cli_fec_fechanacimiento tngs_fecha,
+      cli_rcd_situacioniva tngs_codigo_r,
       instante tngs_fecyhor,
       deleted tngs_borrado,
       usuario tngs_nombre,
