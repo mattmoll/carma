@@ -1,11 +1,11 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 01/12/2020 21:33
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CliGrupoFamiliar
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -53,11 +53,12 @@ begin
    if @onlyactive = 1
       begin
          Select cgf_nro_numcliente,
-                cgf_nro_numfamiliar,
-                cgf_des_nombre,
-                cgf_des_apellido,
+                cgf_nro_numintegrante,
+                cgf_ede_apellido,
+                cgf_ede_nombre,
+                cgf_rcd_codparentesco,
                 cgf_d20_dni,
-                cgf_fec_fecnacimiento,
+                cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
                 TNGS_Carm..CliGrupoFamiliar.instante,
                 TNGS_Carm..CliGrupoFamiliar.deleted,
@@ -66,16 +67,17 @@ begin
            from TNGS_Carm..CliGrupoFamiliar
           where deleted = 0
           order by cgf_nro_numcliente,
-                cgf_nro_numfamiliar
+                cgf_nro_numintegrante
       end
    else
       begin
          Select cgf_nro_numcliente,
-                cgf_nro_numfamiliar,
-                cgf_des_nombre,
-                cgf_des_apellido,
+                cgf_nro_numintegrante,
+                cgf_ede_apellido,
+                cgf_ede_nombre,
+                cgf_rcd_codparentesco,
                 cgf_d20_dni,
-                cgf_fec_fecnacimiento,
+                cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
                 TNGS_Carm..CliGrupoFamiliar.instante,
                 TNGS_Carm..CliGrupoFamiliar.deleted,
@@ -83,7 +85,7 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
           order by cgf_nro_numcliente,
-                cgf_nro_numfamiliar
+                cgf_nro_numintegrante
       end
 
 fin:
@@ -103,8 +105,8 @@ go
 --- <summary>
 --- Verifica el número de versión de un registro
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
 --- <param name="@version">Número de version a verificar</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -124,7 +126,7 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_CHKVERSION
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
+@cgf_nro_numintegrante tngs_numero,
 @version tngs_numero
 )
 as
@@ -133,7 +135,7 @@ begin
    Select count(*) as cantidad
      from TNGS_Carm..CliGrupoFamiliar
     where cgf_nro_numcliente = @cgf_nro_numcliente
-      and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+      and cgf_nro_numintegrante = @cgf_nro_numintegrante
       and version = @version
 
 fin:
@@ -153,8 +155,8 @@ go
 --- <summary>
 --- Busca el registro de una clave
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
 --- <param name="@onlyactive">Flag de SoloActivos</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -174,7 +176,7 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_SEARCH
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
+@cgf_nro_numintegrante tngs_numero,
 @onlyactive tngs_valor
 )
 as
@@ -183,11 +185,12 @@ begin
    if @onlyactive = 1
       begin
          Select cgf_nro_numcliente,
-                cgf_nro_numfamiliar,
-                cgf_des_nombre,
-                cgf_des_apellido,
+                cgf_nro_numintegrante,
+                cgf_ede_apellido,
+                cgf_ede_nombre,
+                cgf_rcd_codparentesco,
                 cgf_d20_dni,
-                cgf_fec_fecnacimiento,
+                cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
                 TNGS_Carm..CliGrupoFamiliar.instante,
                 TNGS_Carm..CliGrupoFamiliar.deleted,
@@ -195,17 +198,18 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
           where cgf_nro_numcliente = @cgf_nro_numcliente
-            and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+            and cgf_nro_numintegrante = @cgf_nro_numintegrante
             and deleted = 0
       end
    else
       begin
          Select cgf_nro_numcliente,
-                cgf_nro_numfamiliar,
-                cgf_des_nombre,
-                cgf_des_apellido,
+                cgf_nro_numintegrante,
+                cgf_ede_apellido,
+                cgf_ede_nombre,
+                cgf_rcd_codparentesco,
                 cgf_d20_dni,
-                cgf_fec_fecnacimiento,
+                cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
                 TNGS_Carm..CliGrupoFamiliar.instante,
                 TNGS_Carm..CliGrupoFamiliar.deleted,
@@ -213,7 +217,7 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
           where cgf_nro_numcliente = @cgf_nro_numcliente
-            and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+            and cgf_nro_numintegrante = @cgf_nro_numintegrante
       end
 
 fin:
@@ -233,7 +237,7 @@ go
 --- <summary>
 --- Busca los registros de una clave foranea
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
 --- <param name="@onlyactive">Flag de SoloActivos</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -261,11 +265,12 @@ begin
    if @onlyactive = 1
       begin
          Select cgf_nro_numcliente,
-                cgf_nro_numfamiliar,
-                cgf_des_nombre,
-                cgf_des_apellido,
+                cgf_nro_numintegrante,
+                cgf_ede_apellido,
+                cgf_ede_nombre,
+                cgf_rcd_codparentesco,
                 cgf_d20_dni,
-                cgf_fec_fecnacimiento,
+                cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
                 TNGS_Carm..CliGrupoFamiliar.instante,
                 TNGS_Carm..CliGrupoFamiliar.deleted,
@@ -274,16 +279,17 @@ begin
            from TNGS_Carm..CliGrupoFamiliar
           where cgf_nro_numcliente = @cgf_nro_numcliente
             and deleted = 0
-          order by cgf_nro_numfamiliar
+          order by cgf_nro_numintegrante
       end
    else
       begin
          Select cgf_nro_numcliente,
-                cgf_nro_numfamiliar,
-                cgf_des_nombre,
-                cgf_des_apellido,
+                cgf_nro_numintegrante,
+                cgf_ede_apellido,
+                cgf_ede_nombre,
+                cgf_rcd_codparentesco,
                 cgf_d20_dni,
-                cgf_fec_fecnacimiento,
+                cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
                 TNGS_Carm..CliGrupoFamiliar.instante,
                 TNGS_Carm..CliGrupoFamiliar.deleted,
@@ -291,7 +297,7 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
           where cgf_nro_numcliente = @cgf_nro_numcliente
-          order by cgf_nro_numfamiliar
+          order by cgf_nro_numintegrante
       end
 
 fin:
@@ -311,12 +317,13 @@ go
 --- <summary>
 --- Inserta un registro en la tabla
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
---- <param name="@cgf_des_nombre">Nombre</param>
---- <param name="@cgf_des_apellido">Apellido</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
+--- <param name="@cgf_ede_apellido">Apellido</param>
+--- <param name="@cgf_ede_nombre">Nombre</param>
+--- <param name="@cgf_rcd_codparentesco">Parentesco</param>
 --- <param name="@cgf_d20_dni">DNI</param>
---- <param name="@cgf_fec_fecnacimiento">Fecha Nacimiento</param>
+--- <param name="@cgf_fec_fechanacimiento">Fecha Nacimiento</param>
 --- <param name="@cgf_ede_obrasocial">Obra Social</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
@@ -337,11 +344,12 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_INSERT
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
-@cgf_des_nombre tngs_descripcion,
-@cgf_des_apellido tngs_descripcion,
+@cgf_nro_numintegrante tngs_numero,
+@cgf_ede_apellido tngs_descripcion_e,
+@cgf_ede_nombre tngs_descripcion_e,
+@cgf_rcd_codparentesco tngs_codigo_r,
 @cgf_d20_dni tngs_descripcion_20,
-@cgf_fec_fecnacimiento tngs_fecha,
+@cgf_fec_fechanacimiento tngs_fecha,
 @cgf_ede_obrasocial tngs_descripcion_e,
 @usuario tngs_nombre
 )
@@ -351,11 +359,12 @@ begin
    Insert into TNGS_Carm..CliGrupoFamiliar
    values (
            @cgf_nro_numcliente,
-           @cgf_nro_numfamiliar,
-           @cgf_des_nombre,
-           @cgf_des_apellido,
+           @cgf_nro_numintegrante,
+           @cgf_ede_apellido,
+           @cgf_ede_nombre,
+           @cgf_rcd_codparentesco,
            @cgf_d20_dni,
-           @cgf_fec_fecnacimiento,
+           @cgf_fec_fechanacimiento,
            @cgf_ede_obrasocial,
            getdate(), 0, @usuario, 1
           )
@@ -377,12 +386,13 @@ go
 --- <summary>
 --- Actualiza un registro de la tabla
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
---- <param name="@cgf_des_nombre">Nombre</param>
---- <param name="@cgf_des_apellido">Apellido</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
+--- <param name="@cgf_ede_apellido">Apellido</param>
+--- <param name="@cgf_ede_nombre">Nombre</param>
+--- <param name="@cgf_rcd_codparentesco">Parentesco</param>
 --- <param name="@cgf_d20_dni">DNI</param>
---- <param name="@cgf_fec_fecnacimiento">Fecha Nacimiento</param>
+--- <param name="@cgf_fec_fechanacimiento">Fecha Nacimiento</param>
 --- <param name="@cgf_ede_obrasocial">Obra Social</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
@@ -403,11 +413,12 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_UPDATE
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
-@cgf_des_nombre tngs_descripcion,
-@cgf_des_apellido tngs_descripcion,
+@cgf_nro_numintegrante tngs_numero,
+@cgf_ede_apellido tngs_descripcion_e,
+@cgf_ede_nombre tngs_descripcion_e,
+@cgf_rcd_codparentesco tngs_codigo_r,
 @cgf_d20_dni tngs_descripcion_20,
-@cgf_fec_fecnacimiento tngs_fecha,
+@cgf_fec_fechanacimiento tngs_fecha,
 @cgf_ede_obrasocial tngs_descripcion_e,
 @usuario tngs_nombre
 )
@@ -415,16 +426,17 @@ as
 begin
 
    Update TNGS_Carm..CliGrupoFamiliar
-      set cgf_des_nombre= @cgf_des_nombre,
-          cgf_des_apellido= @cgf_des_apellido,
+      set cgf_ede_apellido= @cgf_ede_apellido,
+          cgf_ede_nombre= @cgf_ede_nombre,
+          cgf_rcd_codparentesco= @cgf_rcd_codparentesco,
           cgf_d20_dni= @cgf_d20_dni,
-          cgf_fec_fecnacimiento= @cgf_fec_fecnacimiento,
+          cgf_fec_fechanacimiento= @cgf_fec_fechanacimiento,
           cgf_ede_obrasocial= @cgf_ede_obrasocial,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario
     where cgf_nro_numcliente = @cgf_nro_numcliente
-      and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+      and cgf_nro_numintegrante = @cgf_nro_numintegrante
 
 fin:
 
@@ -443,8 +455,8 @@ go
 --- <summary>
 --- Borra lógicamente un registro
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
 --- <param name="@usuario">Usuario que realiza el delete</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -464,7 +476,7 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_DELETE
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
+@cgf_nro_numintegrante tngs_numero,
 @usuario tngs_nombre
 )
 as
@@ -476,7 +488,7 @@ begin
           instante= getdate(),
           usuario = @usuario
     where cgf_nro_numcliente = @cgf_nro_numcliente
-      and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+      and cgf_nro_numintegrante = @cgf_nro_numintegrante
 
 fin:
 
@@ -495,7 +507,7 @@ go
 --- <summary>
 --- Borra lógicamente un registro por clave foranea
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
 --- <param name="@instante">Instante del delete</param>
 --- <param name="@usuario">Usuario que realiza el delete</param>
 ---
@@ -551,8 +563,8 @@ go
 --- <summary>
 --- Recupera un registro
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
 --- <param name="@usuario">Usuario que realiza el recall</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -572,7 +584,7 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_RECALL
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
+@cgf_nro_numintegrante tngs_numero,
 @usuario tngs_nombre
 )
 as
@@ -584,7 +596,7 @@ begin
           instante= getdate(),
           usuario = @usuario
     where cgf_nro_numcliente = @cgf_nro_numcliente
-      and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+      and cgf_nro_numintegrante = @cgf_nro_numintegrante
 
 fin:
 
@@ -603,7 +615,7 @@ go
 --- <summary>
 --- Recupera lógicamente los registros de una clave foranea
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
 --- <param name="@instante">Instante de referencia</param>
 --- <param name="@usuario">Usuario que realiza el recall</param>
 ---
@@ -667,8 +679,8 @@ go
 --- <summary>
 --- Borra físicamente un registro
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
 --- <param name="@usuario">Usuario que realiza el drop</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -688,7 +700,7 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_DROP
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
+@cgf_nro_numintegrante tngs_numero,
 @usuario tngs_nombre
 )
 as
@@ -696,7 +708,7 @@ begin
 
    Delete from TNGS_Carm..CliGrupoFamiliar
     where cgf_nro_numcliente = @cgf_nro_numcliente
-      and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+      and cgf_nro_numintegrante = @cgf_nro_numintegrante
 
 fin:
 
@@ -715,7 +727,7 @@ go
 --- <summary>
 --- Borra físicamente un registro por clave foránea
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
 --- <param name="@usuario">Usuario que realiza el drop</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -803,7 +815,7 @@ go
 --- <summary>
 --- Borra físicamente los registro borrados lógicamente por clave foránea
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
 --- <param name="@usuario">Usuario que realiza el pack</param>
 ---
 ---////////////////////////////////////////////////////////

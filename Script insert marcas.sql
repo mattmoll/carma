@@ -1,3 +1,12 @@
+USE [TNGS_Carm]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+
 insert into Marcas values('IM', 'INTERMED', '1-1-2020', 0, 'Migracion', 0)
 insert into Marcas values('AZ', 'IE AZUL', '1-1-2020', 0, 'Migracion', 0)
 insert into Marcas values('BL', 'IE BOLIVAR','1-1-2020', 0, 'Migracion', 0)

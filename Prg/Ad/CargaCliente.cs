@@ -43,6 +43,14 @@ namespace Carm.Ad
             cdcMarca.AddStrCD("", "");
             cdcMarca.SelectedStrCode = "";
 
+            ListaEntidades rubros = Bll.Tablas.RbrUpFull(true, statMessage);
+            if (MsgRuts.AnalizeError(this, statMessage)) return;
+
+            cdcRubro.FillFromStrLEntidad(rubros, ERubro.CodCmp, ERubro.DesCmp);
+            cdcRubro.AddStrCD("", "");
+            cdcRubro.SelectedStrCode = "";
+            
+
             cdcSexo.AddStrCD("M", "MASCULINO");
             cdcSexo.AddStrCD("F", "FEMENINO");
             cdcSexo.AddStrCD("", "");
@@ -134,7 +142,8 @@ namespace Carm.Ad
             cliente.Rsocial = teRazonSocial.Text;
             cliente.Nombrefant = teNombreFantasia.Text;
 
-            cliente.Nomyape = teApellido.Text;
+            cliente.Nombre = teNombre.Text;
+            cliente.Apellido = teApellido.Text;
             cliente.Fechanacimiento = deFechaNacimiento.Fecha;
             cliente.Sexo = cdcSexo.SelectedStrCode;
             cliente.Tarjetacred = teTarjetaCredito.Text;
@@ -171,7 +180,8 @@ namespace Carm.Ad
             teRazonSocial.Text = cliente.Rsocial;
             teNombreFantasia.Text = cliente.Nombrefant;
 
-            teApellido.Text = cliente.Nomyape;
+            teNombre.Text = cliente.Nombre;
+            teApellido.Text = cliente.Apellido;
             deFechaNacimiento.Fecha = cliente.Fechanacimiento;
             cdcSexo.SelectedStrCode = cliente.Sexo;
             teTarjetaCredito.Text = cliente.Tarjetacred;

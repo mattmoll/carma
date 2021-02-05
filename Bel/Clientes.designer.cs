@@ -14,11 +14,11 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 18/12/2020 03:04
+    // Fecha                    : 05/02/2021 12:36
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
-    // © 1996-2020 by TNG Software                                      Gndr 5.20
+    // © 1996-2021 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -1799,6 +1799,690 @@ namespace Carm.Bel
                     // Si existe -> la devolvemos
                     if ((l_entItem.Numcliente == p_iNumcliente) &&
                         (l_entItem.Numentrev == p_iNumentrev))
+                        return l_entItem;
+                }
+
+                // No existe
+                return null;
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Entidad: CliGrupoFamiliar
+    /// <summary>
+    /// Clase que representa la Entidad: CliGrupoFamiliar
+    /// </summary>
+    public sealed partial class ECliGrupoFamiliar : Entidad
+    {
+        #region Constructores
+        /// <summary>
+        /// Constructor
+        /// Llena la entidad a partir de una Row de la tabla: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_drDatos">DataRow con los datos de la entidad</param>
+        public ECliGrupoFamiliar(DataRow p_drDatos) :
+            base(p_drDatos)
+        {
+        }
+
+        /// <summary>
+        /// Construye una entidad desde un XML: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_strXML">Datos en XML</param>
+        /// <param name="p_bEsNueva">T- La Entidad es Nueva / F- No</param>
+        public ECliGrupoFamiliar(string p_strXML) :
+            this(p_strXML, false)
+        {
+        }
+
+        /// <summary>
+        /// Construye una entidad desde un XML: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_strXML">Datos en XML</param>
+        public ECliGrupoFamiliar(string p_strXML,
+                                 bool p_bEsNueva)
+        {
+            // Fijamos la condicion de entidad nueva
+            base.m_bNew= p_bEsNueva;
+
+            // Obtenemos el Nodo de datos del XML
+            XmlDocument l_xdocData= new XmlDocument();
+            l_xdocData.InnerXml= p_strXML;
+            XmlNode l_xndData= l_xdocData.ChildNodes[0];
+
+            // Creamos una tabla compatible con la entidad
+            DataTable l_dtTemp= new DataTable();
+            l_dtTemp.Columns.AddRange(ECliGrupoFamiliar.Struct);
+
+            // Creamos una row a partir de la tabla creada y la
+            // llenamos con los valores iniciales
+            DataRow l_drTemp= l_dtTemp.NewRow();
+
+            l_drTemp["cgf_nro_numcliente"]= XMLRuts.ExtractXAttr(l_xndData, "cgf_nro_numcliente", 0);
+            l_drTemp["cgf_nro_numintegrante"]= XMLRuts.ExtractXAttr(l_xndData, "cgf_nro_numintegrante", 0);
+            l_drTemp["cgf_ede_apellido"]= XMLRuts.ExtractXAttr(l_xndData, "cgf_ede_apellido");
+            l_drTemp["cgf_ede_nombre"]= XMLRuts.ExtractXAttr(l_xndData, "cgf_ede_nombre");
+            l_drTemp["cgf_rcd_codparentesco"]= XMLRuts.ExtractXAttr(l_xndData, "cgf_rcd_codparentesco");
+            l_drTemp["cgf_d20_dni"]= XMLRuts.ExtractXAttr(l_xndData, "cgf_d20_dni");
+            l_drTemp["cgf_fec_fechanacimiento"]= XMLRuts.ExtractXAttr(l_xndData, "cgf_fec_fechanacimiento", true);
+            l_drTemp["cgf_ede_obrasocial"]= XMLRuts.ExtractXAttr(l_xndData, "cgf_ede_obrasocial");
+
+            // Llenamos los campos fijos
+            XML2FixedFields(ref l_drTemp, l_xndData);
+
+            // Llamamos al metodo fijo
+            fNewFromXML(ref l_drTemp, l_xndData);
+
+            // Agregamos la Row creada a la tabla creada y creamos
+            // una entidad a partir de los datos
+            l_dtTemp.Rows.Add(l_drTemp);
+            SetInternalData(l_dtTemp, l_dtTemp.Rows[0]);
+        }
+
+        /// <summary>
+        /// Constructor 
+        /// Privado para crear clases vacias
+        /// </summary>
+        /// <param name="p_dtDatos">DataTable con 1 registro con los datos de la entidad</param>
+        private ECliGrupoFamiliar(DataTable p_dtDatos) :
+            base(p_dtDatos)
+        {
+        }
+        #endregion
+
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos públicos de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Construye una entidad vacía: CliGrupoFamiliar
+        /// </summary>
+        /// <returns>Entidad vacia: CliGrupoFamiliar</returns>
+        public static ECliGrupoFamiliar NewEmpty()
+        {
+            // Creamos una tabla compatible con la entidad
+            DataTable l_dtTemp= new DataTable();
+            l_dtTemp.Columns.AddRange(ECliGrupoFamiliar.Struct);
+
+            // Creamos una row a partir de la tabla creada y la
+            // llenamos con los valores iniciales
+            DataRow l_drTemp= l_dtTemp.NewRow();
+
+            l_drTemp["cgf_nro_numcliente"]= 0;
+            l_drTemp["cgf_nro_numintegrante"]= 0;
+            l_drTemp["cgf_ede_apellido"]= "";
+            l_drTemp["cgf_ede_nombre"]= "";
+            l_drTemp["cgf_rcd_codparentesco"]= "";
+            l_drTemp["cgf_d20_dni"]= "";
+            l_drTemp["cgf_fec_fechanacimiento"]= DateTimeRuts.Empty;
+            l_drTemp["cgf_ede_obrasocial"]= "";
+
+            // Agregamos la Row creada a la tabla creada y creamos
+            // una entidad a partir de la DataTable de 1 registro
+            l_dtTemp.Rows.Add(l_drTemp);
+            ECliGrupoFamiliar l_entRet= new ECliGrupoFamiliar(l_dtTemp);
+            l_dtTemp.Dispose();
+            return l_entRet;
+        }
+
+        /// <summary>
+        /// Construye una entidad con datos de parametro: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_iNumintegrante">Nro Integrante GF</param>
+        /// <param name="p_strApellido">Apellido</param>
+        /// <param name="p_strNombre">Nombre</param>
+        /// <param name="p_strCodparentesco">Parentesco</param>
+        /// <param name="p_strDni">DNI</param>
+        /// <param name="p_dtFechanacimiento">Fecha Nacimiento</param>
+        /// <param name="p_strObrasocial">Obra Social</param>
+        /// <returns>Entidad: CliGrupoFamiliar</returns>
+        public static ECliGrupoFamiliar NewFilled(int p_iNumcliente,
+                                                  int p_iNumintegrante,
+                                                  string p_strApellido,
+                                                  string p_strNombre,
+                                                  string p_strCodparentesco,
+                                                  string p_strDni,
+                                                  DateTime p_dtFechanacimiento,
+                                                  string p_strObrasocial)
+        {
+            // Creamos una tabla compatible con la entidad
+            DataTable l_dtTemp= new DataTable();
+            l_dtTemp.Columns.AddRange(ECliGrupoFamiliar.Struct);
+
+            // Creamos una row a partir de la tabla creada y la
+            // llenamos con los valores iniciales
+            DataRow l_drTemp= l_dtTemp.NewRow();
+
+            l_drTemp["cgf_nro_numcliente"]= p_iNumcliente;
+            l_drTemp["cgf_nro_numintegrante"]= p_iNumintegrante;
+            l_drTemp["cgf_ede_apellido"]= p_strApellido;
+            l_drTemp["cgf_ede_nombre"]= p_strNombre;
+            l_drTemp["cgf_rcd_codparentesco"]= p_strCodparentesco;
+            l_drTemp["cgf_d20_dni"]= p_strDni;
+            l_drTemp["cgf_fec_fechanacimiento"]= p_dtFechanacimiento;
+            l_drTemp["cgf_ede_obrasocial"]= p_strObrasocial;
+
+            // Agregamos la Row creada a la tabla creada y creamos
+            // una entidad a partir de la DataTable de 1 registro
+            l_dtTemp.Rows.Add(l_drTemp);
+            ECliGrupoFamiliar l_entRet= new ECliGrupoFamiliar(l_dtTemp);
+            l_dtTemp.Dispose();
+            return l_entRet;
+        }
+        #endregion
+
+        #region Formateadores
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Devuelve la estructura de la tabla interna de la entidad
+        /// </summary>
+        public static DataColumn[] Struct
+        {
+            get {
+                // Creamos el vector de DataColumns y lo llenamos
+                DataColumn[] l_dcStruct= new DataColumn[12];
+
+                l_dcStruct[0]= new DataColumn("cgf_nro_numcliente", typeof(int));
+                l_dcStruct[1]= new DataColumn("cgf_nro_numintegrante", typeof(int));
+                l_dcStruct[2]= new DataColumn("cgf_ede_apellido", typeof(string));
+                l_dcStruct[3]= new DataColumn("cgf_ede_nombre", typeof(string));
+                l_dcStruct[4]= new DataColumn("cgf_rcd_codparentesco", typeof(string));
+                l_dcStruct[5]= new DataColumn("cgf_d20_dni", typeof(string));
+                l_dcStruct[6]= new DataColumn("cgf_fec_fechanacimiento", typeof(DateTime));
+                l_dcStruct[7]= new DataColumn("cgf_ede_obrasocial", typeof(string));
+                ECliGrupoFamiliar.FillFixedFields(ref l_dcStruct, 8);
+
+                // Devolvemos el vector creado
+                return l_dcStruct;
+            }
+        }
+
+        /// <summary>
+        /// Nro Cliente
+        /// </summary>
+        public static string NumclienteCmp
+        {
+           get {return "cgf_nro_numcliente";}
+        }
+
+        /// <summary>
+        /// Nro Cliente
+        /// </summary>
+        public int Numcliente
+        {
+            get {return (int) InternalData["cgf_nro_numcliente"];}
+            set {InternalData["cgf_nro_numcliente"]= value;}
+        }
+
+        /// <summary>
+        /// Nro Integrante GF
+        /// </summary>
+        public static string NumintegranteCmp
+        {
+           get {return "cgf_nro_numintegrante";}
+        }
+
+        /// <summary>
+        /// Nro Integrante GF
+        /// </summary>
+        public int Numintegrante
+        {
+            get {return (int) InternalData["cgf_nro_numintegrante"];}
+            set {InternalData["cgf_nro_numintegrante"]= value;}
+        }
+
+        /// <summary>
+        /// Apellido
+        /// </summary>
+        public static string ApellidoCmp
+        {
+           get {return "cgf_ede_apellido";}
+        }
+
+        /// <summary>
+        /// Apellido
+        /// </summary>
+        public string Apellido
+        {
+            get {return ((string) InternalData["cgf_ede_apellido"]).Trim();}
+            set {
+                if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
+                InternalData["cgf_ede_apellido"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Nombre
+        /// </summary>
+        public static string NombreCmp
+        {
+           get {return "cgf_ede_nombre";}
+        }
+
+        /// <summary>
+        /// Nombre
+        /// </summary>
+        public string Nombre
+        {
+            get {return ((string) InternalData["cgf_ede_nombre"]).Trim();}
+            set {
+                if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
+                InternalData["cgf_ede_nombre"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Parentesco
+        /// </summary>
+        public static string CodparentescoCmp
+        {
+           get {return "cgf_rcd_codparentesco";}
+        }
+
+        /// <summary>
+        /// Parentesco
+        /// </summary>
+        public string Codparentesco
+        {
+            get {return ((string) InternalData["cgf_rcd_codparentesco"]).Trim();}
+            set {
+                if (value.Trim().Length > 2) value= value.Trim().Substring(0,2);
+                InternalData["cgf_rcd_codparentesco"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// DNI
+        /// </summary>
+        public static string DniCmp
+        {
+           get {return "cgf_d20_dni";}
+        }
+
+        /// <summary>
+        /// DNI
+        /// </summary>
+        public string Dni
+        {
+            get {return ((string) InternalData["cgf_d20_dni"]).Trim();}
+            set {
+                if (value.Trim().Length > 20) value= value.Trim().Substring(0,20);
+                InternalData["cgf_d20_dni"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Fecha Nacimiento
+        /// </summary>
+        public static string FechanacimientoCmp
+        {
+           get {return "cgf_fec_fechanacimiento";}
+        }
+
+        /// <summary>
+        /// Fecha Nacimiento
+        /// </summary>
+        public DateTime Fechanacimiento
+        {
+            get {return (DateTime) InternalData["cgf_fec_fechanacimiento"];}
+            set {InternalData["cgf_fec_fechanacimiento"]= value;}
+        }
+
+        /// <summary>
+        /// Obra Social
+        /// </summary>
+        public static string ObrasocialCmp
+        {
+           get {return "cgf_ede_obrasocial";}
+        }
+
+        /// <summary>
+        /// Obra Social
+        /// </summary>
+        public string Obrasocial
+        {
+            get {return ((string) InternalData["cgf_ede_obrasocial"]).Trim();}
+            set {
+                if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
+                InternalData["cgf_ede_obrasocial"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Devuelve la entidad [ECliGrupoFamiliar] como XMLDocument en formato string
+        /// </summary>
+        public string XMLData
+        {
+            get {return XMLEncode.InnerXml;}
+        }
+
+        /// <summary>
+        /// Devuelve la entidad [ECliGrupoFamiliar] como XMLDocument
+        /// </summary>
+        public XmlDocument XMLEncode
+        {
+            get {
+                //Creamos un Nodo de un Documento XML
+                XmlDocument l_xdocData= new XmlDocument();
+                XmlNode l_xndEntidad= l_xdocData.CreateNode(XmlNodeType.Element, "ECliGrupoFamiliar", null);
+
+                // Asignamos los atributos al nodo
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cgf_nro_numcliente", Numcliente));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cgf_nro_numintegrante", Numintegrante));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cgf_ede_apellido", Apellido));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cgf_ede_nombre", Nombre));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cgf_rcd_codparentesco", Codparentesco));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cgf_d20_dni", Dni));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cgf_fec_fechanacimiento", Fechanacimiento));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cgf_ede_obrasocial", Obrasocial));
+
+                // Asignamos los campos fijos
+                FixedFields2XML(l_xdocData, ref l_xndEntidad);
+
+                // Llamamos al metodo fijo
+                fAddXMLData(ref l_xdocData, ref l_xndEntidad);
+
+                // Armamos el documento y lo devolvemos
+                l_xdocData.AppendChild(l_xndEntidad);
+                return l_xdocData;
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Lista-Entidad: CliGrupoFamiliares
+    /// <summary>
+    /// Clase que representa la Lista-Entidad: CliGrupoFamiliares
+    /// </summary>
+    public sealed partial class LECliGrupoFamiliares : ListaEntidades, IEnumerable<ECliGrupoFamiliar>
+    {
+        #region Constructores
+        /// <summary>
+        /// Constructor
+        /// Llena la lista-entidad a partir de una Tabla: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_dtDatos">DataTable con los datos de la entidad</param>
+        public LECliGrupoFamiliares(DataTable p_dtDatos) :
+            base(p_dtDatos)
+        {
+        }
+
+        /// <summary>
+        /// Constructor
+        /// Llena la lista-entidad a partir de un XML
+        /// </summary>
+        /// <param name="p_dtDatos">DataTable con los datos de la entidad</param>
+        public LECliGrupoFamiliares(string p_strXMLData) :
+            base(ECliGrupoFamiliar.Struct)
+        {
+            // Creamos el documento XML
+            XmlDocument l_xdocData= new XmlDocument();
+            l_xdocData.InnerXml= p_strXMLData;
+            XmlElement l_xelTemp= l_xdocData.DocumentElement;
+
+            // Agregamos cada item a la LE
+            foreach (XmlNode l_xndItem in l_xelTemp.ChildNodes)
+                AddEntity(new ECliGrupoFamiliar(l_xndItem.OuterXml));
+        }
+
+        /// <summary>
+        /// Constructor
+        /// Constuye la lista-entidad vacia a partir de una lista de columnas
+        /// correspondiente a una entidad
+        /// </summary>
+        /// <param name="p_dcEstructura">Columnas de la estructura</param>
+        private LECliGrupoFamiliares(DataColumn[] p_dcEstructura) :
+            base(p_dcEstructura)
+        {
+        }
+        #endregion
+
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos publicos
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Construye una lista-entidad vacía: CliGrupoFamiliares
+        /// </summary>
+        /// <returns>Lista-Entidad vacia: CliGrupoFamiliar</returns>
+        public static LECliGrupoFamiliares NewEmpty()
+        {
+            return new LECliGrupoFamiliares(ECliGrupoFamiliar.Struct);
+        }
+
+        /// <summary>
+        /// Agrega una entidad a la lista
+        /// </summary>
+        /// <param name="p_entECliGrupoFamiliar">Entidad a agregar</param>
+        public void AddEntity(ECliGrupoFamiliar p_entECliGrupoFamiliar)
+        {
+            base.AddEntity(p_entECliGrupoFamiliar);
+        }
+
+        /// <summary>
+        /// Remueve una entidad [CliGrupoFamiliar] por clave
+        /// </summary>
+        public int RemoveEntity(int p_iNumcliente,
+                                int p_iNumintegrante)
+        {
+            // Buscamos la fila mediante un filtro
+            int l_iRet= 0;
+
+            m_dtDatos.DefaultView.RowFilter= 
+                "cgf_nro_numcliente = " + Ruts.Nu(p_iNumcliente) + " and " + 
+                "cgf_nro_numintegrante = " + Ruts.Nu(p_iNumintegrante);
+
+            if (m_dtDatos.DefaultView.Count == 1) {
+                // La borramos
+                m_dtDatos.Rows.Remove(m_dtDatos.DefaultView[0].Row);
+                l_iRet= 1;
+            }
+
+            // Quito el filtro
+            m_dtDatos.DefaultView.RowFilter= "";
+            return l_iRet;
+        }
+
+        /// <summary>
+        /// Verifca si una entidad [CliGrupoFamiliar] esta en la lista
+        /// </summary>
+        public bool Contains(int p_iNumcliente,
+                             int p_iNumintegrante)
+        {
+            using (ECliGrupoFamiliar l_entTemp= this[p_iNumcliente,
+                                                     p_iNumintegrante])
+            {
+                // Indicamos si existe o no
+                return (l_entTemp != null);
+            }
+        }
+
+        /// <summary>
+        /// Devuelve el enumerador de la lista-entidades: CliGrupoFamiliares
+        /// </summary>
+        /// <returns>Enumerador de las entidades en la lista</returns>
+        public new IEnumerator<ECliGrupoFamiliar> GetEnumerator() 
+        {
+            ECliGrupoFamiliar l_entTemp= null;
+
+            foreach (DataRowView l_drvTemp in m_dtDatos.DefaultView) {
+                l_entTemp= new ECliGrupoFamiliar(l_drvTemp.Row);
+                yield return l_entTemp;
+            }
+        }
+
+        /// <summary>
+        /// Devuelve la lista entidad como un array de entidades: CliGrupoFamiliares
+        /// </summary>
+        /// <returns>Array de entidades</returns>
+        public ArrayList GetAsArray()
+        {
+            // Llenamos el array con las entidades
+            ArrayList l_alRet= new ArrayList();
+
+            foreach (ECliGrupoFamiliar l_entItem in this)
+                l_alRet.Add(l_entItem);
+
+            return l_alRet;
+        }
+
+        /// <summary>
+        /// Devuelve la lista entidad como una LET: CliGrupoFamiliares
+        /// </summary>
+        /// <returns>Lista Entidad Tipada</returns>
+        public LETCliGrupoFamiliares GetAsLET()
+        {
+            // Llenamos la lista tipada
+            LETCliGrupoFamiliares l_lentRet= new LETCliGrupoFamiliares();
+
+            foreach (ECliGrupoFamiliar l_entItem in this)
+                l_lentRet.Add(l_entItem);
+
+            return l_lentRet;
+        }
+
+        /// <summary>
+        /// Devuelve la lista entidad como una List<CliGrupoFamiliares>
+        /// </summary>
+        /// <returns>Lista de entidades</returns>
+        public List<ECliGrupoFamiliar> ToList()
+        {
+            // Usamos el metodo GetAsLET
+            return (List<ECliGrupoFamiliar>) GetAsLET();
+        }
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Indexer para acceder a cada entidad [CliGrupoFamiliar] por indice
+        /// </summary>
+        public new ECliGrupoFamiliar this[long p_lRow]
+        {
+            get {
+                // Recuperamos la fila solicitada
+                DataRow l_drDatos= base[(int) p_lRow];
+                if (l_drDatos == null) return null;
+
+                // Devolvemos una entidad CliGrupoFamiliar con los datos de la fila
+                return new ECliGrupoFamiliar(l_drDatos);
+            }
+        }
+
+        /// <summary>
+        /// Indexer para acceder a cada entidad [CliGrupoFamiliar] por clave
+        /// </summary>
+        public ECliGrupoFamiliar this[int p_iNumcliente,
+                                      int p_iNumintegrante]
+        {
+            get {
+                // Buscamos la fila mediante un filtro
+                DataRow l_drData= null;
+
+                m_dtDatos.DefaultView.RowFilter= 
+                    "cgf_nro_numcliente = " + Ruts.Nu(p_iNumcliente) + " and " + 
+                    "cgf_nro_numintegrante = " + Ruts.Nu(p_iNumintegrante);
+
+                if (m_dtDatos.DefaultView.Count == 1)
+                    l_drData= m_dtDatos.DefaultView[0].Row;
+
+                // Quito el filtro
+                m_dtDatos.DefaultView.RowFilter= "";
+
+                // Devolvemos una entidad CliGrupoFamiliar con los datos de la fila
+                if (l_drData == null) return null;
+                return new ECliGrupoFamiliar(l_drData);
+            }
+        }
+
+        /// <summary>
+        /// Devuelve la ListaEntidad como XML en string
+        /// </summary>
+        public string XMLData
+        {
+            get {return XMLEncode.InnerXml;}
+        }
+
+        /// <summary>
+        /// Devuelve la ListaEntidad como XML
+        /// </summary>
+        public XmlDocument XMLEncode
+        {
+            get {
+                // Construimos el XML
+                XmlDocument l_xdocData= new XmlDocument();
+                XmlNode l_xndEntidad= l_xdocData.CreateNode(XmlNodeType.Element, "LECliGrupoFamiliares", null);
+
+                foreach (ECliGrupoFamiliar l_entDExtra in this)
+                    l_xndEntidad.AppendChild(l_xdocData.ImportNode(l_entDExtra.XMLEncode.ChildNodes[0], false));
+
+                l_xdocData.AppendChild(l_xndEntidad);
+                return l_xdocData;
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Lista-Entidad-Tipada: CliGrupoFamiliares
+    /// <summary>
+    /// Clase que representa la Lista-Entidad-Tipada: CliGrupoFamiliares
+    /// </summary>
+    public sealed partial class LETCliGrupoFamiliares : LET<ECliGrupoFamiliar>
+    {
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos publicos
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Devuelve la lista entidad tipada como una LE: CliGrupoFamiliares
+        /// </summary>
+        /// <returns>Lista Entidad</returns>
+        public LECliGrupoFamiliares GetAsLE()
+        {
+            // Llenamos la lista
+            LECliGrupoFamiliares l_lentRet= LECliGrupoFamiliares.NewEmpty();
+
+            foreach (ECliGrupoFamiliar l_entItem in this)
+                l_lentRet.AddEntity(l_entItem);
+
+            return l_lentRet;
+        }
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Indexer para acceder a cada entidad [CliGrupoFamiliar] por clave
+        /// </summary>
+        public ECliGrupoFamiliar this[int p_iNumcliente,
+                                      int p_iNumintegrante]
+        {
+            get {
+                // Buscamos la entidad
+                foreach (ECliGrupoFamiliar l_entItem in this) {
+                    // Si existe -> la devolvemos
+                    if ((l_entItem.Numcliente == p_iNumcliente) &&
+                        (l_entItem.Numintegrante == p_iNumintegrante))
                         return l_entItem;
                 }
 
@@ -4704,6 +5388,7 @@ namespace Carm.Bel
         #region Miembros de la clase
             private LECliContactos m_lentCliContactos= null;
             private LECliEntrevistas m_lentCliEntrevistas= null;
+            private LECliGrupoFamiliares m_lentCliGrupoFamiliares= null;
             private LECliLlamadas m_lentCliLlamadas= null;
             private LECliNotas m_lentCliNotas= null;
             private LECliServicios m_lentCliServicios= null;
@@ -4732,6 +5417,7 @@ namespace Carm.Bel
             // Creamos las listas-entidad hijas vacias
             m_lentCliContactos= LECliContactos.NewEmpty();
             m_lentCliEntrevistas= LECliEntrevistas.NewEmpty();
+            m_lentCliGrupoFamiliares= LECliGrupoFamiliares.NewEmpty();
             m_lentCliLlamadas= LECliLlamadas.NewEmpty();
             m_lentCliNotas= LECliNotas.NewEmpty();
             m_lentCliServicios= LECliServicios.NewEmpty();
@@ -4801,10 +5487,13 @@ namespace Carm.Bel
             l_drTemp["cli_ecd_codloccobertura"]= XMLRuts.ExtractXAttr(l_xndData, "cli_ecd_codloccobertura");
             l_drTemp["cli_rcd_codmarca"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_codmarca");
             l_drTemp["cli_rcd_tipocliente"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_tipocliente");
-            l_drTemp["cli_xde_nomyape"]= XMLRuts.ExtractXAttr(l_xndData, "cli_xde_nomyape");
+            l_drTemp["cli_xde_apellido"]= XMLRuts.ExtractXAttr(l_xndData, "cli_xde_apellido");
             l_drTemp["cli_fec_fechanacimiento"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fechanacimiento", true);
             l_drTemp["cli_rcd_situacioniva"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_situacioniva");
-            l_drTemp["cli_cd1_esmayo"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_esmayo");
+            l_drTemp["cli_ede_nombre"]= XMLRuts.ExtractXAttr(l_xndData, "cli_ede_nombre");
+            l_drTemp["cli_rcd_codrubro"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_codrubro");
+            l_drTemp["cli_fec_fecultimocontacto"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fecultimocontacto", true);
+            l_drTemp["cli_fec_fechaproxcontacto"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fechaproxcontacto", true);
             l_drTemp["cli_des_frq"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_frq");
             l_drTemp["cli_des_loc"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_loc");
             l_drTemp["cli_des_prov"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_prov");
@@ -4829,6 +5518,7 @@ namespace Carm.Bel
             // Creamos las listas-entidad hijas vacias
             m_lentCliContactos= LECliContactos.NewEmpty();
             m_lentCliEntrevistas= LECliEntrevistas.NewEmpty();
+            m_lentCliGrupoFamiliares= LECliGrupoFamiliares.NewEmpty();
             m_lentCliLlamadas= LECliLlamadas.NewEmpty();
             m_lentCliNotas= LECliNotas.NewEmpty();
             m_lentCliServicios= LECliServicios.NewEmpty();
@@ -4846,6 +5536,7 @@ namespace Carm.Bel
             // Creamos las listas-entidad hijas vacias
             m_lentCliContactos= LECliContactos.NewEmpty();
             m_lentCliEntrevistas= LECliEntrevistas.NewEmpty();
+            m_lentCliGrupoFamiliares= LECliGrupoFamiliares.NewEmpty();
             m_lentCliLlamadas= LECliLlamadas.NewEmpty();
             m_lentCliNotas= LECliNotas.NewEmpty();
             m_lentCliServicios= LECliServicios.NewEmpty();
@@ -4911,10 +5602,13 @@ namespace Carm.Bel
             l_drTemp["cli_ecd_codloccobertura"]= "";
             l_drTemp["cli_rcd_codmarca"]= "";
             l_drTemp["cli_rcd_tipocliente"]= "";
-            l_drTemp["cli_xde_nomyape"]= "";
+            l_drTemp["cli_xde_apellido"]= "";
             l_drTemp["cli_fec_fechanacimiento"]= DateTimeRuts.Empty;
             l_drTemp["cli_rcd_situacioniva"]= "";
-            l_drTemp["cli_cd1_esmayo"]= "";
+            l_drTemp["cli_ede_nombre"]= "";
+            l_drTemp["cli_rcd_codrubro"]= "";
+            l_drTemp["cli_fec_fecultimocontacto"]= DateTimeRuts.Empty;
+            l_drTemp["cli_fec_fechaproxcontacto"]= DateTimeRuts.Empty;
             l_drTemp["cli_des_frq"]= "";
             l_drTemp["cli_des_loc"]= "";
             l_drTemp["cli_des_prov"]= "";
@@ -4973,9 +5667,13 @@ namespace Carm.Bel
         /// <param name="p_strCodloccobertura">Localidad Cobertura</param>
         /// <param name="p_strCodmarca">Marca</param>
         /// <param name="p_strTipocliente">Tipo Cliente</param>
-        /// <param name="p_strNomyape">Nombre y Apellido</param>
+        /// <param name="p_strApellido">Apellido</param>
         /// <param name="p_dtFechanacimiento">Fecha nacimiento</param>
         /// <param name="p_strSituacioniva">Situacion IVA</param>
+        /// <param name="p_strNombre">Nombre</param>
+        /// <param name="p_strCodrubro">Rubro</param>
+        /// <param name="p_dtFecultimocontacto">Fecha Último Contacto</param>
+        /// <param name="p_dtFechaproxcontacto">Fecha Próximo Contacto</param>
         /// <returns>Entidad: Cliente</returns>
         public static ECliente NewFilled(int p_iNumero,
                                          string p_strRsocial,
@@ -5016,9 +5714,13 @@ namespace Carm.Bel
                                          string p_strCodloccobertura,
                                          string p_strCodmarca,
                                          string p_strTipocliente,
-                                         string p_strNomyape,
+                                         string p_strApellido,
                                          DateTime p_dtFechanacimiento,
-                                         string p_strSituacioniva)
+                                         string p_strSituacioniva,
+                                         string p_strNombre,
+                                         string p_strCodrubro,
+                                         DateTime p_dtFecultimocontacto,
+                                         DateTime p_dtFechaproxcontacto)
         {
             // Creamos una tabla compatible con la entidad
             DataTable l_dtTemp= new DataTable();
@@ -5067,10 +5769,13 @@ namespace Carm.Bel
             l_drTemp["cli_ecd_codloccobertura"]= p_strCodloccobertura;
             l_drTemp["cli_rcd_codmarca"]= p_strCodmarca;
             l_drTemp["cli_rcd_tipocliente"]= p_strTipocliente;
-            l_drTemp["cli_xde_nomyape"]= p_strNomyape;
+            l_drTemp["cli_xde_apellido"]= p_strApellido;
             l_drTemp["cli_fec_fechanacimiento"]= p_dtFechanacimiento;
             l_drTemp["cli_rcd_situacioniva"]= p_strSituacioniva;
-            l_drTemp["cli_cd1_esmayo"]= "";
+            l_drTemp["cli_ede_nombre"]= p_strNombre;
+            l_drTemp["cli_rcd_codrubro"]= p_strCodrubro;
+            l_drTemp["cli_fec_fecultimocontacto"]= p_dtFecultimocontacto;
+            l_drTemp["cli_fec_fechaproxcontacto"]= p_dtFechaproxcontacto;
             l_drTemp["cli_des_frq"]= "";
             l_drTemp["cli_des_loc"]= "";
             l_drTemp["cli_des_prov"]= "";
@@ -5137,6 +5842,17 @@ namespace Carm.Bel
 
             return p_strCodtipocont.Trim().PadLeft(2).ToUpper();
         }
+
+        /// <summary>
+        /// Formatea una string: Rubro
+        /// </summary>
+        public static string FrmtCodrubro(string p_strCodrubro)
+        {
+            if (p_strCodrubro.Trim().Length > 2)
+                p_strCodrubro= p_strCodrubro.Trim().Substring(0,2);
+
+            return p_strCodrubro.Trim().PadLeft(2).ToUpper();
+        }
         #endregion
 
         #region Propiedades de la clase
@@ -5151,59 +5867,62 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[54];
+                DataColumn[] l_dcStruct= new DataColumn[57];
 
                 l_dcStruct[0]= new DataColumn("cli_nro_numero", typeof(int));
                 l_dcStruct[1]= new DataColumn("cli_ede_rsocial", typeof(string));
                 l_dcStruct[2]= new DataColumn("cli_des_nombrefant", typeof(string));
                 l_dcStruct[3]= new DataColumn("cli_des_tinst", typeof(string));
                 l_dcStruct[4]= new DataColumn("cli_cod_codtinst", typeof(string));
-                l_dcStruct[5]= new DataColumn("cli_cd1_esmayo", typeof(string));
-                l_dcStruct[6]= new DataColumn("cli_cod_codfrq", typeof(string));
-                l_dcStruct[7]= new DataColumn("cli_des_frq", typeof(string));
-                l_dcStruct[8]= new DataColumn("cli_cd1_alta", typeof(string));
-                l_dcStruct[9]= new DataColumn("cli_tel_telefono1", typeof(string));
-                l_dcStruct[10]= new DataColumn("cli_tel_celular", typeof(string));
-                l_dcStruct[11]= new DataColumn("cli_tel_telefono2", typeof(string));
-                l_dcStruct[12]= new DataColumn("cli_tel_fax", typeof(string));
-                l_dcStruct[13]= new DataColumn("cli_ede_direccion", typeof(string));
-                l_dcStruct[14]= new DataColumn("cli_nro_altura", typeof(int));
-                l_dcStruct[15]= new DataColumn("cli_rde_piso", typeof(string));
-                l_dcStruct[16]= new DataColumn("cli_rde_oficina", typeof(string));
-                l_dcStruct[17]= new DataColumn("cli_ecd_codlocalidad", typeof(string));
-                l_dcStruct[18]= new DataColumn("cli_des_loc", typeof(string));
-                l_dcStruct[19]= new DataColumn("cli_des_prov", typeof(string));
-                l_dcStruct[20]= new DataColumn("cli_des_zona", typeof(string));
-                l_dcStruct[21]= new DataColumn("cli_ede_partido", typeof(string));
-                l_dcStruct[22]= new DataColumn("cli_rcd_codzona", typeof(string));
-                l_dcStruct[23]= new DataColumn("cli_des_cuil", typeof(string));
-                l_dcStruct[24]= new DataColumn("cli_xld_url", typeof(string));
-                l_dcStruct[25]= new DataColumn("cli_cd6_codvend", typeof(string));
-                l_dcStruct[26]= new DataColumn("cli_fec_fechaingreso", typeof(DateTime));
-                l_dcStruct[27]= new DataColumn("cli_nro_cantempleados", typeof(int));
-                l_dcStruct[28]= new DataColumn("cli_txt_cobertura", typeof(string));
-                l_dcStruct[29]= new DataColumn("cli_nom_cargador", typeof(string));
-                l_dcStruct[30]= new DataColumn("cli_txt_observacion", typeof(string));
-                l_dcStruct[31]= new DataColumn("cli_xld_email", typeof(string));
-                l_dcStruct[32]= new DataColumn("cli_nro_nroavalon", typeof(int));
-                l_dcStruct[33]= new DataColumn("cli_imp_abono", typeof(decimal));
-                l_dcStruct[34]= new DataColumn("cli_rcd_codtipocont", typeof(string));
-                l_dcStruct[35]= new DataColumn("cli_imp_deuda", typeof(decimal));
-                l_dcStruct[36]= new DataColumn("cli_cd1_sexo", typeof(string));
-                l_dcStruct[37]= new DataColumn("cli_des_tarjetacred", typeof(string));
-                l_dcStruct[38]= new DataColumn("cli_cd1_fueclienteantes", typeof(string));
-                l_dcStruct[39]= new DataColumn("cli_ede_titular", typeof(string));
-                l_dcStruct[40]= new DataColumn("cli_ede_direccioncobertura", typeof(string));
-                l_dcStruct[41]= new DataColumn("cli_nro_alturacobertura", typeof(int));
-                l_dcStruct[42]= new DataColumn("cli_rde_pisocobertura", typeof(string));
-                l_dcStruct[43]= new DataColumn("cli_rde_oficinacobertura", typeof(string));
-                l_dcStruct[44]= new DataColumn("cli_ecd_codloccobertura", typeof(string));
-                l_dcStruct[45]= new DataColumn("cli_rcd_codmarca", typeof(string));
-                l_dcStruct[46]= new DataColumn("cli_rcd_tipocliente", typeof(string));
-                l_dcStruct[47]= new DataColumn("cli_xde_nomyape", typeof(string));
-                l_dcStruct[48]= new DataColumn("cli_fec_fechanacimiento", typeof(DateTime));
-                l_dcStruct[49]= new DataColumn("cli_rcd_situacioniva", typeof(string));
-                ECliente.FillFixedFields(ref l_dcStruct, 50);
+                l_dcStruct[5]= new DataColumn("cli_cod_codfrq", typeof(string));
+                l_dcStruct[6]= new DataColumn("cli_des_frq", typeof(string));
+                l_dcStruct[7]= new DataColumn("cli_cd1_alta", typeof(string));
+                l_dcStruct[8]= new DataColumn("cli_tel_telefono1", typeof(string));
+                l_dcStruct[9]= new DataColumn("cli_tel_celular", typeof(string));
+                l_dcStruct[10]= new DataColumn("cli_tel_telefono2", typeof(string));
+                l_dcStruct[11]= new DataColumn("cli_tel_fax", typeof(string));
+                l_dcStruct[12]= new DataColumn("cli_ede_direccion", typeof(string));
+                l_dcStruct[13]= new DataColumn("cli_nro_altura", typeof(int));
+                l_dcStruct[14]= new DataColumn("cli_rde_piso", typeof(string));
+                l_dcStruct[15]= new DataColumn("cli_rde_oficina", typeof(string));
+                l_dcStruct[16]= new DataColumn("cli_ecd_codlocalidad", typeof(string));
+                l_dcStruct[17]= new DataColumn("cli_des_loc", typeof(string));
+                l_dcStruct[18]= new DataColumn("cli_des_prov", typeof(string));
+                l_dcStruct[19]= new DataColumn("cli_des_zona", typeof(string));
+                l_dcStruct[20]= new DataColumn("cli_ede_partido", typeof(string));
+                l_dcStruct[21]= new DataColumn("cli_rcd_codzona", typeof(string));
+                l_dcStruct[22]= new DataColumn("cli_des_cuil", typeof(string));
+                l_dcStruct[23]= new DataColumn("cli_xld_url", typeof(string));
+                l_dcStruct[24]= new DataColumn("cli_cd6_codvend", typeof(string));
+                l_dcStruct[25]= new DataColumn("cli_fec_fechaingreso", typeof(DateTime));
+                l_dcStruct[26]= new DataColumn("cli_nro_cantempleados", typeof(int));
+                l_dcStruct[27]= new DataColumn("cli_txt_cobertura", typeof(string));
+                l_dcStruct[28]= new DataColumn("cli_nom_cargador", typeof(string));
+                l_dcStruct[29]= new DataColumn("cli_txt_observacion", typeof(string));
+                l_dcStruct[30]= new DataColumn("cli_xld_email", typeof(string));
+                l_dcStruct[31]= new DataColumn("cli_nro_nroavalon", typeof(int));
+                l_dcStruct[32]= new DataColumn("cli_imp_abono", typeof(decimal));
+                l_dcStruct[33]= new DataColumn("cli_rcd_codtipocont", typeof(string));
+                l_dcStruct[34]= new DataColumn("cli_imp_deuda", typeof(decimal));
+                l_dcStruct[35]= new DataColumn("cli_cd1_sexo", typeof(string));
+                l_dcStruct[36]= new DataColumn("cli_des_tarjetacred", typeof(string));
+                l_dcStruct[37]= new DataColumn("cli_cd1_fueclienteantes", typeof(string));
+                l_dcStruct[38]= new DataColumn("cli_ede_titular", typeof(string));
+                l_dcStruct[39]= new DataColumn("cli_ede_direccioncobertura", typeof(string));
+                l_dcStruct[40]= new DataColumn("cli_nro_alturacobertura", typeof(int));
+                l_dcStruct[41]= new DataColumn("cli_rde_pisocobertura", typeof(string));
+                l_dcStruct[42]= new DataColumn("cli_rde_oficinacobertura", typeof(string));
+                l_dcStruct[43]= new DataColumn("cli_ecd_codloccobertura", typeof(string));
+                l_dcStruct[44]= new DataColumn("cli_rcd_codmarca", typeof(string));
+                l_dcStruct[45]= new DataColumn("cli_rcd_tipocliente", typeof(string));
+                l_dcStruct[46]= new DataColumn("cli_xde_apellido", typeof(string));
+                l_dcStruct[47]= new DataColumn("cli_fec_fechanacimiento", typeof(DateTime));
+                l_dcStruct[48]= new DataColumn("cli_rcd_situacioniva", typeof(string));
+                l_dcStruct[49]= new DataColumn("cli_ede_nombre", typeof(string));
+                l_dcStruct[50]= new DataColumn("cli_rcd_codrubro", typeof(string));
+                l_dcStruct[51]= new DataColumn("cli_fec_fecultimocontacto", typeof(DateTime));
+                l_dcStruct[52]= new DataColumn("cli_fec_fechaproxcontacto", typeof(DateTime));
+                ECliente.FillFixedFields(ref l_dcStruct, 53);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -5940,22 +6659,22 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Nombre y Apellido
+        /// Apellido
         /// </summary>
-        public static string NomyapeCmp
+        public static string ApellidoCmp
         {
-           get {return "cli_xde_nomyape";}
+           get {return "cli_xde_apellido";}
         }
 
         /// <summary>
-        /// Nombre y Apellido
+        /// Apellido
         /// </summary>
-        public string Nomyape
+        public string Apellido
         {
-            get {return ((string) InternalData["cli_xde_nomyape"]).Trim();}
+            get {return ((string) InternalData["cli_xde_apellido"]).Trim();}
             set {
                 if (value.Trim().Length > 120) value= value.Trim().Substring(0,120);
-                InternalData["cli_xde_nomyape"]= value.Trim();
+                InternalData["cli_xde_apellido"]= value.Trim();
             }
         }
 
@@ -5994,6 +6713,77 @@ namespace Carm.Bel
         }
 
         /// <summary>
+        /// Nombre
+        /// </summary>
+        public static string NombreCmp
+        {
+           get {return "cli_ede_nombre";}
+        }
+
+        /// <summary>
+        /// Nombre
+        /// </summary>
+        public string Nombre
+        {
+            get {return ((string) InternalData["cli_ede_nombre"]).Trim();}
+            set {
+                if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
+                InternalData["cli_ede_nombre"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Rubro
+        /// </summary>
+        public static string CodrubroCmp
+        {
+           get {return "cli_rcd_codrubro";}
+        }
+
+        /// <summary>
+        /// Rubro
+        /// </summary>
+        public string Codrubro
+        {
+            get {return (string) InternalData["cli_rcd_codrubro"];}
+            set {InternalData["cli_rcd_codrubro"]= ECliente.FrmtCodrubro(value);}
+        }
+
+        /// <summary>
+        /// Fecha Último Contacto
+        /// </summary>
+        public static string FecultimocontactoCmp
+        {
+           get {return "cli_fec_fecultimocontacto";}
+        }
+
+        /// <summary>
+        /// Fecha Último Contacto
+        /// </summary>
+        public DateTime Fecultimocontacto
+        {
+            get {return (DateTime) InternalData["cli_fec_fecultimocontacto"];}
+            set {InternalData["cli_fec_fecultimocontacto"]= value;}
+        }
+
+        /// <summary>
+        /// Fecha Próximo Contacto
+        /// </summary>
+        public static string FechaproxcontactoCmp
+        {
+           get {return "cli_fec_fechaproxcontacto";}
+        }
+
+        /// <summary>
+        /// Fecha Próximo Contacto
+        /// </summary>
+        public DateTime Fechaproxcontacto
+        {
+            get {return (DateTime) InternalData["cli_fec_fechaproxcontacto"];}
+            set {InternalData["cli_fec_fechaproxcontacto"]= value;}
+        }
+
+        /// <summary>
         /// Contactos de los Clientes
         /// </summary>
         public LECliContactos CliContactos
@@ -6009,6 +6799,15 @@ namespace Carm.Bel
         {
             get {return m_lentCliEntrevistas;}
             set {m_lentCliEntrevistas= value;}
+        }
+
+        /// <summary>
+        /// CliGrupoFamiliar
+        /// </summary>
+        public LECliGrupoFamiliares CliGrupoFamiliares
+        {
+            get {return m_lentCliGrupoFamiliares;}
+            set {m_lentCliGrupoFamiliares= value;}
         }
 
         /// <summary>
@@ -6045,15 +6844,6 @@ namespace Carm.Bel
         {
             get {return m_lentCliVentas;}
             set {m_lentCliVentas= value;}
-        }
-
-        /// <summary>
-        /// Mayorista
-        /// </summary>
-        public string Cli_cd1_esmayo
-        {
-            get {return (string) InternalData["cli_cd1_esmayo"];}
-            set {InternalData["cli_cd1_esmayo"]= value;}
         }
 
         /// <summary>
@@ -6177,10 +6967,13 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_ecd_codloccobertura", Codloccobertura));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_codmarca", Codmarca));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_tipocliente", Tipocliente));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_xde_nomyape", Nomyape));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_xde_apellido", Apellido));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fechanacimiento", Fechanacimiento));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_situacioniva", Situacioniva));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_esmayo", Cli_cd1_esmayo));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_ede_nombre", Nombre));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_codrubro", Codrubro));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fecultimocontacto", Fecultimocontacto));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fechaproxcontacto", Fechaproxcontacto));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_frq", Cli_des_frq));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_loc", Cli_des_loc));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_prov", Cli_des_prov));

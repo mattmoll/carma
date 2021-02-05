@@ -1,0 +1,34 @@
+TODO:
+
+Generate Dal y Bll.
+
+Tabla Empresas, fix: IEColor -> IEColon
+
+Cambiar en el alta de prospectos el tipo de institucion por Rubro. Borrar tipo de institucion del sistema. Quizas cambiar solo el label?
+
+
+ABM de carga de grupo familiar:
+Parentesco, Nombre, apellido, dni, fecha de nacimiento, obra social (la OS es el unico no obligatorio).
+
+
+Armar Tabla de parentescos, me va a pasar solange la lista final.
+Padre, Madre,
+ Hijo/a, 
+Hermano/a, 
+Abuelo/a,
+ Tio/a, Sobrino/a, 
+Esposo/a
+Cuñado/a
+Yerno
+Nuera
+
+Van a usar los contactos.
+
+Borrar la lista de servicios.
+Mostrar el plan y el valor en el detalle si es cliente.
+
+Borrar las notas (solo la parte visual).
+
+
+Validaciones Unicidad:
+Validar Razon Social y Nombre y Apellido unicidad.

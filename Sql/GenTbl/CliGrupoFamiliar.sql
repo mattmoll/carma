@@ -1,11 +1,11 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 01/12/2020 21:33
+// Fecha              : 05/02/2021 12:23
 // Base de Datos      : TNGS_Carm
 // Tabla              : CliGrupoFamiliar
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -40,11 +40,12 @@ print '   - Creando la nueva tabla'
 create table CliGrupoFamiliar
    (
       cgf_nro_numcliente tngs_numero,
-      cgf_nro_numfamiliar tngs_numero,
-      cgf_des_nombre tngs_descripcion,
-      cgf_des_apellido tngs_descripcion,
+      cgf_nro_numintegrante tngs_numero,
+      cgf_ede_apellido tngs_descripcion_e,
+      cgf_ede_nombre tngs_descripcion_e,
+      cgf_rcd_codparentesco tngs_codigo_r,
       cgf_d20_dni tngs_descripcion_20,
-      cgf_fec_fecnacimiento tngs_fecha,
+      cgf_fec_fechanacimiento tngs_fecha,
       cgf_ede_obrasocial tngs_descripcion_e,
       instante tngs_fecyhor,
       deleted tngs_borrado,
@@ -53,7 +54,7 @@ create table CliGrupoFamiliar
       constraint CliGrupoFamiliar_pk primary key clustered
       (
          cgf_nro_numcliente,
-         cgf_nro_numfamiliar
+         cgf_nro_numintegrante
       )
    )
 go

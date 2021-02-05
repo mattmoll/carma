@@ -46,10 +46,7 @@
             this.dceAbono = new TNGS.NetControls.DecimalEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.igCapitado = new TNGS.NetControls.ImgGroup();
-            this.dceVCapita = new TNGS.NetControls.DecimalEdit();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.neCCapitas = new TNGS.NetControls.NumberEdit();
+            this.cdCombo1 = new TNGS.NetControls.CDCombo();
             this.xPanel1.SuspendLayout();
             this.igAbonoFijo.SuspendLayout();
             this.igCapitado.SuspendLayout();
@@ -58,7 +55,7 @@
             // xPanel1
             // 
             this.xPanel1.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.xPanel1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel1.BorderColor = System.Drawing.Color.Black;
             this.xPanel1.Controls.Add(this.label5);
             this.xPanel1.Controls.Add(this.cdcMarcas);
@@ -239,16 +236,17 @@
             // igAbonoFijo
             // 
             this.igAbonoFijo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.igAbonoFijo.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.igAbonoFijo.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.igAbonoFijo.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
             this.igAbonoFijo.BlackBorder = true;
-            this.igAbonoFijo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.igAbonoFijo.BorderColor = System.Drawing.Color.DodgerBlue;
             this.igAbonoFijo.BorderThickness = 1F;
             this.igAbonoFijo.Controls.Add(this.dceAbono);
             this.igAbonoFijo.Controls.Add(this.label6);
-            this.igAbonoFijo.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.igAbonoFijo.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.igAbonoFijo.FlatMode = true;
             this.igAbonoFijo.FontTitle = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.igAbonoFijo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.igAbonoFijo.ForeColor = System.Drawing.Color.Black;
             this.igAbonoFijo.GroupImage = null;
             this.igAbonoFijo.GroupTitle = "";
             this.igAbonoFijo.Location = new System.Drawing.Point(24, 146);
@@ -290,18 +288,16 @@
             // igCapitado
             // 
             this.igCapitado.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.igCapitado.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.igCapitado.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.igCapitado.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
             this.igCapitado.BlackBorder = true;
-            this.igCapitado.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.igCapitado.BorderColor = System.Drawing.Color.DodgerBlue;
             this.igCapitado.BorderThickness = 1F;
-            this.igCapitado.Controls.Add(this.dceVCapita);
-            this.igCapitado.Controls.Add(this.label3);
-            this.igCapitado.Controls.Add(this.label4);
-            this.igCapitado.Controls.Add(this.neCCapitas);
-            this.igCapitado.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.igCapitado.Controls.Add(this.cdCombo1);
+            this.igCapitado.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.igCapitado.FlatMode = true;
             this.igCapitado.FontTitle = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.igCapitado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.igCapitado.ForeColor = System.Drawing.Color.Black;
             this.igCapitado.GroupImage = null;
             this.igCapitado.GroupTitle = "";
             this.igCapitado.Location = new System.Drawing.Point(165, 146);
@@ -319,50 +315,20 @@
             this.igCapitado.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.igCapitado.TitleFontColor = System.Drawing.Color.White;
             // 
-            // dceVCapita
+            // cdCombo1
             // 
-            this.dceVCapita.BackColor = System.Drawing.SystemColors.Window;
-            this.dceVCapita.Location = new System.Drawing.Point(101, 53);
-            this.dceVCapita.MaxLength = 13;
-            this.dceVCapita.Name = "dceVCapita";
-            this.dceVCapita.Size = new System.Drawing.Size(53, 20);
-            this.dceVCapita.TabIndex = 1;
-            this.dceVCapita.Text = "0.00";
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 22);
-            this.label3.TabIndex = 112;
-            this.label3.Text = "Valor Capita:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 22);
-            this.label4.TabIndex = 113;
-            this.label4.Text = "Cant. Capitas:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // neCCapitas
-            // 
-            this.neCCapitas.BackColor = System.Drawing.SystemColors.Window;
-            this.neCCapitas.Location = new System.Drawing.Point(102, 27);
-            this.neCCapitas.Name = "neCCapitas";
-            this.neCCapitas.Size = new System.Drawing.Size(52, 20);
-            this.neCCapitas.TabIndex = 0;
-            this.neCCapitas.Text = "0";
+            this.cdCombo1.BackColor = System.Drawing.SystemColors.Window;
+            this.cdCombo1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cdCombo1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cdCombo1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cdCombo1.Location = new System.Drawing.Point(23, 39);
+            this.cdCombo1.Name = "cdCombo1";
+            this.cdCombo1.Size = new System.Drawing.Size(123, 24);
+            this.cdCombo1.Sorted = true;
+            this.cdCombo1.TabIndex = 2;
             // 
             // CargaVenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(356, 395);
             this.Controls.Add(this.xPanel1);
@@ -379,7 +345,6 @@
             this.igAbonoFijo.ResumeLayout(false);
             this.igAbonoFijo.PerformLayout();
             this.igCapitado.ResumeLayout(false);
-            this.igCapitado.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -391,10 +356,6 @@
         private TNGS.NetControls.DecimalEdit dceAbono;
         private System.Windows.Forms.Label label6;
         private TNGS.NetControls.ImgGroup igCapitado;
-        private TNGS.NetControls.DecimalEdit dceVCapita;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private TNGS.NetControls.NumberEdit neCCapitas;
         private System.Windows.Forms.Label label1;
         private TNGS.NetControls.CDCombo cdcVendedores;
         private System.Windows.Forms.Label label2;
@@ -406,5 +367,6 @@
         private TNGS.NetControls.FullLabel fullLabel1;
         private System.Windows.Forms.Label label5;
         private TNGS.NetControls.CDCombo cdcMarcas;
+        private TNGS.NetControls.CDCombo cdCombo1;
     }
 }

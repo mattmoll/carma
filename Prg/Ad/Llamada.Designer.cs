@@ -38,7 +38,6 @@
             this.teObservacionProg = new TNGS.NetControls.TextEdit();
             this.fullLabel7 = new TNGS.NetControls.FullLabel();
             this.gbNuevoContacto = new TNGS.NetControls.GlassButton();
-            this.cbProgramada = new System.Windows.Forms.CheckBox();
             this.pnlSeleccionTipo = new System.Windows.Forms.Panel();
             this.pnlLlamado = new System.Windows.Forms.Panel();
             this.teResultado = new TNGS.NetControls.TextEdit();
@@ -90,7 +89,6 @@
             this.imgGroup1.Controls.Add(this.gbRecupero);
             this.imgGroup1.Controls.Add(this.pnObservacionProg);
             this.imgGroup1.Controls.Add(this.gbNuevoContacto);
-            this.imgGroup1.Controls.Add(this.cbProgramada);
             this.imgGroup1.Controls.Add(this.pnlSeleccionTipo);
             this.imgGroup1.Controls.Add(this.cdcContactos);
             this.imgGroup1.Controls.Add(this.gbBaja);
@@ -210,18 +208,6 @@
             this.gbNuevoContacto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbNuevoContacto.W8Color = System.Drawing.Color.DodgerBlue;
             this.gbNuevoContacto.Click += new System.EventHandler(this.gbNuevoContacto_Click);
-            // 
-            // cbProgramada
-            // 
-            this.cbProgramada.AutoSize = true;
-            this.cbProgramada.Location = new System.Drawing.Point(29, 42);
-            this.cbProgramada.Name = "cbProgramada";
-            this.cbProgramada.Size = new System.Drawing.Size(83, 17);
-            this.cbProgramada.TabIndex = 14;
-            this.cbProgramada.Text = "Programada";
-            this.cbProgramada.UseVisualStyleBackColor = true;
-            this.cbProgramada.Visible = false;
-            this.cbProgramada.CheckedChanged += new System.EventHandler(this.cbProgramada_CheckedChanged);
             // 
             // pnlSeleccionTipo
             // 
@@ -452,7 +438,7 @@
             this.fullLabel5.TabIndex = 13;
             this.fullLabel5.Text = "Contacto:";
             // 
-            // ResultadoLlamada
+            // Llamada
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(841, 428);
@@ -460,7 +446,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "ResultadoLlamada";
+            this.Name = "Llamada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Resultado de Llamada";
             this.Load += new System.EventHandler(this.ResultadoLlamada_Load);
@@ -497,7 +483,6 @@
         private TNGS.NetControls.GlassButton gbBaja;
         private TNGS.NetControls.CDCombo cdcContactos;
         private TNGS.NetControls.FullLabel fullLabel5;
-        private System.Windows.Forms.CheckBox cbProgramada;
         private System.Windows.Forms.Panel pnlSeleccionTipo;
         private TNGS.NetControls.GlassButton gbNuevoContacto;
         private TNGS.NetControls.TextEdit teObservacionProg;

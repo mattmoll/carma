@@ -1,11 +1,11 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 01/12/2020 21:33
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CategoriasLlamada
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -77,11 +77,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 01/12/2020 21:33
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CliContactos
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -158,11 +158,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 01/12/2020 21:33
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -290,11 +290,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 01/12/2020 21:33
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CliEntrevistas
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -426,11 +426,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 01/12/2020 21:33
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CliNotas
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -507,11 +507,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 01/12/2020 21:33
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Localidades
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -585,11 +585,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software Fcts Generator
 //----------------------------------------------------------------------------
-// Fecha       : 01/12/2020 21:33
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Vendedores
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -765,11 +765,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CategoriasLlamada
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -1310,11 +1310,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CliContactos
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -2276,11 +2276,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -2330,9 +2330,8 @@ begin
          Select cli_nro_numero,
                 cli_ede_rsocial,
                 cli_des_nombrefant,
-                tin_des_des as cli_des_tinst,
+                ISNULL(tin_des_des, '') as cli_des_tinst,
                 cli_cod_codtinst,
-                tin_cd1_mayorista as cli_cd1_esmayo,
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
@@ -2374,20 +2373,24 @@ begin
                 cli_ecd_codloccobertura,
                 cli_rcd_codmarca,
                 cli_rcd_tipocliente,
-                cli_xde_nomyape,
+                cli_xde_apellido,
                 cli_fec_fechanacimiento,
                 cli_rcd_situacioniva,
+                cli_ede_nombre,
+                cli_rcd_codrubro,
+                cli_fec_fecultimocontacto,
+                cli_fec_fechaproxcontacto,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
                 TNGS_Carm..Clientes.version
            from TNGS_Carm..Clientes
-                join TNGS_Carm..TipoInst
-                  on cli_cod_codtinst = tin_cod_cod
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
+                left outer join TNGS_Carm..TipoInst
+                  on cli_cod_codtinst = tin_cod_cod
           where TNGS_Carm..Clientes.deleted = 0
           order by cli_nro_numero
       end
@@ -2396,9 +2399,8 @@ begin
          Select cli_nro_numero,
                 cli_ede_rsocial,
                 cli_des_nombrefant,
-                tin_des_des as cli_des_tinst,
+                ISNULL(tin_des_des, '') as cli_des_tinst,
                 cli_cod_codtinst,
-                tin_cd1_mayorista as cli_cd1_esmayo,
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
@@ -2440,20 +2442,24 @@ begin
                 cli_ecd_codloccobertura,
                 cli_rcd_codmarca,
                 cli_rcd_tipocliente,
-                cli_xde_nomyape,
+                cli_xde_apellido,
                 cli_fec_fechanacimiento,
                 cli_rcd_situacioniva,
+                cli_ede_nombre,
+                cli_rcd_codrubro,
+                cli_fec_fecultimocontacto,
+                cli_fec_fechaproxcontacto,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
                 TNGS_Carm..Clientes.version
            from TNGS_Carm..Clientes
-                join TNGS_Carm..TipoInst
-                  on cli_cod_codtinst = tin_cod_cod
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
+                left outer join TNGS_Carm..TipoInst
+                  on cli_cod_codtinst = tin_cod_cod
           order by cli_nro_numero
       end
 
@@ -2551,9 +2557,8 @@ begin
          Select cli_nro_numero,
                 cli_ede_rsocial,
                 cli_des_nombrefant,
-                tin_des_des as cli_des_tinst,
+                ISNULL(tin_des_des, '') as cli_des_tinst,
                 cli_cod_codtinst,
-                tin_cd1_mayorista as cli_cd1_esmayo,
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
@@ -2595,20 +2600,24 @@ begin
                 cli_ecd_codloccobertura,
                 cli_rcd_codmarca,
                 cli_rcd_tipocliente,
-                cli_xde_nomyape,
+                cli_xde_apellido,
                 cli_fec_fechanacimiento,
                 cli_rcd_situacioniva,
+                cli_ede_nombre,
+                cli_rcd_codrubro,
+                cli_fec_fecultimocontacto,
+                cli_fec_fechaproxcontacto,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
                 TNGS_Carm..Clientes.version
            from TNGS_Carm..Clientes
-                join TNGS_Carm..TipoInst
-                  on cli_cod_codtinst = tin_cod_cod
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
+                left outer join TNGS_Carm..TipoInst
+                  on cli_cod_codtinst = tin_cod_cod
           where cli_nro_numero = @cli_nro_numero
             and TNGS_Carm..Clientes.deleted = 0
       end
@@ -2617,9 +2626,8 @@ begin
          Select cli_nro_numero,
                 cli_ede_rsocial,
                 cli_des_nombrefant,
-                tin_des_des as cli_des_tinst,
+                ISNULL(tin_des_des, '') as cli_des_tinst,
                 cli_cod_codtinst,
-                tin_cd1_mayorista as cli_cd1_esmayo,
                 cli_cod_codfrq,
                 isnull(frq_des_des,'') as cli_des_frq,
                 cli_cd1_alta,
@@ -2661,20 +2669,24 @@ begin
                 cli_ecd_codloccobertura,
                 cli_rcd_codmarca,
                 cli_rcd_tipocliente,
-                cli_xde_nomyape,
+                cli_xde_apellido,
                 cli_fec_fechanacimiento,
                 cli_rcd_situacioniva,
+                cli_ede_nombre,
+                cli_rcd_codrubro,
+                cli_fec_fecultimocontacto,
+                cli_fec_fechaproxcontacto,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
                 TNGS_Carm..Clientes.version
            from TNGS_Carm..Clientes
-                join TNGS_Carm..TipoInst
-                  on cli_cod_codtinst = tin_cod_cod
                 left outer join TNGS_Carm..Franquicias
                   on cli_cod_codfrq = frq_cod_cod
                 join TNGS_Carm..Localidades
                   on cli_ecd_codlocalidad = loc_ecd_codpost
+                left outer join TNGS_Carm..TipoInst
+                  on cli_cod_codtinst = tin_cod_cod
           where cli_nro_numero = @cli_nro_numero
       end
 
@@ -2734,9 +2746,13 @@ go
 --- <param name="@cli_ecd_codloccobertura">Localidad Cobertura</param>
 --- <param name="@cli_rcd_codmarca">Marca</param>
 --- <param name="@cli_rcd_tipocliente">Tipo Cliente</param>
---- <param name="@cli_xde_nomyape">Nombre y Apellido</param>
+--- <param name="@cli_xde_apellido">Apellido</param>
 --- <param name="@cli_fec_fechanacimiento">Fecha nacimiento</param>
 --- <param name="@cli_rcd_situacioniva">Situacion IVA</param>
+--- <param name="@cli_ede_nombre">Nombre</param>
+--- <param name="@cli_rcd_codrubro">Rubro</param>
+--- <param name="@cli_fec_fecultimocontacto">Fecha Último Contacto</param>
+--- <param name="@cli_fec_fechaproxcontacto">Fecha Próximo Contacto</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -2794,9 +2810,13 @@ create procedure dbo.CLIENTES_INSERT
 @cli_ecd_codloccobertura tngs_codigo_e,
 @cli_rcd_codmarca tngs_codigo_r,
 @cli_rcd_tipocliente tngs_codigo_r,
-@cli_xde_nomyape tngs_descripcion_x,
+@cli_xde_apellido tngs_descripcion_x,
 @cli_fec_fechanacimiento tngs_fecha,
 @cli_rcd_situacioniva tngs_codigo_r,
+@cli_ede_nombre tngs_descripcion_e,
+@cli_rcd_codrubro tngs_codigo_r,
+@cli_fec_fecultimocontacto tngs_fecha,
+@cli_fec_fechaproxcontacto tngs_fecha,
 @usuario tngs_nombre
 )
 as
@@ -2843,9 +2863,13 @@ begin
            @cli_ecd_codloccobertura,
            @cli_rcd_codmarca,
            @cli_rcd_tipocliente,
-           @cli_xde_nomyape,
+           @cli_xde_apellido,
            @cli_fec_fechanacimiento,
            @cli_rcd_situacioniva,
+           @cli_ede_nombre,
+           @cli_rcd_codrubro,
+           @cli_fec_fecultimocontacto,
+           @cli_fec_fechaproxcontacto,
            getdate(), 0, @usuario, 1
           )
 
@@ -2905,9 +2929,13 @@ go
 --- <param name="@cli_ecd_codloccobertura">Localidad Cobertura</param>
 --- <param name="@cli_rcd_codmarca">Marca</param>
 --- <param name="@cli_rcd_tipocliente">Tipo Cliente</param>
---- <param name="@cli_xde_nomyape">Nombre y Apellido</param>
+--- <param name="@cli_xde_apellido">Apellido</param>
 --- <param name="@cli_fec_fechanacimiento">Fecha nacimiento</param>
 --- <param name="@cli_rcd_situacioniva">Situacion IVA</param>
+--- <param name="@cli_ede_nombre">Nombre</param>
+--- <param name="@cli_rcd_codrubro">Rubro</param>
+--- <param name="@cli_fec_fecultimocontacto">Fecha Último Contacto</param>
+--- <param name="@cli_fec_fechaproxcontacto">Fecha Próximo Contacto</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -2965,9 +2993,13 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_ecd_codloccobertura tngs_codigo_e,
 @cli_rcd_codmarca tngs_codigo_r,
 @cli_rcd_tipocliente tngs_codigo_r,
-@cli_xde_nomyape tngs_descripcion_x,
+@cli_xde_apellido tngs_descripcion_x,
 @cli_fec_fechanacimiento tngs_fecha,
 @cli_rcd_situacioniva tngs_codigo_r,
+@cli_ede_nombre tngs_descripcion_e,
+@cli_rcd_codrubro tngs_codigo_r,
+@cli_fec_fecultimocontacto tngs_fecha,
+@cli_fec_fechaproxcontacto tngs_fecha,
 @usuario tngs_nombre
 )
 as
@@ -3012,9 +3044,13 @@ begin
           cli_ecd_codloccobertura= @cli_ecd_codloccobertura,
           cli_rcd_codmarca= @cli_rcd_codmarca,
           cli_rcd_tipocliente= @cli_rcd_tipocliente,
-          cli_xde_nomyape= @cli_xde_nomyape,
+          cli_xde_apellido= @cli_xde_apellido,
           cli_fec_fechanacimiento= @cli_fec_fechanacimiento,
           cli_rcd_situacioniva= @cli_rcd_situacioniva,
+          cli_ede_nombre= @cli_ede_nombre,
+          cli_rcd_codrubro= @cli_rcd_codrubro,
+          cli_fec_fecultimocontacto= @cli_fec_fecultimocontacto,
+          cli_fec_fechaproxcontacto= @cli_fec_fechaproxcontacto,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario
@@ -4140,11 +4176,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CliEntrevistas
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -5637,11 +5673,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 01/12/2020 21:33
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CliGrupoFamiliar
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -5689,11 +5725,12 @@ begin
    if @onlyactive = 1
       begin
          Select cgf_nro_numcliente,
-                cgf_nro_numfamiliar,
-                cgf_des_nombre,
-                cgf_des_apellido,
+                cgf_nro_numintegrante,
+                cgf_ede_apellido,
+                cgf_ede_nombre,
+                cgf_rcd_codparentesco,
                 cgf_d20_dni,
-                cgf_fec_fecnacimiento,
+                cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
                 TNGS_Carm..CliGrupoFamiliar.instante,
                 TNGS_Carm..CliGrupoFamiliar.deleted,
@@ -5702,16 +5739,17 @@ begin
            from TNGS_Carm..CliGrupoFamiliar
           where deleted = 0
           order by cgf_nro_numcliente,
-                cgf_nro_numfamiliar
+                cgf_nro_numintegrante
       end
    else
       begin
          Select cgf_nro_numcliente,
-                cgf_nro_numfamiliar,
-                cgf_des_nombre,
-                cgf_des_apellido,
+                cgf_nro_numintegrante,
+                cgf_ede_apellido,
+                cgf_ede_nombre,
+                cgf_rcd_codparentesco,
                 cgf_d20_dni,
-                cgf_fec_fecnacimiento,
+                cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
                 TNGS_Carm..CliGrupoFamiliar.instante,
                 TNGS_Carm..CliGrupoFamiliar.deleted,
@@ -5719,7 +5757,7 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
           order by cgf_nro_numcliente,
-                cgf_nro_numfamiliar
+                cgf_nro_numintegrante
       end
 
 fin:
@@ -5739,8 +5777,8 @@ go
 --- <summary>
 --- Verifica el número de versión de un registro
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
 --- <param name="@version">Número de version a verificar</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -5760,7 +5798,7 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_CHKVERSION
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
+@cgf_nro_numintegrante tngs_numero,
 @version tngs_numero
 )
 as
@@ -5769,7 +5807,7 @@ begin
    Select count(*) as cantidad
      from TNGS_Carm..CliGrupoFamiliar
     where cgf_nro_numcliente = @cgf_nro_numcliente
-      and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+      and cgf_nro_numintegrante = @cgf_nro_numintegrante
       and version = @version
 
 fin:
@@ -5789,8 +5827,8 @@ go
 --- <summary>
 --- Busca el registro de una clave
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
 --- <param name="@onlyactive">Flag de SoloActivos</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -5810,7 +5848,7 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_SEARCH
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
+@cgf_nro_numintegrante tngs_numero,
 @onlyactive tngs_valor
 )
 as
@@ -5819,11 +5857,12 @@ begin
    if @onlyactive = 1
       begin
          Select cgf_nro_numcliente,
-                cgf_nro_numfamiliar,
-                cgf_des_nombre,
-                cgf_des_apellido,
+                cgf_nro_numintegrante,
+                cgf_ede_apellido,
+                cgf_ede_nombre,
+                cgf_rcd_codparentesco,
                 cgf_d20_dni,
-                cgf_fec_fecnacimiento,
+                cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
                 TNGS_Carm..CliGrupoFamiliar.instante,
                 TNGS_Carm..CliGrupoFamiliar.deleted,
@@ -5831,17 +5870,18 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
           where cgf_nro_numcliente = @cgf_nro_numcliente
-            and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+            and cgf_nro_numintegrante = @cgf_nro_numintegrante
             and deleted = 0
       end
    else
       begin
          Select cgf_nro_numcliente,
-                cgf_nro_numfamiliar,
-                cgf_des_nombre,
-                cgf_des_apellido,
+                cgf_nro_numintegrante,
+                cgf_ede_apellido,
+                cgf_ede_nombre,
+                cgf_rcd_codparentesco,
                 cgf_d20_dni,
-                cgf_fec_fecnacimiento,
+                cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
                 TNGS_Carm..CliGrupoFamiliar.instante,
                 TNGS_Carm..CliGrupoFamiliar.deleted,
@@ -5849,7 +5889,7 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
           where cgf_nro_numcliente = @cgf_nro_numcliente
-            and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+            and cgf_nro_numintegrante = @cgf_nro_numintegrante
       end
 
 fin:
@@ -5869,7 +5909,7 @@ go
 --- <summary>
 --- Busca los registros de una clave foranea
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
 --- <param name="@onlyactive">Flag de SoloActivos</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -5897,11 +5937,12 @@ begin
    if @onlyactive = 1
       begin
          Select cgf_nro_numcliente,
-                cgf_nro_numfamiliar,
-                cgf_des_nombre,
-                cgf_des_apellido,
+                cgf_nro_numintegrante,
+                cgf_ede_apellido,
+                cgf_ede_nombre,
+                cgf_rcd_codparentesco,
                 cgf_d20_dni,
-                cgf_fec_fecnacimiento,
+                cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
                 TNGS_Carm..CliGrupoFamiliar.instante,
                 TNGS_Carm..CliGrupoFamiliar.deleted,
@@ -5910,16 +5951,17 @@ begin
            from TNGS_Carm..CliGrupoFamiliar
           where cgf_nro_numcliente = @cgf_nro_numcliente
             and deleted = 0
-          order by cgf_nro_numfamiliar
+          order by cgf_nro_numintegrante
       end
    else
       begin
          Select cgf_nro_numcliente,
-                cgf_nro_numfamiliar,
-                cgf_des_nombre,
-                cgf_des_apellido,
+                cgf_nro_numintegrante,
+                cgf_ede_apellido,
+                cgf_ede_nombre,
+                cgf_rcd_codparentesco,
                 cgf_d20_dni,
-                cgf_fec_fecnacimiento,
+                cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
                 TNGS_Carm..CliGrupoFamiliar.instante,
                 TNGS_Carm..CliGrupoFamiliar.deleted,
@@ -5927,7 +5969,7 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
           where cgf_nro_numcliente = @cgf_nro_numcliente
-          order by cgf_nro_numfamiliar
+          order by cgf_nro_numintegrante
       end
 
 fin:
@@ -5947,12 +5989,13 @@ go
 --- <summary>
 --- Inserta un registro en la tabla
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
---- <param name="@cgf_des_nombre">Nombre</param>
---- <param name="@cgf_des_apellido">Apellido</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
+--- <param name="@cgf_ede_apellido">Apellido</param>
+--- <param name="@cgf_ede_nombre">Nombre</param>
+--- <param name="@cgf_rcd_codparentesco">Parentesco</param>
 --- <param name="@cgf_d20_dni">DNI</param>
---- <param name="@cgf_fec_fecnacimiento">Fecha Nacimiento</param>
+--- <param name="@cgf_fec_fechanacimiento">Fecha Nacimiento</param>
 --- <param name="@cgf_ede_obrasocial">Obra Social</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
@@ -5973,11 +6016,12 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_INSERT
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
-@cgf_des_nombre tngs_descripcion,
-@cgf_des_apellido tngs_descripcion,
+@cgf_nro_numintegrante tngs_numero,
+@cgf_ede_apellido tngs_descripcion_e,
+@cgf_ede_nombre tngs_descripcion_e,
+@cgf_rcd_codparentesco tngs_codigo_r,
 @cgf_d20_dni tngs_descripcion_20,
-@cgf_fec_fecnacimiento tngs_fecha,
+@cgf_fec_fechanacimiento tngs_fecha,
 @cgf_ede_obrasocial tngs_descripcion_e,
 @usuario tngs_nombre
 )
@@ -5987,11 +6031,12 @@ begin
    Insert into TNGS_Carm..CliGrupoFamiliar
    values (
            @cgf_nro_numcliente,
-           @cgf_nro_numfamiliar,
-           @cgf_des_nombre,
-           @cgf_des_apellido,
+           @cgf_nro_numintegrante,
+           @cgf_ede_apellido,
+           @cgf_ede_nombre,
+           @cgf_rcd_codparentesco,
            @cgf_d20_dni,
-           @cgf_fec_fecnacimiento,
+           @cgf_fec_fechanacimiento,
            @cgf_ede_obrasocial,
            getdate(), 0, @usuario, 1
           )
@@ -6013,12 +6058,13 @@ go
 --- <summary>
 --- Actualiza un registro de la tabla
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
---- <param name="@cgf_des_nombre">Nombre</param>
---- <param name="@cgf_des_apellido">Apellido</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
+--- <param name="@cgf_ede_apellido">Apellido</param>
+--- <param name="@cgf_ede_nombre">Nombre</param>
+--- <param name="@cgf_rcd_codparentesco">Parentesco</param>
 --- <param name="@cgf_d20_dni">DNI</param>
---- <param name="@cgf_fec_fecnacimiento">Fecha Nacimiento</param>
+--- <param name="@cgf_fec_fechanacimiento">Fecha Nacimiento</param>
 --- <param name="@cgf_ede_obrasocial">Obra Social</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
@@ -6039,11 +6085,12 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_UPDATE
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
-@cgf_des_nombre tngs_descripcion,
-@cgf_des_apellido tngs_descripcion,
+@cgf_nro_numintegrante tngs_numero,
+@cgf_ede_apellido tngs_descripcion_e,
+@cgf_ede_nombre tngs_descripcion_e,
+@cgf_rcd_codparentesco tngs_codigo_r,
 @cgf_d20_dni tngs_descripcion_20,
-@cgf_fec_fecnacimiento tngs_fecha,
+@cgf_fec_fechanacimiento tngs_fecha,
 @cgf_ede_obrasocial tngs_descripcion_e,
 @usuario tngs_nombre
 )
@@ -6051,16 +6098,17 @@ as
 begin
 
    Update TNGS_Carm..CliGrupoFamiliar
-      set cgf_des_nombre= @cgf_des_nombre,
-          cgf_des_apellido= @cgf_des_apellido,
+      set cgf_ede_apellido= @cgf_ede_apellido,
+          cgf_ede_nombre= @cgf_ede_nombre,
+          cgf_rcd_codparentesco= @cgf_rcd_codparentesco,
           cgf_d20_dni= @cgf_d20_dni,
-          cgf_fec_fecnacimiento= @cgf_fec_fecnacimiento,
+          cgf_fec_fechanacimiento= @cgf_fec_fechanacimiento,
           cgf_ede_obrasocial= @cgf_ede_obrasocial,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario
     where cgf_nro_numcliente = @cgf_nro_numcliente
-      and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+      and cgf_nro_numintegrante = @cgf_nro_numintegrante
 
 fin:
 
@@ -6079,8 +6127,8 @@ go
 --- <summary>
 --- Borra lógicamente un registro
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
 --- <param name="@usuario">Usuario que realiza el delete</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -6100,7 +6148,7 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_DELETE
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
+@cgf_nro_numintegrante tngs_numero,
 @usuario tngs_nombre
 )
 as
@@ -6112,7 +6160,7 @@ begin
           instante= getdate(),
           usuario = @usuario
     where cgf_nro_numcliente = @cgf_nro_numcliente
-      and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+      and cgf_nro_numintegrante = @cgf_nro_numintegrante
 
 fin:
 
@@ -6131,7 +6179,7 @@ go
 --- <summary>
 --- Borra lógicamente un registro por clave foranea
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
 --- <param name="@instante">Instante del delete</param>
 --- <param name="@usuario">Usuario que realiza el delete</param>
 ---
@@ -6187,8 +6235,8 @@ go
 --- <summary>
 --- Recupera un registro
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
 --- <param name="@usuario">Usuario que realiza el recall</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -6208,7 +6256,7 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_RECALL
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
+@cgf_nro_numintegrante tngs_numero,
 @usuario tngs_nombre
 )
 as
@@ -6220,7 +6268,7 @@ begin
           instante= getdate(),
           usuario = @usuario
     where cgf_nro_numcliente = @cgf_nro_numcliente
-      and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+      and cgf_nro_numintegrante = @cgf_nro_numintegrante
 
 fin:
 
@@ -6239,7 +6287,7 @@ go
 --- <summary>
 --- Recupera lógicamente los registros de una clave foranea
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
 --- <param name="@instante">Instante de referencia</param>
 --- <param name="@usuario">Usuario que realiza el recall</param>
 ---
@@ -6303,8 +6351,8 @@ go
 --- <summary>
 --- Borra físicamente un registro
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
---- <param name="@cgf_nro_numfamiliar">Num Familiar</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
+--- <param name="@cgf_nro_numintegrante">Nro Integrante GF</param>
 --- <param name="@usuario">Usuario que realiza el drop</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -6324,7 +6372,7 @@ go
 create procedure dbo.CLIGRUPOFAMILIAR_DROP
 (
 @cgf_nro_numcliente tngs_numero,
-@cgf_nro_numfamiliar tngs_numero,
+@cgf_nro_numintegrante tngs_numero,
 @usuario tngs_nombre
 )
 as
@@ -6332,7 +6380,7 @@ begin
 
    Delete from TNGS_Carm..CliGrupoFamiliar
     where cgf_nro_numcliente = @cgf_nro_numcliente
-      and cgf_nro_numfamiliar = @cgf_nro_numfamiliar
+      and cgf_nro_numintegrante = @cgf_nro_numintegrante
 
 fin:
 
@@ -6351,7 +6399,7 @@ go
 --- <summary>
 --- Borra físicamente un registro por clave foránea
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
 --- <param name="@usuario">Usuario que realiza el drop</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -6439,7 +6487,7 @@ go
 --- <summary>
 --- Borra físicamente los registro borrados lógicamente por clave foránea
 --- </summary>
---- <param name="@cgf_nro_numcliente">Num Cliente</param>
+--- <param name="@cgf_nro_numcliente">Nro Cliente</param>
 --- <param name="@usuario">Usuario que realiza el pack</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -6486,11 +6534,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CliLlamadas
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -8098,11 +8146,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CliNotas
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -9110,11 +9158,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CliServicios
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -10010,11 +10058,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : CliVentas
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -11004,11 +11052,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : ConversionColores
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -11595,11 +11643,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Franquicias
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -12130,11 +12178,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Localidades
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -13117,11 +13165,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : LogClientes
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -13669,11 +13717,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Marcas
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -14161,11 +14209,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : MotivosLlamada
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -14773,11 +14821,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Parametros
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -15305,11 +15353,503 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
+// Sistema     : Carm
+// Tabla       : Parentescos
+//----------------------------------------------------------------------------
+// © 1999-2021 by TNG Software                                      Gndr 5.20
+//---------------------------------------------------------------------------*/
+
+/* ***************************************************************************
+/  Atencion!!!
+/     Este archivo fue generado por un programa en forma automática. Cualquier
+/     modificación que se realize sobre él se perderá en la próxima
+/     regeneración.
+/  **************************************************************************/
+
+/*-------------------------------------------------*/
+/* Selecciono la base en la que se crearan los SPs */
+/*-------------------------------------------------*/
+
+use TNGS_Carm
+go
+
+---////////////////////////////////////////////////////////
+---
+--- <summary>
+--- Levanta todos los registros de una tabla
+--- </summary>
+--- <param name="@onlyactive">Flag de SoloActivos</param>
+---
+---////////////////////////////////////////////////////////
+
+print 'Store Procedure: dbo.PARENTESCOS_UP'
+
+if exists (select * from sysobjects where id = object_id('dbo.PARENTESCOS_UP'))
+begin
+   print '       - Borrando el viejo SP'
+   drop procedure dbo.PARENTESCOS_UP
+end
+go
+
+print '       - Creando el nuevo SP'
+go
+
+create procedure dbo.PARENTESCOS_UP
+(
+@onlyactive tngs_valor
+)
+as
+begin
+
+   if @onlyactive = 1
+      begin
+         Select prt_rcd_cod,
+                prt_des_des,
+                TNGS_Carm..Parentescos.instante,
+                TNGS_Carm..Parentescos.deleted,
+                TNGS_Carm..Parentescos.usuario,
+                TNGS_Carm..Parentescos.version
+           from TNGS_Carm..Parentescos
+          where deleted = 0
+          order by prt_rcd_cod
+      end
+   else
+      begin
+         Select prt_rcd_cod,
+                prt_des_des,
+                TNGS_Carm..Parentescos.instante,
+                TNGS_Carm..Parentescos.deleted,
+                TNGS_Carm..Parentescos.usuario,
+                TNGS_Carm..Parentescos.version
+           from TNGS_Carm..Parentescos
+          order by prt_rcd_cod
+      end
+
+fin:
+
+end
+go
+
+print '       - Asignando permisos al nuevo SP'
+
+grant execute on dbo.PARENTESCOS_UP to tngsmodulos
+
+print ' '
+go
+
+---////////////////////////////////////////////////////////
+---
+--- <summary>
+--- Verifica el número de versión de un registro
+--- </summary>
+--- <param name="@prt_rcd_cod">Codigo</param>
+--- <param name="@version">Número de version a verificar</param>
+---
+---////////////////////////////////////////////////////////
+
+print 'Store Procedure: dbo.PARENTESCOS_CHKVERSION'
+
+if exists (select * from sysobjects where id = object_id('dbo.PARENTESCOS_CHKVERSION'))
+begin
+   print '       - Borrando el viejo SP'
+   drop procedure dbo.PARENTESCOS_CHKVERSION
+end
+go
+
+print '       - Creando el nuevo SP'
+go
+
+create procedure dbo.PARENTESCOS_CHKVERSION
+(
+@prt_rcd_cod tngs_codigo_r,
+@version tngs_numero
+)
+as
+begin
+
+   Select count(*) as cantidad
+     from TNGS_Carm..Parentescos
+    where prt_rcd_cod = @prt_rcd_cod
+      and version = @version
+
+fin:
+
+end
+go
+
+print '       - Asignando permisos al nuevo SP'
+
+grant execute on dbo.PARENTESCOS_CHKVERSION to tngsmodulos
+
+print ' '
+go
+
+---////////////////////////////////////////////////////////
+---
+--- <summary>
+--- Busca el registro de una clave
+--- </summary>
+--- <param name="@prt_rcd_cod">Codigo</param>
+--- <param name="@onlyactive">Flag de SoloActivos</param>
+---
+---////////////////////////////////////////////////////////
+
+print 'Store Procedure: dbo.PARENTESCOS_SEARCH'
+
+if exists (select * from sysobjects where id = object_id('dbo.PARENTESCOS_SEARCH'))
+begin
+   print '       - Borrando el viejo SP'
+   drop procedure dbo.PARENTESCOS_SEARCH
+end
+go
+
+print '       - Creando el nuevo SP'
+go
+
+create procedure dbo.PARENTESCOS_SEARCH
+(
+@prt_rcd_cod tngs_codigo_r,
+@onlyactive tngs_valor
+)
+as
+begin
+
+   if @onlyactive = 1
+      begin
+         Select prt_rcd_cod,
+                prt_des_des,
+                TNGS_Carm..Parentescos.instante,
+                TNGS_Carm..Parentescos.deleted,
+                TNGS_Carm..Parentescos.usuario,
+                TNGS_Carm..Parentescos.version
+           from TNGS_Carm..Parentescos
+          where prt_rcd_cod = @prt_rcd_cod
+            and deleted = 0
+      end
+   else
+      begin
+         Select prt_rcd_cod,
+                prt_des_des,
+                TNGS_Carm..Parentescos.instante,
+                TNGS_Carm..Parentescos.deleted,
+                TNGS_Carm..Parentescos.usuario,
+                TNGS_Carm..Parentescos.version
+           from TNGS_Carm..Parentescos
+          where prt_rcd_cod = @prt_rcd_cod
+      end
+
+fin:
+
+end
+go
+
+print '       - Asignando permisos al nuevo SP'
+
+grant execute on dbo.PARENTESCOS_SEARCH to tngsmodulos
+
+print ' '
+go
+
+---////////////////////////////////////////////////////////
+---
+--- <summary>
+--- Inserta un registro en la tabla
+--- </summary>
+--- <param name="@prt_rcd_cod">Codigo</param>
+--- <param name="@prt_des_des">Descripcion</param>
+--- <param name="@usuario">Usuario que genera el insert</param>
+---
+---////////////////////////////////////////////////////////
+
+print 'Store Procedure: dbo.PARENTESCOS_INSERT'
+
+if exists (select * from sysobjects where id = object_id('dbo.PARENTESCOS_INSERT'))
+begin
+   print '       - Borrando el viejo SP'
+   drop procedure dbo.PARENTESCOS_INSERT
+end
+go
+
+print '       - Creando el nuevo SP'
+go
+
+create procedure dbo.PARENTESCOS_INSERT
+(
+@prt_rcd_cod tngs_codigo_r,
+@prt_des_des tngs_descripcion,
+@usuario tngs_nombre
+)
+as
+begin
+
+   Insert into TNGS_Carm..Parentescos
+   values (
+           @prt_rcd_cod,
+           @prt_des_des,
+           getdate(), 0, @usuario, 1
+          )
+
+fin:
+
+end
+go
+
+print '       - Asignando permisos al nuevo SP'
+
+grant execute on dbo.PARENTESCOS_INSERT to tngsmodulos
+
+print ' '
+go
+
+---////////////////////////////////////////////////////////
+---
+--- <summary>
+--- Actualiza un registro de la tabla
+--- </summary>
+--- <param name="@prt_rcd_cod">Codigo</param>
+--- <param name="@prt_des_des">Descripcion</param>
+--- <param name="@usuario">Usuario que genera el update</param>
+---
+---////////////////////////////////////////////////////////
+
+print 'Store Procedure: dbo.PARENTESCOS_UPDATE'
+
+if exists (select * from sysobjects where id = object_id('dbo.PARENTESCOS_UPDATE'))
+begin
+   print '       - Borrando el viejo SP'
+   drop procedure dbo.PARENTESCOS_UPDATE
+end
+go
+
+print '       - Creando el nuevo SP'
+go
+
+create procedure dbo.PARENTESCOS_UPDATE
+(
+@prt_rcd_cod tngs_codigo_r,
+@prt_des_des tngs_descripcion,
+@usuario tngs_nombre
+)
+as
+begin
+
+   Update TNGS_Carm..Parentescos
+      set prt_des_des= @prt_des_des,
+          version = ((version+1) % 32767),
+          instante= getdate(),
+          usuario = @usuario
+    where prt_rcd_cod = @prt_rcd_cod
+
+fin:
+
+end
+go
+
+print '       - Asignando permisos al nuevo SP'
+
+grant execute on dbo.PARENTESCOS_UPDATE to tngsmodulos
+
+print ' '
+go
+
+---////////////////////////////////////////////////////////
+---
+--- <summary>
+--- Borra lógicamente un registro
+--- </summary>
+--- <param name="@prt_rcd_cod">Codigo</param>
+--- <param name="@usuario">Usuario que realiza el delete</param>
+---
+---////////////////////////////////////////////////////////
+
+print 'Store Procedure: dbo.PARENTESCOS_DELETE'
+
+if exists (select * from sysobjects where id = object_id('dbo.PARENTESCOS_DELETE'))
+begin
+   print '       - Borrando el viejo SP'
+   drop procedure dbo.PARENTESCOS_DELETE
+end
+go
+
+print '       - Creando el nuevo SP'
+go
+
+create procedure dbo.PARENTESCOS_DELETE
+(
+@prt_rcd_cod tngs_codigo_r,
+@usuario tngs_nombre
+)
+as
+begin
+
+   Update TNGS_Carm..Parentescos
+      set deleted = 1,
+          version = ((version+1) % 32767),
+          instante= getdate(),
+          usuario = @usuario
+    where prt_rcd_cod = @prt_rcd_cod
+
+fin:
+
+end
+go
+
+print '       - Asignando permisos al nuevo SP'
+
+grant execute on dbo.PARENTESCOS_DELETE to tngsmodulos
+
+print ' '
+go
+
+---////////////////////////////////////////////////////////
+---
+--- <summary>
+--- Recupera un registro
+--- </summary>
+--- <param name="@prt_rcd_cod">Codigo</param>
+--- <param name="@usuario">Usuario que realiza el recall</param>
+---
+---////////////////////////////////////////////////////////
+
+print 'Store Procedure: dbo.PARENTESCOS_RECALL'
+
+if exists (select * from sysobjects where id = object_id('dbo.PARENTESCOS_RECALL'))
+begin
+   print '       - Borrando el viejo SP'
+   drop procedure dbo.PARENTESCOS_RECALL
+end
+go
+
+print '       - Creando el nuevo SP'
+go
+
+create procedure dbo.PARENTESCOS_RECALL
+(
+@prt_rcd_cod tngs_codigo_r,
+@usuario tngs_nombre
+)
+as
+begin
+
+   Update TNGS_Carm..Parentescos
+      set deleted = 0,
+          version = ((version+1) % 32767),
+          instante= getdate(),
+          usuario = @usuario
+    where prt_rcd_cod = @prt_rcd_cod
+
+fin:
+
+end
+go
+
+print '       - Asignando permisos al nuevo SP'
+
+grant execute on dbo.PARENTESCOS_RECALL to tngsmodulos
+
+print ' '
+go
+
+---////////////////////////////////////////////////////////
+---
+--- <summary>
+--- Borra físicamente un registro
+--- </summary>
+--- <param name="@prt_rcd_cod">Codigo</param>
+--- <param name="@usuario">Usuario que realiza el drop</param>
+---
+---////////////////////////////////////////////////////////
+
+print 'Store Procedure: dbo.PARENTESCOS_DROP'
+
+if exists (select * from sysobjects where id = object_id('dbo.PARENTESCOS_DROP'))
+begin
+   print '       - Borrando el viejo SP'
+   drop procedure dbo.PARENTESCOS_DROP
+end
+go
+
+print '       - Creando el nuevo SP'
+go
+
+create procedure dbo.PARENTESCOS_DROP
+(
+@prt_rcd_cod tngs_codigo_r,
+@usuario tngs_nombre
+)
+as
+begin
+
+   Delete from TNGS_Carm..Parentescos
+    where prt_rcd_cod = @prt_rcd_cod
+
+fin:
+
+end
+go
+
+print '       - Asignando permisos al nuevo SP'
+
+grant execute on dbo.PARENTESCOS_DROP to tngsmodulos
+
+print ' '
+go
+
+---////////////////////////////////////////////////////////
+---
+--- <summary>
+--- Borra físicamente los registros borrados lógicamente
+--- </summary>
+--- <param name="@usuario">Usuario que realiza el delete</param>
+---
+---////////////////////////////////////////////////////////
+
+print 'Store Procedure: dbo.PARENTESCOS_PACK'
+
+if exists (select * from sysobjects where id = object_id('dbo.PARENTESCOS_PACK'))
+begin
+   print '       - Borrando el viejo SP'
+   drop procedure dbo.PARENTESCOS_PACK
+end
+go
+
+print '       - Creando el nuevo SP'
+go
+
+create procedure dbo.PARENTESCOS_PACK
+(
+@usuario tngs_nombre
+)
+as
+begin
+
+   Delete TNGS_Carm..Parentescos
+    where deleted = 1
+
+fin:
+
+end
+go
+
+print '       - Asignando permisos al nuevo SP'
+
+grant execute on dbo.PARENTESCOS_PACK to tngsmodulos
+
+print ' '
+go
+
+/*--------------------------------------------------------------------------
+// Fin del script de creacion de los SP de la tabla: Parentescos
+//--------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------
+//                         TNG Software SPs Generator
+//----------------------------------------------------------------------------
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Planes
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -15907,11 +16447,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : PlnServicios
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -16756,11 +17296,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : PreciosServicios
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -17340,11 +17880,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : ResEntrevista
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -17885,11 +18425,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Rubros
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -18420,11 +18960,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Servicios
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -19008,11 +19548,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : SituacionesIVA
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -19510,11 +20050,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Supervisores
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -20046,11 +20586,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Talonarios
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -20578,11 +21118,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : TipoCont
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -21133,11 +21673,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : TipoInst
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -21750,11 +22290,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : TipoVend
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -22295,11 +22835,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Vendedores
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -23758,11 +24298,11 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 18/12/2020 03:35
+// Fecha       : 05/02/2021 12:21
 // Sistema     : Carm
 // Tabla       : Zonas
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************

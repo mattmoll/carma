@@ -202,26 +202,6 @@ namespace Carm.Ad
             cdcMotivos.FillFromStrLEntidad(motivosLlamadas, "mot_cod_cod", "mot_des_des", "Deleted");
         }
 
-        private void cbProgramada_CheckedChanged(object sender, EventArgs e)
-        {
-            pnlSeleccionTipo.Enabled = !cbProgramada.Checked;
-            pnObservacionProg.Visible = cbProgramada.Checked;
-
-            int l_intCantidadDias;
-
-            // Si es una programada
-            if (!pnlSeleccionTipo.Enabled)
-            {
-                limpiarCamposPanel();
-                l_intCantidadDias = 60;
-            }
-            else
-                l_intCantidadDias = 1;
-
-            DateTime l_dtNow = Bll.Clientes.fGetDate(m_smResult);     /*Conseguimos la Fecha de hoy*/
-            mcCalendar.MaxDate = l_dtNow.AddDays(l_intCantidadDias); 
-        }
-
         #endregion
 
         #region Metodos Privados
@@ -231,12 +211,6 @@ namespace Carm.Ad
             if (!cdcContactos.IsValid)
             {
                 MsgRuts.ShowMsg(this, "Debe ingresar el contacto con el que se comunicó");
-                return false;
-            }
-            // Si no es una llamada programada debe cargar el resultado si o si.
-            if ((!cbProgramada.Checked) && (!teResultado.IsValid))
-            {
-                MsgRuts.ShowMsg(this, "Debe ingresar el resultado de la llamada");
                 return false;
             }
             return true;

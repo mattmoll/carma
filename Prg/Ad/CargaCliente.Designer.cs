@@ -37,7 +37,15 @@ namespace Carm.Ad
             this.tabCliente = new System.Windows.Forms.TabPage();
             this.xPanel2 = new TNGS.NetControls.XPanel();
             this.tgrpDatosBasicos = new TNGS.NetControls.ImgGroup();
+            this.cdcRubro = new TNGS.NetControls.CDCombo();
+            this.fullLabel23 = new TNGS.NetControls.FullLabel();
             this.igAreas = new TNGS.NetControls.ImgGroup();
+            this.teDireccionCobertura = new TNGS.NetControls.TextEdit();
+            this.tePisoDptoCobertura = new TNGS.NetControls.TextEdit();
+            this.neAlturaCobertura = new TNGS.NetControls.NumberEdit();
+            this.fullLabel20 = new TNGS.NetControls.FullLabel();
+            this.fullLabel21 = new TNGS.NetControls.FullLabel();
+            this.fullLabel22 = new TNGS.NetControls.FullLabel();
             this.teRazonSocial = new TNGS.NetControls.TextEdit();
             this.lblDescripcionMovil = new TNGS.NetControls.FullLabel();
             this.fullLabel11 = new TNGS.NetControls.FullLabel();
@@ -49,6 +57,11 @@ namespace Carm.Ad
             this.gbBuscarLocalidadCobertura = new TNGS.NetControls.GlassButton();
             this.fullLabel12 = new TNGS.NetControls.FullLabel();
             this.igSocios = new TNGS.NetControls.ImgGroup();
+            this.glassButton1 = new TNGS.NetControls.GlassButton();
+            this.numberEdit1 = new TNGS.NetControls.NumberEdit();
+            this.fullLabel19 = new TNGS.NetControls.FullLabel();
+            this.teNombre = new TNGS.NetControls.TextEdit();
+            this.fullLabel18 = new TNGS.NetControls.FullLabel();
             this.cbFueClienteAntes = new System.Windows.Forms.CheckBox();
             this.teApellido = new TNGS.NetControls.TextEdit();
             this.fullLabel17 = new TNGS.NetControls.FullLabel();
@@ -119,19 +132,6 @@ namespace Carm.Ad
             this.titulo = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.fullLabel18 = new TNGS.NetControls.FullLabel();
-            this.teNombre = new TNGS.NetControls.TextEdit();
-            this.fullLabel19 = new TNGS.NetControls.FullLabel();
-            this.numberEdit1 = new TNGS.NetControls.NumberEdit();
-            this.glassButton1 = new TNGS.NetControls.GlassButton();
-            this.teDireccionCobertura = new TNGS.NetControls.TextEdit();
-            this.tePisoDptoCobertura = new TNGS.NetControls.TextEdit();
-            this.neAlturaCobertura = new TNGS.NetControls.NumberEdit();
-            this.fullLabel20 = new TNGS.NetControls.FullLabel();
-            this.fullLabel21 = new TNGS.NetControls.FullLabel();
-            this.fullLabel22 = new TNGS.NetControls.FullLabel();
-            this.cdcRubro = new TNGS.NetControls.CDCombo();
-            this.fullLabel23 = new TNGS.NetControls.FullLabel();
             this.xPanel1.SuspendLayout();
             this.ftDetalleCliente.SuspendLayout();
             this.tabCliente.SuspendLayout();
@@ -278,6 +278,29 @@ namespace Carm.Ad
             this.tgrpDatosBasicos.TitleFontColor = System.Drawing.Color.White;
             this.tgrpDatosBasicos.Load += new System.EventHandler(this.tgrpDatosBasicos_Load);
             // 
+            // cdcRubro
+            // 
+            this.cdcRubro.BackColor = System.Drawing.SystemColors.Window;
+            this.cdcRubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cdcRubro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cdcRubro.FormattingEnabled = true;
+            this.cdcRubro.Location = new System.Drawing.Point(624, 96);
+            this.cdcRubro.Name = "cdcRubro";
+            this.cdcRubro.Size = new System.Drawing.Size(276, 23);
+            this.cdcRubro.Sorted = true;
+            this.cdcRubro.TabIndex = 145;
+            // 
+            // fullLabel23
+            // 
+            this.fullLabel23.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel23.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel23.Location = new System.Drawing.Point(553, 101);
+            this.fullLabel23.Name = "fullLabel23";
+            this.fullLabel23.Size = new System.Drawing.Size(65, 18);
+            this.fullLabel23.TabIndex = 146;
+            this.fullLabel23.Text = "Rubro:";
+            // 
             // igAreas
             // 
             this.igAreas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -323,6 +346,67 @@ namespace Carm.Ad
             this.igAreas.TitleBackground = System.Drawing.Color.ForestGreen;
             this.igAreas.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.igAreas.TitleFontColor = System.Drawing.Color.White;
+            // 
+            // teDireccionCobertura
+            // 
+            this.teDireccionCobertura.BackColor = System.Drawing.SystemColors.Window;
+            this.teDireccionCobertura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teDireccionCobertura.Location = new System.Drawing.Point(152, 122);
+            this.teDireccionCobertura.Name = "teDireccionCobertura";
+            this.teDireccionCobertura.Size = new System.Drawing.Size(276, 21);
+            this.teDireccionCobertura.TabIndex = 2;
+            // 
+            // tePisoDptoCobertura
+            // 
+            this.tePisoDptoCobertura.BackColor = System.Drawing.SystemColors.Window;
+            this.tePisoDptoCobertura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tePisoDptoCobertura.Location = new System.Drawing.Point(315, 153);
+            this.tePisoDptoCobertura.MaxLength = 8;
+            this.tePisoDptoCobertura.Name = "tePisoDptoCobertura";
+            this.tePisoDptoCobertura.Size = new System.Drawing.Size(113, 21);
+            this.tePisoDptoCobertura.TabIndex = 4;
+            // 
+            // neAlturaCobertura
+            // 
+            this.neAlturaCobertura.BackColor = System.Drawing.SystemColors.Window;
+            this.neAlturaCobertura.Location = new System.Drawing.Point(153, 154);
+            this.neAlturaCobertura.Name = "neAlturaCobertura";
+            this.neAlturaCobertura.Size = new System.Drawing.Size(75, 21);
+            this.neAlturaCobertura.TabIndex = 3;
+            this.neAlturaCobertura.Text = "0";
+            // 
+            // fullLabel20
+            // 
+            this.fullLabel20.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel20.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel20.Location = new System.Drawing.Point(244, 156);
+            this.fullLabel20.Name = "fullLabel20";
+            this.fullLabel20.Size = new System.Drawing.Size(79, 18);
+            this.fullLabel20.TabIndex = 147;
+            this.fullLabel20.Text = "Piso/Dpto: ";
+            // 
+            // fullLabel21
+            // 
+            this.fullLabel21.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel21.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel21.Location = new System.Drawing.Point(82, 156);
+            this.fullLabel21.Name = "fullLabel21";
+            this.fullLabel21.Size = new System.Drawing.Size(67, 18);
+            this.fullLabel21.TabIndex = 146;
+            this.fullLabel21.Text = "Altura:";
+            // 
+            // fullLabel22
+            // 
+            this.fullLabel22.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel22.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel22.Location = new System.Drawing.Point(61, 124);
+            this.fullLabel22.Name = "fullLabel22";
+            this.fullLabel22.Size = new System.Drawing.Size(75, 18);
+            this.fullLabel22.TabIndex = 145;
+            this.fullLabel22.Text = "Dirección:";
             // 
             // teRazonSocial
             // 
@@ -375,7 +459,7 @@ namespace Carm.Ad
             this.tePartidoCobertura.Name = "tePartidoCobertura";
             this.tePartidoCobertura.ReadOnly = true;
             this.tePartidoCobertura.Size = new System.Drawing.Size(276, 21);
-            this.tePartidoCobertura.TabIndex = 139;
+            this.tePartidoCobertura.TabIndex = 7;
             // 
             // teNombreFantasia
             // 
@@ -394,7 +478,7 @@ namespace Carm.Ad
             this.teLocalidadCobertura.Name = "teLocalidadCobertura";
             this.teLocalidadCobertura.ReadOnly = true;
             this.teLocalidadCobertura.Size = new System.Drawing.Size(276, 21);
-            this.teLocalidadCobertura.TabIndex = 137;
+            this.teLocalidadCobertura.TabIndex = 6;
             // 
             // fullLabel8
             // 
@@ -425,7 +509,7 @@ namespace Carm.Ad
             this.gbBuscarLocalidadCobertura.PCode = "TNGS.EXCEL";
             this.gbBuscarLocalidadCobertura.RoundCorners = 2;
             this.gbBuscarLocalidadCobertura.Size = new System.Drawing.Size(26, 24);
-            this.gbBuscarLocalidadCobertura.TabIndex = 2;
+            this.gbBuscarLocalidadCobertura.TabIndex = 5;
             this.gbBuscarLocalidadCobertura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbBuscarLocalidadCobertura.W8Color = System.Drawing.Color.DodgerBlue;
             this.gbBuscarLocalidadCobertura.Click += new System.EventHandler(this.gbBuscarLocalidadCobertura_Click);
@@ -485,13 +569,77 @@ namespace Carm.Ad
             this.igSocios.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.igSocios.TitleFontColor = System.Drawing.Color.White;
             // 
+            // glassButton1
+            // 
+            this.glassButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.glassButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("glassButton1.BackgroundImage")));
+            this.glassButton1.BlackBorder = true;
+            this.glassButton1.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.glassButton1.CircleButton = false;
+            this.glassButton1.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Edit;
+            this.glassButton1.FlatColor = System.Drawing.Color.DodgerBlue;
+            this.glassButton1.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
+            this.glassButton1.FlatFontSize = 9;
+            this.glassButton1.FlatTextColor = System.Drawing.Color.Black;
+            this.glassButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.glassButton1.Location = new System.Drawing.Point(230, 207);
+            this.glassButton1.Name = "glassButton1";
+            this.glassButton1.PCode = "TNGS.EXCEL";
+            this.glassButton1.RoundCorners = 2;
+            this.glassButton1.Size = new System.Drawing.Size(80, 25);
+            this.glassButton1.TabIndex = 7;
+            this.glassButton1.Text = "Editar";
+            this.glassButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.glassButton1.W8Color = System.Drawing.Color.DodgerBlue;
+            // 
+            // numberEdit1
+            // 
+            this.numberEdit1.BackColor = System.Drawing.SystemColors.Window;
+            this.numberEdit1.Location = new System.Drawing.Point(156, 210);
+            this.numberEdit1.Name = "numberEdit1";
+            this.numberEdit1.Size = new System.Drawing.Size(49, 21);
+            this.numberEdit1.TabIndex = 6;
+            this.numberEdit1.Text = "0";
+            // 
+            // fullLabel19
+            // 
+            this.fullLabel19.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel19.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel19.Location = new System.Drawing.Point(23, 212);
+            this.fullLabel19.Name = "fullLabel19";
+            this.fullLabel19.Size = new System.Drawing.Size(124, 19);
+            this.fullLabel19.TabIndex = 140;
+            this.fullLabel19.Text = "Grupo Familiar (#):";
+            // 
+            // teNombre
+            // 
+            this.teNombre.BackColor = System.Drawing.SystemColors.Window;
+            this.teNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teNombre.Location = new System.Drawing.Point(156, 67);
+            this.teNombre.MaxLength = 60;
+            this.teNombre.Name = "teNombre";
+            this.teNombre.Size = new System.Drawing.Size(275, 21);
+            this.teNombre.TabIndex = 1;
+            // 
+            // fullLabel18
+            // 
+            this.fullLabel18.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel18.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel18.Location = new System.Drawing.Point(58, 67);
+            this.fullLabel18.Name = "fullLabel18";
+            this.fullLabel18.Size = new System.Drawing.Size(66, 18);
+            this.fullLabel18.TabIndex = 138;
+            this.fullLabel18.Text = "Nombre:";
+            // 
             // cbFueClienteAntes
             // 
             this.cbFueClienteAntes.AutoSize = true;
             this.cbFueClienteAntes.Location = new System.Drawing.Point(295, 97);
             this.cbFueClienteAntes.Name = "cbFueClienteAntes";
             this.cbFueClienteAntes.Size = new System.Drawing.Size(129, 19);
-            this.cbFueClienteAntes.TabIndex = 4;
+            this.cbFueClienteAntes.TabIndex = 3;
             this.cbFueClienteAntes.Text = "Fue Cliente Antes?";
             this.cbFueClienteAntes.UseVisualStyleBackColor = true;
             // 
@@ -523,7 +671,7 @@ namespace Carm.Ad
             this.teTarjetaCredito.Location = new System.Drawing.Point(156, 172);
             this.teTarjetaCredito.Name = "teTarjetaCredito";
             this.teTarjetaCredito.Size = new System.Drawing.Size(276, 21);
-            this.teTarjetaCredito.TabIndex = 3;
+            this.teTarjetaCredito.TabIndex = 5;
             // 
             // cdcSexo
             // 
@@ -535,7 +683,7 @@ namespace Carm.Ad
             this.cdcSexo.Name = "cdcSexo";
             this.cdcSexo.Size = new System.Drawing.Size(276, 23);
             this.cdcSexo.Sorted = true;
-            this.cdcSexo.TabIndex = 2;
+            this.cdcSexo.TabIndex = 4;
             // 
             // fullLabel14
             // 
@@ -576,7 +724,7 @@ namespace Carm.Ad
             this.deFechaNacimiento.Location = new System.Drawing.Point(156, 97);
             this.deFechaNacimiento.Name = "deFechaNacimiento";
             this.deFechaNacimiento.Size = new System.Drawing.Size(100, 21);
-            this.deFechaNacimiento.TabIndex = 1;
+            this.deFechaNacimiento.TabIndex = 2;
             this.deFechaNacimiento.Text = "01/01/1900";
             // 
             // fullLabel10
@@ -1407,154 +1555,6 @@ namespace Carm.Ad
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // fullLabel18
-            // 
-            this.fullLabel18.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel18.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel18.Location = new System.Drawing.Point(58, 67);
-            this.fullLabel18.Name = "fullLabel18";
-            this.fullLabel18.Size = new System.Drawing.Size(66, 18);
-            this.fullLabel18.TabIndex = 138;
-            this.fullLabel18.Text = "Nombre:";
-            // 
-            // teNombre
-            // 
-            this.teNombre.BackColor = System.Drawing.SystemColors.Window;
-            this.teNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teNombre.Location = new System.Drawing.Point(156, 67);
-            this.teNombre.MaxLength = 60;
-            this.teNombre.Name = "teNombre";
-            this.teNombre.Size = new System.Drawing.Size(275, 21);
-            this.teNombre.TabIndex = 139;
-            // 
-            // fullLabel19
-            // 
-            this.fullLabel19.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel19.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel19.Location = new System.Drawing.Point(23, 212);
-            this.fullLabel19.Name = "fullLabel19";
-            this.fullLabel19.Size = new System.Drawing.Size(124, 19);
-            this.fullLabel19.TabIndex = 140;
-            this.fullLabel19.Text = "Grupo Familiar (#):";
-            // 
-            // numberEdit1
-            // 
-            this.numberEdit1.BackColor = System.Drawing.SystemColors.Window;
-            this.numberEdit1.Location = new System.Drawing.Point(156, 210);
-            this.numberEdit1.Name = "numberEdit1";
-            this.numberEdit1.Size = new System.Drawing.Size(49, 21);
-            this.numberEdit1.TabIndex = 141;
-            this.numberEdit1.Text = "0";
-            // 
-            // glassButton1
-            // 
-            this.glassButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.glassButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("glassButton1.BackgroundImage")));
-            this.glassButton1.BlackBorder = true;
-            this.glassButton1.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.glassButton1.CircleButton = false;
-            this.glassButton1.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Edit;
-            this.glassButton1.FlatColor = System.Drawing.Color.DodgerBlue;
-            this.glassButton1.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
-            this.glassButton1.FlatFontSize = 9;
-            this.glassButton1.FlatTextColor = System.Drawing.Color.Black;
-            this.glassButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.glassButton1.Location = new System.Drawing.Point(230, 207);
-            this.glassButton1.Name = "glassButton1";
-            this.glassButton1.PCode = "TNGS.EXCEL";
-            this.glassButton1.RoundCorners = 2;
-            this.glassButton1.Size = new System.Drawing.Size(80, 25);
-            this.glassButton1.TabIndex = 142;
-            this.glassButton1.Text = "Editar";
-            this.glassButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.glassButton1.W8Color = System.Drawing.Color.DodgerBlue;
-            // 
-            // teDireccionCobertura
-            // 
-            this.teDireccionCobertura.BackColor = System.Drawing.SystemColors.Window;
-            this.teDireccionCobertura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teDireccionCobertura.Location = new System.Drawing.Point(152, 122);
-            this.teDireccionCobertura.Name = "teDireccionCobertura";
-            this.teDireccionCobertura.Size = new System.Drawing.Size(276, 21);
-            this.teDireccionCobertura.TabIndex = 142;
-            // 
-            // tePisoDptoCobertura
-            // 
-            this.tePisoDptoCobertura.BackColor = System.Drawing.SystemColors.Window;
-            this.tePisoDptoCobertura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tePisoDptoCobertura.Location = new System.Drawing.Point(315, 153);
-            this.tePisoDptoCobertura.MaxLength = 8;
-            this.tePisoDptoCobertura.Name = "tePisoDptoCobertura";
-            this.tePisoDptoCobertura.Size = new System.Drawing.Size(113, 21);
-            this.tePisoDptoCobertura.TabIndex = 144;
-            // 
-            // neAlturaCobertura
-            // 
-            this.neAlturaCobertura.BackColor = System.Drawing.SystemColors.Window;
-            this.neAlturaCobertura.Location = new System.Drawing.Point(153, 154);
-            this.neAlturaCobertura.Name = "neAlturaCobertura";
-            this.neAlturaCobertura.Size = new System.Drawing.Size(75, 21);
-            this.neAlturaCobertura.TabIndex = 143;
-            this.neAlturaCobertura.Text = "0";
-            // 
-            // fullLabel20
-            // 
-            this.fullLabel20.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel20.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel20.Location = new System.Drawing.Point(244, 156);
-            this.fullLabel20.Name = "fullLabel20";
-            this.fullLabel20.Size = new System.Drawing.Size(79, 18);
-            this.fullLabel20.TabIndex = 147;
-            this.fullLabel20.Text = "Piso/Dpto: ";
-            // 
-            // fullLabel21
-            // 
-            this.fullLabel21.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel21.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel21.Location = new System.Drawing.Point(82, 156);
-            this.fullLabel21.Name = "fullLabel21";
-            this.fullLabel21.Size = new System.Drawing.Size(67, 18);
-            this.fullLabel21.TabIndex = 146;
-            this.fullLabel21.Text = "Altura:";
-            // 
-            // fullLabel22
-            // 
-            this.fullLabel22.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel22.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel22.Location = new System.Drawing.Point(61, 124);
-            this.fullLabel22.Name = "fullLabel22";
-            this.fullLabel22.Size = new System.Drawing.Size(75, 18);
-            this.fullLabel22.TabIndex = 145;
-            this.fullLabel22.Text = "Dirección:";
-            // 
-            // cdcRubro
-            // 
-            this.cdcRubro.BackColor = System.Drawing.SystemColors.Window;
-            this.cdcRubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cdcRubro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cdcRubro.FormattingEnabled = true;
-            this.cdcRubro.Location = new System.Drawing.Point(624, 96);
-            this.cdcRubro.Name = "cdcRubro";
-            this.cdcRubro.Size = new System.Drawing.Size(276, 23);
-            this.cdcRubro.Sorted = true;
-            this.cdcRubro.TabIndex = 145;
-            // 
-            // fullLabel23
-            // 
-            this.fullLabel23.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel23.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel23.Location = new System.Drawing.Point(553, 101);
-            this.fullLabel23.Name = "fullLabel23";
-            this.fullLabel23.Size = new System.Drawing.Size(65, 18);
-            this.fullLabel23.TabIndex = 146;
-            this.fullLabel23.Text = "Rubro:";
             // 
             // CargaCliente
             // 

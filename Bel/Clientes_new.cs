@@ -5,19 +5,19 @@ using System.Collections.Generic;
 using System.Data;
 using System.Xml;
 using TNGS.NetRoutines;
-using Sima;
+using Carm;
 #endregion
 
-namespace Sima.Bel
+namespace Carm.Bel
 {
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 02/05/2014 13:56
-    // Sistema                  : Sima
+    // Fecha                    : 05/02/2021 12:36
+    // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
-    // © 1996-2014 by TNG Software                                      Gndr 5.20
+    // © 1996-2021 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -212,6 +212,112 @@ namespace Sima.Bel
     ///   - Elementos no producidos por el Generador
     /// </summary>
     public sealed partial class LETCliEntrevistas : LET<ECliEntrevista>
+    {
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos publicos
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Metodos privados de la clase
+        //---------------------------------------------------------------
+        // Metodos privados
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        #endregion
+    }
+    #endregion
+
+    #region Entidad: CliGrupoFamiliar
+    /// <summary>
+    /// Clase que representa la Entidad: CliGrupoFamiliar
+    ///   - Elementos no producidos por el Generador
+    /// </summary>
+    public sealed partial class ECliGrupoFamiliar : Entidad
+    {
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos públicos de la clase
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Metodos privados de la clase
+        //---------------------------------------------------------------
+        // Metodos privados de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Permite agregar datos al XML de la entidad
+        /// </summary>
+        private void fAddXMLData(ref XmlDocument p_xdocData,
+                                 ref XmlNode p_xndEntidad)
+        {
+        }
+
+        /// <summary>
+        /// Permite agregar datos a una entidad generada desde un XML
+        /// </summary>
+        private void fNewFromXML(ref DataRow p_drTemp,
+                                 XmlNode p_xndData)
+        {
+        }
+
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        #endregion
+    }
+    #endregion
+
+    #region Lista-Entidad: CliGrupoFamiliares
+    /// <summary>
+    /// Clase que representa la Lista-Entidad: CliGrupoFamiliares
+    ///   - Elementos no producidos por el Generador
+    /// </summary>
+    public sealed partial class LECliGrupoFamiliares : ListaEntidades
+    {
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos publicos
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Metodos privados de la clase
+        //---------------------------------------------------------------
+        // Metodos privados
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        #endregion
+    }
+    #endregion
+
+    #region Lista-Entidad-Tipada: CliGrupoFamiliares
+    /// <summary>
+    /// Clase que representa la Lista-Entidad-Tipada: CliGrupoFamiliares
+    ///   - Elementos no producidos por el Generador
+    /// </summary>
+    public sealed partial class LETCliGrupoFamiliares : LET<ECliGrupoFamiliar>
     {
         #region Metodos publicos de la clase
         //---------------------------------------------------------------

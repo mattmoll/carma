@@ -1,11 +1,11 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 18/12/2020 02:58
+// Fecha              : 05/02/2021 12:23
 // Base de Datos      : TNGS_Carm
 // Tabla              : Clientes
 //----------------------------------------------------------------------------
-// © 1999-2020 by TNG Software                                      Gndr 5.20
+// © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -78,9 +78,13 @@ create table Clientes
       cli_ecd_codloccobertura tngs_codigo_e,
       cli_rcd_codmarca tngs_codigo_r,
       cli_rcd_tipocliente tngs_codigo_r,
-      cli_xde_nomyape tngs_descripcion_x,
+      cli_xde_apellido tngs_descripcion_x,
       cli_fec_fechanacimiento tngs_fecha,
       cli_rcd_situacioniva tngs_codigo_r,
+      cli_ede_nombre tngs_descripcion_e,
+      cli_rcd_codrubro tngs_codigo_r,
+      cli_fec_fecultimocontacto tngs_fecha,
+      cli_fec_fechaproxcontacto tngs_fecha,
       instante tngs_fecyhor,
       deleted tngs_borrado,
       usuario tngs_nombre,

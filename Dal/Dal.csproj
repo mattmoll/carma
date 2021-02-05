@@ -66,6 +66,7 @@
     <Compile Include="CliContactos.cs" />
     <Compile Include="Clientes.cs" />
     <Compile Include="CliEntrevistas.cs" />
+    <Compile Include="CliGrupoFamiliar.cs" />
     <Compile Include="CliLlamadas.cs" />
     <Compile Include="CliNotas.cs" />
     <Compile Include="CliServicios.cs" />

@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------
 // Fecha              : 05/02/2021 12:23
 // Base de Datos      : TNGS_Carm
-// Tabla              : TipoVend
+// Tabla              : Parentescos
 //----------------------------------------------------------------------------
 // © 1999-2021 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
@@ -26,40 +26,39 @@ go
 /* Crea la tabla en la base indicada */
 /*-----------------------------------*/
 
-print 'Tabla: TipoVend'
+print 'Tabla: Parentescos'
 
-if exists (select * from sysobjects where id = object_id('dbo.TipoVend'))
+if exists (select * from sysobjects where id = object_id('dbo.Parentescos'))
 begin
    print '   - Borrando la vieja tabla'
-   drop table dbo.TipoVend
+   drop table dbo.Parentescos
 end
 go
 
 print '   - Creando la nueva tabla'
 
-create table TipoVend
+create table Parentescos
    (
-      tvn_rcd_cod tngs_codigo_r,
-      tvn_des_des tngs_descripcion,
-      tvn_cd1_vemayor tngs_codigo_1,
+      prt_rcd_cod tngs_codigo_r,
+      prt_des_des tngs_descripcion,
       instante tngs_fecyhor,
       deleted tngs_borrado,
       usuario tngs_nombre,
       version tngs_numero,
-      constraint TipoVend_pk primary key clustered
+      constraint Parentescos_pk primary key clustered
       (
-         tvn_rcd_cod
+         prt_rcd_cod
       )
    )
 go
 
 print '   - Asignando permisos a la nueva tabla'
 
-grant select on TipoVend to tngsqbe
+grant select on Parentescos to tngsqbe
 
 print ' '
 go
 
 /*--------------------------------------------------------------------------
-// Fin del script de creacion de la tabla: TipoVend
+// Fin del script de creacion de la tabla: Parentescos
 //--------------------------------------------------------------------------*/

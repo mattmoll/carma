@@ -187,7 +187,8 @@ namespace Carm.Bll
                 l_strWhere += AppRuts.MakeWhere(ECliente.NombrefantCmp, p_bsBusqueda.NFant, StringModes.FullLike);
                 l_strWhere += AppRuts.MakeWhere(ECliente.CodvendCmp, p_bsBusqueda.CodVend, StringModes.FullLike);
                 l_strWhere += AppRuts.MakeWhere(ECliente.CargadorCmp, p_bsBusqueda.Cargador, StringModes.FullLike);
-                l_strWhere += AppRuts.MakeWhere(ECliente.NomyapeCmp, p_bsBusqueda.NombreYApellido, StringModes.Equal);
+                l_strWhere += AppRuts.MakeWhere(ECliente.NombreCmp, p_bsBusqueda.Nombre, StringModes.Equal);
+                l_strWhere += AppRuts.MakeWhere(ECliente.ApellidoCmp, p_bsBusqueda.Apellido, StringModes.Equal);
                 l_strWhere += AppRuts.MakeWhere(ERubro.CodCmp, p_bsBusqueda.Rubro, StringModes.Equal);
                 l_strWhere += AppRuts.MakeWhere(EMarca.CodCmp, p_bsBusqueda.Marca, StringModes.Equal);
                 l_strWhere += AppRuts.MakeWhere(ETipoInst.CodCmp, p_bsBusqueda.TInst, StringModes.Equal);
@@ -2045,7 +2046,8 @@ namespace Carm.Bll
             string l_strCampos = ECliente.NumeroCmp + ", " +
                                  ECliente.RsocialCmp + ", " +
                                  ECliente.NombrefantCmp + ", " +
-                                 ECliente.NomyapeCmp + ", " +
+                                 ECliente.NombreCmp + ", " +
+                                 ECliente.ApellidoCmp + ", " +
                                  ECliente.Telefono1Cmp + ", " +
                                  ECliente.AltaCmp + ", " +
                                  "loc_ede_nombre as cli_ede_loc," +
@@ -2065,14 +2067,15 @@ namespace Carm.Bll
             l_leClientes.ChangeCaption(ECliente.NumeroCmp, "V1NúmeroNN2");                      /*0*/
             l_leClientes.ChangeCaption(ECliente.RsocialCmp, "V1Razón SocialCN2");               /*1*/
             l_leClientes.ChangeCaption(ECliente.NombrefantCmp, "V1Nombre FantasíaCN2");         /*2*/
-            l_leClientes.ChangeCaption(ECliente.NomyapeCmp, "V1Nombre y ApellidoCN2");          /*3*/
-            l_leClientes.ChangeCaption(ECliente.Telefono1Cmp, "V1TeléfonoCN2");                 /*4*/
-            l_leClientes.ChangeCaption(ECliente.AltaCmp, "V1Alta en AvalonCN2");                /*5*/
-            l_leClientes.ChangeCaption("cli_ede_loc", "V1LocalidadCN2");                        /*6*/
-            l_leClientes.ChangeCaption(ECliente.CodvendCmp, "V1Cod. Vend.CN2");                 /*7*/
-            l_leClientes.ChangeCaption(ECliente.NroavalonCmp, "V1Nro. AvalonNN2");              /*8*/
-            l_leClientes.ChangeCaption(ECliente.EmailCmp, "V1EmailCN1");                        /*9*/
-            l_leClientes.ChangeCaption(ECliente.CelularCmp, "V1CelularCN1");                    /*10*/
+            l_leClientes.ChangeCaption(ECliente.NombreCmp, "V1NombreCN2");                      /*3*/
+            l_leClientes.ChangeCaption(ECliente.ApellidoCmp, "V1ApellidoCN2");                  /*4*/
+            l_leClientes.ChangeCaption(ECliente.Telefono1Cmp, "V1TeléfonoCN2");                 /*5*/
+            l_leClientes.ChangeCaption(ECliente.AltaCmp, "V1Alta en AvalonCN2");                /*6*/
+            l_leClientes.ChangeCaption("cli_ede_loc", "V1LocalidadCN2");                        /*7*/
+            l_leClientes.ChangeCaption(ECliente.CodvendCmp, "V1Cod. Vend.CN2");                 /*8*/
+            l_leClientes.ChangeCaption(ECliente.NroavalonCmp, "V1Nro. AvalonNN2");              /*9*/
+            l_leClientes.ChangeCaption(ECliente.EmailCmp, "V1EmailCN1");                        /*10*/
+            l_leClientes.ChangeCaption(ECliente.CelularCmp, "V1CelularCN1");                    /*11*/
         }
 
         #endregion
@@ -2438,6 +2441,81 @@ namespace Carm.Bll
                                        ECliEntrevista p_entCliEntrevista,
                                        StatMsg p_smResult)
         {
+        }
+
+
+        /// <summary>
+        /// Agrega o modifica un registro de la tabla: CliGrupoFamiliar
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_entCliGrupoFamiliar">Entidad con los datos a procesar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfSave_f(DBConn p_dbcAccess,
+                                       ref ECliGrupoFamiliar p_entCliGrupoFamiliar,
+                                       StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Habilita/Deshabilita un registro de la tabla: CliGrupoFamiliar
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_bEnable">Tipo de operacion</param>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_iNumintegrante">Nro Integrante GF</param>
+        /// <param name="p_iFxdVersion">Versión del registro a borrar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfEnabled_f(DBConn p_dbcAccess,
+                                          bool p_bEnable,
+                                          int p_iNumcliente,
+                                          int p_iNumintegrante,
+                                          ref int p_iFxdVersion,
+                                          StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Borra físicamento un registro de la tabla: CliGrupoFamiliar
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_iNumintegrante">Nro Integrante GF</param>
+        /// <param name="p_iFxdVersion">Versión del registro a borrar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfRemove_f(DBConn p_dbcAccess,
+                                         int p_iNumcliente,
+                                         int p_iNumintegrante,
+                                         int p_iFxdVersion,
+                                         StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Agrega validacion de integridad a una entidad: CliGrupoFamiliar
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_entCliGrupoFamiliar">Entidad con los datos a validar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfTInt_f(DBConn p_dbcAccess,
+                                       ECliGrupoFamiliar p_entCliGrupoFamiliar,
+                                       StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá las validaciones adicionales
+            // *********
         }
 
 

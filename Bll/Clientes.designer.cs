@@ -16,11 +16,11 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 18/12/2020 03:04
+    // Fecha                    : 05/02/2021 12:36
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
-    // © 1996-2020 by TNG Software                                      Gndr 5.20
+    // © 1996-2021 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -2323,6 +2323,864 @@ namespace Carm.Bll
                 // Terminamos
             }
         }
+        #endregion
+
+
+        //**********************************************************
+        //
+        // Funciones para la Tabla: CliGrupoFamiliar
+        // Usando ClaseDal        : CliGrupoFamiliar
+        //
+        //**********************************************************
+
+        //---------------------------------------------------------------
+        // Metodos públicos de la clase (visibles para la UIL)
+        //---------------------------------------------------------------
+        #region Metodos publicos de recupero
+
+        /// <summary>
+        /// Devuelve la grilla de la tabla: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_bOnlyActive">Indica si solo se analizan los registros activos</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        /// <returns>Lista-entidad: LECliGrupoFamiliares</returns>
+        public static LECliGrupoFamiliares CgfUpFull(bool p_bOnlyActive,
+                                                     StatMsg p_smResult)
+        {
+            // No hay errores aun
+            DBConn l_dbcAccess= null;
+
+            try {
+                // Obtenemos una conexion
+                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
+
+                // Pedimos los registros de la tabla
+                return CgfUpfl(l_dbcAccess, p_bOnlyActive, p_smResult);
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion UpFull
+                p_smResult.BllError(l_expData);
+                return null;
+            }
+            finally {
+                // Si pude abrir la conexion -> la cierro
+                if (l_dbcAccess != null) l_dbcAccess.Close();
+            }
+        }
+
+        /// <summary>
+        /// Devuelve una entidad: ECliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_iNumintegrante">Nro Integrante GF</param>
+        /// <param name="p_bOnlyActive">Indica si solo se analizan los registros activos</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        /// <returns>Entidad: ECliGrupoFamiliar</returns>
+        public static ECliGrupoFamiliar CgfGet(int p_iNumcliente,
+                                               int p_iNumintegrante,
+                                               bool p_bOnlyActive,
+                                               StatMsg p_smResult)
+        {
+            // No hay errores aun
+            DBConn l_dbcAccess= null;
+
+            try {
+                // Obtenemos una conexion
+                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
+
+                // Pedimos la entidad: ECliGrupoFamiliar
+                return CgfSrch(l_dbcAccess,
+                               p_iNumcliente,
+                               p_iNumintegrante,
+                               p_bOnlyActive,
+                               p_smResult);
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion Get
+                p_smResult.BllError(l_expData);
+                return null;
+            }
+            finally {
+                // Si pude abrir la conexion -> la cierro
+                if (l_dbcAccess != null) l_dbcAccess.Close();
+            }
+        }
+
+        /// <summary>
+        /// Devuelve una lista-entidad: LECliGrupoFamiliares
+        /// asociada a una Foreing key de la tabla: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_bOnlyActive">Indica si solo se analizan los registros activos</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        /// <returns>Lista-Entidad: LECliGrupoFamiliares</returns>
+        public static LECliGrupoFamiliares CgfFGet(int p_iNumcliente,
+                                                   bool p_bOnlyActive,
+                                                   StatMsg p_smResult)
+        {
+            // No hay errores aun
+            DBConn l_dbcAccess= null;
+
+            try {
+                // Obtenemos una conexion
+                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
+
+                // Pedimos la lista-entidad: LECliGrupoFamiliares
+                return CgfFSch(l_dbcAccess,
+                               p_iNumcliente,
+                               p_bOnlyActive,
+                               p_smResult);
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion FGet
+                p_smResult.BllError(l_expData);
+                return null;
+            }
+            finally {
+                // Si pude abrir la conexion -> la cierro
+                if (l_dbcAccess != null) l_dbcAccess.Close();
+            }
+        }
+        #endregion
+
+        #region Metodos publicos de grabacion
+
+        /// <summary>
+        /// Agrega o modifica un registro de la tabla: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_entCliGrupoFamiliar">Entidad con los datos a procesar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        public static void CgfSave(ECliGrupoFamiliar p_entCliGrupoFamiliar,
+                                   StatMsg p_smResult)
+        {
+            // No hay errores aun
+            DBConn l_dbcAccess= null;
+
+            try {
+                // Obtenemos una conexion y abrimos una transaccion
+                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
+                l_dbcAccess.BeginTransaction();
+
+                // Grabamos la entidad: ECliGrupoFamiliar
+                CgfSSav(l_dbcAccess, p_entCliGrupoFamiliar, p_smResult);
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion Save
+                p_smResult.BllError(l_expData);
+            }
+            finally {
+                // Si pude abrir la conexion
+                if (l_dbcAccess != null) {
+                    // Finalizo la transacción y la cierro
+                    l_dbcAccess.EndTransaction(p_smResult);
+                    l_dbcAccess.Close();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Habilita/Deshabilita un registro de la tabla: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_bEnable">Tipo de operacion</param>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_iNumintegrante">Nro Integrante GF</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        public static void CgfEnabled(bool p_bEnable,
+                                      int p_iNumcliente,
+                                      int p_iNumintegrante,
+                                      int p_iFxdVersion,
+                                      StatMsg p_smResult)
+        {
+            // No hay errores aun
+            DBConn l_dbcAccess= null;
+
+            try {
+                // Obtenemos una conexion
+                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
+                l_dbcAccess.BeginTransaction();
+
+                // Procesamos codigo fijo
+                CgfEnabled_f(l_dbcAccess,
+                             p_bEnable,
+                             p_iNumcliente,
+                             p_iNumintegrante,
+                             ref p_iFxdVersion,
+                             p_smResult);
+                if (p_smResult.NOk) return;
+
+                // Verificamos la clave a modificar
+                CgfVKey(l_dbcAccess,
+                        p_iNumcliente,
+                        p_iNumintegrante,
+                        p_smResult);
+                if (p_smResult.NOk) return;
+
+                // El registro tiene que existir
+                if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                    // Error. La clave no existe
+                    p_smResult.BllWarning("El ítem (CliGrupoFamiliar) que intenta modificar no existe en el sistema.","");
+                    return;
+                }
+
+                // Debe coincidir el número de version
+                CgfVVer(l_dbcAccess, 
+                        p_iNumcliente,
+                        p_iNumintegrante,
+                        p_iFxdVersion,
+                        p_smResult);
+                if (p_smResult.NOk) return;
+
+                // Segun el modo
+                if (p_bEnable) {
+                    // Hay que habilitar el registro
+                    Dal.CliGrupoFamiliar.Recall(l_dbcAccess,
+                                                p_iNumcliente,
+                                                p_iNumintegrante,
+                                                p_smResult);
+                }
+                else {
+                    // Hay que deshabilitar el registro
+                    Dal.CliGrupoFamiliar.Delete(l_dbcAccess,
+                                                p_iNumcliente,
+                                                p_iNumintegrante,
+                                                p_smResult);
+                }
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion Enabled
+                p_smResult.BllError(l_expData);
+            }
+            finally {
+                // Si pude abrir la conexion
+                if (l_dbcAccess != null) {
+                    // Finalizo la transacción y la cierro
+                    l_dbcAccess.EndTransaction(p_smResult);
+                    l_dbcAccess.Close();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Borra físicamento un registro de la tabla: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_iNumintegrante">Nro Integrante GF</param>
+        /// <param name="p_iFxdVersion">Versión del registro a borrar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        public static void CgfRemove(int p_iNumcliente,
+                                     int p_iNumintegrante,
+                                     int p_iFxdVersion,
+                                     StatMsg p_smResult)
+        {
+            // No hay errores aun
+            DBConn l_dbcAccess= null;
+
+            try {
+                // Obtenemos una conexion
+                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
+                l_dbcAccess.BeginTransaction();
+
+                // Procesamos codigo fijo
+                CgfRemove_f(l_dbcAccess,
+                            p_iNumcliente,
+                            p_iNumintegrante,
+                            p_iFxdVersion,
+                            p_smResult);
+                if (p_smResult.NOk) return;
+
+                // Borramos el registro solicitado
+                CgfDrop(l_dbcAccess,
+                        p_iNumcliente,
+                        p_iNumintegrante,
+                        p_iFxdVersion,
+                        p_smResult);
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion Remove
+                p_smResult.BllError(l_expData);
+            }
+            finally {
+                // Si pude abrir la conexion
+                if (l_dbcAccess != null) {
+                    // Finalizo la transacción y la cierro
+                    l_dbcAccess.EndTransaction(p_smResult);
+                    l_dbcAccess.Close();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Compacta una tabla borrando los registros deshabilitados
+        /// </summary>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        public static void CgfPurge(StatMsg p_smResult)
+        {
+            // No hay errores aun
+            DBConn l_dbcAccess= null;
+            try {
+                // Obtenemos una conexion
+                l_dbcAccess= DBRuts.GetConection(Connections.Dat);
+                l_dbcAccess.BeginTransaction();
+
+                // Realizamos el borrado
+                CgfPack(l_dbcAccess,
+                        p_smResult);
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion Enabled
+                p_smResult.BllError(l_expData);
+            }
+            finally {
+                // Si pude abrir la conexion
+                if (l_dbcAccess != null) {
+                    // Finalizo la transacción y la cierro
+                    l_dbcAccess.EndTransaction(p_smResult);
+                    l_dbcAccess.Close();
+                }
+            }
+        }
+        #endregion
+
+        #region Metodos para métodos DAL definidos por el usuario
+        #endregion
+
+        //---------------------------------------------------------------
+        // Metodos públicos de la clase (no visibles para la UIL)
+        //---------------------------------------------------------------
+
+        #region Metodos internos de validacion
+
+        /// <summary>
+        /// Valida la integridad de una entidad: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_entCliGrupoFamiliar">Entidad con los datos a validar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfTInt(DBConn p_dbcAccess,
+                                     ECliGrupoFamiliar p_entCliGrupoFamiliar,
+                                     StatMsg p_smResult)
+        {
+            // ********
+            // Validaciones de los campos sin conexion
+            // ********
+
+            // ********
+            // Validaciones de los campos con conexion
+            // ********
+
+            // Verificamos la clave foranea
+            Clientes.VKey(p_dbcAccess,
+                          p_entCliGrupoFamiliar.Numcliente,
+                          p_smResult);
+            if (p_smResult.NOk) return;
+
+            // El registro tiene que existir
+            if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                // Error. La clave foranea no existe
+                p_smResult.BllWarning("La clave (Cliente) foranea no existe en el sistema.","");
+                return;
+            }
+
+            // Llamamos a la funcion fija del usuario
+            CgfTInt_f(p_dbcAccess, p_entCliGrupoFamiliar, p_smResult);
+            if (p_smResult.NOk) return;
+        }
+
+        /// <summary>
+        /// Verifica el número de version de una tabla
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_iNumintegrante">Nro Integrante GF</param>
+        /// <param name="p_iFxdVersion">Número de version</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfVVer(DBConn p_dbcAccess,
+                                     int p_iNumcliente,
+                                     int p_iNumintegrante,
+                                     int p_iFxdVersion,
+                                     StatMsg p_smResult)
+        {
+            // No hay errores aun
+            DataSet l_dsTemp= new DataSet();
+
+            // Verificamos el número de versión
+            Dal.CliGrupoFamiliar.ChkVersion(p_dbcAccess,
+                                            p_iNumcliente,
+                                            p_iNumintegrante,
+                                            p_iFxdVersion,
+                                            ref l_dsTemp,
+                                            "Temporal",
+                                            p_smResult);
+            if (p_smResult.NOk) return;
+
+            // Verificamos el resultado que vino
+            if (l_dsTemp.Tables["Temporal"].Rows.Count != 0) {
+                // Verificamos si la cantidad es 1
+                if ((int) l_dsTemp.Tables["Temporal"].Rows[0]["cantidad"] == 1) {
+                    // La versión coincide
+                    l_dsTemp.Dispose();
+                    return;
+                }
+            }
+
+            // El número de versión no coincide
+            StreamWriter l_swErrorFile= null;
+            string l_strErrFName= String.Format("C:\\V{0:ddMMyyyyHHmmss}.Err",
+                                                DateTime.Now);
+            try {
+                // Creamos el archivo del error
+                l_swErrorFile= new StreamWriter(File.Create(l_strErrFName),
+                                                System.Text.Encoding.ASCII);
+
+                // Grabamos los datos del error
+                l_swErrorFile.WriteLine("Instante    : {0:dd/MM/yyyy HH:mm:ss}", DateTime.Now);
+                l_swErrorFile.WriteLine("Metodo      : {0}", p_smResult.Method);
+                l_swErrorFile.WriteLine("Message     : No coincide el numero de version");
+            }
+            catch (Exception l_expData) {
+                // Error en el acceso al archivo.
+                string l_strLinea= l_expData.Message;
+            }
+            finally {
+                // Si llegamos a abrir el archivo -> lo cerramos
+                if (l_swErrorFile != null) {
+                    l_swErrorFile.Close();
+                    l_swErrorFile.Dispose();
+                }
+            }
+
+            // El número de versión no coincide
+            l_dsTemp.Dispose();
+            p_smResult.BllWarning("El número de versión del registro del ítem (CliGrupoFamiliar) no coincide.\r\nOperación cancelada.","");
+        }
+
+        /// <summary>
+        /// Verifica si existe en la tabla una entidad: ECliGrupoFamiliar
+        ///      Retorno: p_smResult.Stat= BllAvisos.KeyExists   - La clave existe
+        ///               p_smResult.Stat= BllAvisos.KeyNotFound - La clave no existe
+        ///               p_smResult.Stat= BllAvisos.KeyDisabled - La clave está deshabilitada
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_iNumintegrante">Nro Integrante GF</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfVKey(DBConn p_dbcAccess,
+                                     int p_iNumcliente,
+                                     int p_iNumintegrante,
+                                     StatMsg p_smResult)
+        {
+            // No hay errores aun
+            DataSet l_dsTemp= new DataSet();
+
+            Dal.CliGrupoFamiliar.Search(p_dbcAccess,
+                                        p_iNumcliente,
+                                        p_iNumintegrante,
+                                        false,
+                                        ref l_dsTemp,
+                                        "Temporal",
+                                        p_smResult);
+            if (p_smResult.NOk) return;
+
+            try {
+                // Verificamos si vino algun registro
+                p_smResult.BllICode(BllCodes.KeyDsntFound);
+                if (l_dsTemp.Tables["Temporal"].Rows.Count == 0) return;
+
+                // Verificamos si el registro que vino esta habilitado
+                p_smResult.BllICode(BllCodes.KeyDisabled);
+                if ((decimal) l_dsTemp.Tables["Temporal"].Rows[0]["deleted"] == 1) return;
+
+                // La clave existia y estaba habilitada
+                p_smResult.BllICode(BllCodes.KeyExists);
+            }
+            finally {
+                // Terminamos
+                l_dsTemp.Dispose();
+            }
+        }
+        #endregion
+
+        #region Metodos internos de recupero
+
+        /// <summary>
+        /// Devuelve una Lista-entidad: LECliGrupoFamiliares
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_bOnlyActive">Indica si solo se analizan los registros activos</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        /// <returns>Lista-entidad: LECliGrupoFamiliares</returns>
+        internal static LECliGrupoFamiliares CgfUpfl(DBConn p_dbcAccess,
+                                                      bool p_bOnlyActive,
+                                                      StatMsg p_smResult)
+        {
+            try {
+                // Pedimos los registros de la tabla: CliGrupoFamiliar
+                DataSet l_dsTemp= new DataSet();
+
+                Dal.CliGrupoFamiliar.Up(p_dbcAccess, 
+                                        p_bOnlyActive,
+                                        ref l_dsTemp, "Temporal",
+                                        p_smResult);
+                if (p_smResult.NOk) return null;
+
+                // Fijamos los captions de la grilla
+                Dal.CliGrupoFamiliar.MakeGridCaptions(ref l_dsTemp, "Temporal", p_smResult);
+
+                // Contruimos la lista-entidad y la devolvemos (si vino algun registro)
+                LECliGrupoFamiliares l_lentRet= new LECliGrupoFamiliares(l_dsTemp.Tables["Temporal"]);
+                l_dsTemp.Dispose();
+                return l_lentRet;
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion Upfl
+                p_smResult.BllError(l_expData);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Devuelve una entidad: ECliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_iNumintegrante">Nro Integrante GF</param>
+        /// <param name="p_bOnlyActive">Indica si solo se analizan los registros activos</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        /// <returns>Entidad: ECliGrupoFamiliar</returns>
+        internal static ECliGrupoFamiliar CgfSrch(DBConn p_dbcAccess,
+                                                  int p_iNumcliente,
+                                                  int p_iNumintegrante,
+                                                  bool p_bOnlyActive,
+                                                  StatMsg p_smResult)
+        {
+            try {
+                // Pedimos el registro de la tabla: CliGrupoFamiliar
+                DataSet l_dsTemp= new DataSet();
+
+                Dal.CliGrupoFamiliar.Search(p_dbcAccess, 
+                                            p_iNumcliente,
+                                            p_iNumintegrante,
+                                            p_bOnlyActive,
+                                            ref l_dsTemp, "Temporal",
+                                            p_smResult);
+                if (p_smResult.NOk) return null;
+
+                // Constuimos la entidad y la devolvemos (si vino un registro)
+                ECliGrupoFamiliar l_entRet= null;
+
+                if (l_dsTemp.Tables["Temporal"].Rows.Count == 1)
+                    l_entRet= new ECliGrupoFamiliar(l_dsTemp.Tables["Temporal"].Rows[0]);
+
+                l_dsTemp.Dispose();
+                return l_entRet;
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion Srch
+                p_smResult.BllError(l_expData);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Devuelve una lista-entidad: LECliGrupoFamiliares
+        /// a partir de una clave foranea de la tabla: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_bOnlyActive">Indica si solo se analizan los registros activos</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static LECliGrupoFamiliares CgfFSch(DBConn p_dbcAccess,
+                                                     int p_iNumcliente,
+                                                     bool p_bOnlyActive,
+                                                     StatMsg p_smResult)
+        {
+            // No hay errores aun
+            DataSet l_dsTemp= new DataSet();
+
+            try {
+                // Pedimos los registros de la tabla por Foreing Key
+                Dal.CliGrupoFamiliar.FSearch(p_dbcAccess,
+                                             p_iNumcliente,
+                                             p_bOnlyActive,
+                                             ref l_dsTemp, "Temporal",
+                                             p_smResult);
+                if (p_smResult.NOk) return null;
+
+                // Fijamos los captions de la grilla
+                Dal.CliGrupoFamiliar.MakeGridCaptions(ref l_dsTemp, "Temporal", p_smResult);
+
+                // Contruimos la lista-entidad y la devolvemos
+                LECliGrupoFamiliares l_entRet= new LECliGrupoFamiliares(l_dsTemp.Tables["Temporal"]);
+                l_dsTemp.Dispose();
+                return l_entRet;
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion FSch
+                p_smResult.BllError(l_expData);
+                return null;
+            }
+        }
+        #endregion
+
+        #region Metodos internos de modificacion
+
+        /// <summary>
+        /// Agrega o modifica un registro de la tabla: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_entCliGrupoFamiliar">Entidad con los datos a procesar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfSSav(DBConn p_dbcAccess,
+                                     ECliGrupoFamiliar p_entCliGrupoFamiliar,
+                                     StatMsg p_smResult)
+        {
+            try {
+                // Procesamos codigo fijo
+                CgfSave_f(p_dbcAccess, ref p_entCliGrupoFamiliar, p_smResult);
+                if (p_smResult.NOk) return;
+
+                // Verificamos la clave a grabar
+                CgfVKey(p_dbcAccess, 
+                        p_entCliGrupoFamiliar.Numcliente,
+                        p_entCliGrupoFamiliar.Numintegrante,
+                        p_smResult);
+                if (p_smResult.NOk) return;
+
+                // Si es una entidad nueva
+                if (p_entCliGrupoFamiliar.EsNueva) {
+                    // Es un alta. La clave no debe existir
+                    if (!p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                        // Error. La clave ya existe
+                        p_smResult.BllWarning("El ítem (CliGrupoFamiliar) que intenta agregar ya existe en el sistema.","");
+                        return;
+                    }
+
+                    // Agregamos el registro
+                    CgfInsr(p_dbcAccess, p_entCliGrupoFamiliar, p_smResult);
+                    return;
+                }
+
+                // Es un update. La clave debe existir y estar habilitada
+                if (!p_smResult.ICodeEs(BllCodes.KeyExists)) {
+                    // Error. La clave no existe o no está habilitada
+                    p_smResult.BllWarning("El ítem (CliGrupoFamiliar) que intenta modificar no existe en el sistema o no está habilitado.","");
+                    return;
+                }
+
+                // Debe coincidir el número de version
+                CgfVVer(p_dbcAccess, 
+                        p_entCliGrupoFamiliar.Numcliente,
+                        p_entCliGrupoFamiliar.Numintegrante,
+                        p_entCliGrupoFamiliar.FxdVersion,
+                        p_smResult);
+                if (p_smResult.NOk) return;
+
+                // Actualizamos el registro
+                CgfUpdt(p_dbcAccess, p_entCliGrupoFamiliar, p_smResult);
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion SSav
+                p_smResult.BllError(l_expData);
+            }
+        }
+
+        /// <summary>
+        /// Agrega un registro a la tabla a partir de una entidad: ECliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_entCliGrupoFamiliar">Entidad con los datos a procesar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfInsr(DBConn p_dbcAccess,
+                                     ECliGrupoFamiliar p_entCliGrupoFamiliar,
+                                     StatMsg p_smResult)
+        {
+            try {
+                // Validamos la integridad de la entidad
+                CgfTInt(p_dbcAccess, p_entCliGrupoFamiliar, p_smResult);
+                if (p_smResult.NOk) return;
+
+                // Creamos un nuevo registro de la tabla: CliGrupoFamiliar
+                Dal.CliGrupoFamiliar.Insert(p_dbcAccess,
+                                            p_entCliGrupoFamiliar.Numcliente,
+                                            p_entCliGrupoFamiliar.Numintegrante,
+                                            p_entCliGrupoFamiliar.Apellido,
+                                            p_entCliGrupoFamiliar.Nombre,
+                                            p_entCliGrupoFamiliar.Codparentesco,
+                                            p_entCliGrupoFamiliar.Dni,
+                                            p_entCliGrupoFamiliar.Fechanacimiento,
+                                            p_entCliGrupoFamiliar.Obrasocial,
+                                            p_smResult);
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion Insr
+                p_smResult.BllError(l_expData);
+            }
+        }
+
+        /// <summary>
+        /// Actualiza un registro a la tabla a partir de una entidad: ECliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_entCliGrupoFamiliar">Entidad con los datos a procesar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfUpdt(DBConn p_dbcAccess,
+                                     ECliGrupoFamiliar p_entCliGrupoFamiliar,
+                                     StatMsg p_smResult)
+        {
+            try {
+                // Validamos la integridad de la entidad
+                CgfTInt(p_dbcAccess, p_entCliGrupoFamiliar, p_smResult);
+                if (p_smResult.NOk) return;
+
+                // Actualizamos un registro de la tabla: CliGrupoFamiliar
+                Dal.CliGrupoFamiliar.Update(p_dbcAccess,
+                                            p_entCliGrupoFamiliar.Numcliente,
+                                            p_entCliGrupoFamiliar.Numintegrante,
+                                            p_entCliGrupoFamiliar.Apellido,
+                                            p_entCliGrupoFamiliar.Nombre,
+                                            p_entCliGrupoFamiliar.Codparentesco,
+                                            p_entCliGrupoFamiliar.Dni,
+                                            p_entCliGrupoFamiliar.Fechanacimiento,
+                                            p_entCliGrupoFamiliar.Obrasocial,
+                                            p_smResult);
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion Updt
+                p_smResult.BllError(l_expData);
+            }
+        }
+
+        /// <summary>
+        /// Borra físicamente un registro de a tabla: CliGrupoFamiliar
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_iNumintegrante">Nro Integrante GF</param>
+        /// <param name="p_iFxdVersion">Versión del registro a borrar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfDrop(DBConn p_dbcAccess,
+                                     int p_iNumcliente,
+                                     int p_iNumintegrante,
+                                     int p_iFxdVersion,
+                                     StatMsg p_smResult)
+        {
+            try {
+                // Verificamos la clave a borrar
+                CgfVKey(p_dbcAccess,
+                        p_iNumcliente,
+                        p_iNumintegrante,
+                        p_smResult);
+                if (p_smResult.NOk) return;
+
+                // El registro tiene que existir
+                if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                    // Error. La clave no existe
+                    p_smResult.BllWarning("El ítem (CliGrupoFamiliar) que intenta borrar no existe en el sistema.","");
+                    return;
+                }
+
+                // Debe coincidir el número de version
+                CgfVVer(p_dbcAccess, 
+                        p_iNumcliente,
+                        p_iNumintegrante,
+                        p_iFxdVersion,
+                        p_smResult);
+                if (p_smResult.NOk) return;
+
+                // Borramos físicamente el registro
+                Dal.CliGrupoFamiliar.Drop(p_dbcAccess,
+                                          p_iNumcliente,
+                                          p_iNumintegrante,
+                                          p_smResult);
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion Remove
+                p_smResult.BllError(l_expData);
+            }
+        }
+
+        /// <summary>
+        /// Borra los registros borrados lógicamente de la tabla
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfPack(DBConn p_dbcAccess,
+                                     StatMsg p_smResult)
+        {
+            try {
+                // Borramos los borrados lógicamente
+                Dal.CliGrupoFamiliar.Pack(p_dbcAccess,
+                                          p_smResult);
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion Updt
+                p_smResult.BllError(l_expData);
+            }
+        }
+
+        /// <summary>
+        /// Realiza una actualización inteligente de la tabla a partir de una
+        /// lista-entidad: LECliGrupoFamiliares
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_iNumcliente">Nro Cliente</param>
+        /// <param name="p_lentCliGrupoFamiliares">Lista-entidad a actualizar sobre la tabla</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void CgfSSav(DBConn p_dbcAccess,
+                                     int p_iNumcliente,
+                                      LECliGrupoFamiliares p_lentCliGrupoFamiliares,
+                                      StatMsg p_smResult)
+        {
+            try {
+                // Deshabilitamos todas las entidades existentes
+                Dal.CliGrupoFamiliar.FDrop(p_dbcAccess,
+                                           p_iNumcliente,
+                                           p_smResult);
+                if (p_smResult.NOk) return;
+
+                // Recorremos la lista de entidades
+                foreach (ECliGrupoFamiliar l_entCliGrupoFamiliar in p_lentCliGrupoFamiliares) {
+                    // Forzamos la clave foranea
+                    l_entCliGrupoFamiliar.Numcliente= p_iNumcliente;
+
+                    // Verificamos si existe
+                    CgfVKey(p_dbcAccess,
+                            l_entCliGrupoFamiliar.Numcliente,
+                            l_entCliGrupoFamiliar.Numintegrante,
+                            p_smResult);
+                    if (p_smResult.NOk) return;
+
+                    // Si no existe
+                    if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                        // Hay que darla de alta
+                        CgfInsr(p_dbcAccess, l_entCliGrupoFamiliar, p_smResult);
+                        if (p_smResult.NOk) return;
+                        continue;
+                    }
+
+                    // Existe. Debe coincidir el número de version
+                    CgfVVer(p_dbcAccess, 
+                            l_entCliGrupoFamiliar.Numcliente,
+                            l_entCliGrupoFamiliar.Numintegrante,
+                            l_entCliGrupoFamiliar.FxdVersion,
+                            p_smResult);
+                    if (p_smResult.NOk) return;
+
+                    // El número coincide. La Actualizamos si no está borrada
+                    if (!l_entCliGrupoFamiliar.EstaBorrada) {
+                        CgfUpdt(p_dbcAccess, l_entCliGrupoFamiliar, p_smResult);
+                        if (p_smResult.NOk) return;
+                    }
+                }
+            }
+            catch (Exception l_expData) {
+                // Error en la operacion SSav
+                p_smResult.BllError(l_expData);
+            }
+        }
+        #endregion
+
+        #region Metodos para métodos DAL definidos por el usuario
         #endregion
 
 
@@ -7149,6 +8007,13 @@ namespace Carm.Bll
                                                      p_smResult);
                 if (p_smResult.NOk) return null;
 
+                // Completamos la lista-entidad: LECliGrupoFamiliares
+                l_entCliente.CliGrupoFamiliares= CgfFSch(l_dbcAccess,
+                                                         p_iNumero,
+                                                         p_bOnlyActive,
+                                                         p_smResult);
+                if (p_smResult.NOk) return null;
+
                 // Completamos la lista-entidad: LECliLlamadas
                 l_entCliente.CliLlamadas= CllFSch(l_dbcAccess,
                                                   p_iNumero,
@@ -7818,6 +8683,19 @@ namespace Carm.Bll
                 }
             }
 
+            if (p_entCliente.Codrubro.Trim() != "") {
+                Tablas.RbrVKey(p_dbcAccess,
+                               p_entCliente.Codrubro,
+                               p_smResult);
+                if (p_smResult.NOk) return;
+
+                if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                    // El campo [Rubro] debe existir en la tabla [Tablas.Rbr]
+                    p_smResult.BllWarning("El dato [Rubro] debe existir en la tabla [Tablas.Rbr]","");
+                    return;
+                }
+            }
+
             // Todas las validaciones fueron correctas
 
             // Llamamos a la funcion fija del usuario
@@ -8070,9 +8948,13 @@ namespace Carm.Bll
                                     p_entCliente.Codloccobertura,
                                     p_entCliente.Codmarca,
                                     p_entCliente.Tipocliente,
-                                    p_entCliente.Nomyape,
+                                    p_entCliente.Apellido,
                                     p_entCliente.Fechanacimiento,
                                     p_entCliente.Situacioniva,
+                                    p_entCliente.Nombre,
+                                    p_entCliente.Codrubro,
+                                    p_entCliente.Fecultimocontacto,
+                                    p_entCliente.Fechaproxcontacto,
                                     p_smResult);
             }
             catch (Exception l_expData) {
@@ -8137,9 +9019,13 @@ namespace Carm.Bll
                                     p_entCliente.Codloccobertura,
                                     p_entCliente.Codmarca,
                                     p_entCliente.Tipocliente,
-                                    p_entCliente.Nomyape,
+                                    p_entCliente.Apellido,
                                     p_entCliente.Fechanacimiento,
                                     p_entCliente.Situacioniva,
+                                    p_entCliente.Nombre,
+                                    p_entCliente.Codrubro,
+                                    p_entCliente.Fecultimocontacto,
+                                    p_entCliente.Fechaproxcontacto,
                                     p_smResult);
             }
             catch (Exception l_expData) {
@@ -8275,6 +9161,13 @@ namespace Carm.Bll
                 CleSSav(p_dbcAccess,
                         p_entCliente.Numero,
                         p_entCliente.CliEntrevistas,
+                        p_smResult);
+                if (p_smResult.NOk) return;
+
+                // Grabamos la lista-entidad: LECliGrupoFamiliares
+                CgfSSav(p_dbcAccess,
+                        p_entCliente.Numero,
+                        p_entCliente.CliGrupoFamiliares,
                         p_smResult);
                 if (p_smResult.NOk) return;
 

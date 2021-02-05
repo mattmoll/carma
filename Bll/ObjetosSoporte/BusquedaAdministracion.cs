@@ -19,7 +19,8 @@ namespace Carm.Bll
         private string m_strTipoCliente;
         public string Rsocial { get; set; }
         public string NFant { get; set; }
-        public string NombreYApellido { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
         public string Cargador { get; set; }
         public string CodVend { get; set; }
         public string Dir { get; set; }
@@ -42,7 +43,7 @@ namespace Carm.Bll
             // En los filtros que van a combos usamos el miembro en vez de la property porque sino le agrega
             // padding y no da igual a string vacia.
             return ((Numero == "") && (NumeroAvalon == "") && (Rsocial == "") && (NFant == "") && (CodVend == "")
-                    && (Cargador == "") && (NombreYApellido == "") && (m_strRubro == "") && (m_strTInst == "")
+                    && (Cargador == "") && (Nombre == "")  && (Apellido == "") && (m_strRubro == "") && (m_strTInst == "")
                     && (m_strZona == "") && (m_strLoc == "") && (Dir == "") && (Altura == "") && (Telefono == "")
                     && (Marca == "")
                     && ((Reservado == "") || (Reservado == "A"))
@@ -53,7 +54,7 @@ namespace Carm.Bll
         public void limpiarBusqueda()
         {
             // Asignamos string vacia a todos los filtros de la busqueda.
-            Numero = NumeroAvalon = Rsocial = NFant = NombreYApellido = CodVend = Cargador = Rubro = TInst = Marca = Telefono = Zona = Loc = Dir = Altura = "";
+            Numero = NumeroAvalon = Rsocial = NFant = Nombre = Apellido = CodVend = Cargador = Rubro = TInst = Marca = Telefono = Zona = Loc = Dir = Altura = "";
             Reservado  = Vendido = TipoCliente = MailCargado = "A";
         }
 

@@ -10,12 +10,12 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 18/12/2020 02:18
+    // Fecha                    : 05/02/2021 12:35
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     // Basada en la Tabla       : Clientes
     //----------------------------------------------------------------------------
-    // © 1996-2020 by TNG Software                                      Gndr 5.20
+    // © 1996-2021 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -178,9 +178,13 @@ namespace Carm.Dal
         /// <param name="p_strCodloccobertura">Localidad Cobertura</param>
         /// <param name="p_strCodmarca">Marca</param>
         /// <param name="p_strTipocliente">Tipo Cliente</param>
-        /// <param name="p_strNomyape">Nombre y Apellido</param>
+        /// <param name="p_strApellido">Apellido</param>
         /// <param name="p_dtFechanacimiento">Fecha nacimiento</param>
         /// <param name="p_strSituacioniva">Situacion IVA</param>
+        /// <param name="p_strNombre">Nombre</param>
+        /// <param name="p_strCodrubro">Rubro</param>
+        /// <param name="p_dtFecultimocontacto">Fecha Último Contacto</param>
+        /// <param name="p_dtFechaproxcontacto">Fecha Próximo Contacto</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Insert(DBConn p_dbcAccess,
                                  int p_iNumero,
@@ -222,9 +226,13 @@ namespace Carm.Dal
                                  string p_strCodloccobertura,
                                  string p_strCodmarca,
                                  string p_strTipocliente,
-                                 string p_strNomyape,
+                                 string p_strApellido,
                                  DateTime p_dtFechanacimiento,
                                  string p_strSituacioniva,
+                                 string p_strNombre,
+                                 string p_strCodrubro,
+                                 DateTime p_dtFecultimocontacto,
+                                 DateTime p_dtFechaproxcontacto,
                                  StatMsg p_smResult)
         {
             try {
@@ -271,9 +279,13 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@cli_ecd_codloccobertura", p_strCodloccobertura),
                                        p_dbcAccess.MakeParam("@cli_rcd_codmarca", p_strCodmarca),
                                        p_dbcAccess.MakeParam("@cli_rcd_tipocliente", p_strTipocliente),
-                                       p_dbcAccess.MakeParam("@cli_xde_nomyape", p_strNomyape),
+                                       p_dbcAccess.MakeParam("@cli_xde_apellido", p_strApellido),
                                        p_dbcAccess.MakeParamF("@cli_fec_fechanacimiento", p_dtFechanacimiento),
                                        p_dbcAccess.MakeParam("@cli_rcd_situacioniva", p_strSituacioniva),
+                                       p_dbcAccess.MakeParam("@cli_ede_nombre", p_strNombre),
+                                       p_dbcAccess.MakeParam("@cli_rcd_codrubro", p_strCodrubro),
+                                       p_dbcAccess.MakeParamF("@cli_fec_fecultimocontacto", p_dtFecultimocontacto),
+                                       p_dbcAccess.MakeParamF("@cli_fec_fechaproxcontacto", p_dtFechaproxcontacto),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -328,9 +340,13 @@ namespace Carm.Dal
         /// <param name="p_strCodloccobertura">Localidad Cobertura</param>
         /// <param name="p_strCodmarca">Marca</param>
         /// <param name="p_strTipocliente">Tipo Cliente</param>
-        /// <param name="p_strNomyape">Nombre y Apellido</param>
+        /// <param name="p_strApellido">Apellido</param>
         /// <param name="p_dtFechanacimiento">Fecha nacimiento</param>
         /// <param name="p_strSituacioniva">Situacion IVA</param>
+        /// <param name="p_strNombre">Nombre</param>
+        /// <param name="p_strCodrubro">Rubro</param>
+        /// <param name="p_dtFecultimocontacto">Fecha Último Contacto</param>
+        /// <param name="p_dtFechaproxcontacto">Fecha Próximo Contacto</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Update(DBConn p_dbcAccess,
                                  int p_iNumero,
@@ -372,9 +388,13 @@ namespace Carm.Dal
                                  string p_strCodloccobertura,
                                  string p_strCodmarca,
                                  string p_strTipocliente,
-                                 string p_strNomyape,
+                                 string p_strApellido,
                                  DateTime p_dtFechanacimiento,
                                  string p_strSituacioniva,
+                                 string p_strNombre,
+                                 string p_strCodrubro,
+                                 DateTime p_dtFecultimocontacto,
+                                 DateTime p_dtFechaproxcontacto,
                                  StatMsg p_smResult)
         {
             try {
@@ -421,9 +441,13 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@cli_ecd_codloccobertura", p_strCodloccobertura),
                                        p_dbcAccess.MakeParam("@cli_rcd_codmarca", p_strCodmarca),
                                        p_dbcAccess.MakeParam("@cli_rcd_tipocliente", p_strTipocliente),
-                                       p_dbcAccess.MakeParam("@cli_xde_nomyape", p_strNomyape),
+                                       p_dbcAccess.MakeParam("@cli_xde_apellido", p_strApellido),
                                        p_dbcAccess.MakeParamF("@cli_fec_fechanacimiento", p_dtFechanacimiento),
                                        p_dbcAccess.MakeParam("@cli_rcd_situacioniva", p_strSituacioniva),
+                                       p_dbcAccess.MakeParam("@cli_ede_nombre", p_strNombre),
+                                       p_dbcAccess.MakeParam("@cli_rcd_codrubro", p_strCodrubro),
+                                       p_dbcAccess.MakeParamF("@cli_fec_fecultimocontacto", p_dtFecultimocontacto),
+                                       p_dbcAccess.MakeParamF("@cli_fec_fechaproxcontacto", p_dtFechaproxcontacto),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -1082,7 +1106,6 @@ namespace Carm.Dal
                 DBRuts.ClearDTCaptions(ref p_dtResult);
 
                 // Fijamos los nuevos captions de la grilla
-                p_dtResult.Columns["cli_cd1_esmayo"].Caption= "V1MayoristaCN2";
                 p_dtResult.Columns["cli_des_frq"].Caption= "V1FranquiciaCN1";
                 p_dtResult.Columns["cli_des_loc"].Caption= "V1LocalidadCN1";
                 p_dtResult.Columns["cli_des_prov"].Caption= "V1ProvinciaCN1";
