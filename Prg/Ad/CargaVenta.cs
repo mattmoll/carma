@@ -83,11 +83,13 @@ namespace Carm.Ad
             DateTime l_dtNow = Bll.Clientes.fGetDate(m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
+            /*
             Bel.ECliVenta l_eCliVenta = Bel.ECliVenta.NewFilled(m_intNumeroCliente, l_dtNow, cdcVendedores.SelectedStrCode, 
                                                                 cdcTContratos.SelectedStrCode, dceAbono.Decimal, 
                                                                 neCCapitas.Numero, dceVCapita.Decimal);
             Bll.Clientes.fGrabaVenta(l_eCliVenta, m_leCliServicios, neNroAvalon.Numero, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
+            */
 
             this.DialogResult = DialogResult.OK;
             this.Close();

@@ -1,10 +1,22 @@
 TODO:
 
-Generate Dal y Bll.
+TODO ultima reunion:
+Campos Obligatorios:
+Localidad
+Nombre y Apellido/ Razon Social, 
+Celular/telefono
 
-Tabla Empresas, fix: IEColor -> IEColon
+Socio directo por default
 
-Cambiar en el alta de prospectos el tipo de institucion por Rubro. Borrar tipo de institucion del sistema. Quizas cambiar solo el label?
+Me van a pasar algunos campos para agregar.
+
+
+Bajar la version con estos cambios y Llamadas.
+
+
+Fix Relacion obligatoria de llamadas a contactos. 
+Test, deploy.
+
 
 
 ABM de carga de grupo familiar:

@@ -36,8 +36,6 @@ namespace Carm.Ad
             //Aplicamos permisos
             App.ApplySecurity(this);
 
-            cargarContactos();
-
             //---Trae todas los motivos de llamada existentes
             motivosLlamadas = Tablas.MtlUpFull(false,m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
@@ -54,7 +52,15 @@ namespace Carm.Ad
             Bel.ECliente l_eCliente = Bll.Clientes.Get(m_intNumCliente, true, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
+            teNTelefono.Text = l_eCliente.Telefono1.Trim() != "" ? l_eCliente.Telefono1 : l_eCliente.Celular;
+
+            rbSalientes.Checked = true;
+
             cambiarVisibilidadOperacionesCorrespondientes(l_eCliente);
+
+            // TODO: Borrar cuando usemos estos botones.
+            gbRecupero.Location= new System.Drawing.Point(-1000, -1000);
+            gbBaja.Location = new System.Drawing.Point(-1000, -1000);
 
             App.HideMsg();
         }
@@ -63,8 +69,6 @@ namespace Carm.Ad
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
-            if (!validarDatosLlamada())
-                return;
             pGuardarLlamada();
 
             this.DialogResult = DialogResult.OK;
@@ -144,21 +148,6 @@ namespace Carm.Ad
             this.Close();
         }
 
-        // Evento del click del boton para carga de contacto nuevo.
-        private void gbNuevoContacto_Click(object sender, EventArgs e)
-        {
-            // Mostramos el formulario de carga de contacto, si sale todo ok grabamos.
-            CargaContacto l_frmCargaContacto = new CargaContacto(m_intNumCliente);
-            l_frmCargaContacto.ShowDialog(this);
-            if (l_frmCargaContacto.DialogResult == DialogResult.OK)
-            {
-                // Grabamos el contacot y recargamos la combo.
-                Bll.Clientes.ClcSave(l_frmCargaContacto.Contacto, m_smResult);
-                if (MsgRuts.AnalizeError(this, m_smResult)) return;
-                cargarContactos();
-            }
-        }
-
 
         private void bCancelar_Click(object sender, EventArgs e)
         {
@@ -206,24 +195,6 @@ namespace Carm.Ad
 
         #region Metodos Privados
 
-        private bool validarDatosLlamada()
-        {
-            if (!cdcContactos.IsValid)
-            {
-                MsgRuts.ShowMsg(this, "Debe ingresar el contacto con el que se comunicó");
-                return false;
-            }
-            return true;
-        }
-
-        private void cargarContactos()
-        {
-            // Cargamos los contactos del cliente
-            Bel.LECliContactos l_leCliContactos = Clientes.ClcFGet(m_intNumCliente, true, m_smResult);
-            if (MsgRuts.AnalizeError(this, m_smResult)) return;
-            cdcContactos.FillFromIntLEntidad(l_leCliContactos, "clc_nro_numcontacto", "clc_des_nombre", "deleted");
-        }
-
         private void limpiarCamposPanel()
         {
             teResultado.Text = "";
@@ -260,11 +231,9 @@ namespace Carm.Ad
             l_ECliLlamada = ECliLlamada.NewEmpty();
             l_ECliLlamada.Numcliente = m_intNumCliente;
             l_ECliLlamada.Numllamada = -1;
-            l_ECliLlamada.Numcontacto = cdcContactos.SelectedIntCode;
             l_ECliLlamada.Frealizada = l_dtFecYHor;
             l_ECliLlamada.Codusuario = DBConn.Usuario;
             l_ECliLlamada.Baja = p_strEsBaja;
-            l_ECliLlamada.Obsprogramada = teObservacionProg.Text;
             l_ECliLlamada.Codmotivo = cdcMotivos.SelectedStrCode.ToString();
             l_ECliLlamada.Resultado = teResultado.Text;
             
@@ -304,14 +273,6 @@ namespace Carm.Ad
 
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        private void cdcContactos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Bel.ECliContacto contacto = Bll.Clientes.ClcGet(m_intNumCliente, cdcContactos.SelectedIntCode, false, m_smResult);
-            if (MsgRuts.AnalizeError(this, m_smResult)) return;
-
-            teNTelefono.Text = contacto.getTelefono;
         }
 
     }

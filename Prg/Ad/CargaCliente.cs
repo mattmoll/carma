@@ -49,7 +49,6 @@ namespace Carm.Ad
             cdcRubro.FillFromStrLEntidad(rubros, ERubro.CodCmp, ERubro.DesCmp);
             cdcRubro.AddStrCD("", "");
             cdcRubro.SelectedStrCode = "";
-            
 
             cdcSexo.AddStrCD("M", "MASCULINO");
             cdcSexo.AddStrCD("F", "FEMENINO");
@@ -64,7 +63,10 @@ namespace Carm.Ad
 
             // When new client, hide everything except main data.
             if (cliente.EsNueva)
+            {
                 ftDetalleCliente.hidePages(new List<TabPage>() { tabContactos, tabEntrev, tabLlamadas, tabNotas, tabServicios });
+                rbSociosDirectos.Checked = true;
+            } 
             else
                 cargarClienteEnPantalla(cliente);
         }
@@ -106,7 +108,7 @@ namespace Carm.Ad
         {
             listaCamposObligatorios = "Empresa Prestadora, Denominación (Razon social o Nombre), Localidad Cobro, Telefono o Celular";
 
-            return ((cdcMarca.SelectedStrCode == "") || (teLocalidadCobro.Text == "") ||
+            return ((teLocalidadCobro.Text == "") ||
                 ((teRazonSocial.Text == "") && (teApellido.Text == "")) || 
                 ((teTelefono.Text == "") && (teCelular.Text == "")));
         }

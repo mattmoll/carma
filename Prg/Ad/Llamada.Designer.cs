@@ -34,10 +34,6 @@
             this.teNTelefono = new TNGS.NetControls.TextEdit();
             this.fullLabel6 = new TNGS.NetControls.FullLabel();
             this.gbRecupero = new TNGS.NetControls.GlassButton();
-            this.pnObservacionProg = new System.Windows.Forms.Panel();
-            this.teObservacionProg = new TNGS.NetControls.TextEdit();
-            this.fullLabel7 = new TNGS.NetControls.FullLabel();
-            this.gbNuevoContacto = new TNGS.NetControls.GlassButton();
             this.pnlSeleccionTipo = new System.Windows.Forms.Panel();
             this.pnlLlamado = new System.Windows.Forms.Panel();
             this.teResultado = new TNGS.NetControls.TextEdit();
@@ -48,17 +44,14 @@
             this.cdcMotivos = new TNGS.NetControls.CDCombo();
             this.rbSalientes = new System.Windows.Forms.RadioButton();
             this.rbEntrantes = new System.Windows.Forms.RadioButton();
-            this.cdcContactos = new TNGS.NetControls.CDCombo();
             this.gbBaja = new TNGS.NetControls.GlassButton();
             this.bCancelar = new TNGS.NetControls.GlassButton();
             this.bAceptar = new TNGS.NetControls.GlassButton();
             this.teHora = new TNGS.NetControls.TimeEdit();
             this.mcCalendar = new System.Windows.Forms.MonthCalendar();
             this.fullLabel1 = new TNGS.NetControls.FullLabel();
-            this.fullLabel5 = new TNGS.NetControls.FullLabel();
             this.xPanel1.SuspendLayout();
             this.imgGroup1.SuspendLayout();
-            this.pnObservacionProg.SuspendLayout();
             this.pnlSeleccionTipo.SuspendLayout();
             this.pnlLlamado.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +65,7 @@
             this.xPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel1.Location = new System.Drawing.Point(0, 0);
             this.xPanel1.Name = "xPanel1";
-            this.xPanel1.Size = new System.Drawing.Size(841, 428);
+            this.xPanel1.Size = new System.Drawing.Size(841, 406);
             this.xPanel1.SkinFixed = true;
             this.xPanel1.TabIndex = 0;
             // 
@@ -87,17 +80,13 @@
             this.imgGroup1.Controls.Add(this.teNTelefono);
             this.imgGroup1.Controls.Add(this.fullLabel6);
             this.imgGroup1.Controls.Add(this.gbRecupero);
-            this.imgGroup1.Controls.Add(this.pnObservacionProg);
-            this.imgGroup1.Controls.Add(this.gbNuevoContacto);
             this.imgGroup1.Controls.Add(this.pnlSeleccionTipo);
-            this.imgGroup1.Controls.Add(this.cdcContactos);
             this.imgGroup1.Controls.Add(this.gbBaja);
             this.imgGroup1.Controls.Add(this.bCancelar);
             this.imgGroup1.Controls.Add(this.bAceptar);
             this.imgGroup1.Controls.Add(this.teHora);
             this.imgGroup1.Controls.Add(this.mcCalendar);
             this.imgGroup1.Controls.Add(this.fullLabel1);
-            this.imgGroup1.Controls.Add(this.fullLabel5);
             this.imgGroup1.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.imgGroup1.FlatMode = true;
             this.imgGroup1.FontTitle = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -112,7 +101,7 @@
             this.imgGroup1.ShadowColor = System.Drawing.Color.DarkGray;
             this.imgGroup1.ShadowControl = false;
             this.imgGroup1.ShadowThickness = 3;
-            this.imgGroup1.Size = new System.Drawing.Size(818, 413);
+            this.imgGroup1.Size = new System.Drawing.Size(818, 388);
             this.imgGroup1.SkinFixed = true;
             this.imgGroup1.TabIndex = 8;
             this.imgGroup1.TitleBackground = System.Drawing.Color.Green;
@@ -123,7 +112,7 @@
             // 
             this.teNTelefono.BackColor = System.Drawing.SystemColors.Window;
             this.teNTelefono.Enabled = false;
-            this.teNTelefono.Location = new System.Drawing.Point(536, 147);
+            this.teNTelefono.Location = new System.Drawing.Point(536, 75);
             this.teNTelefono.Name = "teNTelefono";
             this.teNTelefono.Size = new System.Drawing.Size(249, 20);
             this.teNTelefono.TabIndex = 82;
@@ -131,7 +120,7 @@
             // fullLabel6
             // 
             this.fullLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel6.Location = new System.Drawing.Point(476, 151);
+            this.fullLabel6.Location = new System.Drawing.Point(476, 79);
             this.fullLabel6.Name = "fullLabel6";
             this.fullLabel6.Size = new System.Drawing.Size(100, 16);
             this.fullLabel6.TabIndex = 83;
@@ -149,7 +138,7 @@
             this.gbRecupero.FlatFontSize = 9;
             this.gbRecupero.FlatTextColor = System.Drawing.Color.Black;
             this.gbRecupero.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbRecupero.Location = new System.Drawing.Point(280, 366);
+            this.gbRecupero.Location = new System.Drawing.Point(271, 336);
             this.gbRecupero.Name = "gbRecupero";
             this.gbRecupero.PCode = "CLIRECUPERO";
             this.gbRecupero.RoundCorners = 2;
@@ -157,66 +146,18 @@
             this.gbRecupero.TabIndex = 23;
             this.gbRecupero.Text = "Recupero";
             this.gbRecupero.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gbRecupero.Visible = false;
             this.gbRecupero.W8Color = System.Drawing.Color.DodgerBlue;
             this.gbRecupero.Click += new System.EventHandler(this.gbRecupero_Click);
-            // 
-            // pnObservacionProg
-            // 
-            this.pnObservacionProg.Controls.Add(this.teObservacionProg);
-            this.pnObservacionProg.Controls.Add(this.fullLabel7);
-            this.pnObservacionProg.Location = new System.Drawing.Point(460, 31);
-            this.pnObservacionProg.Name = "pnObservacionProg";
-            this.pnObservacionProg.Size = new System.Drawing.Size(357, 66);
-            this.pnObservacionProg.TabIndex = 22;
-            this.pnObservacionProg.Visible = false;
-            // 
-            // teObservacionProg
-            // 
-            this.teObservacionProg.BackColor = System.Drawing.SystemColors.Window;
-            this.teObservacionProg.Location = new System.Drawing.Point(76, 4);
-            this.teObservacionProg.Multiline = true;
-            this.teObservacionProg.Name = "teObservacionProg";
-            this.teObservacionProg.Size = new System.Drawing.Size(265, 59);
-            this.teObservacionProg.TabIndex = 21;
-            // 
-            // fullLabel7
-            // 
-            this.fullLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel7.Location = new System.Drawing.Point(2, 4);
-            this.fullLabel7.Name = "fullLabel7";
-            this.fullLabel7.Size = new System.Drawing.Size(73, 16);
-            this.fullLabel7.TabIndex = 20;
-            this.fullLabel7.Text = "Observación:";
-            // 
-            // gbNuevoContacto
-            // 
-            this.gbNuevoContacto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbNuevoContacto.BackgroundImage")));
-            this.gbNuevoContacto.BlackBorder = true;
-            this.gbNuevoContacto.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.gbNuevoContacto.CircleButton = false;
-            this.gbNuevoContacto.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.fNew;
-            this.gbNuevoContacto.FlatColor = System.Drawing.Color.DodgerBlue;
-            this.gbNuevoContacto.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
-            this.gbNuevoContacto.FlatFontSize = 9;
-            this.gbNuevoContacto.FlatTextColor = System.Drawing.Color.Black;
-            this.gbNuevoContacto.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbNuevoContacto.Location = new System.Drawing.Point(775, 106);
-            this.gbNuevoContacto.Name = "gbNuevoContacto";
-            this.gbNuevoContacto.RoundCorners = 2;
-            this.gbNuevoContacto.Size = new System.Drawing.Size(26, 24);
-            this.gbNuevoContacto.TabIndex = 19;
-            this.gbNuevoContacto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gbNuevoContacto.W8Color = System.Drawing.Color.DodgerBlue;
-            this.gbNuevoContacto.Click += new System.EventHandler(this.gbNuevoContacto_Click);
             // 
             // pnlSeleccionTipo
             // 
             this.pnlSeleccionTipo.Controls.Add(this.pnlLlamado);
             this.pnlSeleccionTipo.Controls.Add(this.rbSalientes);
             this.pnlSeleccionTipo.Controls.Add(this.rbEntrantes);
-            this.pnlSeleccionTipo.Location = new System.Drawing.Point(23, 65);
+            this.pnlSeleccionTipo.Location = new System.Drawing.Point(23, 35);
             this.pnlSeleccionTipo.Name = "pnlSeleccionTipo";
-            this.pnlSeleccionTipo.Size = new System.Drawing.Size(441, 297);
+            this.pnlSeleccionTipo.Size = new System.Drawing.Size(441, 295);
             this.pnlSeleccionTipo.TabIndex = 15;
             // 
             // pnlLlamado
@@ -229,7 +170,7 @@
             this.pnlLlamado.Controls.Add(this.cdcMotivos);
             this.pnlLlamado.Location = new System.Drawing.Point(6, 25);
             this.pnlLlamado.Name = "pnlLlamado";
-            this.pnlLlamado.Size = new System.Drawing.Size(419, 267);
+            this.pnlLlamado.Size = new System.Drawing.Size(419, 255);
             this.pnlLlamado.TabIndex = 23;
             this.pnlLlamado.Visible = false;
             // 
@@ -240,7 +181,7 @@
             this.teResultado.Location = new System.Drawing.Point(94, 113);
             this.teResultado.Multiline = true;
             this.teResultado.Name = "teResultado";
-            this.teResultado.Size = new System.Drawing.Size(297, 137);
+            this.teResultado.Size = new System.Drawing.Size(297, 139);
             this.teResultado.TabIndex = 4;
             // 
             // fullLabel2
@@ -322,19 +263,6 @@
             this.rbEntrantes.UseVisualStyleBackColor = true;
             this.rbEntrantes.CheckedChanged += new System.EventHandler(this.rbEntrantes_CheckedChanged);
             // 
-            // cdcContactos
-            // 
-            this.cdcContactos.BackColor = System.Drawing.SystemColors.Window;
-            this.cdcContactos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cdcContactos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cdcContactos.FormattingEnabled = true;
-            this.cdcContactos.Location = new System.Drawing.Point(536, 109);
-            this.cdcContactos.Name = "cdcContactos";
-            this.cdcContactos.Size = new System.Drawing.Size(233, 21);
-            this.cdcContactos.Sorted = true;
-            this.cdcContactos.TabIndex = 12;
-            this.cdcContactos.SelectedIndexChanged += new System.EventHandler(this.cdcContactos_SelectedIndexChanged);
-            // 
             // gbBaja
             // 
             this.gbBaja.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbBaja.BackgroundImage")));
@@ -347,7 +275,7 @@
             this.gbBaja.FlatFontSize = 9;
             this.gbBaja.FlatTextColor = System.Drawing.Color.Black;
             this.gbBaja.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbBaja.Location = new System.Drawing.Point(168, 366);
+            this.gbBaja.Location = new System.Drawing.Point(159, 336);
             this.gbBaja.Name = "gbBaja";
             this.gbBaja.PCode = "CLIBAJA";
             this.gbBaja.RoundCorners = 2;
@@ -355,6 +283,7 @@
             this.gbBaja.TabIndex = 11;
             this.gbBaja.Text = "Baja Servicio";
             this.gbBaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gbBaja.Visible = false;
             this.gbBaja.W8Color = System.Drawing.Color.Red;
             this.gbBaja.Click += new System.EventHandler(this.gbBaja_Click);
             // 
@@ -370,7 +299,7 @@
             this.bCancelar.FlatFontSize = 9;
             this.bCancelar.FlatTextColor = System.Drawing.Color.Black;
             this.bCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.bCancelar.Location = new System.Drawing.Point(553, 374);
+            this.bCancelar.Location = new System.Drawing.Point(544, 344);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.RoundCorners = 2;
             this.bCancelar.Size = new System.Drawing.Size(87, 25);
@@ -392,12 +321,12 @@
             this.bAceptar.FlatFontSize = 9;
             this.bAceptar.FlatTextColor = System.Drawing.Color.Black;
             this.bAceptar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.bAceptar.Location = new System.Drawing.Point(698, 374);
+            this.bAceptar.Location = new System.Drawing.Point(689, 344);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.RoundCorners = 2;
             this.bAceptar.Size = new System.Drawing.Size(82, 25);
             this.bAceptar.TabIndex = 5;
-            this.bAceptar.Text = "Aceptar";
+            this.bAceptar.Text = "Grabar";
             this.bAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bAceptar.W8Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
@@ -405,7 +334,7 @@
             // teHora
             // 
             this.teHora.BackColor = System.Drawing.SystemColors.Window;
-            this.teHora.Location = new System.Drawing.Point(489, 223);
+            this.teHora.Location = new System.Drawing.Point(536, 118);
             this.teHora.MaxLength = 5;
             this.teHora.Name = "teHora";
             this.teHora.Size = new System.Drawing.Size(52, 20);
@@ -414,7 +343,7 @@
             // 
             // mcCalendar
             // 
-            this.mcCalendar.Location = new System.Drawing.Point(553, 194);
+            this.mcCalendar.Location = new System.Drawing.Point(536, 153);
             this.mcCalendar.MaxSelectionCount = 1;
             this.mcCalendar.Name = "mcCalendar";
             this.mcCalendar.TabIndex = 0;
@@ -422,26 +351,17 @@
             // fullLabel1
             // 
             this.fullLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel1.Location = new System.Drawing.Point(486, 194);
+            this.fullLabel1.Location = new System.Drawing.Point(476, 119);
             this.fullLabel1.Name = "fullLabel1";
             this.fullLabel1.Size = new System.Drawing.Size(55, 16);
             this.fullLabel1.TabIndex = 4;
             this.fullLabel1.Text = "Hora:";
             this.fullLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // fullLabel5
-            // 
-            this.fullLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel5.Location = new System.Drawing.Point(476, 112);
-            this.fullLabel5.Name = "fullLabel5";
-            this.fullLabel5.Size = new System.Drawing.Size(59, 16);
-            this.fullLabel5.TabIndex = 13;
-            this.fullLabel5.Text = "Contacto:";
-            // 
             // Llamada
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(841, 428);
+            this.ClientSize = new System.Drawing.Size(841, 406);
             this.Controls.Add(this.xPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -453,8 +373,6 @@
             this.xPanel1.ResumeLayout(false);
             this.imgGroup1.ResumeLayout(false);
             this.imgGroup1.PerformLayout();
-            this.pnObservacionProg.ResumeLayout(false);
-            this.pnObservacionProg.PerformLayout();
             this.pnlSeleccionTipo.ResumeLayout(false);
             this.pnlSeleccionTipo.PerformLayout();
             this.pnlLlamado.ResumeLayout(false);
@@ -481,13 +399,7 @@
         private TNGS.NetControls.CDCombo cdcCategorias;
         private TNGS.NetControls.FullLabel fullLabel4;
         private TNGS.NetControls.GlassButton gbBaja;
-        private TNGS.NetControls.CDCombo cdcContactos;
-        private TNGS.NetControls.FullLabel fullLabel5;
         private System.Windows.Forms.Panel pnlSeleccionTipo;
-        private TNGS.NetControls.GlassButton gbNuevoContacto;
-        private TNGS.NetControls.TextEdit teObservacionProg;
-        private TNGS.NetControls.FullLabel fullLabel7;
-        private System.Windows.Forms.Panel pnObservacionProg;
         private System.Windows.Forms.Panel pnlLlamado;
         private TNGS.NetControls.GlassButton gbRecupero;
         private TNGS.NetControls.TextEdit teNTelefono;
