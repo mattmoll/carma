@@ -58,7 +58,7 @@
             // xPanel1
             // 
             this.xPanel1.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.xPanel1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel1.BorderColor = System.Drawing.Color.Black;
             this.xPanel1.Controls.Add(this.gbBusqueda);
             this.xPanel1.Controls.Add(this.teInterno);
@@ -334,7 +334,6 @@
             // 
             // CargaContacto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(391, 388);
             this.Controls.Add(this.xPanel1);

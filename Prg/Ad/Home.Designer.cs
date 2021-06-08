@@ -48,6 +48,7 @@
             this.gbRemoverFiltros = new TNGS.NetControls.GlassButton();
             this.gbAgregarFiltros = new TNGS.NetControls.GlassButton();
             this.gbActualizar = new TNGS.NetControls.GlassButton();
+            this.gbEntrevista = new TNGS.NetControls.GlassButton();
             this.topPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,7 +151,7 @@
             this.gbDetalle.FlatTextColor = System.Drawing.Color.Black;
             this.gbDetalle.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.gbDetalle.ImageOnTop = true;
-            this.gbDetalle.Location = new System.Drawing.Point(300, 59);
+            this.gbDetalle.Location = new System.Drawing.Point(250, 59);
             this.gbDetalle.Name = "gbDetalle";
             this.gbDetalle.RoundCorners = 2;
             this.gbDetalle.Size = new System.Drawing.Size(94, 60);
@@ -173,7 +174,7 @@
             this.gbLlamada.FlatTextColor = System.Drawing.Color.Black;
             this.gbLlamada.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.gbLlamada.ImageOnTop = true;
-            this.gbLlamada.Location = new System.Drawing.Point(421, 59);
+            this.gbLlamada.Location = new System.Drawing.Point(367, 59);
             this.gbLlamada.Name = "gbLlamada";
             this.gbLlamada.RoundCorners = 2;
             this.gbLlamada.Size = new System.Drawing.Size(94, 60);
@@ -196,7 +197,7 @@
             this.gbVenta.FlatTextColor = System.Drawing.Color.Black;
             this.gbVenta.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.gbVenta.ImageOnTop = true;
-            this.gbVenta.Location = new System.Drawing.Point(536, 59);
+            this.gbVenta.Location = new System.Drawing.Point(590, 59);
             this.gbVenta.Name = "gbVenta";
             this.gbVenta.RoundCorners = 2;
             this.gbVenta.Size = new System.Drawing.Size(94, 60);
@@ -242,7 +243,7 @@
             this.gbBorrarCliente.FlatTextColor = System.Drawing.Color.Black;
             this.gbBorrarCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.gbBorrarCliente.ImageOnTop = true;
-            this.gbBorrarCliente.Location = new System.Drawing.Point(651, 59);
+            this.gbBorrarCliente.Location = new System.Drawing.Point(705, 59);
             this.gbBorrarCliente.Name = "gbBorrarCliente";
             this.gbBorrarCliente.RoundCorners = 2;
             this.gbBorrarCliente.Size = new System.Drawing.Size(94, 60);
@@ -383,11 +384,35 @@
             this.gbActualizar.W8Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.gbActualizar.Click += new System.EventHandler(this.gbActualizar_Click);
             // 
+            // gbEntrevista
+            // 
+            this.gbEntrevista.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbEntrevista.BackgroundImage")));
+            this.gbEntrevista.BlackBorder = true;
+            this.gbEntrevista.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbEntrevista.CircleButton = false;
+            this.gbEntrevista.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Calendar;
+            this.gbEntrevista.FlatColor = System.Drawing.Color.LimeGreen;
+            this.gbEntrevista.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
+            this.gbEntrevista.FlatFontSize = 9;
+            this.gbEntrevista.FlatTextColor = System.Drawing.Color.Black;
+            this.gbEntrevista.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbEntrevista.ImageOnTop = true;
+            this.gbEntrevista.Location = new System.Drawing.Point(479, 59);
+            this.gbEntrevista.Name = "gbEntrevista";
+            this.gbEntrevista.RoundCorners = 2;
+            this.gbEntrevista.Size = new System.Drawing.Size(94, 60);
+            this.gbEntrevista.TabIndex = 76;
+            this.gbEntrevista.Text = "Entrevista";
+            this.gbEntrevista.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbEntrevista.W8Color = System.Drawing.Color.LimeGreen;
+            this.gbEntrevista.Click += new System.EventHandler(this.gbEntrevista_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 693);
+            this.Controls.Add(this.gbEntrevista);
             this.Controls.Add(this.cmdExcel);
             this.Controls.Add(this.gbRemoverFiltros);
             this.Controls.Add(this.gbAgregarFiltros);
@@ -436,5 +461,6 @@
         private TNGS.NetControls.GlassButton gbRemoverFiltros;
         private TNGS.NetControls.GlassButton gbAgregarFiltros;
         private TNGS.NetControls.GlassButton gbActualizar;
+        private TNGS.NetControls.GlassButton gbEntrevista;
     }
 }

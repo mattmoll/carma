@@ -77,6 +77,7 @@
     <Compile Include="LogClientes.cs" />
     <Compile Include="Marcas.cs" />
     <Compile Include="MotivosLlamada.cs" />
+    <Compile Include="Parentescos.cs" />
     <Compile Include="Planes.cs" />
     <Compile Include="PlnServicios.cs" />
     <Compile Include="PreciosServicios.cs" />

@@ -14,11 +14,11 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 18/12/2020 02:22
+    // Fecha                    : 08/06/2021 01:49
     // Sistema                  : Carm
     // Clase para Administrar   : Tablas
     //----------------------------------------------------------------------------
-    // © 1996-2020 by TNG Software                                      Gndr 5.20
+    // © 1996-2021 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -4171,6 +4171,529 @@ namespace Carm.Bel
                 foreach (EMotivosLlamada l_entItem in this) {
                     // Si existe -> la devolvemos
                     if (l_entItem.Cod == EMotivosLlamada.FrmtCod(p_strCod))
+                        return l_entItem;
+                }
+
+                // No existe
+                return null;
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Entidad: Parentesco
+    /// <summary>
+    /// Clase que representa la Entidad: Parentesco
+    /// </summary>
+    public sealed partial class EParentesco : Entidad
+    {
+        #region Constructores
+        /// <summary>
+        /// Constructor
+        /// Llena la entidad a partir de una Row de la tabla: Parentescos
+        /// </summary>
+        /// <param name="p_drDatos">DataRow con los datos de la entidad</param>
+        public EParentesco(DataRow p_drDatos) :
+            base(p_drDatos)
+        {
+        }
+
+        /// <summary>
+        /// Construye una entidad desde un XML: Parentesco
+        /// </summary>
+        /// <param name="p_strXML">Datos en XML</param>
+        /// <param name="p_bEsNueva">T- La Entidad es Nueva / F- No</param>
+        public EParentesco(string p_strXML) :
+            this(p_strXML, false)
+        {
+        }
+
+        /// <summary>
+        /// Construye una entidad desde un XML: Parentesco
+        /// </summary>
+        /// <param name="p_strXML">Datos en XML</param>
+        public EParentesco(string p_strXML,
+                           bool p_bEsNueva)
+        {
+            // Fijamos la condicion de entidad nueva
+            base.m_bNew= p_bEsNueva;
+
+            // Obtenemos el Nodo de datos del XML
+            XmlDocument l_xdocData= new XmlDocument();
+            l_xdocData.InnerXml= p_strXML;
+            XmlNode l_xndData= l_xdocData.ChildNodes[0];
+
+            // Creamos una tabla compatible con la entidad
+            DataTable l_dtTemp= new DataTable();
+            l_dtTemp.Columns.AddRange(EParentesco.Struct);
+
+            // Creamos una row a partir de la tabla creada y la
+            // llenamos con los valores iniciales
+            DataRow l_drTemp= l_dtTemp.NewRow();
+
+            l_drTemp["prt_rcd_cod"]= XMLRuts.ExtractXAttr(l_xndData, "prt_rcd_cod");
+            l_drTemp["prt_des_des"]= XMLRuts.ExtractXAttr(l_xndData, "prt_des_des");
+
+            // Llenamos los campos fijos
+            XML2FixedFields(ref l_drTemp, l_xndData);
+
+            // Llamamos al metodo fijo
+            fNewFromXML(ref l_drTemp, l_xndData);
+
+            // Agregamos la Row creada a la tabla creada y creamos
+            // una entidad a partir de los datos
+            l_dtTemp.Rows.Add(l_drTemp);
+            SetInternalData(l_dtTemp, l_dtTemp.Rows[0]);
+        }
+
+        /// <summary>
+        /// Constructor 
+        /// Privado para crear clases vacias
+        /// </summary>
+        /// <param name="p_dtDatos">DataTable con 1 registro con los datos de la entidad</param>
+        private EParentesco(DataTable p_dtDatos) :
+            base(p_dtDatos)
+        {
+        }
+        #endregion
+
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos públicos de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Construye una entidad vacía: Parentesco
+        /// </summary>
+        /// <returns>Entidad vacia: Parentesco</returns>
+        public static EParentesco NewEmpty()
+        {
+            // Creamos una tabla compatible con la entidad
+            DataTable l_dtTemp= new DataTable();
+            l_dtTemp.Columns.AddRange(EParentesco.Struct);
+
+            // Creamos una row a partir de la tabla creada y la
+            // llenamos con los valores iniciales
+            DataRow l_drTemp= l_dtTemp.NewRow();
+
+            l_drTemp["prt_rcd_cod"]= "";
+            l_drTemp["prt_des_des"]= "";
+
+            // Agregamos la Row creada a la tabla creada y creamos
+            // una entidad a partir de la DataTable de 1 registro
+            l_dtTemp.Rows.Add(l_drTemp);
+            EParentesco l_entRet= new EParentesco(l_dtTemp);
+            l_dtTemp.Dispose();
+            return l_entRet;
+        }
+
+        /// <summary>
+        /// Construye una entidad con datos de parametro: Parentesco
+        /// </summary>
+        /// <param name="p_strCod">Codigo</param>
+        /// <param name="p_strDes">Descripcion</param>
+        /// <returns>Entidad: Parentesco</returns>
+        public static EParentesco NewFilled(string p_strCod,
+                                            string p_strDes)
+        {
+            // Creamos una tabla compatible con la entidad
+            DataTable l_dtTemp= new DataTable();
+            l_dtTemp.Columns.AddRange(EParentesco.Struct);
+
+            // Creamos una row a partir de la tabla creada y la
+            // llenamos con los valores iniciales
+            DataRow l_drTemp= l_dtTemp.NewRow();
+
+            l_drTemp["prt_rcd_cod"]= p_strCod;
+            l_drTemp["prt_des_des"]= p_strDes;
+
+            // Agregamos la Row creada a la tabla creada y creamos
+            // una entidad a partir de la DataTable de 1 registro
+            l_dtTemp.Rows.Add(l_drTemp);
+            EParentesco l_entRet= new EParentesco(l_dtTemp);
+            l_dtTemp.Dispose();
+            return l_entRet;
+        }
+        #endregion
+
+        #region Formateadores
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Devuelve la estructura de la tabla interna de la entidad
+        /// </summary>
+        public static DataColumn[] Struct
+        {
+            get {
+                // Creamos el vector de DataColumns y lo llenamos
+                DataColumn[] l_dcStruct= new DataColumn[6];
+
+                l_dcStruct[0]= new DataColumn("prt_rcd_cod", typeof(string));
+                l_dcStruct[1]= new DataColumn("prt_des_des", typeof(string));
+                EParentesco.FillFixedFields(ref l_dcStruct, 2);
+
+                // Devolvemos el vector creado
+                return l_dcStruct;
+            }
+        }
+
+        /// <summary>
+        /// Codigo
+        /// </summary>
+        public static string CodCmp
+        {
+           get {return "prt_rcd_cod";}
+        }
+
+        /// <summary>
+        /// Codigo
+        /// </summary>
+        public string Cod
+        {
+            get {return ((string) InternalData["prt_rcd_cod"]).Trim();}
+            set {
+                if (value.Trim().Length > 2) value= value.Trim().Substring(0,2);
+                InternalData["prt_rcd_cod"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Descripcion
+        /// </summary>
+        public static string DesCmp
+        {
+           get {return "prt_des_des";}
+        }
+
+        /// <summary>
+        /// Descripcion
+        /// </summary>
+        public string Des
+        {
+            get {return ((string) InternalData["prt_des_des"]).Trim();}
+            set {
+                if (value.Trim().Length > 30) value= value.Trim().Substring(0,30);
+                InternalData["prt_des_des"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Devuelve la entidad [EParentesco] como XMLDocument en formato string
+        /// </summary>
+        public string XMLData
+        {
+            get {return XMLEncode.InnerXml;}
+        }
+
+        /// <summary>
+        /// Devuelve la entidad [EParentesco] como XMLDocument
+        /// </summary>
+        public XmlDocument XMLEncode
+        {
+            get {
+                //Creamos un Nodo de un Documento XML
+                XmlDocument l_xdocData= new XmlDocument();
+                XmlNode l_xndEntidad= l_xdocData.CreateNode(XmlNodeType.Element, "EParentesco", null);
+
+                // Asignamos los atributos al nodo
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "prt_rcd_cod", Cod));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "prt_des_des", Des));
+
+                // Asignamos los campos fijos
+                FixedFields2XML(l_xdocData, ref l_xndEntidad);
+
+                // Llamamos al metodo fijo
+                fAddXMLData(ref l_xdocData, ref l_xndEntidad);
+
+                // Armamos el documento y lo devolvemos
+                l_xdocData.AppendChild(l_xndEntidad);
+                return l_xdocData;
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Lista-Entidad: Parentescos
+    /// <summary>
+    /// Clase que representa la Lista-Entidad: Parentescos
+    /// </summary>
+    public sealed partial class LEParentescos : ListaEntidades, IEnumerable<EParentesco>
+    {
+        #region Constructores
+        /// <summary>
+        /// Constructor
+        /// Llena la lista-entidad a partir de una Tabla: Parentescos
+        /// </summary>
+        /// <param name="p_dtDatos">DataTable con los datos de la entidad</param>
+        public LEParentescos(DataTable p_dtDatos) :
+            base(p_dtDatos)
+        {
+        }
+
+        /// <summary>
+        /// Constructor
+        /// Llena la lista-entidad a partir de un XML
+        /// </summary>
+        /// <param name="p_dtDatos">DataTable con los datos de la entidad</param>
+        public LEParentescos(string p_strXMLData) :
+            base(EParentesco.Struct)
+        {
+            // Creamos el documento XML
+            XmlDocument l_xdocData= new XmlDocument();
+            l_xdocData.InnerXml= p_strXMLData;
+            XmlElement l_xelTemp= l_xdocData.DocumentElement;
+
+            // Agregamos cada item a la LE
+            foreach (XmlNode l_xndItem in l_xelTemp.ChildNodes)
+                AddEntity(new EParentesco(l_xndItem.OuterXml));
+        }
+
+        /// <summary>
+        /// Constructor
+        /// Constuye la lista-entidad vacia a partir de una lista de columnas
+        /// correspondiente a una entidad
+        /// </summary>
+        /// <param name="p_dcEstructura">Columnas de la estructura</param>
+        private LEParentescos(DataColumn[] p_dcEstructura) :
+            base(p_dcEstructura)
+        {
+        }
+        #endregion
+
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos publicos
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Construye una lista-entidad vacía: Parentescos
+        /// </summary>
+        /// <returns>Lista-Entidad vacia: Parentescos</returns>
+        public static LEParentescos NewEmpty()
+        {
+            return new LEParentescos(EParentesco.Struct);
+        }
+
+        /// <summary>
+        /// Agrega una entidad a la lista
+        /// </summary>
+        /// <param name="p_entEParentesco">Entidad a agregar</param>
+        public void AddEntity(EParentesco p_entEParentesco)
+        {
+            base.AddEntity(p_entEParentesco);
+        }
+
+        /// <summary>
+        /// Remueve una entidad [Parentesco] por clave
+        /// </summary>
+        public int RemoveEntity(string p_strCod)
+        {
+            // Buscamos la fila mediante un filtro
+            int l_iRet= 0;
+
+            m_dtDatos.DefaultView.RowFilter= 
+                "prt_rcd_cod = " + Ruts.Co(p_strCod);
+
+            if (m_dtDatos.DefaultView.Count == 1) {
+                // La borramos
+                m_dtDatos.Rows.Remove(m_dtDatos.DefaultView[0].Row);
+                l_iRet= 1;
+            }
+
+            // Quito el filtro
+            m_dtDatos.DefaultView.RowFilter= "";
+            return l_iRet;
+        }
+
+        /// <summary>
+        /// Verifca si una entidad [Parentesco] esta en la lista
+        /// </summary>
+        public bool Contains(string p_strCod)
+        {
+            using (EParentesco l_entTemp= this[p_strCod])
+            {
+                // Indicamos si existe o no
+                return (l_entTemp != null);
+            }
+        }
+
+        /// <summary>
+        /// Devuelve el enumerador de la lista-entidades: Parentescos
+        /// </summary>
+        /// <returns>Enumerador de las entidades en la lista</returns>
+        public new IEnumerator<EParentesco> GetEnumerator() 
+        {
+            EParentesco l_entTemp= null;
+
+            foreach (DataRowView l_drvTemp in m_dtDatos.DefaultView) {
+                l_entTemp= new EParentesco(l_drvTemp.Row);
+                yield return l_entTemp;
+            }
+        }
+
+        /// <summary>
+        /// Devuelve la lista entidad como un array de entidades: Parentescos
+        /// </summary>
+        /// <returns>Array de entidades</returns>
+        public ArrayList GetAsArray()
+        {
+            // Llenamos el array con las entidades
+            ArrayList l_alRet= new ArrayList();
+
+            foreach (EParentesco l_entItem in this)
+                l_alRet.Add(l_entItem);
+
+            return l_alRet;
+        }
+
+        /// <summary>
+        /// Devuelve la lista entidad como una LET: Parentescos
+        /// </summary>
+        /// <returns>Lista Entidad Tipada</returns>
+        public LETParentescos GetAsLET()
+        {
+            // Llenamos la lista tipada
+            LETParentescos l_lentRet= new LETParentescos();
+
+            foreach (EParentesco l_entItem in this)
+                l_lentRet.Add(l_entItem);
+
+            return l_lentRet;
+        }
+
+        /// <summary>
+        /// Devuelve la lista entidad como una List<Parentescos>
+        /// </summary>
+        /// <returns>Lista de entidades</returns>
+        public List<EParentesco> ToList()
+        {
+            // Usamos el metodo GetAsLET
+            return (List<EParentesco>) GetAsLET();
+        }
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Indexer para acceder a cada entidad [Parentesco] por indice
+        /// </summary>
+        public new EParentesco this[long p_lRow]
+        {
+            get {
+                // Recuperamos la fila solicitada
+                DataRow l_drDatos= base[(int) p_lRow];
+                if (l_drDatos == null) return null;
+
+                // Devolvemos una entidad Parentesco con los datos de la fila
+                return new EParentesco(l_drDatos);
+            }
+        }
+
+        /// <summary>
+        /// Indexer para acceder a cada entidad [Parentesco] por clave
+        /// </summary>
+        public EParentesco this[string p_strCod]
+        {
+            get {
+                // Buscamos la fila mediante un filtro
+                DataRow l_drData= null;
+
+                m_dtDatos.DefaultView.RowFilter= 
+                    "prt_rcd_cod = " + Ruts.Co(p_strCod);
+
+                if (m_dtDatos.DefaultView.Count == 1)
+                    l_drData= m_dtDatos.DefaultView[0].Row;
+
+                // Quito el filtro
+                m_dtDatos.DefaultView.RowFilter= "";
+
+                // Devolvemos una entidad Parentesco con los datos de la fila
+                if (l_drData == null) return null;
+                return new EParentesco(l_drData);
+            }
+        }
+
+        /// <summary>
+        /// Devuelve la ListaEntidad como XML en string
+        /// </summary>
+        public string XMLData
+        {
+            get {return XMLEncode.InnerXml;}
+        }
+
+        /// <summary>
+        /// Devuelve la ListaEntidad como XML
+        /// </summary>
+        public XmlDocument XMLEncode
+        {
+            get {
+                // Construimos el XML
+                XmlDocument l_xdocData= new XmlDocument();
+                XmlNode l_xndEntidad= l_xdocData.CreateNode(XmlNodeType.Element, "LEParentescos", null);
+
+                foreach (EParentesco l_entDExtra in this)
+                    l_xndEntidad.AppendChild(l_xdocData.ImportNode(l_entDExtra.XMLEncode.ChildNodes[0], false));
+
+                l_xdocData.AppendChild(l_xndEntidad);
+                return l_xdocData;
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Lista-Entidad-Tipada: Parentescos
+    /// <summary>
+    /// Clase que representa la Lista-Entidad-Tipada: Parentescos
+    /// </summary>
+    public sealed partial class LETParentescos : LET<EParentesco>
+    {
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos publicos
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Devuelve la lista entidad tipada como una LE: Parentescos
+        /// </summary>
+        /// <returns>Lista Entidad</returns>
+        public LEParentescos GetAsLE()
+        {
+            // Llenamos la lista
+            LEParentescos l_lentRet= LEParentescos.NewEmpty();
+
+            foreach (EParentesco l_entItem in this)
+                l_lentRet.AddEntity(l_entItem);
+
+            return l_lentRet;
+        }
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Indexer para acceder a cada entidad [Parentesco] por clave
+        /// </summary>
+        public EParentesco this[string p_strCod]
+        {
+            get {
+                // Buscamos la entidad
+                foreach (EParentesco l_entItem in this) {
+                    // Si existe -> la devolvemos
+                    if (l_entItem.Cod == p_strCod)
                         return l_entItem;
                 }
 

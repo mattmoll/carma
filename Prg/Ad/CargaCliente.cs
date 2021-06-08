@@ -64,7 +64,7 @@ namespace Carm.Ad
             // When new client, hide everything except main data.
             if (cliente.EsNueva)
             {
-                ftDetalleCliente.hidePages(new List<TabPage>() { tabContactos, tabEntrev, tabLlamadas, tabNotas, tabServicios });
+                ftDetalleCliente.hidePages(new List<TabPage>() { tabContactos, tabEntrev, tabLlamadas, tabNotas, tabServicios, tabGrupoFamiliar });
                 rbSociosDirectos.Checked = true;
             } 
             else
@@ -199,6 +199,7 @@ namespace Carm.Ad
 
             mrLlamadas.fill(cliente.CliLlamadas, "Llamadas", statMessage);
             mrEntrevistas.fill(cliente.CliEntrevistas, "Entrevistas", statMessage);
+            mrGrupoFamiliar.fill(cliente.CliGrupoFamiliares, "Grupo Familiar", statMessage);
             mrContactos.fill(cliente.CliContactos, "Contactos", statMessage);
             mrServicios.fill(cliente.CliServicios, "Servicios", statMessage);
             mrNotas.fill(cliente.CliNotas, "Notas", statMessage);
@@ -282,6 +283,49 @@ namespace Carm.Ad
 
                 mrLlamadas.fill(cliente.CliLlamadas, "Llamadas", statMessage);
             }
+        }
+
+        private void gbAgregarFamiliar_Click(object sender, EventArgs e)
+        {
+            CargaFamiliar cargaFamiliar = new CargaFamiliar(cliente.Numero, getNextNumeroIntegrante(cliente));
+            cargaFamiliar.ShowDialog(this);
+
+            if(cargaFamiliar.DialogResult == DialogResult.OK)
+                UpdateGrupoFamiliar();
+        }
+
+        private int getNextNumeroIntegrante(ECliente cliente)
+        {
+            if (cliente.CliGrupoFamiliares.None()) return 1;
+
+            return (cliente.CliGrupoFamiliares.Select(familiar => familiar.Numintegrante).Max()) + 1;
+        }
+
+        private void gbBorrarFamiliar_Click(object sender, EventArgs e)
+        {
+            int numeroIntegrante = getNumeroFamiliarSelected();
+            int numeroCliente = cliente.Numero;
+
+            Bll.Clientes.CgfRemove(numeroCliente, numeroIntegrante, cliente.CliGrupoFamiliares[numeroCliente, numeroIntegrante].FxdVersion, statMessage);
+            if (MsgRuts.AnalizeError(this, statMessage)) return;
+
+            UpdateGrupoFamiliar();
+        }
+
+        private void UpdateGrupoFamiliar()
+        {
+            cliente.CliGrupoFamiliares = Bll.Clientes.CgfFGet(cliente.Numero, true, statMessage);
+            if (MsgRuts.AnalizeError(this, statMessage)) return;
+
+            mrGrupoFamiliar.fill(cliente.CliGrupoFamiliares, "Grupo Familiar", statMessage);
+        }
+
+        private int getNumeroFamiliarSelected()
+        {
+            object objNumeroIntegranteGrupoFamiliar = mrGrupoFamiliar.GetMatrixValueObj(0);
+            if ((objNumeroIntegranteGrupoFamiliar == null) || (objNumeroIntegranteGrupoFamiliar == DBNull.Value)) return 0;
+
+            return (int)objNumeroIntegranteGrupoFamiliar;
         }
     }
 }

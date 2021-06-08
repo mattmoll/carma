@@ -135,6 +135,12 @@
     <Compile Include="Arranque.designer.cs">
       <DependentUpon>Arranque.cs</DependentUpon>
     </Compile>
+    <Compile Include="CargaFamiliar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargaFamiliar.Designer.cs">
+      <DependentUpon>CargaFamiliar.cs</DependentUpon>
+    </Compile>
     <Compile Include="CargaContacto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Arranque.resx">
       <DependentUpon>Arranque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CargaFamiliar.resx">
+      <DependentUpon>CargaFamiliar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CargaContacto.resx">
       <DependentUpon>CargaContacto.cs</DependentUpon>

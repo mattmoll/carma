@@ -13,11 +13,11 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 18/12/2020 02:22
+    // Fecha                    : 08/06/2021 01:49
     // Sistema                  : Carm
     // Clase para Administrar   : Tablas
     //----------------------------------------------------------------------------
-    // © 1996-2020 by TNG Software                                      Gndr 5.20
+    // © 1996-2021 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -742,6 +742,112 @@ namespace Carm.Bel
     ///   - Elementos no producidos por el Generador
     /// </summary>
     public sealed partial class LETMotivosLlamadas : LET<EMotivosLlamada>
+    {
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos publicos
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Metodos privados de la clase
+        //---------------------------------------------------------------
+        // Metodos privados
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        #endregion
+    }
+    #endregion
+
+    #region Entidad: Parentesco
+    /// <summary>
+    /// Clase que representa la Entidad: Parentesco
+    ///   - Elementos no producidos por el Generador
+    /// </summary>
+    public sealed partial class EParentesco : Entidad
+    {
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos públicos de la clase
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Metodos privados de la clase
+        //---------------------------------------------------------------
+        // Metodos privados de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Permite agregar datos al XML de la entidad
+        /// </summary>
+        private void fAddXMLData(ref XmlDocument p_xdocData,
+                                 ref XmlNode p_xndEntidad)
+        {
+        }
+
+        /// <summary>
+        /// Permite agregar datos a una entidad generada desde un XML
+        /// </summary>
+        private void fNewFromXML(ref DataRow p_drTemp,
+                                 XmlNode p_xndData)
+        {
+        }
+
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        #endregion
+    }
+    #endregion
+
+    #region Lista-Entidad: Parentescos
+    /// <summary>
+    /// Clase que representa la Lista-Entidad: Parentescos
+    ///   - Elementos no producidos por el Generador
+    /// </summary>
+    public sealed partial class LEParentescos : ListaEntidades
+    {
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos publicos
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Metodos privados de la clase
+        //---------------------------------------------------------------
+        // Metodos privados
+        //---------------------------------------------------------------
+
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        #endregion
+    }
+    #endregion
+
+    #region Lista-Entidad-Tipada: Parentescos
+    /// <summary>
+    /// Clase que representa la Lista-Entidad-Tipada: Parentescos
+    ///   - Elementos no producidos por el Generador
+    /// </summary>
+    public sealed partial class LETParentescos : LET<EParentesco>
     {
         #region Metodos publicos de la clase
         //---------------------------------------------------------------

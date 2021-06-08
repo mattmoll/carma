@@ -90,14 +90,13 @@ namespace Carm.Ad
 
         private void gbBorrarCliente_Click(object sender, EventArgs e)
         {
-            // Le preguntamos al usuario si esta seguro de borrar al cliente
+            int nroCliente = getClientNumberSelected();
+            if (nroCliente == 0) return;
+
             if (MsgRuts.AskUser(this, "Atención!!!!\r\n" +
                                       "Está a punto de borrar físicamente un cliente, sus contactos" +
                                       " y su historial de llamadas y entrevistas. ¿Está seguro?")
                                       == DialogResult.No) return;
-
-            int nroCliente = getClientNumberSelected();
-            if (nroCliente == 0) return;
 
             Bll.Clientes.fBorraCliente(nroCliente, statMessage);
             if (MsgRuts.AnalizeError(this, statMessage)) return;
@@ -189,6 +188,15 @@ namespace Carm.Ad
             if ((objNroCliente == null) || (objNroCliente == DBNull.Value)) return 0;
 
             return (int)objNroCliente;
+        }
+
+        private void gbEntrevista_Click(object sender, EventArgs e)
+        {
+            int nroCliente = getClientNumberSelected();
+            if (nroCliente == 0) return;
+
+            AgendarEntrevista agendarEntrevista = new AgendarEntrevista(nroCliente);
+            agendarEntrevista.ShowDialog(this);
         }
     }
 }

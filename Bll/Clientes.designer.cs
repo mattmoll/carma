@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 05/02/2021 12:36
+    // Fecha                    : 08/06/2021 02:28
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -2668,6 +2668,17 @@ namespace Carm.Bll
             // Validaciones de los campos con conexion
             // ********
 
+            Tablas.PrtVKey(p_dbcAccess,
+                           p_entCliGrupoFamiliar.Codparentesco,
+                           p_smResult);
+            if (p_smResult.NOk) return;
+
+            if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                // El campo [Parentesco] debe existir en la tabla [Tablas.Prt]
+                p_smResult.BllWarning("El dato [Parentesco] debe existir en la tabla [Tablas.Prt]","");
+                return;
+            }
+
             // Verificamos la clave foranea
             Clientes.VKey(p_dbcAccess,
                           p_entCliGrupoFamiliar.Numcliente,
@@ -2680,6 +2691,8 @@ namespace Carm.Bll
                 p_smResult.BllWarning("La clave (Cliente) foranea no existe en el sistema.","");
                 return;
             }
+
+            // Todas las validaciones fueron correctas
 
             // Llamamos a la funcion fija del usuario
             CgfTInt_f(p_dbcAccess, p_entCliGrupoFamiliar, p_smResult);

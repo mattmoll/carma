@@ -19,7 +19,6 @@ namespace Carm.Ad
         StatMsg m_smResult = new StatMsg();
         string m_strCodVendedor = "";
         int m_intNumeroCliente;
-        Bel.LECliServicios m_leCliServicios = null;
 
         // Constructores para el caso de que el cliente ya esta reservado, y el caso en que se lo quiere vender para un vendedor.
         public CargaVenta(ECliente p_eCliente)
@@ -74,8 +73,8 @@ namespace Carm.Ad
             CargaServicio l_frmCargaServicio = new CargaServicio(m_intNumeroCliente, cdcTContratos.SelectedStrCode);
             l_frmCargaServicio.ShowDialog(this);
 
-            if (l_frmCargaServicio.DialogResult == DialogResult.OK)
-                m_leCliServicios = l_frmCargaServicio.Servicios;
+            //if (l_frmCargaServicio.DialogResult == DialogResult.OK)
+                //m_leCliServicios = l_frmCargaServicio.Servicios;
         }
 
         private void GBAccept_Click(object sender, EventArgs e)

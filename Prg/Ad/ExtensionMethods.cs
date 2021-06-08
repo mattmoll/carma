@@ -26,5 +26,11 @@ namespace Carm.Ad
         {
             miniReport.LoadData(list, "", "", "Carma", title, title, title, "", statMsg);
         }
+
+        // Lists
+        public static bool None<TSource>(this IEnumerable<TSource> source)
+        {
+            return !source.Any();
+        }
     }
 }

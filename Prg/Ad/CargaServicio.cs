@@ -18,9 +18,6 @@ namespace Carm.Ad
         // Miembros
         StatMsg m_smResult = new StatMsg();
         private int m_intNumeroCli;
-        private Bel.LECliServicios m_lentCliServicio;
-        private Bel.LEPlnServicios m_lentPlnServicios;
-        private ListaEntidades m_lentServicios;
 
 
         // Constructor que genera los planes fijos y c
@@ -64,7 +61,6 @@ namespace Carm.Ad
 
         // Propiedades:
         public int NumeroCli { set { m_intNumeroCli = value; } }
-        public Bel.LECliServicios Servicios { get { return m_lentCliServicio; } }
 
     }
 }

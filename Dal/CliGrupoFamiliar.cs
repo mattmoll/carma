@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 05/02/2021 12:39
+    // Fecha                    : 08/06/2021 02:28
     // Sistema                  : Carm
     // Clase para Administrar   : CliGrupoFamiliar
     // Basada en la Tabla       : CliGrupoFamiliar
@@ -517,10 +517,11 @@ namespace Carm.Dal
                 DBRuts.ClearDTCaptions(ref p_dtResult);
 
                 // Fijamos los nuevos captions de la grilla
+                p_dtResult.Columns["des_parentesco"].Caption= "V1ParentescoCN1";
                 p_dtResult.Columns["cgf_ede_apellido"].Caption= "V1ApellidoCN1";
-                p_dtResult.Columns["cgf_rcd_codparentesco"].Caption= "V1ParentescoCN1";
                 p_dtResult.Columns["cgf_fec_fechanacimiento"].Caption= "V1Fecha NacimientoFN1";
                 p_dtResult.Columns["cgf_ede_nombre"].Caption= "V1NombreCN1";
+                p_dtResult.Columns["cgf_nro_numintegrante"].Caption= "V1Nro Integrante GFNN1";
                 p_dtResult.Columns["cgf_ede_obrasocial"].Caption= "V1Obra SocialCN1";
                 p_dtResult.Columns["deleted"].Caption= "V1Borrado2N2";
             }

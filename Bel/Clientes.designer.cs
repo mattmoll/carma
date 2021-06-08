@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 05/02/2021 12:36
+    // Fecha                    : 08/06/2021 02:28
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -1868,6 +1868,7 @@ namespace Carm.Bel
             l_drTemp["cgf_d20_dni"]= XMLRuts.ExtractXAttr(l_xndData, "cgf_d20_dni");
             l_drTemp["cgf_fec_fechanacimiento"]= XMLRuts.ExtractXAttr(l_xndData, "cgf_fec_fechanacimiento", true);
             l_drTemp["cgf_ede_obrasocial"]= XMLRuts.ExtractXAttr(l_xndData, "cgf_ede_obrasocial");
+            l_drTemp["des_parentesco"]= XMLRuts.ExtractXAttr(l_xndData, "des_parentesco");
 
             // Llenamos los campos fijos
             XML2FixedFields(ref l_drTemp, l_xndData);
@@ -1919,6 +1920,7 @@ namespace Carm.Bel
             l_drTemp["cgf_d20_dni"]= "";
             l_drTemp["cgf_fec_fechanacimiento"]= DateTimeRuts.Empty;
             l_drTemp["cgf_ede_obrasocial"]= "";
+            l_drTemp["des_parentesco"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
             // una entidad a partir de la DataTable de 1 registro
@@ -1965,6 +1967,7 @@ namespace Carm.Bel
             l_drTemp["cgf_d20_dni"]= p_strDni;
             l_drTemp["cgf_fec_fechanacimiento"]= p_dtFechanacimiento;
             l_drTemp["cgf_ede_obrasocial"]= p_strObrasocial;
+            l_drTemp["des_parentesco"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
             // una entidad a partir de la DataTable de 1 registro
@@ -1990,17 +1993,18 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[12];
+                DataColumn[] l_dcStruct= new DataColumn[13];
 
                 l_dcStruct[0]= new DataColumn("cgf_nro_numcliente", typeof(int));
                 l_dcStruct[1]= new DataColumn("cgf_nro_numintegrante", typeof(int));
                 l_dcStruct[2]= new DataColumn("cgf_ede_apellido", typeof(string));
                 l_dcStruct[3]= new DataColumn("cgf_ede_nombre", typeof(string));
                 l_dcStruct[4]= new DataColumn("cgf_rcd_codparentesco", typeof(string));
-                l_dcStruct[5]= new DataColumn("cgf_d20_dni", typeof(string));
-                l_dcStruct[6]= new DataColumn("cgf_fec_fechanacimiento", typeof(DateTime));
-                l_dcStruct[7]= new DataColumn("cgf_ede_obrasocial", typeof(string));
-                ECliGrupoFamiliar.FillFixedFields(ref l_dcStruct, 8);
+                l_dcStruct[5]= new DataColumn("des_parentesco", typeof(string));
+                l_dcStruct[6]= new DataColumn("cgf_d20_dni", typeof(string));
+                l_dcStruct[7]= new DataColumn("cgf_fec_fechanacimiento", typeof(DateTime));
+                l_dcStruct[8]= new DataColumn("cgf_ede_obrasocial", typeof(string));
+                ECliGrupoFamiliar.FillFixedFields(ref l_dcStruct, 9);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -2094,11 +2098,8 @@ namespace Carm.Bel
         /// </summary>
         public string Codparentesco
         {
-            get {return ((string) InternalData["cgf_rcd_codparentesco"]).Trim();}
-            set {
-                if (value.Trim().Length > 2) value= value.Trim().Substring(0,2);
-                InternalData["cgf_rcd_codparentesco"]= value.Trim();
-            }
+            get {return (string) InternalData["cgf_rcd_codparentesco"];}
+            set {InternalData["cgf_rcd_codparentesco"]= value;}
         }
 
         /// <summary>
@@ -2159,6 +2160,15 @@ namespace Carm.Bel
         }
 
         /// <summary>
+        /// Parentesco
+        /// </summary>
+        public string Des_parentesco
+        {
+            get {return (string) InternalData["des_parentesco"];}
+            set {InternalData["des_parentesco"]= value;}
+        }
+
+        /// <summary>
         /// Devuelve la entidad [ECliGrupoFamiliar] como XMLDocument en formato string
         /// </summary>
         public string XMLData
@@ -2185,6 +2195,7 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cgf_d20_dni", Dni));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cgf_fec_fechanacimiento", Fechanacimiento));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cgf_ede_obrasocial", Obrasocial));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "des_parentesco", Des_parentesco));
 
                 // Asignamos los campos fijos
                 FixedFields2XML(l_xdocData, ref l_xndEntidad);
@@ -2559,7 +2570,6 @@ namespace Carm.Bel
             l_drTemp["cll_imp_ajuste"]= XMLRuts.ExtractXAttr(l_xndData, "cll_imp_ajuste", (decimal) 0);
             l_drTemp["cll_des_motivo"]= XMLRuts.ExtractXAttr(l_xndData, "cll_des_motivo");
             l_drTemp["cll_ede_rsocial"]= XMLRuts.ExtractXAttr(l_xndData, "cll_ede_rsocial");
-            l_drTemp["cll_nom_contac"]= XMLRuts.ExtractXAttr(l_xndData, "cll_nom_contac");
 
             // Llenamos los campos fijos
             XML2FixedFields(ref l_drTemp, l_xndData);
@@ -2618,7 +2628,6 @@ namespace Carm.Bel
             l_drTemp["cll_imp_ajuste"]= 0;
             l_drTemp["cll_des_motivo"]= "";
             l_drTemp["cll_ede_rsocial"]= "";
-            l_drTemp["cll_nom_contac"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
             // una entidad a partir de la DataTable de 1 registro
@@ -2682,7 +2691,6 @@ namespace Carm.Bel
             l_drTemp["cll_imp_ajuste"]= p_dcAjuste;
             l_drTemp["cll_des_motivo"]= "";
             l_drTemp["cll_ede_rsocial"]= "";
-            l_drTemp["cll_nom_contac"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
             // una entidad a partir de la DataTable de 1 registro
@@ -2723,7 +2731,7 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[20];
+                DataColumn[] l_dcStruct= new DataColumn[19];
 
                 l_dcStruct[0]= new DataColumn("cll_nro_numcliente", typeof(int));
                 l_dcStruct[1]= new DataColumn("cll_ede_rsocial", typeof(string));
@@ -2735,13 +2743,12 @@ namespace Carm.Bel
                 l_dcStruct[7]= new DataColumn("cll_nom_codusuario", typeof(string));
                 l_dcStruct[8]= new DataColumn("cll_cd1_baja", typeof(string));
                 l_dcStruct[9]= new DataColumn("cll_nro_numcontacto", typeof(int));
-                l_dcStruct[10]= new DataColumn("cll_nom_contac", typeof(string));
-                l_dcStruct[11]= new DataColumn("cll_txt_obsprogramada", typeof(string));
-                l_dcStruct[12]= new DataColumn("cll_imp_abonoanterior", typeof(decimal));
-                l_dcStruct[13]= new DataColumn("cll_imp_abonorecuperado", typeof(decimal));
-                l_dcStruct[14]= new DataColumn("cll_nom_programador", typeof(string));
-                l_dcStruct[15]= new DataColumn("cll_imp_ajuste", typeof(decimal));
-                ECliLlamada.FillFixedFields(ref l_dcStruct, 16);
+                l_dcStruct[10]= new DataColumn("cll_txt_obsprogramada", typeof(string));
+                l_dcStruct[11]= new DataColumn("cll_imp_abonoanterior", typeof(decimal));
+                l_dcStruct[12]= new DataColumn("cll_imp_abonorecuperado", typeof(decimal));
+                l_dcStruct[13]= new DataColumn("cll_nom_programador", typeof(string));
+                l_dcStruct[14]= new DataColumn("cll_imp_ajuste", typeof(decimal));
+                ECliLlamada.FillFixedFields(ref l_dcStruct, 15);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -2994,15 +3001,6 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Contacto
-        /// </summary>
-        public string Cll_nom_contac
-        {
-            get {return (string) InternalData["cll_nom_contac"];}
-            set {InternalData["cll_nom_contac"]= value;}
-        }
-
-        /// <summary>
         /// Devuelve la entidad [ECliLlamada] como XMLDocument en formato string
         /// </summary>
         public string XMLData
@@ -3036,7 +3034,6 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cll_imp_ajuste", Ajuste));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cll_des_motivo", Cll_des_motivo));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cll_ede_rsocial", Cll_ede_rsocial));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cll_nom_contac", Cll_nom_contac));
 
                 // Asignamos los campos fijos
                 FixedFields2XML(l_xdocData, ref l_xndEntidad);

@@ -16,10 +16,7 @@ namespace Carm.Ad
     {
         // Miembros
         StatMsg m_smResult = new StatMsg();
-        Bel.LEFranquicias m_leFranquicias;
-        Bel.LERubros m_leRubros;
         Bel.LEZonas m_leZonas;
-        ListaEntidades m_leTiposInsts;
         ListaEntidades m_leLocalidades;
 
         Bll.BusquedaAdministracion m_bsBusqueda;
@@ -185,18 +182,6 @@ namespace Carm.Ad
                 case "N": { p_rbNo.Checked = true; break; }
                 case "A": { p_rbAmbos.Checked = true; break; }
             }
-        }
-
-        private void filtraRubros()
-        {
-            // Filtramos el rubro cargadoExcel para que no le aparezca en pantalla
-            m_leRubros.Filter("rbr_rcd_cod <> ' 1'");
-        }
-
-        private void filtraTiposInst()
-        {
-            // Filtra el tipo de institucion cargadoExcel para que no le aparezca en pantalla.
-            m_leTiposInsts.Filter("tin_cod_cod <> '   1'");
         }
 
         #endregion

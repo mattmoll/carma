@@ -13,10 +13,12 @@ Celular/telefono
 Me van a pasar algunos campos para agregar.
 
 
+(Done)
 ABM de carga de grupo familiar:
 Parentesco, Nombre, apellido, dni, fecha de nacimiento, obra social (la OS es el unico no obligatorio).
 
 
+(Done)
 Armar Tabla de parentescos, me va a pasar solange la lista final.
 Padre, Madre,
  Hijo/a, 
@@ -28,14 +30,18 @@ Cuñado/a
 Yerno
 Nuera
 
-Van a usar los contactos.
 
+(Done) Borrar las notas (solo la parte visual).
+
+
+TODO Next Release:
+
+Agregar entrevistas.
 
 Borrar la lista de servicios.
 Mostrar el plan y el valor en el detalle si es cliente.
 
-
-(Done) Borrar las notas (solo la parte visual).
+Van a usar los contactos.
 
 
 Validaciones Unicidad:

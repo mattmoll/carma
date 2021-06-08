@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 08/06/2021 02:28
 // Sistema     : Carm
 // Tabla       : CliGrupoFamiliar
 //----------------------------------------------------------------------------
@@ -57,6 +57,7 @@ begin
                 cgf_ede_apellido,
                 cgf_ede_nombre,
                 cgf_rcd_codparentesco,
+                prt_des_des as des_parentesco,
                 cgf_d20_dni,
                 cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
@@ -65,7 +66,9 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.usuario,
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
-          where deleted = 0
+                join TNGS_Carm..Parentescos
+                  on cgf_rcd_codparentesco = prt_rcd_cod
+          where TNGS_Carm..CliGrupoFamiliar.deleted = 0
           order by cgf_nro_numcliente,
                 cgf_nro_numintegrante
       end
@@ -76,6 +79,7 @@ begin
                 cgf_ede_apellido,
                 cgf_ede_nombre,
                 cgf_rcd_codparentesco,
+                prt_des_des as des_parentesco,
                 cgf_d20_dni,
                 cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
@@ -84,6 +88,8 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.usuario,
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
+                join TNGS_Carm..Parentescos
+                  on cgf_rcd_codparentesco = prt_rcd_cod
           order by cgf_nro_numcliente,
                 cgf_nro_numintegrante
       end
@@ -189,6 +195,7 @@ begin
                 cgf_ede_apellido,
                 cgf_ede_nombre,
                 cgf_rcd_codparentesco,
+                prt_des_des as des_parentesco,
                 cgf_d20_dni,
                 cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
@@ -197,9 +204,11 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.usuario,
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
+                join TNGS_Carm..Parentescos
+                  on cgf_rcd_codparentesco = prt_rcd_cod
           where cgf_nro_numcliente = @cgf_nro_numcliente
             and cgf_nro_numintegrante = @cgf_nro_numintegrante
-            and deleted = 0
+            and TNGS_Carm..CliGrupoFamiliar.deleted = 0
       end
    else
       begin
@@ -208,6 +217,7 @@ begin
                 cgf_ede_apellido,
                 cgf_ede_nombre,
                 cgf_rcd_codparentesco,
+                prt_des_des as des_parentesco,
                 cgf_d20_dni,
                 cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
@@ -216,6 +226,8 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.usuario,
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
+                join TNGS_Carm..Parentescos
+                  on cgf_rcd_codparentesco = prt_rcd_cod
           where cgf_nro_numcliente = @cgf_nro_numcliente
             and cgf_nro_numintegrante = @cgf_nro_numintegrante
       end
@@ -269,6 +281,7 @@ begin
                 cgf_ede_apellido,
                 cgf_ede_nombre,
                 cgf_rcd_codparentesco,
+                prt_des_des as des_parentesco,
                 cgf_d20_dni,
                 cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
@@ -277,8 +290,10 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.usuario,
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
+                join TNGS_Carm..Parentescos
+                  on cgf_rcd_codparentesco = prt_rcd_cod
           where cgf_nro_numcliente = @cgf_nro_numcliente
-            and deleted = 0
+            and TNGS_Carm..CliGrupoFamiliar.deleted = 0
           order by cgf_nro_numintegrante
       end
    else
@@ -288,6 +303,7 @@ begin
                 cgf_ede_apellido,
                 cgf_ede_nombre,
                 cgf_rcd_codparentesco,
+                prt_des_des as des_parentesco,
                 cgf_d20_dni,
                 cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
@@ -296,6 +312,8 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.usuario,
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
+                join TNGS_Carm..Parentescos
+                  on cgf_rcd_codparentesco = prt_rcd_cod
           where cgf_nro_numcliente = @cgf_nro_numcliente
           order by cgf_nro_numintegrante
       end
