@@ -10,6 +10,7 @@ Celular/telefono
 
 (Done)Socio directo por default
 
+(Pendiente? Me pasaron solo lo que ya agregué)
 Me van a pasar algunos campos para agregar.
 
 
@@ -36,12 +37,27 @@ Nuera
 
 TODO Next Release:
 
-Agregar entrevistas.
+- Validar que la solapa de grupo familiar solo se muestre cuando es socio directo.
+
+- Agregar Opcion Otros en Parentesco
+
+- A partir de la empresa prestadora, cargar automaticamente la localidad, con las siguientes 
+equivalencias:
+Intermed = Junin
+Umisa = Chacabuco
+Emo = Olavarria
+El resto son las que tienen en el nombre.
+
+
+- Agregar Agenda de llamadas
+
+- Quitar boton de entrevistas (no remover ventana).
+
 
 Borrar la lista de servicios.
 Mostrar el plan y el valor en el detalle si es cliente.
 
-Van a usar los contactos.
+Agregar ABM de contactos.
 
 
 Validaciones Unicidad:
