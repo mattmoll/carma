@@ -68,7 +68,12 @@ namespace Carm.Ad
                 rbSociosDirectos.Checked = true;
             } 
             else
+            {
                 cargarClienteEnPantalla(cliente);
+            }
+            
+            // TODO: Borrar si terminamos no usandolas.
+            ftDetalleCliente.hidePage(tabNotas);
         }
 
         private bool ValidarControles()
@@ -168,6 +173,8 @@ namespace Carm.Ad
         {
             rbAreasProtegidas.Checked = cliente.EsAreaProtegida;
             rbSociosDirectos.Checked = cliente.EsSocioDirecto;
+            rbAreasProtegidas.Enabled = false;
+            rbSociosDirectos.Enabled = false;
 
             cdcMarca.SelectedStrCode = cliente.Codmarca;
             cdcSitIva.SelectedStrCode = cliente.Situacioniva;
@@ -261,6 +268,20 @@ namespace Carm.Ad
         private void tgrpDatosBasicos_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void gbLlamadaNueva_Click(object sender, EventArgs e)
+        {
+            Llamada formLlamada = new Llamada(cliente.Numero);
+            formLlamada.ShowDialog(this);
+
+            if(formLlamada.DialogResult == DialogResult.OK)
+            {
+                cliente.CliLlamadas = Bll.Clientes.CllFGet(cliente.Numero, true, statMessage);
+                if (MsgRuts.AnalizeError(this, statMessage)) return;
+
+                mrLlamadas.fill(cliente.CliLlamadas, "Llamadas", statMessage);
+            }
         }
     }
 }

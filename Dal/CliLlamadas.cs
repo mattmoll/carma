@@ -10,12 +10,12 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 20/09/2020 03:42
+    // Fecha                    : 07/06/2021 23:46
     // Sistema                  : Carm
     // Clase para Administrar   : Llamadas de los Clientes
     // Basada en la Tabla       : CliLlamadas
     //----------------------------------------------------------------------------
-    // © 1996-2020 by TNG Software                                      Gndr 5.20
+    // © 1996-2021 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -923,7 +923,6 @@ namespace Carm.Dal
                 // Fijamos los nuevos captions de la grilla
                 p_dtResult.Columns["cll_des_motivo"].Caption= "V1MotivoCN1";
                 p_dtResult.Columns["cll_ede_rsocial"].Caption= "V1Razón SocialCN1";
-                p_dtResult.Columns["cll_nom_contac"].Caption= "V1ContactoCN1";
                 p_dtResult.Columns["cll_cod_codmotivo"].Caption= "V1Código de motivoCN1";
                 p_dtResult.Columns["cll_nom_codusuario"].Caption= "V1Código del usuarioCN1";
                 p_dtResult.Columns["cll_fyh_frealizada"].Caption= "V1Fecha RealizadaDN1";

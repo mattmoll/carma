@@ -36,7 +36,7 @@ namespace Carm.Ad
             this.ftDetalleCliente = new TNGS.NetControls.FullTab();
             this.tabCliente = new System.Windows.Forms.TabPage();
             this.xPanel2 = new TNGS.NetControls.XPanel();
-            this.tgrpDatosBasicos = new TNGS.NetControls.ImgGroup();
+            this.label6 = new System.Windows.Forms.Label();
             this.cdcRubro = new TNGS.NetControls.CDCombo();
             this.fullLabel23 = new TNGS.NetControls.FullLabel();
             this.igAreas = new TNGS.NetControls.ImgGroup();
@@ -57,7 +57,7 @@ namespace Carm.Ad
             this.gbBuscarLocalidadCobertura = new TNGS.NetControls.GlassButton();
             this.fullLabel12 = new TNGS.NetControls.FullLabel();
             this.igSocios = new TNGS.NetControls.ImgGroup();
-            this.glassButton1 = new TNGS.NetControls.GlassButton();
+            this.gbCargaGrupoFamiliar = new TNGS.NetControls.GlassButton();
             this.numberEdit1 = new TNGS.NetControls.NumberEdit();
             this.fullLabel19 = new TNGS.NetControls.FullLabel();
             this.teNombre = new TNGS.NetControls.TextEdit();
@@ -80,7 +80,6 @@ namespace Carm.Ad
             this.panel3 = new System.Windows.Forms.Panel();
             this.rbAreasProtegidas = new System.Windows.Forms.RadioButton();
             this.rbSociosDirectos = new System.Windows.Forms.RadioButton();
-            this.fullLabel16 = new TNGS.NetControls.FullLabel();
             this.gbCancelar = new TNGS.NetControls.GlassButton();
             this.gbCargarLocalidad = new TNGS.NetControls.GlassButton();
             this.gbGrabar = new TNGS.NetControls.GlassButton();
@@ -105,26 +104,30 @@ namespace Carm.Ad
             this.lblAnotaciones = new TNGS.NetControls.FullLabel();
             this.tabLlamadas = new System.Windows.Forms.TabPage();
             this.xPanel3 = new TNGS.NetControls.XPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.gbLlamadaNueva = new TNGS.NetControls.GlassButton();
             this.mrLlamadas = new TNGS.NetControls.MiniReport();
             this.tabEntrev = new System.Windows.Forms.TabPage();
             this.xPanel4 = new TNGS.NetControls.XPanel();
-            this.gbVerDetalle = new TNGS.NetControls.GlassButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbNuevaEntrevista = new TNGS.NetControls.GlassButton();
             this.gbEditarEntrevista = new TNGS.NetControls.GlassButton();
             this.mrEntrevistas = new TNGS.NetControls.MiniReport();
             this.tabContactos = new System.Windows.Forms.TabPage();
             this.xPanel7 = new TNGS.NetControls.XPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.gbBorrarContacto = new TNGS.NetControls.GlassButton();
             this.gbNuevoContacto = new TNGS.NetControls.GlassButton();
             this.gbEditarContacto = new TNGS.NetControls.GlassButton();
             this.mrContactos = new TNGS.NetControls.MiniReport();
             this.tabServicios = new System.Windows.Forms.TabPage();
             this.xPanel5 = new TNGS.NetControls.XPanel();
+            this.label4 = new System.Windows.Forms.Label();
             this.gbServicioNuevo = new TNGS.NetControls.GlassButton();
             this.mrServicios = new TNGS.NetControls.MiniReport();
             this.tabNotas = new System.Windows.Forms.TabPage();
             this.xPanel6 = new TNGS.NetControls.XPanel();
+            this.label5 = new System.Windows.Forms.Label();
             this.gbNuevaNota = new TNGS.NetControls.GlassButton();
             this.gbVerNota = new TNGS.NetControls.GlassButton();
             this.mrNotas = new TNGS.NetControls.MiniReport();
@@ -136,7 +139,6 @@ namespace Carm.Ad
             this.ftDetalleCliente.SuspendLayout();
             this.tabCliente.SuspendLayout();
             this.xPanel2.SuspendLayout();
-            this.tgrpDatosBasicos.SuspendLayout();
             this.igAreas.SuspendLayout();
             this.igSocios.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -198,14 +200,47 @@ namespace Carm.Ad
             this.tabCliente.Padding = new System.Windows.Forms.Padding(3);
             this.tabCliente.Size = new System.Drawing.Size(987, 595);
             this.tabCliente.TabIndex = 1;
-            this.tabCliente.Text = "Cliente";
+            this.tabCliente.Text = "Datos Primarios";
             this.tabCliente.UseVisualStyleBackColor = true;
             // 
             // xPanel2
             // 
             this.xPanel2.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel2.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel2.Controls.Add(this.tgrpDatosBasicos);
+            this.xPanel2.Controls.Add(this.gbGrabar);
+            this.xPanel2.Controls.Add(this.gbCancelar);
+            this.xPanel2.Controls.Add(this.label6);
+            this.xPanel2.Controls.Add(this.teAnotaciones);
+            this.xPanel2.Controls.Add(this.cdcRubro);
+            this.xPanel2.Controls.Add(this.lblAnotaciones);
+            this.xPanel2.Controls.Add(this.fullLabel23);
+            this.xPanel2.Controls.Add(this.lblNroMotor);
+            this.xPanel2.Controls.Add(this.igAreas);
+            this.xPanel2.Controls.Add(this.lblAnioFabricacion);
+            this.xPanel2.Controls.Add(this.igSocios);
+            this.xPanel2.Controls.Add(this.lblNroChasis);
+            this.xPanel2.Controls.Add(this.fullLabel10);
+            this.xPanel2.Controls.Add(this.fullLabel2);
+            this.xPanel2.Controls.Add(this.cteCUIT);
+            this.xPanel2.Controls.Add(this.neAltura);
+            this.xPanel2.Controls.Add(this.cdcMarca);
+            this.xPanel2.Controls.Add(this.tePisoDepto);
+            this.xPanel2.Controls.Add(this.cdcSitIva);
+            this.xPanel2.Controls.Add(this.teDireccion);
+            this.xPanel2.Controls.Add(this.fullLabel9);
+            this.xPanel2.Controls.Add(this.fullLabel5);
+            this.xPanel2.Controls.Add(this.fullLabel4);
+            this.xPanel2.Controls.Add(this.teCelular);
+            this.xPanel2.Controls.Add(this.panel3);
+            this.xPanel2.Controls.Add(this.fullLabel6);
+            this.xPanel2.Controls.Add(this.teTelefono);
+            this.xPanel2.Controls.Add(this.gbCargarLocalidad);
+            this.xPanel2.Controls.Add(this.fullLabel1);
+            this.xPanel2.Controls.Add(this.teEmail);
+            this.xPanel2.Controls.Add(this.tePartidoCobro);
+            this.xPanel2.Controls.Add(this.fullLabel3);
+            this.xPanel2.Controls.Add(this.fullLabel7);
+            this.xPanel2.Controls.Add(this.teLocalidadCobro);
             this.xPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel2.Location = new System.Drawing.Point(3, 3);
             this.xPanel2.Name = "xPanel2";
@@ -213,70 +248,16 @@ namespace Carm.Ad
             this.xPanel2.SkinFixed = true;
             this.xPanel2.TabIndex = 0;
             // 
-            // tgrpDatosBasicos
+            // label6
             // 
-            this.tgrpDatosBasicos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tgrpDatosBasicos.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tgrpDatosBasicos.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
-            this.tgrpDatosBasicos.BlackBorder = true;
-            this.tgrpDatosBasicos.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.tgrpDatosBasicos.BorderThickness = 1F;
-            this.tgrpDatosBasicos.Controls.Add(this.cdcRubro);
-            this.tgrpDatosBasicos.Controls.Add(this.fullLabel23);
-            this.tgrpDatosBasicos.Controls.Add(this.igAreas);
-            this.tgrpDatosBasicos.Controls.Add(this.igSocios);
-            this.tgrpDatosBasicos.Controls.Add(this.fullLabel10);
-            this.tgrpDatosBasicos.Controls.Add(this.cteCUIT);
-            this.tgrpDatosBasicos.Controls.Add(this.cdcMarca);
-            this.tgrpDatosBasicos.Controls.Add(this.cdcSitIva);
-            this.tgrpDatosBasicos.Controls.Add(this.fullLabel9);
-            this.tgrpDatosBasicos.Controls.Add(this.fullLabel4);
-            this.tgrpDatosBasicos.Controls.Add(this.panel3);
-            this.tgrpDatosBasicos.Controls.Add(this.fullLabel16);
-            this.tgrpDatosBasicos.Controls.Add(this.gbCancelar);
-            this.tgrpDatosBasicos.Controls.Add(this.gbCargarLocalidad);
-            this.tgrpDatosBasicos.Controls.Add(this.gbGrabar);
-            this.tgrpDatosBasicos.Controls.Add(this.tePartidoCobro);
-            this.tgrpDatosBasicos.Controls.Add(this.fullLabel7);
-            this.tgrpDatosBasicos.Controls.Add(this.teLocalidadCobro);
-            this.tgrpDatosBasicos.Controls.Add(this.fullLabel3);
-            this.tgrpDatosBasicos.Controls.Add(this.teEmail);
-            this.tgrpDatosBasicos.Controls.Add(this.fullLabel1);
-            this.tgrpDatosBasicos.Controls.Add(this.teTelefono);
-            this.tgrpDatosBasicos.Controls.Add(this.fullLabel6);
-            this.tgrpDatosBasicos.Controls.Add(this.teCelular);
-            this.tgrpDatosBasicos.Controls.Add(this.fullLabel5);
-            this.tgrpDatosBasicos.Controls.Add(this.teDireccion);
-            this.tgrpDatosBasicos.Controls.Add(this.tePisoDepto);
-            this.tgrpDatosBasicos.Controls.Add(this.neAltura);
-            this.tgrpDatosBasicos.Controls.Add(this.fullLabel2);
-            this.tgrpDatosBasicos.Controls.Add(this.teAnotaciones);
-            this.tgrpDatosBasicos.Controls.Add(this.lblNroChasis);
-            this.tgrpDatosBasicos.Controls.Add(this.lblAnioFabricacion);
-            this.tgrpDatosBasicos.Controls.Add(this.lblNroMotor);
-            this.tgrpDatosBasicos.Controls.Add(this.lblAnotaciones);
-            this.tgrpDatosBasicos.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tgrpDatosBasicos.FlatMode = true;
-            this.tgrpDatosBasicos.Font = new System.Drawing.Font("Arial", 9F);
-            this.tgrpDatosBasicos.FontTitle = new System.Drawing.Font("Arial", 9F);
-            this.tgrpDatosBasicos.ForeColor = System.Drawing.Color.Black;
-            this.tgrpDatosBasicos.GroupImage = null;
-            this.tgrpDatosBasicos.GroupTitle = "";
-            this.tgrpDatosBasicos.Location = new System.Drawing.Point(5, 12);
-            this.tgrpDatosBasicos.Name = "tgrpDatosBasicos";
-            this.tgrpDatosBasicos.Padding = new System.Windows.Forms.Padding(20);
-            this.tgrpDatosBasicos.PaintGroupBox = false;
-            this.tgrpDatosBasicos.RoundCorners = 4;
-            this.tgrpDatosBasicos.ShadowColor = System.Drawing.Color.DarkGray;
-            this.tgrpDatosBasicos.ShadowControl = false;
-            this.tgrpDatosBasicos.ShadowThickness = 3;
-            this.tgrpDatosBasicos.Size = new System.Drawing.Size(975, 576);
-            this.tgrpDatosBasicos.SkinFixed = true;
-            this.tgrpDatosBasicos.TabIndex = 0;
-            this.tgrpDatosBasicos.TitleBackground = System.Drawing.Color.DarkGreen;
-            this.tgrpDatosBasicos.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
-            this.tgrpDatosBasicos.TitleFontColor = System.Drawing.Color.White;
-            this.tgrpDatosBasicos.Load += new System.EventHandler(this.tgrpDatosBasicos_Load);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(10, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 23);
+            this.label6.TabIndex = 147;
+            this.label6.Text = "Prospecto";
             // 
             // cdcRubro
             // 
@@ -284,7 +265,7 @@ namespace Carm.Ad
             this.cdcRubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cdcRubro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cdcRubro.FormattingEnabled = true;
-            this.cdcRubro.Location = new System.Drawing.Point(624, 96);
+            this.cdcRubro.Location = new System.Drawing.Point(626, 115);
             this.cdcRubro.Name = "cdcRubro";
             this.cdcRubro.Size = new System.Drawing.Size(276, 23);
             this.cdcRubro.Sorted = true;
@@ -295,7 +276,7 @@ namespace Carm.Ad
             this.fullLabel23.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel23.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel23.Location = new System.Drawing.Point(553, 101);
+            this.fullLabel23.Location = new System.Drawing.Point(555, 120);
             this.fullLabel23.Name = "fullLabel23";
             this.fullLabel23.Size = new System.Drawing.Size(65, 18);
             this.fullLabel23.TabIndex = 146;
@@ -332,7 +313,7 @@ namespace Carm.Ad
             this.igAreas.ForeColor = System.Drawing.Color.Black;
             this.igAreas.GroupImage = null;
             this.igAreas.GroupTitle = "Areas Protegidas";
-            this.igAreas.Location = new System.Drawing.Point(36, 232);
+            this.igAreas.Location = new System.Drawing.Point(38, 251);
             this.igAreas.Name = "igAreas";
             this.igAreas.Padding = new System.Windows.Forms.Padding(20);
             this.igAreas.PaintGroupBox = false;
@@ -533,7 +514,7 @@ namespace Carm.Ad
             this.igSocios.BlackBorder = true;
             this.igSocios.BorderColor = System.Drawing.Color.DodgerBlue;
             this.igSocios.BorderThickness = 1F;
-            this.igSocios.Controls.Add(this.glassButton1);
+            this.igSocios.Controls.Add(this.gbCargaGrupoFamiliar);
             this.igSocios.Controls.Add(this.numberEdit1);
             this.igSocios.Controls.Add(this.fullLabel19);
             this.igSocios.Controls.Add(this.teNombre);
@@ -554,7 +535,7 @@ namespace Carm.Ad
             this.igSocios.ForeColor = System.Drawing.Color.Black;
             this.igSocios.GroupImage = null;
             this.igSocios.GroupTitle = "Socios Directos";
-            this.igSocios.Location = new System.Drawing.Point(505, 232);
+            this.igSocios.Location = new System.Drawing.Point(507, 251);
             this.igSocios.Name = "igSocios";
             this.igSocios.Padding = new System.Windows.Forms.Padding(20);
             this.igSocios.PaintGroupBox = false;
@@ -569,28 +550,28 @@ namespace Carm.Ad
             this.igSocios.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.igSocios.TitleFontColor = System.Drawing.Color.White;
             // 
-            // glassButton1
+            // gbCargaGrupoFamiliar
             // 
-            this.glassButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.glassButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("glassButton1.BackgroundImage")));
-            this.glassButton1.BlackBorder = true;
-            this.glassButton1.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.glassButton1.CircleButton = false;
-            this.glassButton1.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Edit;
-            this.glassButton1.FlatColor = System.Drawing.Color.DodgerBlue;
-            this.glassButton1.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
-            this.glassButton1.FlatFontSize = 9;
-            this.glassButton1.FlatTextColor = System.Drawing.Color.Black;
-            this.glassButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.glassButton1.Location = new System.Drawing.Point(230, 207);
-            this.glassButton1.Name = "glassButton1";
-            this.glassButton1.PCode = "TNGS.EXCEL";
-            this.glassButton1.RoundCorners = 2;
-            this.glassButton1.Size = new System.Drawing.Size(80, 25);
-            this.glassButton1.TabIndex = 7;
-            this.glassButton1.Text = "Editar";
-            this.glassButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.glassButton1.W8Color = System.Drawing.Color.DodgerBlue;
+            this.gbCargaGrupoFamiliar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbCargaGrupoFamiliar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbCargaGrupoFamiliar.BackgroundImage")));
+            this.gbCargaGrupoFamiliar.BlackBorder = true;
+            this.gbCargaGrupoFamiliar.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.gbCargaGrupoFamiliar.CircleButton = false;
+            this.gbCargaGrupoFamiliar.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Edit;
+            this.gbCargaGrupoFamiliar.FlatColor = System.Drawing.Color.DodgerBlue;
+            this.gbCargaGrupoFamiliar.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.LightBlue;
+            this.gbCargaGrupoFamiliar.FlatFontSize = 9;
+            this.gbCargaGrupoFamiliar.FlatTextColor = System.Drawing.Color.Black;
+            this.gbCargaGrupoFamiliar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.gbCargaGrupoFamiliar.Location = new System.Drawing.Point(230, 207);
+            this.gbCargaGrupoFamiliar.Name = "gbCargaGrupoFamiliar";
+            this.gbCargaGrupoFamiliar.PCode = "TNGS.EXCEL";
+            this.gbCargaGrupoFamiliar.RoundCorners = 2;
+            this.gbCargaGrupoFamiliar.Size = new System.Drawing.Size(118, 25);
+            this.gbCargaGrupoFamiliar.TabIndex = 7;
+            this.gbCargaGrupoFamiliar.Text = "Cargar Grupo";
+            this.gbCargaGrupoFamiliar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gbCargaGrupoFamiliar.W8Color = System.Drawing.Color.DodgerBlue;
             // 
             // numberEdit1
             // 
@@ -732,7 +713,7 @@ namespace Carm.Ad
             this.fullLabel10.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel10.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel10.Location = new System.Drawing.Point(564, 69);
+            this.fullLabel10.Location = new System.Drawing.Point(566, 88);
             this.fullLabel10.Name = "fullLabel10";
             this.fullLabel10.Size = new System.Drawing.Size(50, 18);
             this.fullLabel10.TabIndex = 144;
@@ -741,7 +722,7 @@ namespace Carm.Ad
             // cteCUIT
             // 
             this.cteCUIT.BackColor = System.Drawing.SystemColors.Window;
-            this.cteCUIT.Location = new System.Drawing.Point(624, 67);
+            this.cteCUIT.Location = new System.Drawing.Point(626, 86);
             this.cteCUIT.Name = "cteCUIT";
             this.cteCUIT.Size = new System.Drawing.Size(100, 21);
             this.cteCUIT.TabIndex = 6;
@@ -752,7 +733,7 @@ namespace Carm.Ad
             this.cdcMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cdcMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cdcMarca.FormattingEnabled = true;
-            this.cdcMarca.Location = new System.Drawing.Point(185, 36);
+            this.cdcMarca.Location = new System.Drawing.Point(187, 55);
             this.cdcMarca.Name = "cdcMarca";
             this.cdcMarca.Size = new System.Drawing.Size(276, 23);
             this.cdcMarca.Sorted = true;
@@ -764,7 +745,7 @@ namespace Carm.Ad
             this.cdcSitIva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cdcSitIva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cdcSitIva.FormattingEnabled = true;
-            this.cdcSitIva.Location = new System.Drawing.Point(624, 36);
+            this.cdcSitIva.Location = new System.Drawing.Point(626, 55);
             this.cdcSitIva.Name = "cdcSitIva";
             this.cdcSitIva.Size = new System.Drawing.Size(276, 23);
             this.cdcSitIva.Sorted = true;
@@ -775,7 +756,7 @@ namespace Carm.Ad
             this.fullLabel9.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel9.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel9.Location = new System.Drawing.Point(71, 73);
+            this.fullLabel9.Location = new System.Drawing.Point(73, 92);
             this.fullLabel9.Name = "fullLabel9";
             this.fullLabel9.Size = new System.Drawing.Size(175, 18);
             this.fullLabel9.TabIndex = 133;
@@ -786,7 +767,7 @@ namespace Carm.Ad
             this.fullLabel4.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel4.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel4.Location = new System.Drawing.Point(26, 41);
+            this.fullLabel4.Location = new System.Drawing.Point(28, 60);
             this.fullLabel4.Name = "fullLabel4";
             this.fullLabel4.Size = new System.Drawing.Size(143, 18);
             this.fullLabel4.TabIndex = 129;
@@ -797,7 +778,7 @@ namespace Carm.Ad
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.rbAreasProtegidas);
             this.panel3.Controls.Add(this.rbSociosDirectos);
-            this.panel3.Location = new System.Drawing.Point(384, 3);
+            this.panel3.Location = new System.Drawing.Point(121, 16);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(264, 26);
             this.panel3.TabIndex = 126;
@@ -826,15 +807,6 @@ namespace Carm.Ad
             this.rbSociosDirectos.UseVisualStyleBackColor = false;
             this.rbSociosDirectos.CheckedChanged += new System.EventHandler(this.rbSociosDirectos_CheckedChanged);
             // 
-            // fullLabel16
-            // 
-            this.fullLabel16.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel16.Location = new System.Drawing.Point(316, 8);
-            this.fullLabel16.Name = "fullLabel16";
-            this.fullLabel16.Size = new System.Drawing.Size(80, 16);
-            this.fullLabel16.TabIndex = 127;
-            this.fullLabel16.Text = "Prospecto:";
-            // 
             // gbCancelar
             // 
             this.gbCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbCancelar.BackgroundImage")));
@@ -847,7 +819,7 @@ namespace Carm.Ad
             this.gbCancelar.FlatFontSize = 9;
             this.gbCancelar.FlatTextColor = System.Drawing.Color.Black;
             this.gbCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbCancelar.Location = new System.Drawing.Point(36, 509);
+            this.gbCancelar.Location = new System.Drawing.Point(38, 533);
             this.gbCancelar.Name = "gbCancelar";
             this.gbCancelar.RoundCorners = 2;
             this.gbCancelar.Size = new System.Drawing.Size(100, 47);
@@ -870,7 +842,7 @@ namespace Carm.Ad
             this.gbCargarLocalidad.FlatFontSize = 9;
             this.gbCargarLocalidad.FlatTextColor = System.Drawing.Color.Black;
             this.gbCargarLocalidad.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbCargarLocalidad.Location = new System.Drawing.Point(52, 157);
+            this.gbCargarLocalidad.Location = new System.Drawing.Point(54, 176);
             this.gbCargarLocalidad.Name = "gbCargarLocalidad";
             this.gbCargarLocalidad.PCode = "TNGS.EXCEL";
             this.gbCargarLocalidad.RoundCorners = 2;
@@ -892,7 +864,7 @@ namespace Carm.Ad
             this.gbGrabar.FlatFontSize = 9;
             this.gbGrabar.FlatTextColor = System.Drawing.Color.Black;
             this.gbGrabar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbGrabar.Location = new System.Drawing.Point(852, 509);
+            this.gbGrabar.Location = new System.Drawing.Point(854, 533);
             this.gbGrabar.Name = "gbGrabar";
             this.gbGrabar.RoundCorners = 2;
             this.gbGrabar.Size = new System.Drawing.Size(100, 47);
@@ -906,7 +878,7 @@ namespace Carm.Ad
             // 
             this.tePartidoCobro.BackColor = System.Drawing.SystemColors.Window;
             this.tePartidoCobro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tePartidoCobro.Location = new System.Drawing.Point(186, 196);
+            this.tePartidoCobro.Location = new System.Drawing.Point(188, 215);
             this.tePartidoCobro.Name = "tePartidoCobro";
             this.tePartidoCobro.ReadOnly = true;
             this.tePartidoCobro.Size = new System.Drawing.Size(276, 21);
@@ -917,7 +889,7 @@ namespace Carm.Ad
             this.fullLabel7.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel7.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel7.Location = new System.Drawing.Point(104, 198);
+            this.fullLabel7.Location = new System.Drawing.Point(106, 217);
             this.fullLabel7.Name = "fullLabel7";
             this.fullLabel7.Size = new System.Drawing.Size(76, 18);
             this.fullLabel7.TabIndex = 36;
@@ -927,7 +899,7 @@ namespace Carm.Ad
             // 
             this.teLocalidadCobro.BackColor = System.Drawing.SystemColors.Window;
             this.teLocalidadCobro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teLocalidadCobro.Location = new System.Drawing.Point(186, 163);
+            this.teLocalidadCobro.Location = new System.Drawing.Point(188, 182);
             this.teLocalidadCobro.Name = "teLocalidadCobro";
             this.teLocalidadCobro.ReadOnly = true;
             this.teLocalidadCobro.Size = new System.Drawing.Size(276, 21);
@@ -938,7 +910,7 @@ namespace Carm.Ad
             this.fullLabel3.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel3.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel3.Location = new System.Drawing.Point(90, 163);
+            this.fullLabel3.Location = new System.Drawing.Point(92, 182);
             this.fullLabel3.Name = "fullLabel3";
             this.fullLabel3.Size = new System.Drawing.Size(76, 18);
             this.fullLabel3.TabIndex = 34;
@@ -948,7 +920,7 @@ namespace Carm.Ad
             // 
             this.teEmail.BackColor = System.Drawing.SystemColors.Window;
             this.teEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teEmail.Location = new System.Drawing.Point(624, 198);
+            this.teEmail.Location = new System.Drawing.Point(626, 217);
             this.teEmail.Name = "teEmail";
             this.teEmail.Size = new System.Drawing.Size(276, 21);
             this.teEmail.TabIndex = 9;
@@ -958,7 +930,7 @@ namespace Carm.Ad
             this.fullLabel1.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel1.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel1.Location = new System.Drawing.Point(563, 200);
+            this.fullLabel1.Location = new System.Drawing.Point(565, 219);
             this.fullLabel1.Name = "fullLabel1";
             this.fullLabel1.Size = new System.Drawing.Size(54, 18);
             this.fullLabel1.TabIndex = 32;
@@ -968,7 +940,7 @@ namespace Carm.Ad
             // 
             this.teTelefono.BackColor = System.Drawing.SystemColors.Window;
             this.teTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teTelefono.Location = new System.Drawing.Point(624, 164);
+            this.teTelefono.Location = new System.Drawing.Point(626, 183);
             this.teTelefono.Name = "teTelefono";
             this.teTelefono.Size = new System.Drawing.Size(276, 21);
             this.teTelefono.TabIndex = 8;
@@ -978,7 +950,7 @@ namespace Carm.Ad
             this.fullLabel6.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel6.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel6.Location = new System.Drawing.Point(521, 166);
+            this.fullLabel6.Location = new System.Drawing.Point(523, 185);
             this.fullLabel6.Name = "fullLabel6";
             this.fullLabel6.Size = new System.Drawing.Size(91, 18);
             this.fullLabel6.TabIndex = 30;
@@ -988,7 +960,7 @@ namespace Carm.Ad
             // 
             this.teCelular.BackColor = System.Drawing.SystemColors.Window;
             this.teCelular.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teCelular.Location = new System.Drawing.Point(624, 130);
+            this.teCelular.Location = new System.Drawing.Point(626, 149);
             this.teCelular.Name = "teCelular";
             this.teCelular.Size = new System.Drawing.Size(276, 21);
             this.teCelular.TabIndex = 7;
@@ -998,7 +970,7 @@ namespace Carm.Ad
             this.fullLabel5.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel5.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel5.Location = new System.Drawing.Point(554, 130);
+            this.fullLabel5.Location = new System.Drawing.Point(556, 149);
             this.fullLabel5.Name = "fullLabel5";
             this.fullLabel5.Size = new System.Drawing.Size(64, 18);
             this.fullLabel5.TabIndex = 28;
@@ -1008,7 +980,7 @@ namespace Carm.Ad
             // 
             this.teDireccion.BackColor = System.Drawing.SystemColors.Window;
             this.teDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teDireccion.Location = new System.Drawing.Point(185, 98);
+            this.teDireccion.Location = new System.Drawing.Point(187, 117);
             this.teDireccion.Name = "teDireccion";
             this.teDireccion.Size = new System.Drawing.Size(276, 21);
             this.teDireccion.TabIndex = 1;
@@ -1017,7 +989,7 @@ namespace Carm.Ad
             // 
             this.tePisoDepto.BackColor = System.Drawing.SystemColors.Window;
             this.tePisoDepto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tePisoDepto.Location = new System.Drawing.Point(348, 129);
+            this.tePisoDepto.Location = new System.Drawing.Point(350, 148);
             this.tePisoDepto.MaxLength = 8;
             this.tePisoDepto.Name = "tePisoDepto";
             this.tePisoDepto.Size = new System.Drawing.Size(113, 21);
@@ -1026,7 +998,7 @@ namespace Carm.Ad
             // neAltura
             // 
             this.neAltura.BackColor = System.Drawing.SystemColors.Window;
-            this.neAltura.Location = new System.Drawing.Point(186, 130);
+            this.neAltura.Location = new System.Drawing.Point(188, 149);
             this.neAltura.Name = "neAltura";
             this.neAltura.Size = new System.Drawing.Size(75, 21);
             this.neAltura.TabIndex = 2;
@@ -1037,7 +1009,7 @@ namespace Carm.Ad
             this.fullLabel2.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel2.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel2.Location = new System.Drawing.Point(277, 132);
+            this.fullLabel2.Location = new System.Drawing.Point(279, 151);
             this.fullLabel2.Name = "fullLabel2";
             this.fullLabel2.Size = new System.Drawing.Size(79, 18);
             this.fullLabel2.TabIndex = 22;
@@ -1046,7 +1018,7 @@ namespace Carm.Ad
             // teAnotaciones
             // 
             this.teAnotaciones.BackColor = System.Drawing.SystemColors.Window;
-            this.teAnotaciones.Location = new System.Drawing.Point(234, 515);
+            this.teAnotaciones.Location = new System.Drawing.Point(219, 533);
             this.teAnotaciones.Multiline = true;
             this.teAnotaciones.Name = "teAnotaciones";
             this.teAnotaciones.Size = new System.Drawing.Size(544, 47);
@@ -1057,7 +1029,7 @@ namespace Carm.Ad
             this.lblNroChasis.BackColor = System.Drawing.Color.Transparent;
             this.lblNroChasis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroChasis.ForeColor = System.Drawing.Color.Black;
-            this.lblNroChasis.Location = new System.Drawing.Point(553, 41);
+            this.lblNroChasis.Location = new System.Drawing.Point(555, 60);
             this.lblNroChasis.Name = "lblNroChasis";
             this.lblNroChasis.Size = new System.Drawing.Size(65, 18);
             this.lblNroChasis.TabIndex = 14;
@@ -1068,7 +1040,7 @@ namespace Carm.Ad
             this.lblAnioFabricacion.BackColor = System.Drawing.Color.Transparent;
             this.lblAnioFabricacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnioFabricacion.ForeColor = System.Drawing.Color.Black;
-            this.lblAnioFabricacion.Location = new System.Drawing.Point(115, 132);
+            this.lblAnioFabricacion.Location = new System.Drawing.Point(117, 151);
             this.lblAnioFabricacion.Name = "lblAnioFabricacion";
             this.lblAnioFabricacion.Size = new System.Drawing.Size(67, 18);
             this.lblAnioFabricacion.TabIndex = 17;
@@ -1079,7 +1051,7 @@ namespace Carm.Ad
             this.lblNroMotor.BackColor = System.Drawing.Color.Transparent;
             this.lblNroMotor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroMotor.ForeColor = System.Drawing.Color.Black;
-            this.lblNroMotor.Location = new System.Drawing.Point(94, 100);
+            this.lblNroMotor.Location = new System.Drawing.Point(96, 119);
             this.lblNroMotor.Name = "lblNroMotor";
             this.lblNroMotor.Size = new System.Drawing.Size(75, 18);
             this.lblNroMotor.TabIndex = 15;
@@ -1090,7 +1062,7 @@ namespace Carm.Ad
             this.lblAnotaciones.BackColor = System.Drawing.Color.Transparent;
             this.lblAnotaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnotaciones.ForeColor = System.Drawing.Color.Black;
-            this.lblAnotaciones.Location = new System.Drawing.Point(231, 494);
+            this.lblAnotaciones.Location = new System.Drawing.Point(216, 512);
             this.lblAnotaciones.Name = "lblAnotaciones";
             this.lblAnotaciones.Size = new System.Drawing.Size(117, 18);
             this.lblAnotaciones.TabIndex = 13;
@@ -1111,6 +1083,7 @@ namespace Carm.Ad
             // 
             this.xPanel3.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel3.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel3.Controls.Add(this.label2);
             this.xPanel3.Controls.Add(this.gbLlamadaNueva);
             this.xPanel3.Controls.Add(this.mrLlamadas);
             this.xPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1120,27 +1093,38 @@ namespace Carm.Ad
             this.xPanel3.SkinFixed = true;
             this.xPanel3.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(10, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 23);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Operaciones";
+            // 
             // gbLlamadaNueva
             // 
             this.gbLlamadaNueva.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbLlamadaNueva.BackgroundImage")));
             this.gbLlamadaNueva.BlackBorder = true;
             this.gbLlamadaNueva.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
             this.gbLlamadaNueva.CircleButton = false;
-            this.gbLlamadaNueva.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Phone;
+            this.gbLlamadaNueva.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.New;
             this.gbLlamadaNueva.FlatColor = System.Drawing.Color.LimeGreen;
             this.gbLlamadaNueva.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
             this.gbLlamadaNueva.FlatFontSize = 9;
             this.gbLlamadaNueva.FlatTextColor = System.Drawing.Color.Black;
             this.gbLlamadaNueva.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbLlamadaNueva.ImageOnTop = true;
-            this.gbLlamadaNueva.Location = new System.Drawing.Point(459, 7);
+            this.gbLlamadaNueva.Location = new System.Drawing.Point(14, 58);
             this.gbLlamadaNueva.Name = "gbLlamadaNueva";
             this.gbLlamadaNueva.RoundCorners = 2;
-            this.gbLlamadaNueva.Size = new System.Drawing.Size(83, 70);
+            this.gbLlamadaNueva.Size = new System.Drawing.Size(129, 25);
             this.gbLlamadaNueva.TabIndex = 10;
-            this.gbLlamadaNueva.Text = "Nueva";
-            this.gbLlamadaNueva.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbLlamadaNueva.Text = "Nueva Llamada";
+            this.gbLlamadaNueva.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbLlamadaNueva.W8Color = System.Drawing.Color.LimeGreen;
+            this.gbLlamadaNueva.Click += new System.EventHandler(this.gbLlamadaNueva_Click);
             // 
             // mrLlamadas
             // 
@@ -1148,9 +1132,12 @@ namespace Carm.Ad
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mrLlamadas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrLlamadas.Location = new System.Drawing.Point(6, 73);
+            this.mrLlamadas.Location = new System.Drawing.Point(6, 96);
             this.mrLlamadas.Name = "mrLlamadas";
-            this.mrLlamadas.Size = new System.Drawing.Size(971, 513);
+            this.mrLlamadas.ShowFilter = false;
+            this.mrLlamadas.ShowPrtOne = false;
+            this.mrLlamadas.ShowZoom = false;
+            this.mrLlamadas.Size = new System.Drawing.Size(971, 488);
             this.mrLlamadas.SkinFixed = true;
             this.mrLlamadas.TabIndex = 0;
             // 
@@ -1169,7 +1156,7 @@ namespace Carm.Ad
             // 
             this.xPanel4.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel4.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel4.Controls.Add(this.gbVerDetalle);
+            this.xPanel4.Controls.Add(this.label1);
             this.xPanel4.Controls.Add(this.gbNuevaEntrevista);
             this.xPanel4.Controls.Add(this.gbEditarEntrevista);
             this.xPanel4.Controls.Add(this.mrEntrevistas);
@@ -1180,27 +1167,16 @@ namespace Carm.Ad
             this.xPanel4.SkinFixed = true;
             this.xPanel4.TabIndex = 0;
             // 
-            // gbVerDetalle
+            // label1
             // 
-            this.gbVerDetalle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbVerDetalle.BackgroundImage")));
-            this.gbVerDetalle.BlackBorder = true;
-            this.gbVerDetalle.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.gbVerDetalle.CircleButton = false;
-            this.gbVerDetalle.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Search;
-            this.gbVerDetalle.FlatColor = System.Drawing.Color.LimeGreen;
-            this.gbVerDetalle.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Excel;
-            this.gbVerDetalle.FlatFontSize = 9;
-            this.gbVerDetalle.FlatTextColor = System.Drawing.Color.Black;
-            this.gbVerDetalle.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbVerDetalle.ImageOnTop = true;
-            this.gbVerDetalle.Location = new System.Drawing.Point(667, 5);
-            this.gbVerDetalle.Name = "gbVerDetalle";
-            this.gbVerDetalle.RoundCorners = 2;
-            this.gbVerDetalle.Size = new System.Drawing.Size(83, 70);
-            this.gbVerDetalle.TabIndex = 10;
-            this.gbVerDetalle.Text = "Detalle";
-            this.gbVerDetalle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.gbVerDetalle.W8Color = System.Drawing.Color.LimeGreen;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(10, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 23);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Operaciones";
             // 
             // gbNuevaEntrevista
             // 
@@ -1214,14 +1190,13 @@ namespace Carm.Ad
             this.gbNuevaEntrevista.FlatFontSize = 9;
             this.gbNuevaEntrevista.FlatTextColor = System.Drawing.Color.Black;
             this.gbNuevaEntrevista.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbNuevaEntrevista.ImageOnTop = true;
-            this.gbNuevaEntrevista.Location = new System.Drawing.Point(463, 5);
+            this.gbNuevaEntrevista.Location = new System.Drawing.Point(14, 58);
             this.gbNuevaEntrevista.Name = "gbNuevaEntrevista";
             this.gbNuevaEntrevista.RoundCorners = 2;
-            this.gbNuevaEntrevista.Size = new System.Drawing.Size(83, 70);
+            this.gbNuevaEntrevista.Size = new System.Drawing.Size(140, 25);
             this.gbNuevaEntrevista.TabIndex = 9;
-            this.gbNuevaEntrevista.Text = "Nueva";
-            this.gbNuevaEntrevista.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbNuevaEntrevista.Text = "Nueva Entrevista";
+            this.gbNuevaEntrevista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbNuevaEntrevista.W8Color = System.Drawing.Color.LimeGreen;
             // 
             // gbEditarEntrevista
@@ -1236,15 +1211,14 @@ namespace Carm.Ad
             this.gbEditarEntrevista.FlatFontSize = 9;
             this.gbEditarEntrevista.FlatTextColor = System.Drawing.Color.Black;
             this.gbEditarEntrevista.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbEditarEntrevista.ImageOnTop = true;
-            this.gbEditarEntrevista.Location = new System.Drawing.Point(268, 5);
+            this.gbEditarEntrevista.Location = new System.Drawing.Point(175, 58);
             this.gbEditarEntrevista.Name = "gbEditarEntrevista";
             this.gbEditarEntrevista.PCode = "MODCLIENTREV";
             this.gbEditarEntrevista.RoundCorners = 2;
-            this.gbEditarEntrevista.Size = new System.Drawing.Size(83, 70);
+            this.gbEditarEntrevista.Size = new System.Drawing.Size(151, 25);
             this.gbEditarEntrevista.TabIndex = 8;
-            this.gbEditarEntrevista.Text = "Editar";
-            this.gbEditarEntrevista.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbEditarEntrevista.Text = "Editar Seleccionada";
+            this.gbEditarEntrevista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbEditarEntrevista.W8Color = System.Drawing.Color.LimeGreen;
             // 
             // mrEntrevistas
@@ -1253,9 +1227,12 @@ namespace Carm.Ad
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mrEntrevistas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrEntrevistas.Location = new System.Drawing.Point(6, 81);
+            this.mrEntrevistas.Location = new System.Drawing.Point(6, 96);
             this.mrEntrevistas.Name = "mrEntrevistas";
-            this.mrEntrevistas.Size = new System.Drawing.Size(971, 503);
+            this.mrEntrevistas.ShowFilter = false;
+            this.mrEntrevistas.ShowPrtOne = false;
+            this.mrEntrevistas.ShowZoom = false;
+            this.mrEntrevistas.Size = new System.Drawing.Size(971, 488);
             this.mrEntrevistas.SkinFixed = true;
             this.mrEntrevistas.TabIndex = 1;
             // 
@@ -1274,6 +1251,7 @@ namespace Carm.Ad
             // 
             this.xPanel7.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel7.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel7.Controls.Add(this.label3);
             this.xPanel7.Controls.Add(this.gbBorrarContacto);
             this.xPanel7.Controls.Add(this.gbNuevoContacto);
             this.xPanel7.Controls.Add(this.gbEditarContacto);
@@ -1284,6 +1262,17 @@ namespace Carm.Ad
             this.xPanel7.Size = new System.Drawing.Size(981, 589);
             this.xPanel7.SkinFixed = true;
             this.xPanel7.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(10, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 23);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Operaciones";
             // 
             // gbBorrarContacto
             // 
@@ -1297,15 +1286,14 @@ namespace Carm.Ad
             this.gbBorrarContacto.FlatFontSize = 9;
             this.gbBorrarContacto.FlatTextColor = System.Drawing.Color.Black;
             this.gbBorrarContacto.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbBorrarContacto.ImageOnTop = true;
-            this.gbBorrarContacto.Location = new System.Drawing.Point(636, 7);
+            this.gbBorrarContacto.Location = new System.Drawing.Point(346, 58);
             this.gbBorrarContacto.Name = "gbBorrarContacto";
             this.gbBorrarContacto.PCode = "MODCLICONTACTOS";
             this.gbBorrarContacto.RoundCorners = 2;
-            this.gbBorrarContacto.Size = new System.Drawing.Size(83, 70);
+            this.gbBorrarContacto.Size = new System.Drawing.Size(157, 25);
             this.gbBorrarContacto.TabIndex = 13;
-            this.gbBorrarContacto.Text = "Borrar";
-            this.gbBorrarContacto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbBorrarContacto.Text = "Borrar Seleccionado";
+            this.gbBorrarContacto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbBorrarContacto.W8Color = System.Drawing.Color.Red;
             // 
             // gbNuevoContacto
@@ -1320,14 +1308,13 @@ namespace Carm.Ad
             this.gbNuevoContacto.FlatFontSize = 9;
             this.gbNuevoContacto.FlatTextColor = System.Drawing.Color.Black;
             this.gbNuevoContacto.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbNuevoContacto.ImageOnTop = true;
-            this.gbNuevoContacto.Location = new System.Drawing.Point(464, 7);
+            this.gbNuevoContacto.Location = new System.Drawing.Point(14, 58);
             this.gbNuevoContacto.Name = "gbNuevoContacto";
             this.gbNuevoContacto.RoundCorners = 2;
-            this.gbNuevoContacto.Size = new System.Drawing.Size(83, 70);
+            this.gbNuevoContacto.Size = new System.Drawing.Size(140, 25);
             this.gbNuevoContacto.TabIndex = 12;
-            this.gbNuevoContacto.Text = "Nuevo";
-            this.gbNuevoContacto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbNuevoContacto.Text = "Nuevo Contacto";
+            this.gbNuevoContacto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbNuevoContacto.W8Color = System.Drawing.Color.LimeGreen;
             // 
             // gbEditarContacto
@@ -1342,23 +1329,25 @@ namespace Carm.Ad
             this.gbEditarContacto.FlatFontSize = 9;
             this.gbEditarContacto.FlatTextColor = System.Drawing.Color.Black;
             this.gbEditarContacto.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbEditarContacto.ImageOnTop = true;
-            this.gbEditarContacto.Location = new System.Drawing.Point(288, 7);
+            this.gbEditarContacto.Location = new System.Drawing.Point(175, 58);
             this.gbEditarContacto.Name = "gbEditarContacto";
             this.gbEditarContacto.PCode = "MODCLICONTACTOS";
             this.gbEditarContacto.RoundCorners = 2;
-            this.gbEditarContacto.Size = new System.Drawing.Size(83, 70);
+            this.gbEditarContacto.Size = new System.Drawing.Size(151, 25);
             this.gbEditarContacto.TabIndex = 11;
-            this.gbEditarContacto.Text = "Editar";
-            this.gbEditarContacto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbEditarContacto.Text = "Editar Seleccionado";
+            this.gbEditarContacto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbEditarContacto.W8Color = System.Drawing.Color.LimeGreen;
             // 
             // mrContactos
             // 
             this.mrContactos.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrContactos.Location = new System.Drawing.Point(6, 74);
+            this.mrContactos.Location = new System.Drawing.Point(6, 96);
             this.mrContactos.Name = "mrContactos";
-            this.mrContactos.Size = new System.Drawing.Size(982, 390);
+            this.mrContactos.ShowFilter = false;
+            this.mrContactos.ShowPrtOne = false;
+            this.mrContactos.ShowZoom = false;
+            this.mrContactos.Size = new System.Drawing.Size(971, 488);
             this.mrContactos.SkinFixed = true;
             this.mrContactos.TabIndex = 5;
             // 
@@ -1377,6 +1366,7 @@ namespace Carm.Ad
             // 
             this.xPanel5.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel5.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel5.Controls.Add(this.label4);
             this.xPanel5.Controls.Add(this.gbServicioNuevo);
             this.xPanel5.Controls.Add(this.mrServicios);
             this.xPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1385,6 +1375,17 @@ namespace Carm.Ad
             this.xPanel5.Size = new System.Drawing.Size(981, 589);
             this.xPanel5.SkinFixed = true;
             this.xPanel5.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(10, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(130, 23);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Operaciones";
             // 
             // gbServicioNuevo
             // 
@@ -1398,14 +1399,13 @@ namespace Carm.Ad
             this.gbServicioNuevo.FlatFontSize = 9;
             this.gbServicioNuevo.FlatTextColor = System.Drawing.Color.Black;
             this.gbServicioNuevo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbServicioNuevo.ImageOnTop = true;
-            this.gbServicioNuevo.Location = new System.Drawing.Point(445, 3);
+            this.gbServicioNuevo.Location = new System.Drawing.Point(14, 58);
             this.gbServicioNuevo.Name = "gbServicioNuevo";
             this.gbServicioNuevo.RoundCorners = 2;
-            this.gbServicioNuevo.Size = new System.Drawing.Size(83, 70);
+            this.gbServicioNuevo.Size = new System.Drawing.Size(140, 25);
             this.gbServicioNuevo.TabIndex = 10;
-            this.gbServicioNuevo.Text = "Nuevo";
-            this.gbServicioNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbServicioNuevo.Text = "Nuevo Servicio";
+            this.gbServicioNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbServicioNuevo.W8Color = System.Drawing.Color.LimeGreen;
             // 
             // mrServicios
@@ -1414,9 +1414,12 @@ namespace Carm.Ad
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mrServicios.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrServicios.Location = new System.Drawing.Point(6, 71);
+            this.mrServicios.Location = new System.Drawing.Point(6, 96);
             this.mrServicios.Name = "mrServicios";
-            this.mrServicios.Size = new System.Drawing.Size(971, 513);
+            this.mrServicios.ShowFilter = false;
+            this.mrServicios.ShowPrtOne = false;
+            this.mrServicios.ShowZoom = false;
+            this.mrServicios.Size = new System.Drawing.Size(971, 488);
             this.mrServicios.SkinFixed = true;
             this.mrServicios.TabIndex = 1;
             // 
@@ -1435,6 +1438,7 @@ namespace Carm.Ad
             // 
             this.xPanel6.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel6.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel6.Controls.Add(this.label5);
             this.xPanel6.Controls.Add(this.gbNuevaNota);
             this.xPanel6.Controls.Add(this.gbVerNota);
             this.xPanel6.Controls.Add(this.mrNotas);
@@ -1444,6 +1448,17 @@ namespace Carm.Ad
             this.xPanel6.Size = new System.Drawing.Size(981, 589);
             this.xPanel6.SkinFixed = true;
             this.xPanel6.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(10, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 23);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Operaciones";
             // 
             // gbNuevaNota
             // 
@@ -1457,14 +1472,13 @@ namespace Carm.Ad
             this.gbNuevaNota.FlatFontSize = 9;
             this.gbNuevaNota.FlatTextColor = System.Drawing.Color.Black;
             this.gbNuevaNota.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbNuevaNota.ImageOnTop = true;
-            this.gbNuevaNota.Location = new System.Drawing.Point(370, 3);
+            this.gbNuevaNota.Location = new System.Drawing.Point(14, 58);
             this.gbNuevaNota.Name = "gbNuevaNota";
             this.gbNuevaNota.RoundCorners = 2;
-            this.gbNuevaNota.Size = new System.Drawing.Size(83, 70);
+            this.gbNuevaNota.Size = new System.Drawing.Size(126, 25);
             this.gbNuevaNota.TabIndex = 13;
-            this.gbNuevaNota.Text = "Nuevo";
-            this.gbNuevaNota.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbNuevaNota.Text = "Nueva Nota";
+            this.gbNuevaNota.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbNuevaNota.W8Color = System.Drawing.Color.LimeGreen;
             // 
             // gbVerNota
@@ -1479,14 +1493,13 @@ namespace Carm.Ad
             this.gbVerNota.FlatFontSize = 9;
             this.gbVerNota.FlatTextColor = System.Drawing.Color.Black;
             this.gbVerNota.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbVerNota.ImageOnTop = true;
-            this.gbVerNota.Location = new System.Drawing.Point(580, 3);
+            this.gbVerNota.Location = new System.Drawing.Point(164, 58);
             this.gbVerNota.Name = "gbVerNota";
             this.gbVerNota.RoundCorners = 2;
-            this.gbVerNota.Size = new System.Drawing.Size(83, 70);
+            this.gbVerNota.Size = new System.Drawing.Size(126, 25);
             this.gbVerNota.TabIndex = 10;
             this.gbVerNota.Text = "Ver Nota";
-            this.gbVerNota.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.gbVerNota.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gbVerNota.W8Color = System.Drawing.Color.LimeGreen;
             // 
             // mrNotas
@@ -1495,9 +1508,12 @@ namespace Carm.Ad
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mrNotas.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrNotas.Location = new System.Drawing.Point(6, 66);
+            this.mrNotas.Location = new System.Drawing.Point(6, 96);
             this.mrNotas.Name = "mrNotas";
-            this.mrNotas.Size = new System.Drawing.Size(971, 518);
+            this.mrNotas.ShowFilter = false;
+            this.mrNotas.ShowPrtOne = false;
+            this.mrNotas.ShowZoom = false;
+            this.mrNotas.Size = new System.Drawing.Size(971, 488);
             this.mrNotas.SkinFixed = true;
             this.mrNotas.TabIndex = 1;
             // 
@@ -1573,8 +1589,7 @@ namespace Carm.Ad
             this.ftDetalleCliente.ResumeLayout(false);
             this.tabCliente.ResumeLayout(false);
             this.xPanel2.ResumeLayout(false);
-            this.tgrpDatosBasicos.ResumeLayout(false);
-            this.tgrpDatosBasicos.PerformLayout();
+            this.xPanel2.PerformLayout();
             this.igAreas.ResumeLayout(false);
             this.igAreas.PerformLayout();
             this.igSocios.ResumeLayout(false);
@@ -1583,14 +1598,19 @@ namespace Carm.Ad
             this.panel3.PerformLayout();
             this.tabLlamadas.ResumeLayout(false);
             this.xPanel3.ResumeLayout(false);
+            this.xPanel3.PerformLayout();
             this.tabEntrev.ResumeLayout(false);
             this.xPanel4.ResumeLayout(false);
+            this.xPanel4.PerformLayout();
             this.tabContactos.ResumeLayout(false);
             this.xPanel7.ResumeLayout(false);
+            this.xPanel7.PerformLayout();
             this.tabServicios.ResumeLayout(false);
             this.xPanel5.ResumeLayout(false);
+            this.xPanel5.PerformLayout();
             this.tabNotas.ResumeLayout(false);
             this.xPanel6.ResumeLayout(false);
+            this.xPanel6.PerformLayout();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -1614,7 +1634,6 @@ namespace Carm.Ad
         private TNGS.NetControls.GlassButton gbGrabar;
         private TNGS.NetControls.TextEdit tePisoDepto;
         private TNGS.NetControls.FullLabel fullLabel2;
-        private TNGS.NetControls.ImgGroup tgrpDatosBasicos;
         private System.Windows.Forms.Button btnExit;
         private TNGS.NetControls.GlassButton gbCargarLocalidad;
         private TNGS.NetControls.TextEdit tePartidoCobro;
@@ -1650,7 +1669,6 @@ namespace Carm.Ad
         private TNGS.NetControls.XPanel xPanel6;
         private TNGS.NetControls.MiniReport mrNotas;
         private TNGS.NetControls.GlassButton gbLlamadaNueva;
-        private TNGS.NetControls.GlassButton gbVerDetalle;
         private TNGS.NetControls.GlassButton gbNuevaEntrevista;
         private TNGS.NetControls.GlassButton gbEditarEntrevista;
         private TNGS.NetControls.GlassButton gbBorrarContacto;
@@ -1664,7 +1682,6 @@ namespace Carm.Ad
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton rbAreasProtegidas;
         private System.Windows.Forms.RadioButton rbSociosDirectos;
-        private TNGS.NetControls.FullLabel fullLabel16;
         private TNGS.NetControls.FullLabel fullLabel8;
         private TNGS.NetControls.GlassButton gbBuscarLocalidadCobertura;
         private TNGS.NetControls.TextEdit tePartidoCobertura;
@@ -1696,8 +1713,14 @@ namespace Carm.Ad
         private TNGS.NetControls.FullLabel fullLabel20;
         private TNGS.NetControls.FullLabel fullLabel21;
         private TNGS.NetControls.FullLabel fullLabel22;
-        private TNGS.NetControls.GlassButton glassButton1;
+        private TNGS.NetControls.GlassButton gbCargaGrupoFamiliar;
         private TNGS.NetControls.NumberEdit numberEdit1;
         private TNGS.NetControls.FullLabel fullLabel19;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

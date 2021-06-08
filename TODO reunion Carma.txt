@@ -1,22 +1,16 @@
 TODO:
 
 TODO ultima reunion:
-Campos Obligatorios:
+
+(Done) Campos Obligatorios 
 Localidad
 Nombre y Apellido/ Razon Social, 
 Celular/telefono
 
-Socio directo por default
+
+(Done)Socio directo por default
 
 Me van a pasar algunos campos para agregar.
-
-
-Bajar la version con estos cambios y Llamadas.
-
-
-Fix Relacion obligatoria de llamadas a contactos. 
-Test, deploy.
-
 
 
 ABM de carga de grupo familiar:
@@ -36,10 +30,12 @@ Nuera
 
 Van a usar los contactos.
 
+
 Borrar la lista de servicios.
 Mostrar el plan y el valor en el detalle si es cliente.
 
-Borrar las notas (solo la parte visual).
+
+(Done) Borrar las notas (solo la parte visual).
 
 
 Validaciones Unicidad:

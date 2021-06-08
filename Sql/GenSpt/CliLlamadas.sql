@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 07/06/2021 23:44
 // Sistema     : Carm
 // Tabla       : CliLlamadas
 //----------------------------------------------------------------------------
@@ -62,7 +62,6 @@ begin
                 cll_nom_codusuario,
                 cll_cd1_baja,
                 cll_nro_numcontacto,
-                clc_des_nombre as cll_nom_contac,
                 cll_txt_obsprogramada,
                 cll_imp_abonoanterior,
                 cll_imp_abonorecuperado,
@@ -77,9 +76,6 @@ begin
                   on cll_cod_codmotivo = mot_cod_cod
                 join TNGS_Carm..Clientes
                   on cll_nro_numcliente = cli_nro_numero
-                join TNGS_Carm..CliContactos
-                  on cll_nro_numcliente = clc_nro_numcliente
-                 and cll_nro_numcontacto = clc_nro_numcontacto
           where TNGS_Carm..CliLlamadas.deleted = 0
           order by cll_nro_numcliente,
                 cll_nro_numllamada
@@ -96,7 +92,6 @@ begin
                 cll_nom_codusuario,
                 cll_cd1_baja,
                 cll_nro_numcontacto,
-                clc_des_nombre as cll_nom_contac,
                 cll_txt_obsprogramada,
                 cll_imp_abonoanterior,
                 cll_imp_abonorecuperado,
@@ -111,9 +106,6 @@ begin
                   on cll_cod_codmotivo = mot_cod_cod
                 join TNGS_Carm..Clientes
                   on cll_nro_numcliente = cli_nro_numero
-                join TNGS_Carm..CliContactos
-                  on cll_nro_numcliente = clc_nro_numcliente
-                 and cll_nro_numcontacto = clc_nro_numcontacto
           order by cll_nro_numcliente,
                 cll_nro_numllamada
       end
@@ -224,7 +216,6 @@ begin
                 cll_nom_codusuario,
                 cll_cd1_baja,
                 cll_nro_numcontacto,
-                clc_des_nombre as cll_nom_contac,
                 cll_txt_obsprogramada,
                 cll_imp_abonoanterior,
                 cll_imp_abonorecuperado,
@@ -239,9 +230,6 @@ begin
                   on cll_cod_codmotivo = mot_cod_cod
                 join TNGS_Carm..Clientes
                   on cll_nro_numcliente = cli_nro_numero
-                join TNGS_Carm..CliContactos
-                  on cll_nro_numcliente = clc_nro_numcliente
-                 and cll_nro_numcontacto = clc_nro_numcontacto
           where cll_nro_numcliente = @cll_nro_numcliente
             and cll_nro_numllamada = @cll_nro_numllamada
             and TNGS_Carm..CliLlamadas.deleted = 0
@@ -258,7 +246,6 @@ begin
                 cll_nom_codusuario,
                 cll_cd1_baja,
                 cll_nro_numcontacto,
-                clc_des_nombre as cll_nom_contac,
                 cll_txt_obsprogramada,
                 cll_imp_abonoanterior,
                 cll_imp_abonorecuperado,
@@ -273,9 +260,6 @@ begin
                   on cll_cod_codmotivo = mot_cod_cod
                 join TNGS_Carm..Clientes
                   on cll_nro_numcliente = cli_nro_numero
-                join TNGS_Carm..CliContactos
-                  on cll_nro_numcliente = clc_nro_numcliente
-                 and cll_nro_numcontacto = clc_nro_numcontacto
           where cll_nro_numcliente = @cll_nro_numcliente
             and cll_nro_numllamada = @cll_nro_numllamada
       end
@@ -334,7 +318,6 @@ begin
                 cll_nom_codusuario,
                 cll_cd1_baja,
                 cll_nro_numcontacto,
-                clc_des_nombre as cll_nom_contac,
                 cll_txt_obsprogramada,
                 cll_imp_abonoanterior,
                 cll_imp_abonorecuperado,
@@ -349,9 +332,6 @@ begin
                   on cll_cod_codmotivo = mot_cod_cod
                 join TNGS_Carm..Clientes
                   on cll_nro_numcliente = cli_nro_numero
-                join TNGS_Carm..CliContactos
-                  on cll_nro_numcliente = clc_nro_numcliente
-                 and cll_nro_numcontacto = clc_nro_numcontacto
           where cll_nro_numcliente = @cll_nro_numcliente
             and TNGS_Carm..CliLlamadas.deleted = 0
           order by cll_nro_numllamada
@@ -368,7 +348,6 @@ begin
                 cll_nom_codusuario,
                 cll_cd1_baja,
                 cll_nro_numcontacto,
-                clc_des_nombre as cll_nom_contac,
                 cll_txt_obsprogramada,
                 cll_imp_abonoanterior,
                 cll_imp_abonorecuperado,
@@ -383,9 +362,6 @@ begin
                   on cll_cod_codmotivo = mot_cod_cod
                 join TNGS_Carm..Clientes
                   on cll_nro_numcliente = cli_nro_numero
-                join TNGS_Carm..CliContactos
-                  on cll_nro_numcliente = clc_nro_numcliente
-                 and cll_nro_numcontacto = clc_nro_numcontacto
           where cll_nro_numcliente = @cll_nro_numcliente
           order by cll_nro_numllamada
       end
@@ -1061,7 +1037,6 @@ begin
           cll_nom_codusuario,
           cll_cd1_baja,
           cll_nro_numcontacto,
-          clc_des_nombre as cll_nom_contac,
           cll_txt_obsprogramada,
           cll_imp_abonoanterior,
           cll_imp_abonorecuperado,
@@ -1076,9 +1051,6 @@ begin
             on cll_cod_codmotivo = mot_cod_cod
           join TNGS_Carm..Clientes
             on cll_nro_numcliente = cli_nro_numero
-          join TNGS_Carm..CliContactos
-            on cll_nro_numcliente = clc_nro_numcliente
-           and cll_nro_numcontacto = clc_nro_numcontacto
     where cll_nom_codusuario = @codusuario and cll_cod_codmotivo = '' 
     
       order by cll_fyh_frealizada 
