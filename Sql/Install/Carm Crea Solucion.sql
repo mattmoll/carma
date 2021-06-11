@@ -3749,7 +3749,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : CategoriasLlamada
 //----------------------------------------------------------------------------
@@ -4294,7 +4294,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : CliContactos
 //----------------------------------------------------------------------------
@@ -5260,7 +5260,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -7160,7 +7160,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : CliEntrevistas
 //----------------------------------------------------------------------------
@@ -8657,7 +8657,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : CliGrupoFamiliar
 //----------------------------------------------------------------------------
@@ -8713,6 +8713,7 @@ begin
                 cgf_ede_apellido,
                 cgf_ede_nombre,
                 cgf_rcd_codparentesco,
+                prt_des_des as des_parentesco,
                 cgf_d20_dni,
                 cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
@@ -8721,7 +8722,9 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.usuario,
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
-          where deleted = 0
+                join TNGS_Carm..Parentescos
+                  on cgf_rcd_codparentesco = prt_rcd_cod
+          where TNGS_Carm..CliGrupoFamiliar.deleted = 0
           order by cgf_nro_numcliente,
                 cgf_nro_numintegrante
       end
@@ -8732,6 +8735,7 @@ begin
                 cgf_ede_apellido,
                 cgf_ede_nombre,
                 cgf_rcd_codparentesco,
+                prt_des_des as des_parentesco,
                 cgf_d20_dni,
                 cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
@@ -8740,6 +8744,8 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.usuario,
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
+                join TNGS_Carm..Parentescos
+                  on cgf_rcd_codparentesco = prt_rcd_cod
           order by cgf_nro_numcliente,
                 cgf_nro_numintegrante
       end
@@ -8845,6 +8851,7 @@ begin
                 cgf_ede_apellido,
                 cgf_ede_nombre,
                 cgf_rcd_codparentesco,
+                prt_des_des as des_parentesco,
                 cgf_d20_dni,
                 cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
@@ -8853,9 +8860,11 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.usuario,
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
+                join TNGS_Carm..Parentescos
+                  on cgf_rcd_codparentesco = prt_rcd_cod
           where cgf_nro_numcliente = @cgf_nro_numcliente
             and cgf_nro_numintegrante = @cgf_nro_numintegrante
-            and deleted = 0
+            and TNGS_Carm..CliGrupoFamiliar.deleted = 0
       end
    else
       begin
@@ -8864,6 +8873,7 @@ begin
                 cgf_ede_apellido,
                 cgf_ede_nombre,
                 cgf_rcd_codparentesco,
+                prt_des_des as des_parentesco,
                 cgf_d20_dni,
                 cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
@@ -8872,6 +8882,8 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.usuario,
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
+                join TNGS_Carm..Parentescos
+                  on cgf_rcd_codparentesco = prt_rcd_cod
           where cgf_nro_numcliente = @cgf_nro_numcliente
             and cgf_nro_numintegrante = @cgf_nro_numintegrante
       end
@@ -8925,6 +8937,7 @@ begin
                 cgf_ede_apellido,
                 cgf_ede_nombre,
                 cgf_rcd_codparentesco,
+                prt_des_des as des_parentesco,
                 cgf_d20_dni,
                 cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
@@ -8933,8 +8946,10 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.usuario,
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
+                join TNGS_Carm..Parentescos
+                  on cgf_rcd_codparentesco = prt_rcd_cod
           where cgf_nro_numcliente = @cgf_nro_numcliente
-            and deleted = 0
+            and TNGS_Carm..CliGrupoFamiliar.deleted = 0
           order by cgf_nro_numintegrante
       end
    else
@@ -8944,6 +8959,7 @@ begin
                 cgf_ede_apellido,
                 cgf_ede_nombre,
                 cgf_rcd_codparentesco,
+                prt_des_des as des_parentesco,
                 cgf_d20_dni,
                 cgf_fec_fechanacimiento,
                 cgf_ede_obrasocial,
@@ -8952,6 +8968,8 @@ begin
                 TNGS_Carm..CliGrupoFamiliar.usuario,
                 TNGS_Carm..CliGrupoFamiliar.version
            from TNGS_Carm..CliGrupoFamiliar
+                join TNGS_Carm..Parentescos
+                  on cgf_rcd_codparentesco = prt_rcd_cod
           where cgf_nro_numcliente = @cgf_nro_numcliente
           order by cgf_nro_numintegrante
       end
@@ -9518,7 +9536,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : CliLlamadas
 //----------------------------------------------------------------------------
@@ -9579,7 +9597,6 @@ begin
                 cll_nom_codusuario,
                 cll_cd1_baja,
                 cll_nro_numcontacto,
-                clc_des_nombre as cll_nom_contac,
                 cll_txt_obsprogramada,
                 cll_imp_abonoanterior,
                 cll_imp_abonorecuperado,
@@ -9594,9 +9611,6 @@ begin
                   on cll_cod_codmotivo = mot_cod_cod
                 join TNGS_Carm..Clientes
                   on cll_nro_numcliente = cli_nro_numero
-                join TNGS_Carm..CliContactos
-                  on cll_nro_numcliente = clc_nro_numcliente
-                 and cll_nro_numcontacto = clc_nro_numcontacto
           where TNGS_Carm..CliLlamadas.deleted = 0
           order by cll_nro_numcliente,
                 cll_nro_numllamada
@@ -9613,7 +9627,6 @@ begin
                 cll_nom_codusuario,
                 cll_cd1_baja,
                 cll_nro_numcontacto,
-                clc_des_nombre as cll_nom_contac,
                 cll_txt_obsprogramada,
                 cll_imp_abonoanterior,
                 cll_imp_abonorecuperado,
@@ -9628,9 +9641,6 @@ begin
                   on cll_cod_codmotivo = mot_cod_cod
                 join TNGS_Carm..Clientes
                   on cll_nro_numcliente = cli_nro_numero
-                join TNGS_Carm..CliContactos
-                  on cll_nro_numcliente = clc_nro_numcliente
-                 and cll_nro_numcontacto = clc_nro_numcontacto
           order by cll_nro_numcliente,
                 cll_nro_numllamada
       end
@@ -9741,7 +9751,6 @@ begin
                 cll_nom_codusuario,
                 cll_cd1_baja,
                 cll_nro_numcontacto,
-                clc_des_nombre as cll_nom_contac,
                 cll_txt_obsprogramada,
                 cll_imp_abonoanterior,
                 cll_imp_abonorecuperado,
@@ -9756,9 +9765,6 @@ begin
                   on cll_cod_codmotivo = mot_cod_cod
                 join TNGS_Carm..Clientes
                   on cll_nro_numcliente = cli_nro_numero
-                join TNGS_Carm..CliContactos
-                  on cll_nro_numcliente = clc_nro_numcliente
-                 and cll_nro_numcontacto = clc_nro_numcontacto
           where cll_nro_numcliente = @cll_nro_numcliente
             and cll_nro_numllamada = @cll_nro_numllamada
             and TNGS_Carm..CliLlamadas.deleted = 0
@@ -9775,7 +9781,6 @@ begin
                 cll_nom_codusuario,
                 cll_cd1_baja,
                 cll_nro_numcontacto,
-                clc_des_nombre as cll_nom_contac,
                 cll_txt_obsprogramada,
                 cll_imp_abonoanterior,
                 cll_imp_abonorecuperado,
@@ -9790,9 +9795,6 @@ begin
                   on cll_cod_codmotivo = mot_cod_cod
                 join TNGS_Carm..Clientes
                   on cll_nro_numcliente = cli_nro_numero
-                join TNGS_Carm..CliContactos
-                  on cll_nro_numcliente = clc_nro_numcliente
-                 and cll_nro_numcontacto = clc_nro_numcontacto
           where cll_nro_numcliente = @cll_nro_numcliente
             and cll_nro_numllamada = @cll_nro_numllamada
       end
@@ -9851,7 +9853,6 @@ begin
                 cll_nom_codusuario,
                 cll_cd1_baja,
                 cll_nro_numcontacto,
-                clc_des_nombre as cll_nom_contac,
                 cll_txt_obsprogramada,
                 cll_imp_abonoanterior,
                 cll_imp_abonorecuperado,
@@ -9866,9 +9867,6 @@ begin
                   on cll_cod_codmotivo = mot_cod_cod
                 join TNGS_Carm..Clientes
                   on cll_nro_numcliente = cli_nro_numero
-                join TNGS_Carm..CliContactos
-                  on cll_nro_numcliente = clc_nro_numcliente
-                 and cll_nro_numcontacto = clc_nro_numcontacto
           where cll_nro_numcliente = @cll_nro_numcliente
             and TNGS_Carm..CliLlamadas.deleted = 0
           order by cll_nro_numllamada
@@ -9885,7 +9883,6 @@ begin
                 cll_nom_codusuario,
                 cll_cd1_baja,
                 cll_nro_numcontacto,
-                clc_des_nombre as cll_nom_contac,
                 cll_txt_obsprogramada,
                 cll_imp_abonoanterior,
                 cll_imp_abonorecuperado,
@@ -9900,9 +9897,6 @@ begin
                   on cll_cod_codmotivo = mot_cod_cod
                 join TNGS_Carm..Clientes
                   on cll_nro_numcliente = cli_nro_numero
-                join TNGS_Carm..CliContactos
-                  on cll_nro_numcliente = clc_nro_numcliente
-                 and cll_nro_numcontacto = clc_nro_numcontacto
           where cll_nro_numcliente = @cll_nro_numcliente
           order by cll_nro_numllamada
       end
@@ -10578,7 +10572,6 @@ begin
           cll_nom_codusuario,
           cll_cd1_baja,
           cll_nro_numcontacto,
-          clc_des_nombre as cll_nom_contac,
           cll_txt_obsprogramada,
           cll_imp_abonoanterior,
           cll_imp_abonorecuperado,
@@ -10593,9 +10586,6 @@ begin
             on cll_cod_codmotivo = mot_cod_cod
           join TNGS_Carm..Clientes
             on cll_nro_numcliente = cli_nro_numero
-          join TNGS_Carm..CliContactos
-            on cll_nro_numcliente = clc_nro_numcliente
-           and cll_nro_numcontacto = clc_nro_numcontacto
     where cll_nom_codusuario = @codusuario and cll_cod_codmotivo = '' 
     
       order by cll_fyh_frealizada 
@@ -11130,7 +11120,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : CliNotas
 //----------------------------------------------------------------------------
@@ -12142,7 +12132,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : CliServicios
 //----------------------------------------------------------------------------
@@ -13042,7 +13032,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : CliVentas
 //----------------------------------------------------------------------------
@@ -14036,7 +14026,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : ConversionColores
 //----------------------------------------------------------------------------
@@ -14627,7 +14617,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Franquicias
 //----------------------------------------------------------------------------
@@ -15162,7 +15152,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Localidades
 //----------------------------------------------------------------------------
@@ -16149,7 +16139,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : LogClientes
 //----------------------------------------------------------------------------
@@ -16701,7 +16691,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Marcas
 //----------------------------------------------------------------------------
@@ -16754,23 +16744,31 @@ begin
       begin
          Select mrc_rcd_cod,
                 mrc_ede_des,
+                mrc_ecd_codlocalidad,
+                isnull(loc_ede_nombre, '') as des_localidad,
                 TNGS_Carm..Marcas.instante,
                 TNGS_Carm..Marcas.deleted,
                 TNGS_Carm..Marcas.usuario,
                 TNGS_Carm..Marcas.version
            from TNGS_Carm..Marcas
-          where deleted = 0
+                join TNGS_Carm..Localidades
+                  on mrc_ecd_codlocalidad = loc_ecd_codpost
+          where TNGS_Carm..Marcas.deleted = 0
           order by mrc_rcd_cod
       end
    else
       begin
          Select mrc_rcd_cod,
                 mrc_ede_des,
+                mrc_ecd_codlocalidad,
+                isnull(loc_ede_nombre, '') as des_localidad,
                 TNGS_Carm..Marcas.instante,
                 TNGS_Carm..Marcas.deleted,
                 TNGS_Carm..Marcas.usuario,
                 TNGS_Carm..Marcas.version
            from TNGS_Carm..Marcas
+                join TNGS_Carm..Localidades
+                  on mrc_ecd_codlocalidad = loc_ecd_codpost
           order by mrc_rcd_cod
       end
 
@@ -16867,23 +16865,31 @@ begin
       begin
          Select mrc_rcd_cod,
                 mrc_ede_des,
+                mrc_ecd_codlocalidad,
+                isnull(loc_ede_nombre, '') as des_localidad,
                 TNGS_Carm..Marcas.instante,
                 TNGS_Carm..Marcas.deleted,
                 TNGS_Carm..Marcas.usuario,
                 TNGS_Carm..Marcas.version
            from TNGS_Carm..Marcas
+                join TNGS_Carm..Localidades
+                  on mrc_ecd_codlocalidad = loc_ecd_codpost
           where mrc_rcd_cod = @mrc_rcd_cod
-            and deleted = 0
+            and TNGS_Carm..Marcas.deleted = 0
       end
    else
       begin
          Select mrc_rcd_cod,
                 mrc_ede_des,
+                mrc_ecd_codlocalidad,
+                isnull(loc_ede_nombre, '') as des_localidad,
                 TNGS_Carm..Marcas.instante,
                 TNGS_Carm..Marcas.deleted,
                 TNGS_Carm..Marcas.usuario,
                 TNGS_Carm..Marcas.version
            from TNGS_Carm..Marcas
+                join TNGS_Carm..Localidades
+                  on mrc_ecd_codlocalidad = loc_ecd_codpost
           where mrc_rcd_cod = @mrc_rcd_cod
       end
 
@@ -16906,6 +16912,7 @@ go
 --- </summary>
 --- <param name="@mrc_rcd_cod">Codigo</param>
 --- <param name="@mrc_ede_des">Descripcion</param>
+--- <param name="@mrc_ecd_codlocalidad">Localidad</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -16926,6 +16933,7 @@ create procedure dbo.MARCAS_INSERT
 (
 @mrc_rcd_cod tngs_codigo_r,
 @mrc_ede_des tngs_descripcion_e,
+@mrc_ecd_codlocalidad tngs_codigo_e,
 @usuario tngs_nombre
 )
 as
@@ -16935,6 +16943,7 @@ begin
    values (
            @mrc_rcd_cod,
            @mrc_ede_des,
+           @mrc_ecd_codlocalidad,
            getdate(), 0, @usuario, 1
           )
 
@@ -16957,6 +16966,7 @@ go
 --- </summary>
 --- <param name="@mrc_rcd_cod">Codigo</param>
 --- <param name="@mrc_ede_des">Descripcion</param>
+--- <param name="@mrc_ecd_codlocalidad">Localidad</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -16977,6 +16987,7 @@ create procedure dbo.MARCAS_UPDATE
 (
 @mrc_rcd_cod tngs_codigo_r,
 @mrc_ede_des tngs_descripcion_e,
+@mrc_ecd_codlocalidad tngs_codigo_e,
 @usuario tngs_nombre
 )
 as
@@ -16984,6 +16995,7 @@ begin
 
    Update TNGS_Carm..Marcas
       set mrc_ede_des= @mrc_ede_des,
+          mrc_ecd_codlocalidad= @mrc_ecd_codlocalidad,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario
@@ -17193,7 +17205,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : MotivosLlamada
 //----------------------------------------------------------------------------
@@ -17805,7 +17817,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Parametros
 //----------------------------------------------------------------------------
@@ -18337,7 +18349,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Parentescos
 //----------------------------------------------------------------------------
@@ -18829,7 +18841,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Planes
 //----------------------------------------------------------------------------
@@ -19431,7 +19443,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : PlnServicios
 //----------------------------------------------------------------------------
@@ -20280,7 +20292,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : PreciosServicios
 //----------------------------------------------------------------------------
@@ -20864,7 +20876,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : ResEntrevista
 //----------------------------------------------------------------------------
@@ -21409,7 +21421,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Rubros
 //----------------------------------------------------------------------------
@@ -21944,7 +21956,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Servicios
 //----------------------------------------------------------------------------
@@ -22532,7 +22544,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : SituacionesIVA
 //----------------------------------------------------------------------------
@@ -23034,7 +23046,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Supervisores
 //----------------------------------------------------------------------------
@@ -23570,7 +23582,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Talonarios
 //----------------------------------------------------------------------------
@@ -24102,7 +24114,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : TipoCont
 //----------------------------------------------------------------------------
@@ -24657,7 +24669,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : TipoInst
 //----------------------------------------------------------------------------
@@ -25274,7 +25286,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : TipoVend
 //----------------------------------------------------------------------------
@@ -25819,7 +25831,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Vendedores
 //----------------------------------------------------------------------------
@@ -27282,7 +27294,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Zonas
 //----------------------------------------------------------------------------

@@ -71,7 +71,10 @@ namespace Carm.Ad
             {
                 cargarClienteEnPantalla(cliente);
             }
-            
+
+            if (!cliente.EsSocioDirecto)
+                ftDetalleCliente.hidePage(tabGrupoFamiliar);
+
             // TODO: Borrar si terminamos no usandolas.
             ftDetalleCliente.hidePage(tabNotas);
         }
@@ -162,6 +165,7 @@ namespace Carm.Ad
             cliente.Alta = "N";
             cliente.Fechaingreso = DateTime.Now;
             cliente.Cargador = App.Usuario.Usuario;
+            cliente.Numero = App.TaloGet("nroCliente", statMessage).Valor;
         }
 
         private string getTipoCliente()
@@ -326,6 +330,19 @@ namespace Carm.Ad
             if ((objNumeroIntegranteGrupoFamiliar == null) || (objNumeroIntegranteGrupoFamiliar == DBNull.Value)) return 0;
 
             return (int)objNumeroIntegranteGrupoFamiliar;
+        }
+
+        private void cdcMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(cdcMarca.SelectedStrCode)) return;
+
+            string codMarca = cdcMarca.SelectedStrCode;
+            Bel.EMarca marca = Bll.Tablas.MrcGet(codMarca, true, statMessage);
+            if (MsgRuts.AnalizeError(this, statMessage)) return;
+
+            if (marca == null) return;
+            teLocalidadCobro.Text = marca.Des_localidad;
+            cliente.Codlocalidad = marca.Codlocalidad;
         }
     }
 }

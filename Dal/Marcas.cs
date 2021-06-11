@@ -10,12 +10,12 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 18/12/2020 00:02
+    // Fecha                    : 10/06/2021 20:58
     // Sistema                  : Carm
     // Clase para Administrar   : Marcas
     // Basada en la Tabla       : Marcas
     //----------------------------------------------------------------------------
-    // © 1996-2020 by TNG Software                                      Gndr 5.20
+    // © 1996-2021 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -141,10 +141,12 @@ namespace Carm.Dal
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name="p_strCod">Codigo</param>
         /// <param name="p_strDes">Descripcion</param>
+        /// <param name="p_strCodlocalidad">Localidad</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Insert(DBConn p_dbcAccess,
                                  string p_strCod,
                                  string p_strDes,
+                                 string p_strCodlocalidad,
                                  StatMsg p_smResult)
         {
             try {
@@ -154,6 +156,7 @@ namespace Carm.Dal
                                    new DbParameter[] {
                                        p_dbcAccess.MakeParam("@mrc_rcd_cod", p_strCod),
                                        p_dbcAccess.MakeParam("@mrc_ede_des", p_strDes),
+                                       p_dbcAccess.MakeParam("@mrc_ecd_codlocalidad", p_strCodlocalidad),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -171,10 +174,12 @@ namespace Carm.Dal
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name="p_strCod">Codigo</param>
         /// <param name="p_strDes">Descripcion</param>
+        /// <param name="p_strCodlocalidad">Localidad</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Update(DBConn p_dbcAccess,
                                  string p_strCod,
                                  string p_strDes,
+                                 string p_strCodlocalidad,
                                  StatMsg p_smResult)
         {
             try {
@@ -184,6 +189,7 @@ namespace Carm.Dal
                                    new DbParameter[] {
                                        p_dbcAccess.MakeParam("@mrc_rcd_cod", p_strCod),
                                        p_dbcAccess.MakeParam("@mrc_ede_des", p_strDes),
+                                       p_dbcAccess.MakeParam("@mrc_ecd_codlocalidad", p_strCodlocalidad),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -319,7 +325,9 @@ namespace Carm.Dal
                 DBRuts.ClearDTCaptions(ref p_dtResult);
 
                 // Fijamos los nuevos captions de la grilla
+                p_dtResult.Columns["des_localidad"].Caption= "V1LocalidadCN1";
                 p_dtResult.Columns["mrc_rcd_cod"].Caption= "V1CodigoCN1";
+                p_dtResult.Columns["mrc_ecd_codlocalidad"].Caption= "V1LocalidadCN1";
                 p_dtResult.Columns["mrc_ede_des"].Caption= "V1DescripcionCN1";
                 p_dtResult.Columns["deleted"].Caption= "V1Borrado2N2";
             }

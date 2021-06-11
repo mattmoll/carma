@@ -804,6 +804,7 @@ namespace Carm.Ad
             this.cdcMarca.Size = new System.Drawing.Size(276, 23);
             this.cdcMarca.Sorted = true;
             this.cdcMarca.TabIndex = 0;
+            this.cdcMarca.SelectedIndexChanged += new System.EventHandler(this.cdcMarca_SelectedIndexChanged);
             // 
             // tePisoDepto
             // 

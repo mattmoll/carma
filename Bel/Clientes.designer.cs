@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 08/06/2021 02:28
+    // Fecha                    : 10/06/2021 20:27
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -6130,7 +6130,7 @@ namespace Carm.Bel
             get {return ((string) InternalData["cli_ede_direccion"]).Trim();}
             set {
                 if (value.Trim().Length > 60) value= value.Trim().Substring(0,60);
-                InternalData["cli_ede_direccion"]= value.Trim().ToUpper();
+                InternalData["cli_ede_direccion"]= value.Trim();
             }
         }
 

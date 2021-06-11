@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 08/06/2021 02:28
+    // Fecha                    : 10/06/2021 20:27
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -8564,12 +8564,6 @@ namespace Carm.Bll
                 (p_entCliente.Alta != "N")) {
                 // El campo [Alta en Avalon] tiene opciones
                 p_smResult.BllWarning("El dato [Alta en Avalon] sólo admite\r\n\r\n[S]- SI\r\n[N]- NO\r\n","");
-                return;
-            }
-
-            if (p_entCliente.Direccion.Trim() == "") {
-                // El campo [Dirección] no puede ser vacío
-                p_smResult.BllWarning("El dato [Dirección] no puede ser vacío","");
                 return;
             }
 

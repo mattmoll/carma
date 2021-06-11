@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 08/06/2021 01:49
+    // Fecha                    : 10/06/2021 21:03
     // Sistema                  : Carm
     // Clase para Administrar   : Tablas
     //----------------------------------------------------------------------------
@@ -4643,6 +4643,19 @@ namespace Carm.Bll
             // Validaciones de los campos con conexion
             // ********
 
+            Tablas.LocVKey(p_dbcAccess,
+                           p_entMarca.Codlocalidad,
+                           p_smResult);
+            if (p_smResult.NOk) return;
+
+            if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                // El campo [Localidad] debe existir en la tabla [Tablas.Loc]
+                p_smResult.BllWarning("El dato [Localidad] debe existir en la tabla [Tablas.Loc]","");
+                return;
+            }
+
+            // Todas las validaciones fueron correctas
+
             // Llamamos a la funcion fija del usuario
             MrcTInt_f(p_dbcAccess, p_entMarca, p_smResult);
             if (p_smResult.NOk) return;
@@ -4914,6 +4927,7 @@ namespace Carm.Bll
                 Dal.Marcas.Insert(p_dbcAccess,
                                   p_entMarca.Cod,
                                   p_entMarca.Des,
+                                  p_entMarca.Codlocalidad,
                                   p_smResult);
             }
             catch (Exception l_expData) {
@@ -4941,6 +4955,7 @@ namespace Carm.Bll
                 Dal.Marcas.Update(p_dbcAccess,
                                   p_entMarca.Cod,
                                   p_entMarca.Des,
+                                  p_entMarca.Codlocalidad,
                                   p_smResult);
             }
             catch (Exception l_expData) {

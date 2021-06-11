@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 05/02/2021 12:35
+    // Fecha                    : 10/06/2021 20:27
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     // Basada en la Tabla       : Clientes

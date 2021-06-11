@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 08/06/2021 01:49
+    // Fecha                    : 10/06/2021 21:03
     // Sistema                  : Carm
     // Clase para Administrar   : Tablas
     //----------------------------------------------------------------------------
@@ -3103,6 +3103,8 @@ namespace Carm.Bel
 
             l_drTemp["mrc_rcd_cod"]= XMLRuts.ExtractXAttr(l_xndData, "mrc_rcd_cod");
             l_drTemp["mrc_ede_des"]= XMLRuts.ExtractXAttr(l_xndData, "mrc_ede_des");
+            l_drTemp["mrc_ecd_codlocalidad"]= XMLRuts.ExtractXAttr(l_xndData, "mrc_ecd_codlocalidad");
+            l_drTemp["des_localidad"]= XMLRuts.ExtractXAttr(l_xndData, "des_localidad");
 
             // Llenamos los campos fijos
             XML2FixedFields(ref l_drTemp, l_xndData);
@@ -3148,6 +3150,8 @@ namespace Carm.Bel
 
             l_drTemp["mrc_rcd_cod"]= "";
             l_drTemp["mrc_ede_des"]= "";
+            l_drTemp["mrc_ecd_codlocalidad"]= "";
+            l_drTemp["des_localidad"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
             // una entidad a partir de la DataTable de 1 registro
@@ -3162,9 +3166,11 @@ namespace Carm.Bel
         /// </summary>
         /// <param name="p_strCod">Codigo</param>
         /// <param name="p_strDes">Descripcion</param>
+        /// <param name="p_strCodlocalidad">Localidad</param>
         /// <returns>Entidad: Marca</returns>
         public static EMarca NewFilled(string p_strCod,
-                                       string p_strDes)
+                                       string p_strDes,
+                                       string p_strCodlocalidad)
         {
             // Creamos una tabla compatible con la entidad
             DataTable l_dtTemp= new DataTable();
@@ -3176,6 +3182,8 @@ namespace Carm.Bel
 
             l_drTemp["mrc_rcd_cod"]= p_strCod;
             l_drTemp["mrc_ede_des"]= p_strDes;
+            l_drTemp["mrc_ecd_codlocalidad"]= p_strCodlocalidad;
+            l_drTemp["des_localidad"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
             // una entidad a partir de la DataTable de 1 registro
@@ -3187,6 +3195,21 @@ namespace Carm.Bel
         #endregion
 
         #region Formateadores
+
+        //---------------------------------------------------------------
+        // Metodos estáticos (Formateo de codigos alineados a derecha)
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Formatea una string: Localidad
+        /// </summary>
+        public static string FrmtCodlocalidad(string p_strCodlocalidad)
+        {
+            if (p_strCodlocalidad.Trim().Length > 8)
+                p_strCodlocalidad= p_strCodlocalidad.Trim().Substring(0,8);
+
+            return p_strCodlocalidad.Trim().PadLeft(8).ToUpper();
+        }
         #endregion
 
         #region Propiedades de la clase
@@ -3201,11 +3224,13 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[6];
+                DataColumn[] l_dcStruct= new DataColumn[8];
 
                 l_dcStruct[0]= new DataColumn("mrc_rcd_cod", typeof(string));
                 l_dcStruct[1]= new DataColumn("mrc_ede_des", typeof(string));
-                EMarca.FillFixedFields(ref l_dcStruct, 2);
+                l_dcStruct[2]= new DataColumn("mrc_ecd_codlocalidad", typeof(string));
+                l_dcStruct[3]= new DataColumn("des_localidad", typeof(string));
+                EMarca.FillFixedFields(ref l_dcStruct, 4);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -3253,6 +3278,32 @@ namespace Carm.Bel
         }
 
         /// <summary>
+        /// Localidad
+        /// </summary>
+        public static string CodlocalidadCmp
+        {
+           get {return "mrc_ecd_codlocalidad";}
+        }
+
+        /// <summary>
+        /// Localidad
+        /// </summary>
+        public string Codlocalidad
+        {
+            get {return (string) InternalData["mrc_ecd_codlocalidad"];}
+            set {InternalData["mrc_ecd_codlocalidad"]= EMarca.FrmtCodlocalidad(value);}
+        }
+
+        /// <summary>
+        /// Localidad
+        /// </summary>
+        public string Des_localidad
+        {
+            get {return (string) InternalData["des_localidad"];}
+            set {InternalData["des_localidad"]= value;}
+        }
+
+        /// <summary>
         /// Devuelve la entidad [EMarca] como XMLDocument en formato string
         /// </summary>
         public string XMLData
@@ -3273,6 +3324,8 @@ namespace Carm.Bel
                 // Asignamos los atributos al nodo
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "mrc_rcd_cod", Cod));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "mrc_ede_des", Des));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "mrc_ecd_codlocalidad", Codlocalidad));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "des_localidad", Des_localidad));
 
                 // Asignamos los campos fijos
                 FixedFields2XML(l_xdocData, ref l_xndEntidad);

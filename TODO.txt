@@ -1,21 +1,26 @@
-Tablas Generales:
-- Agregar ABM de Planes
-- Quitar ABM de tipos de vendedores
-- Quitar menu de importaciones
-- Preparar la tabla de localidades con solo las de bs as.
+TODO:
 
-Administración:
-- Agregar campos obligatorios segun corresponda
-- Agregar tipo de cliente como radio buttons arriba condicionan pantalla de cliente
-- Agregar ventana de Venta.
-- Agregar campo de marca al cliente.
-- Agregar campo de marca en el alta de cliente.
-- Probar llamadas
-- Probar el delete de cliente.
-- Agregar entrevistas si es necesario
-
-Reportes:
-- Armar programa de reportes con la definicion del mail..
+(Pendiente? Me pasaron solo lo que ya agregué)
+Me van a pasar algunos campos para agregar.
 
 
+TODO Next Release:
+
+
+- Agregar Agenda de llamadas
+
+- Quitar boton de entrevistas (no remover ventana).
+
+
+Borrar la lista de servicios.
+Mostrar el plan y el valor en el detalle si es cliente.
+
+Agregar ABM de contactos.
+
+
+Validaciones Unicidad:
+Validar Razon Social y Nombre y Apellido unicidad.
+
+
+Empezar a trabajar en Importacion por excel.
 

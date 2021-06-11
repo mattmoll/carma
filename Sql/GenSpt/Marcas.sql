@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 05/02/2021 12:21
+// Fecha       : 10/06/2021 21:20
 // Sistema     : Carm
 // Tabla       : Marcas
 //----------------------------------------------------------------------------
@@ -54,23 +54,31 @@ begin
       begin
          Select mrc_rcd_cod,
                 mrc_ede_des,
+                mrc_ecd_codlocalidad,
+                isnull(loc_ede_nombre, '') as des_localidad,
                 TNGS_Carm..Marcas.instante,
                 TNGS_Carm..Marcas.deleted,
                 TNGS_Carm..Marcas.usuario,
                 TNGS_Carm..Marcas.version
            from TNGS_Carm..Marcas
-          where deleted = 0
+                join TNGS_Carm..Localidades
+                  on mrc_ecd_codlocalidad = loc_ecd_codpost
+          where TNGS_Carm..Marcas.deleted = 0
           order by mrc_rcd_cod
       end
    else
       begin
          Select mrc_rcd_cod,
                 mrc_ede_des,
+                mrc_ecd_codlocalidad,
+                isnull(loc_ede_nombre, '') as des_localidad,
                 TNGS_Carm..Marcas.instante,
                 TNGS_Carm..Marcas.deleted,
                 TNGS_Carm..Marcas.usuario,
                 TNGS_Carm..Marcas.version
            from TNGS_Carm..Marcas
+                join TNGS_Carm..Localidades
+                  on mrc_ecd_codlocalidad = loc_ecd_codpost
           order by mrc_rcd_cod
       end
 
@@ -167,23 +175,31 @@ begin
       begin
          Select mrc_rcd_cod,
                 mrc_ede_des,
+                mrc_ecd_codlocalidad,
+                isnull(loc_ede_nombre, '') as des_localidad,
                 TNGS_Carm..Marcas.instante,
                 TNGS_Carm..Marcas.deleted,
                 TNGS_Carm..Marcas.usuario,
                 TNGS_Carm..Marcas.version
            from TNGS_Carm..Marcas
+                join TNGS_Carm..Localidades
+                  on mrc_ecd_codlocalidad = loc_ecd_codpost
           where mrc_rcd_cod = @mrc_rcd_cod
-            and deleted = 0
+            and TNGS_Carm..Marcas.deleted = 0
       end
    else
       begin
          Select mrc_rcd_cod,
                 mrc_ede_des,
+                mrc_ecd_codlocalidad,
+                isnull(loc_ede_nombre, '') as des_localidad,
                 TNGS_Carm..Marcas.instante,
                 TNGS_Carm..Marcas.deleted,
                 TNGS_Carm..Marcas.usuario,
                 TNGS_Carm..Marcas.version
            from TNGS_Carm..Marcas
+                join TNGS_Carm..Localidades
+                  on mrc_ecd_codlocalidad = loc_ecd_codpost
           where mrc_rcd_cod = @mrc_rcd_cod
       end
 
@@ -206,6 +222,7 @@ go
 --- </summary>
 --- <param name="@mrc_rcd_cod">Codigo</param>
 --- <param name="@mrc_ede_des">Descripcion</param>
+--- <param name="@mrc_ecd_codlocalidad">Localidad</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -226,6 +243,7 @@ create procedure dbo.MARCAS_INSERT
 (
 @mrc_rcd_cod tngs_codigo_r,
 @mrc_ede_des tngs_descripcion_e,
+@mrc_ecd_codlocalidad tngs_codigo_e,
 @usuario tngs_nombre
 )
 as
@@ -235,6 +253,7 @@ begin
    values (
            @mrc_rcd_cod,
            @mrc_ede_des,
+           @mrc_ecd_codlocalidad,
            getdate(), 0, @usuario, 1
           )
 
@@ -257,6 +276,7 @@ go
 --- </summary>
 --- <param name="@mrc_rcd_cod">Codigo</param>
 --- <param name="@mrc_ede_des">Descripcion</param>
+--- <param name="@mrc_ecd_codlocalidad">Localidad</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -277,6 +297,7 @@ create procedure dbo.MARCAS_UPDATE
 (
 @mrc_rcd_cod tngs_codigo_r,
 @mrc_ede_des tngs_descripcion_e,
+@mrc_ecd_codlocalidad tngs_codigo_e,
 @usuario tngs_nombre
 )
 as
@@ -284,6 +305,7 @@ begin
 
    Update TNGS_Carm..Marcas
       set mrc_ede_des= @mrc_ede_des,
+          mrc_ecd_codlocalidad= @mrc_ecd_codlocalidad,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario
