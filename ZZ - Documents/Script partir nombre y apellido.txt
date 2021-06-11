@@ -1,0 +1,16 @@
+begin tran
+update clientes set  cli_xde_apellido  = 
+ CASE CHARINDEX(' ', cli_xde_nomyape, 1)
+     WHEN 0 THEN cli_xde_nomyape -- empty or single word
+     ELSE SUBSTRING(cli_xde_nomyape, 1, CHARINDEX(' ', cli_xde_nomyape, 1) - 1)
+	 end
+
+update clientes set cli_ede_nombre = 
+ CASE CHARINDEX(' ', cli_xde_nomyape, 1)
+     WHEN 0 THEN '' -- empty or single word
+     ELSE SUBSTRING(cli_xde_nomyape, CHARINDEX(' ', cli_xde_nomyape, 1), len(cli_xde_nomyape) - 1)
+	 end
+
+select * from Clientes where cli_ede_nombre <> ''
+
+commit

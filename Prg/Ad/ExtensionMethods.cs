@@ -21,6 +21,16 @@ namespace Carm.Ad
             pagesToHide.ForEach(pageToHide => fullTab.hidePage(pageToHide));
         }
 
+        public static void disablePage(this FullTab fullTab, TabPage pageToDisable)
+        {
+            fullTab.PageEnable(pageToDisable, false);
+        }
+
+        public static void disablePages(this FullTab fullTab, List<TabPage> pagesToDisable)
+        {
+            pagesToDisable.ForEach(pageToDisable => fullTab.disablePage(pageToDisable));
+        }
+
         // MiniReport
         public static void fill(this MiniReport miniReport, ListaEntidades list, string title, StatMsg statMsg)
         {

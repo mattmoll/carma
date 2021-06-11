@@ -76,7 +76,8 @@ namespace Carm.Ad
                 ftDetalleCliente.hidePage(tabGrupoFamiliar);
 
             // TODO: Borrar si terminamos no usandolas.
-            ftDetalleCliente.hidePage(tabNotas);
+            ftDetalleCliente.hidePages(new List<TabPage>() { tabNotas, tabEntrev });
+            ftDetalleCliente.disablePages(new List<TabPage>() { tabContactos, tabServicios });
         }
 
         private bool ValidarControles()
@@ -340,7 +341,7 @@ namespace Carm.Ad
             Bel.EMarca marca = Bll.Tablas.MrcGet(codMarca, true, statMessage);
             if (MsgRuts.AnalizeError(this, statMessage)) return;
 
-            if (marca == null) return;
+            if (marca == null || cliente == null) return;
             teLocalidadCobro.Text = marca.Des_localidad;
             cliente.Codlocalidad = marca.Codlocalidad;
         }
