@@ -107,6 +107,12 @@
     <Compile Include="DetalleVendedores.Designer.cs">
       <DependentUpon>DetalleVendedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="ElegirMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElegirMarca.Designer.cs">
+      <DependentUpon>ElegirMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enumeradores.cs" />
     <Compile Include="Export.cs" />
     <Compile Include="Construccion Panel\HorizontalAlign.cs" />
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DetalleVendedores.resx">
       <DependentUpon>DetalleVendedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElegirMarca.resx">
+      <DependentUpon>ElegirMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>

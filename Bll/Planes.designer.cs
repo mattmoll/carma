@@ -16,11 +16,11 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:37
+    // Fecha                    : 19/07/2021 08:58
     // Sistema                  : Carm
     // Clase para Administrar   : Planes
     //----------------------------------------------------------------------------
-    // © 1996-2020 by TNG Software                                      Gndr 5.20
+    // © 1996-2021 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -1244,7 +1244,6 @@ namespace Carm.Bll
         /// Ejecuta el SP definido por el usuario: GetPlanesFromTCont
         /// </summary>
         /// <param name= p_strCodtcont>Codigo de Tipo de Contrato</param>
-        /// <param name= p_strCodmarca>Codigo de Marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         public static ListaEntidades GetPlanesFromTCont(string p_strCodtcont,
@@ -1743,7 +1742,6 @@ namespace Carm.Bll
         /// </summary>
         /// <param name="p_dbcAccess">Conexion a la base de datos</param>
         /// <param name= p_strCodtcont>Codigo de Tipo de Contrato</param>
-        /// <param name= p_strCodmarca>Codigo de Marca</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         /// <returns>ListaEntidad con los datos solicitados</returns>
         internal static ListaEntidades GetPlanesFromTCont(DBConn p_dbcAccess,

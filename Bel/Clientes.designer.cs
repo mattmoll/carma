@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 10/06/2021 20:27
+    // Fecha                    : 19/07/2021 08:58
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -5484,9 +5484,9 @@ namespace Carm.Bel
             l_drTemp["cli_ecd_codloccobertura"]= XMLRuts.ExtractXAttr(l_xndData, "cli_ecd_codloccobertura");
             l_drTemp["cli_rcd_codmarca"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_codmarca");
             l_drTemp["cli_rcd_tipocliente"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_tipocliente");
-            l_drTemp["cli_xde_apellido"]= XMLRuts.ExtractXAttr(l_xndData, "cli_xde_apellido");
             l_drTemp["cli_fec_fechanacimiento"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fechanacimiento", true);
             l_drTemp["cli_rcd_situacioniva"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_situacioniva");
+            l_drTemp["cli_xde_apellido"]= XMLRuts.ExtractXAttr(l_xndData, "cli_xde_apellido");
             l_drTemp["cli_ede_nombre"]= XMLRuts.ExtractXAttr(l_xndData, "cli_ede_nombre");
             l_drTemp["cli_rcd_codrubro"]= XMLRuts.ExtractXAttr(l_xndData, "cli_rcd_codrubro");
             l_drTemp["cli_fec_fecultimocontacto"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fecultimocontacto", true);
@@ -5599,9 +5599,9 @@ namespace Carm.Bel
             l_drTemp["cli_ecd_codloccobertura"]= "";
             l_drTemp["cli_rcd_codmarca"]= "";
             l_drTemp["cli_rcd_tipocliente"]= "";
-            l_drTemp["cli_xde_apellido"]= "";
             l_drTemp["cli_fec_fechanacimiento"]= DateTimeRuts.Empty;
             l_drTemp["cli_rcd_situacioniva"]= "";
+            l_drTemp["cli_xde_apellido"]= "";
             l_drTemp["cli_ede_nombre"]= "";
             l_drTemp["cli_rcd_codrubro"]= "";
             l_drTemp["cli_fec_fecultimocontacto"]= DateTimeRuts.Empty;
@@ -5664,9 +5664,9 @@ namespace Carm.Bel
         /// <param name="p_strCodloccobertura">Localidad Cobertura</param>
         /// <param name="p_strCodmarca">Marca</param>
         /// <param name="p_strTipocliente">Tipo Cliente</param>
-        /// <param name="p_strApellido">Apellido</param>
         /// <param name="p_dtFechanacimiento">Fecha nacimiento</param>
         /// <param name="p_strSituacioniva">Situacion IVA</param>
+        /// <param name="p_strApellido">Apellido</param>
         /// <param name="p_strNombre">Nombre</param>
         /// <param name="p_strCodrubro">Rubro</param>
         /// <param name="p_dtFecultimocontacto">Fecha Último Contacto</param>
@@ -5711,9 +5711,9 @@ namespace Carm.Bel
                                          string p_strCodloccobertura,
                                          string p_strCodmarca,
                                          string p_strTipocliente,
-                                         string p_strApellido,
                                          DateTime p_dtFechanacimiento,
                                          string p_strSituacioniva,
+                                         string p_strApellido,
                                          string p_strNombre,
                                          string p_strCodrubro,
                                          DateTime p_dtFecultimocontacto,
@@ -5766,9 +5766,9 @@ namespace Carm.Bel
             l_drTemp["cli_ecd_codloccobertura"]= p_strCodloccobertura;
             l_drTemp["cli_rcd_codmarca"]= p_strCodmarca;
             l_drTemp["cli_rcd_tipocliente"]= p_strTipocliente;
-            l_drTemp["cli_xde_apellido"]= p_strApellido;
             l_drTemp["cli_fec_fechanacimiento"]= p_dtFechanacimiento;
             l_drTemp["cli_rcd_situacioniva"]= p_strSituacioniva;
+            l_drTemp["cli_xde_apellido"]= p_strApellido;
             l_drTemp["cli_ede_nombre"]= p_strNombre;
             l_drTemp["cli_rcd_codrubro"]= p_strCodrubro;
             l_drTemp["cli_fec_fecultimocontacto"]= p_dtFecultimocontacto;
@@ -5912,9 +5912,9 @@ namespace Carm.Bel
                 l_dcStruct[43]= new DataColumn("cli_ecd_codloccobertura", typeof(string));
                 l_dcStruct[44]= new DataColumn("cli_rcd_codmarca", typeof(string));
                 l_dcStruct[45]= new DataColumn("cli_rcd_tipocliente", typeof(string));
-                l_dcStruct[46]= new DataColumn("cli_xde_apellido", typeof(string));
-                l_dcStruct[47]= new DataColumn("cli_fec_fechanacimiento", typeof(DateTime));
-                l_dcStruct[48]= new DataColumn("cli_rcd_situacioniva", typeof(string));
+                l_dcStruct[46]= new DataColumn("cli_fec_fechanacimiento", typeof(DateTime));
+                l_dcStruct[47]= new DataColumn("cli_rcd_situacioniva", typeof(string));
+                l_dcStruct[48]= new DataColumn("cli_xde_apellido", typeof(string));
                 l_dcStruct[49]= new DataColumn("cli_ede_nombre", typeof(string));
                 l_dcStruct[50]= new DataColumn("cli_rcd_codrubro", typeof(string));
                 l_dcStruct[51]= new DataColumn("cli_fec_fecultimocontacto", typeof(DateTime));
@@ -6656,26 +6656,6 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Apellido
-        /// </summary>
-        public static string ApellidoCmp
-        {
-           get {return "cli_xde_apellido";}
-        }
-
-        /// <summary>
-        /// Apellido
-        /// </summary>
-        public string Apellido
-        {
-            get {return ((string) InternalData["cli_xde_apellido"]).Trim();}
-            set {
-                if (value.Trim().Length > 120) value= value.Trim().Substring(0,120);
-                InternalData["cli_xde_apellido"]= value.Trim();
-            }
-        }
-
-        /// <summary>
         /// Fecha nacimiento
         /// </summary>
         public static string FechanacimientoCmp
@@ -6707,6 +6687,26 @@ namespace Carm.Bel
         {
             get {return (string) InternalData["cli_rcd_situacioniva"];}
             set {InternalData["cli_rcd_situacioniva"]= value;}
+        }
+
+        /// <summary>
+        /// Apellido
+        /// </summary>
+        public static string ApellidoCmp
+        {
+           get {return "cli_xde_apellido";}
+        }
+
+        /// <summary>
+        /// Apellido
+        /// </summary>
+        public string Apellido
+        {
+            get {return ((string) InternalData["cli_xde_apellido"]).Trim();}
+            set {
+                if (value.Trim().Length > 120) value= value.Trim().Substring(0,120);
+                InternalData["cli_xde_apellido"]= value.Trim();
+            }
         }
 
         /// <summary>
@@ -6964,9 +6964,9 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_ecd_codloccobertura", Codloccobertura));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_codmarca", Codmarca));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_tipocliente", Tipocliente));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_xde_apellido", Apellido));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fechanacimiento", Fechanacimiento));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_situacioniva", Situacioniva));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_xde_apellido", Apellido));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_ede_nombre", Nombre));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_rcd_codrubro", Codrubro));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fecultimocontacto", Fecultimocontacto));

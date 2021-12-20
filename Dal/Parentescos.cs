@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 08/06/2021 01:50
+    // Fecha                    : 19/07/2021 08:58
     // Sistema                  : Carm
     // Clase para Administrar   : Parentescos
     // Basada en la Tabla       : Parentescos

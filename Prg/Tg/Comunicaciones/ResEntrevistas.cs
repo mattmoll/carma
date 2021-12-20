@@ -18,7 +18,7 @@ namespace Carm.Tg
     //                         TNG Software UIL Generator
     //----------------------------------------------------------------------------
     // Fecha                     : 10/02/2019 00:01
-    // Sistema                   : Sima
+    // Sistema                   : Carm
     // Interface para la Entidad : ResEntrevista
     // Tipo de Interface         : Mantenimiento de Tabla Clasificadora
     //----------------------------------------------------------------------------

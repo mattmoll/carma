@@ -19,11 +19,11 @@ namespace Carm.Tg
     //----------------------------------------------------------------------------
     //                         TNG Software PRG Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 22/08/2020 00:22
+    // Fecha                    : 20/12/2021 01:56
     // Sistema                  : Carm
     // Programa                 : Tablas Clasificadoras
     //----------------------------------------------------------------------------
-    // © 1996-2020 by TNG Software                                      Gndr 5.20
+    // © 1996-2021 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -181,6 +181,7 @@ namespace Carm.Tg
                 case "PLNS"          : {new PlnServicios().Show(); return;}
                 // **
                 case "PRSRV"         : {new PreciosServicios().Show(); return;}
+                // **
 
                 // *************************************************
                 // ** Menu: Clasificadores
@@ -190,6 +191,11 @@ namespace Carm.Tg
                 case "TINST"         : {new TipoInsts().Show(); return;}
                 // **
                 case "RUB"           : {new Rubros().Show(); return;}
+
+                // *************************************************
+                // ** Menu: Importaciones
+                // **
+                case "CLIE"          : {new CargaExcel().Show(); return;}
 
                 // *************************************************
                 // ** Ejecución automática al final del programa

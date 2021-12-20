@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 07/06/2021 23:46
+    // Fecha                    : 19/07/2021 08:58
     // Sistema                  : Carm
     // Clase para Administrar   : Llamadas de los Clientes
     // Basada en la Tabla       : CliLlamadas

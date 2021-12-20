@@ -1638,7 +1638,7 @@ namespace Carm.Ad
             this.Name = "CargaCliente";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Nuevo Movil";
+            this.Text = "Nuevo Cliente";
             this.Load += new System.EventHandler(this.CargaCliente_Load);
             this.xPanel1.ResumeLayout(false);
             this.ftDetalleCliente.ResumeLayout(false);

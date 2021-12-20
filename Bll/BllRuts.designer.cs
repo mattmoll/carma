@@ -16,11 +16,11 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 25/07/2020 18:37
+    // Fecha                    : 19/07/2021 08:58
     // Sistema                  : Carm
     // Clase para Administrar   : 
     //----------------------------------------------------------------------------
-    // © 1996-2020 by TNG Software                                      Gndr 5.20
+    // © 1996-2021 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -164,6 +164,18 @@ namespace Carm.Bll
                 case "cle_des_vend"                    : {return "V1VendedorCN1";}
 
                 // ****************************************
+                // Tabla: CliGrupoFamiliar    
+                case "cgf_nro_numcliente"              : {return "V1Nro ClienteNN3";}
+                case "cgf_nro_numintegrante"           : {return "V1Nro Integrante GFNN3";}
+                case "cgf_ede_apellido"                : {return "V1ApellidoCN1";}
+                case "cgf_ede_nombre"                  : {return "V1NombreCN1";}
+                case "cgf_rcd_codparentesco"           : {return "V1ParentescoCN1";}
+                case "cgf_d20_dni"                     : {return "V1DNICN1";}
+                case "cgf_fec_fechanacimiento"         : {return "V1Fecha NacimientoFN2";}
+                case "cgf_ede_obrasocial"              : {return "V1Obra SocialCN1";}
+                case "des_parentesco"                  : {return "V1ParentescoCN1";}
+
+                // ****************************************
                 // Tabla: CliLlamadas         
                 case "cll_nro_numcliente"              : {return "V1Número de clienteNN3";}
                 case "cll_nro_numllamada"              : {return "V1Número de llamadaNN3";}
@@ -180,7 +192,6 @@ namespace Carm.Bll
                 case "cll_imp_ajuste"                  : {return "V1Ajuste2N3";}
                 case "cll_des_motivo"                  : {return "V1MotivoCN1";}
                 case "cll_ede_rsocial"                 : {return "V1Razón SocialCN1";}
-                case "cll_nom_contac"                  : {return "V1ContactoCN1";}
 
                 // ****************************************
                 // Tabla: CliNotas            
@@ -236,9 +247,7 @@ namespace Carm.Bll
                 case "cli_des_cuil"                    : {return "V1CuilCN1";}
                 case "cli_xld_url"                     : {return "V1UrlCN1";}
                 case "cli_cd6_codvend"                 : {return "V1Código de vendedorCN1";}
-                case "cli_cd1_extension"               : {return "V1ExtensiónCN2";}
-                case "cli_ede_horarios"                : {return "V1HorariosCN1";}
-                case "cli_fec_fingsima"                : {return "V1Fecha de ingresoFN2";}
+                case "cli_fec_fechaingreso"            : {return "V1Fecha de ingresoFN2";}
                 case "cli_nro_cantempleados"           : {return "V1Cantidad de EmpleadosNN3";}
                 case "cli_txt_cobertura"               : {return "V1CoberturaCN1";}
                 case "cli_nom_cargador"                : {return "V1Usuario CargadorCN1";}
@@ -248,7 +257,24 @@ namespace Carm.Bll
                 case "cli_imp_abono"                   : {return "V1Abono2N3";}
                 case "cli_rcd_codtipocont"             : {return "V1Tipo ContratoCN1";}
                 case "cli_imp_deuda"                   : {return "V1Deuda2N3";}
-                case "cli_cd1_esmayo"                  : {return "V1MayoristaCN2";}
+                case "cli_cd1_sexo"                    : {return "V1SexoCN2";}
+                case "cli_des_tarjetacred"             : {return "V1Tarjeta de CréditoCN1";}
+                case "cli_cd1_fueclienteantes"         : {return "V1Fue Cliente AntesCN2";}
+                case "cli_ede_titular"                 : {return "V1TitularCN1";}
+                case "cli_ede_direccioncobertura"      : {return "V1Direccion CoberturaCN1";}
+                case "cli_nro_alturacobertura"         : {return "V1Altura CoberturaNN3";}
+                case "cli_rde_pisocobertura"           : {return "V1Piso CoberturaCN1";}
+                case "cli_rde_oficinacobertura"        : {return "V1Oficina CoberturaCN1";}
+                case "cli_ecd_codloccobertura"         : {return "V1Localidad CoberturaCN1";}
+                case "cli_rcd_codmarca"                : {return "V1MarcaCN1";}
+                case "cli_rcd_tipocliente"             : {return "V1Tipo ClienteCN1";}
+                case "cli_fec_fechanacimiento"         : {return "V1Fecha nacimientoFN2";}
+                case "cli_rcd_situacioniva"            : {return "V1Situacion IVACN1";}
+                case "cli_xde_apellido"                : {return "V1ApellidoCN1";}
+                case "cli_ede_nombre"                  : {return "V1NombreCN1";}
+                case "cli_rcd_codrubro"                : {return "V1RubroCN1";}
+                case "cli_fec_fecultimocontacto"       : {return "V1Fecha Último ContactoFN2";}
+                case "cli_fec_fechaproxcontacto"       : {return "V1Fecha Próximo ContactoFN2";}
                 case "cli_des_frq"                     : {return "V1FranquiciaCN1";}
                 case "cli_des_loc"                     : {return "V1LocalidadCN1";}
                 case "cli_des_prov"                    : {return "V1ProvinciaCN1";}
@@ -260,10 +286,8 @@ namespace Carm.Bll
                 // ****************************************
                 // Tabla: ConversionColores   
                 case "con_cod_cod"                     : {return "V1CódigoCN1";}
-                case "con_rcd_codmarca"                : {return "V1MarcaCN1";}
                 case "con_des_coloraconvertir"         : {return "V1Color a ConvertirCN1";}
                 case "con_cd1_colorconvertido"         : {return "V1Color ConvertidoCN2";}
-                case "con_des_marca"                   : {return "V1MarcaCN1";}
 
                 // ****************************************
                 // Tabla: Franquicias         
@@ -293,6 +317,13 @@ namespace Carm.Bll
                 case "lgc_fyh_fecha"                   : {return "V1FechaDN2";}
 
                 // ****************************************
+                // Tabla: Marcas              
+                case "mrc_rcd_cod"                     : {return "V1CodigoCN1";}
+                case "mrc_ede_des"                     : {return "V1DescripcionCN1";}
+                case "mrc_ecd_codlocalidad"            : {return "V1LocalidadCN1";}
+                case "des_localidad"                   : {return "V1LocalidadCN1";}
+
+                // ****************************************
                 // Tabla: MotivosLlamada      
                 case "mot_cod_cod"                     : {return "V1CódigoCN1";}
                 case "mot_des_des"                     : {return "V1MotivoCN1";}
@@ -308,6 +339,11 @@ namespace Carm.Bll
                 case "par_est_editable"                : {return "V1EditableCN2";}
                 case "par_est_sololectura"             : {return "V1Sólo lecturaCN2";}
                 case "par_rob_detalle"                 : {return "V1DetalleCN1";}
+
+                // ****************************************
+                // Tabla: Parentescos         
+                case "prt_rcd_cod"                     : {return "V1CodigoCN1";}
+                case "prt_des_des"                     : {return "V1DescripcionCN1";}
 
                 // ****************************************
                 // Tabla: Planes              
@@ -351,6 +387,12 @@ namespace Carm.Bll
                 case "srv_xld_explicacion"             : {return "V1Descripcion ExtendidaCN1";}
 
                 // ****************************************
+                // Tabla: SituacionesIVA      
+                case "siv_rcd_codigo"                  : {return "V1CodigoCN1";}
+                case "siv_des_descripcion"             : {return "V1DescripcionCN1";}
+                case "siv_cd1_discrimina"              : {return "V1DiscriminaCN2";}
+
+                // ****************************************
                 // Tabla: Supervisores        
                 case "sup_cd6_cod"                     : {return "V1CódigoCN1";}
                 case "sup_nom_apellido"                : {return "V1ApellidoCN1";}
@@ -358,7 +400,6 @@ namespace Carm.Bll
                 case "sup_nom_usuario"                 : {return "V1Usuario del SistemaCN1";}
                 case "sup_tel_tel"                     : {return "V1TélefonoCN1";}
                 case "sup_tel_cel"                     : {return "V1CelularCN1";}
-                case "sup_des_jvtas"                   : {return "V1Jefe de VentasCN1";}
                 case "sup_ede_nya"                     : {return "V1Nom y ApellidoCN1";}
 
                 // ****************************************
@@ -388,10 +429,7 @@ namespace Carm.Bll
                 // ****************************************
                 // Tabla: TipoVend            
                 case "tvn_rcd_cod"                     : {return "V1CodigoCN1";}
-                case "tvn_cd1_nivel"                   : {return "V1NivelCN2";}
                 case "tvn_des_des"                     : {return "V1DescripcionCN1";}
-                case "tvn_nro_vtasminimas"             : {return "V1Ventas MinimasNN3";}
-                case "tvn_nro_reservasmax"             : {return "V1Reservas MaximasNN3";}
                 case "tvn_cd1_vemayor"                 : {return "V1Ve MayoristasCN2";}
 
                 // ****************************************
@@ -405,24 +443,14 @@ namespace Carm.Bll
                 case "vnd_tel_tel2"                    : {return "V1Telefono2CN1";}
                 case "vnd_fec_fecnacim"                : {return "V1Fecha NacimientoFN2";}
                 case "vnd_ede_direccion"               : {return "V1DirecciónCN1";}
-                case "vnd_ede_email"                   : {return "V1Usuario Credencial MailCN1";}
-                case "vnd_ede_contrasenia"             : {return "V1ContraseñaCN1";}
                 case "vnd_cd6_codsuperv"               : {return "V1SupervisorCN1";}
                 case "vnd_rcd_codtvend"                : {return "V1Tipo VendedorCN1";}
                 case "vnd_txt_horarios"                : {return "V1HorariosCN1";}
-                case "vnd_ede_mailremitente"           : {return "V1Mail RemitenteCN1";}
-                case "vnd_ede_nombreamostrar"          : {return "V1Nombre a MostrarCN1";}
-                case "vnd_rcd_coddominio"              : {return "V1DominioCN1";}
                 case "vnd_cd1_historico"               : {return "V1Es HistoricoCN2";}
                 case "vnd_cd1_vemayor"                 : {return "V1Ve MayoristasCN1";}
-                case "vnd_des_baseop"                  : {return "V1Base OperativaCN1";}
-                case "vnd_des_jvta"                    : {return "V1Jefe de VentasCN1";}
-                case "vnd_des_marca"                   : {return "V1MarcaCN1";}
                 case "vnd_des_tipovnd"                 : {return "V1Tipo vendedorCN1";}
                 case "vnd_ede_nya"                     : {return "V1Nombre CompletoCN1";}
                 case "vnd_nom_superv"                  : {return "V1SupervisorCN1";}
-                case "vnd_nro_resact"                  : {return "V1Res ActualesNN1";}
-                case "vnd_nro_resmax"                  : {return "V1Res MaximasNN1";}
 
                 // ****************************************
                 // Tabla: Zonas               

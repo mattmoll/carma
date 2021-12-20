@@ -765,7 +765,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : CategoriasLlamada
 //----------------------------------------------------------------------------
@@ -1310,7 +1310,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : CliContactos
 //----------------------------------------------------------------------------
@@ -2276,7 +2276,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -2373,9 +2373,9 @@ begin
                 cli_ecd_codloccobertura,
                 cli_rcd_codmarca,
                 cli_rcd_tipocliente,
-                cli_xde_apellido,
                 cli_fec_fechanacimiento,
                 cli_rcd_situacioniva,
+                cli_xde_apellido,
                 cli_ede_nombre,
                 cli_rcd_codrubro,
                 cli_fec_fecultimocontacto,
@@ -2442,9 +2442,9 @@ begin
                 cli_ecd_codloccobertura,
                 cli_rcd_codmarca,
                 cli_rcd_tipocliente,
-                cli_xde_apellido,
                 cli_fec_fechanacimiento,
                 cli_rcd_situacioniva,
+                cli_xde_apellido,
                 cli_ede_nombre,
                 cli_rcd_codrubro,
                 cli_fec_fecultimocontacto,
@@ -2600,9 +2600,9 @@ begin
                 cli_ecd_codloccobertura,
                 cli_rcd_codmarca,
                 cli_rcd_tipocliente,
-                cli_xde_apellido,
                 cli_fec_fechanacimiento,
                 cli_rcd_situacioniva,
+                cli_xde_apellido,
                 cli_ede_nombre,
                 cli_rcd_codrubro,
                 cli_fec_fecultimocontacto,
@@ -2669,9 +2669,9 @@ begin
                 cli_ecd_codloccobertura,
                 cli_rcd_codmarca,
                 cli_rcd_tipocliente,
-                cli_xde_apellido,
                 cli_fec_fechanacimiento,
                 cli_rcd_situacioniva,
+                cli_xde_apellido,
                 cli_ede_nombre,
                 cli_rcd_codrubro,
                 cli_fec_fecultimocontacto,
@@ -2746,9 +2746,9 @@ go
 --- <param name="@cli_ecd_codloccobertura">Localidad Cobertura</param>
 --- <param name="@cli_rcd_codmarca">Marca</param>
 --- <param name="@cli_rcd_tipocliente">Tipo Cliente</param>
---- <param name="@cli_xde_apellido">Apellido</param>
 --- <param name="@cli_fec_fechanacimiento">Fecha nacimiento</param>
 --- <param name="@cli_rcd_situacioniva">Situacion IVA</param>
+--- <param name="@cli_xde_apellido">Apellido</param>
 --- <param name="@cli_ede_nombre">Nombre</param>
 --- <param name="@cli_rcd_codrubro">Rubro</param>
 --- <param name="@cli_fec_fecultimocontacto">Fecha Último Contacto</param>
@@ -2810,9 +2810,9 @@ create procedure dbo.CLIENTES_INSERT
 @cli_ecd_codloccobertura tngs_codigo_e,
 @cli_rcd_codmarca tngs_codigo_r,
 @cli_rcd_tipocliente tngs_codigo_r,
-@cli_xde_apellido tngs_descripcion_x,
 @cli_fec_fechanacimiento tngs_fecha,
 @cli_rcd_situacioniva tngs_codigo_r,
+@cli_xde_apellido tngs_descripcion_x,
 @cli_ede_nombre tngs_descripcion_e,
 @cli_rcd_codrubro tngs_codigo_r,
 @cli_fec_fecultimocontacto tngs_fecha,
@@ -2863,9 +2863,9 @@ begin
            @cli_ecd_codloccobertura,
            @cli_rcd_codmarca,
            @cli_rcd_tipocliente,
-           @cli_xde_apellido,
            @cli_fec_fechanacimiento,
            @cli_rcd_situacioniva,
+           @cli_xde_apellido,
            @cli_ede_nombre,
            @cli_rcd_codrubro,
            @cli_fec_fecultimocontacto,
@@ -2929,9 +2929,9 @@ go
 --- <param name="@cli_ecd_codloccobertura">Localidad Cobertura</param>
 --- <param name="@cli_rcd_codmarca">Marca</param>
 --- <param name="@cli_rcd_tipocliente">Tipo Cliente</param>
---- <param name="@cli_xde_apellido">Apellido</param>
 --- <param name="@cli_fec_fechanacimiento">Fecha nacimiento</param>
 --- <param name="@cli_rcd_situacioniva">Situacion IVA</param>
+--- <param name="@cli_xde_apellido">Apellido</param>
 --- <param name="@cli_ede_nombre">Nombre</param>
 --- <param name="@cli_rcd_codrubro">Rubro</param>
 --- <param name="@cli_fec_fecultimocontacto">Fecha Último Contacto</param>
@@ -2993,9 +2993,9 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_ecd_codloccobertura tngs_codigo_e,
 @cli_rcd_codmarca tngs_codigo_r,
 @cli_rcd_tipocliente tngs_codigo_r,
-@cli_xde_apellido tngs_descripcion_x,
 @cli_fec_fechanacimiento tngs_fecha,
 @cli_rcd_situacioniva tngs_codigo_r,
+@cli_xde_apellido tngs_descripcion_x,
 @cli_ede_nombre tngs_descripcion_e,
 @cli_rcd_codrubro tngs_codigo_r,
 @cli_fec_fecultimocontacto tngs_fecha,
@@ -3044,9 +3044,9 @@ begin
           cli_ecd_codloccobertura= @cli_ecd_codloccobertura,
           cli_rcd_codmarca= @cli_rcd_codmarca,
           cli_rcd_tipocliente= @cli_rcd_tipocliente,
-          cli_xde_apellido= @cli_xde_apellido,
           cli_fec_fechanacimiento= @cli_fec_fechanacimiento,
           cli_rcd_situacioniva= @cli_rcd_situacioniva,
+          cli_xde_apellido= @cli_xde_apellido,
           cli_ede_nombre= @cli_ede_nombre,
           cli_rcd_codrubro= @cli_rcd_codrubro,
           cli_fec_fecultimocontacto= @cli_fec_fecultimocontacto,
@@ -4176,7 +4176,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : CliEntrevistas
 //----------------------------------------------------------------------------
@@ -5673,7 +5673,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : CliGrupoFamiliar
 //----------------------------------------------------------------------------
@@ -6552,7 +6552,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : CliLlamadas
 //----------------------------------------------------------------------------
@@ -8136,7 +8136,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : CliNotas
 //----------------------------------------------------------------------------
@@ -9148,7 +9148,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : CliServicios
 //----------------------------------------------------------------------------
@@ -10048,7 +10048,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : CliVentas
 //----------------------------------------------------------------------------
@@ -11042,7 +11042,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : ConversionColores
 //----------------------------------------------------------------------------
@@ -11633,7 +11633,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Franquicias
 //----------------------------------------------------------------------------
@@ -12168,7 +12168,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Localidades
 //----------------------------------------------------------------------------
@@ -13155,7 +13155,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : LogClientes
 //----------------------------------------------------------------------------
@@ -13707,7 +13707,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Marcas
 //----------------------------------------------------------------------------
@@ -14221,7 +14221,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : MotivosLlamada
 //----------------------------------------------------------------------------
@@ -14833,7 +14833,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Parametros
 //----------------------------------------------------------------------------
@@ -15365,7 +15365,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Parentescos
 //----------------------------------------------------------------------------
@@ -15857,7 +15857,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Planes
 //----------------------------------------------------------------------------
@@ -16459,7 +16459,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : PlnServicios
 //----------------------------------------------------------------------------
@@ -17308,7 +17308,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : PreciosServicios
 //----------------------------------------------------------------------------
@@ -17892,7 +17892,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : ResEntrevista
 //----------------------------------------------------------------------------
@@ -18437,7 +18437,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Rubros
 //----------------------------------------------------------------------------
@@ -18972,7 +18972,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Servicios
 //----------------------------------------------------------------------------
@@ -19560,7 +19560,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : SituacionesIVA
 //----------------------------------------------------------------------------
@@ -20062,7 +20062,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Supervisores
 //----------------------------------------------------------------------------
@@ -20598,7 +20598,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Talonarios
 //----------------------------------------------------------------------------
@@ -21130,7 +21130,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : TipoCont
 //----------------------------------------------------------------------------
@@ -21685,7 +21685,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : TipoInst
 //----------------------------------------------------------------------------
@@ -22302,7 +22302,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : TipoVend
 //----------------------------------------------------------------------------
@@ -22847,7 +22847,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Vendedores
 //----------------------------------------------------------------------------
@@ -24310,7 +24310,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 10/06/2021 21:20
+// Fecha       : 19/07/2021 08:58
 // Sistema     : Carm
 // Tabla       : Zonas
 //----------------------------------------------------------------------------

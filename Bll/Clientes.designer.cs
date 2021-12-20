@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 10/06/2021 20:27
+    // Fecha                    : 19/07/2021 08:58
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -8955,9 +8955,9 @@ namespace Carm.Bll
                                     p_entCliente.Codloccobertura,
                                     p_entCliente.Codmarca,
                                     p_entCliente.Tipocliente,
-                                    p_entCliente.Apellido,
                                     p_entCliente.Fechanacimiento,
                                     p_entCliente.Situacioniva,
+                                    p_entCliente.Apellido,
                                     p_entCliente.Nombre,
                                     p_entCliente.Codrubro,
                                     p_entCliente.Fecultimocontacto,
@@ -9026,9 +9026,9 @@ namespace Carm.Bll
                                     p_entCliente.Codloccobertura,
                                     p_entCliente.Codmarca,
                                     p_entCliente.Tipocliente,
-                                    p_entCliente.Apellido,
                                     p_entCliente.Fechanacimiento,
                                     p_entCliente.Situacioniva,
+                                    p_entCliente.Apellido,
                                     p_entCliente.Nombre,
                                     p_entCliente.Codrubro,
                                     p_entCliente.Fecultimocontacto,

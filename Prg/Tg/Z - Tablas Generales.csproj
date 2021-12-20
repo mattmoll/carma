@@ -190,6 +190,26 @@
     <Compile Include="Clasificadoras\Rubros.Designer.cs">
       <DependentUpon>Rubros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Importaciones\Cargadores\CargadorCliente.cs" />
+    <Compile Include="Importaciones\Cargadores\CargadorExcel.cs" />
+    <Compile Include="Importaciones\CargaExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Importaciones\CargaExcel.Designer.cs">
+      <DependentUpon>CargaExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importaciones\ElegirMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Importaciones\ElegirMes.Designer.cs">
+      <DependentUpon>ElegirMes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importaciones\ExcelErroneos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Importaciones\ExcelErroneos.Designer.cs">
+      <DependentUpon>ExcelErroneos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operativa\Franquicias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +289,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clasificadoras\Rubros.resx">
       <DependentUpon>Rubros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Importaciones\CargaExcel.resx">
+      <DependentUpon>CargaExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Importaciones\ElegirMes.resx">
+      <DependentUpon>ElegirMes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Importaciones\ExcelErroneos.resx">
+      <DependentUpon>ExcelErroneos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operativa\Franquicias.resx">
       <DependentUpon>Franquicias.cs</DependentUpon>

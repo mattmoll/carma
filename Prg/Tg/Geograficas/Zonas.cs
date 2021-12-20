@@ -16,7 +16,7 @@ namespace Carm.Tg
     //                         TNG Software UIL Generator
     //----------------------------------------------------------------------------
     // Fecha                     : 17/08/2012 20:21
-    // Sistema                   : Sima
+    // Sistema                   : Carm
     // Interface para la Entidad : Zona
     // Tipo de Interface         : Mantenimiento de Tabla Clasificadora
     //----------------------------------------------------------------------------
