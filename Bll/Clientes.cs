@@ -199,6 +199,8 @@ namespace Carm.Bll
                 l_strWhere += AppRuts.MakeWhere(ECliente.Telefono1Cmp, p_bsBusqueda.Telefono, StringModes.FullLike);
                 l_strWhere += AppRuts.MakeWhere(ECliente.NroavalonCmp, p_bsBusqueda.NumeroAvalon, StringModes.Equal);
                 l_strWhere += AppRuts.MakeWhere(ECliente.TipoclienteCmp, p_bsBusqueda.TipoCliente, StringModes.Equal);
+                l_strWhere += AppRuts.MakeWhere(ECliente.FechaingresoCmp, p_bsBusqueda.FechaCargaDesde, DateModes.GreaterEq, DateData.Date);
+                l_strWhere += AppRuts.MakeWhere(ECliente.FechaingresoCmp, p_bsBusqueda.FechaCargaHasta, DateModes.LessEq, DateData.Date);
 
                 // Armamos los where de campos que validan Ambos-Si-No con el metodo generico
                 makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Vendido, ECliente.AltaCmp, "N", ref l_strWhere);
@@ -822,6 +824,8 @@ namespace Carm.Bll
                 l_dtCliErroneos.Columns.Add(Bel.ECliente.AbonoCmp, typeof(int));
                 l_dtCliErroneos.Columns.Add(Bel.ECliente.EmailCmp, typeof(string));
                 l_dtCliErroneos.Columns.Add(Bel.ECliente.CodlocalidadCmp, typeof(string));
+                l_dtCliErroneos.Columns.Add(Bel.ECliente.NombreCmp, typeof(string));
+                l_dtCliErroneos.Columns.Add(Bel.ECliente.ApellidoCmp, typeof(string));
                 l_dtCliErroneos.Columns.Add("Error", typeof(string));
 
 
@@ -959,11 +963,9 @@ namespace Carm.Bll
             // Cargamos el codigo de localidad antes conseguido.
             p_eCliente.Codlocalidad = p_strCodLoc;
 
-            // Completamos el resto de los datos obligatorios:
             p_eCliente.Fechaingreso = DateTime.Today;
-
-            // Completamos el usuario que esta cargando el cliente.
             p_eCliente.Cargador = DBConn.Usuario;
+            p_eCliente.Tipocliente = Bel.ECliente.CodigoImportados;
 
             // Procesamos codigo fijo
             Save_f(p_dbcAccess, ref p_eCliente, p_smResult);
@@ -1005,6 +1007,8 @@ namespace Carm.Bll
             Clientes.fValidarCliente(p_dbcAccess,
                                      p_eCliente.Rsocial,
                                      p_eCliente.Telefono1,
+                                     p_eCliente.Nombre,
+                                     p_eCliente.Apellido,
                                      p_dPercent,
                                      ref l_strError,
                                      p_smResult);
@@ -1135,9 +1139,10 @@ namespace Carm.Bll
                                                           )
         {
             // Si alguno de los campos obligatorios no está cargado, entonces es erroneo
-            if ((p_eCliente.Rsocial == "") || (p_eCliente.Direccion == "") || (p_eCliente.Telefono1 == ""))
+            if ((string.IsNullOrEmpty(p_eCliente.Rsocial) && (string.IsNullOrEmpty(p_eCliente.Nombre) || string.IsNullOrEmpty(p_eCliente.Apellido)) 
+                || (string.IsNullOrEmpty(p_eCliente.Direccion)) || (string.IsNullOrEmpty(p_eCliente.Telefono1))))
             {
-                string l_strError = "Alguno de los campos obligatorios (Razón Social, Dirección y Teléfono) no está cargado";
+                string l_strError = "Alguno de los campos obligatorios (Razón Social o Nombre y Apellido, Dirección y Teléfono) no está cargado";
 
                 // Creamos el datarow de cliente erroneo y le cargamos los datos.
                 DataRow l_drCliErroneo = null;
@@ -1774,6 +1779,8 @@ namespace Carm.Bll
         public static void fValidarCliente(
                                            string p_strRSocial,
                                            string p_strTelefono,
+                                           string p_strNombre,
+                                           string p_strApellido,
                                            ref string p_strError,
                                            StatMsg p_smResult
                                            )
@@ -1787,7 +1794,7 @@ namespace Carm.Bll
                 l_dbcAccess = DBRuts.GetConection(Connections.Dat);
 
                 // Llamamos a la validacion del cliente. (el porcentaje es -1 porque indica que estamos validando un solo cliente.
-                fValidarCliente(l_dbcAccess, p_strRSocial, p_strTelefono, - 1, ref p_strError, p_smResult);
+                fValidarCliente(l_dbcAccess, p_strRSocial, p_strTelefono, p_strNombre, p_strApellido, - 1, ref p_strError, p_smResult);
             }
             catch (Exception a)
             {
@@ -2232,6 +2239,8 @@ namespace Carm.Bll
         private static void fValidarCliente(DBConn p_dbcAccess,
                                             string p_strRSocial,
                                             string p_strTelefono,
+                                            string p_strNombre,
+                                            string p_strApellido,
                                             double p_dPorcentaje,
                                             ref string p_strError,
                                             StatMsg p_smResult)
@@ -2244,14 +2253,18 @@ namespace Carm.Bll
                 else
                     fReportaAvance("Validando Razón Social", 50);
 
+                if(!string.IsNullOrEmpty(p_strRSocial))
+                {
+                    ListaEntidades l_leValidaRSocial = Clientes.ValidaRSocial(p_dbcAccess, p_strRSocial, p_smResult);
+                    if (p_smResult.NOk) return;
 
-                ListaEntidades l_leValidaRSocial = Clientes.ValidaRSocial(p_dbcAccess, p_strRSocial, p_smResult);
-                if (p_smResult.NOk) return;
+                    if (l_leValidaRSocial.Count != 0)
+                        // Error de existencia de cliente con esa Razon Social
+                        p_strError += "La Razón Social ingresada ya existe en el cliente número: "
+                                        + l_leValidaRSocial.InternalData[0][0].ToString().Trim() + " \r\n";
+                }
 
-                if (l_leValidaRSocial.Count != 0)
-                    // Error de existencia de cliente con esa Razon Social
-                    p_strError += "La Razón Social ingresada ya existe en el cliente número: "
-                                    + l_leValidaRSocial.InternalData[0][0].ToString().Trim() + " \r\n";
+                // TODO: Validar nombre y apellido si lo piden y es necesario.
 
                 // Validamos que este capturado el evento.
                 if (p_dPorcentaje == -1)
@@ -2264,6 +2277,8 @@ namespace Carm.Bll
                     // Error de existencia de cliente con ese Telefono
                     p_strError += "El Telefono ingresado ya existe en el cliente número: "
                                     + l_leValidaTelefono.InternalData[0][0].ToString().Trim() + " \r\n";
+
+
 
                 // Validamos que este capturado el evento.
                 if (p_dPorcentaje == -1)

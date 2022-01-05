@@ -783,6 +783,7 @@ namespace Carm.Bel
     {
         public static string CodigoAreasProtegidas { get { return "AP"; } }
         public static string CodigoSociosDirectos { get { return "SD"; } }
+        public static string CodigoImportados { get { return "IM"; } }
 
         private bool m_bEsCargaExcel = false;
 
@@ -824,6 +825,7 @@ namespace Carm.Bel
 
         public bool EsAreaProtegida { get { return this.Tipocliente == ECliente.CodigoAreasProtegidas; } }
         public bool EsSocioDirecto { get { return this.Tipocliente == ECliente.CodigoSociosDirectos; } }
+        public bool EsImportado { get { return this.Tipocliente == ECliente.CodigoImportados; } }
     }
     #endregion
 

@@ -1,5 +1,6 @@
 ﻿using TNGS.NetRoutines;
 using TNGS.NetAppBll;
+using System;
 
 namespace Carm.Bll
 {
@@ -28,6 +29,10 @@ namespace Carm.Bll
         public string Vendido { get; set; }
         public string MailCargado { get; set; }
         public string Telefono { get; set; }
+        public string InicialDesde { get; set; }
+        public string InicialHasta { get; set; }
+        public DateTime FechaCargaDesde { get; set; }
+        public DateTime FechaCargaHasta { get; set; }
 
         public bool aplicarPermisos = true;
 
@@ -45,17 +50,20 @@ namespace Carm.Bll
             return ((Numero == "") && (NumeroAvalon == "") && (Rsocial == "") && (NFant == "") && (CodVend == "")
                     && (Cargador == "") && (Nombre == "")  && (Apellido == "") && (m_strRubro == "") && (m_strTInst == "")
                     && (m_strZona == "") && (m_strLoc == "") && (Dir == "") && (Altura == "") && (Telefono == "")
-                    && (Marca == "")
+                    && (Marca == "") && (InicialDesde == "") && (InicialHasta == "")
                     && ((Reservado == "") || (Reservado == "A"))
                     && ((Vendido == "") || (Vendido == "A")) && ((TipoCliente == "") || (TipoCliente == "A"))
+                    && ((FechaCargaDesde == DateTimeRuts.Empty) && (FechaCargaHasta == DateTimeRuts.Empty))
                     && ((MailCargado == "") || (MailCargado == "A")));
         }
 
         public void limpiarBusqueda()
         {
             // Asignamos string vacia a todos los filtros de la busqueda.
-            Numero = NumeroAvalon = Rsocial = NFant = Nombre = Apellido = CodVend = Cargador = Rubro = TInst = Marca = Telefono = Zona = Loc = Dir = Altura = "";
+            Numero = NumeroAvalon = Rsocial = NFant = Nombre = Apellido = CodVend = Cargador = "";
+            Rubro = TInst = Marca = Telefono = Zona = Loc = Dir = Altura = InicialDesde = InicialHasta = "";
             Reservado  = Vendido = TipoCliente = MailCargado = "A";
+            FechaCargaDesde = FechaCargaHasta = DateTimeRuts.Empty;
         }
 
         public string Numero

@@ -6,10 +6,10 @@ Me van a pasar algunos campos para agregar.
 
 TODO Next Release:
 
+Empezar a trabajar en Importacion por excel (done)
+
 
 - Agregar Agenda de llamadas
-
-- Quitar boton de entrevistas (no remover ventana).
 
 
 Borrar la lista de servicios.
@@ -22,5 +22,5 @@ Validaciones Unicidad:
 Validar Razon Social y Nombre y Apellido unicidad.
 
 
-Empezar a trabajar en Importacion por excel.
+
 

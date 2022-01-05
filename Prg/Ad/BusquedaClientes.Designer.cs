@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BusquedaClientes));
             this.xPanel1 = new TNGS.NetControls.XPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.cdcTipoCliente = new TNGS.NetControls.CDCombo();
             this.fullLabel5 = new TNGS.NetControls.FullLabel();
             this.teNombreYApellido = new System.Windows.Forms.TextBox();
@@ -69,7 +70,14 @@
             this.fullLabel4 = new TNGS.NetControls.FullLabel();
             this.fullLabel3 = new TNGS.NetControls.FullLabel();
             this.fullLabel1 = new TNGS.NetControls.FullLabel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.fullLabel2 = new TNGS.NetControls.FullLabel();
+            this.deFechaCargaDesde = new TNGS.NetControls.DateEdit();
+            this.deFechaCargaHasta = new TNGS.NetControls.DateEdit();
+            this.fullLabel6 = new TNGS.NetControls.FullLabel();
+            this.fullLabel9 = new TNGS.NetControls.FullLabel();
+            this.teInicialDesde = new System.Windows.Forms.TextBox();
+            this.teInicialHasta = new System.Windows.Forms.TextBox();
+            this.fullLabel16 = new TNGS.NetControls.FullLabel();
             this.xPanel1.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -81,6 +89,11 @@
             this.xPanel1.BackColor1 = System.Drawing.Color.White;
             this.xPanel1.BackColor2 = System.Drawing.Color.White;
             this.xPanel1.BorderColor = System.Drawing.Color.Black;
+            this.xPanel1.Controls.Add(this.teInicialHasta);
+            this.xPanel1.Controls.Add(this.teInicialDesde);
+            this.xPanel1.Controls.Add(this.fullLabel9);
+            this.xPanel1.Controls.Add(this.deFechaCargaHasta);
+            this.xPanel1.Controls.Add(this.deFechaCargaDesde);
             this.xPanel1.Controls.Add(this.label6);
             this.xPanel1.Controls.Add(this.cdcTipoCliente);
             this.xPanel1.Controls.Add(this.fullLabel5);
@@ -115,12 +128,27 @@
             this.xPanel1.Controls.Add(this.fullLabel4);
             this.xPanel1.Controls.Add(this.fullLabel3);
             this.xPanel1.Controls.Add(this.fullLabel1);
+            this.xPanel1.Controls.Add(this.fullLabel2);
+            this.xPanel1.Controls.Add(this.fullLabel6);
+            this.xPanel1.Controls.Add(this.fullLabel16);
             this.xPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel1.Location = new System.Drawing.Point(0, 0);
             this.xPanel1.Name = "xPanel1";
-            this.xPanel1.Size = new System.Drawing.Size(648, 500);
+            this.xPanel1.Size = new System.Drawing.Size(648, 584);
             this.xPanel1.TabIndex = 0;
             this.xPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.xPanel1_Paint);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(12, 55);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(188, 23);
+            this.label6.TabIndex = 148;
+            this.label6.Text = "Filtros de Busqueda";
             // 
             // cdcTipoCliente
             // 
@@ -146,7 +174,7 @@
             // teNombreYApellido
             // 
             this.teNombreYApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teNombreYApellido.Location = new System.Drawing.Point(123, 235);
+            this.teNombreYApellido.Location = new System.Drawing.Point(123, 230);
             this.teNombreYApellido.Name = "teNombreYApellido";
             this.teNombreYApellido.Size = new System.Drawing.Size(197, 20);
             this.teNombreYApellido.TabIndex = 143;
@@ -154,7 +182,7 @@
             // fullLabel8
             // 
             this.fullLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel8.Location = new System.Drawing.Point(25, 238);
+            this.fullLabel8.Location = new System.Drawing.Point(25, 233);
             this.fullLabel8.Name = "fullLabel8";
             this.fullLabel8.Size = new System.Drawing.Size(110, 17);
             this.fullLabel8.TabIndex = 144;
@@ -166,7 +194,7 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(441, 455);
+            this.btnBuscar.Location = new System.Drawing.Point(434, 539);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(169, 33);
             this.btnBuscar.TabIndex = 142;
@@ -359,7 +387,7 @@
             // teDir
             // 
             this.teDir.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teDir.Location = new System.Drawing.Point(123, 363);
+            this.teDir.Location = new System.Drawing.Point(123, 357);
             this.teDir.Name = "teDir";
             this.teDir.Size = new System.Drawing.Size(197, 20);
             this.teDir.TabIndex = 6;
@@ -368,7 +396,7 @@
             // teCodVend
             // 
             this.teCodVend.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teCodVend.Location = new System.Drawing.Point(123, 278);
+            this.teCodVend.Location = new System.Drawing.Point(123, 272);
             this.teCodVend.Name = "teCodVend";
             this.teCodVend.Size = new System.Drawing.Size(197, 20);
             this.teCodVend.TabIndex = 4;
@@ -377,7 +405,7 @@
             // teCargador
             // 
             this.teCargador.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teCargador.Location = new System.Drawing.Point(123, 319);
+            this.teCargador.Location = new System.Drawing.Point(123, 313);
             this.teCargador.Name = "teCargador";
             this.teCargador.Size = new System.Drawing.Size(197, 20);
             this.teCargador.TabIndex = 5;
@@ -397,7 +425,7 @@
             // teNombreFant
             // 
             this.teNombreFant.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teNombreFant.Location = new System.Drawing.Point(123, 194);
+            this.teNombreFant.Location = new System.Drawing.Point(123, 189);
             this.teNombreFant.Name = "teNombreFant";
             this.teNombreFant.Size = new System.Drawing.Size(197, 20);
             this.teNombreFant.TabIndex = 3;
@@ -453,7 +481,7 @@
             // fullLabel14
             // 
             this.fullLabel14.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel14.Location = new System.Drawing.Point(60, 364);
+            this.fullLabel14.Location = new System.Drawing.Point(60, 358);
             this.fullLabel14.Name = "fullLabel14";
             this.fullLabel14.Size = new System.Drawing.Size(76, 17);
             this.fullLabel14.TabIndex = 121;
@@ -462,7 +490,7 @@
             // fullLabel12
             // 
             this.fullLabel12.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel12.Location = new System.Drawing.Point(26, 279);
+            this.fullLabel12.Location = new System.Drawing.Point(26, 273);
             this.fullLabel12.Name = "fullLabel12";
             this.fullLabel12.Size = new System.Drawing.Size(110, 17);
             this.fullLabel12.TabIndex = 117;
@@ -471,7 +499,7 @@
             // fullLabel11
             // 
             this.fullLabel11.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel11.Location = new System.Drawing.Point(24, 320);
+            this.fullLabel11.Location = new System.Drawing.Point(24, 314);
             this.fullLabel11.Name = "fullLabel11";
             this.fullLabel11.Size = new System.Drawing.Size(110, 17);
             this.fullLabel11.TabIndex = 115;
@@ -489,7 +517,7 @@
             // fullLabel7
             // 
             this.fullLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel7.Location = new System.Drawing.Point(15, 197);
+            this.fullLabel7.Location = new System.Drawing.Point(15, 192);
             this.fullLabel7.Name = "fullLabel7";
             this.fullLabel7.Size = new System.Drawing.Size(110, 17);
             this.fullLabel7.TabIndex = 18;
@@ -522,23 +550,89 @@
             this.fullLabel1.TabIndex = 0;
             this.fullLabel1.Text = "Razón social:";
             // 
-            // label6
+            // fullLabel2
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(12, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(188, 23);
-            this.label6.TabIndex = 148;
-            this.label6.Text = "Filtros de Busqueda";
+            this.fullLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel2.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel2.Location = new System.Drawing.Point(337, 405);
+            this.fullLabel2.Name = "fullLabel2";
+            this.fullLabel2.Size = new System.Drawing.Size(122, 19);
+            this.fullLabel2.TabIndex = 150;
+            this.fullLabel2.Text = "Fecha Carga:";
+            // 
+            // deFechaCargaDesde
+            // 
+            this.deFechaCargaDesde.BackColor = System.Drawing.SystemColors.Window;
+            this.deFechaCargaDesde.Location = new System.Drawing.Point(434, 405);
+            this.deFechaCargaDesde.Name = "deFechaCargaDesde";
+            this.deFechaCargaDesde.Size = new System.Drawing.Size(69, 20);
+            this.deFechaCargaDesde.TabIndex = 149;
+            this.deFechaCargaDesde.Text = "01/01/1900";
+            // 
+            // deFechaCargaHasta
+            // 
+            this.deFechaCargaHasta.BackColor = System.Drawing.SystemColors.Window;
+            this.deFechaCargaHasta.Location = new System.Drawing.Point(553, 404);
+            this.deFechaCargaHasta.Name = "deFechaCargaHasta";
+            this.deFechaCargaHasta.Size = new System.Drawing.Size(78, 20);
+            this.deFechaCargaHasta.TabIndex = 151;
+            this.deFechaCargaHasta.Text = "01/01/1900";
+            // 
+            // fullLabel6
+            // 
+            this.fullLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel6.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel6.Location = new System.Drawing.Point(509, 406);
+            this.fullLabel6.Name = "fullLabel6";
+            this.fullLabel6.Size = new System.Drawing.Size(49, 19);
+            this.fullLabel6.TabIndex = 152;
+            this.fullLabel6.Text = "hasta";
+            // 
+            // fullLabel9
+            // 
+            this.fullLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel9.Location = new System.Drawing.Point(20, 407);
+            this.fullLabel9.Name = "fullLabel9";
+            this.fullLabel9.Size = new System.Drawing.Size(154, 20);
+            this.fullLabel9.TabIndex = 153;
+            this.fullLabel9.Text = "Inicial R Social o Apellido:";
+            // 
+            // teInicialDesde
+            // 
+            this.teInicialDesde.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teInicialDesde.Location = new System.Drawing.Point(154, 404);
+            this.teInicialDesde.MaxLength = 1;
+            this.teInicialDesde.Name = "teInicialDesde";
+            this.teInicialDesde.Size = new System.Drawing.Size(34, 20);
+            this.teInicialDesde.TabIndex = 154;
+            // 
+            // teInicialHasta
+            // 
+            this.teInicialHasta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teInicialHasta.Location = new System.Drawing.Point(237, 404);
+            this.teInicialHasta.MaxLength = 1;
+            this.teInicialHasta.Name = "teInicialHasta";
+            this.teInicialHasta.Size = new System.Drawing.Size(34, 20);
+            this.teInicialHasta.TabIndex = 155;
+            // 
+            // fullLabel16
+            // 
+            this.fullLabel16.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel16.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel16.Location = new System.Drawing.Point(192, 404);
+            this.fullLabel16.Name = "fullLabel16";
+            this.fullLabel16.Size = new System.Drawing.Size(49, 19);
+            this.fullLabel16.TabIndex = 156;
+            this.fullLabel16.Text = "hasta";
             // 
             // BusquedaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 500);
+            this.ClientSize = new System.Drawing.Size(648, 584);
             this.Controls.Add(this.xPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -600,5 +694,13 @@
         private TNGS.NetControls.CDCombo cdcTipoCliente;
         private TNGS.NetControls.FullLabel fullLabel5;
         private System.Windows.Forms.Label label6;
+        private TNGS.NetControls.DateEdit deFechaCargaHasta;
+        private TNGS.NetControls.DateEdit deFechaCargaDesde;
+        private TNGS.NetControls.FullLabel fullLabel2;
+        private TNGS.NetControls.FullLabel fullLabel6;
+        private System.Windows.Forms.TextBox teInicialHasta;
+        private System.Windows.Forms.TextBox teInicialDesde;
+        private TNGS.NetControls.FullLabel fullLabel9;
+        private TNGS.NetControls.FullLabel fullLabel16;
     }
 }

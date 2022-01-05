@@ -273,6 +273,7 @@ namespace Carm.Tg
                 // Todo OK.
                 MsgRuts.ShowMsg(this, "Todos los registros se han incorporado al sistema exitosamente.");
                 l_leListaEntidades.Dispose();
+                
                 Close();
             }
             else
@@ -362,7 +363,17 @@ namespace Carm.Tg
 
                     l_strValor = "";
                     if (l_oValue != null) l_strValor = l_oValue.ToString();
-                    if (l_strValor.Trim() == "") break;
+                    if (l_strValor.Trim() == "")
+                    {
+                        // Obtenemos la segunda columna:
+                        l_oValue = l_wrExcel.GetCell(ref l_oHoja, l_iRow + 1, 2, m_smResult);
+                        if (MsgRuts.AnalizeError(this, m_smResult)) return null;
+
+                        l_strValor = "";
+                        if (l_oValue != null) l_strValor = l_oValue.ToString();
+                        // Si ambas columnas eran vacias, cortamos.
+                        if (l_strValor.Trim() == "") break;
+                    }
 
                     // Informamos al usuario
                     if (((l_iRow - 1) % 100) == 0)
@@ -376,6 +387,14 @@ namespace Carm.Tg
                         // Recuperamos el valor cada columna indicada
                         l_oValue = l_wrExcel.GetCell(ref l_oHoja, l_iRow + 1, (int)l_drvItem["codexcel"], m_smResult);
                         if (MsgRuts.AnalizeError(this, m_smResult)) return null;
+
+                        if (l_oValue == null)
+                        {
+                            l_strValor = "";
+                            l_iValor = 0;
+                            cargadorCliente.fillAttribute(l_eEntidad, l_iValor, l_strValor, new DateTime(), l_dValor, l_drvItem);
+                            continue;
+                        }
 
                         l_strValor = "";
                         if (l_oValue != null) l_strValor = l_oValue.ToString();
@@ -520,5 +539,9 @@ namespace Carm.Tg
             m_bCancel = true;
         }
 
+        private void CargaExcel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            App.LockMenu(false);
+        }
     }
 }

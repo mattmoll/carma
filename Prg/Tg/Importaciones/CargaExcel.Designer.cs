@@ -58,7 +58,7 @@
             // xPanel1
             // 
             this.xPanel1.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xPanel1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.xPanel1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel1.Controls.Add(this.frmImportar);
             this.xPanel1.Controls.Add(this.frmOperaciones);
             this.xPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -74,9 +74,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.frmImportar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.frmImportar.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.frmImportar.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.frmImportar.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
-            this.frmImportar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.frmImportar.BlackBorder = true;
+            this.frmImportar.BorderColor = System.Drawing.Color.DodgerBlue;
             this.frmImportar.BorderThickness = 1F;
             this.frmImportar.Controls.Add(this.gbCancelar);
             this.frmImportar.Controls.Add(this.cmdVPrevia);
@@ -89,9 +90,10 @@
             this.frmImportar.Controls.Add(this.cmdImportar);
             this.frmImportar.Controls.Add(this.label3);
             this.frmImportar.Controls.Add(this.label2);
-            this.frmImportar.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.frmImportar.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.frmImportar.FlatMode = true;
             this.frmImportar.FontTitle = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmImportar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.frmImportar.ForeColor = System.Drawing.Color.Black;
             this.frmImportar.GroupImage = null;
             this.frmImportar.GroupTitle = " Importación ";
             this.frmImportar.Location = new System.Drawing.Point(0, 77);
@@ -105,6 +107,9 @@
             this.frmImportar.Size = new System.Drawing.Size(860, 593);
             this.frmImportar.SkinFixed = true;
             this.frmImportar.TabIndex = 27;
+            this.frmImportar.TitleBackground = System.Drawing.Color.DodgerBlue;
+            this.frmImportar.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
+            this.frmImportar.TitleFontColor = System.Drawing.Color.White;
             // 
             // gbCancelar
             // 
@@ -112,6 +117,7 @@
             this.gbCancelar.CircleButton = false;
             this.gbCancelar.FixedImage = TNGS.NetControls.FixedGlassButtons.Cancel;
             this.gbCancelar.FlatColor = System.Drawing.SystemColors.HotTrack;
+            this.gbCancelar.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.gbCancelar.FlatTextColor = System.Drawing.Color.Black;
             this.gbCancelar.Location = new System.Drawing.Point(10, 558);
             this.gbCancelar.Name = "gbCancelar";
@@ -129,6 +135,7 @@
             this.cmdVPrevia.CircleButton = false;
             this.cmdVPrevia.FixedImage = TNGS.NetControls.FixedGlassButtons.bZoom;
             this.cmdVPrevia.FlatColor = System.Drawing.SystemColors.HotTrack;
+            this.cmdVPrevia.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.cmdVPrevia.FlatTextColor = System.Drawing.Color.Black;
             this.cmdVPrevia.Location = new System.Drawing.Point(416, 200);
             this.cmdVPrevia.Name = "cmdVPrevia";
@@ -145,13 +152,15 @@
             this.grdVPrevia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdVPrevia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.grdVPrevia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.grdVPrevia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.grdVPrevia.CaptionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(163)))), ((int)(((byte)(226)))));
-            this.grdVPrevia.CaptionFilterColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(119)))), ((int)(((byte)(7)))));
+            this.grdVPrevia.CaptionBackColor = System.Drawing.Color.DodgerBlue;
+            this.grdVPrevia.CaptionFilterColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.grdVPrevia.CaptionFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdVPrevia.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.grdVPrevia.CaptionText = "Vista Previa";
             this.grdVPrevia.DataMember = "";
+            this.grdVPrevia.ExcelName = "Datos Exportados";
             this.grdVPrevia.ExcelTitle = "";
             this.grdVPrevia.GridOrder = "";
             this.grdVPrevia.HeaderForeColor = System.Drawing.SystemColors.ControlText;
@@ -167,6 +176,7 @@
             this.gbNuevo.CircleButton = false;
             this.gbNuevo.FixedImage = TNGS.NetControls.FixedGlassButtons.bNew;
             this.gbNuevo.FlatColor = System.Drawing.SystemColors.HotTrack;
+            this.gbNuevo.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.gbNuevo.FlatTextColor = System.Drawing.Color.Black;
             this.gbNuevo.Location = new System.Drawing.Point(416, 55);
             this.gbNuevo.Name = "gbNuevo";
@@ -193,6 +203,7 @@
             this.cmdBorrar.CircleButton = false;
             this.cmdBorrar.FixedImage = TNGS.NetControls.FixedGlassButtons.bDelete;
             this.cmdBorrar.FlatColor = System.Drawing.SystemColors.HotTrack;
+            this.cmdBorrar.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.cmdBorrar.FlatTextColor = System.Drawing.Color.Black;
             this.cmdBorrar.Location = new System.Drawing.Point(416, 85);
             this.cmdBorrar.Name = "cmdBorrar";
@@ -207,13 +218,15 @@
             // 
             this.grdRelaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdRelaciones.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.grdRelaciones.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.grdRelaciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.grdRelaciones.CaptionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(163)))), ((int)(((byte)(226)))));
-            this.grdRelaciones.CaptionFilterColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(119)))), ((int)(((byte)(7)))));
+            this.grdRelaciones.CaptionBackColor = System.Drawing.Color.DodgerBlue;
+            this.grdRelaciones.CaptionFilterColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.grdRelaciones.CaptionFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdRelaciones.CaptionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.grdRelaciones.CaptionText = "Relaciones entre campos";
             this.grdRelaciones.DataMember = "";
+            this.grdRelaciones.ExcelName = "Datos Exportados";
             this.grdRelaciones.ExcelTitle = "";
             this.grdRelaciones.GridOrder = "";
             this.grdRelaciones.HeaderForeColor = System.Drawing.SystemColors.ControlText;
@@ -240,6 +253,7 @@
             this.cmdImportar.CircleButton = false;
             this.cmdImportar.FixedImage = TNGS.NetControls.FixedGlassButtons.Import;
             this.cmdImportar.FlatColor = System.Drawing.SystemColors.HotTrack;
+            this.cmdImportar.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.cmdImportar.FlatTextColor = System.Drawing.Color.Black;
             this.cmdImportar.Location = new System.Drawing.Point(742, 556);
             this.cmdImportar.Name = "cmdImportar";
@@ -276,17 +290,19 @@
             this.frmOperaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.frmOperaciones.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.frmOperaciones.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.frmOperaciones.BackgroundGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.frmOperaciones.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.ForwardDiagonal;
-            this.frmOperaciones.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.frmOperaciones.BlackBorder = true;
+            this.frmOperaciones.BorderColor = System.Drawing.Color.DodgerBlue;
             this.frmOperaciones.BorderThickness = 1F;
             this.frmOperaciones.Controls.Add(this.cmdConfirmar);
             this.frmOperaciones.Controls.Add(this.cmdFind);
             this.frmOperaciones.Controls.Add(this.txtPlanilla);
             this.frmOperaciones.Controls.Add(this.lblLocalidad);
-            this.frmOperaciones.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(227)))), ((int)(((byte)(242)))));
+            this.frmOperaciones.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.frmOperaciones.FlatMode = true;
             this.frmOperaciones.FontTitle = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmOperaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.frmOperaciones.ForeColor = System.Drawing.Color.Black;
             this.frmOperaciones.GroupImage = null;
             this.frmOperaciones.GroupTitle = "Selección Excel";
             this.frmOperaciones.Location = new System.Drawing.Point(3, 3);
@@ -300,6 +316,9 @@
             this.frmOperaciones.Size = new System.Drawing.Size(860, 68);
             this.frmOperaciones.SkinFixed = true;
             this.frmOperaciones.TabIndex = 26;
+            this.frmOperaciones.TitleBackground = System.Drawing.Color.DodgerBlue;
+            this.frmOperaciones.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
+            this.frmOperaciones.TitleFontColor = System.Drawing.Color.White;
             // 
             // cmdConfirmar
             // 
@@ -308,6 +327,7 @@
             this.cmdConfirmar.CircleButton = false;
             this.cmdConfirmar.FixedImage = TNGS.NetControls.FixedGlassButtons.Accept;
             this.cmdConfirmar.FlatColor = System.Drawing.SystemColors.HotTrack;
+            this.cmdConfirmar.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.cmdConfirmar.FlatTextColor = System.Drawing.Color.Black;
             this.cmdConfirmar.Location = new System.Drawing.Point(747, 26);
             this.cmdConfirmar.Name = "cmdConfirmar";
@@ -326,6 +346,7 @@
             this.cmdFind.CircleButton = false;
             this.cmdFind.FixedImage = TNGS.NetControls.FixedGlassButtons.bZoom;
             this.cmdFind.FlatColor = System.Drawing.SystemColors.HotTrack;
+            this.cmdFind.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.cmdFind.FlatTextColor = System.Drawing.Color.Black;
             this.cmdFind.Location = new System.Drawing.Point(682, 27);
             this.cmdFind.Name = "cmdFind";
@@ -380,6 +401,7 @@
             this.Name = "CargaExcel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Carga Masiva";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CargaExcel_FormClosing);
             this.Load += new System.EventHandler(this.CargaExcel_Load);
             this.xPanel1.ResumeLayout(false);
             this.frmImportar.ResumeLayout(false);

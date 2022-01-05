@@ -1,35 +1,29 @@
-﻿using System;
+﻿using Carm.Bel;
+using Carm.Shr;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using TNGS;
 using TNGS.NetApp;
 using TNGS.NetRoutines;
-using TNGS.NetControls;
-using WeifenLuo.WinFormsUI.Docking;
-using Carm.Bel;
-using Carm.Shr;
 
 namespace Carm.Ad
 {
     public partial class CargaCliente : Form
     {
         private StatMsg statMessage;
-        private Bel.ECliente cliente;
+        private ECliente cliente;
 
         public CargaCliente()
         {
             InitializeComponent();
 
             statMessage = new StatMsg();
-            this.cliente = Bel.ECliente.NewEmpty();
+            this.cliente = ECliente.NewEmpty();
         }
 
-        public CargaCliente(Bel.ECliente cliente): this()
+        public CargaCliente(ECliente cliente): this()
         {
             this.cliente = cliente;
         }
@@ -171,15 +165,19 @@ namespace Carm.Ad
 
         private string getTipoCliente()
         {
-            return rbAreasProtegidas.Checked ? ECliente.CodigoAreasProtegidas : ECliente.CodigoSociosDirectos;
+            return rbAreasProtegidas.Checked ? ECliente.CodigoAreasProtegidas
+                   : rbSociosDirectos.Checked ? ECliente.CodigoSociosDirectos : ECliente.CodigoImportados;
         }
 
         private void cargarClienteEnPantalla(ECliente cliente)
         {
             rbAreasProtegidas.Checked = cliente.EsAreaProtegida;
             rbSociosDirectos.Checked = cliente.EsSocioDirecto;
-            rbAreasProtegidas.Enabled = false;
-            rbSociosDirectos.Enabled = false;
+            rbImportado.Checked = cliente.EsImportado;
+            
+            rbImportado.Enabled = false;
+            // Si es importado habilitamos el cambio a areas o socio.
+            rbAreasProtegidas.Checked = rbSociosDirectos.Enabled = rbImportado.Checked;
 
             cdcMarca.SelectedStrCode = cliente.Codmarca;
             cdcSitIva.SelectedStrCode = cliente.Situacioniva;

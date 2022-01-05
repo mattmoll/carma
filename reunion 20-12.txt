@@ -1,0 +1,15 @@
+Reunion Carma 20/12
+
+TODO:
+- Agregar fecha de carga en importaciones. (listo, agregamos la fecha de ingreso automaticamente al dia en que se cargó la importacion).
+- Agregar a la busqueda filtro de fecha carga desde y hasta. (listo)
+- Agregar a la busqueda filro de letra inicial desde y hasta. (casi listo)
+- AGregar opcion de no definido en tipo de prospecto y permitir pasar a socio directo o area (listo)
+- Importacion de excel ahora toma la localidad d ela marca elegida. (listo)
+
+- Validacion de Unicidad (listo)
+	- Razon Social
+	- Telefono
+
+- Datos obligatorios:
+	Razon social o nombre y apellido, telefono y la direccion (listo)

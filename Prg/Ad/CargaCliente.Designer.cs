@@ -138,6 +138,7 @@ namespace Carm.Ad
             this.titulo = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.rbImportado = new System.Windows.Forms.RadioButton();
             this.xPanel1.SuspendLayout();
             this.ftDetalleCliente.SuspendLayout();
             this.tabCliente.SuspendLayout();
@@ -882,11 +883,12 @@ namespace Carm.Ad
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.rbImportado);
             this.panel3.Controls.Add(this.rbAreasProtegidas);
             this.panel3.Controls.Add(this.rbSociosDirectos);
             this.panel3.Location = new System.Drawing.Point(121, 16);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(264, 26);
+            this.panel3.Size = new System.Drawing.Size(345, 26);
             this.panel3.TabIndex = 126;
             // 
             // rbAreasProtegidas
@@ -1627,6 +1629,17 @@ namespace Carm.Ad
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // rbImportado
+            // 
+            this.rbImportado.AutoSize = true;
+            this.rbImportado.BackColor = System.Drawing.Color.Transparent;
+            this.rbImportado.Location = new System.Drawing.Point(229, 2);
+            this.rbImportado.Name = "rbImportado";
+            this.rbImportado.Size = new System.Drawing.Size(113, 19);
+            this.rbImportado.TabIndex = 2;
+            this.rbImportado.Text = "Importado Excel";
+            this.rbImportado.UseVisualStyleBackColor = false;
+            // 
             // CargaCliente
             // 
             this.AcceptButton = this.gbGrabar;
@@ -1783,5 +1796,6 @@ namespace Carm.Ad
         private TNGS.NetControls.GlassButton gbBorrarFamiliar;
         private TNGS.NetControls.GlassButton gbAgregarFamiliar;
         private TNGS.NetControls.MiniReport mrGrupoFamiliar;
+        private System.Windows.Forms.RadioButton rbImportado;
     }
 }

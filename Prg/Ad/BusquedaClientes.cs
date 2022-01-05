@@ -63,6 +63,10 @@ namespace Carm.Ad
             neAltura.Text = m_bsBusqueda.Altura;
             teTelefono.Text = m_bsBusqueda.Telefono;
             cdcTipoCliente.SelectedStrCode = m_bsBusqueda.TipoCliente.PadLeft(2, ' ');
+            teInicialDesde.Text = m_bsBusqueda.InicialDesde;
+            teInicialHasta.Text = m_bsBusqueda.InicialHasta;
+            deFechaCargaDesde.Fecha = m_bsBusqueda.FechaCargaDesde;
+            deFechaCargaHasta.Fecha = m_bsBusqueda.FechaCargaHasta;
 
             // Chequeamos los radiobuttons correspondientes a cada filtro.
             checkRadioButton(m_bsBusqueda.Vendido, rbVndSi, rbVndNo, rbVndAmbos);
@@ -110,6 +114,10 @@ namespace Carm.Ad
             m_bsBusqueda.Dir = teDir.Text.Trim();
             m_bsBusqueda.Altura = neAltura.Numero.ToString().Trim();
             m_bsBusqueda.Telefono = teTelefono.Text.Trim();
+            m_bsBusqueda.InicialDesde = teInicialDesde.Text.Trim();
+            m_bsBusqueda.InicialHasta = teInicialHasta.Text.Trim();
+            m_bsBusqueda.FechaCargaDesde = deFechaCargaDesde.Fecha;
+            m_bsBusqueda.FechaCargaHasta = deFechaCargaHasta.Fecha;
         }
 
         // Evento que captura el presionado de una tecla en todos los campos y dispara la busqueda si corresponde.
