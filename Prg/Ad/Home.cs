@@ -121,21 +121,9 @@ namespace Carm.Ad
             ListaEntidades listaClientes = Bll.Clientes.fGetClientesSecretaria(estadoBusqueda, statMessage);
             if (MsgRuts.AnalizeError(this, statMessage)) return;
 
-            ApplySpecialFilters(listaClientes, estadoBusqueda);
-
             cargaMiniReport(listaClientes);
 
             App.HideMsg();
-        }
-
-        private void ApplySpecialFilters(ListaEntidades listaClientes, BusquedaAdministracion estadoBusqueda)
-        {
-            if(!string.IsNullOrEmpty(estadoBusqueda.InicialDesde) && !string.IsNullOrEmpty(estadoBusqueda.InicialHasta))
-            {
-               // TODO : Do a for loop and go through all the rows in the internal data filtering by those criteria.
-               // Create a new ListaEntidades with the ones that pass the filter.
-               // Repeat approach for date entered.
-            }
         }
 
         private void cargaMiniReport(ListaEntidades listaClientes)

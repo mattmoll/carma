@@ -199,8 +199,18 @@ namespace Carm.Bll
                 l_strWhere += AppRuts.MakeWhere(ECliente.Telefono1Cmp, p_bsBusqueda.Telefono, StringModes.FullLike);
                 l_strWhere += AppRuts.MakeWhere(ECliente.NroavalonCmp, p_bsBusqueda.NumeroAvalon, StringModes.Equal);
                 l_strWhere += AppRuts.MakeWhere(ECliente.TipoclienteCmp, p_bsBusqueda.TipoCliente, StringModes.Equal);
+                l_strWhere += " ( ";
+                l_strWhere += AppRuts.MakeWhere($"upper(substring({ECliente.RsocialCmp}, 1, 1))", p_bsBusqueda.InicialDesde, StringModes.GreaterEq);
+                l_strWhere += AppRuts.MakeWhere($"upper(substring({ECliente.RsocialCmp}, 1, 1))", p_bsBusqueda.InicialHasta, StringModes.Less);
+                l_strWhere = AppRuts.RemoveRAnd(l_strWhere);
+                l_strWhere += " or ";
+                l_strWhere += AppRuts.MakeWhere($"upper(substring({ECliente.ApellidoCmp}, 1,1))", p_bsBusqueda.InicialDesde, StringModes.GreaterEq);
+                l_strWhere += AppRuts.MakeWhere($"upper(substring({ECliente.ApellidoCmp}, 1,1))", p_bsBusqueda.InicialHasta, StringModes.Less);
+                l_strWhere = AppRuts.RemoveRAnd(l_strWhere);
+                l_strWhere += " ) and ";
                 l_strWhere += AppRuts.MakeWhere(ECliente.FechaingresoCmp, p_bsBusqueda.FechaCargaDesde, DateModes.GreaterEq, DateData.Date);
                 l_strWhere += AppRuts.MakeWhere(ECliente.FechaingresoCmp, p_bsBusqueda.FechaCargaHasta, DateModes.LessEq, DateData.Date);
+                
 
                 // Armamos los where de campos que validan Ambos-Si-No con el metodo generico
                 makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Vendido, ECliente.AltaCmp, "N", ref l_strWhere);

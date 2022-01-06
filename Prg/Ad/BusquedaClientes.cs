@@ -80,7 +80,6 @@ namespace Carm.Ad
             // Obtenemos las condiciones especificadas por el usuario.
             cargarDatosDePantallaAModelo();
 
-
             //Si todos los campos están vacios, tirar mensaje de error y cancelar búsqueda
             if (m_bsBusqueda.busquedaVacia())
             {
