@@ -61,7 +61,6 @@ namespace Carm.Tg
             Bel.LEClientes l_leClientes = (Bel.LEClientes)p_leListaEntidades;
 
             // Ponemos los valores fijos
-            l_eCliente.Codtinst = " 1";
             l_eCliente.Alta = "S";
 
             l_eCliente.Codmarca = CodMarca;

@@ -87,6 +87,7 @@ namespace Carm.Ad
             this.fullLabel4 = new TNGS.NetControls.FullLabel();
             this.teCelular = new TNGS.NetControls.TextEdit();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.rbImportado = new System.Windows.Forms.RadioButton();
             this.rbAreasProtegidas = new System.Windows.Forms.RadioButton();
             this.rbSociosDirectos = new System.Windows.Forms.RadioButton();
             this.fullLabel6 = new TNGS.NetControls.FullLabel();
@@ -138,7 +139,8 @@ namespace Carm.Ad
             this.titulo = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.rbImportado = new System.Windows.Forms.RadioButton();
+            this.fullLabel16 = new TNGS.NetControls.FullLabel();
+            this.teUsuarioCargador = new TNGS.NetControls.TextEdit();
             this.xPanel1.SuspendLayout();
             this.ftDetalleCliente.SuspendLayout();
             this.tabCliente.SuspendLayout();
@@ -214,6 +216,8 @@ namespace Carm.Ad
             // 
             this.xPanel2.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel2.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel2.Controls.Add(this.fullLabel16);
+            this.xPanel2.Controls.Add(this.teUsuarioCargador);
             this.xPanel2.Controls.Add(this.gbGrabar);
             this.xPanel2.Controls.Add(this.gbCancelar);
             this.xPanel2.Controls.Add(this.label6);
@@ -313,10 +317,10 @@ namespace Carm.Ad
             // teAnotaciones
             // 
             this.teAnotaciones.BackColor = System.Drawing.SystemColors.Window;
-            this.teAnotaciones.Location = new System.Drawing.Point(219, 533);
+            this.teAnotaciones.Location = new System.Drawing.Point(182, 533);
             this.teAnotaciones.Multiline = true;
             this.teAnotaciones.Name = "teAnotaciones";
-            this.teAnotaciones.Size = new System.Drawing.Size(544, 47);
+            this.teAnotaciones.Size = new System.Drawing.Size(468, 47);
             this.teAnotaciones.TabIndex = 12;
             // 
             // cdcRubro
@@ -336,7 +340,7 @@ namespace Carm.Ad
             this.lblAnotaciones.BackColor = System.Drawing.Color.Transparent;
             this.lblAnotaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnotaciones.ForeColor = System.Drawing.Color.Black;
-            this.lblAnotaciones.Location = new System.Drawing.Point(216, 512);
+            this.lblAnotaciones.Location = new System.Drawing.Point(179, 512);
             this.lblAnotaciones.Name = "lblAnotaciones";
             this.lblAnotaciones.Size = new System.Drawing.Size(117, 18);
             this.lblAnotaciones.TabIndex = 13;
@@ -890,6 +894,17 @@ namespace Carm.Ad
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(345, 26);
             this.panel3.TabIndex = 126;
+            // 
+            // rbImportado
+            // 
+            this.rbImportado.AutoSize = true;
+            this.rbImportado.BackColor = System.Drawing.Color.Transparent;
+            this.rbImportado.Location = new System.Drawing.Point(229, 2);
+            this.rbImportado.Name = "rbImportado";
+            this.rbImportado.Size = new System.Drawing.Size(113, 19);
+            this.rbImportado.TabIndex = 2;
+            this.rbImportado.Text = "Importado Excel";
+            this.rbImportado.UseVisualStyleBackColor = false;
             // 
             // rbAreasProtegidas
             // 
@@ -1629,16 +1644,26 @@ namespace Carm.Ad
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // rbImportado
+            // fullLabel16
             // 
-            this.rbImportado.AutoSize = true;
-            this.rbImportado.BackColor = System.Drawing.Color.Transparent;
-            this.rbImportado.Location = new System.Drawing.Point(229, 2);
-            this.rbImportado.Name = "rbImportado";
-            this.rbImportado.Size = new System.Drawing.Size(113, 19);
-            this.rbImportado.TabIndex = 2;
-            this.rbImportado.Text = "Importado Excel";
-            this.rbImportado.UseVisualStyleBackColor = false;
+            this.fullLabel16.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel16.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel16.Location = new System.Drawing.Point(667, 512);
+            this.fullLabel16.Name = "fullLabel16";
+            this.fullLabel16.Size = new System.Drawing.Size(128, 18);
+            this.fullLabel16.TabIndex = 149;
+            this.fullLabel16.Text = "Usuario Cargador:";
+            // 
+            // teUsuarioCargador
+            // 
+            this.teUsuarioCargador.BackColor = System.Drawing.SystemColors.Window;
+            this.teUsuarioCargador.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teUsuarioCargador.Enabled = false;
+            this.teUsuarioCargador.Location = new System.Drawing.Point(670, 533);
+            this.teUsuarioCargador.Name = "teUsuarioCargador";
+            this.teUsuarioCargador.Size = new System.Drawing.Size(153, 21);
+            this.teUsuarioCargador.TabIndex = 148;
             // 
             // CargaCliente
             // 
@@ -1797,5 +1822,7 @@ namespace Carm.Ad
         private TNGS.NetControls.GlassButton gbAgregarFamiliar;
         private TNGS.NetControls.MiniReport mrGrupoFamiliar;
         private System.Windows.Forms.RadioButton rbImportado;
+        private TNGS.NetControls.FullLabel fullLabel16;
+        private TNGS.NetControls.TextEdit teUsuarioCargador;
     }
 }

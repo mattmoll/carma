@@ -60,6 +60,7 @@ namespace Carm.Ad
             {
                 ftDetalleCliente.hidePages(new List<TabPage>() { tabContactos, tabEntrev, tabLlamadas, tabNotas, tabServicios, tabGrupoFamiliar });
                 rbSociosDirectos.Checked = true;
+                teUsuarioCargador.Text = App.Usuario.Usuario;
             } 
             else
             {
@@ -157,10 +158,13 @@ namespace Carm.Ad
             cliente.Observacion = teAnotaciones.Text;
 
             // Datos base de alta
-            cliente.Alta = "N";
-            cliente.Fechaingreso = DateTime.Now;
-            cliente.Cargador = App.Usuario.Usuario;
-            cliente.Numero = App.TaloGet("nroCliente", statMessage).Valor;
+            if(cliente.EsNueva)
+            {
+                cliente.Alta = "N";
+                cliente.Fechaingreso = DateTime.Now;
+                cliente.Cargador = App.Usuario.Usuario;
+                cliente.Numero = App.TaloGet("nroCliente", statMessage).Valor;
+            }
         }
 
         private string getTipoCliente()
@@ -177,7 +181,7 @@ namespace Carm.Ad
             
             rbImportado.Enabled = false;
             // Si es importado habilitamos el cambio a areas o socio.
-            rbAreasProtegidas.Checked = rbSociosDirectos.Enabled = rbImportado.Checked;
+            rbAreasProtegidas.Enabled = rbSociosDirectos.Enabled = rbImportado.Checked;
 
             cdcMarca.SelectedStrCode = cliente.Codmarca;
             cdcSitIva.SelectedStrCode = cliente.Situacioniva;
@@ -197,6 +201,7 @@ namespace Carm.Ad
             deFechaNacimiento.Fecha = cliente.Fechanacimiento;
             cdcSexo.SelectedStrCode = cliente.Sexo;
             teTarjetaCredito.Text = cliente.Tarjetacred;
+            teUsuarioCargador.Text = cliente.Cargador;
 
             teAnotaciones.Text = cliente.Observacion;
 

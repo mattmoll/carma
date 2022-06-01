@@ -823,9 +823,9 @@ namespace Carm.Bel
 
         public bool esCargaExcel { get { return m_bEsCargaExcel; } set { m_bEsCargaExcel = value; } }
 
-        public bool EsAreaProtegida { get { return this.Tipocliente == ECliente.CodigoAreasProtegidas; } }
-        public bool EsSocioDirecto { get { return this.Tipocliente == ECliente.CodigoSociosDirectos; } }
-        public bool EsImportado { get { return this.Tipocliente == ECliente.CodigoImportados; } }
+        public bool EsAreaProtegida { get { return this.Tipocliente.Trim().Equals(ECliente.CodigoAreasProtegidas); } }
+        public bool EsSocioDirecto { get { return this.Tipocliente.Trim().Equals(ECliente.CodigoSociosDirectos); } }
+        public bool EsImportado { get { return this.Tipocliente.Trim().Equals(ECliente.CodigoImportados); } }
     }
     #endregion
 
