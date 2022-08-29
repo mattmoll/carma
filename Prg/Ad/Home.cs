@@ -86,7 +86,8 @@ namespace Carm.Ad
 
         private void gbVenta_Click(object sender, EventArgs e)
         {
-
+            Testing testing = new Testing();
+            testing.ShowDialog(this);
         }
 
         private void gbBorrarCliente_Click(object sender, EventArgs e)
@@ -138,11 +139,9 @@ namespace Carm.Ad
         private void cmdExcel_Click(object sender, EventArgs e)
         {
             App.ShowMsg("Generando planilla...");
-            App.InitAdvance("Excel");
 
             mrClientes.ExportToExcel();
 
-            App.EndAdvance();
             App.HideMsg();
         }
 

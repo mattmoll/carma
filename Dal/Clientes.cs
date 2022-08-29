@@ -10,12 +10,12 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 19/07/2021 08:58
+    // Fecha                    : 28/08/2022 21:33
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     // Basada en la Tabla       : Clientes
     //----------------------------------------------------------------------------
-    // © 1996-2021 by TNG Software                                      Gndr 5.20
+    // © 1996-2022 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -185,6 +185,7 @@ namespace Carm.Dal
         /// <param name="p_strCodrubro">Rubro</param>
         /// <param name="p_dtFecultimocontacto">Fecha Último Contacto</param>
         /// <param name="p_dtFechaproxcontacto">Fecha Próximo Contacto</param>
+        /// <param name="p_strRellamar">Volver a Llamar</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Insert(DBConn p_dbcAccess,
                                  int p_iNumero,
@@ -233,6 +234,7 @@ namespace Carm.Dal
                                  string p_strCodrubro,
                                  DateTime p_dtFecultimocontacto,
                                  DateTime p_dtFechaproxcontacto,
+                                 string p_strRellamar,
                                  StatMsg p_smResult)
         {
             try {
@@ -286,6 +288,7 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@cli_rcd_codrubro", p_strCodrubro),
                                        p_dbcAccess.MakeParamF("@cli_fec_fecultimocontacto", p_dtFecultimocontacto),
                                        p_dbcAccess.MakeParamF("@cli_fec_fechaproxcontacto", p_dtFechaproxcontacto),
+                                       p_dbcAccess.MakeParam("@cli_cd1_rellamar", p_strRellamar),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -347,6 +350,7 @@ namespace Carm.Dal
         /// <param name="p_strCodrubro">Rubro</param>
         /// <param name="p_dtFecultimocontacto">Fecha Último Contacto</param>
         /// <param name="p_dtFechaproxcontacto">Fecha Próximo Contacto</param>
+        /// <param name="p_strRellamar">Volver a Llamar</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Update(DBConn p_dbcAccess,
                                  int p_iNumero,
@@ -395,6 +399,7 @@ namespace Carm.Dal
                                  string p_strCodrubro,
                                  DateTime p_dtFecultimocontacto,
                                  DateTime p_dtFechaproxcontacto,
+                                 string p_strRellamar,
                                  StatMsg p_smResult)
         {
             try {
@@ -448,6 +453,7 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@cli_rcd_codrubro", p_strCodrubro),
                                        p_dbcAccess.MakeParamF("@cli_fec_fecultimocontacto", p_dtFecultimocontacto),
                                        p_dbcAccess.MakeParamF("@cli_fec_fechaproxcontacto", p_dtFechaproxcontacto),
+                                       p_dbcAccess.MakeParam("@cli_cd1_rellamar", p_strRellamar),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -1118,6 +1124,7 @@ namespace Carm.Dal
                 p_dtResult.Columns["cli_cod_codtinst"].Caption= "V1Tipo de InstitucionCN1";
                 p_dtResult.Columns["cli_cd6_codvend"].Caption= "V1Código de vendedorCN1";
                 p_dtResult.Columns["cli_des_nombrefant"].Caption= "V1Nombre de fantasíaCN1";
+                p_dtResult.Columns["cli_cd1_rellamar"].Caption= "V1Volver a LlamarCN1";
                 p_dtResult.Columns["cli_ede_rsocial"].Caption= "V1Razón socialCN1";
                 p_dtResult.Columns["deleted"].Caption= "V1Borrado2N2";
             }

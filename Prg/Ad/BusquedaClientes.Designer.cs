@@ -31,6 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BusquedaClientes));
             this.xPanel1 = new TNGS.NetControls.XPanel();
+            this.deFechaProxContactoHasta = new TNGS.NetControls.DateEdit();
+            this.deFechaProxContactoDesde = new TNGS.NetControls.DateEdit();
+            this.fullLabel21 = new TNGS.NetControls.FullLabel();
+            this.fullLabel22 = new TNGS.NetControls.FullLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbRellamarSi = new System.Windows.Forms.RadioButton();
+            this.rbRellamarAmbos = new System.Windows.Forms.RadioButton();
+            this.rbRellamarNo = new System.Windows.Forms.RadioButton();
+            this.fullLabel20 = new TNGS.NetControls.FullLabel();
+            this.teInicialHasta = new System.Windows.Forms.TextBox();
+            this.teInicialDesde = new System.Windows.Forms.TextBox();
+            this.fullLabel9 = new TNGS.NetControls.FullLabel();
+            this.deFechaCargaHasta = new TNGS.NetControls.DateEdit();
+            this.deFechaCargaDesde = new TNGS.NetControls.DateEdit();
             this.label6 = new System.Windows.Forms.Label();
             this.cdcTipoCliente = new TNGS.NetControls.CDCombo();
             this.fullLabel5 = new TNGS.NetControls.FullLabel();
@@ -71,14 +85,10 @@
             this.fullLabel3 = new TNGS.NetControls.FullLabel();
             this.fullLabel1 = new TNGS.NetControls.FullLabel();
             this.fullLabel2 = new TNGS.NetControls.FullLabel();
-            this.deFechaCargaDesde = new TNGS.NetControls.DateEdit();
-            this.deFechaCargaHasta = new TNGS.NetControls.DateEdit();
             this.fullLabel6 = new TNGS.NetControls.FullLabel();
-            this.fullLabel9 = new TNGS.NetControls.FullLabel();
-            this.teInicialDesde = new System.Windows.Forms.TextBox();
-            this.teInicialHasta = new System.Windows.Forms.TextBox();
             this.fullLabel16 = new TNGS.NetControls.FullLabel();
             this.xPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +99,12 @@
             this.xPanel1.BackColor1 = System.Drawing.Color.White;
             this.xPanel1.BackColor2 = System.Drawing.Color.White;
             this.xPanel1.BorderColor = System.Drawing.Color.Black;
+            this.xPanel1.Controls.Add(this.deFechaProxContactoHasta);
+            this.xPanel1.Controls.Add(this.deFechaProxContactoDesde);
+            this.xPanel1.Controls.Add(this.fullLabel21);
+            this.xPanel1.Controls.Add(this.fullLabel22);
+            this.xPanel1.Controls.Add(this.panel1);
+            this.xPanel1.Controls.Add(this.fullLabel20);
             this.xPanel1.Controls.Add(this.teInicialHasta);
             this.xPanel1.Controls.Add(this.teInicialDesde);
             this.xPanel1.Controls.Add(this.fullLabel9);
@@ -136,7 +152,149 @@
             this.xPanel1.Name = "xPanel1";
             this.xPanel1.Size = new System.Drawing.Size(648, 584);
             this.xPanel1.TabIndex = 0;
-            this.xPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.xPanel1_Paint);
+            // 
+            // deFechaProxContactoHasta
+            // 
+            this.deFechaProxContactoHasta.BackColor = System.Drawing.SystemColors.Window;
+            this.deFechaProxContactoHasta.Location = new System.Drawing.Point(553, 448);
+            this.deFechaProxContactoHasta.Name = "deFechaProxContactoHasta";
+            this.deFechaProxContactoHasta.Size = new System.Drawing.Size(78, 20);
+            this.deFechaProxContactoHasta.TabIndex = 161;
+            this.deFechaProxContactoHasta.Text = "01/01/1900";
+            // 
+            // deFechaProxContactoDesde
+            // 
+            this.deFechaProxContactoDesde.BackColor = System.Drawing.SystemColors.Window;
+            this.deFechaProxContactoDesde.Location = new System.Drawing.Point(434, 449);
+            this.deFechaProxContactoDesde.Name = "deFechaProxContactoDesde";
+            this.deFechaProxContactoDesde.Size = new System.Drawing.Size(69, 20);
+            this.deFechaProxContactoDesde.TabIndex = 159;
+            this.deFechaProxContactoDesde.Text = "01/01/1900";
+            // 
+            // fullLabel21
+            // 
+            this.fullLabel21.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel21.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel21.Location = new System.Drawing.Point(337, 449);
+            this.fullLabel21.Name = "fullLabel21";
+            this.fullLabel21.Size = new System.Drawing.Size(91, 38);
+            this.fullLabel21.TabIndex = 160;
+            this.fullLabel21.Text = "Fecha Prox Contacto:";
+            // 
+            // fullLabel22
+            // 
+            this.fullLabel22.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel22.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel22.Location = new System.Drawing.Point(509, 450);
+            this.fullLabel22.Name = "fullLabel22";
+            this.fullLabel22.Size = new System.Drawing.Size(49, 19);
+            this.fullLabel22.TabIndex = 162;
+            this.fullLabel22.Text = "hasta";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.rbRellamarSi);
+            this.panel1.Controls.Add(this.rbRellamarAmbos);
+            this.panel1.Controls.Add(this.rbRellamarNo);
+            this.panel1.Location = new System.Drawing.Point(123, 449);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(181, 21);
+            this.panel1.TabIndex = 157;
+            // 
+            // rbRellamarSi
+            // 
+            this.rbRellamarSi.AutoSize = true;
+            this.rbRellamarSi.BackColor = System.Drawing.Color.Transparent;
+            this.rbRellamarSi.Location = new System.Drawing.Point(3, 3);
+            this.rbRellamarSi.Name = "rbRellamarSi";
+            this.rbRellamarSi.Size = new System.Drawing.Size(34, 17);
+            this.rbRellamarSi.TabIndex = 0;
+            this.rbRellamarSi.Text = "Si";
+            this.rbRellamarSi.UseVisualStyleBackColor = false;
+            this.rbRellamarSi.CheckedChanged += new System.EventHandler(this.rbRellamar_CheckedChanged);
+            // 
+            // rbRellamarAmbos
+            // 
+            this.rbRellamarAmbos.AutoSize = true;
+            this.rbRellamarAmbos.BackColor = System.Drawing.Color.Transparent;
+            this.rbRellamarAmbos.Checked = true;
+            this.rbRellamarAmbos.Location = new System.Drawing.Point(113, 3);
+            this.rbRellamarAmbos.Name = "rbRellamarAmbos";
+            this.rbRellamarAmbos.Size = new System.Drawing.Size(57, 17);
+            this.rbRellamarAmbos.TabIndex = 2;
+            this.rbRellamarAmbos.TabStop = true;
+            this.rbRellamarAmbos.Text = "Ambos";
+            this.rbRellamarAmbos.UseVisualStyleBackColor = false;
+            this.rbRellamarAmbos.CheckedChanged += new System.EventHandler(this.rbRellamar_CheckedChanged);
+            // 
+            // rbRellamarNo
+            // 
+            this.rbRellamarNo.AutoSize = true;
+            this.rbRellamarNo.BackColor = System.Drawing.Color.Transparent;
+            this.rbRellamarNo.Location = new System.Drawing.Point(55, 3);
+            this.rbRellamarNo.Name = "rbRellamarNo";
+            this.rbRellamarNo.Size = new System.Drawing.Size(39, 17);
+            this.rbRellamarNo.TabIndex = 1;
+            this.rbRellamarNo.Text = "No";
+            this.rbRellamarNo.UseVisualStyleBackColor = false;
+            this.rbRellamarNo.CheckedChanged += new System.EventHandler(this.rbRellamar_CheckedChanged);
+            // 
+            // fullLabel20
+            // 
+            this.fullLabel20.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel20.Location = new System.Drawing.Point(58, 454);
+            this.fullLabel20.Name = "fullLabel20";
+            this.fullLabel20.Size = new System.Drawing.Size(61, 16);
+            this.fullLabel20.TabIndex = 158;
+            this.fullLabel20.Text = "Rellamar:";
+            // 
+            // teInicialHasta
+            // 
+            this.teInicialHasta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teInicialHasta.Location = new System.Drawing.Point(237, 404);
+            this.teInicialHasta.MaxLength = 1;
+            this.teInicialHasta.Name = "teInicialHasta";
+            this.teInicialHasta.Size = new System.Drawing.Size(34, 20);
+            this.teInicialHasta.TabIndex = 155;
+            // 
+            // teInicialDesde
+            // 
+            this.teInicialDesde.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teInicialDesde.Location = new System.Drawing.Point(154, 404);
+            this.teInicialDesde.MaxLength = 1;
+            this.teInicialDesde.Name = "teInicialDesde";
+            this.teInicialDesde.Size = new System.Drawing.Size(34, 20);
+            this.teInicialDesde.TabIndex = 154;
+            // 
+            // fullLabel9
+            // 
+            this.fullLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel9.Location = new System.Drawing.Point(20, 407);
+            this.fullLabel9.Name = "fullLabel9";
+            this.fullLabel9.Size = new System.Drawing.Size(154, 20);
+            this.fullLabel9.TabIndex = 153;
+            this.fullLabel9.Text = "Inicial R Social o Apellido:";
+            // 
+            // deFechaCargaHasta
+            // 
+            this.deFechaCargaHasta.BackColor = System.Drawing.SystemColors.Window;
+            this.deFechaCargaHasta.Location = new System.Drawing.Point(553, 404);
+            this.deFechaCargaHasta.Name = "deFechaCargaHasta";
+            this.deFechaCargaHasta.Size = new System.Drawing.Size(78, 20);
+            this.deFechaCargaHasta.TabIndex = 151;
+            this.deFechaCargaHasta.Text = "01/01/1900";
+            // 
+            // deFechaCargaDesde
+            // 
+            this.deFechaCargaDesde.BackColor = System.Drawing.SystemColors.Window;
+            this.deFechaCargaDesde.Location = new System.Drawing.Point(434, 405);
+            this.deFechaCargaDesde.Name = "deFechaCargaDesde";
+            this.deFechaCargaDesde.Size = new System.Drawing.Size(69, 20);
+            this.deFechaCargaDesde.TabIndex = 149;
+            this.deFechaCargaDesde.Text = "01/01/1900";
             // 
             // label6
             // 
@@ -561,24 +719,6 @@
             this.fullLabel2.TabIndex = 150;
             this.fullLabel2.Text = "Fecha Carga:";
             // 
-            // deFechaCargaDesde
-            // 
-            this.deFechaCargaDesde.BackColor = System.Drawing.SystemColors.Window;
-            this.deFechaCargaDesde.Location = new System.Drawing.Point(434, 405);
-            this.deFechaCargaDesde.Name = "deFechaCargaDesde";
-            this.deFechaCargaDesde.Size = new System.Drawing.Size(69, 20);
-            this.deFechaCargaDesde.TabIndex = 149;
-            this.deFechaCargaDesde.Text = "01/01/1900";
-            // 
-            // deFechaCargaHasta
-            // 
-            this.deFechaCargaHasta.BackColor = System.Drawing.SystemColors.Window;
-            this.deFechaCargaHasta.Location = new System.Drawing.Point(553, 404);
-            this.deFechaCargaHasta.Name = "deFechaCargaHasta";
-            this.deFechaCargaHasta.Size = new System.Drawing.Size(78, 20);
-            this.deFechaCargaHasta.TabIndex = 151;
-            this.deFechaCargaHasta.Text = "01/01/1900";
-            // 
             // fullLabel6
             // 
             this.fullLabel6.BackColor = System.Drawing.Color.Transparent;
@@ -589,33 +729,6 @@
             this.fullLabel6.Size = new System.Drawing.Size(49, 19);
             this.fullLabel6.TabIndex = 152;
             this.fullLabel6.Text = "hasta";
-            // 
-            // fullLabel9
-            // 
-            this.fullLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel9.Location = new System.Drawing.Point(20, 407);
-            this.fullLabel9.Name = "fullLabel9";
-            this.fullLabel9.Size = new System.Drawing.Size(154, 20);
-            this.fullLabel9.TabIndex = 153;
-            this.fullLabel9.Text = "Inicial R Social o Apellido:";
-            // 
-            // teInicialDesde
-            // 
-            this.teInicialDesde.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teInicialDesde.Location = new System.Drawing.Point(154, 404);
-            this.teInicialDesde.MaxLength = 1;
-            this.teInicialDesde.Name = "teInicialDesde";
-            this.teInicialDesde.Size = new System.Drawing.Size(34, 20);
-            this.teInicialDesde.TabIndex = 154;
-            // 
-            // teInicialHasta
-            // 
-            this.teInicialHasta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teInicialHasta.Location = new System.Drawing.Point(237, 404);
-            this.teInicialHasta.MaxLength = 1;
-            this.teInicialHasta.Name = "teInicialHasta";
-            this.teInicialHasta.Size = new System.Drawing.Size(34, 20);
-            this.teInicialHasta.TabIndex = 155;
             // 
             // fullLabel16
             // 
@@ -644,6 +757,8 @@
             this.Load += new System.EventHandler(this.BusquedaClientesSecretaria_Load);
             this.xPanel1.ResumeLayout(false);
             this.xPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -702,5 +817,14 @@
         private System.Windows.Forms.TextBox teInicialDesde;
         private TNGS.NetControls.FullLabel fullLabel9;
         private TNGS.NetControls.FullLabel fullLabel16;
+        private TNGS.NetControls.DateEdit deFechaProxContactoHasta;
+        private TNGS.NetControls.DateEdit deFechaProxContactoDesde;
+        private TNGS.NetControls.FullLabel fullLabel21;
+        private TNGS.NetControls.FullLabel fullLabel22;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rbRellamarSi;
+        private System.Windows.Forms.RadioButton rbRellamarAmbos;
+        private System.Windows.Forms.RadioButton rbRellamarNo;
+        private TNGS.NetControls.FullLabel fullLabel20;
     }
 }

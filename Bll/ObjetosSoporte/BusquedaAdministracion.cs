@@ -1,6 +1,5 @@
-﻿using TNGS.NetRoutines;
-using TNGS.NetAppBll;
-using System;
+﻿using System;
+using TNGS.NetRoutines;
 
 namespace Carm.Bll
 {
@@ -33,6 +32,9 @@ namespace Carm.Bll
         public string InicialHasta { get; set; }
         public DateTime FechaCargaDesde { get; set; }
         public DateTime FechaCargaHasta { get; set; }
+        public string Rellamar { get; set; }
+        public DateTime FechaProxContactoDesde { get; set; }
+        public DateTime FechaProxContactoHasta { get; set; }
 
         public bool aplicarPermisos = true;
 
@@ -52,8 +54,9 @@ namespace Carm.Bll
                     && (m_strZona == "") && (m_strLoc == "") && (Dir == "") && (Altura == "") && (Telefono == "")
                     && (Marca == "") && (InicialDesde == "") && (InicialHasta == "")
                     && ((Reservado == "") || (Reservado == "A"))
-                    && ((Vendido == "") || (Vendido == "A")) && ((TipoCliente == "") || (TipoCliente == "A"))
+                    && ((Vendido == "") || (Vendido == "A")) && ((Rellamar == "") || (Rellamar == "A")) && ((TipoCliente == "") || (TipoCliente == "A"))
                     && ((FechaCargaDesde == DateTimeRuts.Empty) && (FechaCargaHasta == DateTimeRuts.Empty))
+                    && ((FechaProxContactoDesde == DateTimeRuts.Empty) && (FechaProxContactoHasta == DateTimeRuts.Empty))
                     && ((MailCargado == "") || (MailCargado == "A")));
         }
 
@@ -62,8 +65,8 @@ namespace Carm.Bll
             // Asignamos string vacia a todos los filtros de la busqueda.
             Numero = NumeroAvalon = Rsocial = NFant = Nombre = Apellido = CodVend = Cargador = "";
             Rubro = TInst = Marca = Telefono = Zona = Loc = Dir = Altura = InicialDesde = InicialHasta = "";
-            Reservado  = Vendido = TipoCliente = MailCargado = "A";
-            FechaCargaDesde = FechaCargaHasta = DateTimeRuts.Empty;
+            Rellamar = Reservado  = Vendido = TipoCliente = MailCargado = "A";
+            FechaProxContactoDesde = FechaProxContactoHasta = FechaCargaDesde = FechaCargaHasta = DateTimeRuts.Empty;
         }
 
         public string Numero

@@ -1,11 +1,11 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 19/07/2021 08:58
+// Fecha       : 28/08/2022 21:45
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
-// © 1999-2021 by TNG Software                                      Gndr 5.20
+// © 1999-2022 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -105,6 +105,7 @@ begin
                 cli_rcd_codrubro,
                 cli_fec_fecultimocontacto,
                 cli_fec_fechaproxcontacto,
+                cli_cd1_rellamar,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -174,6 +175,7 @@ begin
                 cli_rcd_codrubro,
                 cli_fec_fecultimocontacto,
                 cli_fec_fechaproxcontacto,
+                cli_cd1_rellamar,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -332,6 +334,7 @@ begin
                 cli_rcd_codrubro,
                 cli_fec_fecultimocontacto,
                 cli_fec_fechaproxcontacto,
+                cli_cd1_rellamar,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -401,6 +404,7 @@ begin
                 cli_rcd_codrubro,
                 cli_fec_fecultimocontacto,
                 cli_fec_fechaproxcontacto,
+                cli_cd1_rellamar,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -478,6 +482,7 @@ go
 --- <param name="@cli_rcd_codrubro">Rubro</param>
 --- <param name="@cli_fec_fecultimocontacto">Fecha Último Contacto</param>
 --- <param name="@cli_fec_fechaproxcontacto">Fecha Próximo Contacto</param>
+--- <param name="@cli_cd1_rellamar">Volver a Llamar</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -542,6 +547,7 @@ create procedure dbo.CLIENTES_INSERT
 @cli_rcd_codrubro tngs_codigo_r,
 @cli_fec_fecultimocontacto tngs_fecha,
 @cli_fec_fechaproxcontacto tngs_fecha,
+@cli_cd1_rellamar tngs_codigo_1,
 @usuario tngs_nombre
 )
 as
@@ -595,6 +601,7 @@ begin
            @cli_rcd_codrubro,
            @cli_fec_fecultimocontacto,
            @cli_fec_fechaproxcontacto,
+           @cli_cd1_rellamar,
            getdate(), 0, @usuario, 1
           )
 
@@ -661,6 +668,7 @@ go
 --- <param name="@cli_rcd_codrubro">Rubro</param>
 --- <param name="@cli_fec_fecultimocontacto">Fecha Último Contacto</param>
 --- <param name="@cli_fec_fechaproxcontacto">Fecha Próximo Contacto</param>
+--- <param name="@cli_cd1_rellamar">Volver a Llamar</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -725,6 +733,7 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_rcd_codrubro tngs_codigo_r,
 @cli_fec_fecultimocontacto tngs_fecha,
 @cli_fec_fechaproxcontacto tngs_fecha,
+@cli_cd1_rellamar tngs_codigo_1,
 @usuario tngs_nombre
 )
 as
@@ -776,6 +785,7 @@ begin
           cli_rcd_codrubro= @cli_rcd_codrubro,
           cli_fec_fecultimocontacto= @cli_fec_fecultimocontacto,
           cli_fec_fechaproxcontacto= @cli_fec_fechaproxcontacto,
+          cli_cd1_rellamar= @cli_cd1_rellamar,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario

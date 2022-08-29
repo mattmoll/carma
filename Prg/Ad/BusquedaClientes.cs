@@ -67,9 +67,12 @@ namespace Carm.Ad
             teInicialHasta.Text = m_bsBusqueda.InicialHasta;
             deFechaCargaDesde.Fecha = m_bsBusqueda.FechaCargaDesde;
             deFechaCargaHasta.Fecha = m_bsBusqueda.FechaCargaHasta;
+            deFechaProxContactoDesde.Fecha = m_bsBusqueda.FechaProxContactoDesde;
+            deFechaProxContactoHasta.Fecha = m_bsBusqueda.FechaProxContactoHasta;
 
             // Chequeamos los radiobuttons correspondientes a cada filtro.
             checkRadioButton(m_bsBusqueda.Vendido, rbVndSi, rbVndNo, rbVndAmbos);
+            checkRadioButton(m_bsBusqueda.Rellamar, rbRellamarSi, rbRellamarNo, rbRellamarAmbos);
 
             App.HideMsg();
         }
@@ -117,6 +120,8 @@ namespace Carm.Ad
             m_bsBusqueda.InicialHasta = teInicialHasta.Text.Trim();
             m_bsBusqueda.FechaCargaDesde = deFechaCargaDesde.Fecha;
             m_bsBusqueda.FechaCargaHasta = deFechaCargaHasta.Fecha;
+            m_bsBusqueda.FechaProxContactoDesde = deFechaProxContactoDesde.Fecha;
+            m_bsBusqueda.FechaProxContactoHasta = deFechaProxContactoHasta.Fecha;
         }
 
         // Evento que captura el presionado de una tecla en todos los campos y dispara la busqueda si corresponde.
@@ -200,9 +205,9 @@ namespace Carm.Ad
             get { return m_bsBusqueda; }
         }
 
-        private void xPanel1_Paint(object sender, PaintEventArgs e)
+        private void rbRellamar_CheckedChanged(object sender, EventArgs e)
         {
-
+            m_bsBusqueda.Rellamar = cargaValorRadioButton(rbRellamarSi, rbRellamarNo, rbRellamarAmbos);
         }
     }
 }

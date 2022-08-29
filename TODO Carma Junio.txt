@@ -1,0 +1,18 @@
+potencial cliente -> llamado -> marcas para rellamar.
+
+Ahora el potencial cliente figura en la busqueda como rellamado.
+
+ahora lo vuelven a llamar.
+Al grabar la llamada pueden volver a marcarlo como rellamar -> el cliente sigue quedando en la bsuqueda de rellamados.
+Pueden no tildar nada. -> el cliente deja de aparecer en las busquedas de rellamada porque ya se realiza la llamada.
+
+Agregar campos en cliente de ultima fecha trabajado (llamada) Y marca de rellamar.
+Ultima fecha trabajado se llena automaticamente al hacer una llamada. 
+Rellamar es un checkbox que se setea en la llamada. El valor de ese checkbox se copia al cliente y se actualiza.
+
+Ambos cmapos van en busqueda y en la grid.
+
+Remover de la grid el campo alta avalon.
+
+
+ALL DONE.

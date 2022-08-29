@@ -215,10 +215,14 @@ namespace Carm.Bll
                 
                 l_strWhere += AppRuts.MakeWhere(ECliente.FechaingresoCmp, p_bsBusqueda.FechaCargaDesde, DateModes.GreaterEq, DateData.Date);
                 l_strWhere += AppRuts.MakeWhere(ECliente.FechaingresoCmp, p_bsBusqueda.FechaCargaHasta, DateModes.LessEq, DateData.Date);
-                
+
+                l_strWhere += AppRuts.MakeWhere(ECliente.FechaproxcontactoCmp, p_bsBusqueda.FechaProxContactoDesde, DateModes.GreaterEq, DateData.Date);
+                l_strWhere += AppRuts.MakeWhere(ECliente.FechaproxcontactoCmp, p_bsBusqueda.FechaProxContactoHasta, DateModes.LessEq, DateData.Date);
+
 
                 // Armamos los where de campos que validan Ambos-Si-No con el metodo generico
                 makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Vendido, ECliente.AltaCmp, "N", ref l_strWhere);
+                makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Rellamar, ECliente.RellamarCmp, "N", ref l_strWhere);
 
                 l_strWhere = AppRuts.RemoveRAnd(l_strWhere);
 
@@ -2092,10 +2096,10 @@ namespace Carm.Bll
             l_leClientes.ChangeCaption(ECliente.NombreCmp, "V1NombreCN2");                      /*3*/
             l_leClientes.ChangeCaption(ECliente.ApellidoCmp, "V1ApellidoCN2");                  /*4*/
             l_leClientes.ChangeCaption(ECliente.Telefono1Cmp, "V1TeléfonoCN2");                 /*5*/
-            l_leClientes.ChangeCaption(ECliente.AltaCmp, "V1Alta en AvalonCN2");                /*6*/
+            //l_leClientes.ChangeCaption(ECliente.AltaCmp, "V1Alta en AvalonCN2");                /*6*/
             l_leClientes.ChangeCaption("cli_ede_loc", "V1LocalidadCN2");                        /*7*/
             l_leClientes.ChangeCaption(ECliente.CodvendCmp, "V1Cod. Vend.CN2");                 /*8*/
-            l_leClientes.ChangeCaption(ECliente.NroavalonCmp, "V1Nro. AvalonNN2");              /*9*/
+            //l_leClientes.ChangeCaption(ECliente.NroavalonCmp, "V1Nro. AvalonNN2");              /*9*/
             l_leClientes.ChangeCaption(ECliente.EmailCmp, "V1EmailCN1");                        /*10*/
             l_leClientes.ChangeCaption(ECliente.CelularCmp, "V1CelularCN1");                    /*11*/
         }

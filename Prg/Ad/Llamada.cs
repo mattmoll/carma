@@ -210,9 +210,44 @@ namespace Carm.Ad
             //---Guardar entidad nueva
             Clientes.CllSave(l_ECliLlamada, m_smResult);
 
+            UpdateClienteConUltimoContactoYRellamada();
+
             if (MsgRuts.AnalizeError(this, m_smResult)) return null;
 
             return l_ECliLlamada;
+        }
+
+        private void UpdateClienteConUltimoContactoYRellamada()
+        {
+            var clienteToUpdate = Clientes.Get(m_intNumCliente, true, m_smResult);
+            if (clienteToUpdate != null)
+            {
+                var now = GetDateTimeNow();
+
+                clienteToUpdate.Fecultimocontacto = now;
+                
+                if(cbRellamar.Checked)
+                {
+                    clienteToUpdate.Rellamar = "S";
+                    clienteToUpdate.Fechaproxcontacto = dtRellamada.Value;
+                }
+                else
+                {
+                    clienteToUpdate.Rellamar = "N";
+                    clienteToUpdate.Fechaproxcontacto = DateTimeRuts.Empty;
+                }
+
+                Clientes.Save(clienteToUpdate, m_smResult);
+            }
+        }
+
+        private DateTime GetDateTimeNow()
+        {
+            var now = App.GetDBNow(false, m_smResult);
+            if (now == null)
+                now = DateTime.Now;
+
+            return now;
         }
 
         private ECliLlamada armaLlamada(string p_strEsBaja)
@@ -279,6 +314,11 @@ namespace Carm.Ad
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void cbRellamar_CheckedChanged(object sender, EventArgs e)
+        {
+            dtRellamada.Visible = cbRellamar.Checked;
         }
     }
 }

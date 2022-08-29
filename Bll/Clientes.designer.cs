@@ -16,11 +16,11 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 19/07/2021 08:58
+    // Fecha                    : 28/08/2022 21:33
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
-    // © 1996-2021 by TNG Software                                      Gndr 5.20
+    // © 1996-2022 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -8597,6 +8597,13 @@ namespace Carm.Bll
                 return;
             }
 
+            if ((p_entCliente.Rellamar != "S") &&
+                (p_entCliente.Rellamar != "N")) {
+                // El campo [Volver a Llamar] tiene opciones
+                p_smResult.BllWarning("El dato [Volver a Llamar] sólo admite\r\n\r\n[S]- SI\r\n[N]- NO\r\n","");
+                return;
+            }
+
             // ********
             // Validaciones de los campos con conexion
             // ********
@@ -8962,6 +8969,7 @@ namespace Carm.Bll
                                     p_entCliente.Codrubro,
                                     p_entCliente.Fecultimocontacto,
                                     p_entCliente.Fechaproxcontacto,
+                                    p_entCliente.Rellamar,
                                     p_smResult);
             }
             catch (Exception l_expData) {
@@ -9033,6 +9041,7 @@ namespace Carm.Bll
                                     p_entCliente.Codrubro,
                                     p_entCliente.Fecultimocontacto,
                                     p_entCliente.Fechaproxcontacto,
+                                    p_entCliente.Rellamar,
                                     p_smResult);
             }
             catch (Exception l_expData) {
