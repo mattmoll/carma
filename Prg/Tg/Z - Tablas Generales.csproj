@@ -216,6 +216,12 @@
     <Compile Include="Operativa\Franquicias.Designer.cs">
       <DependentUpon>Franquicias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Operativa\ListasDePrecios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operativa\ListasDePrecios.Designer.cs">
+      <DependentUpon>ListasDePrecios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operativa\Planes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Operativa\Franquicias.resx">
       <DependentUpon>Franquicias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operativa\ListasDePrecios.resx">
+      <DependentUpon>ListasDePrecios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operativa\Planes.resx">
       <DependentUpon>Planes.cs</DependentUpon>

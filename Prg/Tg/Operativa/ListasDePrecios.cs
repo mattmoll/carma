@@ -17,21 +17,21 @@ namespace Carm.Tg
     //----------------------------------------------------------------------------
     //                         TNG Software UIL Generator
     //----------------------------------------------------------------------------
-    // Fecha                     : 07/08/2020 00:00
+    // Fecha                     : 04/01/2023 00:11
     // Sistema                   : Carm
-    // Interface para la Entidad : Plan
+    // Interface para la Entidad : ListaDePrecios
     // Tipo de Interface         : Mantenimiento de Tabla Clasificadora
     //----------------------------------------------------------------------------
-    // © 1996-2020 by TNG Software                                      Gndr 5.20
+    // © 1996-2023 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     /// <summary>
-    /// Formulario para Mantenimiento de la Tabla:Planes
+    /// Formulario para Mantenimiento de la Tabla:ListasDePrecios
     /// </summary>
-    public partial class Planes : DockContent
+    public partial class ListasDePrecios : DockContent
     {
         #region Miembros de la Clase
-            private Bel.EPlan m_entPlan= null;
+            private Bel.EListaDePrecios m_entListaDePrecios= null;
             private StatMsg m_smResult= null;
             private ACLInfo m_aclInfo= null;
             private string m_strSort= "";
@@ -40,7 +40,7 @@ namespace Carm.Tg
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public Planes()
+        public ListasDePrecios()
         {
             //
             // Required for Windows Form Designer support
@@ -75,10 +75,19 @@ namespace Carm.Tg
         /// <summary>
         /// Carga del Formulario
         /// </summary>
-        private void Planes_Load(object sender, System.EventArgs e)
+        private void ListasDePrecios_Load(object sender, System.EventArgs e)
         {
             // Inicializamos el form
             App.ShowMsg("Inicializando el formulario...");
+
+            // Llenamos las Combos (por Tablas)
+            Bel.LEPlanes l_lentPlanes= Bll.Planes.UpFull(false, m_smResult);
+            if (MsgRuts.AnalizeError(this, m_smResult)) return;
+            cmbCodplan.FillFromStrLEntidad(l_lentPlanes, "pln_cod_cod", "pln_des_des", "deleted");
+
+            Bel.LEMarcas l_lentMarcas= Bll.Tablas.MrcUpFull(false, m_smResult);
+            if (MsgRuts.AnalizeError(this, m_smResult)) return;
+            cmbCodmarca.FillFromStrLEntidad(l_lentMarcas, "mrc_rcd_cod", "_des_descripcion", "deleted");
 
             // Pasamos a modo Operaciones, llenamos la grilla y 
             // damos foco al primer campo
@@ -92,7 +101,7 @@ namespace Carm.Tg
         /// <summary>
         /// Cierre del formulario
         /// </summary>
-        private void Planes_FormClosed(object sender, FormClosedEventArgs e)
+        private void ListasDePrecios_FormClosed(object sender, FormClosedEventArgs e)
         {
             // Liberamos el menu
             App.LockMenu(false);
@@ -127,7 +136,7 @@ namespace Carm.Tg
                 if (m_strSort != grdDatos.GridOrder) {
                     // Grabamos el nuevo sort
                     m_strSort= grdDatos.GridOrder;
-                    App.SetStrURegistry(false, "GridFormat", "PlanesGrdSort", m_strSort);
+                    App.SetStrURegistry(false, "GridFormat", "ListasDePreciosGrdSort", m_strSort);
                     return;
                 }
             }
@@ -138,7 +147,7 @@ namespace Carm.Tg
                 if (m_strSort != "") {
                     // Quitamos el orden, grabamos y recargamos
                     m_strSort= "";
-                    App.SetStrURegistry(false, "GridFormat", "PlanesGrdSort", m_strSort);
+                    App.SetStrURegistry(false, "GridFormat", "ListasDePreciosGrdSort", m_strSort);
                     FillGrid();
                     return;
                 }
@@ -151,7 +160,7 @@ namespace Carm.Tg
         private void GrdColumn_WidthChanged(object sender, EventArgs e)
         {
             // Guardamos el ancho de las columnas
-            App.SetStrURegistry(false, "GridFormat", "PlanesGrdWidths", grdDatos.ColWitdhs);
+            App.SetStrURegistry(false, "GridFormat", "ListasDePreciosGrdWidths", grdDatos.ColWitdhs);
         }
 
         //--------------------------------------------------------------
@@ -165,7 +174,7 @@ namespace Carm.Tg
         {
             App.ShowMsg("Generando planilla...");
             App.InitAdvance("Excel:");
-            grdDatos.ExportToExcel(false, false, "", "Planes", m_smResult);
+            grdDatos.ExportToExcel(false, false, "", "ListasDePrecios", m_smResult);
             App.EndAdvance();
             App.HideMsg();
         }
@@ -178,7 +187,7 @@ namespace Carm.Tg
             App.ShowMsg("Imprimiendo datos...");
             App.InitAdvance("Imprimiendo:");
             grdDatos.Print(Shr.ROParam.Empresa.VStr, App.Programa.Nombre,
-                           "Lista de Planes", "");
+                           "Lista de ListasDePrecios", "");
             App.EndAdvance();
             App.HideMsg();
         }
@@ -190,7 +199,7 @@ namespace Carm.Tg
         {
             // Creamos una nueva entidad, pasamos a modo de edicion y
             // damos foco al primer campo
-            m_entPlan= Bel.EPlan.NewEmpty();
+            m_entListaDePrecios= Bel.EListaDePrecios.NewEmpty();
             SwitchTo(FormModes.Edit, GridOps.DontFill);
             txtCod.Focus();
         }
@@ -206,18 +215,18 @@ namespace Carm.Tg
 
             // Obtenemos la entidad del item seleccionado en la grilla
             App.ShowMsg("Recuperando Datos...");
-            m_entPlan= Bll.Planes.Get((string) grdDatos.GetMatrixValueObj(l_iRow, 1),
-                                      false, m_smResult);
+            m_entListaDePrecios= Bll.Tablas.LprGet((string) grdDatos.GetMatrixValueObj(l_iRow, 1),
+                                                   false, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
             // Tenemos la entidad. Pasamos a modo de edicion y damos foco
             // al campo que corresponda
             SwitchTo(FormModes.Edit, GridOps.DontFill);
-            if (m_entPlan.EstaBorrada) {
+            if (m_entListaDePrecios.EstaBorrada) {
                 cmdCancelar.Focus();
             }
             else {
-                txtDes.Focus();
+                cmbCodplan.Focus();
             }
             App.HideMsg();
         }
@@ -232,11 +241,11 @@ namespace Carm.Tg
                                       "La compactación de la tabla borra en forma " +
                                       "definitiva los items deshabilitados. " +
                                       "¿Confirma la compactación?",
-                                      /*App.Usuario.Usuario +*/ "PlanesPurge") == DialogResult.No) return;
+                                      /*App.Usuario.Usuario +*/ "ListasDePreciosPurge") == DialogResult.No) return;
 
             // Purgamos la tabla
             App.ShowMsg("Compactando la tabla...");
-            Bll.Planes.Purge(m_smResult);
+            Bll.Tablas.LprPurge(m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
             // Terminamos
@@ -270,10 +279,10 @@ namespace Carm.Tg
         {
             // Realizamos la operacion
             App.ShowMsg("Procesando...");
-            Bll.Planes.Enabled(m_entPlan.EstaBorrada,
-                               m_entPlan.Cod,
-                               m_entPlan.FxdVersion,
-                               m_smResult);
+            Bll.Tablas.LprEnabled(m_entListaDePrecios.EstaBorrada,
+                                  m_entListaDePrecios.Cod,
+                                  m_entListaDePrecios.FxdVersion,
+                                  m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
             // Pasamos a modo Operaciones, rellenamos la grilla y 
@@ -289,13 +298,24 @@ namespace Carm.Tg
         private void cmdGrabar_Click(object sender, System.EventArgs e)
         {
             // Pasamos los datos a la Entidad
-            m_entPlan.Cod= txtCod.Text;
-            m_entPlan.Des= txtDes.Text;
-            m_entPlan.Codplanavalon= m_entPlan.Cod;
+            m_entListaDePrecios.Cod= txtCod.Text;
+            m_entListaDePrecios.Des= txtDes.Text;
+            m_entListaDePrecios.Codplan= cmbCodplan.SelectedStrCode;
+            m_entListaDePrecios.Codmarca= cmbCodmarca.SelectedStrCode;
+            m_entListaDePrecios.Precio1p= txtPrecio1p.Decimal;
+            m_entListaDePrecios.Precio2p= txtPrecio2p.Decimal;
+            m_entListaDePrecios.Precio3p= txtPrecio3p.Decimal;
+            m_entListaDePrecios.Precio4p= txtPrecio4p.Decimal;
+            m_entListaDePrecios.Precio5p= txtPrecio5p.Decimal;
+            m_entListaDePrecios.Precio6p= txtPrecio6p.Decimal;
+            m_entListaDePrecios.Precio7p= txtPrecio7p.Decimal;
+            m_entListaDePrecios.Precio8p= txtPrecio8p.Decimal;
+            m_entListaDePrecios.Precio9p= txtPrecio9p.Decimal;
+            m_entListaDePrecios.Precio10p= txtPrecio10p.Decimal;
 
             // Tratamos de grabar la entidad
             App.ShowMsg("Grabando...");
-            Bll.Planes.Save(m_entPlan, m_smResult);
+            Bll.Tablas.LprSave(m_entListaDePrecios, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
             // Pasamos a modo Operaciones, rellenamos la grilla y 
@@ -316,19 +336,19 @@ namespace Carm.Tg
         {
             // Recuperamos los datos para la grilla
             App.ShowMsg("Recuperando datos...");
-            Bel.LEPlanes l_lentPlanes= Bll.Planes.UpFull(false, m_smResult);
+            Bel.LEListasDePrecios l_lentListasDePrecios= Bll.Tablas.LprUpFull(false, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
             // Asignamos a la grilla
             App.InitAdvance("Cargando:");
             grdDatos.Focus();
-            grdDatos.FillFromLEntidad(l_lentPlanes, "deleted");
-            grdDatos.ColWitdhs= App.GetStrURegistry(false, "GridFormat", "PlanesGrdWidths", "");
-            grdDatos.GridOrder= App.GetStrURegistry(false, "GridFormat", "PlanesGrdSort", "");
+            grdDatos.FillFromLEntidad(l_lentListasDePrecios, "deleted");
+            grdDatos.ColWitdhs= App.GetStrURegistry(false, "GridFormat", "ListasDePreciosGrdWidths", "");
+            grdDatos.GridOrder= App.GetStrURegistry(false, "GridFormat", "ListasDePreciosGrdSort", "");
             App.EndAdvance();
 
             // Fijamos el evento de cambio de ancho de la grilla
-            if (l_lentPlanes.Count > 0)
+            if (l_lentListasDePrecios.Count > 0)
                 foreach (DataGridColumnStyle l_dcsItem in grdDatos.TableStyles[0].GridColumnStyles)
                     l_dcsItem.WidthChanged += new EventHandler(GrdColumn_WidthChanged);
 
@@ -365,6 +385,30 @@ namespace Carm.Tg
             txtCod.Enabled= false;
             txtDes.NormalDisable= true;
             txtDes.Enabled= false;
+            cmbCodplan.NormalDisable= true;
+            cmbCodplan.Enabled= false;
+            cmbCodmarca.NormalDisable= true;
+            cmbCodmarca.Enabled= false;
+            txtPrecio1p.NormalDisable= true;
+            txtPrecio1p.Enabled= false;
+            txtPrecio2p.NormalDisable= true;
+            txtPrecio2p.Enabled= false;
+            txtPrecio3p.NormalDisable= true;
+            txtPrecio3p.Enabled= false;
+            txtPrecio4p.NormalDisable= true;
+            txtPrecio4p.Enabled= false;
+            txtPrecio5p.NormalDisable= true;
+            txtPrecio5p.Enabled= false;
+            txtPrecio6p.NormalDisable= true;
+            txtPrecio6p.Enabled= false;
+            txtPrecio7p.NormalDisable= true;
+            txtPrecio7p.Enabled= false;
+            txtPrecio8p.NormalDisable= true;
+            txtPrecio8p.Enabled= false;
+            txtPrecio9p.NormalDisable= true;
+            txtPrecio9p.Enabled= false;
+            txtPrecio10p.NormalDisable= true;
+            txtPrecio10p.Enabled= false;
             cmdCancelar.Enabled= false;
             cmdGrabar.Enabled= false;
             cmdDesHab.Enabled= false;
@@ -373,6 +417,18 @@ namespace Carm.Tg
             // Blanqueamos los campos
             txtCod.Text= "";
             txtDes.Text= "";
+            cmbCodplan.SelectedStrCode= "";
+            cmbCodmarca.SelectedStrCode= "";
+            txtPrecio1p.Decimal= 0;
+            txtPrecio2p.Decimal= 0;
+            txtPrecio3p.Decimal= 0;
+            txtPrecio4p.Decimal= 0;
+            txtPrecio5p.Decimal= 0;
+            txtPrecio6p.Decimal= 0;
+            txtPrecio7p.Decimal= 0;
+            txtPrecio8p.Decimal= 0;
+            txtPrecio9p.Decimal= 0;
+            txtPrecio10p.Decimal= 0;
 
             // Habilitamos la grilla y los controles operativos
             cmdNuevo.Enabled= true;
@@ -398,17 +454,53 @@ namespace Carm.Tg
         private void EditMode()
         {
             // Llenamos los campos a partir de la entidad a editar
-            txtCod.Text= m_entPlan.Cod;
-            txtDes.Text= m_entPlan.Des;
+            txtCod.Text= m_entListaDePrecios.Cod;
+            txtDes.Text= m_entListaDePrecios.Des;
+            cmbCodplan.SelectedStrCode= m_entListaDePrecios.Codplan;
+            cmbCodmarca.SelectedStrCode= m_entListaDePrecios.Codmarca;
+            txtPrecio1p.Decimal= m_entListaDePrecios.Precio1p;
+            txtPrecio2p.Decimal= m_entListaDePrecios.Precio2p;
+            txtPrecio3p.Decimal= m_entListaDePrecios.Precio3p;
+            txtPrecio4p.Decimal= m_entListaDePrecios.Precio4p;
+            txtPrecio5p.Decimal= m_entListaDePrecios.Precio5p;
+            txtPrecio6p.Decimal= m_entListaDePrecios.Precio6p;
+            txtPrecio7p.Decimal= m_entListaDePrecios.Precio7p;
+            txtPrecio8p.Decimal= m_entListaDePrecios.Precio8p;
+            txtPrecio9p.Decimal= m_entListaDePrecios.Precio9p;
+            txtPrecio10p.Decimal= m_entListaDePrecios.Precio10p;
 
             // Habilitamos el frame
             txtCod.NormalDisable= false;
-            txtCod.Enabled= m_entPlan.EsNueva;
+            txtCod.Enabled= m_entListaDePrecios.EsNueva;
             txtDes.NormalDisable= false;
-            txtDes.Enabled= m_entPlan.EsNueva;
+            txtDes.Enabled= m_entListaDePrecios.EsNueva;
+            cmbCodplan.NormalDisable= false;
+            cmbCodplan.Enabled= !m_entListaDePrecios.EstaBorrada;
+            cmbCodmarca.NormalDisable= false;
+            cmbCodmarca.Enabled= !m_entListaDePrecios.EstaBorrada;
+            txtPrecio1p.NormalDisable= false;
+            txtPrecio1p.Enabled= !m_entListaDePrecios.EstaBorrada;
+            txtPrecio2p.NormalDisable= false;
+            txtPrecio2p.Enabled= !m_entListaDePrecios.EstaBorrada;
+            txtPrecio3p.NormalDisable= false;
+            txtPrecio3p.Enabled= !m_entListaDePrecios.EstaBorrada;
+            txtPrecio4p.NormalDisable= false;
+            txtPrecio4p.Enabled= !m_entListaDePrecios.EstaBorrada;
+            txtPrecio5p.NormalDisable= false;
+            txtPrecio5p.Enabled= !m_entListaDePrecios.EstaBorrada;
+            txtPrecio6p.NormalDisable= false;
+            txtPrecio6p.Enabled= !m_entListaDePrecios.EstaBorrada;
+            txtPrecio7p.NormalDisable= false;
+            txtPrecio7p.Enabled= !m_entListaDePrecios.EstaBorrada;
+            txtPrecio8p.NormalDisable= false;
+            txtPrecio8p.Enabled= !m_entListaDePrecios.EstaBorrada;
+            txtPrecio9p.NormalDisable= false;
+            txtPrecio9p.Enabled= !m_entListaDePrecios.EstaBorrada;
+            txtPrecio10p.NormalDisable= false;
+            txtPrecio10p.Enabled= !m_entListaDePrecios.EstaBorrada;
             cmdCancelar.Enabled= true;
-            cmdGrabar.Enabled= !m_entPlan.EstaBorrada;
-            cmdDesHab.Enabled= ((!m_entPlan.EsNueva) &&(!m_entPlan.EstaBorrada));
+            cmdGrabar.Enabled= !m_entListaDePrecios.EstaBorrada;
+            cmdDesHab.Enabled= ((!m_entListaDePrecios.EsNueva) &&(!m_entListaDePrecios.EstaBorrada));
             cmdHab.Enabled= !cmdDesHab.Enabled;
 
             // Procesamos los comandos ACL

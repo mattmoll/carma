@@ -1,26 +1,14 @@
 TODO:
+- Pantallas de Planes y Planes servicios para poder cargar todos los servicios y servicios por plan (done)
 
-(Pendiente? Me pasaron solo lo que ya agregué)
-Me van a pasar algunos campos para agregar.
+- Tabla lista de precios (done)
 
+- ABM de lista de precios (falta generar menu y testear)
 
-TODO Next Release:
+- Fixear campos de CliVentas y CliServicios.
 
-Empezar a trabajar en Importacion por excel (done)
+- Pantalla de ventas (falta crear el registro de venta y testear)
 
-
-- Agregar Agenda de llamadas
-
-
-Borrar la lista de servicios.
-Mostrar el plan y el valor en el detalle si es cliente.
-
-Agregar ABM de contactos.
-
-
-Validaciones Unicidad:
-Validar Razon Social y Nombre y Apellido unicidad.
-
-
+- agregar el DNI en socios directos carga de prospecto.
 
 

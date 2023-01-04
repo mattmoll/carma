@@ -14,11 +14,11 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 19/07/2021 08:58
+    // Fecha                    : 03/01/2023 23:43
     // Sistema                  : Carm
     // Clase para Administrar   : Planes
     //----------------------------------------------------------------------------
-    // © 1996-2021 by TNG Software                                      Gndr 5.20
+    // © 1996-2023 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -716,7 +716,6 @@ namespace Carm.Bel
             l_drTemp["pln_des_des"]= XMLRuts.ExtractXAttr(l_xndData, "pln_des_des");
             l_drTemp["pln_cod_codplanavalon"]= XMLRuts.ExtractXAttr(l_xndData, "pln_cod_codplanavalon");
             l_drTemp["pln_d80_tcontratoavalon"]= XMLRuts.ExtractXAttr(l_xndData, "pln_d80_tcontratoavalon");
-            l_drTemp["pln_des_marca"]= XMLRuts.ExtractXAttr(l_xndData, "pln_des_marca");
 
             // Llenamos los campos fijos
             XML2FixedFields(ref l_drTemp, l_xndData);
@@ -771,7 +770,6 @@ namespace Carm.Bel
             l_drTemp["pln_des_des"]= "";
             l_drTemp["pln_cod_codplanavalon"]= "";
             l_drTemp["pln_d80_tcontratoavalon"]= "";
-            l_drTemp["pln_des_marca"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
             // una entidad a partir de la DataTable de 1 registro
@@ -806,7 +804,6 @@ namespace Carm.Bel
             l_drTemp["pln_des_des"]= p_strDes;
             l_drTemp["pln_cod_codplanavalon"]= p_strCodplanavalon;
             l_drTemp["pln_d80_tcontratoavalon"]= p_strTcontratoavalon;
-            l_drTemp["pln_des_marca"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
             // una entidad a partir de la DataTable de 1 registro
@@ -858,7 +855,7 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[9];
+                DataColumn[] l_dcStruct= new DataColumn[8];
 
                 l_dcStruct[0]= new DataColumn("pln_cod_cod", typeof(string));
                 l_dcStruct[1]= new DataColumn("pln_des_des", typeof(string));
@@ -955,15 +952,6 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Marca
-        /// </summary>
-        public string Pln_des_marca
-        {
-            get {return (string) InternalData["pln_des_marca"];}
-            set {InternalData["pln_des_marca"]= value;}
-        }
-
-        /// <summary>
         /// Devuelve la entidad [EPlan] como XMLDocument en formato string
         /// </summary>
         public string XMLData
@@ -986,7 +974,6 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "pln_des_des", Des));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "pln_cod_codplanavalon", Codplanavalon));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "pln_d80_tcontratoavalon", Tcontratoavalon));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "pln_des_marca", Pln_des_marca));
 
                 // Asignamos los campos fijos
                 FixedFields2XML(l_xdocData, ref l_xndEntidad);

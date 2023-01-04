@@ -27,10 +27,6 @@ namespace Carm.Tg
         private TNGS.NetControls.TextEdit txtCod;
         private System.Windows.Forms.Label lblDes;
         private TNGS.NetControls.TextEdit txtDes;
-        private System.Windows.Forms.Label lblCodplanavalon;
-        private TNGS.NetControls.TextEdit txtCodplanavalon;
-        private System.Windows.Forms.Label lblTcontratoavalon;
-        private TNGS.NetControls.TextEdit txtTcontratoavalon;
         private TNGS.NetControls.GlassButton cmdDesHab;
         private TNGS.NetControls.GlassButton cmdHab;
         private TNGS.NetControls.GlassButton cmdGrabar;
@@ -91,10 +87,6 @@ namespace Carm.Tg
             this.txtCod = new TNGS.NetControls.TextEdit();
             this.lblDes = new System.Windows.Forms.Label();
             this.txtDes = new TNGS.NetControls.TextEdit();
-            this.lblCodplanavalon = new System.Windows.Forms.Label();
-            this.txtCodplanavalon = new TNGS.NetControls.TextEdit();
-            this.lblTcontratoavalon = new System.Windows.Forms.Label();
-            this.txtTcontratoavalon = new TNGS.NetControls.TextEdit();
             this.xpnlBase.SuspendLayout();
             this.tsContainer1.SuspendLayout();
             this.tabPageSwitcher1.SuspendLayout();
@@ -377,6 +369,7 @@ namespace Carm.Tg
             this.tsBase1.FlatLigth = true;
             this.tsBase1.ForeColor = System.Drawing.Color.Black;
             this.tsBase1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsBase1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsBase1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tab1});
             this.tsBase1.Location = new System.Drawing.Point(0, 0);
@@ -398,7 +391,7 @@ namespace Carm.Tg
             this.tab1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(90)))), ((int)(((byte)(154)))));
             this.tab1.Margin = new System.Windows.Forms.Padding(6, 1, 0, 2);
             this.tab1.Name = "tab1";
-            this.tab1.Size = new System.Drawing.Size(114, 23);
+            this.tab1.Size = new System.Drawing.Size(135, 23);
             this.tab1.TabStripPage = this.tabStripPage1;
             this.tab1.Text = "Mantenimiento";
             // 
@@ -493,10 +486,6 @@ namespace Carm.Tg
             this.frmEdicion.Controls.Add(this.txtCod);
             this.frmEdicion.Controls.Add(this.lblDes);
             this.frmEdicion.Controls.Add(this.txtDes);
-            this.frmEdicion.Controls.Add(this.lblCodplanavalon);
-            this.frmEdicion.Controls.Add(this.txtCodplanavalon);
-            this.frmEdicion.Controls.Add(this.lblTcontratoavalon);
-            this.frmEdicion.Controls.Add(this.txtTcontratoavalon);
             this.frmEdicion.CustomGroupBoxColor = System.Drawing.Color.White;
             this.frmEdicion.FlatMode = true;
             this.frmEdicion.FontTitle = new System.Drawing.Font("Arial", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -520,7 +509,7 @@ namespace Carm.Tg
             // lblCod
             // 
             this.lblCod.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCod.Location = new System.Drawing.Point(54, 57);
+            this.lblCod.Location = new System.Drawing.Point(54, 72);
             this.lblCod.Name = "lblCod";
             this.lblCod.Size = new System.Drawing.Size(104, 22);
             this.lblCod.TabIndex = 106;
@@ -534,17 +523,17 @@ namespace Carm.Tg
             this.txtCod.EmptyValid = false;
             this.txtCod.Enabled = false;
             this.txtCod.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCod.Location = new System.Drawing.Point(164, 57);
+            this.txtCod.Location = new System.Drawing.Point(164, 72);
             this.txtCod.MaxLength = 4;
             this.txtCod.Name = "txtCod";
             this.txtCod.OnlyDigits = true;
-            this.txtCod.Size = new System.Drawing.Size(44, 22);
+            this.txtCod.Size = new System.Drawing.Size(44, 26);
             this.txtCod.TabIndex = 6;
             // 
             // lblDes
             // 
             this.lblDes.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDes.Location = new System.Drawing.Point(302, 57);
+            this.lblDes.Location = new System.Drawing.Point(302, 72);
             this.lblDes.Name = "lblDes";
             this.lblDes.Size = new System.Drawing.Size(104, 22);
             this.lblDes.TabIndex = 107;
@@ -558,56 +547,11 @@ namespace Carm.Tg
             this.txtDes.EmptyValid = false;
             this.txtDes.Enabled = false;
             this.txtDes.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDes.Location = new System.Drawing.Point(412, 57);
+            this.txtDes.Location = new System.Drawing.Point(412, 72);
             this.txtDes.MaxLength = 30;
             this.txtDes.Name = "txtDes";
-            this.txtDes.Size = new System.Drawing.Size(302, 22);
+            this.txtDes.Size = new System.Drawing.Size(302, 26);
             this.txtDes.TabIndex = 7;
-            // 
-            // lblCodplanavalon
-            // 
-            this.lblCodplanavalon.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodplanavalon.Location = new System.Drawing.Point(5, 95);
-            this.lblCodplanavalon.Name = "lblCodplanavalon";
-            this.lblCodplanavalon.Size = new System.Drawing.Size(155, 22);
-            this.lblCodplanavalon.TabIndex = 108;
-            this.lblCodplanavalon.Text = "Cod Plan Avalon:";
-            this.lblCodplanavalon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtCodplanavalon
-            // 
-            this.txtCodplanavalon.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCodplanavalon.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodplanavalon.EmptyValid = false;
-            this.txtCodplanavalon.Enabled = false;
-            this.txtCodplanavalon.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodplanavalon.Location = new System.Drawing.Point(164, 95);
-            this.txtCodplanavalon.MaxLength = 4;
-            this.txtCodplanavalon.Name = "txtCodplanavalon";
-            this.txtCodplanavalon.OnlyDigits = true;
-            this.txtCodplanavalon.Size = new System.Drawing.Size(44, 22);
-            this.txtCodplanavalon.TabIndex = 8;
-            // 
-            // lblTcontratoavalon
-            // 
-            this.lblTcontratoavalon.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTcontratoavalon.Location = new System.Drawing.Point(224, 95);
-            this.lblTcontratoavalon.Name = "lblTcontratoavalon";
-            this.lblTcontratoavalon.Size = new System.Drawing.Size(182, 22);
-            this.lblTcontratoavalon.TabIndex = 109;
-            this.lblTcontratoavalon.Text = "Lista de T Contratos Avalon:";
-            this.lblTcontratoavalon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtTcontratoavalon
-            // 
-            this.txtTcontratoavalon.BackColor = System.Drawing.SystemColors.Window;
-            this.txtTcontratoavalon.Enabled = false;
-            this.txtTcontratoavalon.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTcontratoavalon.Location = new System.Drawing.Point(412, 95);
-            this.txtTcontratoavalon.MaxLength = 80;
-            this.txtTcontratoavalon.Name = "txtTcontratoavalon";
-            this.txtTcontratoavalon.Size = new System.Drawing.Size(302, 22);
-            this.txtTcontratoavalon.TabIndex = 9;
             // 
             // Planes
             // 

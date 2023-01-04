@@ -10,23 +10,25 @@ namespace Carm.Tg
 {
     public partial class PlnServicios : DockContent
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
         private TNGS.NetControls.XPanel xpnlBase;
+        private System.ComponentModel.Container components = null;
+        private TNGS.NetControls.CDCombo cmbPlan;
+        private TNGS.NetControls.GlassButton cmdModPadre;
         private TNGS.NetControls.GlassButton cmdSalir;
         private System.Windows.Forms.Label lblTitle;
         private TNGS.NetControls.GlassButton cmdExcel;
         private TNGS.NetControls.GlassButton cmdPrint;
+        private TNGS.NetControls.ImgGroup frmOper;
         private TNGS.NetControls.GlassButton cmdNuevo;
         private TNGS.NetControls.GlassButton cmdModificar;
         private TNGS.NetControls.GlassButton cmdPurgar;
         private TNGS.NetControls.ImgGroup frmEdicion;
-        private System.Windows.Forms.Label lblCodplan;
-        private TNGS.NetControls.TextEdit txtCodplan;
+        private TNGS.NetControls.ImgGroup frmData;
         private System.Windows.Forms.Label lblCodservicio;
         private TNGS.NetControls.CDCombo cmbCodservicio;
-        private System.Windows.Forms.Label lblCprestlibres;
-        private TNGS.NetControls.NumberEdit txtCprestlibres;
-        private System.Windows.Forms.Label lblValorprestacion;
-        private TNGS.NetControls.DecimalEdit txtValorprestacion;
         private TNGS.NetControls.GlassButton cmdDesHab;
         private TNGS.NetControls.GlassButton cmdHab;
         private TNGS.NetControls.GlassButton cmdGrabar;
@@ -35,10 +37,11 @@ namespace Carm.Tg
         private TNGS.NetControls.TSContainer tsContainer1;
         private RibbonStyle.TabPageSwitcher tabPageSwitcher1;
         private RibbonStyle.TabStripPage tabStripPage1;
-        private TNGS.NetControls.TSPanel tsPanel2;
-        private TNGS.NetControls.TSPanel tsPanel1;
         private TNGS.NetControls.TSBase tsBase1;
         private RibbonStyle.Tab tab1;
+        private TNGS.NetControls.TSPanel tsPanel2;
+        private TNGS.NetControls.TSPanel tsPanel1;
+        private TNGS.NetControls.TSPanel tsPanel3;
 
         /// <summary>
         /// Liberamos los recursos utilizados
@@ -61,43 +64,42 @@ namespace Carm.Tg
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlnServicios));
             this.xpnlBase = new TNGS.NetControls.XPanel();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.tsContainer1 = new TNGS.NetControls.TSContainer();
             this.tabPageSwitcher1 = new RibbonStyle.TabPageSwitcher();
             this.tabStripPage1 = new RibbonStyle.TabStripPage();
-            this.tsPanel2 = new TNGS.NetControls.TSPanel();
+            this.tsPanel3 = new TNGS.NetControls.TSPanel();
             this.cmdHab = new TNGS.NetControls.GlassButton();
-            this.cmdCancelar = new TNGS.NetControls.GlassButton();
             this.cmdGrabar = new TNGS.NetControls.GlassButton();
+            this.cmdCancelar = new TNGS.NetControls.GlassButton();
             this.cmdDesHab = new TNGS.NetControls.GlassButton();
             this.tsPanel1 = new TNGS.NetControls.TSPanel();
             this.cmdSalir = new TNGS.NetControls.GlassButton();
             this.cmdPurgar = new TNGS.NetControls.GlassButton();
             this.cmdModificar = new TNGS.NetControls.GlassButton();
             this.cmdNuevo = new TNGS.NetControls.GlassButton();
+            this.tsPanel2 = new TNGS.NetControls.TSPanel();
+            this.cmbPlan = new TNGS.NetControls.CDCombo();
+            this.cmdModPadre = new TNGS.NetControls.GlassButton();
             this.tsBase1 = new TNGS.NetControls.TSBase();
             this.tab1 = new RibbonStyle.Tab();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.grdDatos = new TNGS.NetControls.FullGrid();
             this.cmdPrint = new TNGS.NetControls.GlassButton();
             this.cmdExcel = new TNGS.NetControls.GlassButton();
             this.frmEdicion = new TNGS.NetControls.ImgGroup();
-            this.lblCodplan = new System.Windows.Forms.Label();
-            this.txtCodplan = new TNGS.NetControls.TextEdit();
             this.lblCodservicio = new System.Windows.Forms.Label();
             this.cmbCodservicio = new TNGS.NetControls.CDCombo();
-            this.lblCprestlibres = new System.Windows.Forms.Label();
-            this.txtCprestlibres = new TNGS.NetControls.NumberEdit();
-            this.lblValorprestacion = new System.Windows.Forms.Label();
-            this.txtValorprestacion = new TNGS.NetControls.DecimalEdit();
+            this.frmOper = new TNGS.NetControls.ImgGroup();
+            this.frmData = new TNGS.NetControls.ImgGroup();
             this.xpnlBase.SuspendLayout();
             this.tsContainer1.SuspendLayout();
             this.tabPageSwitcher1.SuspendLayout();
             this.tabStripPage1.SuspendLayout();
-            this.tsPanel2.SuspendLayout();
+            this.tsPanel3.SuspendLayout();
             this.tsPanel1.SuspendLayout();
+            this.tsPanel2.SuspendLayout();
             this.tsBase1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDatos)).BeginInit();
             this.frmEdicion.SuspendLayout();
@@ -107,8 +109,8 @@ namespace Carm.Tg
             // 
             this.xpnlBase.BackColor1 = System.Drawing.SystemColors.Control;
             this.xpnlBase.BackColor2 = System.Drawing.SystemColors.Control;
-            this.xpnlBase.Controls.Add(this.tsContainer1);
             this.xpnlBase.Controls.Add(this.lblTitle);
+            this.xpnlBase.Controls.Add(this.tsContainer1);
             this.xpnlBase.Controls.Add(this.grdDatos);
             this.xpnlBase.Controls.Add(this.cmdPrint);
             this.xpnlBase.Controls.Add(this.cmdExcel);
@@ -116,8 +118,18 @@ namespace Carm.Tg
             this.xpnlBase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xpnlBase.Location = new System.Drawing.Point(0, 0);
             this.xpnlBase.Name = "xpnlBase";
-            this.xpnlBase.Size = new System.Drawing.Size(750, 450);
+            this.xpnlBase.Size = new System.Drawing.Size(1027, 521);
             this.xpnlBase.TabIndex = 0;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(8, 125);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(150, 16);
+            this.lblTitle.TabIndex = 20;
+            this.lblTitle.Text = "PlnServicios:";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tsContainer1
             // 
@@ -126,8 +138,8 @@ namespace Carm.Tg
             this.tsContainer1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tsContainer1.Location = new System.Drawing.Point(0, 0);
             this.tsContainer1.Name = "tsContainer1";
-            this.tsContainer1.Size = new System.Drawing.Size(750, 115);
-            this.tsContainer1.TabIndex = 22;
+            this.tsContainer1.Size = new System.Drawing.Size(1027, 115);
+            this.tsContainer1.TabIndex = 25;
             // 
             // tabPageSwitcher1
             // 
@@ -136,7 +148,7 @@ namespace Carm.Tg
             this.tabPageSwitcher1.Location = new System.Drawing.Point(0, 26);
             this.tabPageSwitcher1.Name = "tabPageSwitcher1";
             this.tabPageSwitcher1.SelectedTabStripPage = this.tabStripPage1;
-            this.tabPageSwitcher1.Size = new System.Drawing.Size(750, 89);
+            this.tabPageSwitcher1.Size = new System.Drawing.Size(1027, 89);
             this.tabPageSwitcher1.TabIndex = 1;
             this.tabPageSwitcher1.TabStrip = this.tsBase1;
             this.tabPageSwitcher1.Text = "tabPageSwitcher1";
@@ -144,33 +156,34 @@ namespace Carm.Tg
             // tabStripPage1
             // 
             this.tabStripPage1.Caption = "";
-            this.tabStripPage1.Controls.Add(this.tsPanel2);
+            this.tabStripPage1.Controls.Add(this.tsPanel3);
             this.tabStripPage1.Controls.Add(this.tsPanel1);
+            this.tabStripPage1.Controls.Add(this.tsPanel2);
             this.tabStripPage1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabStripPage1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabStripPage1.Location = new System.Drawing.Point(4, 0);
             this.tabStripPage1.Name = "tabStripPage1";
             this.tabStripPage1.Opacity = 255;
             this.tabStripPage1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.tabStripPage1.Size = new System.Drawing.Size(742, 87);
+            this.tabStripPage1.Size = new System.Drawing.Size(1019, 87);
             this.tabStripPage1.Speed = 8;
             this.tabStripPage1.TabIndex = 0;
             // 
-            // tsPanel2
+            // tsPanel3
             // 
-            this.tsPanel2.Caption = "Edición";
-            this.tsPanel2.Controls.Add(this.cmdHab);
-            this.tsPanel2.Controls.Add(this.cmdCancelar);
-            this.tsPanel2.Controls.Add(this.cmdGrabar);
-            this.tsPanel2.Controls.Add(this.cmdDesHab);
-            this.tsPanel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tsPanel2.FlatColor = System.Drawing.Color.RoyalBlue;
-            this.tsPanel2.Location = new System.Drawing.Point(282, 3);
-            this.tsPanel2.Name = "tsPanel2";
-            this.tsPanel2.Opacity = 255;
-            this.tsPanel2.Size = new System.Drawing.Size(284, 85);
-            this.tsPanel2.Speed = 1;
-            this.tsPanel2.TabIndex = 1;
+            this.tsPanel3.Caption = "Edición";
+            this.tsPanel3.Controls.Add(this.cmdHab);
+            this.tsPanel3.Controls.Add(this.cmdGrabar);
+            this.tsPanel3.Controls.Add(this.cmdCancelar);
+            this.tsPanel3.Controls.Add(this.cmdDesHab);
+            this.tsPanel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tsPanel3.FlatColor = System.Drawing.Color.RoyalBlue;
+            this.tsPanel3.Location = new System.Drawing.Point(511, 3);
+            this.tsPanel3.Name = "tsPanel3";
+            this.tsPanel3.Opacity = 255;
+            this.tsPanel3.Size = new System.Drawing.Size(282, 85);
+            this.tsPanel3.Speed = 1;
+            this.tsPanel3.TabIndex = 4;
             // 
             // cmdHab
             // 
@@ -194,29 +207,6 @@ namespace Carm.Tg
             this.cmdHab.W8Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.cmdHab.Click += new System.EventHandler(this.cmdDesHab_Click);
             // 
-            // cmdCancelar
-            // 
-            this.cmdCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdCancelar.BackgroundImage")));
-            this.cmdCancelar.BlackBorder = true;
-            this.cmdCancelar.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
-            this.cmdCancelar.CircleButton = false;
-            this.cmdCancelar.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Cancel;
-            this.cmdCancelar.FlatColor = System.Drawing.Color.Red;
-            this.cmdCancelar.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Cancelar;
-            this.cmdCancelar.FlatFontSize = 9;
-            this.cmdCancelar.FlatTextColor = System.Drawing.Color.Black;
-            this.cmdCancelar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmdCancelar.ImageOnTop = true;
-            this.cmdCancelar.Location = new System.Drawing.Point(81, 4);
-            this.cmdCancelar.Name = "cmdCancelar";
-            this.cmdCancelar.RoundCorners = 2;
-            this.cmdCancelar.Size = new System.Drawing.Size(70, 60);
-            this.cmdCancelar.TabIndex = 12;
-            this.cmdCancelar.Text = "Cancelar";
-            this.cmdCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.cmdCancelar.W8Color = System.Drawing.Color.Red;
-            this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
-            // 
             // cmdGrabar
             // 
             this.cmdGrabar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdGrabar.BackgroundImage")));
@@ -239,6 +229,29 @@ namespace Carm.Tg
             this.cmdGrabar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.cmdGrabar.W8Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.cmdGrabar.Click += new System.EventHandler(this.cmdGrabar_Click);
+            // 
+            // cmdCancelar
+            // 
+            this.cmdCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdCancelar.BackgroundImage")));
+            this.cmdCancelar.BlackBorder = true;
+            this.cmdCancelar.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.cmdCancelar.CircleButton = false;
+            this.cmdCancelar.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Cancel;
+            this.cmdCancelar.FlatColor = System.Drawing.Color.Red;
+            this.cmdCancelar.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Cancelar;
+            this.cmdCancelar.FlatFontSize = 9;
+            this.cmdCancelar.FlatTextColor = System.Drawing.Color.Black;
+            this.cmdCancelar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmdCancelar.ImageOnTop = true;
+            this.cmdCancelar.Location = new System.Drawing.Point(81, 4);
+            this.cmdCancelar.Name = "cmdCancelar";
+            this.cmdCancelar.RoundCorners = 2;
+            this.cmdCancelar.Size = new System.Drawing.Size(70, 60);
+            this.cmdCancelar.TabIndex = 12;
+            this.cmdCancelar.Text = "Cancelar";
+            this.cmdCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.cmdCancelar.W8Color = System.Drawing.Color.Red;
+            this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
             // 
             // cmdDesHab
             // 
@@ -271,12 +284,12 @@ namespace Carm.Tg
             this.tsPanel1.Controls.Add(this.cmdNuevo);
             this.tsPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tsPanel1.FlatColor = System.Drawing.Color.RoyalBlue;
-            this.tsPanel1.Location = new System.Drawing.Point(0, 3);
+            this.tsPanel1.Location = new System.Drawing.Point(232, 3);
             this.tsPanel1.Name = "tsPanel1";
             this.tsPanel1.Opacity = 255;
-            this.tsPanel1.Size = new System.Drawing.Size(282, 85);
+            this.tsPanel1.Size = new System.Drawing.Size(279, 85);
             this.tsPanel1.Speed = 1;
-            this.tsPanel1.TabIndex = 0;
+            this.tsPanel1.TabIndex = 2;
             // 
             // cmdSalir
             // 
@@ -368,12 +381,62 @@ namespace Carm.Tg
             this.cmdNuevo.W8Color = System.Drawing.Color.DodgerBlue;
             this.cmdNuevo.Click += new System.EventHandler(this.cmdNuevo_Click);
             // 
+            // tsPanel2
+            // 
+            this.tsPanel2.Caption = "Plan";
+            this.tsPanel2.Controls.Add(this.cmbPlan);
+            this.tsPanel2.Controls.Add(this.cmdModPadre);
+            this.tsPanel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tsPanel2.FlatColor = System.Drawing.Color.RoyalBlue;
+            this.tsPanel2.Location = new System.Drawing.Point(0, 3);
+            this.tsPanel2.Name = "tsPanel2";
+            this.tsPanel2.Opacity = 255;
+            this.tsPanel2.Size = new System.Drawing.Size(232, 85);
+            this.tsPanel2.Speed = 1;
+            this.tsPanel2.TabIndex = 3;
+            // 
+            // cmbPlan
+            // 
+            this.cmbPlan.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPlan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbPlan.Location = new System.Drawing.Point(9, 34);
+            this.cmbPlan.Name = "cmbPlan";
+            this.cmbPlan.Size = new System.Drawing.Size(213, 25);
+            this.cmbPlan.Sorted = true;
+            this.cmbPlan.TabIndex = 23;
+            this.cmbPlan.SelectedIndexChanged += new System.EventHandler(this.cmbPlan_SelectedIndexChanged);
+            // 
+            // cmdModPadre
+            // 
+            this.cmdModPadre.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdModPadre.BackgroundImage")));
+            this.cmdModPadre.BlackBorder = true;
+            this.cmdModPadre.ButtonMode = TNGS.NetControls.GlassButton.GBMode.Flat;
+            this.cmdModPadre.CircleButton = false;
+            this.cmdModPadre.FixedFlatImage = TNGS.NetControls.FixedFlatImageButtons.Note;
+            this.cmdModPadre.FlatColor = System.Drawing.Color.Peru;
+            this.cmdModPadre.FlatDefaultColor = TNGS.NetControls.ColorRuts.ColoresDefault.Peru;
+            this.cmdModPadre.FlatFontSize = 9;
+            this.cmdModPadre.FlatTextColor = System.Drawing.Color.Black;
+            this.cmdModPadre.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmdModPadre.Location = new System.Drawing.Point(9, 7);
+            this.cmdModPadre.Name = "cmdModPadre";
+            this.cmdModPadre.PCode = "M.PLAN";
+            this.cmdModPadre.RoundCorners = 2;
+            this.cmdModPadre.Size = new System.Drawing.Size(213, 25);
+            this.cmdModPadre.TabIndex = 24;
+            this.cmdModPadre.Text = "Mant. de Planes";
+            this.cmdModPadre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdModPadre.W8Color = System.Drawing.Color.Peru;
+            this.cmdModPadre.Click += new System.EventHandler(this.cmdModPadre_Click);
+            // 
             // tsBase1
             // 
             this.tsBase1.AutoSize = false;
             this.tsBase1.FlatLigth = true;
             this.tsBase1.ForeColor = System.Drawing.Color.Black;
             this.tsBase1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsBase1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsBase1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tab1});
             this.tsBase1.Location = new System.Drawing.Point(0, 0);
@@ -381,7 +444,7 @@ namespace Carm.Tg
             this.tsBase1.Padding = new System.Windows.Forms.Padding(60, 3, 30, 0);
             this.tsBase1.SelectedTab = this.tab1;
             this.tsBase1.ShowItemToolTips = false;
-            this.tsBase1.Size = new System.Drawing.Size(750, 26);
+            this.tsBase1.Size = new System.Drawing.Size(1027, 26);
             this.tsBase1.TabIndex = 0;
             this.tsBase1.TabOverlap = 0;
             this.tsBase1.Text = "tsBase1";
@@ -395,19 +458,9 @@ namespace Carm.Tg
             this.tab1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(90)))), ((int)(((byte)(154)))));
             this.tab1.Margin = new System.Windows.Forms.Padding(6, 1, 0, 2);
             this.tab1.Name = "tab1";
-            this.tab1.Size = new System.Drawing.Size(114, 23);
+            this.tab1.Size = new System.Drawing.Size(135, 23);
             this.tab1.TabStripPage = this.tabStripPage1;
             this.tab1.Text = "Mantenimiento";
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(9, 126);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(180, 16);
-            this.lblTitle.TabIndex = 20;
-            this.lblTitle.Text = "PlnServicios:";
             // 
             // grdDatos
             // 
@@ -422,9 +475,9 @@ namespace Carm.Tg
             this.grdDatos.ExcelTitle = "";
             this.grdDatos.GridOrder = "";
             this.grdDatos.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdDatos.Location = new System.Drawing.Point(4, 142);
+            this.grdDatos.Location = new System.Drawing.Point(4, 141);
             this.grdDatos.Name = "grdDatos";
-            this.grdDatos.Size = new System.Drawing.Size(742, 148);
+            this.grdDatos.Size = new System.Drawing.Size(1019, 183);
             this.grdDatos.TabIndex = 0;
             this.grdDatos.Advance += new TNGS.NetRoutines.AdvanceEventHandler(this.grdDatos_Advance);
             this.grdDatos.DataDClick += new TNGS.NetRoutines.DataDClickEventHandler(this.grdDatos_DataDClick);
@@ -443,7 +496,7 @@ namespace Carm.Tg
             this.cmdPrint.FlatFontSize = 9;
             this.cmdPrint.FlatTextColor = System.Drawing.Color.Black;
             this.cmdPrint.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmdPrint.Location = new System.Drawing.Point(719, 118);
+            this.cmdPrint.Location = new System.Drawing.Point(996, 118);
             this.cmdPrint.Name = "cmdPrint";
             this.cmdPrint.PCode = "TNGS.PRINT";
             this.cmdPrint.RoundCorners = 2;
@@ -466,7 +519,7 @@ namespace Carm.Tg
             this.cmdExcel.FlatFontSize = 9;
             this.cmdExcel.FlatTextColor = System.Drawing.Color.Black;
             this.cmdExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmdExcel.Location = new System.Drawing.Point(692, 118);
+            this.cmdExcel.Location = new System.Drawing.Point(969, 118);
             this.cmdExcel.Name = "cmdExcel";
             this.cmdExcel.PCode = "TNGS.EXCEL";
             this.cmdExcel.RoundCorners = 2;
@@ -486,65 +539,35 @@ namespace Carm.Tg
             this.frmEdicion.BlackBorder = true;
             this.frmEdicion.BorderColor = System.Drawing.Color.Black;
             this.frmEdicion.BorderThickness = 1F;
-            this.frmEdicion.Controls.Add(this.lblCodplan);
-            this.frmEdicion.Controls.Add(this.txtCodplan);
             this.frmEdicion.Controls.Add(this.lblCodservicio);
             this.frmEdicion.Controls.Add(this.cmbCodservicio);
-            this.frmEdicion.Controls.Add(this.lblCprestlibres);
-            this.frmEdicion.Controls.Add(this.txtCprestlibres);
-            this.frmEdicion.Controls.Add(this.lblValorprestacion);
-            this.frmEdicion.Controls.Add(this.txtValorprestacion);
             this.frmEdicion.CustomGroupBoxColor = System.Drawing.Color.White;
             this.frmEdicion.FlatMode = true;
             this.frmEdicion.FontTitle = new System.Drawing.Font("Arial", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.frmEdicion.ForeColor = System.Drawing.Color.Black;
             this.frmEdicion.GroupImage = null;
             this.frmEdicion.GroupTitle = " PlnServicio ";
-            this.frmEdicion.Location = new System.Drawing.Point(4, 296);
+            this.frmEdicion.Location = new System.Drawing.Point(4, 330);
             this.frmEdicion.Name = "frmEdicion";
             this.frmEdicion.Padding = new System.Windows.Forms.Padding(20);
             this.frmEdicion.PaintGroupBox = false;
-            this.frmEdicion.RoundCorners = 4;
+            this.frmEdicion.RoundCorners = 10;
             this.frmEdicion.ShadowColor = System.Drawing.Color.DarkGray;
             this.frmEdicion.ShadowControl = false;
             this.frmEdicion.ShadowThickness = 3;
-            this.frmEdicion.Size = new System.Drawing.Size(742, 150);
+            this.frmEdicion.Size = new System.Drawing.Size(1019, 184);
             this.frmEdicion.TabIndex = 21;
             this.frmEdicion.TitleBackground = System.Drawing.Color.DodgerBlue;
             this.frmEdicion.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
             this.frmEdicion.TitleFontColor = System.Drawing.Color.White;
             // 
-            // lblCodplan
-            // 
-            this.lblCodplan.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodplan.Location = new System.Drawing.Point(68, 58);
-            this.lblCodplan.Name = "lblCodplan";
-            this.lblCodplan.Size = new System.Drawing.Size(104, 22);
-            this.lblCodplan.TabIndex = 106;
-            this.lblCodplan.Text = "Código de Plan:";
-            this.lblCodplan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtCodplan
-            // 
-            this.txtCodplan.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCodplan.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodplan.EmptyValid = false;
-            this.txtCodplan.Enabled = false;
-            this.txtCodplan.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodplan.Location = new System.Drawing.Point(178, 58);
-            this.txtCodplan.MaxLength = 4;
-            this.txtCodplan.Name = "txtCodplan";
-            this.txtCodplan.OnlyDigits = true;
-            this.txtCodplan.Size = new System.Drawing.Size(44, 22);
-            this.txtCodplan.TabIndex = 6;
-            // 
             // lblCodservicio
             // 
             this.lblCodservicio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodservicio.Location = new System.Drawing.Point(37, 94);
+            this.lblCodservicio.Location = new System.Drawing.Point(41, 68);
             this.lblCodservicio.Name = "lblCodservicio";
-            this.lblCodservicio.Size = new System.Drawing.Size(135, 22);
-            this.lblCodservicio.TabIndex = 107;
+            this.lblCodservicio.Size = new System.Drawing.Size(160, 22);
+            this.lblCodservicio.TabIndex = 106;
             this.lblCodservicio.Text = "Servicio:";
             this.lblCodservicio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -555,63 +578,73 @@ namespace Carm.Tg
             this.cmbCodservicio.Enabled = false;
             this.cmbCodservicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCodservicio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCodservicio.Location = new System.Drawing.Point(178, 94);
+            this.cmbCodservicio.Location = new System.Drawing.Point(240, 64);
             this.cmbCodservicio.Name = "cmbCodservicio";
-            this.cmbCodservicio.Size = new System.Drawing.Size(199, 24);
+            this.cmbCodservicio.Size = new System.Drawing.Size(283, 26);
             this.cmbCodservicio.Sorted = true;
-            this.cmbCodservicio.TabIndex = 7;
+            this.cmbCodservicio.TabIndex = 6;
             // 
-            // lblCprestlibres
+            // frmOper
             // 
-            this.lblCprestlibres.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCprestlibres.Location = new System.Drawing.Point(378, 58);
-            this.lblCprestlibres.Name = "lblCprestlibres";
-            this.lblCprestlibres.Size = new System.Drawing.Size(150, 22);
-            this.lblCprestlibres.TabIndex = 108;
-            this.lblCprestlibres.Text = "Cant. Prestaciones Libres:";
-            this.lblCprestlibres.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.frmOper.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.frmOper.BackgroundGradientColor = System.Drawing.Color.White;
+            this.frmOper.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.None;
+            this.frmOper.BlackBorder = true;
+            this.frmOper.BorderColor = System.Drawing.Color.Black;
+            this.frmOper.BorderThickness = 1F;
+            this.frmOper.CustomGroupBoxColor = System.Drawing.Color.White;
+            this.frmOper.FlatMode = true;
+            this.frmOper.FontTitle = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmOper.ForeColor = System.Drawing.Color.Black;
+            this.frmOper.GroupImage = null;
+            this.frmOper.GroupTitle = "The Grouper";
+            this.frmOper.Location = new System.Drawing.Point(0, 0);
+            this.frmOper.Name = "frmOper";
+            this.frmOper.Padding = new System.Windows.Forms.Padding(20);
+            this.frmOper.PaintGroupBox = false;
+            this.frmOper.RoundCorners = 4;
+            this.frmOper.ShadowColor = System.Drawing.Color.DarkGray;
+            this.frmOper.ShadowControl = false;
+            this.frmOper.ShadowThickness = 3;
+            this.frmOper.Size = new System.Drawing.Size(368, 288);
+            this.frmOper.TabIndex = 0;
+            this.frmOper.TitleBackground = System.Drawing.Color.DodgerBlue;
+            this.frmOper.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
+            this.frmOper.TitleFontColor = System.Drawing.Color.White;
             // 
-            // txtCprestlibres
+            // frmData
             // 
-            this.txtCprestlibres.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCprestlibres.Enabled = false;
-            this.txtCprestlibres.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCprestlibres.Location = new System.Drawing.Point(534, 58);
-            this.txtCprestlibres.MaxLength = 5;
-            this.txtCprestlibres.Name = "txtCprestlibres";
-            this.txtCprestlibres.Size = new System.Drawing.Size(54, 22);
-            this.txtCprestlibres.TabIndex = 8;
-            this.txtCprestlibres.Text = "0";
-            // 
-            // lblValorprestacion
-            // 
-            this.lblValorprestacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorprestacion.Location = new System.Drawing.Point(404, 94);
-            this.lblValorprestacion.Name = "lblValorprestacion";
-            this.lblValorprestacion.Size = new System.Drawing.Size(124, 22);
-            this.lblValorprestacion.TabIndex = 109;
-            this.lblValorprestacion.Text = "Valor Prestación:";
-            this.lblValorprestacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtValorprestacion
-            // 
-            this.txtValorprestacion.BackColor = System.Drawing.SystemColors.Window;
-            this.txtValorprestacion.Enabled = false;
-            this.txtValorprestacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorprestacion.Location = new System.Drawing.Point(534, 94);
-            this.txtValorprestacion.MaxLength = 10;
-            this.txtValorprestacion.Name = "txtValorprestacion";
-            this.txtValorprestacion.NegativeValid = false;
-            this.txtValorprestacion.Size = new System.Drawing.Size(104, 22);
-            this.txtValorprestacion.TabIndex = 9;
-            this.txtValorprestacion.Text = "0.00";
-            this.txtValorprestacion.ZeroValid = false;
+            this.frmData.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.frmData.BackgroundGradientColor = System.Drawing.Color.White;
+            this.frmData.BackgroundGradientMode = TNGS.NetControls.ImgGroup.GroupBoxGradientMode.None;
+            this.frmData.BlackBorder = true;
+            this.frmData.BorderColor = System.Drawing.Color.Black;
+            this.frmData.BorderThickness = 1F;
+            this.frmData.CustomGroupBoxColor = System.Drawing.Color.White;
+            this.frmData.FlatMode = true;
+            this.frmData.FontTitle = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.frmData.ForeColor = System.Drawing.Color.Black;
+            this.frmData.GroupImage = null;
+            this.frmData.GroupTitle = "The Grouper";
+            this.frmData.Location = new System.Drawing.Point(0, 0);
+            this.frmData.Name = "frmData";
+            this.frmData.Padding = new System.Windows.Forms.Padding(20);
+            this.frmData.PaintGroupBox = false;
+            this.frmData.RoundCorners = 4;
+            this.frmData.ShadowColor = System.Drawing.Color.DarkGray;
+            this.frmData.ShadowControl = false;
+            this.frmData.ShadowThickness = 3;
+            this.frmData.Size = new System.Drawing.Size(368, 288);
+            this.frmData.TabIndex = 0;
+            this.frmData.TitleBackground = System.Drawing.Color.DodgerBlue;
+            this.frmData.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
+            this.frmData.TitleFontColor = System.Drawing.Color.White;
             // 
             // PlnServicios
             // 
             this.AllowEndUserDocking = false;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(750, 450);
+            this.ClientSize = new System.Drawing.Size(1027, 521);
             this.Controls.Add(this.xpnlBase);
             this.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.Document;
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -620,25 +653,23 @@ namespace Carm.Tg
             this.Name = "PlnServicios";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.Document;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.TabText = "Mantenimiento de PlnServicios";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PlnServicios_FormClosed);
+            this.Text = "Mantenimiento de PlnServicios";
+            this.Closed += new System.EventHandler(this.PlnServicios_Closed);
             this.Load += new System.EventHandler(this.PlnServicios_Load);
             this.xpnlBase.ResumeLayout(false);
             this.tsContainer1.ResumeLayout(false);
             this.tabPageSwitcher1.ResumeLayout(false);
             this.tabStripPage1.ResumeLayout(false);
-            this.tsPanel2.ResumeLayout(false);
+            this.tsPanel3.ResumeLayout(false);
             this.tsPanel1.ResumeLayout(false);
+            this.tsPanel2.ResumeLayout(false);
             this.tsBase1.ResumeLayout(false);
             this.tsBase1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDatos)).EndInit();
             this.frmEdicion.ResumeLayout(false);
-            this.frmEdicion.PerformLayout();
             this.ResumeLayout(false);
 
         }
         #endregion
-
-        private IContainer components;
     }
 }

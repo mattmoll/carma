@@ -73,6 +73,7 @@
     <Compile Include="CliVentas.cs" />
     <Compile Include="ConversionColores.cs" />
     <Compile Include="Franquicias.cs" />
+    <Compile Include="ListasDePrecios.cs" />
     <Compile Include="Localidades.cs" />
     <Compile Include="LogClientes.cs" />
     <Compile Include="Marcas.cs" />

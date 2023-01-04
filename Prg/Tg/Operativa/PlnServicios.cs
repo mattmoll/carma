@@ -17,12 +17,12 @@ namespace Carm.Tg
     //----------------------------------------------------------------------------
     //                         TNG Software UIL Generator
     //----------------------------------------------------------------------------
-    // Fecha                     : 07/08/2020 00:00
+    // Fecha                     : 03/01/2023 23:31
     // Sistema                   : Carm
     // Interface para la Entidad : PlnServicio
-    // Tipo de Interface         : Mantenimiento de Tabla Clasificadora
+    // Tipo de Interface         : Mantenimiento de Tabla Padre-Hijo
     //----------------------------------------------------------------------------
-    // © 1996-2020 by TNG Software                                      Gndr 5.20
+    // © 1996-2023 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     /// <summary>
@@ -59,7 +59,6 @@ namespace Carm.Tg
             // Fijamos el modo Skin
             xpnlBase.SkinFixed= App.WithSkin;
             frmEdicion.SkinFixed= App.WithSkin;
-            grdDatos.SkinFixed= App.WithSkin;
 
             // Dockeamos el formulario
             ((MainFrame) App.GetMainWindow()).AddContent(this);
@@ -80,6 +79,10 @@ namespace Carm.Tg
             // Inicializamos el form
             App.ShowMsg("Inicializando el formulario...");
 
+            Bel.LEPlanes l_lentPlanes= Bll.Planes.UpFull(true, m_smResult);
+            if (MsgRuts.AnalizeError(this, m_smResult)) return;
+            cmbPlan.FillFromStrLEntidad(l_lentPlanes, "pln_cod_cod", "pln_des_des", "deleted");
+
             // Llenamos las Combos (por Tablas)
             Bel.LEServicios l_lentServicios= Bll.Servicios.UpFull(false, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
@@ -97,7 +100,7 @@ namespace Carm.Tg
         /// <summary>
         /// Cierre del formulario
         /// </summary>
-        private void PlnServicios_FormClosed(object sender, FormClosedEventArgs e)
+        private void PlnServicios_Closed(object sender, System.EventArgs e)
         {
             // Liberamos el menu
             App.LockMenu(false);
@@ -159,9 +162,56 @@ namespace Carm.Tg
             App.SetStrURegistry(false, "GridFormat", "PlnServiciosGrdWidths", grdDatos.ColWitdhs);
         }
 
+        /// <summary>
+        /// Cambio la combo con codigos Padre
+        /// </summary>
+        private void cmbPlan_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            // Si se selecciono un codigo
+            if (cmbPlan.SelectedIndex != -1) {
+                // Llenamos la grilla
+                FillGrid();
+            }
+            else {
+                // Limpiamos la grilla
+                grdDatos.Clear();
+            }
+
+            // Damos foco a la grilla
+            grdDatos.Focus();
+        }
+
         //--------------------------------------------------------------
         // Operaciones
         //--------------------------------------------------------------
+
+        /// <summary>
+        /// Llama al formulario de mantenimiento de la tabla Padre
+        /// </summary>
+        private void cmdModPadre_Click(object sender, System.EventArgs e)
+        {
+            // Mostramos el formulario de ABM del padre
+            App.SetACL(m_aclInfo);
+            Planes l_frmPadre= new Planes();
+
+            l_frmPadre.Visible = false;
+            l_frmPadre.MdiParent= null;
+            l_frmPadre.StartPosition= FormStartPosition.CenterParent;
+            l_frmPadre.ShowDialog(this);
+            App.SetACL(null);
+
+            // Bloqueamos el menu
+            App.LockMenu(true);
+
+            // Recargamos la combo
+            App.ShowMsg("Recargando los datos...");
+
+            Bel.LEPlanes l_lentPlanes= Bll.Planes.UpFull(true, m_smResult);
+            if (MsgRuts.AnalizeError(this, m_smResult)) return;
+            cmbPlan.FillFromStrLEntidad(l_lentPlanes, "pln_cod_cod", "pln_des_des", "deleted");
+            cmbPlan.Focus();
+            App.HideMsg();
+        }
 
         /// <summary>
         /// Exporta la grilla en Excel
@@ -193,11 +243,15 @@ namespace Carm.Tg
         /// </summary>
         private void cmdNuevo_Click(object sender, System.EventArgs e)
         {
+            // Si no hay padre -> salimos
+            if (cmbPlan.SelectedIndex == -1) return;
+
             // Creamos una nueva entidad, pasamos a modo de edicion y
             // damos foco al primer campo
             m_entPlnServicio= Bel.EPlnServicio.NewEmpty();
+            m_entPlnServicio.Codplan= cmbPlan.SelectedStrCode;
             SwitchTo(FormModes.Edit, GridOps.DontFill);
-            txtCodplan.Focus();
+            cmbCodservicio.Focus();
         }
 
         /// <summary>
@@ -211,7 +265,7 @@ namespace Carm.Tg
 
             // Obtenemos la entidad del item seleccionado en la grilla
             App.ShowMsg("Recuperando Datos...");
-            m_entPlnServicio= Bll.Planes.PlsGet((string) grdDatos.GetMatrixValueObj(l_iRow, 1),
+            m_entPlnServicio= Bll.Planes.PlsGet(cmbPlan.SelectedStrCode,
                                                 (string) grdDatos.GetMatrixValueObj(l_iRow, 2),
                                                 false, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
@@ -223,7 +277,7 @@ namespace Carm.Tg
                 cmdCancelar.Focus();
             }
             else {
-                txtValorprestacion.Focus();
+                cmbCodservicio.Focus();
             }
             App.HideMsg();
         }
@@ -296,10 +350,8 @@ namespace Carm.Tg
         private void cmdGrabar_Click(object sender, System.EventArgs e)
         {
             // Pasamos los datos a la Entidad
-            m_entPlnServicio.Codplan= txtCodplan.Text;
+            m_entPlnServicio.Codplan= cmbPlan.SelectedStrCode;
             m_entPlnServicio.Codservicio= cmbCodservicio.SelectedStrCode;
-            m_entPlnServicio.Cprestlibres= txtCprestlibres.Numero;
-            m_entPlnServicio.Valorprestacion= txtValorprestacion.Decimal;
 
             // Tratamos de grabar la entidad
             App.ShowMsg("Grabando...");
@@ -324,7 +376,8 @@ namespace Carm.Tg
         {
             // Recuperamos los datos para la grilla
             App.ShowMsg("Recuperando datos...");
-            Bel.LEPlnServicios l_lentPlnServicios= Bll.Planes.PlsUpFull(false, m_smResult);
+            Bel.LEPlnServicios l_lentPlnServicios= Bll.Planes.PlsFGet(cmbPlan.SelectedStrCode,
+                                                                      false, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
             // Asignamos a la grilla
@@ -369,29 +422,21 @@ namespace Carm.Tg
         private void OperationMode()
         {
             // Deshabilitamos el frame
-            txtCodplan.NormalDisable= true;
-            txtCodplan.Enabled= false;
             cmbCodservicio.NormalDisable= true;
             cmbCodservicio.Enabled= false;
-            txtCprestlibres.NormalDisable= true;
-            txtCprestlibres.Enabled= false;
-            txtValorprestacion.NormalDisable= true;
-            txtValorprestacion.Enabled= false;
             cmdCancelar.Enabled= false;
             cmdGrabar.Enabled= false;
             cmdDesHab.Enabled= false;
             cmdHab.Enabled= false;
 
             // Blanqueamos los campos
-            txtCodplan.Text= "";
             cmbCodservicio.SelectedStrCode= "";
-            txtCprestlibres.Numero= 0;
-            txtValorprestacion.Decimal= 0;
 
             // Habilitamos la grilla y los controles operativos
+            cmbPlan.Enabled= true;
+            cmdModPadre.Enabled= true;
             cmdNuevo.Enabled= true;
             cmdModificar.Enabled= true;
-            cmdPurgar.Enabled= true;
             cmdSalir.Enabled= true;
             cmdPrint.Enabled= true;
             cmdExcel.Enabled= true;
@@ -400,7 +445,6 @@ namespace Carm.Tg
             // Procesamos los comandos ACL
             cmdNuevo.Visible= ((m_aclInfo[0].VStr == "S") || (m_aclInfo[1].VStr == "S"));
             cmdModificar.Visible= ((m_aclInfo[0].VStr == "S") || (m_aclInfo[3].VStr == "S"));
-            cmdPurgar.Visible= ((m_aclInfo[0].VStr == "S") || (m_aclInfo[5].VStr == "S"));
 
             // El ESC sale del formulario
             CancelButton= cmdSalir;
@@ -412,23 +456,16 @@ namespace Carm.Tg
         private void EditMode()
         {
             // Llenamos los campos a partir de la entidad a editar
-            txtCodplan.Text= m_entPlnServicio.Codplan;
             cmbCodservicio.SelectedStrCode= m_entPlnServicio.Codservicio;
-            txtCprestlibres.Numero= m_entPlnServicio.Cprestlibres;
-            txtValorprestacion.Decimal= m_entPlnServicio.Valorprestacion;
 
             // Habilitamos el frame
-            txtCodplan.NormalDisable= false;
-            txtCodplan.Enabled= m_entPlnServicio.EsNueva;
             cmbCodservicio.NormalDisable= false;
             cmbCodservicio.Enabled= m_entPlnServicio.EsNueva;
-            txtCprestlibres.NormalDisable= false;
-            txtCprestlibres.Enabled= m_entPlnServicio.EsNueva;
-            txtValorprestacion.NormalDisable= false;
-            txtValorprestacion.Enabled= !m_entPlnServicio.EstaBorrada;
             cmdCancelar.Enabled= true;
             cmdGrabar.Enabled= !m_entPlnServicio.EstaBorrada;
-            cmdDesHab.Enabled= ((!m_entPlnServicio.EsNueva) &&(!m_entPlnServicio.EstaBorrada));
+            cmdDesHab.FixedImage= (m_entPlnServicio.EstaBorrada) ? FixedGlassButtons.Enable 
+                                                                 : FixedGlassButtons.Disable;
+            cmdDesHab.Enabled= ((!m_entPlnServicio.EsNueva) && (!m_entPlnServicio.EstaBorrada));
             cmdHab.Enabled= !cmdDesHab.Enabled;
 
             // Procesamos los comandos ACL
@@ -436,9 +473,10 @@ namespace Carm.Tg
             cmdDesHab.Visible= ((m_aclInfo[0].VStr == "S") || (m_aclInfo[2].VStr == "S"));
 
             // Dehabilitamos la grilla y los controles operativos
+            cmbPlan.Enabled= false;
+            cmdModPadre.Enabled= false;
             cmdNuevo.Enabled= false;
             cmdModificar.Enabled= false;
-            cmdPurgar.Enabled= false;
             cmdSalir.Enabled= false;
             cmdPrint.Enabled= false;
             cmdExcel.Enabled= false;

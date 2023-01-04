@@ -10,12 +10,12 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 19/07/2021 08:58
+    // Fecha                    : 03/01/2023 23:43
     // Sistema                  : Carm
     // Clase para Administrar   : Servicios de los Planes
     // Basada en la Tabla       : PlnServicios
     //----------------------------------------------------------------------------
-    // © 1996-2021 by TNG Software                                      Gndr 5.20
+    // © 1996-2023 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -497,8 +497,6 @@ namespace Carm.Dal
                 p_dtResult.Columns["pls_des_serv"].Caption= "V1ServicioCN1";
                 p_dtResult.Columns["pls_cod_codplan"].Caption= "V1Código de PlanCN1";
                 p_dtResult.Columns["pls_cod_codservicio"].Caption= "V1Código de ServicioCN1";
-                p_dtResult.Columns["pls_nro_cprestlibres"].Caption= "V1Cant. Prestaciones LibresNN1";
-                p_dtResult.Columns["pls_imp_valorprestacion"].Caption= "V1Valor Prestación2N1";
                 p_dtResult.Columns["deleted"].Caption= "V1Borrado2N2";
             }
             catch (Exception l_expData) {

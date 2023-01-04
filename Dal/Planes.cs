@@ -10,12 +10,12 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 19/07/2021 08:58
+    // Fecha                    : 03/01/2023 23:43
     // Sistema                  : Carm
     // Clase para Administrar   : Planes de Venta
     // Basada en la Tabla       : Planes
     //----------------------------------------------------------------------------
-    // © 1996-2021 by TNG Software                                      Gndr 5.20
+    // © 1996-2023 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -389,11 +389,8 @@ namespace Carm.Dal
                 DBRuts.ClearDTCaptions(ref p_dtResult);
 
                 // Fijamos los nuevos captions de la grilla
-                p_dtResult.Columns["pln_des_marca"].Caption= "V1MarcaCN1";
                 p_dtResult.Columns["pln_cod_cod"].Caption= "V1CódigoCN1";
-                p_dtResult.Columns["pln_cod_codplanavalon"].Caption= "V1Cod Plan AvalonCN1";
                 p_dtResult.Columns["pln_des_des"].Caption= "V1DescripciónCN1";
-                p_dtResult.Columns["pln_d80_tcontratoavalon"].Caption= "V1Lista de T Contratos AvalonCN1";
                 p_dtResult.Columns["deleted"].Caption= "V1Borrado2N2";
             }
             catch (Exception l_expData) {

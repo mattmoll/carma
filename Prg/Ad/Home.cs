@@ -86,8 +86,14 @@ namespace Carm.Ad
 
         private void gbVenta_Click(object sender, EventArgs e)
         {
-            Testing testing = new Testing();
-            testing.ShowDialog(this);
+            int nroCliente = getClientNumberSelected();
+            if (nroCliente == 0) return;
+
+            Bel.ECliente cliente = Bll.Clientes.Get(nroCliente, true, statMessage);
+            if (MsgRuts.AnalizeError(this, statMessage)) return;
+
+            CargaVenta cargaVenta = new CargaVenta(cliente);
+            cargaVenta.ShowDialog(this);
         }
 
         private void gbBorrarCliente_Click(object sender, EventArgs e)

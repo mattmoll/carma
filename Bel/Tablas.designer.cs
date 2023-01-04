@@ -14,11 +14,11 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 19/07/2021 08:58
+    // Fecha                    : 04/01/2023 00:10
     // Sistema                  : Carm
     // Clase para Administrar   : Tablas
     //----------------------------------------------------------------------------
-    // © 1996-2021 by TNG Software                                      Gndr 5.20
+    // © 1996-2023 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -1670,6 +1670,860 @@ namespace Carm.Bel
                 foreach (EFranquicia l_entItem in this) {
                     // Si existe -> la devolvemos
                     if (l_entItem.Cod == EFranquicia.FrmtCod(p_strCod))
+                        return l_entItem;
+                }
+
+                // No existe
+                return null;
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Entidad: ListaDePrecios
+    /// <summary>
+    /// Clase que representa la Entidad: ListaDePrecios
+    /// </summary>
+    public sealed partial class EListaDePrecios : Entidad
+    {
+        #region Constructores
+        /// <summary>
+        /// Constructor
+        /// Llena la entidad a partir de una Row de la tabla: ListasDePrecios
+        /// </summary>
+        /// <param name="p_drDatos">DataRow con los datos de la entidad</param>
+        public EListaDePrecios(DataRow p_drDatos) :
+            base(p_drDatos)
+        {
+        }
+
+        /// <summary>
+        /// Construye una entidad desde un XML: ListaDePrecios
+        /// </summary>
+        /// <param name="p_strXML">Datos en XML</param>
+        /// <param name="p_bEsNueva">T- La Entidad es Nueva / F- No</param>
+        public EListaDePrecios(string p_strXML) :
+            this(p_strXML, false)
+        {
+        }
+
+        /// <summary>
+        /// Construye una entidad desde un XML: ListaDePrecios
+        /// </summary>
+        /// <param name="p_strXML">Datos en XML</param>
+        public EListaDePrecios(string p_strXML,
+                               bool p_bEsNueva)
+        {
+            // Fijamos la condicion de entidad nueva
+            base.m_bNew= p_bEsNueva;
+
+            // Obtenemos el Nodo de datos del XML
+            XmlDocument l_xdocData= new XmlDocument();
+            l_xdocData.InnerXml= p_strXML;
+            XmlNode l_xndData= l_xdocData.ChildNodes[0];
+
+            // Creamos una tabla compatible con la entidad
+            DataTable l_dtTemp= new DataTable();
+            l_dtTemp.Columns.AddRange(EListaDePrecios.Struct);
+
+            // Creamos una row a partir de la tabla creada y la
+            // llenamos con los valores iniciales
+            DataRow l_drTemp= l_dtTemp.NewRow();
+
+            l_drTemp["lpr_cod_cod"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_cod_cod");
+            l_drTemp["lpr_des_des"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_des_des");
+            l_drTemp["lpr_cod_codplan"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_cod_codplan");
+            l_drTemp["lpr_rcd_codmarca"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_rcd_codmarca");
+            l_drTemp["lpr_imp_precio1p"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_imp_precio1p", (decimal) 0);
+            l_drTemp["lpr_imp_precio2p"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_imp_precio2p", (decimal) 0);
+            l_drTemp["lpr_imp_precio3p"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_imp_precio3p", (decimal) 0);
+            l_drTemp["lpr_imp_precio4p"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_imp_precio4p", (decimal) 0);
+            l_drTemp["lpr_imp_precio5p"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_imp_precio5p", (decimal) 0);
+            l_drTemp["lpr_imp_precio6p"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_imp_precio6p", (decimal) 0);
+            l_drTemp["lpr_imp_precio7p"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_imp_precio7p", (decimal) 0);
+            l_drTemp["lpr_imp_precio8p"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_imp_precio8p", (decimal) 0);
+            l_drTemp["lpr_imp_precio9p"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_imp_precio9p", (decimal) 0);
+            l_drTemp["lpr_imp_precio10p"]= XMLRuts.ExtractXAttr(l_xndData, "lpr_imp_precio10p", (decimal) 0);
+            l_drTemp["des_marca"]= XMLRuts.ExtractXAttr(l_xndData, "des_marca");
+            l_drTemp["des_plan"]= XMLRuts.ExtractXAttr(l_xndData, "des_plan");
+
+            // Llenamos los campos fijos
+            XML2FixedFields(ref l_drTemp, l_xndData);
+
+            // Llamamos al metodo fijo
+            fNewFromXML(ref l_drTemp, l_xndData);
+
+            // Agregamos la Row creada a la tabla creada y creamos
+            // una entidad a partir de los datos
+            l_dtTemp.Rows.Add(l_drTemp);
+            SetInternalData(l_dtTemp, l_dtTemp.Rows[0]);
+        }
+
+        /// <summary>
+        /// Constructor 
+        /// Privado para crear clases vacias
+        /// </summary>
+        /// <param name="p_dtDatos">DataTable con 1 registro con los datos de la entidad</param>
+        private EListaDePrecios(DataTable p_dtDatos) :
+            base(p_dtDatos)
+        {
+        }
+        #endregion
+
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos públicos de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Construye una entidad vacía: ListaDePrecios
+        /// </summary>
+        /// <returns>Entidad vacia: ListaDePrecios</returns>
+        public static EListaDePrecios NewEmpty()
+        {
+            // Creamos una tabla compatible con la entidad
+            DataTable l_dtTemp= new DataTable();
+            l_dtTemp.Columns.AddRange(EListaDePrecios.Struct);
+
+            // Creamos una row a partir de la tabla creada y la
+            // llenamos con los valores iniciales
+            DataRow l_drTemp= l_dtTemp.NewRow();
+
+            l_drTemp["lpr_cod_cod"]= "";
+            l_drTemp["lpr_des_des"]= "";
+            l_drTemp["lpr_cod_codplan"]= "";
+            l_drTemp["lpr_rcd_codmarca"]= "";
+            l_drTemp["lpr_imp_precio1p"]= 0;
+            l_drTemp["lpr_imp_precio2p"]= 0;
+            l_drTemp["lpr_imp_precio3p"]= 0;
+            l_drTemp["lpr_imp_precio4p"]= 0;
+            l_drTemp["lpr_imp_precio5p"]= 0;
+            l_drTemp["lpr_imp_precio6p"]= 0;
+            l_drTemp["lpr_imp_precio7p"]= 0;
+            l_drTemp["lpr_imp_precio8p"]= 0;
+            l_drTemp["lpr_imp_precio9p"]= 0;
+            l_drTemp["lpr_imp_precio10p"]= 0;
+            l_drTemp["des_marca"]= "";
+            l_drTemp["des_plan"]= "";
+
+            // Agregamos la Row creada a la tabla creada y creamos
+            // una entidad a partir de la DataTable de 1 registro
+            l_dtTemp.Rows.Add(l_drTemp);
+            EListaDePrecios l_entRet= new EListaDePrecios(l_dtTemp);
+            l_dtTemp.Dispose();
+            return l_entRet;
+        }
+
+        /// <summary>
+        /// Construye una entidad con datos de parametro: ListaDePrecios
+        /// </summary>
+        /// <param name="p_strCod">Código</param>
+        /// <param name="p_strDes">Descripción</param>
+        /// <param name="p_strCodplan">Plan</param>
+        /// <param name="p_strCodmarca">Marca</param>
+        /// <param name="p_dcPrecio1p">Precio 1 P</param>
+        /// <param name="p_dcPrecio2p">Precio 2 P</param>
+        /// <param name="p_dcPrecio3p">Precio 3 P</param>
+        /// <param name="p_dcPrecio4p">Precio 4 P</param>
+        /// <param name="p_dcPrecio5p">Precio 5 P</param>
+        /// <param name="p_dcPrecio6p">Precio 6 P</param>
+        /// <param name="p_dcPrecio7p">Precio 7 P</param>
+        /// <param name="p_dcPrecio8p">Precio 8 P</param>
+        /// <param name="p_dcPrecio9p">Precio 9 P</param>
+        /// <param name="p_dcPrecio10p">Precio 10 P</param>
+        /// <returns>Entidad: ListaDePrecios</returns>
+        public static EListaDePrecios NewFilled(string p_strCod,
+                                                string p_strDes,
+                                                string p_strCodplan,
+                                                string p_strCodmarca,
+                                                decimal p_dcPrecio1p,
+                                                decimal p_dcPrecio2p,
+                                                decimal p_dcPrecio3p,
+                                                decimal p_dcPrecio4p,
+                                                decimal p_dcPrecio5p,
+                                                decimal p_dcPrecio6p,
+                                                decimal p_dcPrecio7p,
+                                                decimal p_dcPrecio8p,
+                                                decimal p_dcPrecio9p,
+                                                decimal p_dcPrecio10p)
+        {
+            // Creamos una tabla compatible con la entidad
+            DataTable l_dtTemp= new DataTable();
+            l_dtTemp.Columns.AddRange(EListaDePrecios.Struct);
+
+            // Creamos una row a partir de la tabla creada y la
+            // llenamos con los valores iniciales
+            DataRow l_drTemp= l_dtTemp.NewRow();
+
+            l_drTemp["lpr_cod_cod"]= p_strCod;
+            l_drTemp["lpr_des_des"]= p_strDes;
+            l_drTemp["lpr_cod_codplan"]= p_strCodplan;
+            l_drTemp["lpr_rcd_codmarca"]= p_strCodmarca;
+            l_drTemp["lpr_imp_precio1p"]= p_dcPrecio1p;
+            l_drTemp["lpr_imp_precio2p"]= p_dcPrecio2p;
+            l_drTemp["lpr_imp_precio3p"]= p_dcPrecio3p;
+            l_drTemp["lpr_imp_precio4p"]= p_dcPrecio4p;
+            l_drTemp["lpr_imp_precio5p"]= p_dcPrecio5p;
+            l_drTemp["lpr_imp_precio6p"]= p_dcPrecio6p;
+            l_drTemp["lpr_imp_precio7p"]= p_dcPrecio7p;
+            l_drTemp["lpr_imp_precio8p"]= p_dcPrecio8p;
+            l_drTemp["lpr_imp_precio9p"]= p_dcPrecio9p;
+            l_drTemp["lpr_imp_precio10p"]= p_dcPrecio10p;
+            l_drTemp["des_marca"]= "";
+            l_drTemp["des_plan"]= "";
+
+            // Agregamos la Row creada a la tabla creada y creamos
+            // una entidad a partir de la DataTable de 1 registro
+            l_dtTemp.Rows.Add(l_drTemp);
+            EListaDePrecios l_entRet= new EListaDePrecios(l_dtTemp);
+            l_dtTemp.Dispose();
+            return l_entRet;
+        }
+        #endregion
+
+        #region Formateadores
+
+        //---------------------------------------------------------------
+        // Metodos estáticos (Formateo de codigos alineados a derecha)
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Formatea una string: Plan
+        /// </summary>
+        public static string FrmtCodplan(string p_strCodplan)
+        {
+            if (p_strCodplan.Trim().Length > 4)
+                p_strCodplan= p_strCodplan.Trim().Substring(0,4);
+
+            return p_strCodplan.Trim().PadLeft(4).ToUpper();
+        }
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Devuelve la estructura de la tabla interna de la entidad
+        /// </summary>
+        public static DataColumn[] Struct
+        {
+            get {
+                // Creamos el vector de DataColumns y lo llenamos
+                DataColumn[] l_dcStruct= new DataColumn[20];
+
+                l_dcStruct[0]= new DataColumn("lpr_cod_cod", typeof(string));
+                l_dcStruct[1]= new DataColumn("lpr_des_des", typeof(string));
+                l_dcStruct[2]= new DataColumn("des_marca", typeof(string));
+                l_dcStruct[3]= new DataColumn("des_plan", typeof(string));
+                l_dcStruct[4]= new DataColumn("lpr_cod_codplan", typeof(string));
+                l_dcStruct[5]= new DataColumn("lpr_rcd_codmarca", typeof(string));
+                l_dcStruct[6]= new DataColumn("lpr_imp_precio1p", typeof(decimal));
+                l_dcStruct[7]= new DataColumn("lpr_imp_precio2p", typeof(decimal));
+                l_dcStruct[8]= new DataColumn("lpr_imp_precio3p", typeof(decimal));
+                l_dcStruct[9]= new DataColumn("lpr_imp_precio4p", typeof(decimal));
+                l_dcStruct[10]= new DataColumn("lpr_imp_precio5p", typeof(decimal));
+                l_dcStruct[11]= new DataColumn("lpr_imp_precio6p", typeof(decimal));
+                l_dcStruct[12]= new DataColumn("lpr_imp_precio7p", typeof(decimal));
+                l_dcStruct[13]= new DataColumn("lpr_imp_precio8p", typeof(decimal));
+                l_dcStruct[14]= new DataColumn("lpr_imp_precio9p", typeof(decimal));
+                l_dcStruct[15]= new DataColumn("lpr_imp_precio10p", typeof(decimal));
+                EListaDePrecios.FillFixedFields(ref l_dcStruct, 16);
+
+                // Devolvemos el vector creado
+                return l_dcStruct;
+            }
+        }
+
+        /// <summary>
+        /// Código
+        /// </summary>
+        public static string CodCmp
+        {
+           get {return "lpr_cod_cod";}
+        }
+
+        /// <summary>
+        /// Código
+        /// </summary>
+        public string Cod
+        {
+            get {return ((string) InternalData["lpr_cod_cod"]).Trim();}
+            set {
+                if (value.Trim().Length > 4) value= value.Trim().Substring(0,4);
+                InternalData["lpr_cod_cod"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Descripción
+        /// </summary>
+        public static string DesCmp
+        {
+           get {return "lpr_des_des";}
+        }
+
+        /// <summary>
+        /// Descripción
+        /// </summary>
+        public string Des
+        {
+            get {return ((string) InternalData["lpr_des_des"]).Trim();}
+            set {
+                if (value.Trim().Length > 30) value= value.Trim().Substring(0,30);
+                InternalData["lpr_des_des"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Plan
+        /// </summary>
+        public static string CodplanCmp
+        {
+           get {return "lpr_cod_codplan";}
+        }
+
+        /// <summary>
+        /// Plan
+        /// </summary>
+        public string Codplan
+        {
+            get {return (string) InternalData["lpr_cod_codplan"];}
+            set {InternalData["lpr_cod_codplan"]= EListaDePrecios.FrmtCodplan(value);}
+        }
+
+        /// <summary>
+        /// Marca
+        /// </summary>
+        public static string CodmarcaCmp
+        {
+           get {return "lpr_rcd_codmarca";}
+        }
+
+        /// <summary>
+        /// Marca
+        /// </summary>
+        public string Codmarca
+        {
+            get {return (string) InternalData["lpr_rcd_codmarca"];}
+            set {InternalData["lpr_rcd_codmarca"]= value;}
+        }
+
+        /// <summary>
+        /// Precio 1 P
+        /// </summary>
+        public static string Precio1pCmp
+        {
+           get {return "lpr_imp_precio1p";}
+        }
+
+        /// <summary>
+        /// Precio 1 P
+        /// </summary>
+        public decimal Precio1p
+        {
+            get {return (decimal) InternalData["lpr_imp_precio1p"];}
+            set {InternalData["lpr_imp_precio1p"]= value;}
+        }
+
+        /// <summary>
+        /// Precio 2 P
+        /// </summary>
+        public static string Precio2pCmp
+        {
+           get {return "lpr_imp_precio2p";}
+        }
+
+        /// <summary>
+        /// Precio 2 P
+        /// </summary>
+        public decimal Precio2p
+        {
+            get {return (decimal) InternalData["lpr_imp_precio2p"];}
+            set {InternalData["lpr_imp_precio2p"]= value;}
+        }
+
+        /// <summary>
+        /// Precio 3 P
+        /// </summary>
+        public static string Precio3pCmp
+        {
+           get {return "lpr_imp_precio3p";}
+        }
+
+        /// <summary>
+        /// Precio 3 P
+        /// </summary>
+        public decimal Precio3p
+        {
+            get {return (decimal) InternalData["lpr_imp_precio3p"];}
+            set {InternalData["lpr_imp_precio3p"]= value;}
+        }
+
+        /// <summary>
+        /// Precio 4 P
+        /// </summary>
+        public static string Precio4pCmp
+        {
+           get {return "lpr_imp_precio4p";}
+        }
+
+        /// <summary>
+        /// Precio 4 P
+        /// </summary>
+        public decimal Precio4p
+        {
+            get {return (decimal) InternalData["lpr_imp_precio4p"];}
+            set {InternalData["lpr_imp_precio4p"]= value;}
+        }
+
+        /// <summary>
+        /// Precio 5 P
+        /// </summary>
+        public static string Precio5pCmp
+        {
+           get {return "lpr_imp_precio5p";}
+        }
+
+        /// <summary>
+        /// Precio 5 P
+        /// </summary>
+        public decimal Precio5p
+        {
+            get {return (decimal) InternalData["lpr_imp_precio5p"];}
+            set {InternalData["lpr_imp_precio5p"]= value;}
+        }
+
+        /// <summary>
+        /// Precio 6 P
+        /// </summary>
+        public static string Precio6pCmp
+        {
+           get {return "lpr_imp_precio6p";}
+        }
+
+        /// <summary>
+        /// Precio 6 P
+        /// </summary>
+        public decimal Precio6p
+        {
+            get {return (decimal) InternalData["lpr_imp_precio6p"];}
+            set {InternalData["lpr_imp_precio6p"]= value;}
+        }
+
+        /// <summary>
+        /// Precio 7 P
+        /// </summary>
+        public static string Precio7pCmp
+        {
+           get {return "lpr_imp_precio7p";}
+        }
+
+        /// <summary>
+        /// Precio 7 P
+        /// </summary>
+        public decimal Precio7p
+        {
+            get {return (decimal) InternalData["lpr_imp_precio7p"];}
+            set {InternalData["lpr_imp_precio7p"]= value;}
+        }
+
+        /// <summary>
+        /// Precio 8 P
+        /// </summary>
+        public static string Precio8pCmp
+        {
+           get {return "lpr_imp_precio8p";}
+        }
+
+        /// <summary>
+        /// Precio 8 P
+        /// </summary>
+        public decimal Precio8p
+        {
+            get {return (decimal) InternalData["lpr_imp_precio8p"];}
+            set {InternalData["lpr_imp_precio8p"]= value;}
+        }
+
+        /// <summary>
+        /// Precio 9 P
+        /// </summary>
+        public static string Precio9pCmp
+        {
+           get {return "lpr_imp_precio9p";}
+        }
+
+        /// <summary>
+        /// Precio 9 P
+        /// </summary>
+        public decimal Precio9p
+        {
+            get {return (decimal) InternalData["lpr_imp_precio9p"];}
+            set {InternalData["lpr_imp_precio9p"]= value;}
+        }
+
+        /// <summary>
+        /// Precio 10 P
+        /// </summary>
+        public static string Precio10pCmp
+        {
+           get {return "lpr_imp_precio10p";}
+        }
+
+        /// <summary>
+        /// Precio 10 P
+        /// </summary>
+        public decimal Precio10p
+        {
+            get {return (decimal) InternalData["lpr_imp_precio10p"];}
+            set {InternalData["lpr_imp_precio10p"]= value;}
+        }
+
+        /// <summary>
+        /// Marca
+        /// </summary>
+        public string Des_marca
+        {
+            get {return (string) InternalData["des_marca"];}
+            set {InternalData["des_marca"]= value;}
+        }
+
+        /// <summary>
+        /// Plan
+        /// </summary>
+        public string Des_plan
+        {
+            get {return (string) InternalData["des_plan"];}
+            set {InternalData["des_plan"]= value;}
+        }
+
+        /// <summary>
+        /// Devuelve la entidad [EListaDePrecios] como XMLDocument en formato string
+        /// </summary>
+        public string XMLData
+        {
+            get {return XMLEncode.InnerXml;}
+        }
+
+        /// <summary>
+        /// Devuelve la entidad [EListaDePrecios] como XMLDocument
+        /// </summary>
+        public XmlDocument XMLEncode
+        {
+            get {
+                //Creamos un Nodo de un Documento XML
+                XmlDocument l_xdocData= new XmlDocument();
+                XmlNode l_xndEntidad= l_xdocData.CreateNode(XmlNodeType.Element, "EListaDePrecios", null);
+
+                // Asignamos los atributos al nodo
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_cod_cod", Cod));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_des_des", Des));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_cod_codplan", Codplan));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_rcd_codmarca", Codmarca));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_imp_precio1p", Precio1p));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_imp_precio2p", Precio2p));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_imp_precio3p", Precio3p));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_imp_precio4p", Precio4p));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_imp_precio5p", Precio5p));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_imp_precio6p", Precio6p));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_imp_precio7p", Precio7p));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_imp_precio8p", Precio8p));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_imp_precio9p", Precio9p));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "lpr_imp_precio10p", Precio10p));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "des_marca", Des_marca));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "des_plan", Des_plan));
+
+                // Asignamos los campos fijos
+                FixedFields2XML(l_xdocData, ref l_xndEntidad);
+
+                // Llamamos al metodo fijo
+                fAddXMLData(ref l_xdocData, ref l_xndEntidad);
+
+                // Armamos el documento y lo devolvemos
+                l_xdocData.AppendChild(l_xndEntidad);
+                return l_xdocData;
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Lista-Entidad: ListasDePrecios
+    /// <summary>
+    /// Clase que representa la Lista-Entidad: ListasDePrecios
+    /// </summary>
+    public sealed partial class LEListasDePrecios : ListaEntidades, IEnumerable<EListaDePrecios>
+    {
+        #region Constructores
+        /// <summary>
+        /// Constructor
+        /// Llena la lista-entidad a partir de una Tabla: ListasDePrecios
+        /// </summary>
+        /// <param name="p_dtDatos">DataTable con los datos de la entidad</param>
+        public LEListasDePrecios(DataTable p_dtDatos) :
+            base(p_dtDatos)
+        {
+        }
+
+        /// <summary>
+        /// Constructor
+        /// Llena la lista-entidad a partir de un XML
+        /// </summary>
+        /// <param name="p_dtDatos">DataTable con los datos de la entidad</param>
+        public LEListasDePrecios(string p_strXMLData) :
+            base(EListaDePrecios.Struct)
+        {
+            // Creamos el documento XML
+            XmlDocument l_xdocData= new XmlDocument();
+            l_xdocData.InnerXml= p_strXMLData;
+            XmlElement l_xelTemp= l_xdocData.DocumentElement;
+
+            // Agregamos cada item a la LE
+            foreach (XmlNode l_xndItem in l_xelTemp.ChildNodes)
+                AddEntity(new EListaDePrecios(l_xndItem.OuterXml));
+        }
+
+        /// <summary>
+        /// Constructor
+        /// Constuye la lista-entidad vacia a partir de una lista de columnas
+        /// correspondiente a una entidad
+        /// </summary>
+        /// <param name="p_dcEstructura">Columnas de la estructura</param>
+        private LEListasDePrecios(DataColumn[] p_dcEstructura) :
+            base(p_dcEstructura)
+        {
+        }
+        #endregion
+
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos publicos
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Construye una lista-entidad vacía: ListasDePrecios
+        /// </summary>
+        /// <returns>Lista-Entidad vacia: ListasDePrecios</returns>
+        public static LEListasDePrecios NewEmpty()
+        {
+            return new LEListasDePrecios(EListaDePrecios.Struct);
+        }
+
+        /// <summary>
+        /// Agrega una entidad a la lista
+        /// </summary>
+        /// <param name="p_entEListaDePrecios">Entidad a agregar</param>
+        public void AddEntity(EListaDePrecios p_entEListaDePrecios)
+        {
+            base.AddEntity(p_entEListaDePrecios);
+        }
+
+        /// <summary>
+        /// Remueve una entidad [ListaDePrecios] por clave
+        /// </summary>
+        public int RemoveEntity(string p_strCod)
+        {
+            // Buscamos la fila mediante un filtro
+            int l_iRet= 0;
+
+            m_dtDatos.DefaultView.RowFilter= 
+                "lpr_cod_cod = " + Ruts.Co(p_strCod);
+
+            if (m_dtDatos.DefaultView.Count == 1) {
+                // La borramos
+                m_dtDatos.Rows.Remove(m_dtDatos.DefaultView[0].Row);
+                l_iRet= 1;
+            }
+
+            // Quito el filtro
+            m_dtDatos.DefaultView.RowFilter= "";
+            return l_iRet;
+        }
+
+        /// <summary>
+        /// Verifca si una entidad [ListaDePrecios] esta en la lista
+        /// </summary>
+        public bool Contains(string p_strCod)
+        {
+            using (EListaDePrecios l_entTemp= this[p_strCod])
+            {
+                // Indicamos si existe o no
+                return (l_entTemp != null);
+            }
+        }
+
+        /// <summary>
+        /// Devuelve el enumerador de la lista-entidades: ListasDePrecios
+        /// </summary>
+        /// <returns>Enumerador de las entidades en la lista</returns>
+        public new IEnumerator<EListaDePrecios> GetEnumerator() 
+        {
+            EListaDePrecios l_entTemp= null;
+
+            foreach (DataRowView l_drvTemp in m_dtDatos.DefaultView) {
+                l_entTemp= new EListaDePrecios(l_drvTemp.Row);
+                yield return l_entTemp;
+            }
+        }
+
+        /// <summary>
+        /// Devuelve la lista entidad como un array de entidades: ListasDePrecios
+        /// </summary>
+        /// <returns>Array de entidades</returns>
+        public ArrayList GetAsArray()
+        {
+            // Llenamos el array con las entidades
+            ArrayList l_alRet= new ArrayList();
+
+            foreach (EListaDePrecios l_entItem in this)
+                l_alRet.Add(l_entItem);
+
+            return l_alRet;
+        }
+
+        /// <summary>
+        /// Devuelve la lista entidad como una LET: ListasDePrecios
+        /// </summary>
+        /// <returns>Lista Entidad Tipada</returns>
+        public LETListasDePrecios GetAsLET()
+        {
+            // Llenamos la lista tipada
+            LETListasDePrecios l_lentRet= new LETListasDePrecios();
+
+            foreach (EListaDePrecios l_entItem in this)
+                l_lentRet.Add(l_entItem);
+
+            return l_lentRet;
+        }
+
+        /// <summary>
+        /// Devuelve la lista entidad como una List<ListasDePrecios>
+        /// </summary>
+        /// <returns>Lista de entidades</returns>
+        public List<EListaDePrecios> ToList()
+        {
+            // Usamos el metodo GetAsLET
+            return (List<EListaDePrecios>) GetAsLET();
+        }
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Indexer para acceder a cada entidad [ListaDePrecios] por indice
+        /// </summary>
+        public new EListaDePrecios this[long p_lRow]
+        {
+            get {
+                // Recuperamos la fila solicitada
+                DataRow l_drDatos= base[(int) p_lRow];
+                if (l_drDatos == null) return null;
+
+                // Devolvemos una entidad ListaDePrecios con los datos de la fila
+                return new EListaDePrecios(l_drDatos);
+            }
+        }
+
+        /// <summary>
+        /// Indexer para acceder a cada entidad [ListaDePrecios] por clave
+        /// </summary>
+        public EListaDePrecios this[string p_strCod]
+        {
+            get {
+                // Buscamos la fila mediante un filtro
+                DataRow l_drData= null;
+
+                m_dtDatos.DefaultView.RowFilter= 
+                    "lpr_cod_cod = " + Ruts.Co(p_strCod);
+
+                if (m_dtDatos.DefaultView.Count == 1)
+                    l_drData= m_dtDatos.DefaultView[0].Row;
+
+                // Quito el filtro
+                m_dtDatos.DefaultView.RowFilter= "";
+
+                // Devolvemos una entidad ListaDePrecios con los datos de la fila
+                if (l_drData == null) return null;
+                return new EListaDePrecios(l_drData);
+            }
+        }
+
+        /// <summary>
+        /// Devuelve la ListaEntidad como XML en string
+        /// </summary>
+        public string XMLData
+        {
+            get {return XMLEncode.InnerXml;}
+        }
+
+        /// <summary>
+        /// Devuelve la ListaEntidad como XML
+        /// </summary>
+        public XmlDocument XMLEncode
+        {
+            get {
+                // Construimos el XML
+                XmlDocument l_xdocData= new XmlDocument();
+                XmlNode l_xndEntidad= l_xdocData.CreateNode(XmlNodeType.Element, "LEListasDePrecios", null);
+
+                foreach (EListaDePrecios l_entDExtra in this)
+                    l_xndEntidad.AppendChild(l_xdocData.ImportNode(l_entDExtra.XMLEncode.ChildNodes[0], false));
+
+                l_xdocData.AppendChild(l_xndEntidad);
+                return l_xdocData;
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Lista-Entidad-Tipada: ListasDePrecios
+    /// <summary>
+    /// Clase que representa la Lista-Entidad-Tipada: ListasDePrecios
+    /// </summary>
+    public sealed partial class LETListasDePrecios : LET<EListaDePrecios>
+    {
+        #region Metodos publicos de la clase
+        //---------------------------------------------------------------
+        // Metodos publicos
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Devuelve la lista entidad tipada como una LE: ListasDePrecios
+        /// </summary>
+        /// <returns>Lista Entidad</returns>
+        public LEListasDePrecios GetAsLE()
+        {
+            // Llenamos la lista
+            LEListasDePrecios l_lentRet= LEListasDePrecios.NewEmpty();
+
+            foreach (EListaDePrecios l_entItem in this)
+                l_lentRet.AddEntity(l_entItem);
+
+            return l_lentRet;
+        }
+        #endregion
+
+        #region Propiedades de la clase
+        //---------------------------------------------------------------
+        // Propiedades de la clase
+        //---------------------------------------------------------------
+
+        /// <summary>
+        /// Indexer para acceder a cada entidad [ListaDePrecios] por clave
+        /// </summary>
+        public EListaDePrecios this[string p_strCod]
+        {
+            get {
+                // Buscamos la entidad
+                foreach (EListaDePrecios l_entItem in this) {
+                    // Si existe -> la devolvemos
+                    if (l_entItem.Cod == p_strCod)
                         return l_entItem;
                 }
 

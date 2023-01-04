@@ -15,11 +15,11 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 08/06/2021 01:49
+    // Fecha                    : 04/01/2023 00:04
     // Sistema                  : Carm
     // Clase para Administrar   : Tablas
     //----------------------------------------------------------------------------
-    // © 1996-2021 by TNG Software                                      Gndr 5.20
+    // © 1996-2023 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -246,6 +246,76 @@ namespace Carm.Bll
         /// <param name="p_smResult">Estado final de la operacion</param>
         internal static void FrqTInt_f(DBConn p_dbcAccess,
                                        EFranquicia p_entFranquicia,
+                                       StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá las validaciones adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Agrega o modifica un registro de la tabla: ListasDePrecios
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_entListaDePrecios">Entidad con los datos a procesar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void LprSave_f(DBConn p_dbcAccess,
+                                       ref EListaDePrecios p_entListaDePrecios,
+                                       StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Habilita/Deshabilita un registro de la tabla: ListasDePrecios
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_bEnable">Tipo de operacion</param>
+        /// <param name="p_strCod">Código</param>
+        /// <param name="p_iFxdVersion">Versión del registro a borrar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void LprEnabled_f(DBConn p_dbcAccess,
+                                          bool p_bEnable,
+                                          string p_strCod,
+                                          ref int p_iFxdVersion,
+                                          StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Borra físicamento un registro de la tabla: ListasDePrecios
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_strCod">Código</param>
+        /// <param name="p_iFxdVersion">Versión del registro a borrar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void LprRemove_f(DBConn p_dbcAccess,
+                                         string p_strCod,
+                                         int p_iFxdVersion,
+                                         StatMsg p_smResult)
+        {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
+        }
+
+        /// <summary>
+        /// Agrega validacion de integridad a una entidad: ListaDePrecios
+        /// (Código Fijo)
+        /// </summary>
+        /// <param name="p_dbcAccess">Conexion a la base de datos</param>
+        /// <param name="p_entListaDePrecios">Entidad con los datos a validar</param>
+        /// <param name="p_smResult">Estado final de la operacion</param>
+        internal static void LprTInt_f(DBConn p_dbcAccess,
+                                       EListaDePrecios p_entListaDePrecios,
                                        StatMsg p_smResult)
         {
             // *********

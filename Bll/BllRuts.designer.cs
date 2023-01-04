@@ -16,11 +16,11 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 19/07/2021 08:58
+    // Fecha                    : 03/01/2023 23:43
     // Sistema                  : Carm
     // Clase para Administrar   : 
     //----------------------------------------------------------------------------
-    // © 1996-2021 by TNG Software                                      Gndr 5.20
+    // © 1996-2023 by TNG Software                                      Gndr 5.20
     //----------------------------------------------------------------------------
 
     //****************************************************************************
@@ -275,6 +275,7 @@ namespace Carm.Bll
                 case "cli_rcd_codrubro"                : {return "V1RubroCN1";}
                 case "cli_fec_fecultimocontacto"       : {return "V1Fecha Último ContactoFN2";}
                 case "cli_fec_fechaproxcontacto"       : {return "V1Fecha Próximo ContactoFN2";}
+                case "cli_cd1_rellamar"                : {return "V1Volver a LlamarCN2";}
                 case "cli_des_frq"                     : {return "V1FranquiciaCN1";}
                 case "cli_des_loc"                     : {return "V1LocalidadCN1";}
                 case "cli_des_prov"                    : {return "V1ProvinciaCN1";}
@@ -351,7 +352,6 @@ namespace Carm.Bll
                 case "pln_des_des"                     : {return "V1DescripciónCN1";}
                 case "pln_cod_codplanavalon"           : {return "V1Cod Plan AvalonCN1";}
                 case "pln_d80_tcontratoavalon"         : {return "V1Lista de T Contratos AvalonCN1";}
-                case "pln_des_marca"                   : {return "V1MarcaCN1";}
 
                 // ****************************************
                 // Tabla: PlnServicios        

@@ -8,12 +8,8 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace Carm.Tg
 {
-    public partial class Servicios : DockContent
+    public partial class ListasDePrecios : DockContent
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.Container components = null;
         private TNGS.NetControls.XPanel xpnlBase;
         private TNGS.NetControls.GlassButton cmdSalir;
         private System.Windows.Forms.Label lblTitle;
@@ -27,8 +23,30 @@ namespace Carm.Tg
         private TNGS.NetControls.TextEdit txtCod;
         private System.Windows.Forms.Label lblDes;
         private TNGS.NetControls.TextEdit txtDes;
-        private System.Windows.Forms.Label lblExplicacion;
-        private TNGS.NetControls.TextEdit txtExplicacion;
+        private System.Windows.Forms.Label lblCodplan;
+        private TNGS.NetControls.CDCombo cmbCodplan;
+        private System.Windows.Forms.Label lblCodmarca;
+        private TNGS.NetControls.CDCombo cmbCodmarca;
+        private System.Windows.Forms.Label lblPrecio1p;
+        private TNGS.NetControls.DecimalEdit txtPrecio1p;
+        private System.Windows.Forms.Label lblPrecio2p;
+        private TNGS.NetControls.DecimalEdit txtPrecio2p;
+        private System.Windows.Forms.Label lblPrecio3p;
+        private TNGS.NetControls.DecimalEdit txtPrecio3p;
+        private System.Windows.Forms.Label lblPrecio4p;
+        private TNGS.NetControls.DecimalEdit txtPrecio4p;
+        private System.Windows.Forms.Label lblPrecio5p;
+        private TNGS.NetControls.DecimalEdit txtPrecio5p;
+        private System.Windows.Forms.Label lblPrecio6p;
+        private TNGS.NetControls.DecimalEdit txtPrecio6p;
+        private System.Windows.Forms.Label lblPrecio7p;
+        private TNGS.NetControls.DecimalEdit txtPrecio7p;
+        private System.Windows.Forms.Label lblPrecio8p;
+        private TNGS.NetControls.DecimalEdit txtPrecio8p;
+        private System.Windows.Forms.Label lblPrecio9p;
+        private TNGS.NetControls.DecimalEdit txtPrecio9p;
+        private System.Windows.Forms.Label lblPrecio10p;
+        private TNGS.NetControls.DecimalEdit txtPrecio10p;
         private TNGS.NetControls.GlassButton cmdDesHab;
         private TNGS.NetControls.GlassButton cmdHab;
         private TNGS.NetControls.GlassButton cmdGrabar;
@@ -63,7 +81,8 @@ namespace Carm.Tg
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Servicios));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListasDePrecios));
             this.xpnlBase = new TNGS.NetControls.XPanel();
             this.tsContainer1 = new TNGS.NetControls.TSContainer();
             this.tabPageSwitcher1 = new RibbonStyle.TabPageSwitcher();
@@ -89,8 +108,30 @@ namespace Carm.Tg
             this.txtCod = new TNGS.NetControls.TextEdit();
             this.lblDes = new System.Windows.Forms.Label();
             this.txtDes = new TNGS.NetControls.TextEdit();
-            this.lblExplicacion = new System.Windows.Forms.Label();
-            this.txtExplicacion = new TNGS.NetControls.TextEdit();
+            this.lblCodplan = new System.Windows.Forms.Label();
+            this.cmbCodplan = new TNGS.NetControls.CDCombo();
+            this.lblCodmarca = new System.Windows.Forms.Label();
+            this.cmbCodmarca = new TNGS.NetControls.CDCombo();
+            this.lblPrecio1p = new System.Windows.Forms.Label();
+            this.txtPrecio1p = new TNGS.NetControls.DecimalEdit();
+            this.lblPrecio2p = new System.Windows.Forms.Label();
+            this.txtPrecio2p = new TNGS.NetControls.DecimalEdit();
+            this.lblPrecio3p = new System.Windows.Forms.Label();
+            this.txtPrecio3p = new TNGS.NetControls.DecimalEdit();
+            this.lblPrecio4p = new System.Windows.Forms.Label();
+            this.txtPrecio4p = new TNGS.NetControls.DecimalEdit();
+            this.lblPrecio5p = new System.Windows.Forms.Label();
+            this.txtPrecio5p = new TNGS.NetControls.DecimalEdit();
+            this.lblPrecio6p = new System.Windows.Forms.Label();
+            this.txtPrecio6p = new TNGS.NetControls.DecimalEdit();
+            this.lblPrecio7p = new System.Windows.Forms.Label();
+            this.txtPrecio7p = new TNGS.NetControls.DecimalEdit();
+            this.lblPrecio8p = new System.Windows.Forms.Label();
+            this.txtPrecio8p = new TNGS.NetControls.DecimalEdit();
+            this.lblPrecio9p = new System.Windows.Forms.Label();
+            this.txtPrecio9p = new TNGS.NetControls.DecimalEdit();
+            this.lblPrecio10p = new System.Windows.Forms.Label();
+            this.txtPrecio10p = new TNGS.NetControls.DecimalEdit();
             this.xpnlBase.SuspendLayout();
             this.tsContainer1.SuspendLayout();
             this.tabPageSwitcher1.SuspendLayout();
@@ -115,7 +156,7 @@ namespace Carm.Tg
             this.xpnlBase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xpnlBase.Location = new System.Drawing.Point(0, 0);
             this.xpnlBase.Name = "xpnlBase";
-            this.xpnlBase.Size = new System.Drawing.Size(750, 450);
+            this.xpnlBase.Size = new System.Drawing.Size(1008, 629);
             this.xpnlBase.TabIndex = 0;
             // 
             // tsContainer1
@@ -125,7 +166,7 @@ namespace Carm.Tg
             this.tsContainer1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tsContainer1.Location = new System.Drawing.Point(0, 0);
             this.tsContainer1.Name = "tsContainer1";
-            this.tsContainer1.Size = new System.Drawing.Size(750, 115);
+            this.tsContainer1.Size = new System.Drawing.Size(1008, 115);
             this.tsContainer1.TabIndex = 22;
             // 
             // tabPageSwitcher1
@@ -135,7 +176,7 @@ namespace Carm.Tg
             this.tabPageSwitcher1.Location = new System.Drawing.Point(0, 26);
             this.tabPageSwitcher1.Name = "tabPageSwitcher1";
             this.tabPageSwitcher1.SelectedTabStripPage = this.tabStripPage1;
-            this.tabPageSwitcher1.Size = new System.Drawing.Size(750, 89);
+            this.tabPageSwitcher1.Size = new System.Drawing.Size(1008, 89);
             this.tabPageSwitcher1.TabIndex = 1;
             this.tabPageSwitcher1.TabStrip = this.tsBase1;
             this.tabPageSwitcher1.Text = "tabPageSwitcher1";
@@ -151,7 +192,7 @@ namespace Carm.Tg
             this.tabStripPage1.Name = "tabStripPage1";
             this.tabStripPage1.Opacity = 255;
             this.tabStripPage1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.tabStripPage1.Size = new System.Drawing.Size(742, 87);
+            this.tabStripPage1.Size = new System.Drawing.Size(1000, 87);
             this.tabStripPage1.Speed = 8;
             this.tabStripPage1.TabIndex = 0;
             // 
@@ -381,7 +422,7 @@ namespace Carm.Tg
             this.tsBase1.Padding = new System.Windows.Forms.Padding(60, 3, 30, 0);
             this.tsBase1.SelectedTab = this.tab1;
             this.tsBase1.ShowItemToolTips = false;
-            this.tsBase1.Size = new System.Drawing.Size(750, 26);
+            this.tsBase1.Size = new System.Drawing.Size(1008, 26);
             this.tsBase1.TabIndex = 0;
             this.tsBase1.TabOverlap = 0;
             this.tsBase1.Text = "tsBase1";
@@ -407,7 +448,7 @@ namespace Carm.Tg
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(180, 16);
             this.lblTitle.TabIndex = 20;
-            this.lblTitle.Text = "Servicios:";
+            this.lblTitle.Text = "ListasDePrecios:";
             // 
             // grdDatos
             // 
@@ -424,7 +465,7 @@ namespace Carm.Tg
             this.grdDatos.HeaderForeColor = System.Drawing.SystemColors.ControlText;
             this.grdDatos.Location = new System.Drawing.Point(4, 142);
             this.grdDatos.Name = "grdDatos";
-            this.grdDatos.Size = new System.Drawing.Size(742, 148);
+            this.grdDatos.Size = new System.Drawing.Size(1000, 186);
             this.grdDatos.TabIndex = 0;
             this.grdDatos.Advance += new TNGS.NetRoutines.AdvanceEventHandler(this.grdDatos_Advance);
             this.grdDatos.DataDClick += new TNGS.NetRoutines.DataDClickEventHandler(this.grdDatos_DataDClick);
@@ -443,7 +484,7 @@ namespace Carm.Tg
             this.cmdPrint.FlatFontSize = 9;
             this.cmdPrint.FlatTextColor = System.Drawing.Color.Black;
             this.cmdPrint.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmdPrint.Location = new System.Drawing.Point(719, 118);
+            this.cmdPrint.Location = new System.Drawing.Point(977, 118);
             this.cmdPrint.Name = "cmdPrint";
             this.cmdPrint.PCode = "TNGS.PRINT";
             this.cmdPrint.RoundCorners = 2;
@@ -466,7 +507,7 @@ namespace Carm.Tg
             this.cmdExcel.FlatFontSize = 9;
             this.cmdExcel.FlatTextColor = System.Drawing.Color.Black;
             this.cmdExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmdExcel.Location = new System.Drawing.Point(692, 118);
+            this.cmdExcel.Location = new System.Drawing.Point(950, 118);
             this.cmdExcel.Name = "cmdExcel";
             this.cmdExcel.PCode = "TNGS.EXCEL";
             this.cmdExcel.RoundCorners = 2;
@@ -490,15 +531,37 @@ namespace Carm.Tg
             this.frmEdicion.Controls.Add(this.txtCod);
             this.frmEdicion.Controls.Add(this.lblDes);
             this.frmEdicion.Controls.Add(this.txtDes);
-            this.frmEdicion.Controls.Add(this.lblExplicacion);
-            this.frmEdicion.Controls.Add(this.txtExplicacion);
+            this.frmEdicion.Controls.Add(this.lblCodplan);
+            this.frmEdicion.Controls.Add(this.cmbCodplan);
+            this.frmEdicion.Controls.Add(this.lblCodmarca);
+            this.frmEdicion.Controls.Add(this.cmbCodmarca);
+            this.frmEdicion.Controls.Add(this.lblPrecio1p);
+            this.frmEdicion.Controls.Add(this.txtPrecio1p);
+            this.frmEdicion.Controls.Add(this.lblPrecio2p);
+            this.frmEdicion.Controls.Add(this.txtPrecio2p);
+            this.frmEdicion.Controls.Add(this.lblPrecio3p);
+            this.frmEdicion.Controls.Add(this.txtPrecio3p);
+            this.frmEdicion.Controls.Add(this.lblPrecio4p);
+            this.frmEdicion.Controls.Add(this.txtPrecio4p);
+            this.frmEdicion.Controls.Add(this.lblPrecio5p);
+            this.frmEdicion.Controls.Add(this.txtPrecio5p);
+            this.frmEdicion.Controls.Add(this.lblPrecio6p);
+            this.frmEdicion.Controls.Add(this.txtPrecio6p);
+            this.frmEdicion.Controls.Add(this.lblPrecio7p);
+            this.frmEdicion.Controls.Add(this.txtPrecio7p);
+            this.frmEdicion.Controls.Add(this.lblPrecio8p);
+            this.frmEdicion.Controls.Add(this.txtPrecio8p);
+            this.frmEdicion.Controls.Add(this.lblPrecio9p);
+            this.frmEdicion.Controls.Add(this.txtPrecio9p);
+            this.frmEdicion.Controls.Add(this.lblPrecio10p);
+            this.frmEdicion.Controls.Add(this.txtPrecio10p);
             this.frmEdicion.CustomGroupBoxColor = System.Drawing.Color.White;
             this.frmEdicion.FlatMode = true;
             this.frmEdicion.FontTitle = new System.Drawing.Font("Arial", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.frmEdicion.ForeColor = System.Drawing.Color.Black;
             this.frmEdicion.GroupImage = null;
-            this.frmEdicion.GroupTitle = " Servicio ";
-            this.frmEdicion.Location = new System.Drawing.Point(4, 296);
+            this.frmEdicion.GroupTitle = " ListaDePrecios ";
+            this.frmEdicion.Location = new System.Drawing.Point(4, 334);
             this.frmEdicion.Name = "frmEdicion";
             this.frmEdicion.Padding = new System.Windows.Forms.Padding(20);
             this.frmEdicion.PaintGroupBox = false;
@@ -506,7 +569,7 @@ namespace Carm.Tg
             this.frmEdicion.ShadowColor = System.Drawing.Color.DarkGray;
             this.frmEdicion.ShadowControl = false;
             this.frmEdicion.ShadowThickness = 3;
-            this.frmEdicion.Size = new System.Drawing.Size(742, 150);
+            this.frmEdicion.Size = new System.Drawing.Size(1000, 291);
             this.frmEdicion.TabIndex = 21;
             this.frmEdicion.TitleBackground = System.Drawing.Color.DodgerBlue;
             this.frmEdicion.TitleBackgroundDefault = TNGS.NetControls.ColorRuts.ColoresDefault.None;
@@ -515,7 +578,7 @@ namespace Carm.Tg
             // lblCod
             // 
             this.lblCod.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCod.Location = new System.Drawing.Point(85, 53);
+            this.lblCod.Location = new System.Drawing.Point(17, 66);
             this.lblCod.Name = "lblCod";
             this.lblCod.Size = new System.Drawing.Size(104, 22);
             this.lblCod.TabIndex = 106;
@@ -525,21 +588,18 @@ namespace Carm.Tg
             // txtCod
             // 
             this.txtCod.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCod.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCod.EmptyValid = false;
             this.txtCod.Enabled = false;
             this.txtCod.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCod.Location = new System.Drawing.Point(195, 53);
+            this.txtCod.Location = new System.Drawing.Point(135, 65);
             this.txtCod.MaxLength = 4;
             this.txtCod.Name = "txtCod";
-            this.txtCod.OnlyDigits = true;
-            this.txtCod.Size = new System.Drawing.Size(44, 26);
+            this.txtCod.Size = new System.Drawing.Size(67, 26);
             this.txtCod.TabIndex = 6;
             // 
             // lblDes
             // 
             this.lblDes.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDes.Location = new System.Drawing.Point(266, 53);
+            this.lblDes.Location = new System.Drawing.Point(17, 110);
             this.lblDes.Name = "lblDes";
             this.lblDes.Size = new System.Drawing.Size(104, 22);
             this.lblDes.TabIndex = 107;
@@ -549,53 +609,296 @@ namespace Carm.Tg
             // txtDes
             // 
             this.txtDes.BackColor = System.Drawing.SystemColors.Window;
-            this.txtDes.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDes.EmptyValid = false;
             this.txtDes.Enabled = false;
             this.txtDes.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDes.Location = new System.Drawing.Point(376, 53);
+            this.txtDes.Location = new System.Drawing.Point(135, 109);
             this.txtDes.MaxLength = 30;
             this.txtDes.Name = "txtDes";
-            this.txtDes.Size = new System.Drawing.Size(215, 26);
+            this.txtDes.Size = new System.Drawing.Size(219, 26);
             this.txtDes.TabIndex = 7;
             // 
-            // lblExplicacion
+            // lblCodplan
             // 
-            this.lblExplicacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExplicacion.Location = new System.Drawing.Point(23, 87);
-            this.lblExplicacion.Name = "lblExplicacion";
-            this.lblExplicacion.Size = new System.Drawing.Size(166, 50);
-            this.lblExplicacion.TabIndex = 108;
-            this.lblExplicacion.Text = "Descripcion Extendida:";
-            this.lblExplicacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCodplan.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodplan.Location = new System.Drawing.Point(17, 162);
+            this.lblCodplan.Name = "lblCodplan";
+            this.lblCodplan.Size = new System.Drawing.Size(104, 22);
+            this.lblCodplan.TabIndex = 108;
+            this.lblCodplan.Text = "Plan:";
+            this.lblCodplan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtExplicacion
+            // cmbCodplan
             // 
-            this.txtExplicacion.BackColor = System.Drawing.SystemColors.Window;
-            this.txtExplicacion.Enabled = false;
-            this.txtExplicacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExplicacion.Location = new System.Drawing.Point(195, 104);
-            this.txtExplicacion.MaxLength = 240;
-            this.txtExplicacion.Name = "txtExplicacion";
-            this.txtExplicacion.Size = new System.Drawing.Size(495, 26);
-            this.txtExplicacion.TabIndex = 8;
+            this.cmbCodplan.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbCodplan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCodplan.Enabled = false;
+            this.cmbCodplan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbCodplan.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCodplan.Location = new System.Drawing.Point(135, 161);
+            this.cmbCodplan.Name = "cmbCodplan";
+            this.cmbCodplan.Size = new System.Drawing.Size(219, 26);
+            this.cmbCodplan.Sorted = true;
+            this.cmbCodplan.TabIndex = 8;
             // 
-            // Servicios
+            // lblCodmarca
+            // 
+            this.lblCodmarca.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodmarca.Location = new System.Drawing.Point(17, 217);
+            this.lblCodmarca.Name = "lblCodmarca";
+            this.lblCodmarca.Size = new System.Drawing.Size(104, 22);
+            this.lblCodmarca.TabIndex = 109;
+            this.lblCodmarca.Text = "Marca:";
+            this.lblCodmarca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmbCodmarca
+            // 
+            this.cmbCodmarca.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbCodmarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCodmarca.Enabled = false;
+            this.cmbCodmarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbCodmarca.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCodmarca.Location = new System.Drawing.Point(135, 216);
+            this.cmbCodmarca.Name = "cmbCodmarca";
+            this.cmbCodmarca.Size = new System.Drawing.Size(219, 26);
+            this.cmbCodmarca.Sorted = true;
+            this.cmbCodmarca.TabIndex = 9;
+            // 
+            // lblPrecio1p
+            // 
+            this.lblPrecio1p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio1p.Location = new System.Drawing.Point(456, 71);
+            this.lblPrecio1p.Name = "lblPrecio1p";
+            this.lblPrecio1p.Size = new System.Drawing.Size(104, 22);
+            this.lblPrecio1p.TabIndex = 110;
+            this.lblPrecio1p.Text = "Precio 1 P:";
+            this.lblPrecio1p.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrecio1p
+            // 
+            this.txtPrecio1p.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrecio1p.Enabled = false;
+            this.txtPrecio1p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio1p.Location = new System.Drawing.Point(566, 70);
+            this.txtPrecio1p.MaxLength = 10;
+            this.txtPrecio1p.Name = "txtPrecio1p";
+            this.txtPrecio1p.Size = new System.Drawing.Size(108, 26);
+            this.txtPrecio1p.TabIndex = 10;
+            this.txtPrecio1p.Text = "0.00";
+            // 
+            // lblPrecio2p
+            // 
+            this.lblPrecio2p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio2p.Location = new System.Drawing.Point(456, 108);
+            this.lblPrecio2p.Name = "lblPrecio2p";
+            this.lblPrecio2p.Size = new System.Drawing.Size(104, 22);
+            this.lblPrecio2p.TabIndex = 111;
+            this.lblPrecio2p.Text = "Precio 2 P:";
+            this.lblPrecio2p.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrecio2p
+            // 
+            this.txtPrecio2p.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrecio2p.Enabled = false;
+            this.txtPrecio2p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio2p.Location = new System.Drawing.Point(566, 107);
+            this.txtPrecio2p.MaxLength = 10;
+            this.txtPrecio2p.Name = "txtPrecio2p";
+            this.txtPrecio2p.Size = new System.Drawing.Size(108, 26);
+            this.txtPrecio2p.TabIndex = 11;
+            this.txtPrecio2p.Text = "0.00";
+            // 
+            // lblPrecio3p
+            // 
+            this.lblPrecio3p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio3p.Location = new System.Drawing.Point(456, 147);
+            this.lblPrecio3p.Name = "lblPrecio3p";
+            this.lblPrecio3p.Size = new System.Drawing.Size(104, 22);
+            this.lblPrecio3p.TabIndex = 112;
+            this.lblPrecio3p.Text = "Precio 3 P:";
+            this.lblPrecio3p.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrecio3p
+            // 
+            this.txtPrecio3p.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrecio3p.Enabled = false;
+            this.txtPrecio3p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio3p.Location = new System.Drawing.Point(566, 146);
+            this.txtPrecio3p.MaxLength = 10;
+            this.txtPrecio3p.Name = "txtPrecio3p";
+            this.txtPrecio3p.Size = new System.Drawing.Size(108, 26);
+            this.txtPrecio3p.TabIndex = 12;
+            this.txtPrecio3p.Text = "0.00";
+            // 
+            // lblPrecio4p
+            // 
+            this.lblPrecio4p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio4p.Location = new System.Drawing.Point(456, 187);
+            this.lblPrecio4p.Name = "lblPrecio4p";
+            this.lblPrecio4p.Size = new System.Drawing.Size(104, 22);
+            this.lblPrecio4p.TabIndex = 113;
+            this.lblPrecio4p.Text = "Precio 4 P:";
+            this.lblPrecio4p.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrecio4p
+            // 
+            this.txtPrecio4p.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrecio4p.Enabled = false;
+            this.txtPrecio4p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio4p.Location = new System.Drawing.Point(566, 186);
+            this.txtPrecio4p.MaxLength = 10;
+            this.txtPrecio4p.Name = "txtPrecio4p";
+            this.txtPrecio4p.Size = new System.Drawing.Size(108, 26);
+            this.txtPrecio4p.TabIndex = 13;
+            this.txtPrecio4p.Text = "0.00";
+            // 
+            // lblPrecio5p
+            // 
+            this.lblPrecio5p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio5p.Location = new System.Drawing.Point(456, 226);
+            this.lblPrecio5p.Name = "lblPrecio5p";
+            this.lblPrecio5p.Size = new System.Drawing.Size(104, 22);
+            this.lblPrecio5p.TabIndex = 114;
+            this.lblPrecio5p.Text = "Precio 5 P:";
+            this.lblPrecio5p.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrecio5p
+            // 
+            this.txtPrecio5p.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrecio5p.Enabled = false;
+            this.txtPrecio5p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio5p.Location = new System.Drawing.Point(566, 225);
+            this.txtPrecio5p.MaxLength = 10;
+            this.txtPrecio5p.Name = "txtPrecio5p";
+            this.txtPrecio5p.Size = new System.Drawing.Size(108, 26);
+            this.txtPrecio5p.TabIndex = 14;
+            this.txtPrecio5p.Text = "0.00";
+            // 
+            // lblPrecio6p
+            // 
+            this.lblPrecio6p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio6p.Location = new System.Drawing.Point(731, 70);
+            this.lblPrecio6p.Name = "lblPrecio6p";
+            this.lblPrecio6p.Size = new System.Drawing.Size(104, 22);
+            this.lblPrecio6p.TabIndex = 115;
+            this.lblPrecio6p.Text = "Precio 6 P:";
+            this.lblPrecio6p.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrecio6p
+            // 
+            this.txtPrecio6p.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrecio6p.Enabled = false;
+            this.txtPrecio6p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio6p.Location = new System.Drawing.Point(841, 69);
+            this.txtPrecio6p.MaxLength = 10;
+            this.txtPrecio6p.Name = "txtPrecio6p";
+            this.txtPrecio6p.Size = new System.Drawing.Size(125, 26);
+            this.txtPrecio6p.TabIndex = 15;
+            this.txtPrecio6p.Text = "0.00";
+            // 
+            // lblPrecio7p
+            // 
+            this.lblPrecio7p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio7p.Location = new System.Drawing.Point(731, 111);
+            this.lblPrecio7p.Name = "lblPrecio7p";
+            this.lblPrecio7p.Size = new System.Drawing.Size(104, 22);
+            this.lblPrecio7p.TabIndex = 116;
+            this.lblPrecio7p.Text = "Precio 7 P:";
+            this.lblPrecio7p.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrecio7p
+            // 
+            this.txtPrecio7p.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrecio7p.Enabled = false;
+            this.txtPrecio7p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio7p.Location = new System.Drawing.Point(841, 110);
+            this.txtPrecio7p.MaxLength = 10;
+            this.txtPrecio7p.Name = "txtPrecio7p";
+            this.txtPrecio7p.Size = new System.Drawing.Size(125, 26);
+            this.txtPrecio7p.TabIndex = 16;
+            this.txtPrecio7p.Text = "0.00";
+            // 
+            // lblPrecio8p
+            // 
+            this.lblPrecio8p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio8p.Location = new System.Drawing.Point(731, 150);
+            this.lblPrecio8p.Name = "lblPrecio8p";
+            this.lblPrecio8p.Size = new System.Drawing.Size(104, 22);
+            this.lblPrecio8p.TabIndex = 117;
+            this.lblPrecio8p.Text = "Precio 8 P:";
+            this.lblPrecio8p.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrecio8p
+            // 
+            this.txtPrecio8p.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrecio8p.Enabled = false;
+            this.txtPrecio8p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio8p.Location = new System.Drawing.Point(841, 149);
+            this.txtPrecio8p.MaxLength = 10;
+            this.txtPrecio8p.Name = "txtPrecio8p";
+            this.txtPrecio8p.Size = new System.Drawing.Size(125, 26);
+            this.txtPrecio8p.TabIndex = 17;
+            this.txtPrecio8p.Text = "0.00";
+            // 
+            // lblPrecio9p
+            // 
+            this.lblPrecio9p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio9p.Location = new System.Drawing.Point(731, 190);
+            this.lblPrecio9p.Name = "lblPrecio9p";
+            this.lblPrecio9p.Size = new System.Drawing.Size(104, 22);
+            this.lblPrecio9p.TabIndex = 118;
+            this.lblPrecio9p.Text = "Precio 9 P:";
+            this.lblPrecio9p.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrecio9p
+            // 
+            this.txtPrecio9p.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrecio9p.Enabled = false;
+            this.txtPrecio9p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio9p.Location = new System.Drawing.Point(841, 189);
+            this.txtPrecio9p.MaxLength = 10;
+            this.txtPrecio9p.Name = "txtPrecio9p";
+            this.txtPrecio9p.Size = new System.Drawing.Size(125, 26);
+            this.txtPrecio9p.TabIndex = 18;
+            this.txtPrecio9p.Text = "0.00";
+            // 
+            // lblPrecio10p
+            // 
+            this.lblPrecio10p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio10p.Location = new System.Drawing.Point(731, 228);
+            this.lblPrecio10p.Name = "lblPrecio10p";
+            this.lblPrecio10p.Size = new System.Drawing.Size(104, 22);
+            this.lblPrecio10p.TabIndex = 119;
+            this.lblPrecio10p.Text = "Precio 10 P:";
+            this.lblPrecio10p.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPrecio10p
+            // 
+            this.txtPrecio10p.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrecio10p.Enabled = false;
+            this.txtPrecio10p.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio10p.Location = new System.Drawing.Point(841, 227);
+            this.txtPrecio10p.MaxLength = 10;
+            this.txtPrecio10p.Name = "txtPrecio10p";
+            this.txtPrecio10p.Size = new System.Drawing.Size(125, 26);
+            this.txtPrecio10p.TabIndex = 19;
+            this.txtPrecio10p.Text = "0.00";
+            // 
+            // ListasDePrecios
             // 
             this.AllowEndUserDocking = false;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(750, 450);
+            this.ClientSize = new System.Drawing.Size(1008, 629);
             this.Controls.Add(this.xpnlBase);
             this.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.Document;
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Servicios";
+            this.Name = "ListasDePrecios";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.Document;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.TabText = "Mantenimiento de Servicios";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Servicios_FormClosed);
-            this.Load += new System.EventHandler(this.Servicios_Load);
+            this.TabText = "Mantenimiento de ListasDePrecios";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ListasDePrecios_FormClosed);
+            this.Load += new System.EventHandler(this.ListasDePrecios_Load);
             this.xpnlBase.ResumeLayout(false);
             this.tsContainer1.ResumeLayout(false);
             this.tabPageSwitcher1.ResumeLayout(false);
@@ -611,5 +914,7 @@ namespace Carm.Tg
 
         }
         #endregion
+
+        private IContainer components;
     }
 }
