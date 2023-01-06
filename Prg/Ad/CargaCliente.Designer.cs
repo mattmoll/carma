@@ -36,6 +36,10 @@ namespace Carm.Ad
             this.ftDetalleCliente = new TNGS.NetControls.FullTab();
             this.tabCliente = new System.Windows.Forms.TabPage();
             this.xPanel2 = new TNGS.NetControls.XPanel();
+            this.fullLabel19 = new TNGS.NetControls.FullLabel();
+            this.teVendido = new TNGS.NetControls.TextEdit();
+            this.fullLabel16 = new TNGS.NetControls.FullLabel();
+            this.teUsuarioCargador = new TNGS.NetControls.TextEdit();
             this.gbGrabar = new TNGS.NetControls.GlassButton();
             this.gbCancelar = new TNGS.NetControls.GlassButton();
             this.label6 = new System.Windows.Forms.Label();
@@ -135,12 +139,29 @@ namespace Carm.Ad
             this.gbNuevaNota = new TNGS.NetControls.GlassButton();
             this.gbVerNota = new TNGS.NetControls.GlassButton();
             this.mrNotas = new TNGS.NetControls.MiniReport();
+            this.tabVenta = new System.Windows.Forms.TabPage();
+            this.xPanel9 = new TNGS.NetControls.XPanel();
+            this.label8 = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.Panel();
             this.titulo = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.fullLabel16 = new TNGS.NetControls.FullLabel();
-            this.teUsuarioCargador = new TNGS.NetControls.TextEdit();
+            this.pnlFieldsSocios = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.fullLabel24 = new TNGS.NetControls.FullLabel();
+            this.neCantPersonas = new TNGS.NetControls.NumberEdit();
+            this.dcePrecioFinal = new TNGS.NetControls.DecimalEdit();
+            this.fullLabel25 = new TNGS.NetControls.FullLabel();
+            this.mrServiciosPlanVendido = new TNGS.NetControls.MiniReport();
+            this.label10 = new System.Windows.Forms.Label();
+            this.teVendedor = new TNGS.NetControls.TextEdit();
+            this.fullLabel26 = new TNGS.NetControls.FullLabel();
+            this.deFechaVenta = new TNGS.NetControls.DateEdit();
+            this.fullLabel27 = new TNGS.NetControls.FullLabel();
+            this.tePlan = new TNGS.NetControls.TextEdit();
+            this.teListaDePrecios = new TNGS.NetControls.TextEdit();
+            this.neDocumento = new TNGS.NetControls.NumberEdit();
+            this.fullLabel28 = new TNGS.NetControls.FullLabel();
             this.xPanel1.SuspendLayout();
             this.ftDetalleCliente.SuspendLayout();
             this.tabCliente.SuspendLayout();
@@ -160,7 +181,10 @@ namespace Carm.Ad
             this.xPanel5.SuspendLayout();
             this.tabNotas.SuspendLayout();
             this.xPanel6.SuspendLayout();
+            this.tabVenta.SuspendLayout();
+            this.xPanel9.SuspendLayout();
             this.topPanel.SuspendLayout();
+            this.pnlFieldsSocios.SuspendLayout();
             this.SuspendLayout();
             // 
             // xPanel1
@@ -191,6 +215,7 @@ namespace Carm.Ad
             this.ftDetalleCliente.Controls.Add(this.tabContactos);
             this.ftDetalleCliente.Controls.Add(this.tabServicios);
             this.ftDetalleCliente.Controls.Add(this.tabNotas);
+            this.ftDetalleCliente.Controls.Add(this.tabVenta);
             this.ftDetalleCliente.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.ftDetalleCliente.FlatColor = System.Drawing.Color.DarkGreen;
             this.ftDetalleCliente.FlatMode = true;
@@ -204,10 +229,10 @@ namespace Carm.Ad
             // tabCliente
             // 
             this.tabCliente.Controls.Add(this.xPanel2);
-            this.tabCliente.Location = new System.Drawing.Point(4, 25);
+            this.tabCliente.Location = new System.Drawing.Point(4, 29);
             this.tabCliente.Name = "tabCliente";
             this.tabCliente.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCliente.Size = new System.Drawing.Size(987, 595);
+            this.tabCliente.Size = new System.Drawing.Size(987, 591);
             this.tabCliente.TabIndex = 1;
             this.tabCliente.Text = "Datos Primarios";
             this.tabCliente.UseVisualStyleBackColor = true;
@@ -216,6 +241,8 @@ namespace Carm.Ad
             // 
             this.xPanel2.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel2.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel2.Controls.Add(this.fullLabel19);
+            this.xPanel2.Controls.Add(this.teVendido);
             this.xPanel2.Controls.Add(this.fullLabel16);
             this.xPanel2.Controls.Add(this.teUsuarioCargador);
             this.xPanel2.Controls.Add(this.gbGrabar);
@@ -225,12 +252,9 @@ namespace Carm.Ad
             this.xPanel2.Controls.Add(this.cdcRubro);
             this.xPanel2.Controls.Add(this.lblAnotaciones);
             this.xPanel2.Controls.Add(this.fullLabel23);
-            this.xPanel2.Controls.Add(this.lblNroMotor);
             this.xPanel2.Controls.Add(this.igAreas);
             this.xPanel2.Controls.Add(this.lblAnioFabricacion);
             this.xPanel2.Controls.Add(this.igSocios);
-            this.xPanel2.Controls.Add(this.lblNroChasis);
-            this.xPanel2.Controls.Add(this.fullLabel10);
             this.xPanel2.Controls.Add(this.cteCUIT);
             this.xPanel2.Controls.Add(this.neAltura);
             this.xPanel2.Controls.Add(this.cdcMarca);
@@ -238,11 +262,9 @@ namespace Carm.Ad
             this.xPanel2.Controls.Add(this.cdcSitIva);
             this.xPanel2.Controls.Add(this.teDireccion);
             this.xPanel2.Controls.Add(this.fullLabel9);
-            this.xPanel2.Controls.Add(this.fullLabel5);
             this.xPanel2.Controls.Add(this.fullLabel4);
             this.xPanel2.Controls.Add(this.teCelular);
             this.xPanel2.Controls.Add(this.panel3);
-            this.xPanel2.Controls.Add(this.fullLabel6);
             this.xPanel2.Controls.Add(this.teTelefono);
             this.xPanel2.Controls.Add(this.gbCargarLocalidad);
             this.xPanel2.Controls.Add(this.fullLabel1);
@@ -252,12 +274,59 @@ namespace Carm.Ad
             this.xPanel2.Controls.Add(this.fullLabel7);
             this.xPanel2.Controls.Add(this.teLocalidadCobro);
             this.xPanel2.Controls.Add(this.fullLabel2);
+            this.xPanel2.Controls.Add(this.fullLabel5);
+            this.xPanel2.Controls.Add(this.fullLabel6);
+            this.xPanel2.Controls.Add(this.fullLabel10);
+            this.xPanel2.Controls.Add(this.lblNroChasis);
+            this.xPanel2.Controls.Add(this.lblNroMotor);
             this.xPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel2.Location = new System.Drawing.Point(3, 3);
             this.xPanel2.Name = "xPanel2";
-            this.xPanel2.Size = new System.Drawing.Size(981, 589);
+            this.xPanel2.Size = new System.Drawing.Size(981, 585);
             this.xPanel2.SkinFixed = true;
             this.xPanel2.TabIndex = 0;
+            // 
+            // fullLabel19
+            // 
+            this.fullLabel19.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel19.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel19.Location = new System.Drawing.Point(534, 522);
+            this.fullLabel19.Name = "fullLabel19";
+            this.fullLabel19.Size = new System.Drawing.Size(90, 18);
+            this.fullLabel19.TabIndex = 151;
+            this.fullLabel19.Text = "Vendido:";
+            // 
+            // teVendido
+            // 
+            this.teVendido.BackColor = System.Drawing.SystemColors.Window;
+            this.teVendido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teVendido.Enabled = false;
+            this.teVendido.Location = new System.Drawing.Point(537, 546);
+            this.teVendido.Name = "teVendido";
+            this.teVendido.Size = new System.Drawing.Size(87, 25);
+            this.teVendido.TabIndex = 150;
+            // 
+            // fullLabel16
+            // 
+            this.fullLabel16.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel16.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel16.Location = new System.Drawing.Point(649, 522);
+            this.fullLabel16.Name = "fullLabel16";
+            this.fullLabel16.Size = new System.Drawing.Size(156, 20);
+            this.fullLabel16.TabIndex = 149;
+            this.fullLabel16.Text = "Usuario Cargador:";
+            // 
+            // teUsuarioCargador
+            // 
+            this.teUsuarioCargador.BackColor = System.Drawing.SystemColors.Window;
+            this.teUsuarioCargador.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teUsuarioCargador.Enabled = false;
+            this.teUsuarioCargador.Location = new System.Drawing.Point(652, 546);
+            this.teUsuarioCargador.Name = "teUsuarioCargador";
+            this.teUsuarioCargador.Size = new System.Drawing.Size(142, 25);
+            this.teUsuarioCargador.TabIndex = 148;
             // 
             // gbGrabar
             // 
@@ -306,11 +375,11 @@ namespace Carm.Ad
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(10, 15);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 23);
+            this.label6.Size = new System.Drawing.Size(132, 29);
             this.label6.TabIndex = 147;
             this.label6.Text = "Prospecto";
             // 
@@ -320,7 +389,7 @@ namespace Carm.Ad
             this.teAnotaciones.Location = new System.Drawing.Point(182, 533);
             this.teAnotaciones.Multiline = true;
             this.teAnotaciones.Name = "teAnotaciones";
-            this.teAnotaciones.Size = new System.Drawing.Size(468, 47);
+            this.teAnotaciones.Size = new System.Drawing.Size(303, 47);
             this.teAnotaciones.TabIndex = 12;
             // 
             // cdcRubro
@@ -331,7 +400,7 @@ namespace Carm.Ad
             this.cdcRubro.FormattingEnabled = true;
             this.cdcRubro.Location = new System.Drawing.Point(626, 115);
             this.cdcRubro.Name = "cdcRubro";
-            this.cdcRubro.Size = new System.Drawing.Size(276, 23);
+            this.cdcRubro.Size = new System.Drawing.Size(276, 25);
             this.cdcRubro.Sorted = true;
             this.cdcRubro.TabIndex = 145;
             // 
@@ -362,9 +431,9 @@ namespace Carm.Ad
             this.lblNroMotor.BackColor = System.Drawing.Color.Transparent;
             this.lblNroMotor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroMotor.ForeColor = System.Drawing.Color.Black;
-            this.lblNroMotor.Location = new System.Drawing.Point(96, 119);
+            this.lblNroMotor.Location = new System.Drawing.Point(90, 117);
             this.lblNroMotor.Name = "lblNroMotor";
-            this.lblNroMotor.Size = new System.Drawing.Size(75, 18);
+            this.lblNroMotor.Size = new System.Drawing.Size(104, 18);
             this.lblNroMotor.TabIndex = 15;
             this.lblNroMotor.Text = "Dirección:";
             // 
@@ -420,17 +489,17 @@ namespace Carm.Ad
             this.teDireccionCobertura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teDireccionCobertura.Location = new System.Drawing.Point(152, 122);
             this.teDireccionCobertura.Name = "teDireccionCobertura";
-            this.teDireccionCobertura.Size = new System.Drawing.Size(276, 21);
+            this.teDireccionCobertura.Size = new System.Drawing.Size(276, 25);
             this.teDireccionCobertura.TabIndex = 2;
             // 
             // tePisoDptoCobertura
             // 
             this.tePisoDptoCobertura.BackColor = System.Drawing.SystemColors.Window;
             this.tePisoDptoCobertura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tePisoDptoCobertura.Location = new System.Drawing.Point(315, 153);
+            this.tePisoDptoCobertura.Location = new System.Drawing.Point(326, 153);
             this.tePisoDptoCobertura.MaxLength = 8;
             this.tePisoDptoCobertura.Name = "tePisoDptoCobertura";
-            this.tePisoDptoCobertura.Size = new System.Drawing.Size(113, 21);
+            this.tePisoDptoCobertura.Size = new System.Drawing.Size(102, 25);
             this.tePisoDptoCobertura.TabIndex = 4;
             // 
             // neAlturaCobertura
@@ -438,7 +507,7 @@ namespace Carm.Ad
             this.neAlturaCobertura.BackColor = System.Drawing.SystemColors.Window;
             this.neAlturaCobertura.Location = new System.Drawing.Point(153, 154);
             this.neAlturaCobertura.Name = "neAlturaCobertura";
-            this.neAlturaCobertura.Size = new System.Drawing.Size(75, 21);
+            this.neAlturaCobertura.Size = new System.Drawing.Size(75, 25);
             this.neAlturaCobertura.TabIndex = 3;
             this.neAlturaCobertura.Text = "0";
             // 
@@ -447,9 +516,9 @@ namespace Carm.Ad
             this.fullLabel20.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel20.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel20.Location = new System.Drawing.Point(244, 156);
+            this.fullLabel20.Location = new System.Drawing.Point(234, 156);
             this.fullLabel20.Name = "fullLabel20";
-            this.fullLabel20.Size = new System.Drawing.Size(79, 18);
+            this.fullLabel20.Size = new System.Drawing.Size(101, 18);
             this.fullLabel20.TabIndex = 147;
             this.fullLabel20.Text = "Piso/Dpto: ";
             // 
@@ -458,7 +527,7 @@ namespace Carm.Ad
             this.fullLabel21.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel21.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel21.Location = new System.Drawing.Point(90, 156);
+            this.fullLabel21.Location = new System.Drawing.Point(82, 156);
             this.fullLabel21.Name = "fullLabel21";
             this.fullLabel21.Size = new System.Drawing.Size(67, 18);
             this.fullLabel21.TabIndex = 146;
@@ -469,9 +538,9 @@ namespace Carm.Ad
             this.fullLabel22.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel22.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel22.Location = new System.Drawing.Point(69, 124);
+            this.fullLabel22.Location = new System.Drawing.Point(55, 124);
             this.fullLabel22.Name = "fullLabel22";
-            this.fullLabel22.Size = new System.Drawing.Size(75, 18);
+            this.fullLabel22.Size = new System.Drawing.Size(97, 18);
             this.fullLabel22.TabIndex = 145;
             this.fullLabel22.Text = "Dirección:";
             // 
@@ -482,7 +551,7 @@ namespace Carm.Ad
             this.teRazonSocial.Location = new System.Drawing.Point(152, 37);
             this.teRazonSocial.MaxLength = 60;
             this.teRazonSocial.Name = "teRazonSocial";
-            this.teRazonSocial.Size = new System.Drawing.Size(275, 21);
+            this.teRazonSocial.Size = new System.Drawing.Size(275, 25);
             this.teRazonSocial.TabIndex = 0;
             // 
             // lblDescripcionMovil
@@ -490,9 +559,9 @@ namespace Carm.Ad
             this.lblDescripcionMovil.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcionMovil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcionMovil.ForeColor = System.Drawing.Color.Black;
-            this.lblDescripcionMovil.Location = new System.Drawing.Point(22, 67);
+            this.lblDescripcionMovil.Location = new System.Drawing.Point(6, 67);
             this.lblDescripcionMovil.Name = "lblDescripcionMovil";
-            this.lblDescripcionMovil.Size = new System.Drawing.Size(122, 19);
+            this.lblDescripcionMovil.Size = new System.Drawing.Size(144, 19);
             this.lblDescripcionMovil.TabIndex = 10;
             this.lblDescripcionMovil.Text = "Nombre Fantasía:";
             // 
@@ -501,9 +570,9 @@ namespace Carm.Ad
             this.lblRazonSocial.BackColor = System.Drawing.Color.Transparent;
             this.lblRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRazonSocial.ForeColor = System.Drawing.Color.Black;
-            this.lblRazonSocial.Location = new System.Drawing.Point(43, 39);
+            this.lblRazonSocial.Location = new System.Drawing.Point(33, 39);
             this.lblRazonSocial.Name = "lblRazonSocial";
-            this.lblRazonSocial.Size = new System.Drawing.Size(104, 18);
+            this.lblRazonSocial.Size = new System.Drawing.Size(124, 18);
             this.lblRazonSocial.TabIndex = 6;
             this.lblRazonSocial.Text = "Razón Social:";
             // 
@@ -514,7 +583,7 @@ namespace Carm.Ad
             this.tePartidoCobertura.Location = new System.Drawing.Point(152, 220);
             this.tePartidoCobertura.Name = "tePartidoCobertura";
             this.tePartidoCobertura.ReadOnly = true;
-            this.tePartidoCobertura.Size = new System.Drawing.Size(276, 21);
+            this.tePartidoCobertura.Size = new System.Drawing.Size(276, 25);
             this.tePartidoCobertura.TabIndex = 7;
             // 
             // teNombreFantasia
@@ -523,7 +592,7 @@ namespace Carm.Ad
             this.teNombreFantasia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teNombreFantasia.Location = new System.Drawing.Point(152, 67);
             this.teNombreFantasia.Name = "teNombreFantasia";
-            this.teNombreFantasia.Size = new System.Drawing.Size(276, 21);
+            this.teNombreFantasia.Size = new System.Drawing.Size(276, 25);
             this.teNombreFantasia.TabIndex = 1;
             // 
             // teLocalidadCobertura
@@ -533,7 +602,7 @@ namespace Carm.Ad
             this.teLocalidadCobertura.Location = new System.Drawing.Point(152, 186);
             this.teLocalidadCobertura.Name = "teLocalidadCobertura";
             this.teLocalidadCobertura.ReadOnly = true;
-            this.teLocalidadCobertura.Size = new System.Drawing.Size(276, 21);
+            this.teLocalidadCobertura.Size = new System.Drawing.Size(276, 25);
             this.teLocalidadCobertura.TabIndex = 6;
             // 
             // fullLabel8
@@ -541,9 +610,9 @@ namespace Carm.Ad
             this.fullLabel8.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel8.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel8.Location = new System.Drawing.Point(14, 96);
+            this.fullLabel8.Location = new System.Drawing.Point(14, 95);
             this.fullLabel8.Name = "fullLabel8";
-            this.fullLabel8.Size = new System.Drawing.Size(175, 18);
+            this.fullLabel8.Size = new System.Drawing.Size(211, 23);
             this.fullLabel8.TabIndex = 141;
             this.fullLabel8.Text = "Domicilio Cobertura";
             // 
@@ -575,9 +644,9 @@ namespace Carm.Ad
             this.fullLabel12.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel12.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel12.Location = new System.Drawing.Point(64, 188);
+            this.fullLabel12.Location = new System.Drawing.Point(55, 188);
             this.fullLabel12.Name = "fullLabel12";
-            this.fullLabel12.Size = new System.Drawing.Size(76, 18);
+            this.fullLabel12.Size = new System.Drawing.Size(90, 18);
             this.fullLabel12.TabIndex = 138;
             this.fullLabel12.Text = "Localidad:";
             // 
@@ -611,17 +680,19 @@ namespace Carm.Ad
             this.igSocios.BlackBorder = true;
             this.igSocios.BorderColor = System.Drawing.Color.DodgerBlue;
             this.igSocios.BorderThickness = 1F;
+            this.igSocios.Controls.Add(this.neDocumento);
+            this.igSocios.Controls.Add(this.fullLabel28);
             this.igSocios.Controls.Add(this.teNombre);
             this.igSocios.Controls.Add(this.fullLabel18);
             this.igSocios.Controls.Add(this.cbFueClienteAntes);
             this.igSocios.Controls.Add(this.teApellido);
-            this.igSocios.Controls.Add(this.fullLabel17);
             this.igSocios.Controls.Add(this.teTarjetaCredito);
             this.igSocios.Controls.Add(this.cdcSexo);
             this.igSocios.Controls.Add(this.fullLabel14);
             this.igSocios.Controls.Add(this.fullLabel15);
-            this.igSocios.Controls.Add(this.fullLabel13);
             this.igSocios.Controls.Add(this.deFechaNacimiento);
+            this.igSocios.Controls.Add(this.fullLabel13);
+            this.igSocios.Controls.Add(this.fullLabel17);
             this.igSocios.CustomGroupBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.igSocios.Enabled = false;
             this.igSocios.FlatMode = true;
@@ -651,7 +722,7 @@ namespace Carm.Ad
             this.teNombre.Location = new System.Drawing.Point(156, 67);
             this.teNombre.MaxLength = 60;
             this.teNombre.Name = "teNombre";
-            this.teNombre.Size = new System.Drawing.Size(275, 21);
+            this.teNombre.Size = new System.Drawing.Size(275, 25);
             this.teNombre.TabIndex = 1;
             // 
             // fullLabel18
@@ -659,9 +730,9 @@ namespace Carm.Ad
             this.fullLabel18.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel18.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel18.Location = new System.Drawing.Point(58, 67);
+            this.fullLabel18.Location = new System.Drawing.Point(77, 67);
             this.fullLabel18.Name = "fullLabel18";
-            this.fullLabel18.Size = new System.Drawing.Size(66, 18);
+            this.fullLabel18.Size = new System.Drawing.Size(80, 18);
             this.fullLabel18.TabIndex = 138;
             this.fullLabel18.Text = "Nombre:";
             // 
@@ -670,7 +741,7 @@ namespace Carm.Ad
             this.cbFueClienteAntes.AutoSize = true;
             this.cbFueClienteAntes.Location = new System.Drawing.Point(295, 97);
             this.cbFueClienteAntes.Name = "cbFueClienteAntes";
-            this.cbFueClienteAntes.Size = new System.Drawing.Size(129, 19);
+            this.cbFueClienteAntes.Size = new System.Drawing.Size(152, 21);
             this.cbFueClienteAntes.TabIndex = 3;
             this.cbFueClienteAntes.Text = "Fue Cliente Antes?";
             this.cbFueClienteAntes.UseVisualStyleBackColor = true;
@@ -682,7 +753,7 @@ namespace Carm.Ad
             this.teApellido.Location = new System.Drawing.Point(156, 37);
             this.teApellido.MaxLength = 60;
             this.teApellido.Name = "teApellido";
-            this.teApellido.Size = new System.Drawing.Size(275, 21);
+            this.teApellido.Size = new System.Drawing.Size(275, 25);
             this.teApellido.TabIndex = 0;
             // 
             // fullLabel17
@@ -690,9 +761,9 @@ namespace Carm.Ad
             this.fullLabel17.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel17.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel17.Location = new System.Drawing.Point(40, 172);
+            this.fullLabel17.Location = new System.Drawing.Point(26, 172);
             this.fullLabel17.Name = "fullLabel17";
-            this.fullLabel17.Size = new System.Drawing.Size(107, 19);
+            this.fullLabel17.Size = new System.Drawing.Size(139, 19);
             this.fullLabel17.TabIndex = 137;
             this.fullLabel17.Text = "Tarjeta Crédito:";
             // 
@@ -702,7 +773,7 @@ namespace Carm.Ad
             this.teTarjetaCredito.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teTarjetaCredito.Location = new System.Drawing.Point(156, 172);
             this.teTarjetaCredito.Name = "teTarjetaCredito";
-            this.teTarjetaCredito.Size = new System.Drawing.Size(276, 21);
+            this.teTarjetaCredito.Size = new System.Drawing.Size(276, 25);
             this.teTarjetaCredito.TabIndex = 5;
             // 
             // cdcSexo
@@ -713,7 +784,7 @@ namespace Carm.Ad
             this.cdcSexo.FormattingEnabled = true;
             this.cdcSexo.Location = new System.Drawing.Point(156, 131);
             this.cdcSexo.Name = "cdcSexo";
-            this.cdcSexo.Size = new System.Drawing.Size(276, 23);
+            this.cdcSexo.Size = new System.Drawing.Size(276, 25);
             this.cdcSexo.Sorted = true;
             this.cdcSexo.TabIndex = 4;
             // 
@@ -722,9 +793,9 @@ namespace Carm.Ad
             this.fullLabel14.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel14.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel14.Location = new System.Drawing.Point(58, 39);
+            this.fullLabel14.Location = new System.Drawing.Point(77, 39);
             this.fullLabel14.Name = "fullLabel14";
-            this.fullLabel14.Size = new System.Drawing.Size(66, 18);
+            this.fullLabel14.Size = new System.Drawing.Size(80, 18);
             this.fullLabel14.TabIndex = 6;
             this.fullLabel14.Text = "Apellido:";
             // 
@@ -733,9 +804,9 @@ namespace Carm.Ad
             this.fullLabel15.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel15.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel15.Location = new System.Drawing.Point(94, 136);
+            this.fullLabel15.Location = new System.Drawing.Point(100, 136);
             this.fullLabel15.Name = "fullLabel15";
-            this.fullLabel15.Size = new System.Drawing.Size(49, 18);
+            this.fullLabel15.Size = new System.Drawing.Size(69, 18);
             this.fullLabel15.TabIndex = 135;
             this.fullLabel15.Text = "Sexo:";
             // 
@@ -744,9 +815,9 @@ namespace Carm.Ad
             this.fullLabel13.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel13.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel13.Location = new System.Drawing.Point(18, 101);
+            this.fullLabel13.Location = new System.Drawing.Point(4, 101);
             this.fullLabel13.Name = "fullLabel13";
-            this.fullLabel13.Size = new System.Drawing.Size(122, 19);
+            this.fullLabel13.Size = new System.Drawing.Size(155, 19);
             this.fullLabel13.TabIndex = 10;
             this.fullLabel13.Text = "Fecha Nacimiento:";
             // 
@@ -755,7 +826,7 @@ namespace Carm.Ad
             this.deFechaNacimiento.BackColor = System.Drawing.SystemColors.Window;
             this.deFechaNacimiento.Location = new System.Drawing.Point(156, 97);
             this.deFechaNacimiento.Name = "deFechaNacimiento";
-            this.deFechaNacimiento.Size = new System.Drawing.Size(100, 21);
+            this.deFechaNacimiento.Size = new System.Drawing.Size(100, 25);
             this.deFechaNacimiento.TabIndex = 2;
             this.deFechaNacimiento.Text = "01/01/1900";
             // 
@@ -764,9 +835,9 @@ namespace Carm.Ad
             this.lblNroChasis.BackColor = System.Drawing.Color.Transparent;
             this.lblNroChasis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroChasis.ForeColor = System.Drawing.Color.Black;
-            this.lblNroChasis.Location = new System.Drawing.Point(555, 60);
+            this.lblNroChasis.Location = new System.Drawing.Point(547, 60);
             this.lblNroChasis.Name = "lblNroChasis";
-            this.lblNroChasis.Size = new System.Drawing.Size(65, 18);
+            this.lblNroChasis.Size = new System.Drawing.Size(82, 18);
             this.lblNroChasis.TabIndex = 14;
             this.lblNroChasis.Text = "Sit. IVA:";
             // 
@@ -775,9 +846,9 @@ namespace Carm.Ad
             this.fullLabel10.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel10.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel10.Location = new System.Drawing.Point(566, 88);
+            this.fullLabel10.Location = new System.Drawing.Point(563, 88);
             this.fullLabel10.Name = "fullLabel10";
-            this.fullLabel10.Size = new System.Drawing.Size(50, 18);
+            this.fullLabel10.Size = new System.Drawing.Size(65, 18);
             this.fullLabel10.TabIndex = 144;
             this.fullLabel10.Text = "CUIT:";
             // 
@@ -786,7 +857,7 @@ namespace Carm.Ad
             this.cteCUIT.BackColor = System.Drawing.SystemColors.Window;
             this.cteCUIT.Location = new System.Drawing.Point(626, 86);
             this.cteCUIT.Name = "cteCUIT";
-            this.cteCUIT.Size = new System.Drawing.Size(100, 21);
+            this.cteCUIT.Size = new System.Drawing.Size(100, 25);
             this.cteCUIT.TabIndex = 6;
             // 
             // neAltura
@@ -794,7 +865,7 @@ namespace Carm.Ad
             this.neAltura.BackColor = System.Drawing.SystemColors.Window;
             this.neAltura.Location = new System.Drawing.Point(188, 149);
             this.neAltura.Name = "neAltura";
-            this.neAltura.Size = new System.Drawing.Size(75, 21);
+            this.neAltura.Size = new System.Drawing.Size(75, 25);
             this.neAltura.TabIndex = 2;
             this.neAltura.Text = "0";
             // 
@@ -806,7 +877,7 @@ namespace Carm.Ad
             this.cdcMarca.FormattingEnabled = true;
             this.cdcMarca.Location = new System.Drawing.Point(187, 55);
             this.cdcMarca.Name = "cdcMarca";
-            this.cdcMarca.Size = new System.Drawing.Size(276, 23);
+            this.cdcMarca.Size = new System.Drawing.Size(276, 25);
             this.cdcMarca.Sorted = true;
             this.cdcMarca.TabIndex = 0;
             this.cdcMarca.SelectedIndexChanged += new System.EventHandler(this.cdcMarca_SelectedIndexChanged);
@@ -815,10 +886,10 @@ namespace Carm.Ad
             // 
             this.tePisoDepto.BackColor = System.Drawing.SystemColors.Window;
             this.tePisoDepto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tePisoDepto.Location = new System.Drawing.Point(350, 148);
+            this.tePisoDepto.Location = new System.Drawing.Point(364, 148);
             this.tePisoDepto.MaxLength = 8;
             this.tePisoDepto.Name = "tePisoDepto";
-            this.tePisoDepto.Size = new System.Drawing.Size(113, 21);
+            this.tePisoDepto.Size = new System.Drawing.Size(99, 25);
             this.tePisoDepto.TabIndex = 3;
             // 
             // cdcSitIva
@@ -829,7 +900,7 @@ namespace Carm.Ad
             this.cdcSitIva.FormattingEnabled = true;
             this.cdcSitIva.Location = new System.Drawing.Point(626, 55);
             this.cdcSitIva.Name = "cdcSitIva";
-            this.cdcSitIva.Size = new System.Drawing.Size(276, 23);
+            this.cdcSitIva.Size = new System.Drawing.Size(276, 25);
             this.cdcSitIva.Sorted = true;
             this.cdcSitIva.TabIndex = 5;
             // 
@@ -839,7 +910,7 @@ namespace Carm.Ad
             this.teDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teDireccion.Location = new System.Drawing.Point(187, 117);
             this.teDireccion.Name = "teDireccion";
-            this.teDireccion.Size = new System.Drawing.Size(276, 21);
+            this.teDireccion.Size = new System.Drawing.Size(276, 25);
             this.teDireccion.TabIndex = 1;
             // 
             // fullLabel9
@@ -847,9 +918,9 @@ namespace Carm.Ad
             this.fullLabel9.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel9.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel9.Location = new System.Drawing.Point(73, 92);
+            this.fullLabel9.Location = new System.Drawing.Point(73, 87);
             this.fullLabel9.Name = "fullLabel9";
-            this.fullLabel9.Size = new System.Drawing.Size(175, 18);
+            this.fullLabel9.Size = new System.Drawing.Size(175, 24);
             this.fullLabel9.TabIndex = 133;
             this.fullLabel9.Text = "Domicilio Cobro";
             // 
@@ -858,9 +929,9 @@ namespace Carm.Ad
             this.fullLabel5.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel5.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel5.Location = new System.Drawing.Point(555, 151);
+            this.fullLabel5.Location = new System.Drawing.Point(548, 151);
             this.fullLabel5.Name = "fullLabel5";
-            this.fullLabel5.Size = new System.Drawing.Size(64, 18);
+            this.fullLabel5.Size = new System.Drawing.Size(81, 18);
             this.fullLabel5.TabIndex = 28;
             this.fullLabel5.Text = "Celular:";
             // 
@@ -869,9 +940,9 @@ namespace Carm.Ad
             this.fullLabel4.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel4.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel4.Location = new System.Drawing.Point(28, 60);
+            this.fullLabel4.Location = new System.Drawing.Point(15, 60);
             this.fullLabel4.Name = "fullLabel4";
-            this.fullLabel4.Size = new System.Drawing.Size(143, 18);
+            this.fullLabel4.Size = new System.Drawing.Size(173, 18);
             this.fullLabel4.TabIndex = 129;
             this.fullLabel4.Text = "Empresa Prestadora:";
             // 
@@ -881,7 +952,7 @@ namespace Carm.Ad
             this.teCelular.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teCelular.Location = new System.Drawing.Point(626, 149);
             this.teCelular.Name = "teCelular";
-            this.teCelular.Size = new System.Drawing.Size(276, 21);
+            this.teCelular.Size = new System.Drawing.Size(276, 25);
             this.teCelular.TabIndex = 7;
             // 
             // panel3
@@ -890,18 +961,18 @@ namespace Carm.Ad
             this.panel3.Controls.Add(this.rbImportado);
             this.panel3.Controls.Add(this.rbAreasProtegidas);
             this.panel3.Controls.Add(this.rbSociosDirectos);
-            this.panel3.Location = new System.Drawing.Point(121, 16);
+            this.panel3.Location = new System.Drawing.Point(147, 16);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(345, 26);
+            this.panel3.Size = new System.Drawing.Size(439, 26);
             this.panel3.TabIndex = 126;
             // 
             // rbImportado
             // 
             this.rbImportado.AutoSize = true;
             this.rbImportado.BackColor = System.Drawing.Color.Transparent;
-            this.rbImportado.Location = new System.Drawing.Point(229, 2);
+            this.rbImportado.Location = new System.Drawing.Point(292, 2);
             this.rbImportado.Name = "rbImportado";
-            this.rbImportado.Size = new System.Drawing.Size(113, 19);
+            this.rbImportado.Size = new System.Drawing.Size(134, 21);
             this.rbImportado.TabIndex = 2;
             this.rbImportado.Text = "Importado Excel";
             this.rbImportado.UseVisualStyleBackColor = false;
@@ -910,9 +981,9 @@ namespace Carm.Ad
             // 
             this.rbAreasProtegidas.AutoSize = true;
             this.rbAreasProtegidas.BackColor = System.Drawing.Color.Transparent;
-            this.rbAreasProtegidas.Location = new System.Drawing.Point(3, 3);
+            this.rbAreasProtegidas.Location = new System.Drawing.Point(24, 3);
             this.rbAreasProtegidas.Name = "rbAreasProtegidas";
-            this.rbAreasProtegidas.Size = new System.Drawing.Size(106, 19);
+            this.rbAreasProtegidas.Size = new System.Drawing.Size(125, 21);
             this.rbAreasProtegidas.TabIndex = 0;
             this.rbAreasProtegidas.Text = "Area Protegida";
             this.rbAreasProtegidas.UseVisualStyleBackColor = false;
@@ -922,9 +993,9 @@ namespace Carm.Ad
             // 
             this.rbSociosDirectos.AutoSize = true;
             this.rbSociosDirectos.BackColor = System.Drawing.Color.Transparent;
-            this.rbSociosDirectos.Location = new System.Drawing.Point(121, 2);
+            this.rbSociosDirectos.Location = new System.Drawing.Point(162, 2);
             this.rbSociosDirectos.Name = "rbSociosDirectos";
-            this.rbSociosDirectos.Size = new System.Drawing.Size(98, 19);
+            this.rbSociosDirectos.Size = new System.Drawing.Size(117, 21);
             this.rbSociosDirectos.TabIndex = 1;
             this.rbSociosDirectos.Text = "Socio Directo";
             this.rbSociosDirectos.UseVisualStyleBackColor = false;
@@ -935,9 +1006,9 @@ namespace Carm.Ad
             this.fullLabel6.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel6.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel6.Location = new System.Drawing.Point(521, 185);
+            this.fullLabel6.Location = new System.Drawing.Point(507, 185);
             this.fullLabel6.Name = "fullLabel6";
-            this.fullLabel6.Size = new System.Drawing.Size(91, 18);
+            this.fullLabel6.Size = new System.Drawing.Size(124, 18);
             this.fullLabel6.TabIndex = 30;
             this.fullLabel6.Text = "1er Teléfono:";
             // 
@@ -947,7 +1018,7 @@ namespace Carm.Ad
             this.teTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teTelefono.Location = new System.Drawing.Point(626, 183);
             this.teTelefono.Name = "teTelefono";
-            this.teTelefono.Size = new System.Drawing.Size(276, 21);
+            this.teTelefono.Size = new System.Drawing.Size(276, 25);
             this.teTelefono.TabIndex = 8;
             // 
             // gbCargarLocalidad
@@ -978,9 +1049,9 @@ namespace Carm.Ad
             this.fullLabel1.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel1.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel1.Location = new System.Drawing.Point(562, 219);
+            this.fullLabel1.Location = new System.Drawing.Point(556, 219);
             this.fullLabel1.Name = "fullLabel1";
-            this.fullLabel1.Size = new System.Drawing.Size(54, 18);
+            this.fullLabel1.Size = new System.Drawing.Size(61, 18);
             this.fullLabel1.TabIndex = 32;
             this.fullLabel1.Text = "Email:";
             // 
@@ -990,7 +1061,7 @@ namespace Carm.Ad
             this.teEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teEmail.Location = new System.Drawing.Point(626, 217);
             this.teEmail.Name = "teEmail";
-            this.teEmail.Size = new System.Drawing.Size(276, 21);
+            this.teEmail.Size = new System.Drawing.Size(276, 25);
             this.teEmail.TabIndex = 9;
             // 
             // tePartidoCobro
@@ -1000,7 +1071,7 @@ namespace Carm.Ad
             this.tePartidoCobro.Location = new System.Drawing.Point(188, 215);
             this.tePartidoCobro.Name = "tePartidoCobro";
             this.tePartidoCobro.ReadOnly = true;
-            this.tePartidoCobro.Size = new System.Drawing.Size(276, 21);
+            this.tePartidoCobro.Size = new System.Drawing.Size(276, 25);
             this.tePartidoCobro.TabIndex = 35;
             // 
             // fullLabel3
@@ -1010,7 +1081,7 @@ namespace Carm.Ad
             this.fullLabel3.ForeColor = System.Drawing.Color.Black;
             this.fullLabel3.Location = new System.Drawing.Point(92, 182);
             this.fullLabel3.Name = "fullLabel3";
-            this.fullLabel3.Size = new System.Drawing.Size(76, 18);
+            this.fullLabel3.Size = new System.Drawing.Size(90, 18);
             this.fullLabel3.TabIndex = 34;
             this.fullLabel3.Text = "Localidad:";
             // 
@@ -1032,7 +1103,7 @@ namespace Carm.Ad
             this.teLocalidadCobro.Location = new System.Drawing.Point(188, 182);
             this.teLocalidadCobro.Name = "teLocalidadCobro";
             this.teLocalidadCobro.ReadOnly = true;
-            this.teLocalidadCobro.Size = new System.Drawing.Size(276, 21);
+            this.teLocalidadCobro.Size = new System.Drawing.Size(276, 25);
             this.teLocalidadCobro.TabIndex = 33;
             // 
             // fullLabel2
@@ -1040,19 +1111,19 @@ namespace Carm.Ad
             this.fullLabel2.BackColor = System.Drawing.Color.Transparent;
             this.fullLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel2.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel2.Location = new System.Drawing.Point(279, 151);
+            this.fullLabel2.Location = new System.Drawing.Point(272, 151);
             this.fullLabel2.Name = "fullLabel2";
-            this.fullLabel2.Size = new System.Drawing.Size(79, 18);
+            this.fullLabel2.Size = new System.Drawing.Size(101, 18);
             this.fullLabel2.TabIndex = 22;
             this.fullLabel2.Text = "Piso/Dpto: ";
             // 
             // tabLlamadas
             // 
             this.tabLlamadas.Controls.Add(this.xPanel3);
-            this.tabLlamadas.Location = new System.Drawing.Point(4, 25);
+            this.tabLlamadas.Location = new System.Drawing.Point(4, 29);
             this.tabLlamadas.Name = "tabLlamadas";
             this.tabLlamadas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLlamadas.Size = new System.Drawing.Size(987, 595);
+            this.tabLlamadas.Size = new System.Drawing.Size(987, 591);
             this.tabLlamadas.TabIndex = 2;
             this.tabLlamadas.Text = "Llamadas";
             this.tabLlamadas.UseVisualStyleBackColor = true;
@@ -1067,18 +1138,18 @@ namespace Carm.Ad
             this.xPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel3.Location = new System.Drawing.Point(3, 3);
             this.xPanel3.Name = "xPanel3";
-            this.xPanel3.Size = new System.Drawing.Size(981, 589);
+            this.xPanel3.Size = new System.Drawing.Size(981, 585);
             this.xPanel3.SkinFixed = true;
             this.xPanel3.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(10, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 23);
+            this.label2.Size = new System.Drawing.Size(163, 29);
             this.label2.TabIndex = 11;
             this.label2.Text = "Operaciones";
             // 
@@ -1115,17 +1186,17 @@ namespace Carm.Ad
             this.mrLlamadas.ShowFilter = false;
             this.mrLlamadas.ShowPrtOne = false;
             this.mrLlamadas.ShowZoom = false;
-            this.mrLlamadas.Size = new System.Drawing.Size(971, 488);
+            this.mrLlamadas.Size = new System.Drawing.Size(971, 484);
             this.mrLlamadas.SkinFixed = true;
             this.mrLlamadas.TabIndex = 0;
             // 
             // tabEntrev
             // 
             this.tabEntrev.Controls.Add(this.xPanel4);
-            this.tabEntrev.Location = new System.Drawing.Point(4, 25);
+            this.tabEntrev.Location = new System.Drawing.Point(4, 29);
             this.tabEntrev.Name = "tabEntrev";
             this.tabEntrev.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEntrev.Size = new System.Drawing.Size(987, 595);
+            this.tabEntrev.Size = new System.Drawing.Size(987, 591);
             this.tabEntrev.TabIndex = 3;
             this.tabEntrev.Text = "Entrevistas";
             this.tabEntrev.UseVisualStyleBackColor = true;
@@ -1141,18 +1212,18 @@ namespace Carm.Ad
             this.xPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel4.Location = new System.Drawing.Point(3, 3);
             this.xPanel4.Name = "xPanel4";
-            this.xPanel4.Size = new System.Drawing.Size(981, 589);
+            this.xPanel4.Size = new System.Drawing.Size(981, 585);
             this.xPanel4.SkinFixed = true;
             this.xPanel4.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(10, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 23);
+            this.label1.Size = new System.Drawing.Size(163, 29);
             this.label1.TabIndex = 10;
             this.label1.Text = "Operaciones";
             // 
@@ -1210,17 +1281,17 @@ namespace Carm.Ad
             this.mrEntrevistas.ShowFilter = false;
             this.mrEntrevistas.ShowPrtOne = false;
             this.mrEntrevistas.ShowZoom = false;
-            this.mrEntrevistas.Size = new System.Drawing.Size(971, 488);
+            this.mrEntrevistas.Size = new System.Drawing.Size(971, 484);
             this.mrEntrevistas.SkinFixed = true;
             this.mrEntrevistas.TabIndex = 1;
             // 
             // tabGrupoFamiliar
             // 
             this.tabGrupoFamiliar.Controls.Add(this.xPanel8);
-            this.tabGrupoFamiliar.Location = new System.Drawing.Point(4, 25);
+            this.tabGrupoFamiliar.Location = new System.Drawing.Point(4, 29);
             this.tabGrupoFamiliar.Name = "tabGrupoFamiliar";
             this.tabGrupoFamiliar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGrupoFamiliar.Size = new System.Drawing.Size(987, 595);
+            this.tabGrupoFamiliar.Size = new System.Drawing.Size(987, 591);
             this.tabGrupoFamiliar.TabIndex = 8;
             this.tabGrupoFamiliar.Text = "Grupo Familiar";
             this.tabGrupoFamiliar.UseVisualStyleBackColor = true;
@@ -1236,18 +1307,18 @@ namespace Carm.Ad
             this.xPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel8.Location = new System.Drawing.Point(3, 3);
             this.xPanel8.Name = "xPanel8";
-            this.xPanel8.Size = new System.Drawing.Size(981, 589);
+            this.xPanel8.Size = new System.Drawing.Size(981, 585);
             this.xPanel8.SkinFixed = true;
             this.xPanel8.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(10, 15);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 23);
+            this.label7.Size = new System.Drawing.Size(163, 29);
             this.label7.TabIndex = 14;
             this.label7.Text = "Operaciones";
             // 
@@ -1311,10 +1382,10 @@ namespace Carm.Ad
             // tabContactos
             // 
             this.tabContactos.Controls.Add(this.xPanel7);
-            this.tabContactos.Location = new System.Drawing.Point(4, 25);
+            this.tabContactos.Location = new System.Drawing.Point(4, 29);
             this.tabContactos.Name = "tabContactos";
             this.tabContactos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabContactos.Size = new System.Drawing.Size(987, 595);
+            this.tabContactos.Size = new System.Drawing.Size(987, 591);
             this.tabContactos.TabIndex = 7;
             this.tabContactos.Text = "Contactos";
             this.tabContactos.UseVisualStyleBackColor = true;
@@ -1331,18 +1402,18 @@ namespace Carm.Ad
             this.xPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel7.Location = new System.Drawing.Point(3, 3);
             this.xPanel7.Name = "xPanel7";
-            this.xPanel7.Size = new System.Drawing.Size(981, 589);
+            this.xPanel7.Size = new System.Drawing.Size(981, 585);
             this.xPanel7.SkinFixed = true;
             this.xPanel7.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(10, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 23);
+            this.label3.Size = new System.Drawing.Size(163, 29);
             this.label3.TabIndex = 14;
             this.label3.Text = "Operaciones";
             // 
@@ -1426,10 +1497,10 @@ namespace Carm.Ad
             // tabServicios
             // 
             this.tabServicios.Controls.Add(this.xPanel5);
-            this.tabServicios.Location = new System.Drawing.Point(4, 25);
+            this.tabServicios.Location = new System.Drawing.Point(4, 29);
             this.tabServicios.Name = "tabServicios";
             this.tabServicios.Padding = new System.Windows.Forms.Padding(3);
-            this.tabServicios.Size = new System.Drawing.Size(987, 595);
+            this.tabServicios.Size = new System.Drawing.Size(987, 591);
             this.tabServicios.TabIndex = 5;
             this.tabServicios.Text = "Servicios";
             this.tabServicios.UseVisualStyleBackColor = true;
@@ -1444,18 +1515,18 @@ namespace Carm.Ad
             this.xPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel5.Location = new System.Drawing.Point(3, 3);
             this.xPanel5.Name = "xPanel5";
-            this.xPanel5.Size = new System.Drawing.Size(981, 589);
+            this.xPanel5.Size = new System.Drawing.Size(981, 585);
             this.xPanel5.SkinFixed = true;
             this.xPanel5.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(10, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 23);
+            this.label4.Size = new System.Drawing.Size(163, 29);
             this.label4.TabIndex = 15;
             this.label4.Text = "Operaciones";
             // 
@@ -1491,17 +1562,17 @@ namespace Carm.Ad
             this.mrServicios.ShowFilter = false;
             this.mrServicios.ShowPrtOne = false;
             this.mrServicios.ShowZoom = false;
-            this.mrServicios.Size = new System.Drawing.Size(971, 488);
+            this.mrServicios.Size = new System.Drawing.Size(971, 484);
             this.mrServicios.SkinFixed = true;
             this.mrServicios.TabIndex = 1;
             // 
             // tabNotas
             // 
             this.tabNotas.Controls.Add(this.xPanel6);
-            this.tabNotas.Location = new System.Drawing.Point(4, 25);
+            this.tabNotas.Location = new System.Drawing.Point(4, 29);
             this.tabNotas.Name = "tabNotas";
             this.tabNotas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNotas.Size = new System.Drawing.Size(987, 595);
+            this.tabNotas.Size = new System.Drawing.Size(987, 591);
             this.tabNotas.TabIndex = 4;
             this.tabNotas.Text = "Notas";
             this.tabNotas.UseVisualStyleBackColor = true;
@@ -1517,18 +1588,18 @@ namespace Carm.Ad
             this.xPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel6.Location = new System.Drawing.Point(3, 3);
             this.xPanel6.Name = "xPanel6";
-            this.xPanel6.Size = new System.Drawing.Size(981, 589);
+            this.xPanel6.Size = new System.Drawing.Size(981, 585);
             this.xPanel6.SkinFixed = true;
             this.xPanel6.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(10, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 23);
+            this.label5.Size = new System.Drawing.Size(163, 29);
             this.label5.TabIndex = 16;
             this.label5.Text = "Operaciones";
             // 
@@ -1585,9 +1656,53 @@ namespace Carm.Ad
             this.mrNotas.ShowFilter = false;
             this.mrNotas.ShowPrtOne = false;
             this.mrNotas.ShowZoom = false;
-            this.mrNotas.Size = new System.Drawing.Size(971, 488);
+            this.mrNotas.Size = new System.Drawing.Size(971, 484);
             this.mrNotas.SkinFixed = true;
             this.mrNotas.TabIndex = 1;
+            // 
+            // tabVenta
+            // 
+            this.tabVenta.Controls.Add(this.xPanel9);
+            this.tabVenta.Location = new System.Drawing.Point(4, 29);
+            this.tabVenta.Name = "tabVenta";
+            this.tabVenta.Padding = new System.Windows.Forms.Padding(3);
+            this.tabVenta.Size = new System.Drawing.Size(987, 591);
+            this.tabVenta.TabIndex = 9;
+            this.tabVenta.Text = "Venta";
+            this.tabVenta.UseVisualStyleBackColor = true;
+            // 
+            // xPanel9
+            // 
+            this.xPanel9.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel9.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xPanel9.Controls.Add(this.tePlan);
+            this.xPanel9.Controls.Add(this.deFechaVenta);
+            this.xPanel9.Controls.Add(this.fullLabel27);
+            this.xPanel9.Controls.Add(this.teVendedor);
+            this.xPanel9.Controls.Add(this.fullLabel26);
+            this.xPanel9.Controls.Add(this.pnlFieldsSocios);
+            this.xPanel9.Controls.Add(this.dcePrecioFinal);
+            this.xPanel9.Controls.Add(this.fullLabel25);
+            this.xPanel9.Controls.Add(this.mrServiciosPlanVendido);
+            this.xPanel9.Controls.Add(this.label10);
+            this.xPanel9.Controls.Add(this.label8);
+            this.xPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xPanel9.Location = new System.Drawing.Point(3, 3);
+            this.xPanel9.Name = "xPanel9";
+            this.xPanel9.Size = new System.Drawing.Size(981, 585);
+            this.xPanel9.SkinFixed = true;
+            this.xPanel9.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(10, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(153, 29);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Datos Venta";
             // 
             // topPanel
             // 
@@ -1604,11 +1719,11 @@ namespace Carm.Ad
             // titulo
             // 
             this.titulo.AutoSize = true;
-            this.titulo.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titulo.ForeColor = System.Drawing.Color.White;
             this.titulo.Location = new System.Drawing.Point(7, 9);
             this.titulo.Name = "titulo";
-            this.titulo.Size = new System.Drawing.Size(167, 23);
+            this.titulo.Size = new System.Drawing.Size(209, 29);
             this.titulo.TabIndex = 2;
             this.titulo.Text = "Carga Prospecto";
             // 
@@ -1644,26 +1759,184 @@ namespace Carm.Ad
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // fullLabel16
+            // pnlFieldsSocios
             // 
-            this.fullLabel16.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullLabel16.ForeColor = System.Drawing.Color.Black;
-            this.fullLabel16.Location = new System.Drawing.Point(667, 512);
-            this.fullLabel16.Name = "fullLabel16";
-            this.fullLabel16.Size = new System.Drawing.Size(128, 18);
-            this.fullLabel16.TabIndex = 149;
-            this.fullLabel16.Text = "Usuario Cargador:";
+            this.pnlFieldsSocios.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFieldsSocios.Controls.Add(this.teListaDePrecios);
+            this.pnlFieldsSocios.Controls.Add(this.label9);
+            this.pnlFieldsSocios.Controls.Add(this.fullLabel24);
+            this.pnlFieldsSocios.Controls.Add(this.neCantPersonas);
+            this.pnlFieldsSocios.Location = new System.Drawing.Point(645, 45);
+            this.pnlFieldsSocios.Name = "pnlFieldsSocios";
+            this.pnlFieldsSocios.Size = new System.Drawing.Size(288, 223);
+            this.pnlFieldsSocios.TabIndex = 163;
             // 
-            // teUsuarioCargador
+            // label9
             // 
-            this.teUsuarioCargador.BackColor = System.Drawing.SystemColors.Window;
-            this.teUsuarioCargador.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.teUsuarioCargador.Enabled = false;
-            this.teUsuarioCargador.Location = new System.Drawing.Point(670, 533);
-            this.teUsuarioCargador.Name = "teUsuarioCargador";
-            this.teUsuarioCargador.Size = new System.Drawing.Size(153, 21);
-            this.teUsuarioCargador.TabIndex = 148;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(13, 15);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(150, 22);
+            this.label9.TabIndex = 150;
+            this.label9.Text = "Lista de Precios:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // fullLabel24
+            // 
+            this.fullLabel24.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.fullLabel24.Location = new System.Drawing.Point(13, 95);
+            this.fullLabel24.Name = "fullLabel24";
+            this.fullLabel24.Size = new System.Drawing.Size(181, 22);
+            this.fullLabel24.TabIndex = 152;
+            this.fullLabel24.Text = "Cantidad de Personas:";
+            // 
+            // neCantPersonas
+            // 
+            this.neCantPersonas.BackColor = System.Drawing.SystemColors.Window;
+            this.neCantPersonas.Location = new System.Drawing.Point(17, 124);
+            this.neCantPersonas.Name = "neCantPersonas";
+            this.neCantPersonas.NegativeValid = false;
+            this.neCantPersonas.ReadOnly = true;
+            this.neCantPersonas.Size = new System.Drawing.Size(116, 25);
+            this.neCantPersonas.TabIndex = 151;
+            this.neCantPersonas.Text = "0";
+            this.neCantPersonas.ZeroValid = false;
+            // 
+            // dcePrecioFinal
+            // 
+            this.dcePrecioFinal.BackColor = System.Drawing.SystemColors.Window;
+            this.dcePrecioFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dcePrecioFinal.Location = new System.Drawing.Point(739, 428);
+            this.dcePrecioFinal.MaxLength = 13;
+            this.dcePrecioFinal.Name = "dcePrecioFinal";
+            this.dcePrecioFinal.ReadOnly = true;
+            this.dcePrecioFinal.Size = new System.Drawing.Size(111, 27);
+            this.dcePrecioFinal.TabIndex = 162;
+            this.dcePrecioFinal.Text = "0.00";
+            // 
+            // fullLabel25
+            // 
+            this.fullLabel25.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel25.Location = new System.Drawing.Point(617, 429);
+            this.fullLabel25.Name = "fullLabel25";
+            this.fullLabel25.Size = new System.Drawing.Size(135, 22);
+            this.fullLabel25.TabIndex = 161;
+            this.fullLabel25.Text = "Precio Final:";
+            // 
+            // mrServiciosPlanVendido
+            // 
+            this.mrServiciosPlanVendido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mrServiciosPlanVendido.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mrServiciosPlanVendido.Location = new System.Drawing.Point(35, 106);
+            this.mrServiciosPlanVendido.Name = "mrServiciosPlanVendido";
+            this.mrServiciosPlanVendido.ShowExcel = false;
+            this.mrServiciosPlanVendido.ShowFilter = false;
+            this.mrServiciosPlanVendido.ShowPrtAll = false;
+            this.mrServiciosPlanVendido.ShowPrtOne = false;
+            this.mrServiciosPlanVendido.ShowZoom = false;
+            this.mrServiciosPlanVendido.Size = new System.Drawing.Size(522, 235);
+            this.mrServiciosPlanVendido.SkinFixed = true;
+            this.mrServiciosPlanVendido.TabIndex = 160;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(84, 73);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(92, 22);
+            this.label10.TabIndex = 159;
+            this.label10.Text = "Plan:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // teVendedor
+            // 
+            this.teVendedor.BackColor = System.Drawing.SystemColors.Window;
+            this.teVendedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teVendedor.Location = new System.Drawing.Point(152, 377);
+            this.teVendedor.Name = "teVendedor";
+            this.teVendedor.ReadOnly = true;
+            this.teVendedor.Size = new System.Drawing.Size(276, 25);
+            this.teVendedor.TabIndex = 164;
+            // 
+            // fullLabel26
+            // 
+            this.fullLabel26.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel26.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel26.Location = new System.Drawing.Point(57, 377);
+            this.fullLabel26.Name = "fullLabel26";
+            this.fullLabel26.Size = new System.Drawing.Size(102, 18);
+            this.fullLabel26.TabIndex = 165;
+            this.fullLabel26.Text = "Vendedor:";
+            // 
+            // deFechaVenta
+            // 
+            this.deFechaVenta.BackColor = System.Drawing.SystemColors.Window;
+            this.deFechaVenta.Location = new System.Drawing.Point(152, 428);
+            this.deFechaVenta.Name = "deFechaVenta";
+            this.deFechaVenta.ReadOnly = true;
+            this.deFechaVenta.Size = new System.Drawing.Size(100, 25);
+            this.deFechaVenta.TabIndex = 166;
+            this.deFechaVenta.Text = "01/01/1900";
+            // 
+            // fullLabel27
+            // 
+            this.fullLabel27.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel27.ForeColor = System.Drawing.Color.Black;
+            this.fullLabel27.Location = new System.Drawing.Point(34, 434);
+            this.fullLabel27.Name = "fullLabel27";
+            this.fullLabel27.Size = new System.Drawing.Size(125, 19);
+            this.fullLabel27.TabIndex = 167;
+            this.fullLabel27.Text = "Fecha Venta:";
+            // 
+            // tePlan
+            // 
+            this.tePlan.BackColor = System.Drawing.SystemColors.Window;
+            this.tePlan.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tePlan.Location = new System.Drawing.Point(182, 73);
+            this.tePlan.Name = "tePlan";
+            this.tePlan.ReadOnly = true;
+            this.tePlan.Size = new System.Drawing.Size(276, 25);
+            this.tePlan.TabIndex = 168;
+            // 
+            // teListaDePrecios
+            // 
+            this.teListaDePrecios.BackColor = System.Drawing.SystemColors.Window;
+            this.teListaDePrecios.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.teListaDePrecios.Location = new System.Drawing.Point(17, 40);
+            this.teListaDePrecios.Name = "teListaDePrecios";
+            this.teListaDePrecios.ReadOnly = true;
+            this.teListaDePrecios.Size = new System.Drawing.Size(240, 25);
+            this.teListaDePrecios.TabIndex = 169;
+            // 
+            // neDocumento
+            // 
+            this.neDocumento.BackColor = System.Drawing.SystemColors.Window;
+            this.neDocumento.Location = new System.Drawing.Point(156, 206);
+            this.neDocumento.MaxLength = 9;
+            this.neDocumento.Name = "neDocumento";
+            this.neDocumento.NegativeValid = false;
+            this.neDocumento.Size = new System.Drawing.Size(100, 25);
+            this.neDocumento.TabIndex = 139;
+            this.neDocumento.Text = "0";
+            this.neDocumento.ZeroValid = false;
+            // 
+            // fullLabel28
+            // 
+            this.fullLabel28.BackColor = System.Drawing.Color.Transparent;
+            this.fullLabel28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.fullLabel28.Location = new System.Drawing.Point(52, 210);
+            this.fullLabel28.Name = "fullLabel28";
+            this.fullLabel28.Size = new System.Drawing.Size(133, 22);
+            this.fullLabel28.TabIndex = 140;
+            this.fullLabel28.Text = "Documento:";
             // 
             // CargaCliente
             // 
@@ -1707,8 +1980,13 @@ namespace Carm.Ad
             this.tabNotas.ResumeLayout(false);
             this.xPanel6.ResumeLayout(false);
             this.xPanel6.PerformLayout();
+            this.tabVenta.ResumeLayout(false);
+            this.xPanel9.ResumeLayout(false);
+            this.xPanel9.PerformLayout();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
+            this.pnlFieldsSocios.ResumeLayout(false);
+            this.pnlFieldsSocios.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1824,5 +2102,26 @@ namespace Carm.Ad
         private System.Windows.Forms.RadioButton rbImportado;
         private TNGS.NetControls.FullLabel fullLabel16;
         private TNGS.NetControls.TextEdit teUsuarioCargador;
+        private TNGS.NetControls.FullLabel fullLabel19;
+        private TNGS.NetControls.TextEdit teVendido;
+        private System.Windows.Forms.TabPage tabVenta;
+        private TNGS.NetControls.XPanel xPanel9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel pnlFieldsSocios;
+        private System.Windows.Forms.Label label9;
+        private TNGS.NetControls.FullLabel fullLabel24;
+        private TNGS.NetControls.NumberEdit neCantPersonas;
+        private TNGS.NetControls.DecimalEdit dcePrecioFinal;
+        private TNGS.NetControls.FullLabel fullLabel25;
+        private TNGS.NetControls.MiniReport mrServiciosPlanVendido;
+        private System.Windows.Forms.Label label10;
+        private TNGS.NetControls.TextEdit tePlan;
+        private TNGS.NetControls.DateEdit deFechaVenta;
+        private TNGS.NetControls.FullLabel fullLabel27;
+        private TNGS.NetControls.TextEdit teVendedor;
+        private TNGS.NetControls.FullLabel fullLabel26;
+        private TNGS.NetControls.TextEdit teListaDePrecios;
+        private TNGS.NetControls.NumberEdit neDocumento;
+        private TNGS.NetControls.FullLabel fullLabel28;
     }
 }

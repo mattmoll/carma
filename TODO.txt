@@ -3,12 +3,12 @@ TODO:
 
 - Tabla lista de precios (done)
 
-- ABM de lista de precios (falta generar menu y testear)
+- ABM de lista de precios (done)
 
-- Fixear campos de CliVentas y CliServicios.
+- Fixear campos de CliVentas y CliServicios. (done)
 
-- Pantalla de ventas (falta crear el registro de venta y testear)
+- Pantalla de ventas (done)
 
-- agregar el DNI en socios directos carga de prospecto.
+- agregar el DNI en socios directos carga de prospecto. (done)
 
 

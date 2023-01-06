@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : CliVentas
 //----------------------------------------------------------------------------
@@ -56,18 +56,21 @@ begin
                 clv_fyh_fecha,
                 dbo.VENDEDORES_GETFULLNAME(clv_cd6_codvendedor) as vnd_des_desvend,
                 clv_cd6_codvendedor,
-                tcn_des_des as clv_des_destcon,
-                clv_rcd_codtipocontrato,
                 clv_imp_abono,
                 clv_nro_cantcapitas,
-                clv_imp_valorcapita,
+                clv_cod_codplan,
+                pln_des_des as des_plan,
+                clv_cod_codlistaprecios,
+                lpr_des_des as listaprecios,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
                 TNGS_Carm..CliVentas.version
            from TNGS_Carm..CliVentas
-                join TNGS_Carm..TipoCont
-                  on clv_rcd_codtipocontrato = tcn_rcd_cod
+                join TNGS_Carm..Planes
+                  on clv_cod_codplan = pln_cod_cod
+                join TNGS_Carm..ListasDePrecios
+                  on clv_cod_codlistaprecios = lpr_cod_cod
                 join TNGS_Carm..Vendedores
                   on clv_cd6_codvendedor = vnd_cd6_cod
           where TNGS_Carm..CliVentas.deleted = 0
@@ -80,18 +83,21 @@ begin
                 clv_fyh_fecha,
                 dbo.VENDEDORES_GETFULLNAME(clv_cd6_codvendedor) as vnd_des_desvend,
                 clv_cd6_codvendedor,
-                tcn_des_des as clv_des_destcon,
-                clv_rcd_codtipocontrato,
                 clv_imp_abono,
                 clv_nro_cantcapitas,
-                clv_imp_valorcapita,
+                clv_cod_codplan,
+                pln_des_des as des_plan,
+                clv_cod_codlistaprecios,
+                lpr_des_des as listaprecios,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
                 TNGS_Carm..CliVentas.version
            from TNGS_Carm..CliVentas
-                join TNGS_Carm..TipoCont
-                  on clv_rcd_codtipocontrato = tcn_rcd_cod
+                join TNGS_Carm..Planes
+                  on clv_cod_codplan = pln_cod_cod
+                join TNGS_Carm..ListasDePrecios
+                  on clv_cod_codlistaprecios = lpr_cod_cod
                 join TNGS_Carm..Vendedores
                   on clv_cd6_codvendedor = vnd_cd6_cod
           order by clv_nro_numcliente,
@@ -198,18 +204,21 @@ begin
                 clv_fyh_fecha,
                 dbo.VENDEDORES_GETFULLNAME(clv_cd6_codvendedor) as vnd_des_desvend,
                 clv_cd6_codvendedor,
-                tcn_des_des as clv_des_destcon,
-                clv_rcd_codtipocontrato,
                 clv_imp_abono,
                 clv_nro_cantcapitas,
-                clv_imp_valorcapita,
+                clv_cod_codplan,
+                pln_des_des as des_plan,
+                clv_cod_codlistaprecios,
+                lpr_des_des as listaprecios,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
                 TNGS_Carm..CliVentas.version
            from TNGS_Carm..CliVentas
-                join TNGS_Carm..TipoCont
-                  on clv_rcd_codtipocontrato = tcn_rcd_cod
+                join TNGS_Carm..Planes
+                  on clv_cod_codplan = pln_cod_cod
+                join TNGS_Carm..ListasDePrecios
+                  on clv_cod_codlistaprecios = lpr_cod_cod
                 join TNGS_Carm..Vendedores
                   on clv_cd6_codvendedor = vnd_cd6_cod
           where clv_nro_numcliente = @clv_nro_numcliente
@@ -222,18 +231,21 @@ begin
                 clv_fyh_fecha,
                 dbo.VENDEDORES_GETFULLNAME(clv_cd6_codvendedor) as vnd_des_desvend,
                 clv_cd6_codvendedor,
-                tcn_des_des as clv_des_destcon,
-                clv_rcd_codtipocontrato,
                 clv_imp_abono,
                 clv_nro_cantcapitas,
-                clv_imp_valorcapita,
+                clv_cod_codplan,
+                pln_des_des as des_plan,
+                clv_cod_codlistaprecios,
+                lpr_des_des as listaprecios,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
                 TNGS_Carm..CliVentas.version
            from TNGS_Carm..CliVentas
-                join TNGS_Carm..TipoCont
-                  on clv_rcd_codtipocontrato = tcn_rcd_cod
+                join TNGS_Carm..Planes
+                  on clv_cod_codplan = pln_cod_cod
+                join TNGS_Carm..ListasDePrecios
+                  on clv_cod_codlistaprecios = lpr_cod_cod
                 join TNGS_Carm..Vendedores
                   on clv_cd6_codvendedor = vnd_cd6_cod
           where clv_nro_numcliente = @clv_nro_numcliente
@@ -288,18 +300,21 @@ begin
                 clv_fyh_fecha,
                 dbo.VENDEDORES_GETFULLNAME(clv_cd6_codvendedor) as vnd_des_desvend,
                 clv_cd6_codvendedor,
-                tcn_des_des as clv_des_destcon,
-                clv_rcd_codtipocontrato,
                 clv_imp_abono,
                 clv_nro_cantcapitas,
-                clv_imp_valorcapita,
+                clv_cod_codplan,
+                pln_des_des as des_plan,
+                clv_cod_codlistaprecios,
+                lpr_des_des as listaprecios,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
                 TNGS_Carm..CliVentas.version
            from TNGS_Carm..CliVentas
-                join TNGS_Carm..TipoCont
-                  on clv_rcd_codtipocontrato = tcn_rcd_cod
+                join TNGS_Carm..Planes
+                  on clv_cod_codplan = pln_cod_cod
+                join TNGS_Carm..ListasDePrecios
+                  on clv_cod_codlistaprecios = lpr_cod_cod
                 join TNGS_Carm..Vendedores
                   on clv_cd6_codvendedor = vnd_cd6_cod
           where clv_nro_numcliente = @clv_nro_numcliente
@@ -312,18 +327,21 @@ begin
                 clv_fyh_fecha,
                 dbo.VENDEDORES_GETFULLNAME(clv_cd6_codvendedor) as vnd_des_desvend,
                 clv_cd6_codvendedor,
-                tcn_des_des as clv_des_destcon,
-                clv_rcd_codtipocontrato,
                 clv_imp_abono,
                 clv_nro_cantcapitas,
-                clv_imp_valorcapita,
+                clv_cod_codplan,
+                pln_des_des as des_plan,
+                clv_cod_codlistaprecios,
+                lpr_des_des as listaprecios,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
                 TNGS_Carm..CliVentas.version
            from TNGS_Carm..CliVentas
-                join TNGS_Carm..TipoCont
-                  on clv_rcd_codtipocontrato = tcn_rcd_cod
+                join TNGS_Carm..Planes
+                  on clv_cod_codplan = pln_cod_cod
+                join TNGS_Carm..ListasDePrecios
+                  on clv_cod_codlistaprecios = lpr_cod_cod
                 join TNGS_Carm..Vendedores
                   on clv_cd6_codvendedor = vnd_cd6_cod
           where clv_nro_numcliente = @clv_nro_numcliente
@@ -350,10 +368,10 @@ go
 --- <param name="@clv_nro_numcliente">Numero Cliente</param>
 --- <param name="@clv_fyh_fecha">Fecha Venta</param>
 --- <param name="@clv_cd6_codvendedor">Vendedor</param>
---- <param name="@clv_rcd_codtipocontrato">Tipo Contrato</param>
 --- <param name="@clv_imp_abono">Abono</param>
---- <param name="@clv_nro_cantcapitas">Capitas</param>
---- <param name="@clv_imp_valorcapita">Valor Capita</param>
+--- <param name="@clv_nro_cantcapitas">Cant Personas</param>
+--- <param name="@clv_cod_codplan">Plan</param>
+--- <param name="@clv_cod_codlistaprecios">Lista de Precios</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -375,10 +393,10 @@ create procedure dbo.CLIVENTAS_INSERT
 @clv_nro_numcliente tngs_numero,
 @clv_fyh_fecha tngs_fecyhor,
 @clv_cd6_codvendedor tngs_codigo_6,
-@clv_rcd_codtipocontrato tngs_codigo_r,
 @clv_imp_abono tngs_importe,
 @clv_nro_cantcapitas tngs_numero,
-@clv_imp_valorcapita tngs_importe,
+@clv_cod_codplan tngs_codigo,
+@clv_cod_codlistaprecios tngs_codigo,
 @usuario tngs_nombre
 )
 as
@@ -389,10 +407,10 @@ begin
            @clv_nro_numcliente,
            @clv_fyh_fecha,
            @clv_cd6_codvendedor,
-           @clv_rcd_codtipocontrato,
            @clv_imp_abono,
            @clv_nro_cantcapitas,
-           @clv_imp_valorcapita,
+           @clv_cod_codplan,
+           @clv_cod_codlistaprecios,
            getdate(), 0, @usuario, 1
           )
 
@@ -416,10 +434,10 @@ go
 --- <param name="@clv_nro_numcliente">Numero Cliente</param>
 --- <param name="@clv_fyh_fecha">Fecha Venta</param>
 --- <param name="@clv_cd6_codvendedor">Vendedor</param>
---- <param name="@clv_rcd_codtipocontrato">Tipo Contrato</param>
 --- <param name="@clv_imp_abono">Abono</param>
---- <param name="@clv_nro_cantcapitas">Capitas</param>
---- <param name="@clv_imp_valorcapita">Valor Capita</param>
+--- <param name="@clv_nro_cantcapitas">Cant Personas</param>
+--- <param name="@clv_cod_codplan">Plan</param>
+--- <param name="@clv_cod_codlistaprecios">Lista de Precios</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -441,10 +459,10 @@ create procedure dbo.CLIVENTAS_UPDATE
 @clv_nro_numcliente tngs_numero,
 @clv_fyh_fecha tngs_fecyhor,
 @clv_cd6_codvendedor tngs_codigo_6,
-@clv_rcd_codtipocontrato tngs_codigo_r,
 @clv_imp_abono tngs_importe,
 @clv_nro_cantcapitas tngs_numero,
-@clv_imp_valorcapita tngs_importe,
+@clv_cod_codplan tngs_codigo,
+@clv_cod_codlistaprecios tngs_codigo,
 @usuario tngs_nombre
 )
 as
@@ -452,10 +470,10 @@ begin
 
    Update TNGS_Carm..CliVentas
       set clv_cd6_codvendedor= @clv_cd6_codvendedor,
-          clv_rcd_codtipocontrato= @clv_rcd_codtipocontrato,
           clv_imp_abono= @clv_imp_abono,
           clv_nro_cantcapitas= @clv_nro_cantcapitas,
-          clv_imp_valorcapita= @clv_imp_valorcapita,
+          clv_cod_codplan= @clv_cod_codplan,
+          clv_cod_codlistaprecios= @clv_cod_codlistaprecios,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario

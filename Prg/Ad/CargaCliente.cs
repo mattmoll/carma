@@ -58,7 +58,7 @@ namespace Carm.Ad
             // When new client, hide everything except main data.
             if (cliente.EsNueva)
             {
-                ftDetalleCliente.hidePages(new List<TabPage>() { tabContactos, tabEntrev, tabLlamadas, tabNotas, tabServicios, tabGrupoFamiliar });
+                ftDetalleCliente.hidePages(new List<TabPage>() { tabContactos, tabEntrev, tabLlamadas, tabNotas, tabServicios, tabGrupoFamiliar, tabVenta });
                 rbSociosDirectos.Checked = true;
                 teUsuarioCargador.Text = App.Usuario.Usuario;
             } 
@@ -70,9 +70,11 @@ namespace Carm.Ad
             if (!cliente.EsSocioDirecto)
                 ftDetalleCliente.hidePage(tabGrupoFamiliar);
 
+            if(!cliente.TieneVenta)
+                ftDetalleCliente.hidePage(tabVenta);
+
             // TODO: Borrar si terminamos no usandolas.
-            ftDetalleCliente.hidePages(new List<TabPage>() { tabNotas, tabEntrev });
-            ftDetalleCliente.disablePages(new List<TabPage>() { tabContactos, tabServicios });
+            ftDetalleCliente.hidePages(new List<TabPage>() { tabNotas, tabEntrev, tabServicios, tabContactos });
         }
 
         private bool ValidarControles()
@@ -150,6 +152,7 @@ namespace Carm.Ad
 
             cliente.Nombre = teNombre.Text;
             cliente.Apellido = teApellido.Text;
+            cliente.Documento = neDocumento.Numero.ToString();
             cliente.Fechanacimiento = deFechaNacimiento.Fecha;
             cliente.Sexo = cdcSexo.SelectedStrCode;
             cliente.Tarjetacred = teTarjetaCredito.Text;
@@ -164,6 +167,7 @@ namespace Carm.Ad
                 cliente.Fechaingreso = DateTime.Now;
                 cliente.Cargador = App.Usuario.Usuario;
                 cliente.Numero = App.TaloGet("nroCliente", statMessage).Valor;
+                cliente.Rellamar = "N";
             }
         }
 
@@ -198,6 +202,9 @@ namespace Carm.Ad
 
             teNombre.Text = cliente.Nombre;
             teApellido.Text = cliente.Apellido;
+            int documento;
+            if(Int32.TryParse(cliente.Documento, out documento))
+                neDocumento.Numero = Convert.ToInt32(cliente.Documento);
             deFechaNacimiento.Fecha = cliente.Fechanacimiento;
             cdcSexo.SelectedStrCode = cliente.Sexo;
             teTarjetaCredito.Text = cliente.Tarjetacred;
@@ -205,12 +212,41 @@ namespace Carm.Ad
 
             teAnotaciones.Text = cliente.Observacion;
 
+            teVendido.Text = cliente.Alta;
+
             mrLlamadas.fill(cliente.CliLlamadas, "Llamadas", statMessage);
             mrEntrevistas.fill(cliente.CliEntrevistas, "Entrevistas", statMessage);
             mrGrupoFamiliar.fill(cliente.CliGrupoFamiliares, "Grupo Familiar", statMessage);
             mrContactos.fill(cliente.CliContactos, "Contactos", statMessage);
             mrServicios.fill(cliente.CliServicios, "Servicios", statMessage);
             mrNotas.fill(cliente.CliNotas, "Notas", statMessage);
+
+            if (cliente.TieneVenta)
+                CargarDatosVentaEnPantalla(cliente);
+        }
+
+        private void CargarDatosVentaEnPantalla(ECliente cliente)
+        {
+            var ultimaVenta = cliente.CliVentas.OrderByDescending(x => x.Fecha).First();
+
+            var planVendido = Bll.Planes.Get(ultimaVenta.Codplan, false, statMessage);
+            if (MsgRuts.AnalizeError(this, statMessage)) return;
+
+            tePlan.Text = planVendido.Des;
+
+            planVendido.PlnServicios.ChangeCaption("deleted", "");
+            mrServiciosPlanVendido.fill(planVendido.PlnServicios, "Servicios Plan Vendido", statMessage);
+
+            deFechaVenta.Fecha = ultimaVenta.Fecha;
+            teVendedor.Text = ultimaVenta.Vnd_des_desvend;
+
+            teListaDePrecios.Text = ultimaVenta.Listaprecios;
+            neCantPersonas.Numero = ultimaVenta.Cantcapitas;
+
+            dcePrecioFinal.Decimal = ultimaVenta.Abono;
+
+            if (cliente.EsAreaProtegida)
+                pnlFieldsSocios.Visible = false;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -348,5 +384,6 @@ namespace Carm.Ad
             teLocalidadCobro.Text = marca.Des_localidad;
             cliente.Codlocalidad = marca.Codlocalidad;
         }
+
     }
 }

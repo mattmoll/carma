@@ -149,7 +149,7 @@
             this.gbCompletar.Location = new System.Drawing.Point(235, 31);
             this.gbCompletar.Name = "gbCompletar";
             this.gbCompletar.RoundCorners = 2;
-            this.gbCompletar.Size = new System.Drawing.Size(85, 72);
+            this.gbCompletar.Size = new System.Drawing.Size(98, 72);
             this.gbCompletar.TabIndex = 2;
             this.gbCompletar.Text = "Completar Llamada";
             this.gbCompletar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -180,10 +180,10 @@
             // lblTitulo
             // 
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitulo.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(3, 5);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(605, 23);
+            this.lblTitulo.Size = new System.Drawing.Size(605, 33);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Llamadas Programadas para el usuario: ";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

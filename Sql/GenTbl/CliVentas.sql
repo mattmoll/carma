@@ -1,11 +1,11 @@
 /*----------------------------------------------------------------------------
 //                 TNG Software Script Generator (Tablas)                     
 //----------------------------------------------------------------------------
-// Fecha              : 05/02/2021 12:23
+// Fecha              : 05/01/2023 22:22
 // Base de Datos      : TNGS_Carm
 // Tabla              : CliVentas
 //----------------------------------------------------------------------------
-// © 1999-2021 by TNG Software                                      Gndr 5.20
+// © 1999-2023 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -42,10 +42,10 @@ create table CliVentas
       clv_nro_numcliente tngs_numero,
       clv_fyh_fecha tngs_fecyhor,
       clv_cd6_codvendedor tngs_codigo_6,
-      clv_rcd_codtipocontrato tngs_codigo_r,
       clv_imp_abono tngs_importe,
       clv_nro_cantcapitas tngs_numero,
-      clv_imp_valorcapita tngs_importe,
+      clv_cod_codplan tngs_codigo,
+      clv_cod_codlistaprecios tngs_codigo,
       instante tngs_fecyhor,
       deleted tngs_borrado,
       usuario tngs_nombre,

@@ -1,11 +1,11 @@
 /*---------------------------------------------------------------------------
 //                   TNG Software (Scripts iniciales de la Base)
 //---------------------------------------------------------------------------
-// Fecha              : 10/06/2021 21:33
+// Fecha              : 05/01/2023 22:22
 // Base de Datos      : TNGS_Carm
 // Objetivo           : Creación de los usuarios de la base
 //----------------------------------------------------------------------------
-// © 1999-2021 by TNG Software                                      Gndr 5.20
+// © 1999-2023 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -53,11 +53,11 @@ go
 /*---------------------------------------------------------------------------
 //                   TNG Software (Scripts iniciales de la Base)
 //---------------------------------------------------------------------------
-// Fecha              : 10/06/2021 21:33
+// Fecha              : 05/01/2023 22:22
 // Base de Datos      : TNGS_Carm
 // Objetivo           : Creación de los tipos de datos
 //----------------------------------------------------------------------------
-// © 1999-2021 by TNG Software                                      Gndr 5.20
+// © 1999-2023 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -320,11 +320,11 @@ go
 /*---------------------------------------------------------------------------
 //                   TNG Software (Scripts iniciales de la Base)
 //---------------------------------------------------------------------------
-// Fecha              : 10/06/2021 21:33
+// Fecha              : 05/01/2023 22:22
 // Base de Datos      : TNGS_Carm
 // Objetivo           : Creación de las funciones básicas
 //----------------------------------------------------------------------------
-// © 1999-2021 by TNG Software                                      Gndr 5.20
+// © 1999-2023 by TNG Software                                      Gndr 5.20
 //---------------------------------------------------------------------------*/
 
 /* ***************************************************************************
@@ -3749,7 +3749,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : CategoriasLlamada
 //----------------------------------------------------------------------------
@@ -4294,7 +4294,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : CliContactos
 //----------------------------------------------------------------------------
@@ -5260,7 +5260,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -5365,6 +5365,7 @@ begin
                 cli_fec_fecultimocontacto,
                 cli_fec_fechaproxcontacto,
                 cli_cd1_rellamar,
+                cli_des_documento,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -5435,6 +5436,7 @@ begin
                 cli_fec_fecultimocontacto,
                 cli_fec_fechaproxcontacto,
                 cli_cd1_rellamar,
+                cli_des_documento,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -5594,6 +5596,7 @@ begin
                 cli_fec_fecultimocontacto,
                 cli_fec_fechaproxcontacto,
                 cli_cd1_rellamar,
+                cli_des_documento,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -5664,6 +5667,7 @@ begin
                 cli_fec_fecultimocontacto,
                 cli_fec_fechaproxcontacto,
                 cli_cd1_rellamar,
+                cli_des_documento,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -5742,6 +5746,7 @@ go
 --- <param name="@cli_fec_fecultimocontacto">Fecha Último Contacto</param>
 --- <param name="@cli_fec_fechaproxcontacto">Fecha Próximo Contacto</param>
 --- <param name="@cli_cd1_rellamar">Volver a Llamar</param>
+--- <param name="@cli_des_documento">Documento</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -5807,6 +5812,7 @@ create procedure dbo.CLIENTES_INSERT
 @cli_fec_fecultimocontacto tngs_fecha,
 @cli_fec_fechaproxcontacto tngs_fecha,
 @cli_cd1_rellamar tngs_codigo_1,
+@cli_des_documento tngs_descripcion,
 @usuario tngs_nombre
 )
 as
@@ -5861,6 +5867,7 @@ begin
            @cli_fec_fecultimocontacto,
            @cli_fec_fechaproxcontacto,
            @cli_cd1_rellamar,
+           @cli_des_documento,
            getdate(), 0, @usuario, 1
           )
 
@@ -5928,6 +5935,7 @@ go
 --- <param name="@cli_fec_fecultimocontacto">Fecha Último Contacto</param>
 --- <param name="@cli_fec_fechaproxcontacto">Fecha Próximo Contacto</param>
 --- <param name="@cli_cd1_rellamar">Volver a Llamar</param>
+--- <param name="@cli_des_documento">Documento</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -5993,6 +6001,7 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_fec_fecultimocontacto tngs_fecha,
 @cli_fec_fechaproxcontacto tngs_fecha,
 @cli_cd1_rellamar tngs_codigo_1,
+@cli_des_documento tngs_descripcion,
 @usuario tngs_nombre
 )
 as
@@ -6045,6 +6054,7 @@ begin
           cli_fec_fecultimocontacto= @cli_fec_fecultimocontacto,
           cli_fec_fechaproxcontacto= @cli_fec_fechaproxcontacto,
           cli_cd1_rellamar= @cli_cd1_rellamar,
+          cli_des_documento= @cli_des_documento,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario
@@ -7170,7 +7180,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : CliEntrevistas
 //----------------------------------------------------------------------------
@@ -8667,7 +8677,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : CliGrupoFamiliar
 //----------------------------------------------------------------------------
@@ -9546,7 +9556,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : CliLlamadas
 //----------------------------------------------------------------------------
@@ -11130,7 +11140,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : CliNotas
 //----------------------------------------------------------------------------
@@ -12142,7 +12152,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : CliServicios
 //----------------------------------------------------------------------------
@@ -13042,7 +13052,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : CliVentas
 //----------------------------------------------------------------------------
@@ -13097,18 +13107,21 @@ begin
                 clv_fyh_fecha,
                 dbo.VENDEDORES_GETFULLNAME(clv_cd6_codvendedor) as vnd_des_desvend,
                 clv_cd6_codvendedor,
-                tcn_des_des as clv_des_destcon,
-                clv_rcd_codtipocontrato,
                 clv_imp_abono,
                 clv_nro_cantcapitas,
-                clv_imp_valorcapita,
+                clv_cod_codplan,
+                pln_des_des as des_plan,
+                clv_cod_codlistaprecios,
+                lpr_des_des as listaprecios,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
                 TNGS_Carm..CliVentas.version
            from TNGS_Carm..CliVentas
-                join TNGS_Carm..TipoCont
-                  on clv_rcd_codtipocontrato = tcn_rcd_cod
+                join TNGS_Carm..Planes
+                  on clv_cod_codplan = pln_cod_cod
+                join TNGS_Carm..ListasDePrecios
+                  on clv_cod_codlistaprecios = lpr_cod_cod
                 join TNGS_Carm..Vendedores
                   on clv_cd6_codvendedor = vnd_cd6_cod
           where TNGS_Carm..CliVentas.deleted = 0
@@ -13121,18 +13134,21 @@ begin
                 clv_fyh_fecha,
                 dbo.VENDEDORES_GETFULLNAME(clv_cd6_codvendedor) as vnd_des_desvend,
                 clv_cd6_codvendedor,
-                tcn_des_des as clv_des_destcon,
-                clv_rcd_codtipocontrato,
                 clv_imp_abono,
                 clv_nro_cantcapitas,
-                clv_imp_valorcapita,
+                clv_cod_codplan,
+                pln_des_des as des_plan,
+                clv_cod_codlistaprecios,
+                lpr_des_des as listaprecios,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
                 TNGS_Carm..CliVentas.version
            from TNGS_Carm..CliVentas
-                join TNGS_Carm..TipoCont
-                  on clv_rcd_codtipocontrato = tcn_rcd_cod
+                join TNGS_Carm..Planes
+                  on clv_cod_codplan = pln_cod_cod
+                join TNGS_Carm..ListasDePrecios
+                  on clv_cod_codlistaprecios = lpr_cod_cod
                 join TNGS_Carm..Vendedores
                   on clv_cd6_codvendedor = vnd_cd6_cod
           order by clv_nro_numcliente,
@@ -13239,18 +13255,21 @@ begin
                 clv_fyh_fecha,
                 dbo.VENDEDORES_GETFULLNAME(clv_cd6_codvendedor) as vnd_des_desvend,
                 clv_cd6_codvendedor,
-                tcn_des_des as clv_des_destcon,
-                clv_rcd_codtipocontrato,
                 clv_imp_abono,
                 clv_nro_cantcapitas,
-                clv_imp_valorcapita,
+                clv_cod_codplan,
+                pln_des_des as des_plan,
+                clv_cod_codlistaprecios,
+                lpr_des_des as listaprecios,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
                 TNGS_Carm..CliVentas.version
            from TNGS_Carm..CliVentas
-                join TNGS_Carm..TipoCont
-                  on clv_rcd_codtipocontrato = tcn_rcd_cod
+                join TNGS_Carm..Planes
+                  on clv_cod_codplan = pln_cod_cod
+                join TNGS_Carm..ListasDePrecios
+                  on clv_cod_codlistaprecios = lpr_cod_cod
                 join TNGS_Carm..Vendedores
                   on clv_cd6_codvendedor = vnd_cd6_cod
           where clv_nro_numcliente = @clv_nro_numcliente
@@ -13263,18 +13282,21 @@ begin
                 clv_fyh_fecha,
                 dbo.VENDEDORES_GETFULLNAME(clv_cd6_codvendedor) as vnd_des_desvend,
                 clv_cd6_codvendedor,
-                tcn_des_des as clv_des_destcon,
-                clv_rcd_codtipocontrato,
                 clv_imp_abono,
                 clv_nro_cantcapitas,
-                clv_imp_valorcapita,
+                clv_cod_codplan,
+                pln_des_des as des_plan,
+                clv_cod_codlistaprecios,
+                lpr_des_des as listaprecios,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
                 TNGS_Carm..CliVentas.version
            from TNGS_Carm..CliVentas
-                join TNGS_Carm..TipoCont
-                  on clv_rcd_codtipocontrato = tcn_rcd_cod
+                join TNGS_Carm..Planes
+                  on clv_cod_codplan = pln_cod_cod
+                join TNGS_Carm..ListasDePrecios
+                  on clv_cod_codlistaprecios = lpr_cod_cod
                 join TNGS_Carm..Vendedores
                   on clv_cd6_codvendedor = vnd_cd6_cod
           where clv_nro_numcliente = @clv_nro_numcliente
@@ -13329,18 +13351,21 @@ begin
                 clv_fyh_fecha,
                 dbo.VENDEDORES_GETFULLNAME(clv_cd6_codvendedor) as vnd_des_desvend,
                 clv_cd6_codvendedor,
-                tcn_des_des as clv_des_destcon,
-                clv_rcd_codtipocontrato,
                 clv_imp_abono,
                 clv_nro_cantcapitas,
-                clv_imp_valorcapita,
+                clv_cod_codplan,
+                pln_des_des as des_plan,
+                clv_cod_codlistaprecios,
+                lpr_des_des as listaprecios,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
                 TNGS_Carm..CliVentas.version
            from TNGS_Carm..CliVentas
-                join TNGS_Carm..TipoCont
-                  on clv_rcd_codtipocontrato = tcn_rcd_cod
+                join TNGS_Carm..Planes
+                  on clv_cod_codplan = pln_cod_cod
+                join TNGS_Carm..ListasDePrecios
+                  on clv_cod_codlistaprecios = lpr_cod_cod
                 join TNGS_Carm..Vendedores
                   on clv_cd6_codvendedor = vnd_cd6_cod
           where clv_nro_numcliente = @clv_nro_numcliente
@@ -13353,18 +13378,21 @@ begin
                 clv_fyh_fecha,
                 dbo.VENDEDORES_GETFULLNAME(clv_cd6_codvendedor) as vnd_des_desvend,
                 clv_cd6_codvendedor,
-                tcn_des_des as clv_des_destcon,
-                clv_rcd_codtipocontrato,
                 clv_imp_abono,
                 clv_nro_cantcapitas,
-                clv_imp_valorcapita,
+                clv_cod_codplan,
+                pln_des_des as des_plan,
+                clv_cod_codlistaprecios,
+                lpr_des_des as listaprecios,
                 TNGS_Carm..CliVentas.instante,
                 TNGS_Carm..CliVentas.deleted,
                 TNGS_Carm..CliVentas.usuario,
                 TNGS_Carm..CliVentas.version
            from TNGS_Carm..CliVentas
-                join TNGS_Carm..TipoCont
-                  on clv_rcd_codtipocontrato = tcn_rcd_cod
+                join TNGS_Carm..Planes
+                  on clv_cod_codplan = pln_cod_cod
+                join TNGS_Carm..ListasDePrecios
+                  on clv_cod_codlistaprecios = lpr_cod_cod
                 join TNGS_Carm..Vendedores
                   on clv_cd6_codvendedor = vnd_cd6_cod
           where clv_nro_numcliente = @clv_nro_numcliente
@@ -13391,10 +13419,10 @@ go
 --- <param name="@clv_nro_numcliente">Numero Cliente</param>
 --- <param name="@clv_fyh_fecha">Fecha Venta</param>
 --- <param name="@clv_cd6_codvendedor">Vendedor</param>
---- <param name="@clv_rcd_codtipocontrato">Tipo Contrato</param>
 --- <param name="@clv_imp_abono">Abono</param>
---- <param name="@clv_nro_cantcapitas">Capitas</param>
---- <param name="@clv_imp_valorcapita">Valor Capita</param>
+--- <param name="@clv_nro_cantcapitas">Cant Personas</param>
+--- <param name="@clv_cod_codplan">Plan</param>
+--- <param name="@clv_cod_codlistaprecios">Lista de Precios</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -13416,10 +13444,10 @@ create procedure dbo.CLIVENTAS_INSERT
 @clv_nro_numcliente tngs_numero,
 @clv_fyh_fecha tngs_fecyhor,
 @clv_cd6_codvendedor tngs_codigo_6,
-@clv_rcd_codtipocontrato tngs_codigo_r,
 @clv_imp_abono tngs_importe,
 @clv_nro_cantcapitas tngs_numero,
-@clv_imp_valorcapita tngs_importe,
+@clv_cod_codplan tngs_codigo,
+@clv_cod_codlistaprecios tngs_codigo,
 @usuario tngs_nombre
 )
 as
@@ -13430,10 +13458,10 @@ begin
            @clv_nro_numcliente,
            @clv_fyh_fecha,
            @clv_cd6_codvendedor,
-           @clv_rcd_codtipocontrato,
            @clv_imp_abono,
            @clv_nro_cantcapitas,
-           @clv_imp_valorcapita,
+           @clv_cod_codplan,
+           @clv_cod_codlistaprecios,
            getdate(), 0, @usuario, 1
           )
 
@@ -13457,10 +13485,10 @@ go
 --- <param name="@clv_nro_numcliente">Numero Cliente</param>
 --- <param name="@clv_fyh_fecha">Fecha Venta</param>
 --- <param name="@clv_cd6_codvendedor">Vendedor</param>
---- <param name="@clv_rcd_codtipocontrato">Tipo Contrato</param>
 --- <param name="@clv_imp_abono">Abono</param>
---- <param name="@clv_nro_cantcapitas">Capitas</param>
---- <param name="@clv_imp_valorcapita">Valor Capita</param>
+--- <param name="@clv_nro_cantcapitas">Cant Personas</param>
+--- <param name="@clv_cod_codplan">Plan</param>
+--- <param name="@clv_cod_codlistaprecios">Lista de Precios</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -13482,10 +13510,10 @@ create procedure dbo.CLIVENTAS_UPDATE
 @clv_nro_numcliente tngs_numero,
 @clv_fyh_fecha tngs_fecyhor,
 @clv_cd6_codvendedor tngs_codigo_6,
-@clv_rcd_codtipocontrato tngs_codigo_r,
 @clv_imp_abono tngs_importe,
 @clv_nro_cantcapitas tngs_numero,
-@clv_imp_valorcapita tngs_importe,
+@clv_cod_codplan tngs_codigo,
+@clv_cod_codlistaprecios tngs_codigo,
 @usuario tngs_nombre
 )
 as
@@ -13493,10 +13521,10 @@ begin
 
    Update TNGS_Carm..CliVentas
       set clv_cd6_codvendedor= @clv_cd6_codvendedor,
-          clv_rcd_codtipocontrato= @clv_rcd_codtipocontrato,
           clv_imp_abono= @clv_imp_abono,
           clv_nro_cantcapitas= @clv_nro_cantcapitas,
-          clv_imp_valorcapita= @clv_imp_valorcapita,
+          clv_cod_codplan= @clv_cod_codplan,
+          clv_cod_codlistaprecios= @clv_cod_codlistaprecios,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario
@@ -14036,7 +14064,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : ConversionColores
 //----------------------------------------------------------------------------
@@ -14627,7 +14655,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Franquicias
 //----------------------------------------------------------------------------
@@ -15162,7 +15190,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : ListasDePrecios
 //----------------------------------------------------------------------------
@@ -15798,7 +15826,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Localidades
 //----------------------------------------------------------------------------
@@ -16785,7 +16813,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : LogClientes
 //----------------------------------------------------------------------------
@@ -17337,7 +17365,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Marcas
 //----------------------------------------------------------------------------
@@ -17851,7 +17879,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : MotivosLlamada
 //----------------------------------------------------------------------------
@@ -18463,7 +18491,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Parametros
 //----------------------------------------------------------------------------
@@ -18995,7 +19023,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Parentescos
 //----------------------------------------------------------------------------
@@ -19487,7 +19515,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Planes
 //----------------------------------------------------------------------------
@@ -20089,7 +20117,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : PlnServicios
 //----------------------------------------------------------------------------
@@ -20938,7 +20966,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : PreciosServicios
 //----------------------------------------------------------------------------
@@ -21522,7 +21550,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : ResEntrevista
 //----------------------------------------------------------------------------
@@ -22067,7 +22095,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Rubros
 //----------------------------------------------------------------------------
@@ -22602,7 +22630,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Servicios
 //----------------------------------------------------------------------------
@@ -23190,7 +23218,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : SituacionesIVA
 //----------------------------------------------------------------------------
@@ -23692,7 +23720,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Supervisores
 //----------------------------------------------------------------------------
@@ -24228,7 +24256,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Talonarios
 //----------------------------------------------------------------------------
@@ -24760,7 +24788,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : TipoCont
 //----------------------------------------------------------------------------
@@ -25315,7 +25343,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : TipoInst
 //----------------------------------------------------------------------------
@@ -25932,7 +25960,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : TipoVend
 //----------------------------------------------------------------------------
@@ -26477,7 +26505,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Vendedores
 //----------------------------------------------------------------------------
@@ -27940,7 +27968,7 @@ go
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Zonas
 //----------------------------------------------------------------------------

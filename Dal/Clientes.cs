@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 03/01/2023 23:43
+    // Fecha                    : 06/01/2023 01:04
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     // Basada en la Tabla       : Clientes
@@ -186,6 +186,7 @@ namespace Carm.Dal
         /// <param name="p_dtFecultimocontacto">Fecha Último Contacto</param>
         /// <param name="p_dtFechaproxcontacto">Fecha Próximo Contacto</param>
         /// <param name="p_strRellamar">Volver a Llamar</param>
+        /// <param name="p_strDocumento">Documento</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Insert(DBConn p_dbcAccess,
                                  int p_iNumero,
@@ -235,6 +236,7 @@ namespace Carm.Dal
                                  DateTime p_dtFecultimocontacto,
                                  DateTime p_dtFechaproxcontacto,
                                  string p_strRellamar,
+                                 string p_strDocumento,
                                  StatMsg p_smResult)
         {
             try {
@@ -289,6 +291,7 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParamF("@cli_fec_fecultimocontacto", p_dtFecultimocontacto),
                                        p_dbcAccess.MakeParamF("@cli_fec_fechaproxcontacto", p_dtFechaproxcontacto),
                                        p_dbcAccess.MakeParam("@cli_cd1_rellamar", p_strRellamar),
+                                       p_dbcAccess.MakeParam("@cli_des_documento", p_strDocumento),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -351,6 +354,7 @@ namespace Carm.Dal
         /// <param name="p_dtFecultimocontacto">Fecha Último Contacto</param>
         /// <param name="p_dtFechaproxcontacto">Fecha Próximo Contacto</param>
         /// <param name="p_strRellamar">Volver a Llamar</param>
+        /// <param name="p_strDocumento">Documento</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Update(DBConn p_dbcAccess,
                                  int p_iNumero,
@@ -400,6 +404,7 @@ namespace Carm.Dal
                                  DateTime p_dtFecultimocontacto,
                                  DateTime p_dtFechaproxcontacto,
                                  string p_strRellamar,
+                                 string p_strDocumento,
                                  StatMsg p_smResult)
         {
             try {
@@ -454,6 +459,7 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParamF("@cli_fec_fecultimocontacto", p_dtFecultimocontacto),
                                        p_dbcAccess.MakeParamF("@cli_fec_fechaproxcontacto", p_dtFechaproxcontacto),
                                        p_dbcAccess.MakeParam("@cli_cd1_rellamar", p_strRellamar),
+                                       p_dbcAccess.MakeParam("@cli_des_documento", p_strDocumento),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );

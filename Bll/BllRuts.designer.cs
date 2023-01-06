@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 03/01/2023 23:43
+    // Fecha                    : 05/01/2023 21:08
     // Sistema                  : Carm
     // Clase para Administrar   : 
     //----------------------------------------------------------------------------
@@ -294,6 +294,25 @@ namespace Carm.Bll
                 // Tabla: Franquicias         
                 case "frq_cod_cod"                     : {return "V1CodigoCN1";}
                 case "frq_des_des"                     : {return "V1DescripcionCN1";}
+
+                // ****************************************
+                // Tabla: ListasDePrecios     
+                case "lpr_cod_cod"                     : {return "V1CódigoCN1";}
+                case "lpr_des_des"                     : {return "V1DescripciónCN1";}
+                case "lpr_cod_codplan"                 : {return "V1PlanCN1";}
+                case "lpr_rcd_codmarca"                : {return "V1MarcaCN1";}
+                case "lpr_imp_precio1p"                : {return "V1Precio 1 P2N3";}
+                case "lpr_imp_precio2p"                : {return "V1Precio 2 P2N3";}
+                case "lpr_imp_precio3p"                : {return "V1Precio 3 P2N3";}
+                case "lpr_imp_precio4p"                : {return "V1Precio 4 P2N3";}
+                case "lpr_imp_precio5p"                : {return "V1Precio 5 P2N3";}
+                case "lpr_imp_precio6p"                : {return "V1Precio 6 P2N3";}
+                case "lpr_imp_precio7p"                : {return "V1Precio 7 P2N3";}
+                case "lpr_imp_precio8p"                : {return "V1Precio 8 P2N3";}
+                case "lpr_imp_precio9p"                : {return "V1Precio 9 P2N3";}
+                case "lpr_imp_precio10p"               : {return "V1Precio 10 P2N3";}
+                case "des_marca"                       : {return "V1MarcaCN1";}
+                case "des_plan"                        : {return "V1PlanCN1";}
 
                 // ****************************************
                 // Tabla: Localidades         

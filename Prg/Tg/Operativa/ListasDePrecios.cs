@@ -83,11 +83,11 @@ namespace Carm.Tg
             // Llenamos las Combos (por Tablas)
             Bel.LEPlanes l_lentPlanes= Bll.Planes.UpFull(false, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
-            cmbCodplan.FillFromStrLEntidad(l_lentPlanes, "pln_cod_cod", "pln_des_des", "deleted");
+            cmbCodplan.FillFromStrLEntidad(l_lentPlanes, Bel.EPlan.CodCmp, Bel.EPlan.DesCmp, "deleted");
 
             Bel.LEMarcas l_lentMarcas= Bll.Tablas.MrcUpFull(false, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
-            cmbCodmarca.FillFromStrLEntidad(l_lentMarcas, "mrc_rcd_cod", "_des_descripcion", "deleted");
+            cmbCodmarca.FillFromStrLEntidad(l_lentMarcas, Bel.EMarca.CodCmp, Bel.EMarca.DesCmp, "deleted");
 
             // Pasamos a modo Operaciones, llenamos la grilla y 
             // damos foco al primer campo

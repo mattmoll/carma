@@ -1,84 +1,80 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿using Carm.Bel;
+using System;
 using System.Windows.Forms;
-using System.Linq;
-using Carm.Shr;
-using Carm.Bel;
-using TNGS.NetRoutines;
 using TNGS.NetApp;
-
+using TNGS.NetRoutines;
 
 namespace Carm.Ad
 {
     public partial class CargaVenta : Form
     {
         StatMsg m_smResult = new StatMsg();
-        string m_strCodVendedor = "";
         int m_intNumeroCliente;
-        Bel.LEListasDePrecios m_listasDePrecios;
+        ECliente m_Cliente;
+        LEListasDePrecios m_listasDePrecios = LEListasDePrecios.NewEmpty();
+        string m_strCodEmptyPlan = "0000";
+        string m_strCodEmptyLista = "0000";
+        bool planesSeteados = false;
+        bool listasSeteadas = false;
 
         // Constructores para el caso de que el cliente ya esta reservado, y el caso en que se lo quiere vender para un vendedor.
         public CargaVenta(ECliente p_eCliente)
         {
             InitializeComponent();
             m_intNumeroCliente = p_eCliente.Numero;
+        }
 
-            Bel.LEPlanes l_lentPlanes = Bll.Planes.UpFull(true, m_smResult);
+        private void CargaVenta_Load(object sender, EventArgs e)
+        {
+            LEPlanes l_lentPlanes = Bll.Planes.UpFull(true, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
-            cdcPlan.FillFromStrLEntidad(l_lentPlanes, "pln_cod_cod", "pln_des_des", "deleted");
+            cdcPlan.FillFromStrLEntidad(l_lentPlanes, EPlan.CodCmp, EPlan.DesCmp, "deleted");
+            cdcPlan.AddStrCD(m_strCodEmptyPlan, "Elige un plan");
+            cdcPlan.SelectedStrCode = m_strCodEmptyPlan;
+            planesSeteados = true;
+
+            cdcListaDePrecios.AddStrCD(m_strCodEmptyLista, "Elige una Lista de Precios");
+            listasSeteadas = true;
 
             m_listasDePrecios = Bll.Tablas.LprUpFull(true, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
-            m_strCodVendedor = p_eCliente.Codvend;
-        }
-
-        public CargaVenta(ECliente p_eCliente, string p_strCodVendedor) : this(p_eCliente)
-        {
-            // Validamos que el cliente no este reservado. Si esta reservado para un vendedor, no se le puede 
-            // cargar la venta a otro vendedor.
-            if (p_eCliente.Codvend == "")
-                m_strCodVendedor = p_strCodVendedor;
-        }
-
-
-        private void CargaVenta_Load(object sender, EventArgs e)
-        {
-            // Cargamos la lista de vendedores y de marcas.
-            ListaEntidades l_leVendedores = Bll.Vendedores.UpFull(true, m_smResult);
-            if (MsgRuts.AnalizeError(this, m_smResult)) return;            
-
-            // Cargamos la lista de tipos de contratos.
-            ListaEntidades l_leTipoContratos = Bll.Tablas.TcnUpFull(true, m_smResult);
+            m_Cliente = Bll.Clientes.Get(m_intNumeroCliente, true, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
-            cdcPlan.FillFromStrLEntidad(l_leTipoContratos, ETipoCont.CodCmp, ETipoCont.DesCmp, "deleted");
+            if (m_Cliente.EsAreaProtegida)
+                AreasProtegidasMode();
+            else
+                SociosDirectosMode();
         }
 
-        private void gbCargaServicios_Click(object sender, EventArgs e)
-        {
-            CargaServicio l_frmCargaServicio = new CargaServicio(m_intNumeroCliente, cdcPlan.SelectedStrCode);
-            l_frmCargaServicio.ShowDialog(this);
+        private bool FaltanDatosParaLaVenta =>
+            (m_Cliente.EsAreaProtegida && (PlanSinSeleccionar || dcePrecioFinal.Decimal == 0))
+            ||
+            (m_Cliente.EsSocioDirecto && (PlanSinSeleccionar || ListaSinSeleccionar || neCantPersonas.Numero == 0));
 
-            //if (l_frmCargaServicio.DialogResult == DialogResult.OK)
-                //m_leCliServicios = l_frmCargaServicio.Servicios;
-        }
+        private bool PlanSinSeleccionar => cdcPlan.SelectedStrCode == m_strCodEmptyPlan;
+        private bool ListaSinSeleccionar => cdcListaDePrecios.SelectedStrCode == m_strCodEmptyLista;
 
         private void GBAccept_Click(object sender, EventArgs e)
         {
+            if (FaltanDatosParaLaVenta)
+            {
+                MsgRuts.ShowMsg(this, "Debe elegir un plan, una lista de precios e ingresar la cantidad de personas, o el valor de la venta segun corresponda para el tipo de cliente para continuar.");
+                return;
+            }
+
             DateTime l_dtNow = Bll.Clientes.fGetDate(m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
-            /*
-            Bel.ECliVenta l_eCliVenta = Bel.ECliVenta.NewFilled(m_intNumeroCliente, l_dtNow, m_strCodVendedor, 
-                                                                cdcTContratos.SelectedStrCode, dceAbono.Decimal, 
-                                                                neCCapitas.Numero, dceVCapita.Decimal);
-            Bll.Clientes.fGrabaVenta(l_eCliVenta, m_leCliServicios, neNroAvalon.Numero, m_smResult);
+
+            var vendedor = Bll.Vendedores.fGetVendedorFromUsu(m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
-            */
+
+            Bel.ECliVenta l_eCliVenta = ECliVenta.NewFilled(m_intNumeroCliente, l_dtNow, vendedor.Cod, 
+                dcePrecioFinal.Decimal, neCantPersonas.Numero, cdcPlan.SelectedStrCode, 
+                cdcListaDePrecios.SelectedStrCode);
+            Bll.Clientes.fGrabaVenta(l_eCliVenta, 0, m_smResult);
+            if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -94,18 +90,24 @@ namespace Carm.Ad
         {
             m_listasDePrecios.Filter("");
 
+            if (cdcPlan.SelectedStrCode == m_strCodEmptyPlan || !planesSeteados)
+            {
+                mrServicios.Clear();
+
+                if(listasSeteadas)
+                    cdcListaDePrecios.SelectedStrCode = m_strCodEmptyLista;
+
+                return;
+            }
+
             Bel.LEPlnServicios servicios = Bll.Planes.PlsFGet(cdcPlan.SelectedStrCode, true, m_smResult);
             if (MsgRuts.AnalizeError(this, m_smResult)) return;
 
+            servicios.ChangeCaption("deleted", "");
             mrServicios.fill(servicios, "Servicios del Plan", m_smResult);
 
             m_listasDePrecios.Filter($"{EListaDePrecios.CodplanCmp} = {cdcPlan.SelectedStrCode}");
             cdcListaDePrecios.FillFromStrLEntidad(m_listasDePrecios, EListaDePrecios.CodCmp, EListaDePrecios.DesCmp);
-        }
-
-        private void neCantPersonas_Leave(object sender, EventArgs e)
-        {
-            UpdatePrecioFinal();
         }
 
         private void UpdatePrecioFinal()
@@ -137,6 +139,23 @@ namespace Carm.Ad
         }
 
         private void cdcListaDePrecios_Leave(object sender, EventArgs e)
+        {
+            UpdatePrecioFinal();
+        }
+
+        private void SociosDirectosMode()
+        {
+            pnlFieldsSocios.Visible = true;
+            dcePrecioFinal.ReadOnly = true;
+        }
+
+        private void AreasProtegidasMode()
+        {
+            pnlFieldsSocios.Visible = false;
+            dcePrecioFinal.ReadOnly = false;
+        }
+
+        private void neCantPersonas_KeyUp(object sender, KeyEventArgs e)
         {
             UpdatePrecioFinal();
         }

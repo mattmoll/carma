@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 03/01/2023 23:43
+    // Fecha                    : 06/01/2023 01:04
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -4741,11 +4741,12 @@ namespace Carm.Bel
             l_drTemp["clv_nro_numcliente"]= XMLRuts.ExtractXAttr(l_xndData, "clv_nro_numcliente", 0);
             l_drTemp["clv_fyh_fecha"]= XMLRuts.ExtractXAttr(l_xndData, "clv_fyh_fecha", true);
             l_drTemp["clv_cd6_codvendedor"]= XMLRuts.ExtractXAttr(l_xndData, "clv_cd6_codvendedor");
-            l_drTemp["clv_rcd_codtipocontrato"]= XMLRuts.ExtractXAttr(l_xndData, "clv_rcd_codtipocontrato");
             l_drTemp["clv_imp_abono"]= XMLRuts.ExtractXAttr(l_xndData, "clv_imp_abono", (decimal) 0);
             l_drTemp["clv_nro_cantcapitas"]= XMLRuts.ExtractXAttr(l_xndData, "clv_nro_cantcapitas", 0);
-            l_drTemp["clv_imp_valorcapita"]= XMLRuts.ExtractXAttr(l_xndData, "clv_imp_valorcapita", (decimal) 0);
-            l_drTemp["clv_des_destcon"]= XMLRuts.ExtractXAttr(l_xndData, "clv_des_destcon");
+            l_drTemp["clv_cod_codplan"]= XMLRuts.ExtractXAttr(l_xndData, "clv_cod_codplan");
+            l_drTemp["clv_cod_codlistaprecios"]= XMLRuts.ExtractXAttr(l_xndData, "clv_cod_codlistaprecios");
+            l_drTemp["des_plan"]= XMLRuts.ExtractXAttr(l_xndData, "des_plan");
+            l_drTemp["listaprecios"]= XMLRuts.ExtractXAttr(l_xndData, "listaprecios");
             l_drTemp["vnd_des_desvend"]= XMLRuts.ExtractXAttr(l_xndData, "vnd_des_desvend");
 
             // Llenamos los campos fijos
@@ -4793,11 +4794,12 @@ namespace Carm.Bel
             l_drTemp["clv_nro_numcliente"]= 0;
             l_drTemp["clv_fyh_fecha"]= DateTimeRuts.Empty;
             l_drTemp["clv_cd6_codvendedor"]= "";
-            l_drTemp["clv_rcd_codtipocontrato"]= "";
             l_drTemp["clv_imp_abono"]= 0;
             l_drTemp["clv_nro_cantcapitas"]= 0;
-            l_drTemp["clv_imp_valorcapita"]= 0;
-            l_drTemp["clv_des_destcon"]= "";
+            l_drTemp["clv_cod_codplan"]= "";
+            l_drTemp["clv_cod_codlistaprecios"]= "";
+            l_drTemp["des_plan"]= "";
+            l_drTemp["listaprecios"]= "";
             l_drTemp["vnd_des_desvend"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
@@ -4814,18 +4816,18 @@ namespace Carm.Bel
         /// <param name="p_iNumcliente">Numero Cliente</param>
         /// <param name="p_dtFecha">Fecha Venta</param>
         /// <param name="p_strCodvendedor">Vendedor</param>
-        /// <param name="p_strCodtipocontrato">Tipo Contrato</param>
         /// <param name="p_dcAbono">Abono</param>
-        /// <param name="p_iCantcapitas">Capitas</param>
-        /// <param name="p_dcValorcapita">Valor Capita</param>
+        /// <param name="p_iCantcapitas">Cant Personas</param>
+        /// <param name="p_strCodplan">Plan</param>
+        /// <param name="p_strCodlistaprecios">Lista de Precios</param>
         /// <returns>Entidad: CliVenta</returns>
         public static ECliVenta NewFilled(int p_iNumcliente,
                                           DateTime p_dtFecha,
                                           string p_strCodvendedor,
-                                          string p_strCodtipocontrato,
                                           decimal p_dcAbono,
                                           int p_iCantcapitas,
-                                          decimal p_dcValorcapita)
+                                          string p_strCodplan,
+                                          string p_strCodlistaprecios)
         {
             // Creamos una tabla compatible con la entidad
             DataTable l_dtTemp= new DataTable();
@@ -4838,11 +4840,12 @@ namespace Carm.Bel
             l_drTemp["clv_nro_numcliente"]= p_iNumcliente;
             l_drTemp["clv_fyh_fecha"]= p_dtFecha;
             l_drTemp["clv_cd6_codvendedor"]= p_strCodvendedor;
-            l_drTemp["clv_rcd_codtipocontrato"]= p_strCodtipocontrato;
             l_drTemp["clv_imp_abono"]= p_dcAbono;
             l_drTemp["clv_nro_cantcapitas"]= p_iCantcapitas;
-            l_drTemp["clv_imp_valorcapita"]= p_dcValorcapita;
-            l_drTemp["clv_des_destcon"]= "";
+            l_drTemp["clv_cod_codplan"]= p_strCodplan;
+            l_drTemp["clv_cod_codlistaprecios"]= p_strCodlistaprecios;
+            l_drTemp["des_plan"]= "";
+            l_drTemp["listaprecios"]= "";
             l_drTemp["vnd_des_desvend"]= "";
 
             // Agregamos la Row creada a la tabla creada y creamos
@@ -4861,14 +4864,14 @@ namespace Carm.Bel
         //---------------------------------------------------------------
 
         /// <summary>
-        /// Formatea una string: Tipo Contrato
+        /// Formatea una string: Plan
         /// </summary>
-        public static string FrmtCodtipocontrato(string p_strCodtipocontrato)
+        public static string FrmtCodplan(string p_strCodplan)
         {
-            if (p_strCodtipocontrato.Trim().Length > 2)
-                p_strCodtipocontrato= p_strCodtipocontrato.Trim().Substring(0,2);
+            if (p_strCodplan.Trim().Length > 4)
+                p_strCodplan= p_strCodplan.Trim().Substring(0,4);
 
-            return p_strCodtipocontrato.Trim().PadLeft(2).ToUpper();
+            return p_strCodplan.Trim().PadLeft(4).ToUpper();
         }
         #endregion
 
@@ -4884,18 +4887,19 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[13];
+                DataColumn[] l_dcStruct= new DataColumn[14];
 
                 l_dcStruct[0]= new DataColumn("clv_nro_numcliente", typeof(int));
                 l_dcStruct[1]= new DataColumn("clv_fyh_fecha", typeof(DateTime));
                 l_dcStruct[2]= new DataColumn("vnd_des_desvend", typeof(string));
                 l_dcStruct[3]= new DataColumn("clv_cd6_codvendedor", typeof(string));
-                l_dcStruct[4]= new DataColumn("clv_des_destcon", typeof(string));
-                l_dcStruct[5]= new DataColumn("clv_rcd_codtipocontrato", typeof(string));
-                l_dcStruct[6]= new DataColumn("clv_imp_abono", typeof(decimal));
-                l_dcStruct[7]= new DataColumn("clv_nro_cantcapitas", typeof(int));
-                l_dcStruct[8]= new DataColumn("clv_imp_valorcapita", typeof(decimal));
-                ECliVenta.FillFixedFields(ref l_dcStruct, 9);
+                l_dcStruct[4]= new DataColumn("clv_imp_abono", typeof(decimal));
+                l_dcStruct[5]= new DataColumn("clv_nro_cantcapitas", typeof(int));
+                l_dcStruct[6]= new DataColumn("clv_cod_codplan", typeof(string));
+                l_dcStruct[7]= new DataColumn("des_plan", typeof(string));
+                l_dcStruct[8]= new DataColumn("clv_cod_codlistaprecios", typeof(string));
+                l_dcStruct[9]= new DataColumn("listaprecios", typeof(string));
+                ECliVenta.FillFixedFields(ref l_dcStruct, 10);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -4954,23 +4958,6 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Tipo Contrato
-        /// </summary>
-        public static string CodtipocontratoCmp
-        {
-           get {return "clv_rcd_codtipocontrato";}
-        }
-
-        /// <summary>
-        /// Tipo Contrato
-        /// </summary>
-        public string Codtipocontrato
-        {
-            get {return (string) InternalData["clv_rcd_codtipocontrato"];}
-            set {InternalData["clv_rcd_codtipocontrato"]= ECliVenta.FrmtCodtipocontrato(value);}
-        }
-
-        /// <summary>
         /// Abono
         /// </summary>
         public static string AbonoCmp
@@ -4988,7 +4975,7 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Capitas
+        /// Cant Personas
         /// </summary>
         public static string CantcapitasCmp
         {
@@ -4996,7 +4983,7 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Capitas
+        /// Cant Personas
         /// </summary>
         public int Cantcapitas
         {
@@ -5005,29 +4992,55 @@ namespace Carm.Bel
         }
 
         /// <summary>
-        /// Valor Capita
+        /// Plan
         /// </summary>
-        public static string ValorcapitaCmp
+        public static string CodplanCmp
         {
-           get {return "clv_imp_valorcapita";}
+           get {return "clv_cod_codplan";}
         }
 
         /// <summary>
-        /// Valor Capita
+        /// Plan
         /// </summary>
-        public decimal Valorcapita
+        public string Codplan
         {
-            get {return (decimal) InternalData["clv_imp_valorcapita"];}
-            set {InternalData["clv_imp_valorcapita"]= value;}
+            get {return (string) InternalData["clv_cod_codplan"];}
+            set {InternalData["clv_cod_codplan"]= ECliVenta.FrmtCodplan(value);}
         }
 
         /// <summary>
-        /// T. Contrato
+        /// Lista de Precios
         /// </summary>
-        public string Clv_des_destcon
+        public static string CodlistapreciosCmp
         {
-            get {return (string) InternalData["clv_des_destcon"];}
-            set {InternalData["clv_des_destcon"]= value;}
+           get {return "clv_cod_codlistaprecios";}
+        }
+
+        /// <summary>
+        /// Lista de Precios
+        /// </summary>
+        public string Codlistaprecios
+        {
+            get {return (string) InternalData["clv_cod_codlistaprecios"];}
+            set {InternalData["clv_cod_codlistaprecios"]= value;}
+        }
+
+        /// <summary>
+        /// Plan
+        /// </summary>
+        public string Des_plan
+        {
+            get {return (string) InternalData["des_plan"];}
+            set {InternalData["des_plan"]= value;}
+        }
+
+        /// <summary>
+        /// Lista Precios
+        /// </summary>
+        public string Listaprecios
+        {
+            get {return (string) InternalData["listaprecios"];}
+            set {InternalData["listaprecios"]= value;}
         }
 
         /// <summary>
@@ -5061,11 +5074,12 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "clv_nro_numcliente", Numcliente));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "clv_fyh_fecha", Fecha));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "clv_cd6_codvendedor", Codvendedor));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "clv_rcd_codtipocontrato", Codtipocontrato));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "clv_imp_abono", Abono));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "clv_nro_cantcapitas", Cantcapitas));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "clv_imp_valorcapita", Valorcapita));
-                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "clv_des_destcon", Clv_des_destcon));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "clv_cod_codplan", Codplan));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "clv_cod_codlistaprecios", Codlistaprecios));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "des_plan", Des_plan));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "listaprecios", Listaprecios));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "vnd_des_desvend", Vnd_des_desvend));
 
                 // Asignamos los campos fijos
@@ -5492,6 +5506,7 @@ namespace Carm.Bel
             l_drTemp["cli_fec_fecultimocontacto"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fecultimocontacto", true);
             l_drTemp["cli_fec_fechaproxcontacto"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fechaproxcontacto", true);
             l_drTemp["cli_cd1_rellamar"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_rellamar");
+            l_drTemp["cli_des_documento"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_documento");
             l_drTemp["cli_des_frq"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_frq");
             l_drTemp["cli_des_loc"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_loc");
             l_drTemp["cli_des_prov"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_prov");
@@ -5608,6 +5623,7 @@ namespace Carm.Bel
             l_drTemp["cli_fec_fecultimocontacto"]= DateTimeRuts.Empty;
             l_drTemp["cli_fec_fechaproxcontacto"]= DateTimeRuts.Empty;
             l_drTemp["cli_cd1_rellamar"]= "";
+            l_drTemp["cli_des_documento"]= "";
             l_drTemp["cli_des_frq"]= "";
             l_drTemp["cli_des_loc"]= "";
             l_drTemp["cli_des_prov"]= "";
@@ -5674,6 +5690,7 @@ namespace Carm.Bel
         /// <param name="p_dtFecultimocontacto">Fecha Último Contacto</param>
         /// <param name="p_dtFechaproxcontacto">Fecha Próximo Contacto</param>
         /// <param name="p_strRellamar">Volver a Llamar</param>
+        /// <param name="p_strDocumento">Documento</param>
         /// <returns>Entidad: Cliente</returns>
         public static ECliente NewFilled(int p_iNumero,
                                          string p_strRsocial,
@@ -5721,7 +5738,8 @@ namespace Carm.Bel
                                          string p_strCodrubro,
                                          DateTime p_dtFecultimocontacto,
                                          DateTime p_dtFechaproxcontacto,
-                                         string p_strRellamar)
+                                         string p_strRellamar,
+                                         string p_strDocumento)
         {
             // Creamos una tabla compatible con la entidad
             DataTable l_dtTemp= new DataTable();
@@ -5778,6 +5796,7 @@ namespace Carm.Bel
             l_drTemp["cli_fec_fecultimocontacto"]= p_dtFecultimocontacto;
             l_drTemp["cli_fec_fechaproxcontacto"]= p_dtFechaproxcontacto;
             l_drTemp["cli_cd1_rellamar"]= p_strRellamar;
+            l_drTemp["cli_des_documento"]= p_strDocumento;
             l_drTemp["cli_des_frq"]= "";
             l_drTemp["cli_des_loc"]= "";
             l_drTemp["cli_des_prov"]= "";
@@ -5869,7 +5888,7 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[58];
+                DataColumn[] l_dcStruct= new DataColumn[59];
 
                 l_dcStruct[0]= new DataColumn("cli_nro_numero", typeof(int));
                 l_dcStruct[1]= new DataColumn("cli_ede_rsocial", typeof(string));
@@ -5925,7 +5944,8 @@ namespace Carm.Bel
                 l_dcStruct[51]= new DataColumn("cli_fec_fecultimocontacto", typeof(DateTime));
                 l_dcStruct[52]= new DataColumn("cli_fec_fechaproxcontacto", typeof(DateTime));
                 l_dcStruct[53]= new DataColumn("cli_cd1_rellamar", typeof(string));
-                ECliente.FillFixedFields(ref l_dcStruct, 54);
+                l_dcStruct[54]= new DataColumn("cli_des_documento", typeof(string));
+                ECliente.FillFixedFields(ref l_dcStruct, 55);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -6804,6 +6824,26 @@ namespace Carm.Bel
         }
 
         /// <summary>
+        /// Documento
+        /// </summary>
+        public static string DocumentoCmp
+        {
+           get {return "cli_des_documento";}
+        }
+
+        /// <summary>
+        /// Documento
+        /// </summary>
+        public string Documento
+        {
+            get {return ((string) InternalData["cli_des_documento"]).Trim();}
+            set {
+                if (value.Trim().Length > 30) value= value.Trim().Substring(0,30);
+                InternalData["cli_des_documento"]= value.Trim();
+            }
+        }
+
+        /// <summary>
         /// Contactos de los Clientes
         /// </summary>
         public LECliContactos CliContactos
@@ -6995,6 +7035,7 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fecultimocontacto", Fecultimocontacto));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fechaproxcontacto", Fechaproxcontacto));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_rellamar", Rellamar));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_documento", Documento));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_frq", Cli_des_frq));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_loc", Cli_des_loc));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_prov", Cli_des_prov));

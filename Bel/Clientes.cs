@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Xml;
 using TNGS.NetRoutines;
+using System.Linq;
 #endregion
 
 namespace Carm.Bel
@@ -826,6 +827,7 @@ namespace Carm.Bel
         public bool EsAreaProtegida { get { return this.Tipocliente.Trim().Equals(ECliente.CodigoAreasProtegidas); } }
         public bool EsSocioDirecto { get { return this.Tipocliente.Trim().Equals(ECliente.CodigoSociosDirectos); } }
         public bool EsImportado { get { return this.Tipocliente.Trim().Equals(ECliente.CodigoImportados); } }
+        public bool TieneVenta { get { return this.CliVentas != null && this.CliVentas.Any(); } }
     }
     #endregion
 

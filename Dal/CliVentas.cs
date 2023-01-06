@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 03/01/2023 23:43
+    // Fecha                    : 05/01/2023 22:22
     // Sistema                  : Carm
     // Clase para Administrar   : Ventas de los Clientes
     // Basada en la Tabla       : CliVentas
@@ -181,19 +181,19 @@ namespace Carm.Dal
         /// <param name="p_iNumcliente">Numero Cliente</param>
         /// <param name="p_dtFecha">Fecha Venta</param>
         /// <param name="p_strCodvendedor">Vendedor</param>
-        /// <param name="p_strCodtipocontrato">Tipo Contrato</param>
         /// <param name="p_dcAbono">Abono</param>
-        /// <param name="p_iCantcapitas">Capitas</param>
-        /// <param name="p_dcValorcapita">Valor Capita</param>
+        /// <param name="p_iCantcapitas">Cant Personas</param>
+        /// <param name="p_strCodplan">Plan</param>
+        /// <param name="p_strCodlistaprecios">Lista de Precios</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Insert(DBConn p_dbcAccess,
                                  int p_iNumcliente,
                                  DateTime p_dtFecha,
                                  string p_strCodvendedor,
-                                 string p_strCodtipocontrato,
                                  decimal p_dcAbono,
                                  int p_iCantcapitas,
-                                 decimal p_dcValorcapita,
+                                 string p_strCodplan,
+                                 string p_strCodlistaprecios,
                                  StatMsg p_smResult)
         {
             try {
@@ -204,10 +204,10 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@clv_nro_numcliente", p_iNumcliente),
                                        p_dbcAccess.MakeParam("@clv_fyh_fecha", p_dtFecha),
                                        p_dbcAccess.MakeParam("@clv_cd6_codvendedor", p_strCodvendedor),
-                                       p_dbcAccess.MakeParam("@clv_rcd_codtipocontrato", p_strCodtipocontrato),
                                        p_dbcAccess.MakeParam("@clv_imp_abono", p_dcAbono),
                                        p_dbcAccess.MakeParam("@clv_nro_cantcapitas", p_iCantcapitas),
-                                       p_dbcAccess.MakeParam("@clv_imp_valorcapita", p_dcValorcapita),
+                                       p_dbcAccess.MakeParam("@clv_cod_codplan", p_strCodplan),
+                                       p_dbcAccess.MakeParam("@clv_cod_codlistaprecios", p_strCodlistaprecios),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -226,19 +226,19 @@ namespace Carm.Dal
         /// <param name="p_iNumcliente">Numero Cliente</param>
         /// <param name="p_dtFecha">Fecha Venta</param>
         /// <param name="p_strCodvendedor">Vendedor</param>
-        /// <param name="p_strCodtipocontrato">Tipo Contrato</param>
         /// <param name="p_dcAbono">Abono</param>
-        /// <param name="p_iCantcapitas">Capitas</param>
-        /// <param name="p_dcValorcapita">Valor Capita</param>
+        /// <param name="p_iCantcapitas">Cant Personas</param>
+        /// <param name="p_strCodplan">Plan</param>
+        /// <param name="p_strCodlistaprecios">Lista de Precios</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Update(DBConn p_dbcAccess,
                                  int p_iNumcliente,
                                  DateTime p_dtFecha,
                                  string p_strCodvendedor,
-                                 string p_strCodtipocontrato,
                                  decimal p_dcAbono,
                                  int p_iCantcapitas,
-                                 decimal p_dcValorcapita,
+                                 string p_strCodplan,
+                                 string p_strCodlistaprecios,
                                  StatMsg p_smResult)
         {
             try {
@@ -249,10 +249,10 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParam("@clv_nro_numcliente", p_iNumcliente),
                                        p_dbcAccess.MakeParam("@clv_fyh_fecha", p_dtFecha),
                                        p_dbcAccess.MakeParam("@clv_cd6_codvendedor", p_strCodvendedor),
-                                       p_dbcAccess.MakeParam("@clv_rcd_codtipocontrato", p_strCodtipocontrato),
                                        p_dbcAccess.MakeParam("@clv_imp_abono", p_dcAbono),
                                        p_dbcAccess.MakeParam("@clv_nro_cantcapitas", p_iCantcapitas),
-                                       p_dbcAccess.MakeParam("@clv_imp_valorcapita", p_dcValorcapita),
+                                       p_dbcAccess.MakeParam("@clv_cod_codplan", p_strCodplan),
+                                       p_dbcAccess.MakeParam("@clv_cod_codlistaprecios", p_strCodlistaprecios),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -580,13 +580,13 @@ namespace Carm.Dal
                 DBRuts.ClearDTCaptions(ref p_dtResult);
 
                 // Fijamos los nuevos captions de la grilla
-                p_dtResult.Columns["clv_des_destcon"].Caption= "V1T. ContratoCN1";
+                p_dtResult.Columns["des_plan"].Caption= "V1PlanCN1";
+                p_dtResult.Columns["listaprecios"].Caption= "V1Lista PreciosCN1";
                 p_dtResult.Columns["vnd_des_desvend"].Caption= "V1VendedorCN1";
                 p_dtResult.Columns["clv_imp_abono"].Caption= "V1Abono2N1";
-                p_dtResult.Columns["clv_nro_cantcapitas"].Caption= "V1CapitasNN1";
+                p_dtResult.Columns["clv_nro_cantcapitas"].Caption= "V1Cant PersonasNN1";
                 p_dtResult.Columns["clv_fyh_fecha"].Caption= "V1Fecha VentaDN1";
                 p_dtResult.Columns["clv_nro_numcliente"].Caption= "V1Numero ClienteNN1";
-                p_dtResult.Columns["clv_imp_valorcapita"].Caption= "V1Valor Capita2N1";
                 p_dtResult.Columns["deleted"].Caption= "V1Borrado2N2";
             }
             catch (Exception l_expData) {

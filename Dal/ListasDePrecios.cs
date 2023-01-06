@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 04/01/2023 00:02
+    // Fecha                    : 05/01/2023 22:22
     // Sistema                  : Carm
     // Clase para Administrar   : Listas de Precios
     // Basada en la Tabla       : ListasDePrecios

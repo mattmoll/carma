@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Llamada));
             this.xPanel1 = new TNGS.NetControls.XPanel();
+            this.dtRellamada = new System.Windows.Forms.DateTimePicker();
+            this.cbRellamar = new System.Windows.Forms.CheckBox();
             this.pnlSeleccionTipo = new System.Windows.Forms.Panel();
             this.pnlLlamado = new System.Windows.Forms.Panel();
             this.teResultado = new TNGS.NetControls.TextEdit();
@@ -51,8 +53,6 @@
             this.gbBaja = new TNGS.NetControls.GlassButton();
             this.bAceptar = new TNGS.NetControls.GlassButton();
             this.bCancelar = new TNGS.NetControls.GlassButton();
-            this.cbRellamar = new System.Windows.Forms.CheckBox();
-            this.dtRellamada = new System.Windows.Forms.DateTimePicker();
             this.xPanel1.SuspendLayout();
             this.pnlSeleccionTipo.SuspendLayout();
             this.pnlLlamado.SuspendLayout();
@@ -83,6 +83,26 @@
             this.xPanel1.Size = new System.Drawing.Size(778, 431);
             this.xPanel1.SkinFixed = true;
             this.xPanel1.TabIndex = 0;
+            // 
+            // dtRellamada
+            // 
+            this.dtRellamada.Location = new System.Drawing.Point(504, 345);
+            this.dtRellamada.Name = "dtRellamada";
+            this.dtRellamada.Size = new System.Drawing.Size(200, 22);
+            this.dtRellamada.TabIndex = 107;
+            this.dtRellamada.Visible = false;
+            // 
+            // cbRellamar
+            // 
+            this.cbRellamar.AutoSize = true;
+            this.cbRellamar.BackColor = System.Drawing.Color.Transparent;
+            this.cbRellamar.Location = new System.Drawing.Point(506, 322);
+            this.cbRellamar.Name = "cbRellamar";
+            this.cbRellamar.Size = new System.Drawing.Size(119, 20);
+            this.cbRellamar.TabIndex = 106;
+            this.cbRellamar.Text = "Volver a llamar";
+            this.cbRellamar.UseVisualStyleBackColor = false;
+            this.cbRellamar.CheckedChanged += new System.EventHandler(this.cbRellamar_CheckedChanged);
             // 
             // pnlSeleccionTipo
             // 
@@ -137,7 +157,7 @@
             this.cdcCategorias.FormattingEnabled = true;
             this.cdcCategorias.Location = new System.Drawing.Point(94, 16);
             this.cdcCategorias.Name = "cdcCategorias";
-            this.cdcCategorias.Size = new System.Drawing.Size(297, 21);
+            this.cdcCategorias.Size = new System.Drawing.Size(297, 24);
             this.cdcCategorias.Sorted = true;
             this.cdcCategorias.TabIndex = 9;
             this.cdcCategorias.SelectedIndexChanged += new System.EventHandler(this.cdcCategorias_SelectedIndexChanged);
@@ -170,7 +190,7 @@
             this.cdcMotivos.FormattingEnabled = true;
             this.cdcMotivos.Location = new System.Drawing.Point(94, 61);
             this.cdcMotivos.Name = "cdcMotivos";
-            this.cdcMotivos.Size = new System.Drawing.Size(297, 21);
+            this.cdcMotivos.Size = new System.Drawing.Size(297, 24);
             this.cdcMotivos.Sorted = true;
             this.cdcMotivos.TabIndex = 3;
             // 
@@ -179,7 +199,7 @@
             this.rbSalientes.AutoSize = true;
             this.rbSalientes.Location = new System.Drawing.Point(139, 3);
             this.rbSalientes.Name = "rbSalientes";
-            this.rbSalientes.Size = new System.Drawing.Size(63, 17);
+            this.rbSalientes.Size = new System.Drawing.Size(77, 20);
             this.rbSalientes.TabIndex = 0;
             this.rbSalientes.TabStop = true;
             this.rbSalientes.Text = "Saliente";
@@ -191,7 +211,7 @@
             this.rbEntrantes.AutoSize = true;
             this.rbEntrantes.Location = new System.Drawing.Point(234, 3);
             this.rbEntrantes.Name = "rbEntrantes";
-            this.rbEntrantes.Size = new System.Drawing.Size(65, 17);
+            this.rbEntrantes.Size = new System.Drawing.Size(77, 20);
             this.rbEntrantes.TabIndex = 1;
             this.rbEntrantes.TabStop = true;
             this.rbEntrantes.Text = "Entrante";
@@ -204,7 +224,7 @@
             this.teNTelefono.Enabled = false;
             this.teNTelefono.Location = new System.Drawing.Point(558, 83);
             this.teNTelefono.Name = "teNTelefono";
-            this.teNTelefono.Size = new System.Drawing.Size(173, 20);
+            this.teNTelefono.Size = new System.Drawing.Size(173, 22);
             this.teNTelefono.TabIndex = 82;
             // 
             // btnExit
@@ -236,10 +256,10 @@
             // fullLabel5
             // 
             this.fullLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel5.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel5.Location = new System.Drawing.Point(12, 9);
             this.fullLabel5.Name = "fullLabel5";
-            this.fullLabel5.Size = new System.Drawing.Size(203, 32);
+            this.fullLabel5.Size = new System.Drawing.Size(289, 32);
             this.fullLabel5.TabIndex = 104;
             this.fullLabel5.Text = "Carga de Llamada";
             this.fullLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -274,7 +294,7 @@
             this.teHora.Location = new System.Drawing.Point(558, 116);
             this.teHora.MaxLength = 5;
             this.teHora.Name = "teHora";
-            this.teHora.Size = new System.Drawing.Size(52, 20);
+            this.teHora.Size = new System.Drawing.Size(52, 22);
             this.teHora.TabIndex = 2;
             this.teHora.Text = "  :  ";
             // 
@@ -362,26 +382,6 @@
             this.bCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bCancelar.W8Color = System.Drawing.Color.Red;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
-            // 
-            // cbRellamar
-            // 
-            this.cbRellamar.AutoSize = true;
-            this.cbRellamar.BackColor = System.Drawing.Color.Transparent;
-            this.cbRellamar.Location = new System.Drawing.Point(506, 322);
-            this.cbRellamar.Name = "cbRellamar";
-            this.cbRellamar.Size = new System.Drawing.Size(95, 17);
-            this.cbRellamar.TabIndex = 106;
-            this.cbRellamar.Text = "Volver a llamar";
-            this.cbRellamar.UseVisualStyleBackColor = false;
-            this.cbRellamar.CheckedChanged += new System.EventHandler(this.cbRellamar_CheckedChanged);
-            // 
-            // dtRellamada
-            // 
-            this.dtRellamada.Location = new System.Drawing.Point(504, 345);
-            this.dtRellamada.Name = "dtRellamada";
-            this.dtRellamada.Size = new System.Drawing.Size(200, 20);
-            this.dtRellamada.TabIndex = 107;
-            this.dtRellamada.Visible = false;
             // 
             // Llamada
             // 

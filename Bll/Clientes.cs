@@ -580,7 +580,7 @@ namespace Carm.Bll
         /// <param name="p_leCliServicios"></param>
         /// <param name="p_intNroAvalon"></param>
         /// <param name="p_smResult"></param>
-        public static void fGrabaVenta(ECliVenta p_eCliVenta, LECliServicios p_leCliServicios, int p_intNroAvalon, StatMsg p_smResult)
+        public static void fGrabaVenta(ECliVenta p_eCliVenta, int p_intNroAvalon, StatMsg p_smResult)
         {
              // No hay errores aun
             DBConn l_dbcAccess = null;
@@ -596,17 +596,18 @@ namespace Carm.Bll
                 fGrabaVenta(l_dbcAccess, p_eCliVenta, p_intNroAvalon, p_smResult);
                 if (p_smResult.NOk) return;
 
+                /*
                 // Si nos mandaron una lista de servicios, la grabamos. Sino borramos la actual porque corresponde a servicios que ya no aplican
                 if (p_leCliServicios != null)
                     fGrabaServicios(l_dbcAccess, p_eCliVenta.Numcliente, p_leCliServicios, p_smResult);
                 else
                     ClsBorraPorCliente(l_dbcAccess, p_eCliVenta.Numcliente, p_smResult);
+                */
 
                 // Obtenemos el cliente a actualizar y lo actualizamos con los datos de la venta.
                 ECliente l_eClienteAActualizar = Bll.Clientes.Srch(l_dbcAccess, p_eCliVenta.Numcliente, false, p_smResult);
                 if (p_smResult.NOk) return;
                 l_eClienteAActualizar.Abono = p_eCliVenta.Abono;
-                l_eClienteAActualizar.Codtipocont = p_eCliVenta.Codtipocontrato;
 
                 // Marcamos al cliente como vendido.
                 Clientes.fVendido(l_dbcAccess, l_eClienteAActualizar, p_smResult);
@@ -2760,6 +2761,9 @@ namespace Carm.Bll
                                        ref ECliVenta p_entCliVenta,
                                        StatMsg p_smResult)
         {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
         }
 
         /// <summary>
@@ -2779,6 +2783,9 @@ namespace Carm.Bll
                                           ref int p_iFxdVersion,
                                           StatMsg p_smResult)
         {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
         }
 
         /// <summary>
@@ -2796,6 +2803,9 @@ namespace Carm.Bll
                                          int p_iFxdVersion,
                                          StatMsg p_smResult)
         {
+            // *********
+            // Agregar acá los procesos adicionales
+            // *********
         }
 
         /// <summary>
@@ -2809,6 +2819,9 @@ namespace Carm.Bll
                                        ECliVenta p_entCliVenta,
                                        StatMsg p_smResult)
         {
+            // *********
+            // Agregar acá las validaciones adicionales
+            // *********
         }
 
         /// <summary>

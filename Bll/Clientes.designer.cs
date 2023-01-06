@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 03/01/2023 23:43
+    // Fecha                    : 06/01/2023 01:04
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -7302,8 +7302,8 @@ namespace Carm.Bll
             // ********
 
             if (p_entCliVenta.Cantcapitas < 0) {
-                // El campo [Capitas] no puede menor a cero
-                p_smResult.BllWarning("El dato [Capitas] no puede ser negativo","");
+                // El campo [Cant Personas] no puede menor a cero
+                p_smResult.BllWarning("El dato [Cant Personas] no puede ser negativo","");
                 return;
             }
 
@@ -7322,15 +7322,30 @@ namespace Carm.Bll
                 return;
             }
 
-            Tablas.TcnVKey(p_dbcAccess,
-                           p_entCliVenta.Codtipocontrato,
-                           p_smResult);
-            if (p_smResult.NOk) return;
+            if (p_entCliVenta.Codplan.Trim() != "") {
+                Planes.VKey(p_dbcAccess,
+                            p_entCliVenta.Codplan,
+                            p_smResult);
+                if (p_smResult.NOk) return;
 
-            if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
-                // El campo [Tipo Contrato] debe existir en la tabla [Tablas.Tcn]
-                p_smResult.BllWarning("El dato [Tipo Contrato] debe existir en la tabla [Tablas.Tcn]","");
-                return;
+                if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                    // El campo [Plan] debe existir en la tabla [Planes.]
+                    p_smResult.BllWarning("El dato [Plan] debe existir en la tabla [Planes.]","");
+                    return;
+                }
+            }
+
+            if (p_entCliVenta.Codlistaprecios.Trim() != "") {
+                Tablas.LprVKey(p_dbcAccess,
+                               p_entCliVenta.Codlistaprecios,
+                               p_smResult);
+                if (p_smResult.NOk) return;
+
+                if (p_smResult.ICodeEs(BllCodes.KeyDsntFound)) {
+                    // El campo [Lista de Precios] debe existir en la tabla [Tablas.Lpr]
+                    p_smResult.BllWarning("El dato [Lista de Precios] debe existir en la tabla [Tablas.Lpr]","");
+                    return;
+                }
             }
 
             // Verificamos la clave foranea
@@ -7671,10 +7686,10 @@ namespace Carm.Bll
                                      p_entCliVenta.Numcliente,
                                      p_entCliVenta.Fecha,
                                      p_entCliVenta.Codvendedor,
-                                     p_entCliVenta.Codtipocontrato,
                                      p_entCliVenta.Abono,
                                      p_entCliVenta.Cantcapitas,
-                                     p_entCliVenta.Valorcapita,
+                                     p_entCliVenta.Codplan,
+                                     p_entCliVenta.Codlistaprecios,
                                      p_smResult);
             }
             catch (Exception l_expData) {
@@ -7703,10 +7718,10 @@ namespace Carm.Bll
                                      p_entCliVenta.Numcliente,
                                      p_entCliVenta.Fecha,
                                      p_entCliVenta.Codvendedor,
-                                     p_entCliVenta.Codtipocontrato,
                                      p_entCliVenta.Abono,
                                      p_entCliVenta.Cantcapitas,
-                                     p_entCliVenta.Valorcapita,
+                                     p_entCliVenta.Codplan,
+                                     p_entCliVenta.Codlistaprecios,
                                      p_smResult);
             }
             catch (Exception l_expData) {
@@ -8970,6 +8985,7 @@ namespace Carm.Bll
                                     p_entCliente.Fecultimocontacto,
                                     p_entCliente.Fechaproxcontacto,
                                     p_entCliente.Rellamar,
+                                    p_entCliente.Documento,
                                     p_smResult);
             }
             catch (Exception l_expData) {
@@ -9042,6 +9058,7 @@ namespace Carm.Bll
                                     p_entCliente.Fecultimocontacto,
                                     p_entCliente.Fechaproxcontacto,
                                     p_entCliente.Rellamar,
+                                    p_entCliente.Documento,
                                     p_smResult);
             }
             catch (Exception l_expData) {

@@ -74,7 +74,7 @@
             this.xPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel1.Location = new System.Drawing.Point(0, 0);
             this.xPanel1.Name = "xPanel1";
-            this.xPanel1.Size = new System.Drawing.Size(407, 361);
+            this.xPanel1.Size = new System.Drawing.Size(447, 404);
             this.xPanel1.SkinFixed = true;
             this.xPanel1.TabIndex = 0;
             // 
@@ -90,10 +90,10 @@
             this.gbCancel.FlatFontSize = 9;
             this.gbCancel.FlatTextColor = System.Drawing.Color.Black;
             this.gbCancel.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbCancel.Location = new System.Drawing.Point(27, 315);
+            this.gbCancel.Location = new System.Drawing.Point(17, 356);
             this.gbCancel.Name = "gbCancel";
             this.gbCancel.RoundCorners = 2;
-            this.gbCancel.Size = new System.Drawing.Size(86, 25);
+            this.gbCancel.Size = new System.Drawing.Size(108, 25);
             this.gbCancel.TabIndex = 7;
             this.gbCancel.Text = "Cancelar";
             this.gbCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -112,10 +112,10 @@
             this.gbAccept.FlatFontSize = 9;
             this.gbAccept.FlatTextColor = System.Drawing.Color.Black;
             this.gbAccept.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbAccept.Location = new System.Drawing.Point(295, 315);
+            this.gbAccept.Location = new System.Drawing.Point(319, 356);
             this.gbAccept.Name = "gbAccept";
             this.gbAccept.RoundCorners = 2;
-            this.gbAccept.Size = new System.Drawing.Size(83, 25);
+            this.gbAccept.Size = new System.Drawing.Size(94, 25);
             this.gbAccept.TabIndex = 6;
             this.gbAccept.Text = "Grabar";
             this.gbAccept.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -130,7 +130,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Black;
-            this.btnExit.Location = new System.Drawing.Point(337, 5);
+            this.btnExit.Location = new System.Drawing.Point(377, 5);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(58, 40);
             this.btnExit.TabIndex = 101;
@@ -146,7 +146,7 @@
             this.fullLabel13.ForeColor = System.Drawing.Color.Black;
             this.fullLabel13.Location = new System.Drawing.Point(13, 209);
             this.fullLabel13.Name = "fullLabel13";
-            this.fullLabel13.Size = new System.Drawing.Size(122, 19);
+            this.fullLabel13.Size = new System.Drawing.Size(155, 19);
             this.fullLabel13.TabIndex = 96;
             this.fullLabel13.Text = "Fecha Nacimiento:";
             // 
@@ -154,19 +154,19 @@
             // 
             this.deFechaNacimiento.BackColor = System.Drawing.SystemColors.Window;
             this.deFechaNacimiento.EmptyValid = false;
-            this.deFechaNacimiento.Location = new System.Drawing.Point(142, 209);
+            this.deFechaNacimiento.Location = new System.Drawing.Point(187, 209);
             this.deFechaNacimiento.Name = "deFechaNacimiento";
-            this.deFechaNacimiento.Size = new System.Drawing.Size(100, 20);
+            this.deFechaNacimiento.Size = new System.Drawing.Size(100, 22);
             this.deFechaNacimiento.TabIndex = 4;
             this.deFechaNacimiento.Text = "01/01/1900";
             // 
             // neDocumento
             // 
             this.neDocumento.BackColor = System.Drawing.SystemColors.Window;
-            this.neDocumento.Location = new System.Drawing.Point(142, 178);
+            this.neDocumento.Location = new System.Drawing.Point(187, 178);
             this.neDocumento.Name = "neDocumento";
             this.neDocumento.NegativeValid = false;
-            this.neDocumento.Size = new System.Drawing.Size(100, 20);
+            this.neDocumento.Size = new System.Drawing.Size(100, 22);
             this.neDocumento.TabIndex = 3;
             this.neDocumento.Text = "0";
             this.neDocumento.ZeroValid = false;
@@ -177,18 +177,18 @@
             this.cdcParentesco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cdcParentesco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cdcParentesco.FormattingEnabled = true;
-            this.cdcParentesco.Location = new System.Drawing.Point(142, 142);
+            this.cdcParentesco.Location = new System.Drawing.Point(187, 142);
             this.cdcParentesco.Name = "cdcParentesco";
-            this.cdcParentesco.Size = new System.Drawing.Size(226, 21);
+            this.cdcParentesco.Size = new System.Drawing.Size(226, 24);
             this.cdcParentesco.Sorted = true;
             this.cdcParentesco.TabIndex = 2;
             // 
             // teObraSocial
             // 
             this.teObraSocial.BackColor = System.Drawing.SystemColors.Window;
-            this.teObraSocial.Location = new System.Drawing.Point(142, 240);
+            this.teObraSocial.Location = new System.Drawing.Point(187, 240);
             this.teObraSocial.Name = "teObraSocial";
-            this.teObraSocial.Size = new System.Drawing.Size(216, 20);
+            this.teObraSocial.Size = new System.Drawing.Size(216, 22);
             this.teObraSocial.TabIndex = 5;
             // 
             // fullLabel5
@@ -197,7 +197,7 @@
             this.fullLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.fullLabel5.Location = new System.Drawing.Point(50, 243);
             this.fullLabel5.Name = "fullLabel5";
-            this.fullLabel5.Size = new System.Drawing.Size(100, 16);
+            this.fullLabel5.Size = new System.Drawing.Size(118, 26);
             this.fullLabel5.TabIndex = 90;
             this.fullLabel5.Text = "Obra Social:";
             // 
@@ -206,9 +206,9 @@
             this.teNombre.BackColor = System.Drawing.SystemColors.Window;
             this.teNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teNombre.EmptyValid = false;
-            this.teNombre.Location = new System.Drawing.Point(142, 79);
+            this.teNombre.Location = new System.Drawing.Point(187, 79);
             this.teNombre.Name = "teNombre";
-            this.teNombre.Size = new System.Drawing.Size(226, 20);
+            this.teNombre.Size = new System.Drawing.Size(226, 22);
             this.teNombre.TabIndex = 0;
             // 
             // fullLabel10
@@ -217,7 +217,7 @@
             this.fullLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.fullLabel10.Location = new System.Drawing.Point(73, 79);
             this.fullLabel10.Name = "fullLabel10";
-            this.fullLabel10.Size = new System.Drawing.Size(100, 16);
+            this.fullLabel10.Size = new System.Drawing.Size(118, 22);
             this.fullLabel10.TabIndex = 82;
             this.fullLabel10.Text = "Nombre:";
             // 
@@ -227,7 +227,7 @@
             this.fullLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.fullLabel8.Location = new System.Drawing.Point(54, 178);
             this.fullLabel8.Name = "fullLabel8";
-            this.fullLabel8.Size = new System.Drawing.Size(115, 16);
+            this.fullLabel8.Size = new System.Drawing.Size(133, 22);
             this.fullLabel8.TabIndex = 79;
             this.fullLabel8.Text = "Documento:";
             // 
@@ -236,9 +236,9 @@
             this.teApellido.BackColor = System.Drawing.SystemColors.Window;
             this.teApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.teApellido.EmptyValid = false;
-            this.teApellido.Location = new System.Drawing.Point(142, 110);
+            this.teApellido.Location = new System.Drawing.Point(187, 110);
             this.teApellido.Name = "teApellido";
-            this.teApellido.Size = new System.Drawing.Size(226, 20);
+            this.teApellido.Size = new System.Drawing.Size(226, 22);
             this.teApellido.TabIndex = 1;
             // 
             // fullLabel9
@@ -247,17 +247,17 @@
             this.fullLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.fullLabel9.Location = new System.Drawing.Point(72, 111);
             this.fullLabel9.Name = "fullLabel9";
-            this.fullLabel9.Size = new System.Drawing.Size(100, 16);
+            this.fullLabel9.Size = new System.Drawing.Size(118, 28);
             this.fullLabel9.TabIndex = 78;
             this.fullLabel9.Text = "Apellido:";
             // 
             // fullLabel1
             // 
             this.fullLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.fullLabel1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullLabel1.Location = new System.Drawing.Point(7, 9);
             this.fullLabel1.Name = "fullLabel1";
-            this.fullLabel1.Size = new System.Drawing.Size(203, 32);
+            this.fullLabel1.Size = new System.Drawing.Size(280, 32);
             this.fullLabel1.TabIndex = 71;
             this.fullLabel1.Text = "Carga de Familiar";
             this.fullLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -268,14 +268,14 @@
             this.fullLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.fullLabel2.Location = new System.Drawing.Point(54, 143);
             this.fullLabel2.Name = "fullLabel2";
-            this.fullLabel2.Size = new System.Drawing.Size(115, 16);
+            this.fullLabel2.Size = new System.Drawing.Size(133, 23);
             this.fullLabel2.TabIndex = 104;
             this.fullLabel2.Text = "Parentesco:";
             // 
             // CargaFamiliar
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(407, 361);
+            this.ClientSize = new System.Drawing.Size(447, 404);
             this.Controls.Add(this.xPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 04/01/2023 00:01
+// Fecha       : 06/01/2023 01:01
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -106,6 +106,7 @@ begin
                 cli_fec_fecultimocontacto,
                 cli_fec_fechaproxcontacto,
                 cli_cd1_rellamar,
+                cli_des_documento,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -176,6 +177,7 @@ begin
                 cli_fec_fecultimocontacto,
                 cli_fec_fechaproxcontacto,
                 cli_cd1_rellamar,
+                cli_des_documento,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -335,6 +337,7 @@ begin
                 cli_fec_fecultimocontacto,
                 cli_fec_fechaproxcontacto,
                 cli_cd1_rellamar,
+                cli_des_documento,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -405,6 +408,7 @@ begin
                 cli_fec_fecultimocontacto,
                 cli_fec_fechaproxcontacto,
                 cli_cd1_rellamar,
+                cli_des_documento,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -483,6 +487,7 @@ go
 --- <param name="@cli_fec_fecultimocontacto">Fecha Último Contacto</param>
 --- <param name="@cli_fec_fechaproxcontacto">Fecha Próximo Contacto</param>
 --- <param name="@cli_cd1_rellamar">Volver a Llamar</param>
+--- <param name="@cli_des_documento">Documento</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -548,6 +553,7 @@ create procedure dbo.CLIENTES_INSERT
 @cli_fec_fecultimocontacto tngs_fecha,
 @cli_fec_fechaproxcontacto tngs_fecha,
 @cli_cd1_rellamar tngs_codigo_1,
+@cli_des_documento tngs_descripcion,
 @usuario tngs_nombre
 )
 as
@@ -602,6 +608,7 @@ begin
            @cli_fec_fecultimocontacto,
            @cli_fec_fechaproxcontacto,
            @cli_cd1_rellamar,
+           @cli_des_documento,
            getdate(), 0, @usuario, 1
           )
 
@@ -669,6 +676,7 @@ go
 --- <param name="@cli_fec_fecultimocontacto">Fecha Último Contacto</param>
 --- <param name="@cli_fec_fechaproxcontacto">Fecha Próximo Contacto</param>
 --- <param name="@cli_cd1_rellamar">Volver a Llamar</param>
+--- <param name="@cli_des_documento">Documento</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -734,6 +742,7 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_fec_fecultimocontacto tngs_fecha,
 @cli_fec_fechaproxcontacto tngs_fecha,
 @cli_cd1_rellamar tngs_codigo_1,
+@cli_des_documento tngs_descripcion,
 @usuario tngs_nombre
 )
 as
@@ -786,6 +795,7 @@ begin
           cli_fec_fecultimocontacto= @cli_fec_fecultimocontacto,
           cli_fec_fechaproxcontacto= @cli_fec_fechaproxcontacto,
           cli_cd1_rellamar= @cli_cd1_rellamar,
+          cli_des_documento= @cli_des_documento,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario
