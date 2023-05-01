@@ -1,0 +1,62 @@
+
+
+- Agregar campo de volver a intentar en la ventana de llamadas. (done)
+
+- Agregar un criterio de busqueda de volver a intentar. (done)
+
+- Agregar la columna de resultado de ultima llamada en la grilla. (done)
+
+- Agregar la columna de observaciones de clientes en la grilla. (done)
+
+- Agregar criterio de busqueda de clientes sin llamado. (done)
+
+- Actualizacion de datos historicos para los campos de resultado llamada y su busqueda. (done)
+
+
+Todavia trabajando en los reportes, van a estar en 2 o 3 semanas.
+
+
+----------------------------------------------------------------------------------------
+
+Deploy:
+
+- Design table clientes: 
+	Add field Resultllamada des
+	Add field reintentarllamado cd1
+- Update clientes setear reintentarllamada en 'N' y resultllamada en el resultado de la ultima llamda con un join y un order by por fecha
+
+- Impact Stored Procedures.
+
+
+update clientes
+set cli_cd1_reintentarllamado = 'N'
+
+update Clientes set cli_des_resultllamada = ''
+
+WITH LatestCallResults as (
+	Select cll_nro_numcliente, 
+	SUBSTRING(cll_txt_resultado , 1, 30) as latest_call_result, 
+	ROW_NUMBER() over (Partition by cll_nro_numcliente order by cll_fyh_frealizada desc) as row_num
+	from CliLlamadas
+)
+
+update Clientes
+set cli_des_resultllamada = LatestCallResults.latest_call_result
+from Clientes join LatestCallResults
+on Clientes.cli_nro_numero = LatestCallResults.cll_nro_numcliente
+where LatestCallResults.row_num = 1;
+
+
+
+- Reporte de llamadas
+	Filtros: Usuario, Categoria, Motivo y fecha
+	Campos: Nro de cliente, Nombre o razon social, Tipo de cliente, Localidad, Tipo de llamada, usuario cargador, Resultado de llamado, Categoria y Motivo, Fecha y hora de llamada, rellamar. 
+
+- Reporte de Clientes
+	Filtros: Usuario, fecha, tipo de cliente, rubro
+	Campos: Nro de cliente, nombre o razon social, tipo de cliente, usuario cargador, si tuvieron llamadas o no, si tuvieron ventas o no, localidad, Rubro, empresa prestadora
+
+Reintentar
+llamada:
+
+Paula gerenta operativa.
