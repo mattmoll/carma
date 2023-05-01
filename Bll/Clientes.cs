@@ -223,6 +223,16 @@ namespace Carm.Bll
                 // Armamos los where de campos que validan Ambos-Si-No con el metodo generico
                 makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Vendido, ECliente.AltaCmp, "N", ref l_strWhere);
                 makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.Rellamar, ECliente.RellamarCmp, "N", ref l_strWhere);
+                makeWhereEvaluandoPropertyStringMode(p_bsBusqueda.ReintarLlamado, ECliente.ReintentarllamadoCmp, "N", ref l_strWhere);
+
+                if (p_bsBusqueda.SinLlamadas == "S")
+                {
+                    l_strWhere += $"{ECliente.ResultllamadaCmp} = '' and ";
+                }
+                else if (p_bsBusqueda.SinLlamadas == "N")
+                {
+                    l_strWhere += $"{ECliente.ResultllamadaCmp} <> '' and ";
+                }
 
                 l_strWhere = AppRuts.RemoveRAnd(l_strWhere);
 
@@ -2076,12 +2086,14 @@ namespace Carm.Bll
                                  ECliente.NombreCmp + ", " +
                                  ECliente.ApellidoCmp + ", " +
                                  ECliente.Telefono1Cmp + ", " +
+                                 ECliente.ResultllamadaCmp + ", " +
                                  ECliente.AltaCmp + ", " +
                                  "loc_ede_nombre as cli_ede_loc," +
                                  ECliente.CodvendCmp + ", " +
                                  ECliente.NroavalonCmp + ", " +
                                  ECliente.EmailCmp + ", " +
-                                 ECliente.CelularCmp;
+                                 ECliente.CelularCmp + ", " +
+                                 ECliente.ObservacionCmp;
             return l_strCampos;
         }
 
@@ -2097,12 +2109,12 @@ namespace Carm.Bll
             l_leClientes.ChangeCaption(ECliente.NombreCmp, "V1NombreCN2");                      /*3*/
             l_leClientes.ChangeCaption(ECliente.ApellidoCmp, "V1ApellidoCN2");                  /*4*/
             l_leClientes.ChangeCaption(ECliente.Telefono1Cmp, "V1TeléfonoCN2");                 /*5*/
-            //l_leClientes.ChangeCaption(ECliente.AltaCmp, "V1Alta en AvalonCN2");                /*6*/
+            l_leClientes.ChangeCaption(ECliente.ResultllamadaCmp, "V1Ult. LlamadaCN2");         /*6*/
             l_leClientes.ChangeCaption("cli_ede_loc", "V1LocalidadCN2");                        /*7*/
             l_leClientes.ChangeCaption(ECliente.CodvendCmp, "V1Cod. Vend.CN2");                 /*8*/
-            //l_leClientes.ChangeCaption(ECliente.NroavalonCmp, "V1Nro. AvalonNN2");              /*9*/
-            l_leClientes.ChangeCaption(ECliente.EmailCmp, "V1EmailCN1");                        /*10*/
-            l_leClientes.ChangeCaption(ECliente.CelularCmp, "V1CelularCN1");                    /*11*/
+            l_leClientes.ChangeCaption(ECliente.EmailCmp, "V1EmailCN1");                        /*9*/
+            l_leClientes.ChangeCaption(ECliente.CelularCmp, "V1CelularCN1");                    /*10*/
+            l_leClientes.ChangeCaption(ECliente.ObservacionCmp, "V1ObservacionesCN1");          /*11*/
         }
 
         #endregion

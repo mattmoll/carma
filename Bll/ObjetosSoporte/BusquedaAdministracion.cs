@@ -5,8 +5,6 @@ namespace Carm.Bll
 {
     public class BusquedaAdministracion
     {
-        StatMsg m_smResult = new StatMsg();
-
         // Definimos las propiedades para los filtros.
         private string m_strNumero;
         private string m_strNumeroAvalon;
@@ -33,6 +31,8 @@ namespace Carm.Bll
         public DateTime FechaCargaDesde { get; set; }
         public DateTime FechaCargaHasta { get; set; }
         public string Rellamar { get; set; }
+        public string ReintarLlamado { get; set; }
+        public string SinLlamadas { get; set; }
         public DateTime FechaProxContactoDesde { get; set; }
         public DateTime FechaProxContactoHasta { get; set; }
 
@@ -54,7 +54,10 @@ namespace Carm.Bll
                     && (m_strZona == "") && (m_strLoc == "") && (Dir == "") && (Altura == "") && (Telefono == "")
                     && (Marca == "") && (InicialDesde == "") && (InicialHasta == "")
                     && ((Reservado == "") || (Reservado == "A"))
-                    && ((Vendido == "") || (Vendido == "A")) && ((Rellamar == "") || (Rellamar == "A")) && ((TipoCliente == "") || (TipoCliente == "A"))
+                    && ((Vendido == "") || (Vendido == "A")) && ((Rellamar == "") || (Rellamar == "A"))
+                    && ((ReintarLlamado == "") || (ReintarLlamado == "A"))
+                    && ((SinLlamadas == "") || (SinLlamadas == "A"))
+                    && ((TipoCliente == "") || (TipoCliente == "A"))
                     && ((FechaCargaDesde == DateTimeRuts.Empty) && (FechaCargaHasta == DateTimeRuts.Empty))
                     && ((FechaProxContactoDesde == DateTimeRuts.Empty) && (FechaProxContactoHasta == DateTimeRuts.Empty))
                     && ((MailCargado == "") || (MailCargado == "A")));
@@ -65,7 +68,7 @@ namespace Carm.Bll
             // Asignamos string vacia a todos los filtros de la busqueda.
             Numero = NumeroAvalon = Rsocial = NFant = Nombre = Apellido = CodVend = Cargador = "";
             Rubro = TInst = Marca = Telefono = Zona = Loc = Dir = Altura = InicialDesde = InicialHasta = "";
-            Rellamar = Reservado  = Vendido = TipoCliente = MailCargado = "A";
+            Rellamar = ReintarLlamado = SinLlamadas = Reservado  = Vendido = TipoCliente = MailCargado = "A";
             FechaProxContactoDesde = FechaProxContactoHasta = FechaCargaDesde = FechaCargaHasta = DateTimeRuts.Empty;
         }
 
@@ -104,6 +107,5 @@ namespace Carm.Bll
         public string Loc { get { return m_strLoc.PadLeft(8, ' '); } set { m_strLoc = value; } }
         public string Marca { get { return m_strMarca.PadLeft(2, ' '); } set { m_strMarca = value; } }
         public string TipoCliente { get { return m_strTipoCliente.PadLeft(2, ' '); } set { m_strTipoCliente = value; } }
-
     }
 }

@@ -16,7 +16,7 @@ namespace Carm.Bll
     //----------------------------------------------------------------------------
     //                         TNG Software BLL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 06/01/2023 01:04
+    // Fecha                    : 30/04/2023 19:57
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -8986,6 +8986,8 @@ namespace Carm.Bll
                                     p_entCliente.Fechaproxcontacto,
                                     p_entCliente.Rellamar,
                                     p_entCliente.Documento,
+                                    p_entCliente.Resultllamada,
+                                    p_entCliente.Reintentarllamado,
                                     p_smResult);
             }
             catch (Exception l_expData) {
@@ -9059,6 +9061,8 @@ namespace Carm.Bll
                                     p_entCliente.Fechaproxcontacto,
                                     p_entCliente.Rellamar,
                                     p_entCliente.Documento,
+                                    p_entCliente.Resultllamada,
+                                    p_entCliente.Reintentarllamado,
                                     p_smResult);
             }
             catch (Exception l_expData) {

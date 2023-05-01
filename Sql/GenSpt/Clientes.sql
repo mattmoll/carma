@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------
 //                         TNG Software SPs Generator
 //----------------------------------------------------------------------------
-// Fecha       : 06/01/2023 01:01
+// Fecha       : 30/04/2023 21:00
 // Sistema     : Carm
 // Tabla       : Clientes
 //----------------------------------------------------------------------------
@@ -107,6 +107,8 @@ begin
                 cli_fec_fechaproxcontacto,
                 cli_cd1_rellamar,
                 cli_des_documento,
+                cli_des_resultllamada,
+                cli_cd1_reintentarllamado,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -178,6 +180,8 @@ begin
                 cli_fec_fechaproxcontacto,
                 cli_cd1_rellamar,
                 cli_des_documento,
+                cli_des_resultllamada,
+                cli_cd1_reintentarllamado,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -338,6 +342,8 @@ begin
                 cli_fec_fechaproxcontacto,
                 cli_cd1_rellamar,
                 cli_des_documento,
+                cli_des_resultllamada,
+                cli_cd1_reintentarllamado,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -409,6 +415,8 @@ begin
                 cli_fec_fechaproxcontacto,
                 cli_cd1_rellamar,
                 cli_des_documento,
+                cli_des_resultllamada,
+                cli_cd1_reintentarllamado,
                 TNGS_Carm..Clientes.instante,
                 TNGS_Carm..Clientes.deleted,
                 TNGS_Carm..Clientes.usuario,
@@ -488,6 +496,8 @@ go
 --- <param name="@cli_fec_fechaproxcontacto">Fecha Próximo Contacto</param>
 --- <param name="@cli_cd1_rellamar">Volver a Llamar</param>
 --- <param name="@cli_des_documento">Documento</param>
+--- <param name="@cli_des_resultllamada">Resultado Ult Llamada</param>
+--- <param name="@cli_cd1_reintentarllamado">Reintentar Llamado</param>
 --- <param name="@usuario">Usuario que genera el insert</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -554,6 +564,8 @@ create procedure dbo.CLIENTES_INSERT
 @cli_fec_fechaproxcontacto tngs_fecha,
 @cli_cd1_rellamar tngs_codigo_1,
 @cli_des_documento tngs_descripcion,
+@cli_des_resultllamada tngs_descripcion,
+@cli_cd1_reintentarllamado tngs_codigo_1,
 @usuario tngs_nombre
 )
 as
@@ -609,6 +621,8 @@ begin
            @cli_fec_fechaproxcontacto,
            @cli_cd1_rellamar,
            @cli_des_documento,
+           @cli_des_resultllamada,
+           @cli_cd1_reintentarllamado,
            getdate(), 0, @usuario, 1
           )
 
@@ -677,6 +691,8 @@ go
 --- <param name="@cli_fec_fechaproxcontacto">Fecha Próximo Contacto</param>
 --- <param name="@cli_cd1_rellamar">Volver a Llamar</param>
 --- <param name="@cli_des_documento">Documento</param>
+--- <param name="@cli_des_resultllamada">Resultado Ult Llamada</param>
+--- <param name="@cli_cd1_reintentarllamado">Reintentar Llamado</param>
 --- <param name="@usuario">Usuario que genera el update</param>
 ---
 ---////////////////////////////////////////////////////////
@@ -743,6 +759,8 @@ create procedure dbo.CLIENTES_UPDATE
 @cli_fec_fechaproxcontacto tngs_fecha,
 @cli_cd1_rellamar tngs_codigo_1,
 @cli_des_documento tngs_descripcion,
+@cli_des_resultllamada tngs_descripcion,
+@cli_cd1_reintentarllamado tngs_codigo_1,
 @usuario tngs_nombre
 )
 as
@@ -796,6 +814,8 @@ begin
           cli_fec_fechaproxcontacto= @cli_fec_fechaproxcontacto,
           cli_cd1_rellamar= @cli_cd1_rellamar,
           cli_des_documento= @cli_des_documento,
+          cli_des_resultllamada= @cli_des_resultllamada,
+          cli_cd1_reintentarllamado= @cli_cd1_reintentarllamado,
           version = ((version+1) % 32767),
           instante= getdate(),
           usuario = @usuario

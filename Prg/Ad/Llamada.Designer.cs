@@ -53,6 +53,7 @@
             this.gbBaja = new TNGS.NetControls.GlassButton();
             this.bAceptar = new TNGS.NetControls.GlassButton();
             this.bCancelar = new TNGS.NetControls.GlassButton();
+            this.cbReintentarLlamado = new System.Windows.Forms.CheckBox();
             this.xPanel1.SuspendLayout();
             this.pnlSeleccionTipo.SuspendLayout();
             this.pnlLlamado.SuspendLayout();
@@ -63,6 +64,7 @@
             this.xPanel1.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.xPanel1.BorderColor = System.Drawing.Color.Black;
+            this.xPanel1.Controls.Add(this.cbReintentarLlamado);
             this.xPanel1.Controls.Add(this.dtRellamada);
             this.xPanel1.Controls.Add(this.cbRellamar);
             this.xPanel1.Controls.Add(this.pnlSeleccionTipo);
@@ -80,13 +82,13 @@
             this.xPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xPanel1.Location = new System.Drawing.Point(0, 0);
             this.xPanel1.Name = "xPanel1";
-            this.xPanel1.Size = new System.Drawing.Size(778, 431);
+            this.xPanel1.Size = new System.Drawing.Size(778, 547);
             this.xPanel1.SkinFixed = true;
             this.xPanel1.TabIndex = 0;
             // 
             // dtRellamada
             // 
-            this.dtRellamada.Location = new System.Drawing.Point(504, 345);
+            this.dtRellamada.Location = new System.Drawing.Point(497, 390);
             this.dtRellamada.Name = "dtRellamada";
             this.dtRellamada.Size = new System.Drawing.Size(200, 22);
             this.dtRellamada.TabIndex = 107;
@@ -96,7 +98,7 @@
             // 
             this.cbRellamar.AutoSize = true;
             this.cbRellamar.BackColor = System.Drawing.Color.Transparent;
-            this.cbRellamar.Location = new System.Drawing.Point(506, 322);
+            this.cbRellamar.Location = new System.Drawing.Point(499, 367);
             this.cbRellamar.Name = "cbRellamar";
             this.cbRellamar.Size = new System.Drawing.Size(119, 20);
             this.cbRellamar.TabIndex = 106;
@@ -276,7 +278,7 @@
             this.gbRecupero.FlatFontSize = 9;
             this.gbRecupero.FlatTextColor = System.Drawing.Color.Black;
             this.gbRecupero.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbRecupero.Location = new System.Drawing.Point(251, 383);
+            this.gbRecupero.Location = new System.Drawing.Point(251, 485);
             this.gbRecupero.Name = "gbRecupero";
             this.gbRecupero.PCode = "CLIRECUPERO";
             this.gbRecupero.RoundCorners = 2;
@@ -327,7 +329,7 @@
             this.gbBaja.FlatFontSize = 9;
             this.gbBaja.FlatTextColor = System.Drawing.Color.Black;
             this.gbBaja.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.gbBaja.Location = new System.Drawing.Point(114, 383);
+            this.gbBaja.Location = new System.Drawing.Point(114, 485);
             this.gbBaja.Name = "gbBaja";
             this.gbBaja.PCode = "CLIBAJA";
             this.gbBaja.RoundCorners = 2;
@@ -351,7 +353,7 @@
             this.bAceptar.FlatFontSize = 9;
             this.bAceptar.FlatTextColor = System.Drawing.Color.Black;
             this.bAceptar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.bAceptar.Location = new System.Drawing.Point(649, 383);
+            this.bAceptar.Location = new System.Drawing.Point(649, 485);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.RoundCorners = 2;
             this.bAceptar.Size = new System.Drawing.Size(82, 25);
@@ -373,7 +375,7 @@
             this.bCancelar.FlatFontSize = 9;
             this.bCancelar.FlatTextColor = System.Drawing.Color.Black;
             this.bCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.bCancelar.Location = new System.Drawing.Point(504, 383);
+            this.bCancelar.Location = new System.Drawing.Point(504, 485);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.RoundCorners = 2;
             this.bCancelar.Size = new System.Drawing.Size(87, 25);
@@ -383,10 +385,21 @@
             this.bCancelar.W8Color = System.Drawing.Color.Red;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
+            // cbReintentarLlamado
+            // 
+            this.cbReintentarLlamado.AutoSize = true;
+            this.cbReintentarLlamado.BackColor = System.Drawing.Color.Transparent;
+            this.cbReintentarLlamado.Location = new System.Drawing.Point(497, 430);
+            this.cbReintentarLlamado.Name = "cbReintentarLlamado";
+            this.cbReintentarLlamado.Size = new System.Drawing.Size(146, 20);
+            this.cbReintentarLlamado.TabIndex = 108;
+            this.cbReintentarLlamado.Text = "Reintentar Llamado";
+            this.cbReintentarLlamado.UseVisualStyleBackColor = false;
+            // 
             // Llamada
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(778, 431);
+            this.ClientSize = new System.Drawing.Size(778, 547);
             this.Controls.Add(this.xPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -431,5 +444,6 @@
         private TNGS.NetControls.FullLabel fullLabel5;
         private System.Windows.Forms.DateTimePicker dtRellamada;
         private System.Windows.Forms.CheckBox cbRellamar;
+        private System.Windows.Forms.CheckBox cbReintentarLlamado;
     }
 }

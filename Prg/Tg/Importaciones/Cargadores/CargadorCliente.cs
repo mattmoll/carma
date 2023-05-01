@@ -73,6 +73,7 @@ namespace Carm.Tg
 
             l_eCliente.Fechaingreso = l_dtFechaActual;
             l_eCliente.Cargador = DBConn.Usuario;
+            l_eCliente.Rellamar = "N";
 
             // Agregamos la entidad a la lista
             l_leClientes.AddEntity(l_eCliente); 

@@ -10,7 +10,7 @@ namespace Carm.Dal
     //----------------------------------------------------------------------------
     //                         TNG Software DAL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 06/01/2023 01:04
+    // Fecha                    : 30/04/2023 19:52
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     // Basada en la Tabla       : Clientes
@@ -187,6 +187,8 @@ namespace Carm.Dal
         /// <param name="p_dtFechaproxcontacto">Fecha Próximo Contacto</param>
         /// <param name="p_strRellamar">Volver a Llamar</param>
         /// <param name="p_strDocumento">Documento</param>
+        /// <param name="p_strResultllamada">Resultado Ult Llamada</param>
+        /// <param name="p_strReintentarllamado">Reintentar Llamado</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Insert(DBConn p_dbcAccess,
                                  int p_iNumero,
@@ -237,6 +239,8 @@ namespace Carm.Dal
                                  DateTime p_dtFechaproxcontacto,
                                  string p_strRellamar,
                                  string p_strDocumento,
+                                 string p_strResultllamada,
+                                 string p_strReintentarllamado,
                                  StatMsg p_smResult)
         {
             try {
@@ -292,6 +296,8 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParamF("@cli_fec_fechaproxcontacto", p_dtFechaproxcontacto),
                                        p_dbcAccess.MakeParam("@cli_cd1_rellamar", p_strRellamar),
                                        p_dbcAccess.MakeParam("@cli_des_documento", p_strDocumento),
+                                       p_dbcAccess.MakeParam("@cli_des_resultllamada", p_strResultllamada),
+                                       p_dbcAccess.MakeParam("@cli_cd1_reintentarllamado", p_strReintentarllamado),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -355,6 +361,8 @@ namespace Carm.Dal
         /// <param name="p_dtFechaproxcontacto">Fecha Próximo Contacto</param>
         /// <param name="p_strRellamar">Volver a Llamar</param>
         /// <param name="p_strDocumento">Documento</param>
+        /// <param name="p_strResultllamada">Resultado Ult Llamada</param>
+        /// <param name="p_strReintentarllamado">Reintentar Llamado</param>
         /// <param name="p_smResult">Estado final de la operacion</param>
         public static int Update(DBConn p_dbcAccess,
                                  int p_iNumero,
@@ -405,6 +413,8 @@ namespace Carm.Dal
                                  DateTime p_dtFechaproxcontacto,
                                  string p_strRellamar,
                                  string p_strDocumento,
+                                 string p_strResultllamada,
+                                 string p_strReintentarllamado,
                                  StatMsg p_smResult)
         {
             try {
@@ -460,6 +470,8 @@ namespace Carm.Dal
                                        p_dbcAccess.MakeParamF("@cli_fec_fechaproxcontacto", p_dtFechaproxcontacto),
                                        p_dbcAccess.MakeParam("@cli_cd1_rellamar", p_strRellamar),
                                        p_dbcAccess.MakeParam("@cli_des_documento", p_strDocumento),
+                                       p_dbcAccess.MakeParam("@cli_des_resultllamada", p_strResultllamada),
+                                       p_dbcAccess.MakeParam("@cli_cd1_reintentarllamado", p_strReintentarllamado),
                                        p_dbcAccess.MakeParam("@usuario", DBConn.Usuario)
                                    }
                                   );
@@ -1130,7 +1142,9 @@ namespace Carm.Dal
                 p_dtResult.Columns["cli_cod_codtinst"].Caption= "V1Tipo de InstitucionCN1";
                 p_dtResult.Columns["cli_cd6_codvend"].Caption= "V1Código de vendedorCN1";
                 p_dtResult.Columns["cli_des_nombrefant"].Caption= "V1Nombre de fantasíaCN1";
+                p_dtResult.Columns["cli_cd1_reintentarllamado"].Caption= "V1Reintentar LlamadoCN1";
                 p_dtResult.Columns["cli_cd1_rellamar"].Caption= "V1Volver a LlamarCN1";
+                p_dtResult.Columns["cli_des_resultllamada"].Caption= "V1Resultado Ult LlamadaCN1";
                 p_dtResult.Columns["cli_ede_rsocial"].Caption= "V1Razón socialCN1";
                 p_dtResult.Columns["deleted"].Caption= "V1Borrado2N2";
             }

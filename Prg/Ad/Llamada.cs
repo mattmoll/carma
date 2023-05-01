@@ -237,6 +237,10 @@ namespace Carm.Ad
                     clienteToUpdate.Fechaproxcontacto = DateTimeRuts.Empty;
                 }
 
+                clienteToUpdate.Reintentarllamado = cbReintentarLlamado.Checked ? "S" : "N";
+
+                clienteToUpdate.Resultllamada = teResultado.Text;
+
                 Clientes.Save(clienteToUpdate, m_smResult);
             }
         }

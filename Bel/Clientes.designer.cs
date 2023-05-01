@@ -14,7 +14,7 @@ namespace Carm.Bel
     //----------------------------------------------------------------------------
     //                         TNG Software BEL Generator
     //----------------------------------------------------------------------------
-    // Fecha                    : 06/01/2023 01:04
+    // Fecha                    : 30/04/2023 19:57
     // Sistema                  : Carm
     // Clase para Administrar   : Clientes
     //----------------------------------------------------------------------------
@@ -5507,6 +5507,8 @@ namespace Carm.Bel
             l_drTemp["cli_fec_fechaproxcontacto"]= XMLRuts.ExtractXAttr(l_xndData, "cli_fec_fechaproxcontacto", true);
             l_drTemp["cli_cd1_rellamar"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_rellamar");
             l_drTemp["cli_des_documento"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_documento");
+            l_drTemp["cli_des_resultllamada"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_resultllamada");
+            l_drTemp["cli_cd1_reintentarllamado"]= XMLRuts.ExtractXAttr(l_xndData, "cli_cd1_reintentarllamado");
             l_drTemp["cli_des_frq"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_frq");
             l_drTemp["cli_des_loc"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_loc");
             l_drTemp["cli_des_prov"]= XMLRuts.ExtractXAttr(l_xndData, "cli_des_prov");
@@ -5624,6 +5626,8 @@ namespace Carm.Bel
             l_drTemp["cli_fec_fechaproxcontacto"]= DateTimeRuts.Empty;
             l_drTemp["cli_cd1_rellamar"]= "";
             l_drTemp["cli_des_documento"]= "";
+            l_drTemp["cli_des_resultllamada"]= "";
+            l_drTemp["cli_cd1_reintentarllamado"]= "";
             l_drTemp["cli_des_frq"]= "";
             l_drTemp["cli_des_loc"]= "";
             l_drTemp["cli_des_prov"]= "";
@@ -5691,6 +5695,8 @@ namespace Carm.Bel
         /// <param name="p_dtFechaproxcontacto">Fecha Próximo Contacto</param>
         /// <param name="p_strRellamar">Volver a Llamar</param>
         /// <param name="p_strDocumento">Documento</param>
+        /// <param name="p_strResultllamada">Resultado Ult Llamada</param>
+        /// <param name="p_strReintentarllamado">Reintentar Llamado</param>
         /// <returns>Entidad: Cliente</returns>
         public static ECliente NewFilled(int p_iNumero,
                                          string p_strRsocial,
@@ -5739,7 +5745,9 @@ namespace Carm.Bel
                                          DateTime p_dtFecultimocontacto,
                                          DateTime p_dtFechaproxcontacto,
                                          string p_strRellamar,
-                                         string p_strDocumento)
+                                         string p_strDocumento,
+                                         string p_strResultllamada,
+                                         string p_strReintentarllamado)
         {
             // Creamos una tabla compatible con la entidad
             DataTable l_dtTemp= new DataTable();
@@ -5797,6 +5805,8 @@ namespace Carm.Bel
             l_drTemp["cli_fec_fechaproxcontacto"]= p_dtFechaproxcontacto;
             l_drTemp["cli_cd1_rellamar"]= p_strRellamar;
             l_drTemp["cli_des_documento"]= p_strDocumento;
+            l_drTemp["cli_des_resultllamada"]= p_strResultllamada;
+            l_drTemp["cli_cd1_reintentarllamado"]= p_strReintentarllamado;
             l_drTemp["cli_des_frq"]= "";
             l_drTemp["cli_des_loc"]= "";
             l_drTemp["cli_des_prov"]= "";
@@ -5888,7 +5898,7 @@ namespace Carm.Bel
         {
             get {
                 // Creamos el vector de DataColumns y lo llenamos
-                DataColumn[] l_dcStruct= new DataColumn[59];
+                DataColumn[] l_dcStruct= new DataColumn[61];
 
                 l_dcStruct[0]= new DataColumn("cli_nro_numero", typeof(int));
                 l_dcStruct[1]= new DataColumn("cli_ede_rsocial", typeof(string));
@@ -5945,7 +5955,9 @@ namespace Carm.Bel
                 l_dcStruct[52]= new DataColumn("cli_fec_fechaproxcontacto", typeof(DateTime));
                 l_dcStruct[53]= new DataColumn("cli_cd1_rellamar", typeof(string));
                 l_dcStruct[54]= new DataColumn("cli_des_documento", typeof(string));
-                ECliente.FillFixedFields(ref l_dcStruct, 55);
+                l_dcStruct[55]= new DataColumn("cli_des_resultllamada", typeof(string));
+                l_dcStruct[56]= new DataColumn("cli_cd1_reintentarllamado", typeof(string));
+                ECliente.FillFixedFields(ref l_dcStruct, 57);
 
                 // Devolvemos el vector creado
                 return l_dcStruct;
@@ -6844,6 +6856,46 @@ namespace Carm.Bel
         }
 
         /// <summary>
+        /// Resultado Ult Llamada
+        /// </summary>
+        public static string ResultllamadaCmp
+        {
+           get {return "cli_des_resultllamada";}
+        }
+
+        /// <summary>
+        /// Resultado Ult Llamada
+        /// </summary>
+        public string Resultllamada
+        {
+            get {return ((string) InternalData["cli_des_resultllamada"]).Trim();}
+            set {
+                if (value.Trim().Length > 30) value= value.Trim().Substring(0,30);
+                InternalData["cli_des_resultllamada"]= value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Reintentar Llamado
+        /// </summary>
+        public static string ReintentarllamadoCmp
+        {
+           get {return "cli_cd1_reintentarllamado";}
+        }
+
+        /// <summary>
+        /// Reintentar Llamado
+        /// </summary>
+        public string Reintentarllamado
+        {
+            get {return ((string) InternalData["cli_cd1_reintentarllamado"]).Trim();}
+            set {
+                if (value.Trim().Length > 1) value= value.Trim().Substring(0,1);
+                InternalData["cli_cd1_reintentarllamado"]= value.Trim();
+            }
+        }
+
+        /// <summary>
         /// Contactos de los Clientes
         /// </summary>
         public LECliContactos CliContactos
@@ -7036,6 +7088,8 @@ namespace Carm.Bel
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_fec_fechaproxcontacto", Fechaproxcontacto));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_rellamar", Rellamar));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_documento", Documento));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_resultllamada", Resultllamada));
+                l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_cd1_reintentarllamado", Reintentarllamado));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_frq", Cli_des_frq));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_loc", Cli_des_loc));
                 l_xndEntidad.Attributes.Append(XMLRuts.CreateXAttr(l_xdocData, "cli_des_prov", Cli_des_prov));

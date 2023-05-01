@@ -421,7 +421,6 @@ namespace Carm.Tg
             this.cmdModPadre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cmdModPadre.Location = new System.Drawing.Point(9, 7);
             this.cmdModPadre.Name = "cmdModPadre";
-            this.cmdModPadre.PCode = "M.PLAN";
             this.cmdModPadre.RoundCorners = 2;
             this.cmdModPadre.Size = new System.Drawing.Size(213, 25);
             this.cmdModPadre.TabIndex = 24;

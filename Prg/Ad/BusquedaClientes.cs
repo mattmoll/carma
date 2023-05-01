@@ -73,6 +73,8 @@ namespace Carm.Ad
             // Chequeamos los radiobuttons correspondientes a cada filtro.
             checkRadioButton(m_bsBusqueda.Vendido, rbVndSi, rbVndNo, rbVndAmbos);
             checkRadioButton(m_bsBusqueda.Rellamar, rbRellamarSi, rbRellamarNo, rbRellamarAmbos);
+            checkRadioButton(m_bsBusqueda.ReintarLlamado, rbReintentarLlamadaSi, rbReintentarLlamadaNo, rbReintentarLlamadaAmbos);
+            checkRadioButton(m_bsBusqueda.SinLlamadas, rbSinLlamadasSi, rbSinLlamadasNo, rbSinLlamadasAmbos);
 
             App.HideMsg();
         }
@@ -208,6 +210,15 @@ namespace Carm.Ad
         private void rbRellamar_CheckedChanged(object sender, EventArgs e)
         {
             m_bsBusqueda.Rellamar = cargaValorRadioButton(rbRellamarSi, rbRellamarNo, rbRellamarAmbos);
+        }
+
+        private void rbReintentarLlamado_CheckedChanged(object sender, EventArgs e)
+        {
+            m_bsBusqueda.ReintarLlamado = cargaValorRadioButton(rbReintentarLlamadaSi, rbReintentarLlamadaNo, rbReintentarLlamadaAmbos);
+        }
+        private void rbSinLlamadas_CheckedChanged(object sender, EventArgs e)
+        {
+            m_bsBusqueda.SinLlamadas = cargaValorRadioButton(rbSinLlamadasSi, rbSinLlamadasNo, rbSinLlamadasAmbos);
         }
     }
 }
